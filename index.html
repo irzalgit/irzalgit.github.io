@@ -3,14 +3,25 @@
 <head>
 <style>
 
-img:hover {
-  
- 
- 
-    box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;
-
+img{
+	overflow: scroll;
 }
-
+.scroll{
+  width: 1280px;
+  background: orange;
+  padding: 10px;
+  overflow: scroll;
+  height: 720px;
+  
+  /*script tambahan khusus untuk IE */
+  scrollbar-face-color: #CE7E00; 
+  scrollbar-shadow-color: #FFFFFF; 
+  scrollbar-highlight-color: #6F4709; 
+  scrollbar-3dlight-color: #11111; 
+  scrollbar-darkshadow-color: #6F4709; 
+  scrollbar-track-color: #FFE8C1; 
+  scrollbar-arrow-color: #6F4709;
+}
 
 * {
   box-sizing: border-box;
@@ -124,7 +135,7 @@ footer {
 <body>
 
   <header>
-   <h2>mandiriBelajar</h2>
+   <h2>mandiriBelajarDaring</h2>
     <h1tuntas belajar</h1>  
 	</header>
 	
@@ -163,9 +174,6 @@ tersedia banyak pilihan materi semuanya gratis
 
 
 
-
-
-
  
 
     <content>
@@ -175,13 +183,31 @@ tersedia banyak pilihan materi semuanya gratis
       <table border="0" cellpadding="15" style="width: 300px;">
       <tbody>
       <tr>
-      <td align="center"><a href="#barisan"><img width="100px" src="gbr/akar.jpg"></a></td>
+      <td align="center"><a href="#barisan"><img width="100px" src="gbr/akar.png"></a></td>
       <td align="center"><a href="#deret"><img width="100px" src="gbr/loga.jpg"></a></td>
       <td align="center"><a href="#fibonasii"><img width="100px" src="gbr/prolin.jpg"></a></td> 
       
       </tr>
       </tbody></table>
   
+<article>
+
+<div class="scroll" >
+  <img width="auto" src="gbr/mapakar.png" >
+
+</div>
+
+
+
+
+</article>
+
+
+
+
+
+
+
       <article >
         <h2>Tentang Bab<h2>
         <video width="100%" controls>
@@ -215,6 +241,18 @@ tersedia banyak pilihan materi semuanya gratis
   		<source src="gbr/fibonasii.mp4"  type="video/mp4">
 		</video>
 </article>
+
+
+<article>
+	
+  <h1>Video dari Youtube</h1>
+  
+
+<iframe   src="https://www.youtube.com/embed/4R8SbvRMcs4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</article>
+
+
 
 
 </content>
