@@ -42,8 +42,9 @@ header {
  
 content {
    float: left;
-   width: 80%;
+   width: 75%;
    background-color:#91F3FC;
+   overflow: scroll;
  }
  
 nav {
@@ -73,7 +74,7 @@ nav a {
    color: yellow;
 }  
 aside {
-  width: 20%;
+  width: 25%;
   padding-left: 0px;
   margin-left: 0px;
   float: right;
@@ -95,22 +96,23 @@ footer {
   }
 }
 .card {
-   box-shadow: 10px 10px yellow;
+   box-shadow: 10px 10px black;
    border-radius: 5px;
    padding: 10px;
    margin-top: 10px;
-   background: #B4B4A4;
+   background: green;
+   
   
 }
 .posisi {
   width: 200px;
-  height=100px;
+  height:100px;
   background: #B4B4A4;
 }
 
 }
 .section {
-    background-color:blue;
+    background-color:red;
     padding: 25px;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -130,7 +132,7 @@ footer {
   
      <nav>
 		  <ul>
-                <li><a href="#modul1.1">Daftar Pelajaran</a></li>
+                <li><a href="#modul1.1">Barisan</a></li>
                 <li><a href="#modul1.2">ForumDiskusi</a></li>
                 <li><a href="#modul1.3">TopRangking</a></li>
 				<li><a href="#modul1.4">BlogStrategiBelajar</a></li>
@@ -173,18 +175,77 @@ tersedia banyak pilihan materi semuanya gratis
       <table border="0" cellpadding="15" style="width: 300px;">
       <tbody>
       <tr>
-      <td align="center"><a href="#" target="new"><img alt="Yo kita mewarnai"  src="gbr/akar.jpg" /></a>
-      </td>
-      <td align="center"><a href="#"><img alt="Yo kita mewarnai" src="gbr/loga.jpg" /></a>
-      </td>
-      <td align="center"><a href="$" target="new"><img alt="Yo kita mewarnai"  src="gbr/prolin.jpg" /></a>
-      </td>
+      <td align="center"><a href="#barisan"><img width="100px" src="gbr/akar.jpg"></a></td>
+      <td align="center"><a href="#deret"><img width="100px" src="gbr/loga.jpg"></a></td>
+      <td align="center"><a href="#fibonasii"><img width="100px" src="gbr/prolin.jpg"></a></td> 
       
       </tr>
       </tbody></table>
+  <!--   <video width="320" height="240" controls>
+  <source src="gbr/deret.mp4" type="video/mp4">
+</video>
+    
+<video width="320" height="240" controls>
+  <source src="gbr/fibonasii.mp4" type="video/mp4">
+</video> -->
+    
+
+
+    <article id="barisan" class="card">
+    
+    	<h2>Barisan</h2>
+  
+    <video poster="gbr/armtkn2.png"  width="200px" controls>
+  		<source  src="gbr/barisan.mp4" type="video/mp4">
+		</video>
+    
+   <h3>soal 1</h3>
+   <input type="radio" name="deret">
+
     
     
-    </content>
+
+</article>
+
+
+<article id="deret" >
+    
+    	<h2>Deret</h2>
+  
+    <video poster="gbr/deret.png" width="200px"  controls>
+  		<source src="gbr/deret.mp4" type="video/mp4">
+		</video>
+  
+    
+
+</article>
+
+
+<article id="fibonasii" >
+    
+    	<h2>Fibonasi</h2>
+  
+    <video poster="gbr/fibo.png" width="200px"  controls>
+  		<source src="gbr/fibonasii.mp4"  type="video/mp4">
+		</video>
+   
+   
+
+</article>
+
+
+
+
+
+
+</content>
+
+
+
+
+
+
+
 <aside>
 
          <h2>Motto</h2>
@@ -193,7 +254,7 @@ tersedia banyak pilihan materi semuanya gratis
 			
 			<img src="gbr/FOTOIRZAL.jpg" alt="irzal" name="foto" id="foto" width=100%  border="2" align="center">
              
-
+```
 
              <figcaption>Foto</figcaption>
             </figure>
