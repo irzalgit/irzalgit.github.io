@@ -7,13 +7,19 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
+  <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Hello, world!</title>
 	<style>	
 	map {
   display: inline;
 }
-</style
+div{
+  overflow:scroll;
+}
+.sekrol{
+  overflow:auto;
+}
+</style>
   </head>
   <body>
   <div class="jumbotron jumbotron-fluid">
@@ -30,27 +36,31 @@
 
 
 <div class="container-fluid">
-  <h1>Ette 1980</h1>
-  <p>bejar matematika</p>
-</div>
-    
+  <h1 class="displai-1">Ette 1980</h1>
+  <p>bejar  </p>
+
+
 	
 	<div class="d-inline p-2 bg-primary text-white">tumbuh</div>
 <div class="d-inline p-2 bg-dark text-white">berkembang</div>
 <span class="d-block p-2 bg-primary text-white">mendunia</span>
 <span class="d-block p-2 bg-dark text-white">hebat</span>
 <div class="callout">...
-<p>	hhhhhhhhhh</p></div>
-
+</div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>BelajarMediaMaping</h1>
+    <p>melajar dengan mindmaping</p>
+  </div>
 <!--<img src="gbr/mapakar.png" class="img-fluid" alt="...">-->
-<img src="gbr/mapakar.png" alt="Workplace" usemap="#workmap" width="400" height="379">
+<img src="gbr/mapbarisan.png" alt="Workplace" usemap="#workmap" width="500px" >
 
 <map name="workmap">
-  <area shape="rect" coords="34,44,270,350" alt="Computer" href="m1.html">
+  <area shape="rect" coords="0,0,100,100" alt="Computer" href="m1.html">
   <area shape="rect" coords="290,172,333,250" alt="Phone" href="m2.html">
   <area shape="circle" coords="337,300,44" alt="Cup of coffee" href="m3.html">
 </map>
-
+</div>
 
 
 
@@ -65,7 +75,60 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     -->
+
+
+
+  <section class="gallery min-vh-100">
+     <div class="container-lg">
+        <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+           <div class="col">
+              <img src="gbr/mapakar.png" class="gallery-item" alt="gallery">
+           </div>
+           <div class="col">
+              <img src="gbr/mapbarisan.png" class="gallery-item" alt="gallery">
+           </div>
+           <div class="col">
+              <img src="gbr/mapbarisan.png" class="gallery-item" alt="gallery">
+           </div>
+           <div class="col">
+              <img src="gbr/mapbarisan.png" class="gallery-item" alt="gallery">
+           </div>
+           <div class="col">
+              <img src="gbr/mapbarisan.png" class="gallery-item" alt="gallery">
+           </div>
+           <div class="col">
+             
+              <img src="gbr/1.png" class="gallery-item" alt="gallery">
+            
+           </div>
+        </div>
+     </div>
+  </section>
+
+<!-- Modal -->
+<div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body ">
+      
+         <img src="gbr/mapbarisan.png" class="modal-img" alt="modal img"> 
+      
+        
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
   </body>
+  <script src="js/main.js"></script>
 </html>
 
 <!-- <!DOCTYPE html>
