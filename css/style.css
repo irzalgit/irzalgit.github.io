@@ -1,17 +1,63 @@
-img{
-	max-width: 100%;
+style.css
+
+Jenis
+Style Sheet
+Ukuran
+640 bita
+Penyimpanan yang terpakai
+640 bita
+Lokasi
+css
+Pemilik
+saya
+Diubah
+12 Mar 2021 oleh saya
+Dibuka
+16.48 oleh saya
+Dibuat
+12 Mar 2021 dengan Google Drive Web
+Tambahkan deskripsi
+Pemirsa dapat mendownload
+.jumbotron{
+  background: #5e227f;
+  color: white;
+  padding-bottom: 15px;
 }
-.gallery{
-	background-color: #dbddf1;
-	padding: 80px 0;
+h1{
+    font-size: 40px;
 }
-.gallery img{
-	background-color: #ffffff;
-	padding: 15px;
-	width: 100%;
-	box-shadow: 0 0 15px rgba(0,0,0,0.3);
-	cursor: pointer;
+.container{
+  text-align: center;
+  color: blue;
 }
-#gallery-modal .modal-img{
-	width: 100%;
+section{
+  background: red;
+  min-height: 200px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 4px;
+}
+footer{
+  background: #d22780;
+  height:35px;
+  text-align: center;
+  color: white;
+  padding: 5px;
+}
+aside{
+  width: 10%
+  float:right;
+  background: blue;
+  height: 500px;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+    
+}
+content{
+  width: 80%;
+  height: 500px;
+  float:left;
+  background: green;
+  overflow: auto;
 }
