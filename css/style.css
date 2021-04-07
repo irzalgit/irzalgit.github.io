@@ -1,26 +1,7 @@
-style.css
 
-Jenis
-Style Sheet
-Ukuran
-640 bita
-Penyimpanan yang terpakai
-640 bita
-Lokasi
-css
-Pemilik
-saya
-Diubah
-12 Mar 2021 oleh saya
-Dibuka
-16.48 oleh saya
-Dibuat
-12 Mar 2021 dengan Google Drive Web
-Tambahkan deskripsi
-Pemirsa dapat mendownload
 .jumbotron{
-  background: #5e227f;
-  color: white;
+  background:#1684a7;
+  color: #f6ec72;
   padding-bottom: 15px;
 }
 h1{
@@ -31,14 +12,13 @@ h1{
   color: blue;
 }
 section{
-  background: red;
   min-height: 200px;
   padding: 5px;
   margin-top: 5px;
   margin-bottom: 4px;
 }
 footer{
-  background: #d22780;
+  background:black;
   height:35px;
   text-align: center;
   color: white;
@@ -47,7 +27,7 @@ footer{
 aside{
   width: 10%
   float:right;
-  background: blue;
+  background: #09a599;
   height: 500px;
   overflow: hidden;
   text-align: center;
@@ -58,6 +38,6 @@ content{
   width: 80%;
   height: 500px;
   float:left;
-  background: green;
+  background: #f6f6f6;
   overflow: auto;
 }
