@@ -802,8 +802,8 @@ InkWeb.log = function () { /* if you need that, use the inkweb-debug.js too */ }
      showgrid="false"
      showguides="false"
      inkscape:zoom="1"
-     inkscape:cx="1326.6911"
-     inkscape:cy="2142.6319"
+     inkscape:cx="153.69797"
+     inkscape:cy="62.6319"
      inkscape:window-x="83"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
@@ -814,7 +814,7 @@ InkWeb.log = function () { /* if you need that, use the inkweb-debug.js too */ }
      inkscape:snap-bbox="true"
      inkscape:snap-global="true"
      inkscape:lockguides="true"
-     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-bbox-midpoints="false"
      inkscape:snap-bbox-edge-midpoints="true" />
   <clipPath
      id="p.0">
@@ -7013,4 +7013,31 @@ InkWeb.log = function () { /* if you need that, use the inkweb-debug.js too */ }
          style="fill:#2aff2a" />
     </g>
   </g>
+  <rect
+     style="fill:#0000ff;fill-rule:evenodd"
+     id="rect2372"
+     width="26"
+     height="34"
+     x="304"
+     y="1999" />
+  <rect
+     style="fill:#0000ff;fill-rule:evenodd"
+     id="rect2374"
+     width="49"
+     height="40"
+     x="387"
+     y="2075" />
+  <path
+     sodipodi:type="spiral"
+     style="opacity:0.750623;fill:#00ffff;fill-rule:evenodd;stroke:#000000;stroke-width:11.3386;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:10;stroke-dasharray:11.3386, 22.6772;stroke-dashoffset:0"
+     id="path2379"
+     sodipodi:cx="70"
+     sodipodi:cy="81"
+     sodipodi:expansion="1"
+     sodipodi:revolution="1.8930134"
+     sodipodi:radius="69.869057"
+     sodipodi:argument="-11.29537"
+     sodipodi:t0="0"
+     d="m 70,81 c 1.639545,5.30404 -6.340846,4.826901 -8.815663,2.725032 -6.706602,-5.695934 -2.792526,-16.070957 3.365599,-20.356359 11.01544,-7.665578 25.823709,-1.429539 31.897054,9.456231 8.91288,15.975305 0.09564,35.733866 -15.546862,43.437746 C 60.051141,126.53071 35.196926,115.04094 25.921683,94.62516 14.249737,68.933981 28.451324,38.923623 53.649807,28.10602 c 30.51874,-13.101567 65.716373,3.831965 78.059833,33.818755 7.77713,18.893475 6.02916,40.737585 -3.99627,58.456085"
+     transform="matrix(0.95072517,0,0,1.0110817,0.88364884,-0.28876775)" />
 </svg>

@@ -16,17 +16,12 @@
 		var targetgambar = document.getElementById('targetgambar')
 		targetgambar.src = gambar.getAttribute('src');}
 	</script>
+	
 
 
   </head>
   <body >
 	  
-	
-
-
-
-
-
 <section>
 	<div class="jumbotron" align="center">
 		  <img src="gbr/logo1.svg" width="10%" align="center">
@@ -44,45 +39,53 @@
 </section>
 
 
-
-<section>
-	<content>
-
-<img class='zoom' id="targetgambar" src='gbr/map11.svg' alt='hup ng ada gbr' width="100%" />
-
-</content>
-
 <section>
 
+
+
+
+
+<div id="contentContainer">
+<div  id="thing" >
+
+<img class='zoom'  src='gbr/map11.svg' alt='hup ng ada gbr' />
+
+</div>
+</div>
+
+
+
+
+<section>
+ 
 
 
 	<aside>
 	<br>
-	<p>update 10/4/21 23:00</p>
-	<br>
+	<p>update 14/4/21 23:00</p>
+	
+	<a src="gbr/fsk.png" onclick="ganti(this)" ></a>
+	<a src="gbr/map11.svg" onclick="ganti(this)" ><br><br></a> 
 
-	<a src="gbr/fsk.png" onclick="ganti(this)" >fisika</a>
-	<a src="gbr/map11.svg" onclick="ganti(this)" ><br>matematika<br></a> 
-<br>	
 	<video width="90%" controls >
   <source src="vidio/tutorial1.mp4" type="video/mp4">
-  
+
 browser tidak mendukung
 </video>
-<br><br> 
+  <p>tutorial</p>
 
 <br>
-<center><a href="soal.html"><input type="button" value="soal"></a></center>
-<br>
-
-
-
-
-
-
-
-  </aside>
+<input type="button" value="view"></><br>
+<button onclick =aritmatika();>aritmatika.</button><br>
+<button onclick =geometri();>geometri.</button><br>
+<button onclick =penerapan();>ekonomi.</button><br>
+<button onclick =trigonometri();>trigonometri.</button<br>
+ </aside>
 </section>
+
+
+
+
 
 
 <footer>
@@ -104,6 +107,34 @@ browser tidak mendukung
 	</script>
  
 
+ 
+ <script>
+ var theThing = document.querySelector("#thing");
+var container = document.querySelector("#contentContainer");
+
+ function aritmatika(e) {
+    theThing.style.left = "-2010px" ;
+    theThing.style.top = "-1010px" ;
+	}
+
+ function penerapan(e) {
+    theThing.style.left = "-1371px" ;
+    theThing.style.top = "-240px" ;
+	}
+
+ function geometri(e) {
+    theThing.style.left = "-710px" ;
+    theThing.style.top = "-1000px" ;
+	}
+
+ function trigonometri(e) {
+    theThing.style.left = "-1346px" ;
+    theThing.style.top = "-1610px" ;
+	}
+
+ 
+ 
+</script>
 
  </body>
 </html>
