@@ -11,6 +11,30 @@
     <title>Hello, sahabat</title>
 
 
+	<style>
+		nav {
+			border: 1px;
+			background-color: green;
+			color: white;
+			padding: 6px;
+		}
+		
+		a {
+			text-decoration: none;
+			color: white;
+			font-size: 20px;
+		}
+		.context-menu {cursor: context-menu;}
+		.grab {cursor: -webkit-grab; cursor: grab;}
+		.grabbing {cursor: -webkit-grabbing; cursor: grabbing;}
+
+		li {
+		text-align:left;
+		text-decoration:underline;
+		font-size: 20px;
+		font-weight:bold;
+		}
+	</style>
 <script type="text/javascript">
 		function ganti(gambar) {
 		var targetgambar = document.getElementById('targetgambar')
@@ -21,12 +45,14 @@
 
   </head>
   <body >
-	  
+	
+	
+
 <section>
 	<div class="jumbotron" align="center">
 		  <img src="gbr/logo1.svg" width="10%" align="center">
 <br>
-		  <a href='https://www.symptoma.si/sl/info/covid-19#info'>Koronavirusne bolezni 2019</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=5e1e4398c47c5c73b44cdd6733b40d97cd345cc5'></script>
+		  
 		  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
 		  <br>
 		 
@@ -39,15 +65,15 @@
 </section>
 
 
-<section>
+
+
 
 
 
 
 
 <div id="contentContainer">
-<div  id="thing" >
-
+<div  id="thing" class="grabbing" >
 <img class='zoom'  src='gbr/map11.svg' alt='hup ng ada gbr' />
 
 </div>
@@ -56,14 +82,26 @@
 
 
 
-<section>
  
 
 
 	<aside>
 	<br>
-	<p>update 14/4/21 23:00</p>
 	
+<marquee behavior="scroll" bgcolor="yellow" loop="-1" width="100%">
+   <i>
+      <font color="blue">
+        Hari ini  : 
+        <strong>
+         <span id="time"></span>
+        </strong>           
+      </font>
+   </i>
+</marquee> 
+<br>
+	<p> update 16/4/21 15:00</p>
+	
+
 	<a src="gbr/fsk.png" onclick="ganti(this)" ></a>
 	<a src="gbr/map11.svg" onclick="ganti(this)" ><br><br></a> 
 
@@ -72,16 +110,22 @@
 
 browser tidak mendukung
 </video>
-  <p>tutorial</p>
 
-<br>
-<input type="button" value="view"></><br>
-<button onclick =aritmatika();>aritmatika.</button><br>
-<button onclick =geometri();>geometri.</button><br>
-<button onclick =penerapan();>ekonomi.</button><br>
-<button onclick =trigonometri();>trigonometri.</button<br>
+
+
+		
+<ul>
+  <li class="context-menu" onclick =trigonometri(); >Penerapan</li>
+  <li class="context-menu" onclick =aritmatika(); >Barisan Aritmatika</li>
+  <li class="context-menu" onclick =geometri(); >Barisan Geometri</li>
+  <li class="context-menu" onclick =trigonometri(); >Trigonometri</li>
+</ul>
+	
+	
+	
+	
  </aside>
-</section>
+
 
 
 
@@ -135,6 +179,12 @@ var container = document.querySelector("#contentContainer");
  
  
 </script>
+<script language="javascript">
+ 
+ var today = new Date();
+document.getElementById('time').innerHTML=today;
+
+ </script>
 
  </body>
 </html>

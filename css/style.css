@@ -65,7 +65,7 @@ body {
 }
 #thing {
     position: relative;
-    left: 50px;
-    top: 50px;
+    left: 0px;
+    top: 0px;
     transition: left .5s ease-in, top .5s ease-in;
 }
