@@ -3,42 +3,303 @@
   background:#1684a7;
   color: #f6ec72;
   padding-bottom: 15px;
+  text-align: center;
 }
+
+
+.container{
+    max-width: 1080px;
+    margin: 20px auto;
+    background: #dbdbeb;
+    overflow: hidden;
+    padding: 10px;
+}
+
+
+.header{
+    border: 1px solid #dedede;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Bagian Main */
+    .left{
+        width: 250px;
+        border: 1px solid #dedede;
+        background: #00b8c0;
+        padding: 10px;
+        margin: 10px;
+        float: left;
+    }
+
+    .middle{
+        width: 500px;
+        border: 1px solid #dedede;
+        padding: 10px;
+        margin: 10px;
+        float: left;
+    }
+        .middle img{
+            max-width: 100%;
+            height: auto;
+        }
+
+    .right{
+        width: 250px;
+        border: 1px solid #dedede;
+        padding: 10px;
+        margin: 10px;
+        float: right;
+    }
+
+.footer{
+    clear: both;
+    border: 2px solid #2d2d2d;
+    color: #fff;
+    background-color: #2d2d2d;
+    padding: 10px;
+    margin: 10px;
+}
+    .footer a{
+        color: #fff;
+    }
+        .footer a:hover{
+            color: #eaeaea;
+        }
+#contentContainer {
+    width: 100%;
+    overflow: auto;
+    background-color: #F2F2F2;
+	
+}
+#thing {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    transition: left .5s ease-in, top .5s ease-in;
+}
+
+
+/*
+        @media screen and (max-width: 1080px) {
+    
+    .container {
+        width: 100%;
+    }
+    .left {
+        width: 25%;
+        background-color: #89d0ff;
+    }
+    .middle {
+        width: 68%;
+        float: right;
+    }
+    
+    .right {
+        clear: both;
+        padding: 1% 4%;
+        width: auto;
+        float: none;
+    }
+}
+*/
+
+
+@media screen and (max-width: 780px) {
+    
+    .header, 
+    .footer{
+        text-align: center;
+    }
+    .left {
+        width: auto;
+        float: none;
+    }
+    
+    .middle {
+        width: auto;
+        float: none;
+    }
+    
+    .right {
+        width: auto;
+        float: none;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 30px 0;
+      color: #fff;
+      background-color: #488EAD;
+      background-image: url('gbr/logo1.svg');
+      
+    }
+.header-left{
+      font: bold 28px 'Fugaz One', cursive;
+      margin-top:0;
+      }
+.header-left span{
+      color: #EAD314;
+    }
+    
+section{
+	padding:40px 0;
+}
+
+
+content {
+    width: 80%;
+	height:500px;
+    overflow: hidden;
+    background-color:blueviolet;
+	float:left;
+	text-align: center;
+  color: white;
+  
+}
+aside {
+    width: 20%;
+	height:500px;
+    overflow: hidden;
+    background-color:blueviolet;
+	float:right;
+	text-align: center;
+  color: white;
+  
+}
+
+footer{
+	background:#353535;
+	padding:32px 0;
+	text-align:center;
+	color: #868686;
+	font-size:12px;
+}
+footer ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	
+}
+footer li{
+	display:inline-block;
+}
+footer li a{
+	padding:6px;
+	font-size:14px;
+	text-decoration:none;
+	color:#c3c3c3;
+}
+
+footer li a:hover{
+color:white;
+
+}
+
+
 h1{
     font-size: 40px;
+	margin:0 0 16px 0;
+}
+h2{
+	font-weight:300;
+	font-size:24px;
+	margin: 0 0 16px 0;
 }
 
+  
+
+  
+/*
+@media screen and (max-width:800px){
+
+
+h1{
+	font-size:32px;
+	margin:0 0 8px 0;
+	}
+	
+h2{
+		font-size:18px;
+		
+	}
 
 section{
-  min-height: 200px;
-  padding: 5px;
-  margin-top: 5px;
-  margin-bottom: 4px;
-}
-footer{
-  background:black;
-  height:35px;
-  text-align: center;
-  color: white;
-  padding: 5px;
-}
+		padding:25px 0 15px 0;
+		
+	}
+
 aside{
-  width: 10%
-  float:right;
-  background: #09a599;
-  height: 500px;
-  overflow: hidden;
-  text-align: center;
-  color: white;
-    
-}
+		width:100%;
+		
+	}	
+
+
 content{
-  width: 80%;
-  height: 500px;
-  float:left;
-  background: #f6f6f6;
-  overflow: auto;
+	width:100%;
+	display:flex;
 }
+
+footer{
+		padding:30px 0 10px 0;
+	}
+
+footer li{
+		display: block;
+		margin:5px 0 ;
+		text-align: center;
+	}
+
+
+
+
+	}
+	
+	
+	
+
+
+
+
 
 
 
@@ -51,21 +312,28 @@ img.a {
 }
 
 
-body {
-    background-color: #FFF;
-    margin: 30px;
-    margin-top: 10px;
-}
-#contentContainer {
-    width: 80%;
-	height:500px;
-    overflow: auto;
-    background-color: #F2F2F2;
-	float:left;
-}
 #thing {
     position: relative;
     left: 0px;
     top: 0px;
     transition: left .5s ease-in, top .5s ease-in;
+}
+*/
+.main article {
+    float:left;
+    width:80%;}
+
+.main aside {
+    float:right;
+    width:20%;
+
+@media only screen and (max-width:600px) {
+.main article {
+    
+    width:100%;
+}
+.main aside {
+    
+    width:100%;
+}
 }
