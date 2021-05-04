@@ -80,7 +80,6 @@
 }
 
 
-/*
         @media screen and (max-width: 1080px) {
     
     .container {
@@ -102,8 +101,12 @@
         float: none;
     }
 }
-*/
 
+li:hover{
+    cursor: pointer;
+    color: black;
+    font-size: 20px;
+}
 
 @media screen and (max-width: 780px) {
     
@@ -249,7 +252,7 @@ h2{
   
 
   
-/*
+
 @media screen and (max-width:800px){
 
 
@@ -318,7 +321,7 @@ img.a {
     top: 0px;
     transition: left .5s ease-in, top .5s ease-in;
 }
-*/
+
 .main article {
     float:left;
     width:80%;}
