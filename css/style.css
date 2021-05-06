@@ -18,7 +18,9 @@ h1 {
   color: lightblue;
   font-size: calc(6vw + 1.5rem);
 }
-
+p{
+	font-size: 14px;
+}
 img {
   display: block;
   max-width: 100%;
