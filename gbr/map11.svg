@@ -250,7 +250,7 @@ InkWeb.log = function () { /* if you need that, use the inkweb-debug.js too */ }
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1108,8 +1108,8 @@ InkWeb.log = function () { /* if you need that, use the inkweb-debug.js too */ }
      showgrid="false"
      showguides="false"
      inkscape:zoom="1.8524871"
-     inkscape:cx="440.01616"
-     inkscape:cy="1970.1822"
+     inkscape:cx="192.26906"
+     inkscape:cy="2076.4979"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
