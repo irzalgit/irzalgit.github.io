@@ -30,7 +30,7 @@ main{
 .game-quiz-container{
     width: 40rem;
     height: 30rem;
-    background-color: slategrey;
+    background-color:gray;
     color: black;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@ main{
 }
 
 .game-details-container h1{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: black;
 }
 
@@ -63,7 +63,7 @@ main{
 }
 
 .game-question-container h1{
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     text-align: center;
     color: black;
     padding: 3px;

@@ -366,7 +366,9 @@ li:hover{
         width: 80%;
         float: right;
     }
-    
+    .midgbr{
+      width: auto;
+    }
     .right {
         clear: both;
         padding: 1% 4%;
@@ -391,12 +393,26 @@ li:hover{
         width: auto;
         float: none;
     }
-    
+     .midgbr{
+      width: auto;
+    }
+   
     .right {
         width: auto;
         float: none;
     }
-
+ figure#video-track-container video, 
+  figure#video-track-container figcaption { 
+    display: block; 
+    width: 100%;
+}
+  figure#video-track-container video { 
+    border-bottom: 10px solid #111;
+}
+figure#video-track-container figcaption { 
+  position: static; 
+  height: 200px;
+  }
 }
 
 
