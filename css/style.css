@@ -152,7 +152,7 @@ img {
         }
 #contentContainer {
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
     background-color: #F2F2F2;
 	}
 #thing {

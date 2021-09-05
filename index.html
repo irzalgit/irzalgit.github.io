@@ -47,14 +47,14 @@
 
 		<div class="left">
 			<h3>Tentang Portal Peta Pikiran</h3>
-			<p>B'PHY merupakan website yang berisi peta pikiran atau mindmap, yang dimulai dari matematika, berisi visual/gambar  koneksi antar teori/dalil/azas/prinsip ataupun gagasan  untuk menemukan solusi</p>
+			<p>B'PHY merupakan website yang berisi peta pikiran atau mindmap, yang dimulai dari matematika; berisi visual/gambar  koneksi antar teori/dalil/azas/prinsip ataupun gagasan  untuk menemukan solusi</p>
 			<br>
 			
  
 		</div>
 
 		<div class="middle">
-			<h3 style="text-align: center;">Update 08/07/21 18:00
+			<h3 style="text-align: center;">Update 05/09/21 22:00
 			<br></h3>
 			<img   width="25%" src="gbr/heli.jpg" alt="">
 			<br>
@@ -77,10 +77,11 @@
       <table border="0" cellpadding="15" style="width: 300px;">
       <tbody>
       <tr>
-      <td align="center"><img alt="" src="gbr/loga.jpg" ></td>
-      <td align="center"><img alt="" src="gbr/akar.jpg" ></td>
-      <td align="center"><img alt="" src="gbr/prolin.jpg" ></td>
-      
+      <td align="center"><img alt="" src="gbr/mappkt.svg" onclick="ganti(this)" class="rounded-3" width=50%> </td>
+          		<td align="center"><img alt="" src="gbr/loga.jpg" onclick="ganti(this)"  class="rounded-3" ></td>
+						      <td align="center"><img alt="" src="gbr/akar.jpg" onclick="ganti(this)"  class="rounded-pill"></td>
+						      <td align="center"><img alt="" src="gbr/prolin.jpg" onclick="ganti(this)"  class="rounded-circle"></td>
+						      	   
       </tr>
       </tbody></table>
     
@@ -109,10 +110,12 @@
      
 	  
       
-    <a href="https://www.youtube.com/playlist?list=PLsRs24E4XdsMqjSZ1_Cghk6QWIArH-CSZ">Visit Channel YT!</a>
+    <a href="https://www.youtube.com/playlist?list=PLsRs24E4XdsMqjSZ1_Cghk6QWIArH-CSZ">Visit My Channel </a>
     </content>
-
-
+<br>
+	<img class='zoom2' id="targetgambar" src='' alt='hup ng ada gbr' />
+  				
+   
 	
 	
 	
@@ -990,7 +993,13 @@ init();
 
 
 <script src="js/wheelzoom.js"></script>
-<script>wheelzoom(document.querySelector('img.zoom'));</script>
+<script>
+	wheelzoom(document.querySelector('img.zoom'));
+
+	wheelzoom(document.querySelector('img.zoom2'));
+
+
+</script>
 
 <script language="javascript">
  	var today = new Date();
