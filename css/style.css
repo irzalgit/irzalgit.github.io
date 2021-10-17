@@ -105,15 +105,17 @@ img {
     }
     .middle1{
         width: 50%;
+        height:300px;
         border: 1px solid #dedede;
-        padding: 0px;
+        padding: 5px;
         margin: 0px;
         float: left;
     }
       .middle2{
-        width: 50%;
+        width: 45%;
+        height:300px;
         border: 1px solid #dedede;
-        padding: 0px;
+        padding: 5px;
         margin: 0px;
         float: right;
     }
