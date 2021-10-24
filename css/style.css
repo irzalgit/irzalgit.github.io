@@ -419,8 +419,21 @@ li:hover{
    
     .right {
         width: auto;
-        float: none;
+        }
+
+     .middle1{
+        width: 100%;
+        height:300px; 
     }
+  
+      .middle2{
+        width: 100%;
+        height:300px;
+      
+    }
+    
+
+
  figure#video-track-container video, 
   figure#video-track-container figcaption { 
     display: block; 
