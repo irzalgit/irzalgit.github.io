@@ -98,27 +98,14 @@ img {
 
 .middle{
         width: 50%;
+        height: "2000px";
         border: 1px solid #dedede;
-        padding: 0px;
-        margin: 0px;
-        float: left;
+        padding: 10px;
+        margin: 10px;
+        overflow: scroll;
+        background: darkgray;
     }
-    .middle1{
-        width: 50%;
-        height:300px;
-        border: 1px solid #dedede;
-        padding: 5px;
-        margin: 0px;
-        float: left;
-    }
-      .middle2{
-        width: 45%;
-        height:300px;
-        border: 1px solid #dedede;
-        padding: 5px;
-        margin: 0px;
-        float: right;
-    }
+   
  .middle img{
             max-width: 100%;
             height: auto;
@@ -201,7 +188,7 @@ video::cue {
 }
 
 figure {
-  width: 100%;
+  width:100% ;
   font-size: 0;
   position: relative;
   background: red;
@@ -209,7 +196,7 @@ figure {
   padding: 5px;
 }
 figure video {
-  width: 85%;
+  width: 75%;
   height: auto;
   display: inline-block;
   margin-left: 0px;
@@ -219,10 +206,10 @@ figure figcaption {
   position: absolute;
   right: 0; top: 0;
   background: white;
-  width: 15%;
+  width: 20%;
   font-size: .5rem;
   color: red;
-  height: 100%;
+  height: auto;
   overflow: hidden;
 }
 figure figcaption ul {

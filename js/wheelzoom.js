@@ -204,5 +204,3 @@ window.wheelzoom = (function(){
 		};
 	}
 }());
-
- 
