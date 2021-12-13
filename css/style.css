@@ -16,13 +16,7 @@ body {
     background: lightgray;
 }
 
-.atursvg{
-  background-color: black;
-  padding: 10px;
-  margin: 5px;
-  text-align: center;
-  overflow: scroll;
-}
+
 .container{
  max-width: 100vw;
   /* width: calc(100vw - 100px); */
@@ -104,14 +98,27 @@ img {
 
 .middle{
         width: 50%;
-        height: "2000px";
         border: 1px solid #dedede;
-        padding: 10px;
-        margin: 10px;
-        overflow: scroll;
-        background: darkgray;
+        padding: 0px;
+        margin: 0px;
+        float: left;
     }
-   
+    .middle1{
+        width: 50%;
+        height:300px;
+        border: 1px solid #dedede;
+        padding: 5px;
+        margin: 0px;
+        float: left;
+    }
+      .middle2{
+        width: 45%;
+        height:300px;
+        border: 1px solid #dedede;
+        padding: 5px;
+        margin: 0px;
+        float: right;
+    }
  .middle img{
             max-width: 100%;
             height: auto;
@@ -194,7 +201,7 @@ video::cue {
 }
 
 figure {
-  width:100% ;
+  width: 100%;
   font-size: 0;
   position: relative;
   background: red;
@@ -202,7 +209,7 @@ figure {
   padding: 5px;
 }
 figure video {
-  width: 75%;
+  width: 85%;
   height: auto;
   display: inline-block;
   margin-left: 0px;
@@ -212,10 +219,10 @@ figure figcaption {
   position: absolute;
   right: 0; top: 0;
   background: white;
-  width: 20%;
+  width: 15%;
   font-size: .5rem;
   color: red;
-  height: auto;
+  height: 100%;
   overflow: hidden;
 }
 figure figcaption ul {
