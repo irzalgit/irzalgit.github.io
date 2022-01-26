@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "tailwindcss": "^3.0.16"
+  },
+  "name": "barisan-repo",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"tailwindcss -i ./tailwind.css -o ./css/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irzalgit/irzalgit.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irzalgit/irzalgit.github.io/issues"
+  },
+  "homepage": "https://github.com/irzalgit/irzalgit.github.io#readme",
+  "description": ""
+}
