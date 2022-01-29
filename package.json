@@ -1,14 +1,11 @@
 {
-  "dependencies": {
-    "tailwindcss": "^3.0.16"
-  },
   "name": "barisan-repo",
   "version": "1.0.0",
   "main": "tailwind.config.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"tailwindcss -i ./tailwind.css -o ./css/styles.css --watch"
+    "dev": "tailwindcss -i ./tailwind.css -o ./css/styles.css -w",
+    "build": "cross-env NODE_ENV=production postcss ./css/styles.css -o ./css/styles.css"
   },
   "repository": {
     "type": "git",
@@ -21,5 +18,15 @@
     "url": "https://github.com/irzalgit/irzalgit.github.io/issues"
   },
   "homepage": "https://github.com/irzalgit/irzalgit.github.io#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.17"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "latex.js": "^0.12.4",
+    "postcss-cli": "^9.1.0"
+  }
 }

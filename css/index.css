@@ -31,7 +31,7 @@ main{
     width: 40rem;
     height: 30rem;
     background-color:gray;
-    color: black;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,25 +48,31 @@ main{
 }
 
 .game-details-container h1{
-    font-size: 1.3rem;
+    
     color: black;
+    font-weight: 800;
+    
 }
 
 .game-question-container{
     width: 80%;
     height: 8rem;
     display: flex;
+    
     align-items: center;
     justify-content: center;
     border: 2px solid darkgray;
     border-radius: 25px;
+    margin:2px;
 }
 
 .game-question-container h1{
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     text-align: center;
     color: black;
     padding: 3px;
+    font-weight: 600;
+    
 }
 
 .game-options-container{
@@ -76,6 +82,7 @@ main{
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+    
 }
 
 .game-options-container span{
@@ -83,6 +90,7 @@ main{
     height: 3rem;
     border: 2px solid darkgray;
     border-radius: 20px;
+    
     overflow: hidden;
 }
 span label{
@@ -122,12 +130,13 @@ input[type=radio]:checked ~ .option {
 }
 .next-button-container button{
     width: 8rem;
+    margin:2px;
     height: 2rem;
     border-radius: 10px;
-    background: none;
+    background: green;
     color: rgb(25, 25, 25);
     font-weight: 600;
-    border: 2px solid gray;
+    border: 3px solid black;
     cursor: pointer;
     outline: none;
 }

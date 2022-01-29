@@ -37,37 +37,37 @@ const questions = [
 
     {
         question: "Jumlah sudut-sudut dalam segitiga adalah",
-        optionA: "30 derajat",
-        optionB: "90 derajat",
-        optionC: "180 derajat",
-        optionD: "360 derajat",
+        optionA: "30&#176",
+        optionB: "90&#176",
+        optionC: "180&#176",
+        optionD: "360&#176",
         correctOption: "optionC"
     },
 
     {
         question: "dalam segitiga siku siku, jika sudut alpha 30 derajat, maka sudut beta adalah",
-        optionA: "10 derajat",
-        optionB: "60 derajat",
-        optionC: "80 derajat",
-        optionD: "90 derajat",
+        optionA: "10&#176",
+        optionB: "60&#176",
+        optionC: "80&#176",
+        optionD: "90 &#176",
         correctOption: "optionB"
     },
 
     {
         question: "Jumlah sudut alpha dan sudut beta dalam segitiga siku-siku adalah",
-        optionA: "30 derajat",
-        optionB: "60 derajat",
-        optionC: "90 derajat",
-        optionD: "180 derajat",
+        optionA: "30 &#176",
+        optionB: "60 &#176",
+        optionC: "90 &#176",
+        optionD: "180&#176",
         correctOption: "optionC"
     },
 
     {
         question: "Sudut 180 derajat jika dikonversi ke radian adalah",
-        optionA: "2 phi",
-        optionB: "1 phi",
-        optionC: "1/2. phi",
-        optionD: "1/3. phi",
+        optionA: "2&#8508",
+        optionB: "1&#8508",
+        optionC: "1/2.&#8508",
+        optionD: "1/3.&#8508",
         correctOption: "optionB"
     },
 
@@ -125,6 +125,8 @@ const questions = [
         optionD: "-sin 30",
         correctOption: "optionA"
     },
+
+   
 
     {
         question: "sin(-30) =...",
@@ -199,6 +201,15 @@ const questions = [
     },
 
     {
+        question: "Dalam segitiga bukan siku, jika a dan b diketahui maka c ditentukan dengan ... ",
+        optionA: "teorema phytagoras",
+        optionB: "tripel phytagoras",
+        optionC: "aturan cosinus",
+        optionD: "aturan sinus",
+        correctOption: "optionC"
+    },
+
+    {
         question: "jika sin A diketahui, maka cos A dapat ditentukan dengan ",
         optionA: "identitas phytagoras",
         optionB: "tripel phytagoras",
@@ -206,15 +217,24 @@ const questions = [
         optionD: "aturan sinus",
         correctOption: "optionB"
     },
-
     {
         question: "luas segitiga yang sisi-sisinya 3,4,3 adalah",
         optionA: "5 ",
         optionB: "4",
-        optionC: "3",
-        optionD: "V10",
+        optionC: 	'3',
+        optionD: 	" &#8730;10 ",
         correctOption: "optionD"
     },
+    {
+        question: "Pada segitika ABC diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
+        optionA: "1/3. &#8730 7 ",
+        optionB: "3/7. &#8730 7",
+        optionC: 	'4/5',
+        optionD: 	" 1/4. &#8730 7 ",
+        correctOption: "optionD"
+    },
+
+
 
     {
         question: "luas segitiga yang sisi-sisinya 3 ,4 dan 5 adalah",
@@ -223,7 +243,9 @@ const questions = [
         optionC: "7",
         optionD: "8",
         correctOption: "optionB"
-    }
+    },
+
+    
 
 ]
 
@@ -349,12 +371,12 @@ function handleEndGame() {
 
     // condition check for player remark and remark color
     if (playerScore <= 3) {
-        remark = "Kurang, C"
+        remark = 	"Kurang, C"
         remarkColor = "red"
     }
     else if (playerScore >= 4 && playerScore < 7) {
         remark = "Cukup , B"
-        remarkColor = "orange"
+        remarkColor = "yellow"
     }
     else if (playerScore >= 7) {
         remark = "Excellent , baik , A"
@@ -363,7 +385,7 @@ function handleEndGame() {
     const playerGrade = (playerScore / 10) * 100
 
     //data to display to score board
-    document.getElementById('remarks').innerHTML = remark
+    document.getElementById('remarks').innerHtml = remark
     document.getElementById('remarks').style.color = remarkColor
     document.getElementById('grade-percentage').innerHTML = playerGrade
     document.getElementById('wrong-answers').innerHTML = wrongAttempt
