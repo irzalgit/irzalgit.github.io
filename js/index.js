@@ -18,6 +18,15 @@ const questions = [
     },
 
     {
+        question: "Grafik sinus pada kuadran IV  ",
+        optionA: "naik",
+        optionB: "turun",
+        optionC: "datar",
+        optionD: "tak tentu",
+        correctOption: "optionA"
+    },
+
+    {
         question: "jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
         optionA: "1/3",
         optionB: "3/5",
@@ -72,6 +81,15 @@ const questions = [
     },
 
     {
+        question: "Sudut 30 derajat jika dikonversi ke radian adalah",
+        optionA: "1/3.&#8508",
+        optionB: "1/4.&#8508",
+        optionC: "1/6.&#8508",
+        optionD: "1/9.&#8508",
+        correctOption: "optionC"
+    },
+
+    {
         question: "Sin 30 = ",
         optionA: "cos 60",
         optionB: "cos 30",
@@ -107,7 +125,6 @@ const questions = [
         correctOption: "optionA"
     },
 
-
     {
         question: "sin(180 + 30) =...",
         optionA: "sin 30",
@@ -126,8 +143,24 @@ const questions = [
         correctOption: "optionA"
     },
 
+    {
+        question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
+        optionA: "28",
+        optionB: "38",
+        optionC: "56",
+        optionD: "60",
+        correctOption: "optionC"
+    },
    
-
+    {
+        question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25. Luas segitiga ini sama dengan ...",
+        optionA: "80",
+        optionB: "68",
+        optionC: "84",
+        optionD: "100",
+        correctOption: "optionC"
+    },
+   
     {
         question: "sin(-30) =...",
         optionA: "sin(180+30)",
@@ -174,6 +207,15 @@ const questions = [
     },
 
     {
+        question: "cos 60 + sin 30 = ... ",
+        optionA: "2",
+        optionB: "1",
+        optionC: "0",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
         question: "jika sin A=3/5 maka sec A = ",
         optionA: "5/4",
         optionB: "5/3",
@@ -208,23 +250,52 @@ const questions = [
         optionD: "aturan sinus",
         correctOption: "optionC"
     },
+    
+    {
+        question: "perbandingan antara sisi depan dengan sisi samping adalah definisi dari  ",
+        optionA: "sin",
+        optionB: "cos",
+        optionC: "tan",
+        optionD: "cot",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "kebalikan atau invers dari sin adalah  ",
+        optionA: "csc",
+        optionB: "sec",
+        optionC: "cot",
+        optionD: "cos",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin 30=...  ",
+        optionA: "-sin 120",
+        optionB: "sin 210",
+        optionC: "-sin 300",
+        optionD: "sin-30",
+        correctOption: "optionC"
+    },
 
     {
         question: "jika sin A diketahui, maka cos A dapat ditentukan dengan ",
-        optionA: "identitas phytagoras",
+        optionA: "identitas trigonometri",
         optionB: "tripel phytagoras",
         optionC: "aturan cosinus",
         optionD: "aturan sinus",
-        correctOption: "optionB"
+        correctOption: "optionA"
     },
+
     {
         question: "luas segitiga yang sisi-sisinya 3,4,3 adalah",
         optionA: "5 ",
         optionB: "4",
-        optionC: 	'3',
+        optionC: 	"3",
         optionD: 	" &#8730;10 ",
         correctOption: "optionD"
     },
+   
     {
         question: "Pada segitika ABC diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
         optionA: "1/3. &#8730 7 ",
@@ -234,7 +305,14 @@ const questions = [
         correctOption: "optionD"
     },
 
-
+    {
+        question: "Bentuk lain aturan sinus",
+        optionA: "a : b = sin A : sin B",
+        optionB: "a : b = sin B : sin A",
+        optionC: "a : sin B = b : sin A",
+        optionD: "a : sin A = sin B : b",
+        correctOption: "optionA"
+    },
 
     {
         question: "luas segitiga yang sisi-sisinya 3 ,4 dan 5 adalah",
@@ -244,9 +322,6 @@ const questions = [
         optionD: "8",
         correctOption: "optionB"
     },
-
-    
-
 ]
 
 
