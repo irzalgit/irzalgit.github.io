@@ -108,12 +108,12 @@ const questions = [
     },
 
     {
-        question: "sudut 120 berada dikuadran ...",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
-        correctOption: "optionB"
+        question: "sin dan cos dibawah ini yang nilainya 1/2 , kecuali ?",
+        optionA: "cos 60",
+        optionB: "sin 30",
+        optionC: "sin 150",
+        optionD: "cos 120",
+        correctOption: "optionD"
     },
 
     {
@@ -185,7 +185,7 @@ const questions = [
         optionB: "1,5 rad",
         optionC: "2 rad",
         optionD: "1/2 rad",
-        correctOption: "optionD"
+        correctOption: "optionC"
     },
 
     {
@@ -243,7 +243,7 @@ const questions = [
     },
 
     {
-        question: "jika sin A = 0,6 dan cos A = 0,8 mka tan A= = ",
+        question: "jika sin A = 0,6 dan cos A = 0,8 maka tan A= ... ",
         optionA: "3/4",
         optionB: "5/3",
         optionC: "3/5",
@@ -318,7 +318,7 @@ const questions = [
         question: "sin 30=...  ",
         optionA: "-sin 120",
         optionB: "sin 210",
-        optionC: "-sin 300",
+        optionC: "-sin 330",
         optionD: "sin-30",
         correctOption: "optionC"
     },
@@ -342,7 +342,7 @@ const questions = [
     },
    
     {
-        question: "Pada segitika ABC diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
+        question: "Pada segitika ABC sebarang diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
         optionA: "1/3. &#8730 7 ",
         optionB: "3/7. &#8730 7",
         optionC: "4/5",
@@ -360,7 +360,17 @@ const questions = [
     },
 
     {
-        question: "luas segitiga yang sisi-sisinya 3 ,4 dan 5 adalah",
+        question: "sudut 120 berada dikuadran ...",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionB"
+    },
+
+
+    {
+        question: "luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
         optionA: "5",
         optionB: "6",
         optionC: "7",
