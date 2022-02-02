@@ -180,6 +180,15 @@ const questions = [
     },
 
     {
+        question: "sudut 114,6 &#176 jika dikonversi ke radian sama dengan ",
+        optionA: "1 rad",
+        optionB: "1,5 rad",
+        optionC: "2 rad",
+        optionD: "1/2 rad",
+        correctOption: "optionD"
+    },
+
+    {
         question: "yang termasuk sudut istimewa, kecuali ",
         optionA: "30",
         optionB: "45",
@@ -198,12 +207,30 @@ const questions = [
     },
 
     {
+        question: "cos A=-1, maka besar sudut A adalah  ",
+        optionA: "0",
+        optionB: "90",
+        optionC: "180",
+        optionD: "270",
+        correctOption: "optionC"
+    },
+
+    {
         question: "jika sec A= 3/2 maka cos A=... ?",
         optionA: "2",
         optionB: "2/3",
         optionC: "1/3",
         optionD: "1/4",
         correctOption: "optionB"
+    },
+
+    {
+        question: "tan 45 =  ",
+        optionA: "1",
+        optionB: "1/2",
+        optionC: "1/&#8730;2",
+        optionD: "&#8730;2",
+        correctOption: "optionA"
     },
 
     {
@@ -214,6 +241,15 @@ const questions = [
         optionD: "1/2",
         correctOption: "optionB"
     },
+
+    {
+        question: "jika sin A = 0,6 dan cos A = 0,8 mka tan A= = ",
+        optionA: "3/4",
+        optionB: "5/3",
+        optionC: "3/5",
+        optionD: "4/3",
+        correctOption: "optionA"
+    }, 
 
     {
         question: "jika sin A=3/5 maka sec A = ",
@@ -270,6 +306,15 @@ const questions = [
     },
 
     {
+        question: "cos 0 =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
         question: "sin 30=...  ",
         optionA: "-sin 120",
         optionB: "sin 210",
@@ -291,8 +336,8 @@ const questions = [
         question: "luas segitiga yang sisi-sisinya 3,4,3 adalah",
         optionA: "5 ",
         optionB: "4",
-        optionC: 	"3",
-        optionD: 	" &#8730;10 ",
+        optionC: "3",
+        optionD: " &#8730;20 ",
         correctOption: "optionD"
     },
    
@@ -300,8 +345,8 @@ const questions = [
         question: "Pada segitika ABC diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
         optionA: "1/3. &#8730 7 ",
         optionB: "3/7. &#8730 7",
-        optionC: 	'4/5',
-        optionD: 	" 1/4. &#8730 7 ",
+        optionC: "4/5",
+        optionD: " 1/4. &#8730 7 ",
         correctOption: "optionD"
     },
 
