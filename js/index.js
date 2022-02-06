@@ -143,6 +143,16 @@ const questions = [
         correctOption: "optionA"
     },
 
+
+    {
+        question: "Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
+        optionA: "cos A",
+        optionB: "sin A",
+        optionC: "tan A",
+        optionD: "csc A",
+        correctOption: "optionB"
+    },
+
     {
         question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
         optionA: "28",
@@ -261,6 +271,15 @@ const questions = [
     },
 
     {
+        question: "Luas segitiga sama sisi dengan sisi = 4  adalah ",
+        optionA: "12",
+        optionB: "6",
+        optionC: "24",
+        optionD: " &#8730;48 ",
+        correctOption: "optionD"
+    },
+
+    {
         question: "jika tan A=3/4 maka cot A=",
         optionA: "3/5",
         optionB: "4/5",
@@ -297,6 +316,15 @@ const questions = [
     },
 
     {
+        question: "jika cos A=7/25 maka sec A =   ",
+        optionA: "25/24",
+        optionB: "25/7",
+        optionC: "24/25",
+        optionD: "7/24",
+        correctOption: "optionB"
+    },
+
+    {
         question: "kebalikan atau invers dari sin adalah  ",
         optionA: "csc",
         optionB: "sec",
@@ -312,6 +340,15 @@ const questions = [
         optionC: "-1",
         optionD: "1/2",
         correctOption: "optionB"
+    },
+
+    {
+        question: "cos 180   =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionC"
     },
 
     {
@@ -351,6 +388,15 @@ const questions = [
     },
 
     {
+        question: "grafik sinus naik pada kuadran ...",
+        optionA: "I dan II ",
+        optionB: "I dan III",
+        optionC: "I dan III",
+        optionD: "I dan IV ",
+        correctOption: "optionD"
+    },
+
+    {
         question: "Bentuk lain aturan sinus",
         optionA: "a : b = sin A : sin B",
         optionB: "a : b = sin B : sin A",
@@ -368,6 +414,14 @@ const questions = [
         correctOption: "optionB"
     },
 
+    {
+        question: "sin 45 =  , kecuali ...",
+        optionA: "cos 45",
+        optionB: "sin 135",
+        optionC: "sin 225",
+        optionD: "-sin 225",
+        correctOption: "optionC"
+    },
 
     {
         question: "luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
@@ -448,7 +502,7 @@ function checkForAnswer() {
         else if (option.checked && option.value !== currentQuestionAnswer) {
             const wrongLabelId = option.labels[0].id
             document.getElementById(wrongLabelId).style.backgroundColor = "red"
-            document.getElementById(correctOption).style.backgroundColor = "green"
+            document.getElementById(correctOption).style.backgroundColor = ""
             wrongAttempt++ //adds 1 to wrong attempts 
             indexNumber++
             //set to delay question number till when next question loads
@@ -501,12 +555,12 @@ function handleEndGame() {
 
     // condition check for player remark and remark color
     if (playerScore <= 3) {
-        remark = 	"Kurang, C"
+        remark = "Kurang, C"
         remarkColor = "red"
     }
     else if (playerScore >= 4 && playerScore < 7) {
         remark = "Cukup , B"
-        remarkColor = "yellow"
+        remarkColor = "orange"
     }
     else if (playerScore >= 7) {
         remark = "Excellent , baik , A"
@@ -515,7 +569,7 @@ function handleEndGame() {
     const playerGrade = (playerScore / 10) * 100
 
     //data to display to score board
-    document.getElementById('remarks').innerHtml = remark
+    document.getElementById('remarks').innerHTML = remark
     document.getElementById('remarks').style.color = remarkColor
     document.getElementById('grade-percentage').innerHTML = playerGrade
     document.getElementById('wrong-answers').innerHTML = wrongAttempt
