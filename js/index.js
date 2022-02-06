@@ -18,6 +18,15 @@ const questions = [
     },
 
     {
+        question: "Grafik sinus pada kuadran IV  ",
+        optionA: "naik",
+        optionB: "turun",
+        optionC: "datar",
+        optionD: "tak tentu",
+        correctOption: "optionA"
+    },
+
+    {
         question: "jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
         optionA: "1/3",
         optionB: "3/5",
@@ -72,6 +81,15 @@ const questions = [
     },
 
     {
+        question: "Sudut 30 derajat jika dikonversi ke radian adalah",
+        optionA: "1/3.&#8508",
+        optionB: "1/4.&#8508",
+        optionC: "1/6.&#8508",
+        optionD: "1/9.&#8508",
+        correctOption: "optionC"
+    },
+
+    {
         question: "Sin 30 = ",
         optionA: "cos 60",
         optionB: "cos 30",
@@ -90,12 +108,12 @@ const questions = [
     },
 
     {
-        question: "sudut 120 berada dikuadran ...",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
-        correctOption: "optionB"
+        question: "sin dan cos dibawah ini yang nilainya 1/2 , kecuali ?",
+        optionA: "cos 60",
+        optionB: "sin 30",
+        optionC: "sin 150",
+        optionD: "cos 120",
+        correctOption: "optionD"
     },
 
     {
@@ -106,7 +124,6 @@ const questions = [
         optionD: "IV",
         correctOption: "optionA"
     },
-
 
     {
         question: "sin(180 + 30) =...",
@@ -126,8 +143,34 @@ const questions = [
         correctOption: "optionA"
     },
 
-   
 
+    {
+        question: "Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
+        optionA: "cos A",
+        optionB: "sin A",
+        optionC: "tan A",
+        optionD: "csc A",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
+        optionA: "28",
+        optionB: "38",
+        optionC: "56",
+        optionD: "60",
+        correctOption: "optionC"
+    },
+   
+    {
+        question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25. Luas segitiga ini sama dengan ...",
+        optionA: "80",
+        optionB: "68",
+        optionC: "84",
+        optionD: "100",
+        correctOption: "optionC"
+    },
+   
     {
         question: "sin(-30) =...",
         optionA: "sin(180+30)",
@@ -144,6 +187,15 @@ const questions = [
         optionC: "cos -45",
         optionD: "1/2.sin(90)",
         correctOption: "optionA"
+    },
+
+    {
+        question: "sudut 114,6 &#176 jika dikonversi ke radian sama dengan ",
+        optionA: "1 rad",
+        optionB: "1,5 rad",
+        optionC: "2 rad",
+        optionD: "1/2 rad",
+        correctOption: "optionC"
     },
 
     {
@@ -165,6 +217,15 @@ const questions = [
     },
 
     {
+        question: "cos A=-1, maka besar sudut A adalah  ",
+        optionA: "0",
+        optionB: "90",
+        optionC: "180",
+        optionD: "270",
+        correctOption: "optionC"
+    },
+
+    {
         question: "jika sec A= 3/2 maka cos A=... ?",
         optionA: "2",
         optionB: "2/3",
@@ -174,12 +235,48 @@ const questions = [
     },
 
     {
+        question: "tan 45 =  ",
+        optionA: "1",
+        optionB: "1/2",
+        optionC: "1/&#8730;2",
+        optionD: "&#8730;2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "cos 60 + sin 30 = ... ",
+        optionA: "2",
+        optionB: "1",
+        optionC: "0",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika sin A = 0,6 dan cos A = 0,8 maka tan A= ... ",
+        optionA: "3/4",
+        optionB: "5/3",
+        optionC: "3/5",
+        optionD: "4/3",
+        correctOption: "optionA"
+    }, 
+
+    {
         question: "jika sin A=3/5 maka sec A = ",
         optionA: "5/4",
         optionB: "5/3",
         optionC: "3/4",
         optionD: "4/3",
         correctOption: "optionA"
+    },
+
+    {
+        question: "Luas segitiga sama sisi dengan sisi = 4  adalah ",
+        optionA: "12",
+        optionB: "6",
+        optionC: "24",
+        optionD: " &#8730;48 ",
+        correctOption: "optionD"
     },
 
     {
@@ -208,45 +305,132 @@ const questions = [
         optionD: "aturan sinus",
         correctOption: "optionC"
     },
+    
+    {
+        question: "perbandingan antara sisi depan dengan sisi samping adalah definisi dari  ",
+        optionA: "sin",
+        optionB: "cos",
+        optionC: "tan",
+        optionD: "cot",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika cos A=7/25 maka sec A =   ",
+        optionA: "25/24",
+        optionB: "25/7",
+        optionC: "24/25",
+        optionD: "7/24",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "kebalikan atau invers dari sin adalah  ",
+        optionA: "csc",
+        optionB: "sec",
+        optionC: "cot",
+        optionD: "cos",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "cos 0 =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "cos 180   =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "sin 30=...  ",
+        optionA: "-sin 120",
+        optionB: "sin 210",
+        optionC: "-sin 330",
+        optionD: "sin-30",
+        correctOption: "optionC"
+    },
 
     {
         question: "jika sin A diketahui, maka cos A dapat ditentukan dengan ",
-        optionA: "identitas phytagoras",
+        optionA: "identitas trigonometri",
         optionB: "tripel phytagoras",
         optionC: "aturan cosinus",
         optionD: "aturan sinus",
-        correctOption: "optionB"
+        correctOption: "optionA"
     },
+
     {
         question: "luas segitiga yang sisi-sisinya 3,4,3 adalah",
         optionA: "5 ",
         optionB: "4",
-        optionC: 	'3',
-        optionD: 	" &#8730;10 ",
+        optionC: "3",
+        optionD: " &#8730;20 ",
         correctOption: "optionD"
     },
+   
     {
-        question: "Pada segitika ABC diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
+        question: "Pada segitika ABC sebarang diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
         optionA: "1/3. &#8730 7 ",
         optionB: "3/7. &#8730 7",
-        optionC: 	'4/5',
-        optionD: 	" 1/4. &#8730 7 ",
+        optionC: "4/5",
+        optionD: " 1/4. &#8730 7 ",
         correctOption: "optionD"
     },
 
-
+    {
+        question: "grafik sinus naik pada kuadran ...",
+        optionA: "I dan II ",
+        optionB: "I dan III",
+        optionC: "I dan III",
+        optionD: "I dan IV ",
+        correctOption: "optionD"
+    },
 
     {
-        question: "luas segitiga yang sisi-sisinya 3 ,4 dan 5 adalah",
+        question: "Bentuk lain aturan sinus",
+        optionA: "a : b = sin A : sin B",
+        optionB: "a : b = sin B : sin A",
+        optionC: "a : sin B = b : sin A",
+        optionD: "a : sin A = sin B : b",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sudut 120 berada dikuadran ...",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sin 45 =  , kecuali ...",
+        optionA: "cos 45",
+        optionB: "sin 135",
+        optionC: "sin 225",
+        optionD: "-sin 225",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
         optionA: "5",
         optionB: "6",
         optionC: "7",
         optionD: "8",
         correctOption: "optionB"
     },
-
-    
-
 ]
 
 
@@ -318,7 +502,7 @@ function checkForAnswer() {
         else if (option.checked && option.value !== currentQuestionAnswer) {
             const wrongLabelId = option.labels[0].id
             document.getElementById(wrongLabelId).style.backgroundColor = "red"
-            document.getElementById(correctOption).style.backgroundColor = "green"
+            document.getElementById(correctOption).style.backgroundColor = ""
             wrongAttempt++ //adds 1 to wrong attempts 
             indexNumber++
             //set to delay question number till when next question loads
@@ -371,12 +555,12 @@ function handleEndGame() {
 
     // condition check for player remark and remark color
     if (playerScore <= 3) {
-        remark = 	"Kurang, C"
+        remark = "Kurang, C"
         remarkColor = "red"
     }
     else if (playerScore >= 4 && playerScore < 7) {
         remark = "Cukup , B"
-        remarkColor = "yellow"
+        remarkColor = "orange"
     }
     else if (playerScore >= 7) {
         remark = "Excellent , baik , A"
@@ -385,7 +569,7 @@ function handleEndGame() {
     const playerGrade = (playerScore / 10) * 100
 
     //data to display to score board
-    document.getElementById('remarks').innerHtml = remark
+    document.getElementById('remarks').innerHTML = remark
     document.getElementById('remarks').style.color = remarkColor
     document.getElementById('grade-percentage').innerHTML = playerGrade
     document.getElementById('wrong-answers').innerHTML = wrongAttempt
