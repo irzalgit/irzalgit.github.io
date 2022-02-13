@@ -1,7 +1,7 @@
 const questions = [
     {
         question: "Perbandingan sisi depan dengan sisi miring adalah ?",
-        optionA: "sin ",
+        optionA: "$$\beta_{1c} = 25 \pm 11 \text{ km s}^{-1}$$ sin",
         optionB: "cos",
         optionC: "tan ",
         optionD: "sec ",
@@ -465,7 +465,7 @@ function NextQuestion(index) {
     document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
     document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
     document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
-
+    document.getElementById("display-question").innerHTML = currentQuestion.question;
 }
 
 

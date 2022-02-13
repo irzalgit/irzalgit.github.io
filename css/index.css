@@ -17,14 +17,15 @@ body{
 main{
     width: 100%;
     min-height: 100vh;
-    display: flex;
+    display:flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color : black;
+    background-color :black;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
 
 .game-quiz-container{
