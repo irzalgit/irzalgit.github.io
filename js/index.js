@@ -396,6 +396,17 @@ const questions = [
         correctOption: "optionD"
     },
 
+      {
+        question: "grafik sinus dan grafik cosinus berpotongan  pada kuadran ...",
+        optionA: "I dan II ",
+        optionB: "II dan III",
+        optionC: "I dan III",
+        optionD: "I dan IV ",
+        correctOption: "optionC"
+    },
+
+  
+    
     {
         question: "Bentuk lain aturan sinus",
         optionA: "a : b = sin A : sin B",
