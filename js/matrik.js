@@ -62,7 +62,7 @@
     let response
     let poin=0
     if (jno1.checked){
-      response="benar"
+      response=""
       poin=poin+10
     }else {
       response=""
@@ -71,16 +71,16 @@
   
 
   if (jno2.checked){
-    response="benar"
-    poin=poin+10
+    response=""
+    poin=poin+6
   }else {
     response=""
   }
   rno2.innerHTML=response
 
   if (jno3.checked){
-    response=" benar"
-    poin=poin+10
+    response=" "
+    poin=poin+5
   }else {
     response=""
   }
@@ -88,8 +88,8 @@
 
 
 if (jno4.checked){
-  response=" benar"
-  poin=poin+10
+  response=" "
+  poin=poin+5
 }else {
   response=""
 }
@@ -99,7 +99,7 @@ rno4.innerHTML=response
 
 
   if (jno5.checked){
-    response="benar"
+    response=""
     poin=poin+10
   }else {
     response=" "
@@ -108,8 +108,8 @@ rno4.innerHTML=response
 
 
 if (jno6.checked){
-  response="benar"
-  poin=poin+10
+  response=""
+  poin=poin+5
 }else {
   response=""
 }
@@ -117,8 +117,8 @@ rno6.innerHTML=response
 
 
 if (jno7.checked){
-    response=" benar"
-    poin=poin+10
+    response=" "
+    poin=poin+5
   }else {
     response=""
   }
@@ -126,15 +126,15 @@ if (jno7.checked){
 
 
 if (jno8.checked){
-  response="benar"
-  poin=poin+10
+  response=""
+  poin=poin+5
 }else {
   response=""
 }
 rno8.innerHTML=response
 
 if (jno9.checked){
-    response="benar"
+    response=""
     poin=poin+10
   }else {
     response=""
@@ -143,8 +143,8 @@ if (jno9.checked){
 
 
 if (jno10.checked){
-  response="benar"
-  poin=poin+10
+  response=""
+  poin=poin+15
 }else {
   response=""
 }
@@ -152,7 +152,7 @@ rno10.innerHTML=response
 
 
 if (sno1.value=="1"){
-    response="benar"; poin=poin+20} 
+    response=""; poin=poin+15} 
 else {response=""}
 rsno1.innerHTML=response
 nilai.innerHTML=poin
@@ -160,8 +160,8 @@ nilai.innerHTML=poin
   
 
    if (sno2.value=="3"){
-     response="benar"
-     poin=poin+20
+     response=""
+     poin=poin+10
    }else {
      response=""
    }
