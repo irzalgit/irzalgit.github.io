@@ -72,7 +72,7 @@
 
   if (jno2.checked){
     response=""
-    poin=poin+6
+    poin=poin+5
   }else {
     response=""
   }
@@ -144,7 +144,7 @@ if (jno9.checked){
 
 if (jno10.checked){
   response=""
-  poin=poin+15
+  poin=poin+10
 }else {
   response=""
 }
@@ -161,7 +161,7 @@ nilai.innerHTML=poin
 
    if (sno2.value=="3"){
      response=""
-     poin=poin+10
+     poin=poin+15
    }else {
      response=""
    }
