@@ -30,7 +30,7 @@ main{
 .game-quiz-container{
     width: 40rem;
     height: 40rem;
-    background-color:rgb(202, 195, 195);
+    background-color:grey;
     
     display: flex;
     flex-direction: column;
