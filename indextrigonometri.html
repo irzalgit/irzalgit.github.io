@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+ 
+
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hallo,sahabat</title>
+  
+      	<link rel="stylesheet" href="css/trigonometri.css">
+          <script src="js/trigonometri.js"></script>
+
+</style>
+
+    
+    <script src="js/main.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+
+//      <script type="text/javascript" async
+//    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+//  </script>
+
+<script type="text/x-mathjax-config"> 
+
+  MathJax.Hub.Config({ 
+  
+  extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"], 
+  
+  jax: ["input/TeX", "output/HTML-CSS"], 
+  
+  tex2jax: { 
+  
+   inlineMath: [ ["$","$"], ["\\(","\\)"] ], 
+  
+   displayMath: [ ["$$","$$"], ["\\[","\\]"] ], 
+  
+   processEscapes: true 
+  
+  }, 
+  
+  "HTML-CSS": { availableFonts: ["TeX"] } 
+  
+  }); 
+  
+  </script>
+
+	
+</head>
+
+<body class="bg-grey-500" onload="NextQuestion(0)"> 
+
+
+  <div>
+          <a href="index.html"><p>BACK</p></a>
+          <p style="text-align: center;">MATRIK</p>
+  </div>
+
+<main class="bg-grey-500">
+        <!-- creating a modal for when quiz ends -->
+        <div class="modal-container" id="score-modal">
+            
+            <div class="modal-content-container">
+
+                <h1>Selamat. Anda sudah di test    </h1>
+
+                <div class="grade-details">
+                    <p>Nilai : </p>
+                    <p>Jumlah jawaban salah : <span id="wrong-answers"></span></p>
+                    <p>Jumlah jawaban benar : <span id="right-answers"></span></p>
+                    <p>Passing grade : <span id="grade-percentage"></span>%</p>
+                    <p ><span id="remarks"></span></p>
+                </div>
+
+                <div class="modal-button-container">
+                    <button onclick="closeScoreModal()">Lanjut</button>
+                </div>
+
+            </div>
+        </div>
+<!-- end of modal of quiz details-->
+
+        <div class="game-quiz-container">
+
+            <div class="game-details-container">
+                <h1>Jumlah skor benar  : <span id="player-score"></span> / 10</h1>
+                <h1> Pertanyaan ke- : <span id="question-number"></span> / 10</h1>
+            </div>
+
+            <div  style="background: rgb(10, 77, 36);"class="game-question-container">
+                <h1 style="color:wheat" id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+
+               <div class="modal-container" id="option-modal">
+
+                    <div class="modal-content-container">
+                         <h1>Silakan pilih </h1>
+
+                         <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">Lanjutkan?</button>
+                        </div>
+
+                    </div>
+
+               </div>
+  
+                <span  style="background: rgb(16, 219, 50);">
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label> 
+                </span>
+            
+
+                <span  style="background: rgb(162, 226, 43);">
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+               </span>
+       
+ 
+                <span style="background: rgb(112, 20, 199);">
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+
+
+                <span  style="background: rgb(218, 10, 90);">
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+
+
+            </div>
+
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Lanjutkan </button>
+            </div>
+
+        </div>
+        <br>
+       
+      
+                
+    </div>
+  
+    <div style="background: rgb(108, 179, 79); font-size:1.4rem" >
+        <hr>
+        <p style="background: rgb(101, 209, 142); text-align: center";>pilih 1 jawaban </p> 
+      
+        
+      
+      <hr>
+      <label for="">
+        <p>besar sudut A pada segitiga siku dibawah ini adalah</p> 
+        <p style="font-size:small">
+        
+             <svg width="180" height="140">
+          <line x1="10" y1="10" x2="130" y2="130" 
+          stroke="green"></line> 
+        
+          <line x1="10" y1="10" x2="10" y2="130" 
+          stroke="black"></line> 
+
+          <line x1="10" y1="130" x2="130" y2="130" 
+          stroke="blue"></line> 
+          <text x="10" y="10">B</text></text>
+          <text x="130" y="130">A</text></text>
+          <text x="15" y="80">1</text></text>
+          <text x="60" y="125">1</text></text>
+
+
+      </svg>
+      
+      </p>
+       
+       adalah
+       <br>
+       
+      
+      
+      </label><br>
+      <input type="radio" name="no1" style=" display:inline-flex">30<br>
+      <input type="radio" name="no1" id="jno1" style=" display:inline-flex">45<br>
+      <input type="radio" name="no1" style=" display:inline-flex">60<br>
+      <input type="radio" name="no1" style=" display:inline">40<br>
+      <div id="rno1"></div>
+      <hr>
+      
+      
+      <label for="">
+        <p>panjang garis AB pada segitiga siku  </p> 
+        <p style="font-size:small">
+      
+            <svg width="180" height="140">
+                <line x1="10" y1="10" x2="130" y2="130" 
+                stroke="green"></line> 
+              
+                <line x1="10" y1="10" x2="10" y2="130" 
+                stroke="black"></line> 
+      
+                <line x1="10" y1="130" x2="130" y2="130" 
+                stroke="blue"></line> 
+                <text x="10" y="10">B</text></text>
+                <text x="130" y="130">A</text></text>
+                <text x="15" y="80">3</text></text>
+                <text x="60" y="125">3</text></text>
+      
+       </p>
+         
+         adalah
+        
+      </label><br>
+      <input type="radio" name="no2" style=" display:inline-flex">
+      <label for="">
+       3
+      <br>
+      
+      </label>
+      <br>
+      <input type="radio" name="no2" id="jno2" style=" display:inline-flex">
+      <label for="">
+        &#8730;18
+        
+       <br>
+      </label><br>
+      <input type="radio" name="no2" style=" display:inline-flex">
+      <label for="">
+        2
+      <br>
+      
+      </label><br>
+      <input type="radio" name="no2" style=" display:inline-flex">
+      <label for="">
+        4
+      </label><br>
+      <br>
+      <div id="rno2"></div>
+      
+      <hr>
+      
+      <label for="">
+        <p>jika cos C=1/6 maka panjang AB </p> 
+        <p style="font-size:small">
+      
+            <svg width="180" height="140">
+                <line x1="35" y1="10" x2="130" y2="130" 
+                stroke="green"></line> 
+              
+                <line x1="35" y1="10" x2="10" y2="130" 
+                stroke="black"></line> 
+      
+                <line x1="10" y1="130" x2="130" y2="130" 
+                stroke="blue"></line> 
+                <text x="20" y="10">B</text></text>
+                <text x="130" y="130">A</text></text>
+                <text x="20" y="125">C</text></text>
+                <text x="12" y="80">3</text></text>
+                <text x="60" y="125">3</text></text>
+      
+      
+       </p>
+         
+         adalah
+         <br>
+      </label><br>
+      <input type="radio" name="no3" style=" display:inline-flex">
+      <label for="">
+        3
+      
+      </label>
+      <br>
+      <input type="radio" name="no3" style=" display:inline-flex">
+      <label for="">
+         
+       2
+       
+      </label><br>
+      <input type="radio" name="no3" style=" display:inline-flex">
+      <label for="">
+        &#8730;21
+      </label><br>
+      <input type="radio" name="no3"  id="jno3" style=" display:inline-flex">
+      <label for="">
+        &#8730;15
+        
+      
+      </label><br>
+      <br>
+      <div id="rno3"></div>
+      <hr>
+      
+      
+      <label for="">
+        <p>luas segitiga dibawah ini </p> 
+        <br>
+        <p>
+
+            <svg width="180" height="140">
+                <line x1="20" y1="5" x2="130" y2="130" 
+                stroke="green"></line> 
+              
+                <line x1="20" y1="5" x2="50" y2="130" 
+                stroke="black"></line> 
+      
+                <line x1="50" y1="130" x2="130" y2="130" 
+                stroke="blue"></line> 
+                <text x="25" y="15">B</text></text>
+                <text x="130" y="130">A</text></text>
+                <text x="30" y="135">C</text></text>
+                <text x="15" y="80">5</text></text>
+                <text x="80" y="125">3</text></text>
+                <text x="90" y="75">6</text></text>
+            </svg>
+        </br>
+         adalah
+         <br>
+      </label><br>
+      <input type="radio" name="no4" style=" display:inline-flex">
+      <label for="">
+        &#8730;7
+        
+      </label>
+       
+       
+      </label><br>
+      <input type="radio" name="no4" style=" display:inline-flex">
+      <label for="">
+        &#8730;14
+      
+      
+      </label><br>
+      <input type="radio" name="no4" id="jno4" style=" display:inline-flex">
+      <label for="">
+        &#8730;56
+        
+      
+      </label>
+      <br>
+      <input type="radio" name="no4"  style=" display:inline-flex">
+      <label for="">
+        &#8730;48
+      <br>
+      <div id="rno4"></div>
+      
+      <hr>
+      
+      <label for="">
+        <p> Perhatikan segitiga dibawah ini,  sec A = </p> 
+      
+      
+      
+      <div style="display:inline-block">
+      <p>
+     
+    
+        <svg width="180" height="140">
+            <line x1="10" y1="10" x2="130" y2="130" 
+            stroke="green"></line> 
+          
+            <line x1="10" y1="10" x2="10" y2="130" 
+            stroke="black"></line> 
+  
+            <line x1="10" y1="130" x2="130" y2="130" 
+            stroke="blue"></line> 
+            <text x="10" y="10">B</text></text>
+            <text x="130" y="130">A</text></text>
+            <text x="15" y="80">1</text></text>
+            <text x="60" y="125">1</text></text>
+        </svg>
+        
+  
+    </div>
+      
+      
+      <br>
+      adalah
+      
+      </label><br>
+      <input type="radio" name="no5" id="jno5" style=" display:inline-flex">
+      <label for="">
+        &#8730;2
+      
+      </label>
+      <br>
+      <input type="radio" name="no5"  style=" display:inline-flex">
+      <label for="">
+        &#8730;3 
+      
+      </label><br>
+      
+      <input type="radio" name="no5"  style=" display:inline-flex">
+      <label for="">
+        1/2.&#8730;2
+      
+      </label><br>
+      <input type="radio" name="no5" style=" display:inline-flex">
+      <label for="">
+        1/2.&#8730;3
+      </label><br>
+      <br>
+      <div id="rno5"></div>
+      
+      <hr>
+      
+      <label for="">
+        <p style="font-size:1.4rem">Perhatikan gambar grafik sinus. </p> 
+        <p>
+      
+       <img src="gbr/sinus.png" width="50%"/>
+      
+       </p>
+         
+         grafik cos x  dapat dinyatakan dengan
+         <br>
+      </label><br>
+      <input type="radio" name="no6" style=" display:inline-flex">
+      <label for="">
+        sin(x-90)
+        
+      
+      </label>
+      <br>
+      <input type="radio" name="no6" id="jno6" style=" display:inline-flex">
+      <label for="">
+       sin(x+90) atau sin(x+1,57)  dalan radian
+        
+       
+      </label><br>
+      <input type="radio" name="no6" style=" display:inline-flex">
+      <label for="">
+       sin(x+180)
+       
+      
+      </label><br>
+      <input type="radio" name="no6" style=" display:inline-flex">
+      <label for="">
+          sin(x-180)
+        
+      
+      </label><br>
+      <br>
+      <div id="rno6"></div>
+      
+      <hr>
+      
+      <label for="">
+        <p style="font-size:1.4rem">titik potong grafik sinus dan cosinus </p> 
+        <p style="font-size:small">
+         
+       <img src="gbr/sinus2.png" width="50%"/>
+      
+      
+       </p>
+         
+         adalah
+         <br>
+      </label><br>
+      <input type="radio" name="no7" style=" display:inline-flex">
+      <label for="">
+          P=45
+        
+      
+      </label>
+      <br>
+      <input type="radio" name="no7"  style=" display:inline-flex">
+      <label for="A">
+          P=45
+          Q=135
+       
+       
+      </label><br>
+      <input type="radio" name="no7" id="jno7" style=" display:inline-flex">
+      <label for="">
+          P=45
+          Q=225
+       
+      </label><br>
+      <input type="radio" name="no7" style=" display:inline-flex">
+      <label for="">
+          P=45
+          Q=315
+        
+       
+      
+      </label><br>
+      <br>
+      <div id="rno7"></div>
+      <hr>
+      
+      <label for="">
+        <p style="font-size:1.4rem">perhatikan titik P(3,4) </p> 
+        <p style="font-size:small">
+      
+      
+            <svg width="180" height="140">
+                <line x1="10" y1="40" x2="130" y2="40" 
+                stroke="green"></line> 
+             
+                <line x1="130" y1="40" x2="130" y2="130" 
+                stroke="blue"></line> 
+             
+                <line x1="10" y1="10" x2="10" y2="130" 
+                stroke="black"></line> 
+      
+                <line x1="10" y1="130" x2="130" y2="130" 
+                stroke="blue"></line> 
+                <text x="10" y="10">B</text></text>
+                <text x="130" y="130">A</text></text>
+                <text x="130" y="40">P(3,4)</text></text>
+                <text x="15" y="80">4</text></text>
+                <text x="60" y="125">3</text></text>
+      
+           
+       </p>
+         
+         dapat dinyatakan dalam koordinat polar :
+         <br>
+
+      <br>
+      <input type="radio" name="no8" style=" display:inline-flex">
+      <label for="">
+        P(5,30)
+      </label><br>
+    <input type="radio" name="no8"  style=" display:inline-flex">
+         <label for="">
+           P(5,arc tan(3/4))
+           
+      </label><br>
+      <input type="radio" name="no8" style=" display:inline-flex">
+      <label for="">
+        P(4,40)
+       
+      </label><br>
+
+      <input type="radio" name="no8" id="jno8" style=" display:inline-flex">
+      <label for="">
+        P(5,arc tan(4/3))
+      </label><br>
+
+
+      <br>
+      <div id="rno8"></div>
+      
+      <hr>
+      
+      <label for="">
+        <p style="font-size:1.4rem">jika a=3 dan b=4 serta sudut A=30 
+            maka sudut B adalah
+        </p> 
+        <p style="font-size:small">
+          </label><br>
+      
+          <svg width="180" height="140">
+            <line x1="10" y1="10" x2="130" y2="130" 
+            stroke="green"></line> 
+          
+            <line x1="10" y1="10" x2="30" y2="130" 
+            stroke="black"></line> 
+  
+            <line x1="30" y1="130" x2="130" y2="130" 
+            stroke="blue"></line> 
+            <text x="10" y="10">B</text></text>
+            <text x="130" y="130">A</text></text>
+            <text x="10" y="80">4</text></text>
+            <text x="60" y="125">3</text></text>
+  
+        </svg>
+      
+      <div style="display:inline">
+      
+
+
+      <input type="radio" name="no9" id="jno9" style=" display:inline-flex">
+      <label for="">
+       sin B=3/8
+      </label>
+      <br>
+      <input type="radio" name="no9" id="jno9" style=" display:inline-flex">
+      <label for="">
+        sin B=4/9
+         
+         </div>
+          
+      
+      
+      </label><br>
+      <div style="display:inline">
+      <input type="radio" name="no9"  style=" display:inline-flex">
+      <label for="A">
+         
+         </div>
+         Sin B=4/6
+        
+      </label><br>
+      <input type="radio" name="no9" style=" display:inline-flex">
+      <label for="">
+        <div style="display:inline">
+          
+           
+           </div>
+           sin B=4/5
+            
+      </label><br>
+      <br>
+      <div id="rno9"></div>
+      <hr>
+      <hr>
+      
+      <label for="">
+        <p style="font-size:1.4rem";> </p> 
+        <p style="font-size:1.4rem">perhatikan garis CD pada segitia siku dibawah </p> 
+        <p style="font-size:small">
+    
+      
+      <div style="display:inline-block">
+      <p>
+      
+        <svg width="180" height="160">
+            <line x1="10" y1="10" x2="130" y2="130" 
+            stroke="green"></line> 
+          
+            <line x1="10" y1="10" x2="10" y2="130" 
+            stroke="black"></line> 
+  
+
+            <line x1="10" y1="130" x2="80" y2="60" 
+            stroke="blue"></line> 
+
+            <line x1="10" y1="130" x2="130" y2="130" 
+            stroke="blue"></line> 
+            <text x="10" y="10">B</text></text>
+            <text x="130" y="130">A</text></text>
+            <text x="10" y="150">C</text></text>
+            <text x="90" y="80">D</text></text>
+            <text x="15" y="80">1</text></text>
+            <text x="60" y="125">1</text></text>
+        </svg>
+  
+      <br>
+      jika AD=BD maka panjang CD adalah
+      <br>
+         <br>
+      </label><br>
+      <input type="radio" name="no10"  style=" display:inline-flex">
+      <label for="">
+        &#8730;2
+      
+      </label>
+      <br>
+      <input type="radio" name="no10" id="jno10" style=" display:inline-flex">
+      <label for="">
+        
+       1/2.&#8730;2
+       
+      </label><br>
+      <input type="radio" name="no10" style=" display:inline-flex">
+      <label for="">
+        &#8730;3
+       
+      
+      </label><br>
+      <input type="radio" name="no10" style=" display:inline-flex">
+      <label for="">
+        1/2.&#8730;3
+       
+      </label><br>
+      <br>
+      <div id="rno10"></div>
+      
+      
+      
+      <hr>
+      <h2>isilah dengan jawanan yang benar</h2>
+      <label>
+        jika sudut 90 derajat diubah ke radian menjadi
+      </label><br>
+      <input type="text" id="sno1">
+      <div id="rsno1"></div>
+      <hr>
+      
+      
+      
+      <label for="">
+        <label>
+            perbandingan sisi miring dengan sisi depan adalah
+          </label><br>
+      </label><br>
+      <input type="text" id="sno2">
+      <div id="rsno2"></div>
+      <hr>
+      <!-- 
+      <label for="">3.warna</label><br>
+      <input type="number" value="" id="sno3">
+      <div id="rsno3"></div>
+      <hr>
+      <label for="">4.warna</label><br>
+      <input type="number" value="" id="sno4">
+      <div id="rsno4"></div>
+      <hr>
+      <label for="">5.warna</label><br>
+      <input type="number" value="" id="sno5"
+      <div id="rsno5"></div>
+      <hr>
+      <label for="">6.warna</label><br>
+      <input type="number" value="" id="sno6">
+      <div id="rsno6"></div>
+      <hr>
+      <label for="">7.warna</label><br>
+      <input type="number" value="" id="sno7">
+      <div id="rsno7"></div>
+      <hr>
+      <label for="">8.warna</label><br>
+      <input type="number" value="" id="sno8">
+      <div id="rsno8"></div>
+      <hr>
+      <label for="">9.warna</label><br>
+      <input type="number" value="" id="sno9">
+      <div id="rsno9"></div>
+      <hr>
+      <label for="">10.warna</label><br>
+      <input type="number" value="" id="sno10">
+      <div id="rsno10"></div>
+      <hr>
+       -->
+      
+      
+      
+      <div style="font-size:20px;text-align:center;width:3rem ; height:2rem;background:rgb(135, 135, 177)" id="nilai" style="font-size:2rem"></div>
+      <button onclick="kirimtri()">Cek Nilai </button>
+  
+
+</div> 
+
+
+
+
+</div>
+	
+  </div>
+	
+
+
+
+
+
+</main>
+
+
+<div style="background:rgb(140, 140, 165)" class="bg-black h-3 footer">
+			<p class="bg-green-200">Copyright © Irzal Achmad  <script>document.write(new Date().getFullYear());</script> </p>
+			</p>
+</div>
+
+
+
+    <script
+    
+    let shuffledQuestions = [] //empty array to hold shuffled selected questions out of all available questions
+    
+    function handleQuestions() { 
+        //function to shuffle and push 10 questions to shuffledQuestions array
+    //app would be dealing with 10questions per session
+        while (shuffledQuestions.length <= 9) {
+            const random = questions[Math.floor(Math.random() * questions.length)]
+            if (!shuffledQuestions.includes(random)) {
+                shuffledQuestions.push(random)
+            }
+        }
+    }
+    
+    
+    let questionNumber = 1 //holds the current question number
+    let playerScore = 0  //holds the player score
+    let wrongAttempt = 0 //amount of wrong answers picked by player
+    let indexNumber = 0 //will be used in displaying next question
+    
+    // function for displaying next question in the array to dom
+    //also handles displaying players and quiz information to dom
+    function NextQuestion(index) {
+        handleQuestions()
+        const currentQuestion = shuffledQuestions[index]
+        document.getElementById("question-number").innerHTML = questionNumber
+        document.getElementById("player-score").innerHTML = playerScore
+        document.getElementById("display-question").innerHTML = currentQuestion.question ;
+        document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+        document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+         document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+        document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+        
+        
+    }
+    
+    
+    function checkForAnswer() {
+        const currentQuestion = shuffledQuestions[indexNumber] //gets current Question 
+        const currentQuestionAnswer = currentQuestion.correctOption //gets current Question's answer
+        const options = document.getElementsByName("option"); //gets all elements in dom with name of 'option' (in this the radio inputs)
+        let correctOption = null
+    
+        options.forEach((option) => {
+            if (option.value === currentQuestionAnswer) {
+                //get's correct's radio input with correct answer
+                correctOption = option.labels[0].id
+            }
+        })
+    
+        //checking to make sure a radio input has been checked or an option being chosen
+        if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+            document.getElementById('option-modal').style.display = "flex"
+        }
+    
+        //checking if checked radio button is same as answer
+        options.forEach((option) => {
+            if (option.checked === true && option.value === currentQuestionAnswer) {
+                document.getElementById(correctOption).style.backgroundColor = "green"
+                playerScore++ //adding to player's score
+                indexNumber++ //adding 1 to index so has to display next question..
+                //set to delay question number till when next question loads
+                setTimeout(() => {
+                    questionNumber++
+                }, 1000)
+            }
+    
+            else if (option.checked && option.value !== currentQuestionAnswer) {
+                const wrongLabelId = option.labels[0].id
+                document.getElementById(wrongLabelId).style.backgroundColor = "red"
+                document.getElementById(correctOption).style.backgroundColor = ""
+                wrongAttempt++ //adds 1 to wrong attempts 
+                indexNumber++
+                //set to delay question number till when next question loads
+                setTimeout(() => {
+                    questionNumber++
+                }, 1000)
+            }
+        })
+    }
+    
+    
+    
+    //called when the next button is called
+    function handleNextQuestion() {
+        checkForAnswer() //check if player picked right or wrong option
+        unCheckRadioButtons()
+        //delays next question displaying for a second just for some effects so questions don't rush in on player
+        setTimeout(() => {
+            if (indexNumber <= 9) {
+    //displays next question as long as index number isn't greater than 9, remember index number starts from 0, so index 9 is question 10
+                NextQuestion(indexNumber)
+            }
+            else {
+                handleEndGame()//ends game if index number greater than 9 meaning we're already at the 10th question
+            }
+            resetOptionBackground()
+        }, 1000);
+    }
+    
+    //sets options background back to null after display the right/wrong colors
+    function resetOptionBackground() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).style.backgroundColor = ""
+        })
+    }
+    
+    // unchecking all radio buttons for next question(can be done with map or foreach loop also)
+    function unCheckRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+    
+    // function for when all questions being answered
+    function handleEndGame() {
+        let remark = null
+        let remarkColor = null
+    
+        // condition check for player remark and remark color
+        if (playerScore <= 3) {
+            remark = "Kurang, C"
+            remarkColor = "red"
+        }
+        else if (playerScore >= 4 && playerScore < 7) {
+            remark = "Cukup , B"
+            remarkColor = "orange"
+        }
+        else if (playerScore >= 7) {
+            remark = "Excellent , baik , A"
+            remarkColor = "green"
+        }
+        const playerGrade = (playerScore / 10) * 100
+    
+        //data to display to score board
+        document.getElementById('remarks').innerHTML = remark
+        document.getElementById('remarks').style.color = remarkColor
+        document.getElementById('grade-percentage').innerHTML = playerGrade
+        document.getElementById('wrong-answers').innerHTML = wrongAttempt
+        document.getElementById('right-answers').innerHTML = playerScore
+        document.getElementById('score-modal').style.display = "flex"
+    
+    }
+    
+    //closes score modal, resets game and reshuffles questions
+    function closeScoreModal() {
+        questionNumber = 1
+        playerScore = 0
+        wrongAttempt = 0
+        indexNumber = 0
+        shuffledQuestions = []
+        NextQuestion(indexNumber)
+        document.getElementById('score-modal').style.display = "none"
+    }
+    
+    //function to close warning modal
+    function closeOptionModal() {
+        document.getElementById('option-modal').style.display = "none"
+    }
+    </script>
+  
+    <script src="js/vidcha.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/trigonometri.js"></script>
+    
+       
+</body>
+</html>
