@@ -21,7 +21,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color : rgb(226, 85, 85);
+    background-color : rgb(128, 115, 115);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -30,7 +30,7 @@ main{
 .game-quiz-container{
     width: 40rem;
     height: 40rem;
-    background-color:rgb(51, 6, 6);
+    background-color:rgb(202, 195, 195);
     
     display: flex;
     flex-direction: column;
