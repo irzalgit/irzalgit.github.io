@@ -9,9 +9,8 @@
   
       	<link rel="stylesheet" href="css/trigonometri.css">
           <script src="js/trigonometri.js"></script>
-  <script src="js/index.js"></script>
 
-
+</style>
 
     
     <script src="js/main.js"></script>
@@ -51,15 +50,15 @@
 	
 </head>
 
-<body class="bg-grey" onload="NextQuestion(0)"> 
+<body class="bg-grey-500" onload="NextQuestion(0)"> 
 
 
   <div>
           <a href="index.html"><p>BACK</p></a>
-          <p style="text-align:center; font-size:16px">TRIGONOMETRI</p>
+          <h2 style="text-align: center;color:green">TRIGONOMETRI</h2>
   </div>
 
-<main class="bg-grey">
+<main class="bg-grey-500">
         <!-- creating a modal for when quiz ends -->
         <div class="modal-container" id="score-modal">
             
@@ -86,8 +85,8 @@
         <div class="game-quiz-container">
 
             <div class="game-details-container">
-                <h1>Jumlah skor benar  : <span id="player-score"></span> / 10</h1>
-                <h1> Pertanyaan ke- : <span id="question-number"></span> / 10</h1>
+                <p> Jumlah jawaban benar : <span style="font-size: 1.2rem;" id="player-score"></span></p>
+                <p> Pertanyaan ke- : <span id="question-number"></span></p>
             </div>
 
             <div  style="background: rgb(10, 77, 36);"class="game-question-container">
@@ -143,10 +142,13 @@
         <br>
        
       
-                
-    </div>
+<!--                 
+      </main>
+  <main> -->
+
+
   
-    <div style="background: rgb(108, 179, 79); font-size:1.4rem" >
+    <div style="padding: 2rem;" class="game-quiz-container-1 " >
         <hr>
         <p style="background: rgb(101, 209, 142); text-align: center";>pilih 1 jawaban </p> 
       
@@ -188,7 +190,7 @@
       <input type="radio" name="no1" style=" display:inline">40<br>
       <div id="rno1"></div>
       <hr>
-      
+    
       
       <label for="">
         <p>panjang garis AB pada segitiga siku  </p> 
@@ -691,41 +693,6 @@
       <input type="text" id="sno2">
       <div id="rsno2"></div>
       <hr>
-      <!-- 
-      <label for="">3.warna</label><br>
-      <input type="number" value="" id="sno3">
-      <div id="rsno3"></div>
-      <hr>
-      <label for="">4.warna</label><br>
-      <input type="number" value="" id="sno4">
-      <div id="rsno4"></div>
-      <hr>
-      <label for="">5.warna</label><br>
-      <input type="number" value="" id="sno5"
-      <div id="rsno5"></div>
-      <hr>
-      <label for="">6.warna</label><br>
-      <input type="number" value="" id="sno6">
-      <div id="rsno6"></div>
-      <hr>
-      <label for="">7.warna</label><br>
-      <input type="number" value="" id="sno7">
-      <div id="rsno7"></div>
-      <hr>
-      <label for="">8.warna</label><br>
-      <input type="number" value="" id="sno8">
-      <div id="rsno8"></div>
-      <hr>
-      <label for="">9.warna</label><br>
-      <input type="number" value="" id="sno9">
-      <div id="rsno9"></div>
-      <hr>
-      <label for="">10.warna</label><br>
-      <input type="number" value="" id="sno10">
-      <div id="rsno10"></div>
-      <hr>
-       -->
-      
       
       
       <div style="font-size:20px;text-align:center;width:3rem ; height:2rem;background:rgb(135, 135, 177)" id="nilai" style="font-size:2rem"></div>
@@ -737,9 +704,9 @@
 
 
 
-</div>
+
 	
-  </div>
+  
 	
 
 
@@ -774,6 +741,7 @@
     
     let questionNumber = 1 //holds the current question number
     let playerScore = 0  //holds the player score
+    
     let wrongAttempt = 0 //amount of wrong answers picked by player
     let indexNumber = 0 //will be used in displaying next question
     
@@ -783,7 +751,7 @@
         handleQuestions()
         const currentQuestion = shuffledQuestions[index]
         document.getElementById("question-number").innerHTML = questionNumber
-        document.getElementById("player-score").innerHTML = playerScore
+        document.getElementById("player-score").innerHTML = playScore
         document.getElementById("display-question").innerHTML = currentQuestion.question ;
         document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
         document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
