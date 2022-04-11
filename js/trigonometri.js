@@ -61,37 +61,38 @@
 
     let response
     let poin=0
+    
     if (jno1.checked){
-      response="benar"
+      response=""
       poin=poin+5
     }else {
-      response=""
+      response="<h1>besar sudut A= arc tan y/x = arc tan 1 (gunakan kalkulator)</h1>"
     }
     rno1.innerHTML=response
   
 
   if (jno2.checked){
-    response="benar"
+    response=""
     poin=poin+5
   }else {
-    response=""
+    response="<h1>pakai rumus phytagoras</h1>"
   }
   rno2.innerHTML=response
 
   if (jno3.checked){
-    response=" benar"
+    response=" "
     poin=poin+10
   }else {
-    response=""
+    response="<h1>pakai aturan cosinus</h1>"
   }
   rno3.innerHTML=response
 
 
 if (jno4.checked){
-  response=" benar"
+  response=" "
   poin=poin+10
 }else {
-  response=""
+  response="<h1>lihat mindmap, rumus  s(s-a)(s-b)(s-c)</h1>"
 }
 rno4.innerHTML=response
 
@@ -99,16 +100,16 @@ rno4.innerHTML=response
 
 
   if (jno5.checked){
-    response="benar"
+    response=""
     poin=poin+10
   }else {
-    response=" "
+    response="<h1>sec adalah perbandingan sisi miring dengan sisi samping</h1>"
   }
   rno5.innerHTML=response
 
 
 if (jno6.checked){
-  response="benar"
+  response=""
   poin=poin+5
 }else {
   response=""
@@ -117,33 +118,33 @@ rno6.innerHTML=response
 
 
 if (jno7.checked){
-    response=" benar"
+    response=" "
     poin=poin+10
   }else {
-    response=""
+    response="<h1>lihat vidio trigonometri #4<h1>"
   }
   rno7.innerHTML=response
 
 
 if (jno8.checked){
-  response="benar"
+  response=""
   poin=poin+10
 }else {
-  response=""
+  response="<h1>cari r atau jari2 dengan phytagoras</h>"
 }
 rno8.innerHTML=response
 
 if (jno9.checked){
-    response="benar"
+    response=""
     poin=poin+5
   }else {
-    response=""
+    response="<h1>pakai aturan sinus, lihat mindmapnya</h1>"
   }
   rno9.innerHTML=response
 
 
 if (jno10.checked){
-  response="benar"
+  response=""
   poin=poin+10
 }else {
   response=""
@@ -167,4 +168,5 @@ nilai.innerHTML=poin
    }
    rsno2.innerHTML=response
  nilai.innerHTML=poin
+ 
 }
