@@ -152,7 +152,7 @@ rno10.innerHTML=response
 
 
 if (sno1.value=="5"){
-    response="benar"; poin=poin+20} 
+    response="benar"; poin=poin+10} 
 else {response=""}
 rsno1.innerHTML=response
 nilai.innerHTML=poin
