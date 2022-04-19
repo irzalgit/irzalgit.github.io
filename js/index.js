@@ -789,7 +789,7 @@ function checkForAnswer() {
 
         else if (option.checked && option.value !== currentQuestionAnswer) {
             const wrongLabelId = option.labels[0].id
-            document.getElementById(wrongLabelId).style.backgroundColor = "red"
+            document.getElementById(wrongLabelId).style.backgroundColor = ""
             document.getElementById(correctOption).style.backgroundColor = ""
             wrongAttempt++ //adds 1 to wrong attempts 
             indexNumber++
