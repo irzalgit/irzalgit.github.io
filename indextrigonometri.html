@@ -3,14 +3,312 @@
  
 
 <head> 
-	<meta charset="UTF-8">
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hallo,sahabat</title>
+        
+        
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html, body{
+        height: 100%;
+    }
+    
+    
+    body{
+        font-family: 'Montserrat', serif;
+    }
+    
+    main{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color : rgb(44, 105, 47);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .game-quiz-container{
+        width: 40rem;
+        height: 30rem;
+        background-color:rgb(196, 233, 199);
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 30px;
+    }
+    
+    .game-details-container{
+        width: 80%;
+        height: 4rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .game-details-container h1{
+        font-size: 1.4rem;
+        color: black;
+        font-weight: 800;
+        
+    }
+    
+    .game-question-container{
+        width: 80%;
+        height: 8rem;
+        display: flex;
+        
+        align-items: center;
+        justify-content: center;
+        border: 2px solid darkgray;
+        border-radius: 25px;
+        margin:2px;
+    }
+    
+    .game-question-container h1{
+        font-size: 1.6rem;
+        text-align: center;
+        color: black;
+        padding: 3px;
+        font-weight: 600;
+        
+    }
+    
+    .game-options-container{
+        width: 80%;
+        height: 12rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        
+    }
+    
+    .game-options-container span{
+        width: 45%;
+        height: 3rem;
+        border: 2px solid darkgray;
+        border-radius: 20px;
+        
+        overflow: hidden;
+    }
+    span label{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.3s;
+        font-weight: 600;
+        color: rgb(22, 22, 22);
+    }
+    
+    span label:hover{
+        -ms-transform: scale(1.12);
+        -webkit-transform: scale(1.12);
+        transform: scale(1.12);
+        color: white;
+    }
+    
+    input[type="radio"] {
+        position: relative;
+        display: none;
+    }
+    
+    
+    input[type=radio]:checked ~ .option {
+        background: paleturquoise;
+    }
+    
+    .next-button-container{
+        width: 50%;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+    .next-button-container button{
+        width: 8rem;
+        margin:2px;
+        height: 2rem;
+        border-radius: 10px;
+        background: green;
+        color: rgb(25, 25, 25);
+        font-weight: 600;
+        border: 3px solid black;
+        cursor: pointer;
+        outline: none;
+    }
+    .next-button-container button:hover{
+        background-color: rgb(143, 93, 93);
+    }
+    
+    .modal-container{
+        display: none;
+        position: fixed;
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+        -webkit-animation: fadeIn 1.2s ease-in-out;
+        animation: fadeIn 1.2s ease-in-out;
+    }
+    
+    .modal-content-container{
+        height: 20rem;
+        width: 25rem;
+        background-color: rgb(43, 42, 42);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 25px;
+    }
+    
+    .modal-content-container h1{
+        font-size: 1.3rem;
+        height: 3rem;
+        color: lightgray;
+        text-align: center;
+    }
+    
+    .grade-details{
+        width: 15rem;
+        height: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .grade-details p{
+        color: white;
+        text-align: center;
+    }
+    
+    .modal-button-container{
+        height: 2rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .modal-button-container button{
+        width: 10rem;
+        height: 2rem;
+        background: none;
+        outline: none;
+        border: 1px solid rgb(252, 242, 241);
+        color: white;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+    .modal-button-container button:hover{
+        background-color: rgb(83, 82, 82);
+    }
+    
+    @media(min-width : 300px) and (max-width : 350px){
+        .game-quiz-container{
+            width: 90%;
+            height: 80vh;
+         }
+         .game-details-container h1{
+            font-size: 0.8rem;
+         }
+    
+         .game-question-container{
+            height: 6rem;
+         }
+         .game-question-container h1{
+           font-size: 0.9rem;
+        }
+    
+        .game-options-container span{
+            width: 90%;
+            height: 2.5rem;
+        }
+        .game-options-container span label{
+            font-size: 0.8rem;
+        }
+        .modal-content-container{
+            width: 90%;
+            height: 25rem;
+        }
+    
+        .modal-content-container h1{
+            font-size: 1.2rem;
+        }
+    }
+    
+    @media(min-width : 350px) and (max-width : 700px){
+       .game-quiz-container{
+           width: 90%;
+           height: 80vh;
+        }
+        .game-details-container h1{
+            font-size: 1rem;
+        }
+    
+        .game-question-container{
+            height: 8rem;
+        }
+    
+        .game-question-container h1{
+            font-size: 0.9rem;
+         }
+    
+        .game-options-container span{
+            width: 90%;
+        }
+        .modal-content-container{
+            width: 90%;
+            height: 25rem;
+        }
+        .modal-content-container h1{
+            font-size: 1.2rem;
+        }
+    }
+    
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+      }
+    
+      @-webkit-keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
+    
+        </style>
+	<!-- <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Hallo,sahabat</title>
   
       	<link rel="stylesheet" href="css/trigonometri.css">
-          <script src="js/trigonometri.js"></script>
+          <script src="js/trigonometri.js"></script> -->
 
-</style>
+          
 
     
     <script src="js/main.js"></script>
@@ -142,15 +440,15 @@
         <br>
        
       
-<!--                 
+                
       </main>
-  <main> -->
+  
 
 
   
-    <div style="padding: 2rem;" class="game-quiz-container-1 " >
+    <div style="padding: 2rem;background-color: rgb(12, 221, 12);" class="game-quiz-container-1 " >
         <hr>
-        <p style="background: rgb(101, 209, 142); text-align: center";>pilih 1 jawaban </p> 
+        <p style="background-color:chocolate; font-size: 1.2rem; text-align: center";>pilih 1 jawaban </p> 
       
         
       
@@ -723,14 +1021,17 @@
 
 
 
-    <script
+
+<script src="js/soaltri.js"></script>
+<script>
+    
     
     let shuffledQuestions = [] //empty array to hold shuffled selected questions out of all available questions
     
     function handleQuestions() { 
         //function to shuffle and push 10 questions to shuffledQuestions array
     //app would be dealing with 10questions per session
-        while (shuffledQuestions.length <= 9) {
+        while (shuffledQuestions.length <= 39) {
             const random = questions[Math.floor(Math.random() * questions.length)]
             if (!shuffledQuestions.includes(random)) {
                 shuffledQuestions.push(random)
@@ -741,7 +1042,6 @@
     
     let questionNumber = 1 //holds the current question number
     let playerScore = 0  //holds the player score
-    
     let wrongAttempt = 0 //amount of wrong answers picked by player
     let indexNumber = 0 //will be used in displaying next question
     
@@ -751,14 +1051,13 @@
         handleQuestions()
         const currentQuestion = shuffledQuestions[index]
         document.getElementById("question-number").innerHTML = questionNumber
-        document.getElementById("player-score").innerHTML = playScore
-        document.getElementById("display-question").innerHTML = currentQuestion.question ;
+        document.getElementById("player-score").innerHTML = playerScore
+        document.getElementById("display-question").innerHTML = currentQuestion.question;
         document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
         document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
-         document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+        document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
         document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
-        
-        
+    
     }
     
     
@@ -794,7 +1093,7 @@
     
             else if (option.checked && option.value !== currentQuestionAnswer) {
                 const wrongLabelId = option.labels[0].id
-                document.getElementById(wrongLabelId).style.backgroundColor = "red"
+                document.getElementById(wrongLabelId).style.backgroundColor = ""
                 document.getElementById(correctOption).style.backgroundColor = ""
                 wrongAttempt++ //adds 1 to wrong attempts 
                 indexNumber++
@@ -814,7 +1113,7 @@
         unCheckRadioButtons()
         //delays next question displaying for a second just for some effects so questions don't rush in on player
         setTimeout(() => {
-            if (indexNumber <= 9) {
+            if (indexNumber <= 39) {
     //displays next question as long as index number isn't greater than 9, remember index number starts from 0, so index 9 is question 10
                 NextQuestion(indexNumber)
             }
@@ -847,19 +1146,19 @@
         let remarkColor = null
     
         // condition check for player remark and remark color
-        if (playerScore <= 3) {
+        if (playerScore <= 21) {
             remark = "Kurang, C"
             remarkColor = "red"
         }
-        else if (playerScore >= 4 && playerScore < 7) {
+        else if (playerScore >= 22 && playerScore < 31) {
             remark = "Cukup , B"
             remarkColor = "orange"
         }
-        else if (playerScore >= 7) {
+        else if (playerScore >= 31) {
             remark = "Excellent , baik , A"
             remarkColor = "green"
         }
-        const playerGrade = (playerScore / 10) * 100
+        const playerGrade = (playerScore / 40) * 100
     
         //data to display to score board
         document.getElementById('remarks').innerHTML = remark
@@ -887,11 +1186,7 @@
         document.getElementById('option-modal').style.display = "none"
     }
     </script>
-  
-    <script src="js/vidcha.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/trigonometri.js"></script>
-    
+    >
        
 </body>
 </html>
