@@ -26,12 +26,12 @@
   
   main{
       width: 100%;
-      min-height: 100vh;
+      height: fit-content;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color : rgb(214, 210, 221);
+      background-color : rgb(228, 238, 171);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -40,12 +40,24 @@
   .game-quiz-container{
       width: 40rem;
       height: 30rem;
-      background-color:rgb(196, 233, 199);
+      background-color:rgb(182, 184, 211);
       
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
+      border-radius: 30px;
+  }
+  .game-quiz-container-vek{
+      width: 40rem;
+    
+      height:fit-content;
+      background-color:goldenrod;
+      
+      
+      flex-direction: column;
+      
+      
       border-radius: 30px;
   }
   
@@ -232,6 +244,11 @@
           width: 90%;
           height: 80vh;
        }
+       .game-quiz-container-vek{
+          width: 90%;
+          
+       }
+       
        .game-details-container h1{
           font-size: 0.8rem;
        }
@@ -264,6 +281,10 @@
      .game-quiz-container{
          width: 90%;
          height: 80vh;
+      }
+      .game-quiz-container-vek{
+         width: 90%;
+         
       }
       .game-details-container h1{
           font-size: 1rem;
@@ -351,7 +372,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
           <h2 style="text-align: center;color:green">VEKTOR</h2>
   </div>
 
-<main class="bg-grey-500">
+<main>
         <!-- creating a modal for when quiz ends -->
         <div class="modal-container" id="score-modal">
             
@@ -434,16 +455,10 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
         </div>
         <br>
        
-      
-<!--                 
-      </main>
-  <main> -->
+      <div style="font-size: 1.2rem ;padding: 1rem;" class="game-quiz-container-vek"> 
 
 
-  
-    <div style="padding: 2rem;" class="game-quiz-container-1 " >
-        <hr>
-        <p style="background: rgb(235, 231, 231); text-align: center";>vektor</p> 
+    <h2>Vektor</h2> 
       
         
       
@@ -525,7 +540,7 @@ b\end{vmatrix}sin\theta $$
           <text x="60" y="125"></text>
           
 
-     >
+     
       </p>
        
        adalah
@@ -567,7 +582,7 @@ b\end{vmatrix}sin\theta $$
      <text x="60" y="125"></text>
      <text x="15" y="80"></text>
      <text x="60" y="125"></text>
->
+
       
        </p>
          
@@ -948,7 +963,7 @@ b\end{vmatrix}sin\theta $$
       </label>
         
          
-         </div>
+        
           
 <br>
       <div style="display:inline">
@@ -962,6 +977,7 @@ b\end{vmatrix}sin\theta $$
         $$2i+2j $$
 
       </label>
+      </div>
       <br>
       <br>
       <div id="rno9"></div>
@@ -1005,6 +1021,7 @@ b\end{vmatrix}sin\theta $$
        
       </label><br>
       <br>
+      </div>
       <div id="rno10"></div>
       
       
@@ -1028,16 +1045,16 @@ b\end{vmatrix}sin\theta $$
       <hr>
       
       
-      <div style="font-size:20px;text-align:center;width:3rem ; height:2rem;background:rgb(135, 135, 177)" id="nilai" style="font-size:2rem"></div>
+      <div style="font-size:20px;text-align:center;width:3.6rem ; height:2rem;background:rgb(143, 168, 32)" id="nilai" style="font-size:2rem"></div>
       <button onclick="kirimvektor()">Cek Nilai </button>
   
-       <script src="js/vektor.js"></script>
-
+      
 </div> 
 
 
 
 
+ <script src="js/vektor.js"></script>
 
 	
   
@@ -1049,11 +1066,6 @@ b\end{vmatrix}sin\theta $$
 
 </main>
 
-
-<div style="background:rgb(140, 140, 165)" class="bg-black h-3 footer">
-			<p class="bg-green-200">Copyright © Irzal Achmad  <script>document.write(new Date().getFullYear());</script> </p>
-			</p>
-</div>
 
 
 
