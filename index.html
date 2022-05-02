@@ -578,6 +578,8 @@ Selamat pagi
 	<input style=" background-color: rgb(188, 241, 188); font-size: 1.2rem; width: 250px;" name="nama" type="text" placeholder="Isi nama anda " required >
 	<input style="text-align: center; font-size: 1.2rem; width: 60px;" name="score" type="text"  value="" id="player-score-form"  readonly>
 	<button type="submit"  > <h3>Simpan</h3> </button>
+		<button onclick="resetform()">reset</button>
+
 	
 <!-- <input name="email" type="email" placeholder="Email" required> -->
 	</div>
@@ -745,11 +747,16 @@ init();
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then{(response => console.log('Success!', response));form.reset()}
+        .then(response => console.log('Success!', response))
         .catch(error => console.error('Error!', error.message))
     })
   </script>
-  
+	<script>
+	function resetform(){
+		form.reset();
+	}
+	</script>
+	
 
 <script src="js/wheelzoom.js"></script>
 <script>
