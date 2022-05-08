@@ -18,6 +18,13 @@
 	targetgambar.src = gambar.getAttribute('src');}
 </script>
 
+<script type="text/javascript">
+	function gantividio(vidio) {
+	var targetvidio = document.getElementById('targetvidio')
+	targetvidio.src = vidio.getAttribute('src');}
+</script>
+
+
 
 	
 <style>
@@ -443,29 +450,20 @@
 <div class="container">
 
 <figure id="video-track-container">
-    <video   class="vidchaVideo"  controls>
+    <video  id="targetvidio" class="vidchaVideo"  controls>
     		
       <source  src="vidio/matinv33.mp4" type="video/mp4">
       		
     </video>
-    <figcaption >
-   
-      
-      <ol class="vidchaNav">
-      	 <li data-start="4">Matrik</li>
-         <li data-start="24">invers</li>
-         <li data-start="70">minor</li>
-          <li data-start="200">cofaktor</li>
-        <li data-start="290">Tabel</li>
-        <li data-start="500">tranxpose</li>
-         
-     <li data-start="1658">adjoint</li>
-    </ol>
-
-   
-  </figcaption>
    </figure>
-     
+ 
+	
+	
+<button style="width: 100px;background:rgb(16, 209, 26)" type="button" src="vidio/relasisdt.mp4" onclick="gantividio(this)">Relasi sudut</button>
+<button style="width: 100px;background:rgb(185, 185, 221)" type="button" src="vidio/rev.mp4" onclick="gantividio(this)">Matrik 1</button>
+<button style="width: 100px;background:rgb(0, 255, 128)" type="button" src="vidio/rev2.mp4" onclick="gantividio(this)">Matrik 2</button>
+<button style="width: 100px;background:red" type="button" src="vidio/rev3.mp4" onclick="gantividio(this)">Invers matrik</button>
+
 <script type="text/vtt" id="subtitle" data-label="English" data-lang="en">  
 WEBVTT
 
