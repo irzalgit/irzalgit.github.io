@@ -517,14 +517,14 @@ Selamat pagi
         
     
     </div>
- 
+<!--  
         <div>
          <label>Score:</label> <input style="width:50px; text-align:center;" ;name="score" type="text"  value="" id="player-score-form"  readonly>
             
 		
         </div>
           
-        
+         -->
        
 	<div class="game-question-container">
 		<h1 id="display-question"></h1>
@@ -590,26 +590,24 @@ Selamat pagi
 <br>
 	<div class="modal-button-container">
 	<input style=" background-color: rgb(188, 241, 188); font-size: 1.2rem; height: 2rem;width: 200px;" name="nama" type="text" placeholder="Isi nama anda " required >
-	<!-- <input style="text-align: center; font-size: 1.2rem; width: 60px;" name="score" type="text"  value="" id="player-score-form"  readonly> -->
-	
-		<!-- <button onclick="resetform()">reset</button> -->
-	
-        <button type="submit" class="btn btn-primary btn-kirim " > Simpan </button>
-        <button class="btn btn-primary btn-loading d-none " disabled>
+	<input style="text-align: center; font-size: 1.2rem; height: 2rem; width: 60px;" name="score" type="text"  value="" id="player-score-form" readonly >
+    <button type="submit" class="btn btn-primary btn-kirim " > Simpan </button> 
+    <button class="btn btn-primary btn-loading d-none " disabled>
             
             Loading..
-          </button>
+    </button>
+  
+   
 	
-<!-- <input name="email" type="email" placeholder="Email" required> -->
 	</div>
-
-
-</form>
-
 <div class="alert alert-success alert-dismissible d-none my-alert">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
   </div>
+
+</form>
+
+
 
 
 <!-- v\begin{vmatrix}
