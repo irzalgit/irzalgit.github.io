@@ -20,7 +20,10 @@
 <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 
-
+<cript src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<cript type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
 <script type="text/javascript">
 	function ganti(gambar) {
 	var targetgambar = document.getElementById('targetgambar')
@@ -374,7 +377,7 @@
 
 
 				<div align="center">
-<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script> 
+<script type="text/javascript" sr="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script> 
 		  			   			</div>
 				<h1 class="text-3xl" style="text-align: center;">Portal Peta Pikiran</h1>
 				<h3 style="text-align: center;">Profesional Kolaboratif</h3>  
@@ -389,14 +392,14 @@
 		</div>
 
 		<div class="middle">
-			<h2 style="text-align: center;">Update 31/7/22 
+			<h2 style="text-align: center;">Update 21/8/22 
 			<br></h2>
 			<img   width="65%" src="gbr/heli.jpg" alt="">
 			<br>
 		
 			<p>Bagaimana menggunakan situs ini?</p>
 			<p>
-			1.Arahkan pointer ke gambar mindmap<br>
+      1.Arahkan pointer ke gambar mindmap<br>
 			2.Zoom dan geser  kesalah satu materi yang dikehendaki<br>
 			3.Klik caption vidio sesuai dengan materi<br>
 			4.Sambil mendengar audio/vidio  ... geser-geser gambar sesuai dengan narasi<br>
@@ -636,7 +639,7 @@ Selamat pagi
     font-size: 1.2rem; text-align: center";>pilih 1 jawaban </p> 
    <hr> 
 <h2>Bilangan Berpangkat(kelas X)</h2>
-<label for="">
+
     <p>definisi bilangan berpangkat
       <math>
         <msup>
@@ -647,19 +650,20 @@ Selamat pagi
       </math>
         
      </p> 
-  <p style="font-size:small">
+     <label for="">
+     <p style="font-size:small">
   
   <input type="radio" name="no31" style=" display:inline-flex"> 
   <math>
   <mi>n disebut basis</mi>
   </math><br>
   
-  <input type="radio" name="no31" id="jno31" style=" display:inline-flex">
+  <input  type="radio" name="no31" id="jno31" style=" display:inline-flex">
   <math>
   <mi>a disebut basis</mi>
   </math><br>
 
-  <input type="radio" name="no31" style=" display:inline-flex">
+  <input  type="radio" name="no31" style=" display:inline-flex">
   <math>
   <mi>a banyaknya perkalian berulang</mi>
   </math><br>
@@ -673,6 +677,8 @@ Selamat pagi
   <hr>
   
   </p>
+  
+
   <label for="">
     <p>Bentuk sederhana dari 
       <math>
@@ -727,6 +733,7 @@ Selamat pagi
   <hr>
   
   </p>
+
   <label for="">
     <p>Bentuk sederhana dari 
       <math>
@@ -743,6 +750,7 @@ Selamat pagi
       </math>
         
      </p> 
+     
   <p style="font-size:small">
   
   <input type="radio" name="no33" style=" display:inline-flex"> 
@@ -781,7 +789,6 @@ Selamat pagi
   <hr>
   
   </p>
-
   <label for="">
     <p>Bentuk sederhana dari 
       <math>
@@ -894,6 +901,8 @@ Selamat pagi
         </math><br>
   <div id="rno35"></div>
   <hr>
+
+
   <label for="">
     <p>bentuk akar dari  bilangan berpangkat
       <math>
@@ -938,7 +947,7 @@ Selamat pagi
   
   <div id="rno36"></div>
   <hr>
-  
+
   <label for="">
     <p>bentuk akar dari  bilangan berpangkat
       <math>
@@ -988,11 +997,6 @@ Selamat pagi
   
   <div id="rno37"></div>
   <hr>
-  
-  
-
-
-
   <label for="">
     <p>perkalian akar 
       <math>
@@ -1013,8 +1017,6 @@ Selamat pagi
   <input type="radio" name="no38" style=" display:inline">5<br>
   <div id="rno38"></div>
   <hr>
-
-
   <label for="">
     <p>hasil pembagian akar
       <math>
@@ -1076,6 +1078,7 @@ Selamat pagi
   
 
   <hr>
+
   <label for="">
     <p>perkalian akar 
       <math> 
@@ -1138,13 +1141,78 @@ Selamat pagi
   <br>
   <div id="rno40"></div>
   <hr>
- 
-            
-  <div style="font-size:20px;text-align:center;width:3rem ; 
-height:2rem;background:rgb(135, 135, 177)" id="nilai" 
-style="font-size:2rem"></div>
-<br>
-<button onclick="kirimtri()">Cek Nilai  </button>
+
+  <label for="">
+    <p>Logaritma 
+   $$a^c=b $$ 
+   <p>bentuk logaritmanya adalah</p>
+    
+   $$c=\log_ab$$
+     </p> 
+     <p>
+      a disebut basis;<br>
+      b disebut numerus;<br>
+      c adalah nilai logaritmanya</p>
+
+      $$2^3=8 $$ 
+      $$3=\log_2 8$$ 
+      <p>atau</p>
+      $$\log_2 8=3$$ 
+    <hr>
+<h5>Sifat 1</h5>
+$$\log_aa^n=n$$
+<hr>
+Tentukan nilai logaritma berikut ini $$\log_2 16=...$$
+
+<p style="font-size:small">
+<input type="radio" name="no51" style=" display:inline-flex">0<br>
+<input type="radio" name="no51"  style=" display:inline-flex">2 <br>
+<input type="radio" name="no51" style=" display:inline-flex">3<br>
+<input type="radio" name="no51" id="jno51" style=" display:inline">4<br>
+<div id="rno51"></div>
+<hr>
+Tentukan nilai logaritma berikut ini menggunakan sifat 1 $$\log_55=...$$
+
+<p style="font-size:small">
+<input type="radio" name="no52" style=" display:inline-flex">0<br>
+<input type="radio" name="no52"  style=" display:inline-flex">2 <br>
+<input type="radio" name="no52" style=" display:inline-flex">3<br>
+<input type="radio" name="no52" id="jno52" style=" display:inline">1<br>
+<div id="rno52"></div>
+<hr>
+Tentukan nilai logaritma berikut ini menggunakan sifat 1 $$\log_31=...$$
+
+<p style="font-size:small">
+<input type="radio" name="no53" id="jno53" style=" display:inline-flex" >0<br>
+<input type="radio" name="no53"  style=" display:inline-flex">2 <br>
+<input type="radio" name="no53" style=" display:inline-flex">3<br>
+<input type="radio" name="no53"  style=" display:inline">4<br>
+<div id="rno53"></div>
+<hr>
+Tentukan nilai logaritma berikut ini menggunakan sifat 1 $$\log_525=...$$
+
+<p style="font-size:small">
+<input type="radio" name="no54" style=" display:inline-flex">0<br>
+<input type="radio" name="no54" id="jno54" style=" display:inline-flex" >2 <br>
+<input type="radio" name="no54" style=" display:inline-flex">3<br>
+<input type="radio" name="no54"  style=" display:inline">4<br>
+<div id="rno54"></div>
+<hr>
+Tentukan nilai logaritma berikut ini menggunakan sifat 1 $$\log_575=...$$
+
+<p style="font-size:small">
+<input type="radio" name="no55" style=" display:inline">0<br>
+<input type="radio" name="no55" id="jno55" style="display: inline; " >$$2.\log_53$$<br>
+<input type="radio" name="no55" style=" display:inline">3<br>
+<input type="radio" name="no55" style=" display:inline">4<br>
+<div id="rno55"></div>
+<hr>
+
+</label>
+    
+<div style="text-align:center;height: 30px; width:50px;background:rgb(235, 235, 238)" id="nilai2"></div>
+<button onclick="kirimtri2()">Cek Nilai Bilangan Berpangkat </button>
+
 
 
 <hr>
@@ -1178,16 +1246,16 @@ style="font-size:2rem"></div>
    
   
   
-  </label><br>
+  
   <input type="radio" name="no1" style=" display:inline-flex">30<br>
   <input type="radio" name="no1" id="jno1" style=" display:inline-flex">45<br>
   <input type="radio" name="no1" style=" display:inline-flex">60<br>
   <input type="radio" name="no1" style=" display:inline">75<br>
   <div id="rno1"></div>
   <hr>
-
+</label><br>
   
-  <label for="">
+  
     <p>panjang garis AB pada segitiga siku  </p> 
     <p style="font-size:small">
   
@@ -1208,36 +1276,16 @@ style="font-size:2rem"></div>
    </p>
      
      adalah
-    
-  </label><br>
-  <input type="radio" name="no2" style=" display:inline-flex">
-  <label for="">
-   3
-  <br>
-  
-  </label>
-  <br>
-  <input type="radio" name="no2" id="jno2" style=" display:inline-flex">
-  <label for="">
-    &#8730;18
-    
-   <br>
-  </label><br>
-  <input type="radio" name="no2" style=" display:inline-flex">
-  <label for="">
-    2
-  <br>
-  
-  </label><br>
-  <input type="radio" name="no2" style=" display:inline-flex">
-  <label for="">
-    4
-  </label><br>
-  <br>
+     <br>
+  <label for="">  
+  <input type="radio" name="no2" style=" display:inline-flex">3<br>
+  <input type="radio" name="no2" style=" display:inline-flex" id="jno2">&#8730;18<br>
+  <input type="radio" name="no2" style=" display:inline-flex">2<br>
+  <input type="radio" name="no2" style=" display:inline-flex">4<br>
   <div id="rno2"></div>
-  
   <hr>
-  
+  </label>
+
   <label for="">
     <p>jika cos C=1/6 maka panjang AB </p> 
     <p style="font-size:small">
@@ -3742,7 +3790,7 @@ style="font-size:2rem"></div>
     menyatakan  4 satuan arah x+ adalah 4i.Sedangkan untuk satuan arah  y+ diberi simbol j.
 <br>Operasi Vektor:<br>
 jika $$\vec{a}=x_{1}i+y_{1}j $$
-$$\vec{b}=x_{2}i+y_{2}j $$
+
 
 <br>1.Penjumlahan dan pengurangan.<br>
 $$\vec{a}+\vec{b}=(x_{{1}}+x_{2})i+(y_{1}+y_{2})j  $$
@@ -4294,6 +4342,7 @@ b\end{vmatrix}sin\theta $$
       <h2>isilah dengan jawanan yang benar</h2>
       <label>
        $$\vec{a}=3i+4j $$
+       
       </label>
       besar vektor a adalah 
       <input type="text" id="sno21">
@@ -4333,47 +4382,373 @@ b\end{vmatrix}sin\theta $$
       <input type="radio" name="no1" style=" display:inline-flex">  
       a,b,c : real
 <br>
-  <input type="radio" name="n31" id="jno1" style=" display:inline-flex"> <msup>
+  <input type="radio" name="no61" id="jno61" style=" display:inline-flex"> <msup>
                         a,b,c : real dan a tidak boleh nol<br>
-  <input type="radio" name="n31" style=" display:inline-flex">a,b,c : bilangan asli<br>
-  <input type="radio" name="n31" style=" display:inline">a,b,c : bilangan positif<br>
-  <div id="rn31"></div>
+  <input type="radio" name="no61" style=" display:inline-flex">a,b,c : bilangan asli<br>
+  <input type="radio" name="no61" style=" display:inline">a,b,c : bilangan positif<br>
+  <div id="rno61"></div>
   <hr>
   
   </p>
 
       <h2>Limit Fungsi Aljabar (XII)</h2>
+      <p>Definisi limit secara intuitif</p>
+      jika x mendekati 2  nilai f mendekati 7 ( berdasarkan tabel)<br><br>
+      <p>Definisi limit secara aljabar</p>
+      Jika  limit fungsi f(x) ada , yaitu ketika x mendekati a adalah L, ditulis
+      $$\lim\limits_{x \to a} f(x)=L$$
+      maka f(x)-L tidak sama dengan 0, dan x-a tidak sama dengan 0,
+      sehingga sedekat apapun x-a maka akan ada f(x)-L sekecil apapun. 
+       
+      <p><br>
+        Nilai limit dapat diperoleh dengan cara sbb.</p>
+        <p>1.SUBSTITUSI/ pergantian<br>
+        2.FAKTORISASI<br>
+        3.PERKLIAN DENGAN SEKAWAN</p>
+<p>1.Substtusi<br>Nilai limit suatu fungsi f(x) jika x mendekati suatu nilai a adalah f(a), yaitu dengan
+  mensubstitusikan/mengganti x dengan a.
+ </p>
+  <p>TEOREMA LIMIT</p>
+  Misalkan f dan g adalah fungsi-fungsi yang mempunyai limit di x=a yaitu 
+  $$\lim\limits_{x \to a} f(x)=f(a)=M$$ dan     $$\lim\limits_{x \to a} g(x)=g(a)=N$$
+maka ada sifat-sifat limit sbb:
+<h5>Sifat 1</h5>
+ <p> Jika f(x)=k dimana k konstanta maka :
+  $$\lim\limits_{x \to a} k=k$$</p>
 <label for="">
-    <p>definisi limit
-      <math>
-        <msup>
-            <mi>a</mi>
-            <mn>n</mn>
-        </msup>
-      </math>
-        
+    <p>Berdasarkan sifat 1 nilai limit 
+      $$\lim\limits_{x \to 2} 3= ...$$
+      adalah
      </p> 
     <p style="font-size:small">
-      <input type="radio" name="no1" style=" display:inline-flex">batas
-<br>
-  <input type="radio" name="n31" id="jno1" style=" display:inline-flex"> <msup>
-                        ambang<br>
-  <input type="radio" name="n31" style=" display:inline-flex">hampir<br>
-  <input type="radio" name="n31" style=" display:inline"> menuju suatu batas<br>
-  <div id="rn31"></div>
+  <input type="radio" name="no41" style="display:inline-flex">2<br>
+  <input type="radio" name="no41" id="jno41" style="display:inline-flex">3<br>
+  <input type="radio" name="no41" style=" display:inline-flex">7<br>
+  <input type="radio" name="no41" style=" display:inline">10<br>
+  <div id="rno41"></div>
+</p>
   <hr>
+
+<label for="">
+  <h5>Sifat 2</h5>
+    <p>jika f(x)=x maka $$\lim\limits_{x \to a} x=a$$</p>
+      <p>Berdasarkan sifat 2, nilai limit $$\lim\limits_{x \to 2} x= ...$$
+      adalah</p>
+    <p style="font-size:small">
+  <input type="radio" name="no42" style="display:inline-flex">1<br>
+  <input type="radio" name="no42" id="jno42" style="display:inline-flex">2<br>
+  <input type="radio" name="no42" style=" display:inline-flex">3<br>
+  <input type="radio" name="no42" style=" display:inline">5<br>
+  <div id="rno42"></div>
+</p>
+</label>
+
+<hr>
+
+<label for="">
+    <h5>Sifat 3</h5>
+  <p>  Jika f(x)=k.f(x) dimana k konstanta maka $$\lim\limits_{x \to a} k.f(x)=k.f(a)$$
+</p>
+<p>Berdasarkan sifat 3, nilai limit 
+      $$\lim\limits_{x \to -2} 3x= ...$$
+      adalah
+     </p>
+    <p style="font-size:small">
+  <input type="radio" name="no43" style="display:inline-flex">2<br>
+  <input type="radio" name="no43"  style="display:inline-flex">3<br>
+  <input type="radio" name="no43" id="jno43" style=" display:inline-flex">-6<br>
+  <input type="radio" name="no43" style=" display:inline">6<br>
+  <div id="rno43"></div>
+</p>
+</label>
+
+
+<hr>
+
+<label for="">
+
+
+  <h5>Sifat 4 : Penjumlahan / pengurangan limit</h5>
+  <p>  Jika h(x)=f(x)+g(x) dimana f dan g  fungsi x maka 
+  $$\lim\limits_{x \to a} (f(x)+g(x))=\lim\limits_{x \to a} f(x)+\lim\limits_{x \to a} g(x)$$
+</p>
+<p>Berdasarkan sifat 4, nilai limit 
+      $$\lim\limits_{x \to 2} 3+x= ...$$
+      
+     </p>
+    <p style="font-size:small">
+  <input type="radio" name="no44" style="display:inline-flex">2<br>
+  <input type="radio" name="no44" style="display:inline-flex">4<br>
+  <input type="radio" name="no44" style=" display:inline-flex">6<br>
+  <input type="radio" name="no44" style=" display:inline" id="jno44">5<br>
+  <div id="rno44"></div>
+</p>
+</label>
+
+<hr>
+
+<label for="">
+  <h5>Sifat 5 : Perkalian / pembagian  limit </h5><br>
+  <p>Jika</p>
+$$h(x)= f(x).g(x) $$
+<p>maka</p> 
+  $$\lim\limits_{x \to a} h(x)=\lim\limits_{x \to a} f(x).\lim\limits_{x \to a} g(x)$$
+</p><br>
+     <p>sebaliknya jika $$h(x)=\frac {f(x)}{g(x)]} $$ </p>
+     <p>maka</p>
+      $$\lim\limits_{x \to a} h(x) = \frac {\lim\limits_{x \to a}f(x)} {\lim\limits_{x \to a}g(x)}$$
+
+
+
+
+
+<p>Berdasarkan sifat 5 , nilai limit </p>
+
+  $$\lim\limits_{x \to 3} \frac {\(2x+1)} {(x-2)}$$
   
+<p>adalah</p>
+    <p style="font-size:small">
+  <input type="radio" name="no45" style="display:inline-flex">3<br>
+  <input type="radio" name="no45" style="display:inline-flex" >6<br>
+  <input type="radio" name="no45" style=" display:inline-flex" id="jno45">7<br>
+  <input type="radio" name="no45" style=" display:inline">5<br>
+  <div id="rno45"></div>
+</p>
+</label>
+
+<hr>
+
+<label for="">
+    <p>berdasarkan sifat 5</p>
+    $$\lim\limits_{x \to 4} \(x-1)(x-2)$$
+
+<p>adalah</p>
+
+      
+    <p style="font-size:small">
+  <input type="radio" name="no46" style="display:inline-flex">2<br>
+  <input type="radio" name="no46" style="display:inline-flex" id="jno46">6<br>
+  <input type="radio" name="no46" style=" display:inline-flex">13<br>
+  <input type="radio" name="no46" style=" display:inline">14<br>
+  <div id="rno46"></div>
+</p>
+</label>
+
+<hr>
+
+<label for="">
+    <p>2.Faktorisasi.<br> Jika hasil substitusi menyebabkan 
+      
+    $$\lim\limits_{x \to a} h(x) =\lim\limits_{x \to a} \frac {0} {0}$$
+
+<p>timbul bentuk tak tentu 0/0, maka dilakukan faktorisasi, misalkan
+  $$\lim\limits_{x \to 1} \frac {x^2-1} {x-1}$$
+jika angka 1 disubstitusi ke x maka timbul bentuk 0/0
   </p>
+  <p>maka $$x^2-1$$ diuraikan/difaktorisasi dahulu  menjadi (x-1)(x+1) sehingga h(x)=x+1</p>
+  $$\lim\limits_{x \to 1} \frac {x^2-1} {x-1}=\lim\limits_{x \to 1} \frac {(x-1)(x+1)} {x-1}=\lim\limits_{x \to 1} x+1=2$$
+  dimana (x-1) saling meniadakan   
+  Tentukan nilai limit dibawah ini dengan menggunakan cara faktorial. 
+  $$\lim\limits_{x \to 2} \frac {x^2-4} {x-2}$$
 
+  <p style="font-size:small">
+  <input type="radio" name="no47" style="display:inline-flex">2<br>
+  <input type="radio" name="no47" style="display:inline-flex" id="jno47">4<br>
+  <input type="radio" name="no47" style=" display:inline-flex">8<br>
+  <input type="radio" name="no47" style=" display:inline">10<br>
+  <div id="rno47"></div>
+</p>
+</label>
 
-            
-  <div style="font-size:20px;text-align:center;width:3rem ; 
-height:2rem;background:rgb(135, 135, 177)" id="nilai" 
-style="font-size:2rem"></div>
-<button onclick="kirimtri()">Cek Nilai </button>
+<hr>
 
+<label for="">
+    
+    <h5>Sifat 6.</h5><br><p>Sebaliknya, jika hasil substitusi menyebabkan 
+      
+      $$\lim\limits_{x \to \sim} h(x) =\frac {\sim} {\sim}$$
+  </p>
+      <p>maka dapat diselesaikan, jika pangkat tertinggi dari f(x) sama dengan g(x), seperti
+        </p>
+        $$\lim\limits_{x \to \sim} \frac {ax^4+bx^3+cx^2+dx-e} {px^4+qx^3+rx^2+sx-t}=\frac {a}{p}$$
+<p>contoh</p>
+        $$\lim\limits_{x \to \sim} \frac {7x^4+2x^3+5x^2+2x-4} {9x^4+3x^3+6x^2+x-2}=\frac{7}{9}$$
+<p>Hitung nilai limit dibawah ini menggunakan sifat 6. $$\lim\limits_{x \to \sim} \frac {2x^3+5x^2+2x-4} {3x^3+6x^2+x-2}$$
+ 
+  adalah</p>
+    <p style="font-size:small">
+  <input type="radio" name="no48" style="display:inline-flex">
+  <math>
+        
+        <mi>  
+        <mfrac>
+          <mi> 3 </mi>  <mi> 2</mi> 
+        </mfrac> 
+        </mi>
+      
+      </math>
+<br>
+  <input type="radio" name="no48" id="jno48" style="display:inline-flex">
+  <math>
+        
+        <mi>  
+        <mfrac>
+          <mi> 2 </mi>  <mi> 3</mi> 
+        </mfrac> 
+        </mi>
+      
+      </math>
+<br>
+  <input type="radio" name="no48" style=" display:inline-flex">
+  <math>
+        
+        <mi>  
+        <mfrac>
+          <mi> 2 </mi>  <mi> 1</mi> 
+        </mfrac> 
+        </mi>
+      
+      </math>
+<br>
+  <input type="radio" name="no48" style=" display:inline">
+  <math>
+        
+        <mi>  
+        <mfrac>
+          <mi> 5 </mi>  <mi> 6</mi> 
+        </mfrac> 
+        </mi>
+      
+      </math>
+<br>
+  <div id="rno48"></div>
+</p>
+</label>
 
+<hr>
 
+<label for="">
+    <h5>Sifat 7. </h5>
+      $$\lim\limits_{x \to \sim} \frac{1}{x}=0$$
+      <p>Contoh. Hitung nilai limit dibawah ini dengan cara pembagian dengan variabel pangkat tertinggi, lalu gunakan sifat 7</p>
+      $$\lim\limits_{x \to \sim} \frac{6x+2}{3x}$$
+      <p>jawab</p>
+<p>bagilah dengan x masing-masing pembilang dan penyebut , menjadi</p>
+$$\lim\limits_{x \to \sim} \frac{6x+2}{3x}=\lim\limits_{x \to \sim} \frac{\frac{6x+2}{x}}{\frac{3x}{x}}$$
+$$=\lim\limits_{x \to \sim} \frac{\frac{6x}{x}+\frac{2}{x}}{\frac{3x}{x}}$$
+$$=\lim\limits_{x \to \sim} \frac{6+0}{3}=2$$
+<p>Hitung limit dibawah ini menggunakan sifat 7 diatas</p>
+$$\lim\limits_{x \to \sim} \frac{4x-5}{3x+2}$$
+<p style="font-size:small">
+  <input type="radio" name="no49" style="display:inline-flex">0<br>
+  <input type="radio" name="no49" style="display:inline-flex" >1<br>
+  <input type="radio" name="no49" style=" display:inline-flex" id="jno49">
+  <math>
+        
+        <mi>  
+        <mfrac>
+          <mi> 4 </mi>  <mi> 3</mi> 
+        </mfrac> 
+        </mi>
+      
+      </math>
+<br>
+  
+  <input type="radio" name="no49" style=" display:inline">
+  <math>
+        
+        <mi>  
+        <mfrac>
+          <mi> 5 </mi>  <mi> 2</mi> 
+        </mfrac> 
+        </mi>
+      
+      </math>
+<br>
+  <div id="rno49"></div>
+</p>
+</label>
+
+<hr>
+
+<label for="">
+  <h5>Sifat 8</h5>  
+  <p> Pada kasus dibawah perhatikan bahwa pangkat tertingginya sama.</p>
+      $$\lim\limits_{x \to \sim} \sqrt {ax^2 + bx + c}  - \sqrt {ax^2 + qx + r}=\frac{b-q}{2\sqrt{a}}$$
+    
+    <p>Berdasarkan sifat 8 maka</p>
+    $$\lim\limits_{x \to \sim} \sqrt {x^2 + 3x - 1}  - \sqrt {x^2 -2x + 1}=...$$
+    
+      <p style="font-size:small">
+  <input type="radio" name="no50" style="display:inline-flex">
+  <math>
+        
+        <mi>  
+        <mfrac>
+          <mi> 2 </mi>  <mi> 3</mi> 
+        </mfrac> 
+        </mi>
+      
+      </math>
+<br>
+  <input type="radio" name="no50" style="display:inline-flex">
+  <math>
+        
+        <mi>  
+        <mfrac>
+          <mi> 1 </mi>  <mi> 3</mi> 
+        </mfrac> 
+        </mi>
+      
+      </math>
+<br>
+  <input type="radio" name="no50" style=" display:inline-flex" id="jno50">
+  <math>
+        
+        <mi>  
+        <mfrac>
+          <mi> 5</mi>  <mi> 2</mi> 
+        </mfrac> 
+        </mi>
+      
+      </math>
+<br>
+  <input type="radio" name="no50" style=" display:inline">
+  <math>
+        
+        <mi>  
+        <mfrac>
+          <mi> -1 </mi>  <mi> 2</mi> 
+        </mfrac> 
+        </mi>
+      
+      </math>
+<br>
+  <div id="rno50"></div>
+</p>
+</label>
+
+  
+    
+<div style="text-align:center;height: 30px; width:50px;background:rgb(235, 235, 238)" id="nilai3"></div>
+<button onclick="kirimtri3()">Cek Nilai Limit </button>
+<br><br>
+<hr>
+<div style="font-size:2rem;text-align:center;height: 50px; width:50px;background:rgb(148, 148, 158)" id="nilai">
+   
+  </div>
+<button onclick="kirimtri()">Cek Nilai Total</button>
+<hr>
+<!--
+<math displaystyle="true">
+<munderover >
+  <mo>&#x222B;</mo>
+  <mn>0</mn>
+  <mi>&#x221E;</mi>
+</munderover>
+
+</math>
+-->
 </main>
 
 
@@ -5687,9 +6062,9 @@ init();
     </script>
 
     <script>
-
-      function kirimakar(){
-        const jno31=document.querySelector('#jno31')
+      function kirimtri2() {
+        let poin=0
+    const jno31=document.querySelector('#jno31')
     const jno32=document.querySelector('#jno32')
     const jno33=document.querySelector('#jno33')
     const jno34=document.querySelector('#jno34')
@@ -5699,10 +6074,239 @@ init();
     const jno38=document.querySelector('#jno38')
     const jno39=document.querySelector('#jno39')
     const jno40=document.querySelector('#jno40')
-   
+    const jno51=document.querySelector('#jno51')
+    const jno52=document.querySelector('#jno52')
+    const jno53=document.querySelector('#jno53')
+    const jno54=document.querySelector('#jno54')
+    const jno55=document.querySelector('#jno55')
+    
+        if (jno31.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno31.innerHTML=response
 
-      }    
+if (jno32.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno32.innerHTML=response
+
+if (jno33.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno33.innerHTML=response
+
+
+if (jno34.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno34.innerHTML=response
+
+if (jno35.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno35.innerHTML=response
+
+if (jno36.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno36.innerHTML=response
+
+if (jno37.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno37.innerHTML=response
+
+if (jno38.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno38.innerHTML=response
+
+if (jno39.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno39.innerHTML=response
+
+if (jno40.checked){
+  response=""
+  poin=poin+10  
+}else {
+    response="salah" 
+}
+rno40.innerHTML=response
+
+if (jno51.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno51.innerHTML=response
+
+if (jno52.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno52.innerHTML=response
+
+if (jno53.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno53.innerHTML=response
+
+if (jno54.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno54.innerHTML=response
+
+if (jno55.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno55.innerHTML=response
+
+        nilai2.innerHTML=poin
+      }
+
+
+      function kirimtri3() {
+        let poin=0
+    const jno41=document.querySelector('#jno41')
+    const jno42=document.querySelector('#jno42')
+    const jno43=document.querySelector('#jno43')
+    const jno44=document.querySelector('#jno44')
+    const jno45=document.querySelector('#jno45')
+    const jno46=document.querySelector('#jno46')
+    const jno47=document.querySelector('#jno47')
+    const jno48=document.querySelector('#jno48')
+    const jno49=document.querySelector('#jno49')
+    const jno50=document.querySelector('#jno50')
+    
+        if (jno41.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno41.innerHTML=response
+
+
+if (jno42.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno42.innerHTML=response
+
+if (jno43.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno43.innerHTML=response
+
+
+if (jno44.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno44.innerHTML=response
+
+if (jno45.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno45.innerHTML=response
+
+if (jno46.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno46.innerHTML=response
+
+if (jno47.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno47.innerHTML=response
+
+if (jno48.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno48.innerHTML=response
+
+if (jno49.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno49.innerHTML=response
+
+if (jno50.checked){
+  response=""
+  poin=poin+10  
+}else {
+    response="salah" 
+}
+rno50.innerHTML=response
+
+        nilai3.innerHTML=poin
+      }
+
+
  function kirimtri(){
+  
+
     const jno1=document.querySelector('#jno1')
     const jno2=document.querySelector('#jno2')
     const jno3=document.querySelector('#jno3')
@@ -5743,8 +6347,23 @@ init();
     const jno38=document.querySelector('#jno38')
     const jno39=document.querySelector('#jno39')
     const jno40=document.querySelector('#jno40')
-   
-   
+    const jno41=document.querySelector('#jno41')
+    const jno42=document.querySelector('#jno42')
+    const jno43=document.querySelector('#jno43')
+    const jno44=document.querySelector('#jno44')
+    const jno45=document.querySelector('#jno45')
+    const jno46=document.querySelector('#jno46')
+    const jno47=document.querySelector('#jno47')
+    const jno48=document.querySelector('#jno48')
+    const jno49=document.querySelector('#jno49')
+    const jno50=document.querySelector('#jno50')
+    
+    const jno51=document.querySelector('#jno51')
+    const jno52=document.querySelector('#jno52')
+    const jno53=document.querySelector('#jno53')
+    const jno54=document.querySelector('#jno54')
+    const jno55=document.querySelector('#jno55')
+    
 
 
     const sno1=document.querySelector('#sno1')
@@ -5872,23 +6491,24 @@ init();
 
     const nilai=document.querySelector('#nilai')
 
-
+    
     let response
     let poin=0
     
     if (jno1.checked){
-      response=""
-      poin=poin+5
+      poin=poin+10
+      
     }else {
       //response="<h1>besar sudut A= arc tan y/x = arc tan 1 (gunakan kalkulator)</h1>"
-      response="salah" 
+      response="solah" 
+    
     }
     rno1.innerHTML=response
   
 
   if (jno2.checked){
     response=""
-    poin=poin+5
+    poin=poin+10
   }else {
    // response="<h1>pakai rumus phytagoras</h1>"
      response="salah" 
@@ -6195,6 +6815,7 @@ if (jno33.checked){
 }
 rno33.innerHTML=response
 
+
 if (jno34.checked){
   response=""
   poin=poin+10
@@ -6243,14 +6864,136 @@ if (jno39.checked){
 }
 rno39.innerHTML=response
 
-
 if (jno40.checked){
+  response=""
+  poin=poin+10  
+}else {
+    response="salah" 
+}
+rno40.innerHTML=response
+
+if (jno51.checked){
   response=""
   poin=poin+10
 }else {
     response="salah" 
 }
-rno40.innerHTML=response
+rno51.innerHTML=response
+
+if (jno52.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno52.innerHTML=response
+
+if (jno53.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno53.innerHTML=response
+
+if (jno54.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno54.innerHTML=response
+
+if (jno55.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno55.innerHTML=response
+
+
+if (jno41.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno41.innerHTML=response
+
+
+if (jno42.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno42.innerHTML=response
+
+if (jno43.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno43.innerHTML=response
+
+
+if (jno44.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno44.innerHTML=response
+
+if (jno45.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno45.innerHTML=response
+
+if (jno46.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno46.innerHTML=response
+
+if (jno47.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno47.innerHTML=response
+
+if (jno48.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno48.innerHTML=response
+
+if (jno49.checked){
+  response=""
+  poin=poin+10
+}else {
+    response="salah" 
+}
+rno49.innerHTML=response
+
+if (jno50.checked){
+  response=""
+  poin=poin+10  
+}else {
+    response="salah" 
+}
+rno50.innerHTML=response
 
 
 if (sno1.value=="1,57"){
@@ -6329,7 +7072,7 @@ nilai.innerHTML=poin
  
 
 
-
+ 
 
 
 
@@ -6337,6 +7080,20 @@ nilai.innerHTML=poin
 
 
     </script>
+  <script>
+    
+    function resetbilangan(){
+        const no31=document.querySelector('input')  
+        no31.checked
+
+        }
+      }    
+
+    </script>
+
+
+
+
 //     <script>
 //             var synth = window.speechSynthesis;
 
