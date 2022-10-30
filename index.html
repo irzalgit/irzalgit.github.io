@@ -35,7 +35,26 @@
 	var targetvidio = document.getElementById('targetvidio')
 	targetvidio.src = vidio.getAttribute('src');}
 </script>
+<script>
+  function onStartedDownload(id) {
+  console.log(`Started downloading: ${id}`);
+}
 
+function onFailed(error) {
+  console.log(`Download failed: ${error}`);
+}
+
+let downloadUrl = "https://example.org/image.png";
+
+let downloading = browser.downloads.download({
+  url : downloadUrl,
+  filename : 'my-image-again.png',
+  conflictAction : 'uniquify'
+});
+
+downloading.then(onStartedDownload, onFailed);
+
+  </script>
 
 
 	
@@ -392,7 +411,7 @@
 		</div>
 
 		<div class="middle">
-			<h2 style="text-align: center;">Update 7/10/22 
+			<h2 style="text-align: center;">Update 30/10/22 
 			<br></h2>
 			<img   width="65%" sr="gbr/heli.jpg" alt="">
 			<br>
@@ -2393,7 +2412,405 @@ x> 0;y> 0\\
 
 
 <hr>
+
+<h2>PROGRAM LINIER</h2>
+  <label for="">
+        <p>Program linier adalah metoda untuk menentukan nilai optimum
+          dari fungsi tujuan berdasarkan
+          sistem kendala<br> Langkah pertama adalah mengubah masalah menjadi model matematika
+               </p>
+Problem: Pak Amir ingin berdagang 2 jenis kopi saset yaitu kopi capucino dan kopi gingseng.Dia membeli lewat online dengan persyaratan
+maksimum 50 buah saset, agar  bebas ongkir.
+     <label for="">
+    <p>jika x adalah kopi capucino dan y adalah kopi gingseng maka 
+      pernyataan diatas dapat diubah menjadi model matematika sbb:
+        
+            
+  
+  <input type="radio" name="no131" style=" display:inline-flex"> 
+  <label style="display:inline-block" id="jno131">$${x+y\leq 50}$$</label><br>
+  <input  type="radio" name="no131"  style=" display:inline-flex">
+  <label>$${ { x-y\leq 50}}$$</label><br>
+  <input  type="radio" name="no131" style=" display:inline-flex">
+  <label>$${ { x+y > 50}}$$</label> <br> 
+  <input type="radio" name="no131"  style=" display:inline">
+  <label>$$ { x+y < 50}$$</label><br>
+  
+  <div id="rno131"></div>
+  <hr>
+  
+  </p>
+</label>
 <hr>
+<p>
+      Selanjutnya modal pak Amir Rp.1500.000
+ sedangkan harga per saset  kopi capucino Rp.750 dan kopi gingseng Rp.1000              
+     </p> 
+     <label for="">
+    <p>
+    maka model matematika kendala modal adalah
+          </p>
+  </label><br>  
+  <p>gambar diatas merupakan himpunan penyelesaian pertidaksamaan:</p>
+  <input type="radio" name="no132" style=" display:inline-flex"> 
+  <label style="display:inline-block" >$${750x-1000y\leq 1500000}$$</label><br>
+  <input  type="radio" name="no132" id="jno132" style=" display:inline-flex">
+  <label style="display:inline-block" >$${750x+1000y\leq 1500000}$$</label><br>
+  <input  type="radio" name="no132" style=" display:inline-flex">
+  <label style="display:inline-block" >$${1000x+750y\leq 1500000}$$</label><br>
+  <input  type="radio" name="no132" style=" display:inline-flex">
+  <label style="display:inline-block" >$${750x+1000y\leq 1000000}$$</label><br>
+  
+  <div id="rno132"></div>
+  
+  
+  </p>
+</label>
+     
+  <hr>
+  </p>
+
+</label>
+<p>Berdasarkan dua kendala diatas maka model matematika dari kendala tersebut
+  dapat ditulis dalam bentuk sistem pertidaksamaan sbb:</p>
+
+     <p style="font-size:small">
+  
+<input type="radio" name="no133" id="jno133" style=" display:inline-flex"> 
+<label>
+   $$\left\{\begin{matrix}
+{ \mathbf{ \frac{x}{20}+\frac{y}{15}\leq 1}}& \\ 
+{ \mathbf{{x+y\leq 50}}} & 
+\end{matrix}\right.$$ </label><br>
+  <input  type="radio" name="no133"  style=" display:inline-flex">
+<label> $$\left\{\begin{matrix}
+{ \mathbf{ \frac{x}{15}+\frac{y}{20}\leq 1}}& \\ 
+{ \mathbf{{x+y\leq 50}}} & 
+\end{matrix}\right.$$</label><br>
+
+  <input  type="radio" name="no133" style=" display:inline-flex">
+<label>  $$\left\{\begin{matrix}
+{ \mathbf{ \frac{x}{10}+\frac{y}{25}\leq 1}}& \\ 
+{ \mathbf{{x+y\leq 50}}} & 
+\end{matrix}\right.$$</label><br>
+
+  <input type="radio" name="no133" style=" display:inline">
+<label> $$\left\{\begin{matrix}
+{ \mathbf{ \frac{x}{20}+\frac{y}{20}\leq 1}}& \\ 
+{ \mathbf{{x+y\leq 50}}} & 
+\end{matrix}\right.$$</label><br>
+  
+  <div id="rno133"></div>
+  <hr>
+  
+  </p>
+
+<p>Jika fungsi tujuan z(x,y)=x +y, maka nilai z pada titik pojok (0,4) adalah
+dari gambar dibawah ini</p>
+<label for="">
+    <p>
+        
+             <svg width="180" height="140">
+       
+              <circle r="3" cx="60" cy="130"> </circle> 
+              <circle r="3" cx="120" cy="130" stroke="black" fill="white"> </circle> 
+
+              <circle r="3" cx="10" cy="27"> </circle> 
+              <circle r="3" cx="10" cy="90" stroke="black" fill="white"> </circle> 
+
+
+          <line x1="10" y1="10" x2="10" y2="130" stroke="black"></line> 
+          <line x1="10" y1="130" x2="160" y2="130" stroke="black"></line> 
+          <line x1="60" y1="130" x2="10" y2="30" stroke="blue" stroke-width=4></line>
+          
+          <text x="7" y="30">-</text>
+          <text x="7" y="60">-</text>
+          <text x="7" y="90">-</text>
+          <text x="7" y="120">-</text>
+
+          <text x="-2" y="30">4</text>
+          <text x="-2" y="60">3</text>
+          <text x="-2" y="90">2</text>
+          <text x="-2" y="120">1</text>
+          
+          
+          <text x="30" y="120">1</text>
+          <text x="60" y="120">2</text>
+          <text x="90" y="120">3</text>
+          <text x="120" y="120">4</text>
+
+          <text x="30" y="135">|</text>
+          <text x="60" y="135">|</text>
+          <text x="90" y="135">|</text>
+          <text x="120" y="135">|</text>
+
+          <text x="0" y="135">O</text>
+          <text x="170" y="130">x</text>
+          </p>
+  </label><br>  
+
+     <label for="">
+     <p style="font-size:small">
+  <p> adalah</p>
+  <input type="radio" name="no134" style=" display:inline-flex"> 
+  <label> 2</label>
+  <br>
+  
+  <input  type="radio" name="no134" id="jno134" style=" display:inline-flex">
+  <label>4</label>
+  <br>
+
+  <input  type="radio" name="no134" style=" display:inline-flex">
+  <label>5</label>
+<br>
+
+  <input type="radio" name="no134" style=" display:inline">
+<label>6</label><br>
+<br>
+  
+  <div id="rno134"></div>
+  <hr>
+  
+  </p>
+
+     <label for="">
+     <p style="font-size:small">
+  <p>Tujuan dari program linier adalah menentukan nilai</p><br>
+  
+  
+  <input type="radio" name="no135" style=" display:inline-flex"> 
+ <label> terbesar</label><br>
+  
+  <input  type="radio" name="no135"  style=" display:inline-flex">
+  <label>terkecil</label><br>
+
+  <input  type="radio" name="no135" style=" display:inline-flex">
+  <label>optimum</label><br>
+
+  <input type="radio" name="no135" id="jno135" style=" display:inline">
+  <label>nilai optimum dari fungsi tujuan</label><br>
+  
+  <div id="rno135"></div>
+  <hr>
+  
+  </p>
+</label>
+
+
+<label for="">
+    <p>Nilai maksimum fungsi objektif z=x+2y pada daerah yang diarsir dibawah ini
+      
+        
+             <svg width="180" height="140">
+       
+              <circle r="3" cx="60" cy="130"> </circle> 
+              <circle r="3" cx="120" cy="130" stroke="black" fill="white"> </circle> 
+
+              <circle r="3" cx="10" cy="27"> </circle> 
+              <circle r="3" cx="10" cy="90" stroke="black" fill="white"> </circle> 
+              <line x1="10" y1="10" x2="10" y2="130" stroke="black"></line> 
+          <line x1="10" y1="130" x2="160" y2="130" stroke="black"></line> 
+          <line x1="60" y1="130" x2="10" y2="30" stroke="blue" stroke-width=4></line>
+         
+
+          <line x1="10" y1="10" x2="10" y2="130" stroke="black"></line> 
+          <line x1="10" y1="130" x2="160" y2="130" stroke="black"></line> 
+          <line x1="120" y1="130" x2="10" y2="90" stroke="blue" stroke-width=4></line>
+          
+          <text x="7" y="30">-</text>
+          <text x="7" y="60">-</text>
+          <text x="7" y="90">-</text>
+          <text x="7" y="120">-</text>
+
+          <text x="-2" y="30">4</text>
+          <text x="-2" y="60">3</text>
+          <text x="-2" y="90">2</text>
+          <text x="-2" y="120">1</text>
+          
+          
+          <text x="30" y="120">1</text>
+          <text x="60" y="120">2</text>
+          <text x="90" y="120">3</text>
+          <text x="120" y="120">4</text>
+
+          <text x="30" y="135">|</text>
+          <text x="60" y="135">|</text>
+          <text x="90" y="135">|</text>
+          <text x="120" y="135">|</text>
+
+          <text x="0" y="135">O</text>
+          <text x="170" y="130">x</text>
+
+<polygon style="fill: grey;" points="48,102 62,130 120,130"   />     
+
+  
+</svg>
+
+          </p>
+  </label><br>  
+
+  
+<input type="radio" name="no136" style=" display:inline-flex"> 
+<label>2</label><br>
+  
+  <input  type="radio" name="no136"  style=" display:inline-flex">
+  <label>3</label><br>
+
+  <input  type="radio" name="no136" style=" display:inline-flex">
+ <label>5</label>
+  <br>
+
+  <input type="radio" name="no136" id="jno136" style=" display:inline">
+  <label>4</label><br>
+  
+  <div id="rno136"></div>
+  <hr>
+  
+  </p>
+</label>
+
+<label for="">
+    <p>nilai minimum daerah yang diarsir
+        
+             <svg width="180" height="140">
+       
+              <circle r="3" cx="60" cy="130"> </circle> 
+              <circle r="3" cx="120" cy="130" stroke="black" fill="white"> </circle> 
+
+              <circle r="3" cx="10" cy="27"> </circle> 
+              <circle r="3" cx="10" cy="90" stroke="black" fill="white"> </circle> 
+              <line x1="10" y1="10" x2="10" y2="130" stroke="black"></line> 
+          <line x1="10" y1="130" x2="160" y2="130" stroke="black"></line> 
+          <line x1="60" y1="130" x2="10" y2="30" stroke="black" stroke-width=4></line>
+         
+
+          <line x1="10" y1="10" x2="10" y2="130" stroke="black"></line> 
+          <line x1="10" y1="130" x2="160" y2="130" stroke="black"></line> 
+          <line x1="120" y1="130" x2="10" y2="60" stroke="black" stroke-width=4></line>
+          
+          <text x="7" y="30">-</text>
+          <text x="7" y="60">-</text>
+          <text x="7" y="90">-</text>
+          <text x="7" y="120">-</text>
+
+          <text x="-2" y="30">4</text>
+          <text x="-2" y="60">3</text>
+          <text x="-2" y="90">2</text>
+          <text x="-2" y="120">1</text>
+          
+          
+          <text x="30" y="120">1</text>
+          <text x="60" y="120">2</text>
+          <text x="90" y="120">3</text>
+          <text x="120" y="120">4</text>
+
+          <text x="30" y="135">|</text>
+          <text x="60" y="135">|</text>
+          <text x="90" y="135">|</text>
+          <text x="120" y="135">|</text>
+
+          <text x="0" y="135">O</text>
+          <text x="170" y="130">x</text>
+
+<polygon style="fill: grey;" points="33,75 60,128 118,128"   />     
+
+  
+</svg>
+jika z=2x+3y adalah
+          </p>
+  </label><br>  
+
+  
+<input type="radio" name="no137" style=" display:inline-flex"> 
+<label>8</label><br>
+  
+  <input  type="radio" name="no137"  style=" display:inline-flex">
+  <label>6</label><br>
+
+  <input  type="radio" name="no137" style=" display:inline-flex">
+ <label>5</label>
+  <br>
+
+  <input type="radio" name="no137" id="jno137" style=" display:inline">
+  <label>4</label><br>
+  
+  <div id="rno137"></div>
+  <hr>
+  
+  </p>
+</label>
+<h2>Barisan & Deret</h2>
+Perhatikan barisan aritmatika dibawah ini
+  
+
+     <label for="">
+     <p style="font-size:small">
+  <h3> 2 , 5 , 8 ,..., Un</h3>
+  maka pola bilangan Un adalah<br>
+  <input type="radio" name="no138" style=" display:inline-flex"> 
+  <label>2n-1</label><br>
+
+  <input  type="radio" name="no138" id="jno138" style=" display:inline-flex">
+  <label>3n-1</label><br>
+
+  <input  type="radio" name="no138" style=" display:inline-flex">
+  <label>3n-2</label><br>
+
+  <input type="radio" name="no138" style=" display:inline">
+  <label>3n</label><br>
+  
+  <div id="rno138"></div>
+  <hr>
+  
+  </p>
+</label>
+<br>
+<p>Jika Un=3n-1 maka suku ke 100 adalah</p>
+
+     <label for="">
+
+
+     <p>
+  
+  <input type="radio" name="no139" style=" display:inline-flex"> 
+  <label>301</label><br>
+  <input  type="radio" name="no139"  style=" display:inline-flex">
+  <label>302</label><br>
+<input  type="radio" name="no139" id="jno139" style=" display:inline-flex">
+  <label>299</label><br>
+<input type="radio" name="no139" style=" display:inline">
+  <label>300</label><br>
+  
+  <div id="rno139"></div>
+  <hr>
+  
+  </p>
+</label>
+Perhatikan deret berikut ini
+ <h2>  2 + 5 + 8 + ...+U10</h2>
+ <p>maka jumlah 10 suku pertama atau   atau S10 adalah</p>  
+ <label for="">
+     <p style="font-size:small">
+
+  <input type="radio" name="no140" style=" display:inline-flex"> 
+  <label>205</label><br>
+  <input  type="radio" name="no140" id="jno140" style=" display:inline-flex">
+  <label>155</label><br>
+  <input  type="radio" name="no140" style=" display:inline-flex">
+  <label>160</label><br>
+  <input type="radio" name="no140" style=" display:inline">
+  <label>156</label><br>
+
+  
+  <div id="rno140"></div>
+  <hr>
+  
+  </p>
+</label>
+
+
+<hr>
+
   <h2>isilah dengan jawaban yang benar</h2>
   $$\left\{\begin{matrix}
 x-2y+z=-1 & \\ 
@@ -2422,12 +2839,20 @@ x+3y-2z=11 & \\
   <div id="rsno112"></div>
   <hr>
 
-
-
 <div style="text-align:center;font-size:30px; height: 50px; width:50px;background:rgb(76, 76, 238)" id="nilai2"></div>
 <button onclick="kirimtri2()">Cek Nilai  </button>
 
 <h2>Trigonometri</h2>
+$$
+  \begin{array} {|r|r|}\hline p & q & pVq \\ 
+  \hline 1_0 & 1_1 & 1_2 \\ 
+  \hline 2_0 & 2_1 & 2_2 \\ 
+  \hline 3_0 & 3_1 & 3_2 \\ 
+  \hline 4_0 & 4_1 & 4_2 \\ 
+  \hline  \end{array}
+$$
+<label>
+
 
   <label for="">
     <p>besar sudut A pada segitiga siku dibawah ini adalah</p> 
@@ -9114,6 +9539,16 @@ if(jno127.checked)jno127.checked=false
     const jno118=document.querySelector('#jno118')
     const jno119=document.querySelector('#jno119')
     const jno120=document.querySelector('#jno120')
+    const jno131=document.querySelector('#jno131')
+    const jno132=document.querySelector('#jno132')
+    const jno133=document.querySelector('#jno133')
+    const jno134=document.querySelector('#jno134')
+    const jno135=document.querySelector('#jno135')
+    const jno136=document.querySelector('#jno136')
+    const jno137=document.querySelector('#jno137')
+    const jno138=document.querySelector('#jno138')
+    const jno139=document.querySelector('#jno139')
+    const jno140=document.querySelector('#jno140')
 
 
 
@@ -9389,6 +9824,79 @@ if (jno120.checked){
 }
 rno120.innerHTML=response
 
+if (jno131.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno131.innerHTML=response
+
+if (jno132.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno132.innerHTML=response
+if (jno133.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno133.innerHTML=response
+if (jno134.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno134.innerHTML=response
+if (jno135.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno135.innerHTML=response
+if (jno136.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno136.innerHTML=response
+if (jno137.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno137.innerHTML=response
+if (jno138.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno138.innerHTML=response
+if (jno139.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno139.innerHTML=response
+if (jno140.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno140.innerHTML=response
+
+
 if (sno101.value=="3"){
   response="ok";poin=poin+25} 
 else {
@@ -9440,6 +9948,16 @@ if(jno117.checked)jno117.checked=false
 if(jno118.checked)jno118.checked=false
 if(jno119.checked)jno119.checked=false
 if(jno120.checked)jno120.checked=false
+if(jno131.checked)jno131.checked=false
+if(jno132.checked)jno132.checked=false
+if(jno133.checked)jno133.checked=false
+if(jno134.checked)jno134.checked=false
+if(jno135.checked)jno135.checked=false
+if(jno136.checked)jno136.checked=false
+if(jno137.checked)jno137.checked=false
+if(jno138.checked)jno138.checked=false
+if(jno139.checked)jno139.checked=false
+if(jno140.checked)jno140.checked=false
 
 
 }
