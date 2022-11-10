@@ -1,0 +1,583 @@
+\documentclass[legalpaper, 12pt, addpoints]{exam}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{tikz}
+
+\CorrectChoiceEmphasis{\itseries\color{red}}
+
+\begin{document}
+\begin{coverpages}
+
+%---uncomment to add a custom header (replace {header-cufm.png})---- %
+%\begin{figure}[t]
+%\includegraphics[width=1\textwidth,height=1.2\textheight,keepaspectratio]{%header-cufm.png}
+%\end{figure}
+
+\begin{center}
+Spring 2018 \\
+\textbf{Precalculus' Final Examination } \\
+nth Semester \\
+Section 000
+\end{center}
+\extraheadheight{-0.8in}
+
+\vspace{0.25in}
+\parbox{6in}{
+\textbf{Objective:} Assess understanding of function behavior and calculus readiness. This exam also aims to provide a comprehensive assessment on concepts and definitions that are necessary to be successful in further Mathematics courses.)}
+\vspace{0.15in}
+
+\parbox{6in}{{\textbf{General Instructions:} Read carefully each exercise. Fill in your \textit{scantron} with a pencil and circle the correct answer on paper as well. Scratch paper is not allowed under any circumstances. All your work must be done in these pages.}
+\vspace{0.15in}}
+
+ \begin{center}
+\fbox{\fbox{\parbox{6in}{
+\begin{itemize}
+    \item You have up to 120 minutes.
+    
+    \item Every item on the test awards 2 points for each correct answer, for a maximum possible score of 100 points.
+    
+    \item Non-graphing calculators are allowed. TI-84 or similar, including smart devices, are prohibited. 
+
+    
+    \item One half-page formula sheet printed in black ink and showing the instructor's authorization may be used. Any other form of aid is not allowed. 
+    
+    \item Mere suspicion of cheating, sharing calculators or using any unfair means of aid is enough to get your test withdrawn.
+        
+    \item When you are done, turn in the examination, your \textit{scantron} and your formula sheet. Failure to do so will result in an automatic failing grade.
+
+
+    
+\end{itemize} }}}
+\vspace{0.2in}
+\end{center}
+\vspace{0.15in}
+\runningheadrule \extraheadheight{0.14in}
+
+\lhead{\ifcontinuation{Question \ContinuedQuestion\ continues\ldots}{}}
+\runningheader{Precalculus}{Final Examination}{Spring 2018}
+\runningfooter{4th Semester}
+              {\thepage\ of \numpages}
+              {Version A}
+\vspace{0.15in}
+
+\vspace{0.1in}
+
+%-comment out the next line to display point value for each question -%
+\nopointsinmargin
+\setlength\linefillthickness{0.1pt}
+\setlength\answerlinelength{0.1in}
+\end{coverpages}
+
+\parbox{6in}{\textsc{{SIDE A}}
+
+\vspace{0.15in}
+
+\parbox{5in}{
+{\textsc{\textbf{Part I.} True or False Questions.}}}}
+
+\vspace{0.15in}
+\hrule 
+\vspace{0.1in}
+\begin{questions}
+
+\question Differential Calculus is the branch of mathematics dedicated to the study of rates of change.
+
+\begin{oneparchoices}
+    \CorrectChoice True
+    \choice False
+\end{oneparchoices}
+
+\question The domain of a function \(f(x)\) is the set of all the values of \(x\) for which \(f(x)\) is defined.
+
+\begin{oneparchoices}
+    \CorrectChoice True
+    \choice False
+\end{oneparchoices}
+
+\question The base of a natural logarithm, \(\ln\),  is \(e\).
+
+\begin{oneparchoices}
+    \CorrectChoice True
+    \choice False
+\end{oneparchoices}
+
+\question $\sqrt{3}$ is an irrational number 
+
+\begin{oneparchoices}
+    \CorrectChoice True
+    \choice False
+\end{oneparchoices}
+
+\question $f(x) = |x|$ is continuous for all real numbers.
+
+\begin{oneparchoices}
+    \CorrectChoice True
+    \choice False
+\end{oneparchoices}
+
+\question  If $(x+a)$ is a factor of \(p(x)\), then $x=a$ is a solution to $p(x)$ 
+
+\begin{oneparchoices}
+    \choice True
+    \CorrectChoice False
+\end{oneparchoices}
+
+
+\question  If  $f(x)=g^{-1}(x)$, then $f(x)$ has the same domain of  $g(x)$ and $g^{-1}(x)$ has the same range of $f^{-1}(x)$
+
+\begin{oneparchoices}
+    \choice True
+    \CorrectChoice False
+\end{oneparchoices}
+
+\question  All continuous functions are differentiable over their domain
+
+\begin{oneparchoices}
+    \CorrectChoice True
+    \choice False
+\end{oneparchoices}
+
+\question  Polynomial functions are differentiable on \((-\infty,\infty)\).
+
+\begin{oneparchoices}
+    \CorrectChoice True
+    \choice False
+\end{oneparchoices}
+
+
+\question  If $\lim_{x\to a} =$ does not exist, then $x=a$ must be undefined.
+
+\begin{oneparchoices}
+    \choice True
+    \CorrectChoice False
+\end{oneparchoices}
+
+\vspace{0.2in}
+
+\parbox{6in}{\textsc{\textbf{Part II.} Multiple Choice Questions.}}
+\vspace{0.1in}
+\hrule
+\vspace{0.1in}
+
+
+\question Simplify $\sqrt{500} - \sqrt{80}$
+    \begin{choices}
+            \choice $5\sqrt{5}$
+            \CorrectChoice $6\sqrt{5}$
+            \choice $10\sqrt{5}$
+            \choice $16\sqrt{5}$
+            \choice $25$
+    \end{choices}
+    
+\question The vertex of the parabola $y=(x-2)^2$ is located at
+        \begin{choices}
+            \choice $(-2,0)$
+            \CorrectChoice $(2,0)$
+            \choice $(-2,-2)$
+            \choice $(0, 0)$
+            \choice none of the above
+        \end{choices}
+        
+\pagebreak
+
+\question If a polynomial function of degree 2 has an absolute maximum, then this point must also be a
+        \begin{choices}
+            \choice tangent line
+            \CorrectChoice vertex
+            \choice inflection point
+            \choice absolute minimum 
+            \choice none of the above
+        \end{choices}
+\vspace{0.10in}
+
+\question Find the vertical asymptote of $f(x)=\dfrac{x}{-x^2-2x}$.
+        \begin{choices}
+        \choice $x = 1/2$
+        \CorrectChoice $x=-2$
+        \choice $x=4$
+        \choice $x = -1/4$
+        \choice $x=2$
+        \end{choices}
+    \vspace{0.10in}
+
+\question Which of the following has a vertical asymptote at $x=0$? 
+\begin{choices}
+        \choice  $e^x$
+        \CorrectChoice $\ln{x}$
+        \choice $|x|$
+        \choice $\sin{x}$
+        \choice ${x}$
+ \end{choices}
+\vspace{0.1in}
+
+\question Which of the following best describes the function $f(x) = \dfrac{3x^2}{5x+25}$
+    \begin{choices}
+         \choice polynomial
+         \CorrectChoice rational
+         \choice quadratic
+         \choice asymptotic
+         \choice transcendental
+    \end{choices}
+    
+\vspace{0.10in}
+
+\question Consider \(f(x) = \dfrac{x}{x^2+8x+16}\). 
+Determine the values of $x$ where $f(x)$ is discontinuous.
+ \begin{choices}
+            \choice $x=0$
+            \choice $x=0,4$
+            \CorrectChoice $x=4$
+            \choice $x=3,4$
+            \choice $x=1,4$
+ \end{choices}
+
+\question The domain of $f(x) = \dfrac{1}{x^2}$ is:
+    \begin{choices}
+            \CorrectChoice $(-\infty,0) \cup (0, \infty)$
+            \choice $[0, \infty)$
+            \choice $(-\infty, 0]$
+            \choice $(-\infty, 1]$
+   \choice $\mathbb{R}, x \ne 0$
+
+            \end{choices}
+            
+ \question The domain of $f(x) = \dfrac{1}{1+x^2}$ is:
+ \begin{choices}
+     \CorrectChoice $(-\infty, \infty)$
+     \choice $[0, \infty)$
+     \choice $(-\infty, 0]$
+     \choice $(-\infty, 1]$
+     \choice $\mathbb{R}, x \ne 0$
+\end{choices}
+
+\pagebreak
+        
+\question Classify the discontinuity in  $ \displaystyle \frac{(x+1)(x-3)}{(x-4)}$ 
+\begin{choices}
+        \choice infinite at $x=3$, removable at $x=4$
+        \choice removable at $x=3$ and $x=4$
+         \CorrectChoice  infinite at $x=4$
+        \choice removable at $x=3$, infinite at $x=1$
+        \choice jump at $x=4$ and $x=1$
+\end{choices}
+    \vspace{0.10in}
+    
+\question if $f=e^x$ and $g=x^2$, then $e^{x^2}$ =  
+ \begin{choices}
+            \choice $f\circ f $
+            \choice $g\circ f$
+            \CorrectChoice $f\circ g$
+            \choice $f/g$
+            \choice $fg$
+\end{choices}
+    \vspace{0.10in}
+
+\question The inverse function of $f(x) = (x+3)^2$ is  $f^{-1}(x)=$   
+  \begin{choices}
+            \choice $\sqrt{x+3} +2 $
+            \choice $\sqrt{x-3}  $
+            \choice $x^2 - 3$
+            \CorrectChoice $\sqrt{x}-3$
+            \choice $\sqrt{x-2}+3$
+ \end{choices}
+    \vspace{0.10in}
+
+\question All of the following are characteristic of non-polynomial functions, except: 
+\begin{choices}
+	\CorrectChoice Minima and maxima
+	\choice Asymptotes
+	\choice Sharp turns
+	\choice Jumps or gaps
+	\choice none is correct
+\end{choices}
+
+\question Find the derivative of a polynomial $p(x)$ with roots $x=0, x=1$ and $x=3$; \(p'(x)\) = 
+\begin{choices}
+    \choice $3x^2-8x-3$
+    \choice $3x^3+8x$
+    \CorrectChoice $3x^2-8x+3$
+    \choice $x^2-3x$
+    \choice $x^2+x+3$
+\end{choices}   
+
+        
+\vspace{0.10in}
+\question Find $\lim_{x\to\infty} e^{-\sqrt{x}}$ 
+
+\begin{oneparchoices}
+        \choice  $\infty \qquad \ \ $
+        \choice  $-\infty \qquad$ 
+        \CorrectChoice  $0 \qquad$ 
+        \choice  $e \qquad$
+        \choice  Does not exist $\qquad$
+        \end{oneparchoices}
+\vspace{0.15in}
+
+\question Find $\displaystyle \lim_{x\rightarrow 0} 3\sqrt{2x+3}$
+
+\begin{oneparchoices}
+\CorrectChoice  $3\sqrt{3} \qquad$
+        \choice  $9 \qquad \ \  $
+        \choice  $-\sqrt{3} \ \  $ 
+        \choice  $0\qquad$ 
+        \choice  Does not exist
+ \end{oneparchoices}
+\vspace{0.1in}
+
+\question Find \(\displaystyle \lim_{x\rightarrow 0}\dfrac{x^2+3x}{3x^2+4x}\) 
+
+\begin{oneparchoices}
+     	\CorrectChoice $\dfrac{3}{4} \qquad \ \  \ $
+            \choice $-\infty \qquad$
+            \choice $\dfrac{1}{3} \qquad$
+            \choice $\infty \qquad$
+            \choice $1 \qquad$
+        \end{oneparchoices}
+    \vspace{0.15in}
+\pagebreak
+
+\uplevel{ Consider function $f$ below:}
+
+%%%%%% ---Comment out to add a custom image ----
+%\begin{figure}[h]
+%\begin{center}
+%\includegraphics[width=1\textwidth,height=0.5\textheight,keepaspectratio]{limits-graph.png}
+%\end{center}
+%\end{figure}
+
+\vspace{0.10in}
+\question For what values of \(x\) is \(f(x)\) discontinuous?
+   \begin{choices}
+            \choice $0, 2, 3$
+            \choice $0, 2, 4$
+            \CorrectChoice $-2, 2, 3$
+            \choice $-2, 2$
+            \choice $3,5$
+\end{choices}
+ \vspace{0.1in}
+
+\question Find \(f(2)\)
+\begin{choices}
+   	 \choice $2$
+   	 \choice $1$
+ 	 \CorrectChoice $-1$
+  	 \choice $0$
+  	 \choice Undefined
+\end{choices}
+\vspace{0.1in}
+
+\question Find the \(\lim_{x\to3} f(x) \) 
+\begin{choices}
+    \choice $3$
+    \choice $2$
+    \CorrectChoice $\infty$
+   \choice 0
+   \choice undetermined
+\end{choices}
+\vspace{0.2in}
+
+\question Find \(\lim_{x\to2^{+}}f(x) \) 
+\begin{choices}
+  	  \choice 0
+  	  \choice 1
+  	  \CorrectChoice 1
+  	 \choice $\infty$
+   	\choice 2
+\end{choices}
+\vspace{0.1in}
+
+\question Find \( \lim_{x\to2} f(x)\)
+\begin{choices}
+    	\choice 0
+    	\choice 1
+    	\CorrectChoice Does not exist
+  	 \choice $\infty$
+  	 \choice $2$
+\end{choices}
+\vspace{0.1in}
+
+
+\question A right triangle has a  hypotenuse of length 6 and one leg of length $\sqrt{5}$. What is the length of the other leg?
+  \begin{choices}
+      \CorrectChoice $\sqrt{31}$
+      \choice $21$
+      \choice $\sqrt{41}$
+      \choice $31$
+      \choice $\sqrt{10}$
+\end{choices}
+
+\question Which of the following angles is coterminal to $325$º 
+\begin{choices}
+  	  \choice -45º
+  	  \choice -25º
+  	  \CorrectChoice -35º
+ 	   \choice 75º
+  	  \choice 125º
+\end{choices}
+
+\question A triangle in the unit circle has a terminal point ${(\frac{1}{2},\frac{\sqrt{3}}{2})}$. What is $\theta$?
+\begin{choices}
+ 	 \choice 30º
+ 	 \choice 120º
+ 	 \choice 45º 
+  	\CorrectChoice 60º
+  	\choice 210º
+\end{choices}
+
+\question Where does the terminal side of the angle $-320$º lie, if drawn in standard position?
+\begin{choices}
+    \CorrectChoice  Quadrant I
+    \choice Quadrant II
+    \choice Quadrant III
+    \choice Quadrant IV
+    \choice Standard position angles can't be negative
+\end{choices}
+
+\question Find the length of the arc, in cm,  formed by an angle of $\theta = 45$º if the distance from the terminal point to the center is $r=2 \ cm$
+
+\begin{oneparchoices}
+    \CorrectChoice  $\pi \qquad \ \ $
+    \choice $\dfrac{\pi}{3} \qquad \ \ $
+    \choice $\dfrac{4\pi}{3} \qquad \ \ $
+    \choice  $\dfrac{2\pi}{3} \qquad \ \ $
+    \choice  $\dfrac{3\pi}{2} \qquad \ \ $
+\end{oneparchoices}
+
+\question Find the area of a sector of a circle with radius 10 centimeters formed by the arc subtended from the angle \(\theta\)= \(\dfrac{\pi}{5}\)rad.
+\begin{choices}
+    \choice $5\pi \ cm^2$
+    \choice $50\pi \  cm^2$
+    \choice $25\pi \ cm^2$
+    \CorrectChoice $10\pi \ cm^2$
+    \choice $12.5\pi \ cm^2$
+\end{choices}
+\pagebreak
+
+\question Which of the following best describes what a derivative is?
+\begin{choices}
+	\CorrectChoice The slope of the tangent line or instantaneous rate of change
+	\choice The slope of the secant line or average rate of change
+	\choice The equation of a tangent line at a point
+	\choice The equation of the tangent line anywhere on the curve
+	\choice none of the above
+\end{choices}
+
+ \question Find the derivative of \(f(x) = x\ln{x}\)
+\begin{choices}
+	\choice \(x+x\ln{x}\)
+	\CorrectChoice \(\ln{x} + 1\)
+	\choice \(\ln{x}\)
+	\choice \(\ln{x} + \frac{1}{x}\)
+	\choice \(1 + \frac{1}{x}\)
+\end{choices}
+
+\question Find the derivative of  $f(x)=x -\dfrac{1}{x^{2}}$
+	\begin{choices}
+		\choice $1 + x^{3}$
+		\choice $\dfrac{1}{x^{3}}$
+		\CorrectChoice $1 + \dfrac{1}{x^{3}}$
+		\choice $ \dfrac{1}{x^{-3}}$
+		\choice $1-\dfrac{1}{2x}$
+	\end{choices}
+
+\question Differentiate $ f(x) =  2\sqrt{x}  $
+	\begin{choices}
+		\choice  $\dfrac{1}{2\sqrt{x}}$
+		\choice $-\dfrac{\sqrt{x}}{2x}$
+		\CorrectChoice $\dfrac{1}{\sqrt{x}}$
+		\choice  $1/{2x}$
+		\choice $2\sqrt{x}$
+	\end{choices}
+
+\question Find the slope of the line tangent to  $ \displaystyle \small y =-x^{-3}$ at $x=1$
+            \begin{choices}
+            \choice $m = 3/2$
+            \choice $m = -3$
+            \choice $m = 3/4$
+            \choice  $m = -3/4$
+            \CorrectChoice $m =3$
+            \end{choices}
+
+\question Find the equation of the line which at the point $(1,6)$ is tangent to the graph of\\ \(\displaystyle y=-4x^3+7x^2-9x+12\)
+     \begin{choices}
+            \choice $y=5x+1$
+            \choice $y=-12x -9$
+            \CorrectChoice $y=-7x+13$
+            \choice $y=-4x+12$
+            \choice $y=-24x-14$
+     \end{choices}
+\vspace{0.2in}
+\question Find  $f'(2)$ given  $$f(x) = 3x^3 - 2x- 5$$
+\begin{choices}
+	\choice 64
+	\CorrectChoice 34
+	\choice 3
+	\choice -3
+	\choice 72
+\end{choices}
+\vspace{0.1in}
+
+\question The trajectory of a body in motion is modeled by $$p(t) = 3t^3 - 2t^2 -18$$ Find the position of the body after 2 seconds.
+\begin{choices}
+	\choice $-9m \ m$
+	\choice $-18 \ m$ 
+	\CorrectChoice $-2 \ m$
+	\choice $12 \ m$ 
+	\choice $18 \ m$
+\end{choices}
+\vspace{0.2in}
+
+\question Find the total displacement of this particle from the moment motion begins and  $t=3s$
+\begin{choices}
+	\choice $41 \ m$
+	\choice $39 \ m$ 
+	\CorrectChoice $28 \ m$
+	\choice $43 \ m$
+	\choice $45 \ m$ 
+\end{choices}
+
+\vspace{0.1in}
+\question Find an equation for the velocity of the body
+\begin{choices}
+	\choice $6t^2 -8t -18 \ m/s$ 
+	\choice $3t^2 -4t \ m/s$ 
+	\CorrectChoice $9t^2 - 4t \  m/s$ 
+	\choice $9t^2 + 4t -18 \ m/s$
+	\choice  $9t^2 - 4$
+\end{choices}
+\vspace{0.1in}
+
+\question Find the exact time at which the body's acceleration is $0  \ m/s^2$	
+\begin{choices}
+	\choice $\frac{1}{2} \ s $
+	\choice $\frac{2}{3} \ s$
+	\CorrectChoice $\frac{9}{2} \ s$
+	\choice $\frac{1}{9} \ s$
+\choice $\frac{5}{3} \ s$
+\end{choices}
+
+\question What is the best team in the world?
+\begin{choices}
+	\CorrectChoice Atletico Madrid
+	\choice Real Madrid
+	\choice Barcelona
+	\choice Tigres
+	\choice none of the above
+\end{choices}
+
+\vspace{0.10in}
+
+\end{questions}
+\end{document}
+ 

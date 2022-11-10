@@ -1,0 +1,3252 @@
+<!doctype html>
+<html lang="en">
+ 
+
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hallo,sahabat</title>
+  
+  
+<style>
+  .green{
+    background: green;
+}
+</style>
+
+    
+    <script src="js/main.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    
+//      <script type="text/javascript" async
+//    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+//  </script>
+
+<script type="text/x-mathjax-config"> 
+
+  MathJax.Hub.Config({ 
+  
+  extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"], 
+  
+  jax: ["input/TeX", "output/HTML-CSS"], 
+  
+  tex2jax: { 
+  
+   inlineMath: [ ["$","$"], ["\\(","\\)"] ], 
+  
+   displayMath: [ ["$$","$$"], ["\\[","\\]"] ], 
+  
+   processEscapes: true 
+  
+  }, 
+  
+  "HTML-CSS": { availableFonts: ["TeX"] } 
+  
+  }); 
+  
+  </script>
+
+	<!-- <link rel="stylesheet" href="./css/styles.css">
+	 -->
+<style>
+  
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+
+body{
+    font-family: 'Montserrat', serif;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color : rgb(226, 85, 85);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.game-quiz-container{
+    width: 40rem;
+    height: 40rem;
+    
+     background-color:rgb(221, 141, 141);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+}
+
+.game-details-container{
+    width: 80%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.game-details-container h1{
+    font-size: 1.4rem;
+    color: black;
+    font-weight: 800;
+    
+}
+
+.game-question-container{
+    width: 80%;
+    height: 8rem;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    border: 2px solid darkgray;
+    border-radius: 25px;
+    margin:2px;
+}
+
+.game-question-container h1{
+    font-size: 1.6rem;
+    text-align: center;
+    color: black;
+    padding: 3px;
+    font-weight: 600;
+    
+}
+
+.game-options-container{
+    width: 80%;
+    height: 12rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.game-options-container span{
+    width: 45%;
+    height: 3rem;
+    border: 2px solid darkgray;
+    border-radius: 20px;
+    
+    overflow: hidden;
+}
+span label{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    font-weight: 600;
+    color: rgb(22, 22, 22);
+}
+
+span label:hover{
+    -ms-transform: scale(1.12);
+    -webkit-transform: scale(1.12);
+    transform: scale(1.12);
+    color: white;
+}
+
+input[type="radio"] {
+    position: relative;
+    display: none;
+}
+
+
+input[type=radio]:checked ~ .option {
+    background: paleturquoise;
+}
+
+.next-button-container{
+    width: 50%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+}
+.next-button-container button{
+    width: 8rem;
+    margin:2px;
+    height: 2rem;
+    border-radius: 10px;
+    background: green;
+    color: rgb(25, 25, 25);
+    font-weight: 600;
+    border: 3px solid black;
+    cursor: pointer;
+    outline: none;
+}
+.next-button-container button:hover{
+    background-color: rgb(143, 93, 93);
+}
+
+.modal-container{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    -webkit-animation: fadeIn 1.2s ease-in-out;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.modal-content-container{
+    height: 20rem;
+    width: 25rem;
+    background-color: rgb(43, 42, 42);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 25px;
+}
+
+.modal-content-container h1{
+    font-size: 1.3rem;
+    height: 3rem;
+    color: lightgray;
+    text-align: center;
+}
+
+.grade-details{
+    width: 15rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.grade-details p{
+    color: white;
+    text-align: center;
+}
+
+.modal-button-container{
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-button-container button{
+    width: 10rem;
+    height: 2rem;
+    background: none;
+    outline: none;
+    border: 1px solid rgb(252, 242, 241);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.modal-button-container button:hover{
+    background-color: rgb(83, 82, 82);
+}
+
+@media(min-width : 300px) and (max-width : 350px){
+    .game-quiz-container{
+        width: 90%;
+        height: 80vh;
+     }
+     .game-details-container h1{
+        font-size: 0.8rem;
+     }
+
+     .game-question-container{
+        height: 6rem;
+     }
+     .game-question-container h1{
+       font-size: 0.9rem;
+    }
+
+    .game-options-container span{
+        width: 90%;
+        height: 2.5rem;
+    }
+    .game-options-container span label{
+        font-size: 0.8rem;
+    }
+    .modal-content-container{
+        width: 90%;
+        height: 25rem;
+    }
+
+    .modal-content-container h1{
+        font-size: 1.2rem;
+    }
+}
+
+@media(min-width : 350px) and (max-width : 700px){
+   .game-quiz-container{
+       width: 90%;
+       height: 80vh;
+    }
+    .game-details-container h1{
+        font-size: 1rem;
+    }
+
+    .game-question-container{
+        height: 8rem;
+    }
+
+    .game-question-container h1{
+        font-size: 0.9rem;
+     }
+
+    .game-options-container span{
+        width: 90%;
+    }
+    .modal-content-container{
+        width: 90%;
+        height: 25rem;
+    }
+    .modal-content-container h1{
+        font-size: 1.2rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+    </style>
+    <style>
+        li {
+          display: inline;
+        }
+        </style>
+</head>
+
+<body class="bg-grey-500" onload="NextQuestion(0)"> 
+
+
+  <div>
+          <a href="index.html"><p>BACK</p></a>
+          <p style="text-align: center;">MATRIK</p>
+  </div>
+
+<main class="bg-grey-500">
+        <!-- creating a modal for when quiz ends -->
+        <div class="modal-container" id="score-modal">
+            
+            <div class="modal-content-container">
+
+                <h1>Selamat. Anda sudah di test    </h1>
+
+                <div class="grade-details">
+                    <p>Nilai : </p>
+                    <p>Jumlah jawaban salah : <span id="wrong-answers"></span></p>
+                    <p>Jumlah jawaban benar : <span id="right-answers"></span></p>
+                    <p>Passing grade : <span id="grade-percentage"></span>%</p>
+                    <p ><span id="remarks"></span></p>
+                </div>
+
+                <div class="modal-button-container">
+                    <button onclick="closeScoreModal()">Lanjut</button>
+                </div>
+
+            </div>
+        </div>
+<!-- end of modal of quiz details-->
+
+        <div class="game-quiz-container">
+
+            <div class="game-details-container">
+                <h1>Jumlah skor benar  : <span id="player-score"></span> / 10</h1>
+                <h1> Pertanyaan ke- : <span id="question-number"></span> / 10</h1>
+            </div>
+
+            <div  style="background: rgb(10, 77, 36);"class="game-question-container">
+                <h1 style="color:wheat" id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+
+               <div class="modal-container" id="option-modal">
+
+                    <div class="modal-content-container">
+                         <h1>Silakan pilih </h1>
+
+                         <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">Lanjutkan?</button>
+                        </div>
+
+                    </div>
+
+               </div>
+  
+                <span  style="background: rgb(16, 219, 50);">
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label> 
+                </span>
+            
+
+                <span  style="background: rgb(162, 226, 43);">
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+               </span>
+       
+ 
+                <span style="background: rgb(112, 20, 199);">
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+
+
+                <span  style="background: rgb(218, 10, 90);">
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+
+
+            </div>
+
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Lanjutkan </button>
+            </div>
+  <a href="index.html"><p>BACK</p></a>
+        </div>
+        <br>
+       
+      
+                
+    </div>
+    <!-- <div id="contentContainer"> -->
+ <!-- <div  class="middle1">
+<iframe   width=100% height="299" src="https://docs.google.com/document/d/e/2PACX-1vSNdgHsgRuZHzCvR6iEiVscFpgxfJAz9Q5eWts7HBYPmJK12lGGvVo--5F6jblQGARiA7I91k_UGaOt/pub?embedded=true"></iframe>
+</div> -->
+<!-- <div  class="middle2">
+ 
+<iframe width="100%" height="299" src="https://docs.google.com/presentation/d/e/2PACX-1vSZCV_Na_ykbORgQBDwEGfSpiZXnDCy-8Zlej6s9LXiz4cahJRIULFoYPoVx6TdlFw6GCi2ZWG5_bpZ/embed?start=true&loop=true&delayms=2000" frameborder="0"  allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div> -->
+<!-- 
+<div  class="middle2">
+  <iframe width='853' height='480' src='https://embed.coggle.it/diagram/YWvzt9ACK0JIfpWo/7cdb349c2397dd7ba9d9b5668f607d40467db1e9e953183ff39bba715d9177d4' frameborder='0' allowfullscreen></iframe> -->
+ 
+<!-- <iframe width='853' height='480' src='https://embed.coggle.it/diagram/YWvzt9ACK0JIfpWo/7cdb349c2397dd7ba9d9b5668f607d40467db1e9e953183ff39bba715d9177d4' frameborder='0' allowfullscreen></iframe> -->
+<!-- </div> -->
+ 
+   <div  >
+         <p>
+            Daftar MATRIK 
+            <br> 
+     
+             
+      
+    </div>
+
+
+
+
+
+        
+         <math xmlns="http://www.w3.org/1998/Math/MathML">
+        
+<hr>
+ <math xmlns="http://www.w3.org/1998/Math/MathML">
+          
+        
+
+            
+</math>
+       
+<h2>
+<math>
+  <mrow>  
+            <mo>A=</mo>  
+            <mo>[</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>1</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>1</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>1</mn>  
+                </mtd>  
+              </mtr>  
+            </mtable>  
+            <mo>]</mo>  
+          </mrow>
+</math>
+</h2>
+
+<h2>
+<math>
+  <mrow>  
+            <mo>B=</mo>  
+            <mo>[</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>2</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>1</mn>  
+                </mtd>  
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>1</mn>  
+                </mtd>  
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+              </mtr>  
+            </mtable>  
+            <mo>]</mo>  
+          </mrow>
+</math>
+</h2>
+<h2>
+<math>
+  <mrow>  
+            <mo>C=</mo>  
+            <mo>[</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>3</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>2</mn>  
+                </mtd>  
+             
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>-4</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>1</mn>  
+                </mtd>  
+                 
+              </mtr>  
+             
+            </mtable>  
+            <mo>]</mo>  
+          </mrow>
+</math>
+</h2>
+
+<br>
+
+  <div container style=" background: rgb(212, 175, 247);padding:10px;">
+    <!-- <figure id="video-track-container">
+  <video   class="vidchaVideo"  controls>
+      
+    <source  src="vidio/rev.mp4" type="video/mp4">
+        
+  </video>
+<figure id="video-track-container">
+  <video   class="vidchaVideo"  controls>
+      
+    <source  src="vidio/rev2.mp4" type="video/mp4">
+        
+  </video>
+  
+ </figure> -->
+<div style="font-size:1.4rem" >
+  <hr>
+  <p style="background: blueviolet; text-align: center";>pilih 1 jawaban </p> 
+
+  
+
+<hr>
+<label for="">
+  <p>Determinan dari matrik A </p> 
+  <p style="font-size:small">
+  <math>
+   <mrow>  
+             <mo>A=</mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>2</mn>  
+                 </mtd>  
+                  
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                
+               </mtr>  
+               
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+</p>
+ 
+ adalah
+ <br>
+ 
+
+
+</label><br>
+<input type="radio" name="no1" style=" display:inline-flex">1<br>
+<input type="radio" name="no1" id="jno1" style=" display:inline-flex">-1<br>
+<input type="radio" name="no1" style=" display:inline-flex">2<br>
+<input type="radio" name="no1" style=" display:inline">3<br>
+<div id="rno1"></div>
+<hr>
+
+
+<label for="">
+  <p>minor dari matrik M </p> 
+  <p style="font-size:small">
+
+    <math>
+     <mrow>  
+               <mo>M=</mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ </p>
+   
+   adalah
+  
+</label><br>
+<input type="radio" name="no2" style=" display:inline-flex">
+<label for="">
+  <math>
+   <mrow>  
+             <mo></mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>2</mn>  
+                 </mtd>  
+                  
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>-1</mn>  
+                 </mtd>  
+                
+               </mtr>  
+               
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+<br>
+
+</label>
+<br>
+<input type="radio" name="no2" id="jno2" style=" display:inline-flex">
+<label for="">
+    <math>
+     <mrow>  
+               <mo></mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ 
+ <br>
+</label><br>
+<input type="radio" name="no2" style=" display:inline-flex">
+<label for="">
+  <math>
+   <mrow>  
+             <mo></mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>2</mn>  
+                 </mtd>  
+                  
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>-1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>-1</mn>  
+                 </mtd>  
+                
+               </mtr>  
+               
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+<br>
+
+</label><br>
+<input type="radio" name="no2" style=" display:inline-flex">
+<label for="">
+  <math>
+   <mrow>  
+             <mo></mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>2</mn>  
+                 </mtd>  
+                  
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>-1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>-2</mn>  
+                 </mtd>  
+                
+               </mtr>  
+               
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+
+
+</label><br>
+<br>
+<div id="rno2"></div>
+
+<hr>
+
+<label for="">
+  <p>transpose dari matrik T </p> 
+  <p style="font-size:small">
+
+    <math>
+     <mrow>  
+               <mo>T=</mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>3</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ </p>
+   
+   adalah
+   <br>
+</label><br>
+<input type="radio" name="no3" style=" display:inline-flex">
+<label for="">
+  
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+  
+
+</label>
+<br>
+<input type="radio" name="no3" id="jno3" style=" display:inline-flex">
+<label for="">
+   
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+  
+
+ 
+</label><br>
+<input type="radio" name="no3" style=" display:inline-flex">
+<label for="">
+  
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+  
+
+</label><br>
+<input type="radio" name="no3" style=" display:inline-flex">
+<label for="">
+ 
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+ 
+
+</label><br>
+<br>
+<div id="rno3"></div>
+<hr>
+
+
+<label for="">
+  <p>cofaktor  dari matrik C </p> 
+  <p style="font-size:1.4rem">
+
+    <math>
+     <mrow>  
+               <mo>C=</mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ </p>
+   
+   adalah
+   <br>
+</label><br>
+<input type="radio" name="no4" style=" display:inline-flex">
+<label for="">
+  
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+  
+</label>
+ 
+ 
+</label><br>
+<input type="radio" name="no4" style=" display:inline-flex">
+<label for="">
+  <math>
+   <mrow>  
+             <mo></mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>2</mn>  
+                 </mtd>  
+                  
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>-1</mn>  
+                 </mtd>  
+                
+               </mtr>  
+               
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+
+
+</label><br>
+<input type="radio" name="no4" style=" display:inline-flex">
+<label for="">
+  <math>
+   <mrow>  
+             <mo></mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>-1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>2</mn>  
+                 </mtd>  
+                  
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>-1</mn>  
+                 </mtd>  
+                
+               </mtr>  
+               
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+
+
+</label>
+<br>
+<input type="radio" name="no4" id="jno4" style=" display:inline-flex">
+<label for="">
+    <math>
+     <mrow>  
+               <mo></mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>-2</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+
+<br>
+<div id="rno4"></div>
+
+<hr>
+
+<label for="">
+  <p> hasil perkalian 2  matrik</p> 
+<h2 style="font-size:small; color: rgb(13, 13, 122);">
+
+<div style="display:inline">
+
+<div style="display:inline-block">
+<p>
+<math>
+ <mrow>  
+           <mo></mo>  
+           <mo>[</mo>  
+           <mtable>  
+             <mtr>  
+               <mtd>  
+                 <mn>0</mn>  
+               </mtd>  
+               <mtd>  
+                 <mn>2</mn>  
+               </mtd>  
+               <mtd>  
+                 <mn>1</mn>  
+               </mtd>  
+             </mtr>  
+               
+             <mtr>  
+               <mtd>  
+                 <mn>0</mn>  
+               </mtd>  
+               <mtd>  
+                 <mn>1</mn>  
+               </mtd>  
+               <mtd>  
+                 <mn>0</mn>  
+               </mtd>  
+             </mtr>  
+           </mtable>  
+           <mo>]</mo>  
+         </mrow>
+</math>
+</p>
+
+</div>
+<div style="display:inline-block">
+<math>
+  <mrow>  
+            <mo>.</mo>  
+            <mo>[</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>1</mn>  
+                </mtd>  
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>0</mn>  
+                </mtd>  
+              
+                  
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>1</mn>  
+                </mtd>  
+                 
+
+              </mtr>  
+            </mtable>  
+            <mo>]</mo>  
+          </mrow>
+ </math>
+</div>
+</div>
+
+<br>
+adalah
+<br>
+   <br>
+</label><br>
+<input type="radio" name="no5" style=" display:inline-flex">
+<label for="">
+  <math>
+   <mrow>  
+             <mo></mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>   
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>                 
+               </mtr>  
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+
+
+</label>
+<br>
+<input type="radio" name="no5"  style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>                 
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+ 
+
+</label><br>
+
+<input type="radio" name="no5" id="jno5" style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>                 
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+ 
+
+</label><br>
+<input type="radio" name="no5" style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>                 
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+
+</label><br>
+<br>
+<div id="rno5"></div>
+
+<hr>
+
+<label for="">
+  <p style="font-size:1.4rem">invers matrik D </p> 
+  <p>
+
+    <math >
+     <mrow>  
+               <mo>D=</mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ </p>
+   
+   adalah
+   <br>
+</label><br>
+<input type="radio" name="no6" style=" display:inline-flex">
+<label for="">
+  
+  <math>
+    <mrow>  
+              <mo>3</mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>-2</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+  
+
+</label>
+<br>
+<input type="radio" name="no6" id="jno6" style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo>1/3</mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>-2</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math> 
+  
+  
+ 
+</label><br>
+<input type="radio" name="no6" style=" display:inline-flex">
+<label for="">
+ 
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>-2</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+ 
+ 
+
+</label><br>
+<input type="radio" name="no6" style=" display:inline-flex">
+<label for="">
+  <math>
+   <mrow>  
+             <mo></mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>1</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>2</mn>  
+                 </mtd>  
+                  
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>2</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>-1</mn>  
+                 </mtd>  
+                
+               </mtr>  
+               
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+
+
+</label><br>
+<br>
+<div id="rno6"></div>
+
+<hr>
+
+<label for="">
+  <p style="font-size:1.4rem">penjumlahan matrik </p> 
+  <p style="font-size:small">
+    <math>
+      <mrow>  
+                <mo></mo>  
+                <mo>[</mo>  
+                <mtable>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>-1</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>2</mn>  
+                    </mtd>  
+                     
+                  </mtr>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>-1</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>1</mn>  
+                    </mtd>  
+                   
+                  </mtr>  
+                  
+                </mtable>  
+                <mo>]</mo>  
+              </mrow>
+    </math>
+ 
+    <math>
+     <mrow>  
+               <mo>+</mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ </p>
+   
+   adalah
+   <br>
+</label><br>
+<input type="radio" name="no7" style=" display:inline-flex">
+<label for="">
+  <math>
+   <mrow>  
+             <mo></mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>0</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>4</mn>  
+                 </mtd>  
+                  
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>0</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>3</mn>  
+                 </mtd>  
+                
+               </mtr>  
+               
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+
+
+</label>
+<br>
+<input type="radio" name="no7" id="jno7" style=" display:inline-flex">
+<label for="A">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>4</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>-2</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+ 
+ 
+</label><br>
+<input type="radio" name="no7" style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>4</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+ 
+ 
+</label><br>
+<input type="radio" name="no7" style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>4</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                 
+                </mtr>  
+                
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+ 
+ 
+
+</label><br>
+<br>
+<div id="rno7"></div>
+<hr>
+
+<label for="">
+  <p style="font-size:1.4rem">transpose matrik H </p> 
+  <p style="font-size:small">
+    <math>
+      <mrow>  
+                <mo>H=</mo>  
+                <mo>[</mo>  
+                <mtable>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>4</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>2</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>1</mn>  
+                    </mtd>  
+                  </mtr>  
+                    
+                  <mtr>  
+                    <mtd>  
+                      <mn>3</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>-1</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>0</mn>  
+                    </mtd>  
+                  </mtr>  
+                </mtable>  
+                <mo>]</mo>  
+              </mrow>
+     </math>
+     
+ </p>
+   
+   adalah
+   <br>
+</label><br>
+<input type="radio" name="no8" style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                </mtr>  
+                  
+                <mtr>  
+                  <mtd>  
+                    <mn>4</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+   </math>
+  
+
+</label>
+<br>
+ 
+</label><br>
+<input type="radio" name="no8" style=" display:inline-flex">
+<label for="">
+  
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>4</mn>  
+                  </mtd>
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                    
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+  
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+   </math>
+ 
+   <input type="radio" name="no8" id="jno8" style=" display:inline-flex">
+   <label for="">
+     <math>
+       <mrow>  
+                 <mo></mo>  
+                 <mo>[</mo>  
+                 <mtable>  
+                   <mtr>  
+                     <mtd>  
+                       <mn>4</mn>  
+                     </mtd>
+                     <mtd>  
+                       <mn>3</mn>  
+                     </mtd>  
+                   </mtr>  
+                   <mtr>  
+                     <mtd>  
+                       <mn>2</mn>  
+                     </mtd>  
+                     <mtd>  
+                       <mn>-1</mn>  
+                     </mtd>  
+                       
+                   </mtr>  
+                   <mtr>  
+                     <mtd>  
+                       <mn>1</mn>  
+                     </mtd>  
+                     <mtd>  
+                       <mn>0</mn>  
+                     </mtd>  
+     
+                   </mtr>  
+                 </mtable>  
+                 <mo>]</mo>  
+               </mrow>
+      </math>
+   
+</label><br>
+<input type="radio" name="no8" style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>4</mn>  
+                  </mtd>
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>-1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                    
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+  
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+   </math>
+ 
+</label><br>
+<br>
+<div id="rno8"></div>
+
+<hr>
+
+<label for="">
+  <p style="font-size:1.4rem">sistem persamaan 2x - 3y =7 dan 3x +2 y = 4</p> 
+  <p style="font-size:small">
+   
+   dalam bentuk matrik adalah
+   <br>
+</label><br>
+
+<div style="display:inline">
+
+<input type="radio" name="no9" style=" display:inline-flex">
+<label for="">
+  <math>
+   <mrow>  
+             <mo></mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>2</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>x</mn>  
+                 </mtd>  
+                  
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>-3</mn>  
+                 </mtd>  
+                 <mtd>  
+                   <mn>y</mn>  
+                 </mtd>  
+                
+               </mtr>  
+               
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+
+
+</label>
+<br>
+<input type="radio" name="no9" id="jno9" style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>-3</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                  
+                <mtr>  
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>   
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+   </math>
+  
+   
+   </div>
+   
+   <math>
+     <mrow>  
+               <mo>.</mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>x</mn>  
+                   </mtd>  
+                 </mtr>  
+                 <mtr>  
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>y</mn>  
+                   </mtd>  
+                    
+   
+                 </mtr>  
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+    </math>
+   
+    <math>
+      <mrow>  
+                <mo>=</mo>  
+                <mo>[</mo>  
+                <mtable>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>7</mn>  
+                    </mtd>  
+                  </mtr>  
+                  <mtr>  
+                  </mtr>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>4</mn>  
+                    </mtd>  
+                     
+    
+                  </mtr>  
+                </mtable>  
+                <mo>]</mo>  
+              </mrow>
+     </math>
+    
+
+
+</label><br>
+<div style="display:inline">
+<input type="radio" name="no9" style=" display:inline-flex">
+<label for="A">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                   
+                </mtr>  
+                  
+                <mtr>  
+                  <mtd>  
+                    <mn>3</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>2</mn>  
+                  </mtd>   
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+   </math>
+  
+   
+   </div>
+   
+   <math>
+     <mrow>  
+               <mo>.</mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>x</mn>  
+                   </mtd>  
+                 </mtr>  
+                 <mtr>  
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>y</mn>  
+                   </mtd>  
+                    
+   
+                 </mtr>  
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+    </math>
+   
+    <math>
+      <mrow>  
+                <mo>=</mo>  
+                <mo>[</mo>  
+                <mtable>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>7</mn>  
+                    </mtd>  
+                  </mtr>  
+                  <mtr>  
+                  </mtr>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>4</mn>  
+                    </mtd>  
+                     
+    
+                  </mtr>  
+                </mtable>  
+                <mo>]</mo>  
+              </mrow>
+     </math>
+    
+
+</label><br>
+<input type="radio" name="no9" style=" display:inline-flex">
+<label for="">
+  <div style="display:inline">
+    <math>
+      <mrow>  
+                <mo></mo>  
+                <mo>[</mo>  
+                <mtable>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>2</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>3</mn>  
+                    </mtd>  
+                     
+                  </mtr>  
+                    
+                  <mtr>  
+                    <mtd>  
+                      <mn>3</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>2</mn>  
+                    </mtd>   
+                  </mtr>  
+                </mtable>  
+                <mo>]</mo>  
+              </mrow>
+     </math>
+    
+     
+     </div>
+     
+     <math>
+       <mrow>  
+                 <mo>.</mo>  
+                 <mo>[</mo>  
+                 <mtable>  
+                   <mtr>  
+                     <mtd>  
+                       <mn>y</mn>  
+                     </mtd>  
+                   </mtr>  
+                   <mtr>  
+                   </mtr>  
+                   <mtr>  
+                     <mtd>  
+                       <mn>x</mn>  
+                     </mtd>  
+                      
+     
+                   </mtr>  
+                 </mtable>  
+                 <mo>]</mo>  
+               </mrow>
+      </math>
+     
+      <math>
+        <mrow>  
+                  <mo>=</mo>  
+                  <mo>[</mo>  
+                  <mtable>  
+                    <mtr>  
+                      <mtd>  
+                        <mn>7</mn>  
+                      </mtd>  
+                    </mtr>  
+                    <mtr>  
+                    </mtr>  
+                    <mtr>  
+                      <mtd>  
+                        <mn>4</mn>  
+                      </mtd>  
+                       
+      
+                    </mtr>  
+                  </mtable>  
+                  <mo>]</mo>  
+                </mrow>
+       </math>
+      
+</label><br>
+<br>
+<div id="rno9"></div>
+<hr>
+<hr>
+
+<label for="">
+  <p style="font-size:1.4rem";> perkalian  matrik</p> 
+<h2 style="font-size:small; color: rgb(13, 13, 122);">
+
+<div style="display:inline">
+
+<div style="display:inline-block">
+<p>
+<math>
+ <mrow>  
+           <mo></mo>  
+           <mo>[</mo>  
+           <mtable>  
+             <mtr>  
+               <mtd>  
+                 <mn>1</mn>  
+               </mtd>  
+               <mtd>  
+                 <mn>3</mn>  
+               </mtd>  
+               <mtd>  
+                 <mn>5</mn>  
+               </mtd>  
+             </mtr>  
+               
+             <mtr>  
+               <mtd>  
+                 <mn>3</mn>  
+               </mtd>  
+               <mtd>  
+                 <mn>2</mn>  
+               </mtd>  
+               <mtd>  
+                 <mn>1</mn>  
+               </mtd>  
+             </mtr>  
+           </mtable>  
+           <mo>]</mo>  
+         </mrow>
+</math>
+</p>
+
+</div>
+<div style="display:inline-block">
+<math>
+  <mrow>  
+            <mo>.</mo>  
+            <mo>[</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>2</mn>  
+                </mtd>  
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>4</mn>  
+                </mtd>  
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>1</mn>  
+                </mtd>  
+              </mtr>  
+            </mtable>  
+            <mo>]</mo>  
+          </mrow>
+ </math>
+</div>
+</div>
+
+<br>
+adalah
+<br>
+   <br>
+</label><br>
+<input type="radio" name="no10" id="jno10" style=" display:inline-flex">
+<label for="">
+  <math>
+   <mrow>  
+             <mo></mo>  
+             <mo>[</mo>  
+             <mtable>  
+               <mtr>  
+                 <mtd>  
+                   <mn>19</mn>  
+                 </mtd>   
+               </mtr>  
+               <mtr>  
+                 <mtd>  
+                   <mn>15</mn>  
+                 </mtd>                 
+               </mtr>  
+             </mtable>  
+             <mo>]</mo>  
+           </mrow>
+ </math>
+
+
+</label>
+<br>
+<input type="radio" name="no10"  style=" display:inline-flex">
+<label for="">
+  
+  
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>19</mn>  
+                  </mtd>   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>10</mn>  
+                  </mtd>                 
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+ 
+</label><br>
+<input type="radio" name="no10" style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>15</mn>  
+                  </mtd>   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>19</mn>  
+                  </mtd>                 
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+ 
+
+</label><br>
+<input type="radio" name="no10" style=" display:inline-flex">
+<label for="">
+  <math>
+    <mrow>  
+              <mo></mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>   
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>19</mn>  
+                  </mtd>                 
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+
+</label><br>
+<br>
+<div id="rno10"></div>
+
+
+
+<hr>
+<h2>isilah dengan jawanan yang benar</h2>
+<label>det
+  <math>
+    <mrow>  
+              <mo>A=</mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+  
+</label><br>
+<input type="text" id="sno1">
+<div id="rsno1"></div>
+<hr>
+
+
+
+<label for="">det 
+  <math>
+    <mrow>  
+              <mo>B=</mo>  
+              <mo>[</mo>  
+              <mtable>  
+                <mtr>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>-2</mn>  
+                  </mtd>  
+                </mtr>  
+                <mtr>  
+                  <mtd>  
+                    <mn>0</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                  <mtd>  
+                    <mn>1</mn>  
+                  </mtd>  
+                </mtr>  
+              </mtable>  
+              <mo>]</mo>  
+            </mrow>
+  </math>
+  
+
+</label><br>
+<input type="text" id="sno2">
+<div id="rsno2"></div>
+<hr>
+<!-- 
+<label for="">3.warna</label><br>
+<input type="number" value="" id="sno3">
+<div id="rsno3"></div>
+<hr>
+<label for="">4.warna</label><br>
+<input type="number" value="" id="sno4">
+<div id="rsno4"></div>
+<hr>
+<label for="">5.warna</label><br>
+<input type="number" value="" id="sno5"
+<div id="rsno5"></div>
+<hr>
+<label for="">6.warna</label><br>
+<input type="number" value="" id="sno6">
+<div id="rsno6"></div>
+<hr>
+<label for="">7.warna</label><br>
+<input type="number" value="" id="sno7">
+<div id="rsno7"></div>
+<hr>
+<label for="">8.warna</label><br>
+<input type="number" value="" id="sno8">
+<div id="rsno8"></div>
+<hr>
+<label for="">9.warna</label><br>
+<input type="number" value="" id="sno9">
+<div id="rsno9"></div>
+<hr>
+<label for="">10.warna</label><br>
+<input type="number" value="" id="sno10">
+<div id="rsno10"></div>
+<hr>
+ -->
+
+
+
+<div style="font-size:20px;text-align:center;width:3rem ; height:2rem;background:rgb(135, 135, 177)" id="nilai" style="font-size:2rem"></div>
+<button onclick="kirim()">Cek Nilai </button>
+
+<!-- 
+
+
+ <ol>
+   <hr>
+   <div style="background:rgb(153, 170, 228)" >
+     <p>Determinan dari matrik A </p> 
+     <p style="font-size:small">
+     <math>
+      <mrow>  
+                <mo>A=</mo>  
+                <mo>[</mo>  
+                <mtable>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>1</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>2</mn>  
+                    </mtd>  
+                     
+                  </mtr>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>1</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>1</mn>  
+                    </mtd>  
+                   
+                  </mtr>  
+                  
+                </mtable>  
+                <mo>]</mo>  
+              </mrow>
+    </math>
+  </p>
+    
+    adalah
+    <br>
+      
+<li>
+
+<input  type ="radio" name="SOAL1" value="salah" style=" display:inline-flex" />
+     <label style="margin-left:5px;" for="A">+1</label><br>
+     <input type ="radio" name="SOAL1" value="betul" style="display:inline-flex" />
+      <label id="ans1B" style="margin-left:5px;"  for="B">-1</label><br>
+      <input type ="radio" name="SOAL1" value="salah" style="display:inline-flex";/>
+       <label style="margin-left:5px;"  for="C">+3 </label><br>
+       <input type ="radio" name="SOAL1" value="salah" style="display:inline-flex";/>
+       <label style="margin-left:5px;"  id="ans1D" for="D">-3</label><br>
+     <input type ="radio" name='SOAL1' value="salah" style="display:inline-flex";/>
+       <label style="margin-left:5px;"   for="E">+2</label><br>
+ 
+     
+  
+       
+       
+     </li>
+
+         
+       <button onclick="ceking1()">cek</button>
+           </div> 
+       <hr>
+
+<hr>
+<div style="background:rgb(153, 170, 228)" >
+  <p>minor dari matrik M </p> 
+  <p style="font-size:small">
+
+    <math>
+     <mrow>  
+               <mo>M=</mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ </p>
+   
+   adalah
+   <br>
+<li>
+<input type ="radio" name="SOAL2" value="salah" style=" display: inline-block;";/>
+<label for="A">
+    <math>
+     <mrow>  
+               <mo></mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ 
+ 
+</label><br>
+
+
+
+
+ <br>
+<input type ="radio" name="SOAL2" value="betul" style=" display: inline-block;" />
+
+<label id="ans2B"  for="B">
+ <math>
+     <mrow>  
+               <mo></mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+  </label><br><br>
+
+ 
+<input type ="radio" name="SOAL2" value="salah" style="display:inline-flex";/>
+ <label  for="C">
+    <math>
+     <mrow>  
+               <mo></mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>-2</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ 
+ 
+ </label><br><br>
+ 
+<input type ="radio" name="SOAL2" value="salah" style="display:inline-flex";/>
+ <label  for="D">
+  
+
+    <math>
+     <mrow>  
+               <mo></mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>-1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ 
+ 
+</label><br><br>
+
+<input type ="radio" name='SOAL2' value="salah" style="display:inline-flex";/>
+ <label  for="E">
+  
+
+    <math>
+     <mrow>  
+               <mo></mo>  
+               <mo>[</mo>  
+               <mtable>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>2</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                    
+                 </mtr>  
+                 <mtr>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                   <mtd>  
+                     <mn>1</mn>  
+                   </mtd>  
+                  
+                 </mtr>  
+                 
+               </mtable>  
+               <mo>]</mo>  
+             </mrow>
+   </math>
+ 
+
+ </label><br><br>
+
+ 
+ 
+</li>
+     <br>
+ <button onclick="ceking2()">cek</button>
+  -->
+
+</div> 
+<!-- 
+<form>
+  <li>
+    Q1 soal <br>
+    <input type="radio" name="Q1" value="A" style="display:block">
+    <input type="radio" name="Q1" value="B" style="display:block">
+    <input type="radio" name="Q1" value="B" style="display:block">
+    <input type="radio" name="Q1" value="B" style="display:block">
+  </li>
+
+  <li>
+    Q2 soal <br>
+    <input type="radio" name="Q2" value="B" style="display:block">
+    <input type="radio" name="Q2" value="A" style="display:block">
+    <input type="radio" name="Q2" value="B" style="display:block">
+    <input type="radio" name="Q2" value="B" style="display:block">
+  </li>
+  <li>
+    Q3 soal <br>
+    <input type="radio" name="Q3" value="B" style="display:block">
+    <input type="radio" name="Q3" value="B" style="display:block">
+    <input type="radio" name="Q3" value="A" style="display:block">
+    <input type="radio" name="Q3" value="B" style="display:block">
+  </li>
+
+  <div id="score"></div>
+
+<button  onclick="cek">cek</button>
+
+
+
+
+</form>
+ -->
+
+
+
+
+</div>
+	
+  </div>
+	
+
+
+
+
+
+</main>
+
+
+<div style="background:rgb(140, 140, 165)" class="bg-black h-3 footer">
+			<p class="bg-green-200">Copyright © Irzal Achmad  <script>document.write(new Date().getFullYear());</script> </p>
+			</p>
+</div>
+
+
+
+
+
+
+
+
+<script>
+    const questions = [
+
+        {
+            question: "Susunan bilangan dalam bentuk baris dan kolom diantara dua garis vertikal disebut ...?",
+            optionA: "deret",
+            optionB: "tabel",
+            optionC: "matrik",
+            optionD: "barisan",
+            correctOption: "optionC"
+        },
+    
+        {
+            question: "jenis matrik yang hanya terdiri atas 1 baris disebut...",
+            optionA: "matrik identitas",
+            optionB: "matrik kolom",
+            optionC: "matrik baris",
+            optionD: "matrik nol",
+            correctOption: "optionC"
+        },
+
+        {
+            question: "matrik berordo 2 x 3 hanya dapat dijumlah/dikurang  dengan matrik berordo",
+            optionA: " 2 x 3 ",
+            optionB: "2 x 2",
+            optionC: "3 x 2",
+            optionD: "3 x 3",
+            correctOption: "optionA"
+        },
+
+        {
+            question: "perkalian dua matrik A dan B  dapat terjadi jika... ?",
+            optionA: "jumlah baris A = jumlah baris B",
+            optionB: "jumlah baris A= jumlah kolom B",
+            optionC: "semua matrik dapat dikalikan",
+            optionD: "jumlah kolom A = jumlah baris B",
+            correctOption: "optionD"
+        },
+
+        {
+            question: "jika ordo A adalah 2 x 4 sedangkan ordo B: 4 x 1  maka ordo hasil perkaliannya adalah...?",
+            optionA: "2 x 2",
+            optionB: "2 x 1",
+            optionC: "2 x 4",
+            optionD: "4 x 4",
+            correctOption: "optionB"
+        },
+
+     
+        {
+            question:  "berdasarkan daftar matrik yang ada dibawah, det A adalah ?",
+            optionA: "0",
+            optionB: "1",
+            optionC: "2",
+            optionD: "-1",
+            correctOption: "optionB"
+        },
+           {
+            question: "berdasarkan daftar matrik yang ada dibawah, matrik A termasuk jenis ?",
+            optionA: "matrik nol",
+            optionB: "matrik segitiga",
+            optionC: "matrik persegi panjang",
+            optionD: "matrik identitas",
+            correctOption: "optionD"
+        },
+
+        {
+            question:  "invers dari matrik A sama dengan ",
+            optionA: "adj A + det A",
+            optionB: "adj A x det A",
+            optionC: "adj A / det A",
+            optionD: "adj A - det A",
+            correctOption: "optionC"
+        },
+        {
+            question:  "jika minor 12 adalah -4 maka cofaktor 12 adalah",
+            optionA: "-4",
+            optionB: "4",
+            optionC: "12",
+            optionD: "3",
+            correctOption: "optionB"
+        },
+      
+        {
+            question:  "jika matrik A dikali matrik B sama dengan 1, maka B adalah ",
+            optionA: "minor A",
+            optionB: "invers A",
+            optionC: "transpose A",
+            optionD: "cofaktor A",
+            correctOption: "optionB"
+        }, 
+       
+        {
+            question:  "urutan menentukan invers adalah ",
+            optionA: "minor , transpose, cofaktor",
+            optionB: "minor, cofaktor,transpose",
+            optionC: "transpose, cofaktor,minor",
+            optionD: "cofaktor,minor,transpose",
+            correctOption: "optionB"
+        },
+        
+        
+        {
+            question:  "berdasarkan daftar matrik yang ada dibawah, matrik B adalah ?",
+            optionA: "matrik segi tiga",
+            optionB: "matrik nol",
+            optionC: "matrik diagonal",
+            optionD: "matrik kolom",
+            correctOption: "optionA"
+        },
+        {
+            question:  "berdasarkan daftar matrik yang ada dibawah, det C adalah ?",
+            optionA: "-5",
+            optionB: "11",
+            optionC: "3",
+            optionD: "-3",
+            correctOption: "optionB"
+        },
+      
+         {
+             question:  "berdasarkan daftar matrik yang ada dibawah, determinan dari invers  C adalah ?",
+             optionA: "-11",
+             optionB: "3",
+             optionC: "0",
+             optionD: "11",
+             correctOption: "optionD"
+         },
+
+    ]
+    
+    
+    let shuffledQuestions = [] //empty array to hold shuffled selected questions out of all available questions
+    
+    function handleQuestions() { 
+        //function to shuffle and push 10 questions to shuffledQuestions array
+    //app would be dealing with 10questions per session
+        while (shuffledQuestions.length <= 9) {
+            const random = questions[Math.floor(Math.random() * questions.length)]
+            if (!shuffledQuestions.includes(random)) {
+                shuffledQuestions.push(random)
+            }
+        }
+    }
+    
+    
+    let questionNumber = 1 //holds the current question number
+    let playerScore = 0  //holds the player score
+    let wrongAttempt = 0 //amount of wrong answers picked by player
+    let indexNumber = 0 //will be used in displaying next question
+    
+    // function for displaying next question in the array to dom
+    //also handles displaying players and quiz information to dom
+    function NextQuestion(index) {
+        handleQuestions()
+        const currentQuestion = shuffledQuestions[index]
+        document.getElementById("question-number").innerHTML = questionNumber
+        document.getElementById("player-score").innerHTML = playerScore
+        document.getElementById("display-question").innerHTML = currentQuestion.question ;
+        document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+        document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+         document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+        document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+        
+        
+    }
+    
+    
+    function checkForAnswer() {
+        const currentQuestion = shuffledQuestions[indexNumber] //gets current Question 
+        const currentQuestionAnswer = currentQuestion.correctOption //gets current Question's answer
+        const options = document.getElementsByName("option"); //gets all elements in dom with name of 'option' (in this the radio inputs)
+        let correctOption = null
+    
+        options.forEach((option) => {
+            if (option.value === currentQuestionAnswer) {
+                //get's correct's radio input with correct answer
+                correctOption = option.labels[0].id
+            }
+        })
+    
+        //checking to make sure a radio input has been checked or an option being chosen
+        if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+            document.getElementById('option-modal').style.display = "flex"
+        }
+    
+        //checking if checked radio button is same as answer
+        options.forEach((option) => {
+            if (option.checked === true && option.value === currentQuestionAnswer) {
+                document.getElementById(correctOption).style.backgroundColor = "green"
+                playerScore++ //adding to player's score
+                indexNumber++ //adding 1 to index so has to display next question..
+                //set to delay question number till when next question loads
+                setTimeout(() => {
+                    questionNumber++
+                }, 1000)
+            }
+    
+            else if (option.checked && option.value !== currentQuestionAnswer) {
+                const wrongLabelId = option.labels[0].id
+                document.getElementById(wrongLabelId).style.backgroundColor = "red"
+                document.getElementById(correctOption).style.backgroundColor = ""
+                wrongAttempt++ //adds 1 to wrong attempts 
+                indexNumber++
+                //set to delay question number till when next question loads
+                setTimeout(() => {
+                    questionNumber++
+                }, 1000)
+            }
+        })
+    }
+    
+    
+    
+    //called when the next button is called
+    function handleNextQuestion() {
+        checkForAnswer() //check if player picked right or wrong option
+        unCheckRadioButtons()
+        //delays next question displaying for a second just for some effects so questions don't rush in on player
+        setTimeout(() => {
+            if (indexNumber <= 9) {
+    //displays next question as long as index number isn't greater than 9, remember index number starts from 0, so index 9 is question 10
+                NextQuestion(indexNumber)
+            }
+            else {
+                handleEndGame()//ends game if index number greater than 9 meaning we're already at the 10th question
+            }
+            resetOptionBackground()
+        }, 1000);
+    }
+    
+    //sets options background back to null after display the right/wrong colors
+    function resetOptionBackground() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).style.backgroundColor = ""
+        })
+    }
+    
+    // unchecking all radio buttons for next question(can be done with map or foreach loop also)
+    function unCheckRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+    
+    // function for when all questions being answered
+    function handleEndGame() {
+        let remark = null
+        let remarkColor = null
+    
+        // condition check for player remark and remark color
+        if (playerScore <= 3) {
+            remark = "Kurang, C"
+            remarkColor = "red"
+        }
+        else if (playerScore >= 4 && playerScore < 7) {
+            remark = "Cukup , B"
+            remarkColor = "orange"
+        }
+        else if (playerScore >= 7) {
+            remark = "Excellent , baik , A"
+            remarkColor = "green"
+        }
+        const playerGrade = (playerScore / 10) * 100
+    
+        //data to display to score board
+        document.getElementById('remarks').innerHTML = remark
+        document.getElementById('remarks').style.color = remarkColor
+        document.getElementById('grade-percentage').innerHTML = playerGrade
+        document.getElementById('wrong-answers').innerHTML = wrongAttempt
+        document.getElementById('right-answers').innerHTML = playerScore
+        document.getElementById('score-modal').style.display = "flex"
+    
+    }
+    
+    //closes score modal, resets game and reshuffles questions
+    function closeScoreModal() {
+        questionNumber = 1
+        playerScore = 0
+        wrongAttempt = 0
+        indexNumber = 0
+        shuffledQuestions = []
+        NextQuestion(indexNumber)
+        document.getElementById('score-modal').style.display = "none"
+    }
+    
+    //function to close warning modal
+    function closeOptionModal() {
+        document.getElementById('option-modal').style.display = "none"
+    }
+    </script>
+  
+<!-- 
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+    </script>
+      <script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script> -->
+    <script src="js/vidcha.js"></script>
+    <script src="js/matrik.js"></script>
+       
+</body>
+</html>

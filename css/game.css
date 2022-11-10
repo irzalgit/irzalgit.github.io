@@ -1,0 +1,20 @@
+body{
+    color: aquamarine;
+}
+.pilihan-cont{
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.8rem;
+    border-radius: 4px;
+    background: blueviolet;
+    font-size: 3rem;
+    min-width: 80rem;
+}
+.pilihan-pref{
+padding: 2rem 2.5rem;
+color: white;
+}
+.pilihan-text{
+padding: 2rem;
+width: 100%;
+}
