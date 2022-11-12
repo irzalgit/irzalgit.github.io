@@ -20,12 +20,6 @@
 <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<script>
-MathJax = {
-  loader: {load: ['input/asciimath', 'output/chtml']}
-}
-</script>
-      
 <script type="text/javascript">
 	function ganti(gambar) {
 	var targetgambar = document.getElementById('targetgambar')
@@ -354,12 +348,10 @@ MathJax = {
 	  }
 	
 		</style>
-   
+ 
 </head>
 
 <body onload="NextQuestion(0)">
-
-
 
  <!-- <track src="tripel.vtt" label="English" kind="captions" srclang="en-us" default > -->
 <div class="container">
@@ -395,7 +387,7 @@ MathJax = {
 		</div>
 
 		<div class="middle">
-			<h2 style="text-align: center;">Update 10/11/22 
+			<h2 style="text-align: center;">Update 30/10/22 
 			<br></h2>
 			<img   width="65%" sr="gbr/heli.jpg" alt="">
 			<br>
@@ -407,12 +399,9 @@ MathJax = {
 			3.Klik caption vidio sesuai dengan materi<br>
 			4.Sambil mendengar audio/vidio  ... geser-geser gambar sesuai dengan narasi<br>
 			5.Pahami materi lalu kerjakan soalnya...ok, broo.<br>
-			6.Silakan download  
-      <a href="gbr/map11.svg" download="MAP.svg">
-        <img src="gbr/download.svg">
-
-      
-      </a>
+			6.Klik gbr dibawah untuk mendownload  <a href="/gbr/map11.svg" download="MindmapMatematika">
+					       <img src="/gbr/map11.svg" alt="ng ada gbr" width="25" height="36">
+					      </a>
 		
 			<content>
       
@@ -464,15 +453,15 @@ MathJax = {
 		
 			<div id="contentContainer"> 
 				 <div  id="thing" >
-					<img class='zoom'  src='gbr/map11.svg' 
-          alt='hup ng ada gbr' />
+					<img class='zoom'  src='gbr/map11.svg' alt='hup ng ada gbr' />
   				</div> 
-          
+  			
   			</div> 
 	
-        
+			
 		</div>
-   
+			
+		
   </div>
 
 
@@ -2413,12 +2402,12 @@ Problem: Pak Amir ingin berdagang 2 jenis kopi saset yaitu kopi capucino dan kop
 maksimum 50 buah saset, agar  bebas ongkir.
      <label for="">
     <p>jika x adalah kopi capucino dan y adalah kopi gingseng maka 
-      pernyataan diatas dapat diubah menjadi model matematika sbb:
+	    pernyataan diatas dapat diubah menjadi model matematika sbb:</p>
         
             
   
-  <input type="radio" name="no131" id="jno131" style=" display:inline-flex"> 
-  <label style="display:inline-block" >$${x+y\leq 50}$$</label><br>
+  <input type="radio" name="no131" style=" display:inline-flex"> 
+  <label style="display:inline-block" id="jno131">$${x+y\leq 50}$$</label><br>
   <input  type="radio" name="no131"  style=" display:inline-flex">
   <label>$${ { x-y\leq 50}}$$</label><br>
   <input  type="radio" name="no131" style=" display:inline-flex">
@@ -2575,7 +2564,7 @@ dari gambar dibawah ini</p>
   <label>terkecil</label><br>
 
   <input  type="radio" name="no135" style=" display:inline-flex">
-  <label>optimum</label><br>
+  <label>rata-rata</label><br>
 
   <input type="radio" name="no135" id="jno135" style=" display:inline">
   <label>nilai optimum dari fungsi tujuan</label><br>
@@ -6551,6 +6540,7 @@ $$x^{2}+y^{2}-2x+6y+1=0$$
   <math>
   <mi>Harga ayam  naik dua kali lipat</mi>
   </math><br>
+
   <input  type="radio" name="no121" style=" display:inline-flex">
   <math>
   <mi>Siswa SMK di Pekanbaru disiplin</mi>
@@ -6585,7 +6575,7 @@ Bukan Amir siswa yang tidak berprestasi<br>
   <div id="rno122"></div>
   <hr>
   Pernyataan majemuk adalah suatu pernyataan yang diperoleh 
-  dengan cara mengga dua atau lebih pernyataaan.Kata hubung 
+  dengan cara menggabungkan dua atau lebih pernyataaan.Kata hubung 
   yang digunakan:
   <p>1.Konjungsi : dan,tetapi, meskipun,walaupun, sedangkan, lagi pula.<br>
     contoh: Ani anak yang cerdas , tetapi tidak sombong.<br>Artinya:
@@ -6640,10 +6630,7 @@ Berdasarkan pengertian konjungsi maka pernyataan p: Walaupun sering diejek, Ani 
   </p>
 </label>
 <p>Pernyataan majemuk dapat juga ditentukan ingkarannya/negasinya.
-1.Negasi konjungsi ~(p dan q) = ~p atau ~q<br>
-2.Negasi disjungsi ~(p atau q) = ~p dan ~q<br>
-3.Negasi implikasi ~(p => q) = p dan ~q<br>
-
+1.Negasi Konjungsi <br>
 p:saya naik kelas; q:saya gembira</p><br>
 $$\sim \left ( p\wedge q \right )=\sim p\wedge \sim q$$
 
@@ -6717,125 +6704,109 @@ Pernyataan majemuk erat kaitannya dengan<br>
   </p>
 </label>
 <hr>
+<div class="hiden" style="display:none">
+$$\left\{\begin{matrix}
+2x+3y+z=7 & \\ 
+3x+2y+z=15 & \\
+2x-y-z=2
+\end{matrix}\right.$$
 
-
-$$
-  \begin{array} {|r|r|}\hline p & q & pVq \\ 
-  \hline 1_0 & 1_1 & 1_2 \\ 
-  \hline 2_0 & 2_1 & 2_2 \\ 
-  \hline 3_0 & 3_1 & 3_2 \\ 
-  \hline 4_0 & 4_1 & 4_2 \\ 
-  \hline  \end{array}
-$$
-
-
-Pernyataan majemuk erat kaitannya dengan<br>
-1.Ekivalensi yakni jika kedua pernyataan mempunyai nilai kebenaran yang sama
-<br>2.Kontradiksi.<br>
-3.Tautologi.<br>
      <label for="">
      <p style="font-size:small">
-  <p>$$p\Rightarrow q\equiv \sim q\Rightarrow  \sim p$$</p>
-  p:hari hujan; q:sungai banjir;<br> maka bentuk ekivalennya adalah<br>
+  <p> nilai x,y dan z adalah</p>
   <input type="radio" name="no128" style=" display:inline-flex"> 
-  sungai banjir jika hari hujan<br>
+  <math>
+  <mi>3,3,2</mi>
+  </math><br>
   
   <input  type="radio" name="no128" id="jno128" style=" display:inline-flex">
-  jika sungai tidak banjir maka hari tidak hujan<br>
+  <math>
+  <mi>3,2,2</mi>
+  </math><br>
 
   <input  type="radio" name="no128" style=" display:inline-flex">
-  
-  jika hujan sungai tidak banjir<br>
+  <math>
+  <mi>2,3,3</mi>
+  </math><br>
 
   <input type="radio" name="no128" style=" display:inline">
-  meskipun hari hujan sungai tidak banjir
-  <br>
+  <math>
+  <mi>3,2,1</mi>
+  </math><br>
   
   <div id="rno128"></div>
   <hr>
   
   </p>
 </label>
-<hr>
+$$\left\{\begin{matrix}
+x-3y+2z=-2 & \\ 
+x+2y+2z=8 & \\
+x+y+z=5
+\end{matrix}\right.$$
 
-
-$$
-  \begin{array} {|r|r|}\hline p & q & pVq \\ 
-  \hline 1_0 & 1_1 & 1_2 \\ 
-  \hline 2_0 & 2_1 & 2_2 \\ 
-  \hline 3_0 & 3_1 & 3_2 \\ 
-  \hline 4_0 & 4_1 & 4_2 \\ 
-  \hline  \end{array}
-$$
-
-
-Bentuk implikasi p => q dapat diubah ke bentuk implikasi yang lain yaitu<br>
-1.Konvers yakni q => p
-<br>2.Invers yakni ~p => ~q.<br>
-3.Kontraposisi yakni ~q => ~p.<br>
      <label for="">
      <p style="font-size:small">
-  <p>$$p\Rightarrow q\equiv \sim q\Rightarrow  \sim p$$</p>
-  p:hari hujan; q:sungai banjir;<br> maka bentuk ekivalennya adalah<br>
+  <p>nilai  x+y  adalah</p>
   <input type="radio" name="no129" style=" display:inline-flex"> 
-  sungai banjir jika hari hujan<br>
+  <math>
+  <mi>1</mi>
+  </math><br>
   
   <input  type="radio" name="no129" id="jno129" style=" display:inline-flex">
-  jika sungai tidak banjir maka hari tidak hujan<br>
+  <math>
+  <mi>4</mi>
+  </math><br>
 
   <input  type="radio" name="no129" style=" display:inline-flex">
-  
-  jika hujan sungai tidak banjir<br>
+  <math>
+  <mi>2</mi>
+  </math><br>
 
   <input type="radio" name="no129" style=" display:inline">
-  meskipun hari hujan sungai tidak banjir
-  <br>
+  <math>
+  <mi>3</mi>
+  </math><br>
   
   <div id="rno129"></div>
-
-
   <hr>
   
   </p>
 </label>
-  <hr>
-  
-  </p>
-</label>
+$$\left\{\begin{matrix}
+3x+2y+z=7 & \\ 
+3x+5y-z=6 & \\
+x+y-z=0
+\end{matrix}\right.$$
 
-$$
-  \begin{array} {|r|r|}\hline p & q & pVq \\ 
-  \hline 1_0 & 1_1 & 1_2 \\ 
-  \hline 2_0 & 2_1 & 2_2 \\ 
-  \hline 3_0 & 3_1 & 3_2 \\ 
-  \hline 4_0 & 4_1 & 4_2 \\ 
-  \hline  \end{array}
-$$
-
-
-Pernyataan majemuk erat kaitannya dengan<br>
-1.Ekivalensi yakni jika kedua pernyataan mempunyai nilai kebenaran yang sama
-<br>2.Kontradiksi.<br>
-3.Tautologi.<br>
      <label for="">
      <p style="font-size:small">
-  <p>$$p\Rightarrow q\equiv \sim q\Rightarrow  \sim p$$</p>
-  p:hari hujan; q:sungai banjir;<br> maka bentuk ekivalennya adalah<br>
+  <p>nilai z   adalah</p>
   <input type="radio" name="no130" style=" display:inline-flex"> 
-  sungai banjir jika hari hujan<br>
+  <math>
+  <mi>1</mi>
+  </math><br>
   
   <input  type="radio" name="no130" id="jno130" style=" display:inline-flex">
-  jika sungai tidak banjir maka hari tidak hujan<br>
+  <math>
+  <mi>2</mi>
+  </math><br>
 
   <input  type="radio" name="no130" style=" display:inline-flex">
-  
-  jika hujan sungai tidak banjir<br>
+  <math>
+  <mi>-3</mi>
+  </math><br>
 
-  <input type="radio" name="no130" style=" display:inline">
-  meskipun hari hujan sungai tidak banjir
-  <br>
+  <input type="radio" name="no120" style=" display:inline">
+  <math>
+  <mi>-2</mi>
+  </math><br>
   
-  <div id="rno130"></div>
+  <div id="rno120"></div>
+  <hr>
+  
+  </p>
+</label>
 
 
 
@@ -8093,10 +8064,19 @@ init();
 
 
 <script>
-const questions = [
+    const questions = [
+        {
+        question: "Perbandingan sisi depan dengan sisi miring adalah ?",
+        optionA: "sin",
+        optionB: "cos",
+        optionC: "tan ",
+        optionD: "sec ",
+        correctOption: "optionA"
+    },
+
     {
         question: "Yang termasuk tripel phytagoras ?",
-        optionA: "x",
+        optionA: "3,4,6",
         optionB: "3,4,5",
         optionC: "4,5,6",
         optionD: "5,10,12",
@@ -8107,10 +8087,908 @@ const questions = [
         question: "Grafik sinus pada kuadran IV  ",
         optionA: "naik",
         optionB: "turun",
-        optionC: " datar",
+        optionC: "datar",
         optionD: "tak tentu",
         correctOption: "optionA"
     },
+
+    {
+        question: "jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
+        optionA: "1/3",
+        optionB: "3/5",
+        optionC: "4/3",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sisi terpanjang atau garis miring dari tripel phytagoras {3,4,5} adalah",
+        optionA: "3",
+        optionB: "4",
+        optionC: "5",
+        optionD: "6",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Jumlah sudut-sudut dalam segitiga adalah",
+        optionA: "30&#176",
+        optionB: "90&#176",
+        optionC: "180&#176",
+        optionD: "360&#176",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Nilai sin 30&#176 , sin 45&#176 , sin 60&#176 , berturut-turut adalah",
+        optionA: "1/2,1/3,1/4",
+        optionB: "1/2,1/3.&#8730;2;1/3.&#8730;3",
+        optionC: "1/2,1/2.&#8730;2;1/2.&#8730;3 ",
+        optionD: "1/2,1/2.&#8730;3;1/2.&#8730;2",
+        correctOption: "optionC"
+    },
+	     {
+        question: "Nilai sin 210&#176 , sin 225&#176 , sin 240&#176 , berturut-turut adalah",
+        optionA: "1/2,1/3,1/4",
+        optionB: "-1/2,-1/3.&#8730;2;1/3.&#8730;3",
+        optionC: "-1/2,-1/2.&#8730;2;-1/2.&#8730;3 ",
+        optionD: "1/2,1/2.&#8730;3;1/2.&#8730;2",
+        correctOption: "optionC"
+    },
+	    
+ {
+        question: ".. sin 135&#176  adalah",
+        optionA: "1/2",
+        optionB: "-1/2",
+        optionC: "1/2.&#8730;2 ",
+        optionD: "1/2.&#8730;3",
+        correctOption: "optionC"
+    },
+
+	    
+ {
+        question: ".. tan 225&#176  adalah",
+        optionA: "-1",
+        optionB: "-1/2",
+        optionC: "1/2.&#8730;2 ",
+        optionD: "1",
+        correctOption: "optionD"
+    },
+
+	    
+    {
+        question: "dalam segitiga siku siku, jika sudut alpha 30 derajat, maka sudut beta adalah",
+        optionA: "10&#176",
+        optionB: "60&#176",
+        optionC: "80&#176",
+        optionD: "90 &#176",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Jumlah sudut alpha dan sudut beta dalam segitiga siku-siku adalah",
+        optionA: "30 &#176",
+        optionB: "60 &#176",
+        optionC: "90 &#176",
+        optionD: "180&#176",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Sudut 180 derajat jika dikonversi ke radian adalah",
+        optionA: "2&#8508",
+        optionB: "1&#8508",
+        optionC: "1/2.&#8508",
+        optionD: "1/3.&#8508",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Sudut 30 derajat jika dikonversi ke radian adalah",
+        optionA: "1/3.&#8508",
+        optionB: "1/4.&#8508",
+        optionC: "1/6.&#8508",
+        optionD: "1/9.&#8508",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Sin 30 = ",
+        optionA: "cos 60",
+        optionB: "cos 30",
+        optionC: "cos 45",
+        optionD: "cos 90",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin A dan cos A dikuadran 1 memiliki tanda ",
+        optionA: "positif dan positif",
+        optionB: "negatif dan negatif",
+        optionC: "positif dan negatif",
+        optionD: "negatif dan positif",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin dan cos dibawah ini yang nilainya 1/2 , kecuali ?",
+        optionA: "cos 60",
+        optionB: "sin 30",
+        optionC: "sin 150",
+        optionD: "cos 120",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "sudut 380 berada di kuadran ... ?",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionA"
+    },
+  {
+        question: "sin 40=...",
+        optionA: "sin 30",
+        optionB: "sin 45",
+        optionC: "sin 60",
+        optionD: "sin 140",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "..  perbandingan sisi samping dengan sisi depan adalah",
+        optionA: "sin ",
+        optionB: "cos",
+        optionC: "cot",
+        optionD: "tan",
+        correctOption: "optionC"
+    },
+     {
+        question: "..  7/6.&#8508 rad jika dikonversi ke derajat adalah",
+        optionA: "120",
+        optionB: "210",
+        optionC: "300",
+        optionD: "310",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: ".. Sudut 150 derajat jika dikonversi ke radian adalah",
+        optionA: "2/3.&#8508",
+        optionB: "1/5.&#8508",
+        optionC: "5/6.&#8508",
+        optionD: "5/9.&#8508",
+        correctOption: "optionC"
+    },
+    {
+        question: "sin(180 + 30) =...",
+        optionA: "sin 30",
+        optionB: "-sin 30",
+        optionC: "sin 60",
+        optionD: "-sin 60",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sin(90-30)=...",
+        optionA: "cos 30",
+        optionB: "sin 30",
+        optionC: "tan 30",
+        optionD: "cot 30",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
+        optionA: "cos A",
+        optionB: "sin A",
+        optionC: "tan A",
+        optionD: "csc A",
+        correctOption: "optionB"
+    },
+ {
+        question: ".. Sudut 90 derajat jika dikonversi ke radian adalah",
+        optionA: "2/7 rad",
+        optionB: "11/7 rad",
+        optionC: "6/5 rad",
+        optionD: "1/2. rad",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
+        optionA: "28",
+        optionB: "38",
+        optionC: "56",
+        optionD: "60",
+        correctOption: "optionC"
+    },
+   
+    {
+        question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25. Luas segitiga ini sama dengan ...",
+        optionA: "80",
+        optionB: "68",
+        optionC: "84",
+        optionD: "100",
+        correctOption: "optionC"
+    },
+   
+    {
+        question: "sin(-30) =...",
+        optionA: "sin(180+60)",
+        optionB: "sin(360-30)",
+        optionC: "sin(360+30)",
+        optionD: "sin(180-30)",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sin 45=...",
+        optionA: "cos 45",
+        optionB: "-cos 45",
+        optionC: "cos -145",
+        optionD: "1/2.sin(90)",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin 45.cos 45",
+        optionA: "1/2",
+        optionB: "1/4",
+        optionC: "1",
+        optionD: "1/4.&#8730;6",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin 30.cos 60",
+        optionA: "1/2",
+        optionB: "1/4",
+        optionC: "1/3",
+        optionD: "1/4.&#8730;6",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sin 30 . cos 45 adalah ",
+        optionA: "1/4.&#8730;2",
+        optionB: "1/4.&#8730;3",
+        optionC: "1/6",
+        optionD: "1/6.&#8730;6",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sudut 114,6 &#176 jika dikonversi ke radian sama dengan ",
+        optionA: "1 rad",
+        optionB: "1,5 rad",
+        optionC: "2 rad",
+        optionD: "1/2 rad",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "cos 30 . sin 45 adalah ",
+        optionA: "1/4.&#8730;2",
+        optionB: "1/4.&#8730;3",
+        optionC: "1/2",
+        optionD: "1/4.&#8730;6",
+        correctOption: "optionD"
+    },
+
+	    
+    {
+        question: "sin 150 . tan 225 = ",
+        optionA: "1/4",
+        optionB: "1/3.&#8730;3",
+        optionC: "1/2",
+        optionD: "1/3",
+        correctOption: "optionB"
+    },
+	    	    
+    {
+        question: "cos 60 + sin 210 +  tan 225 = ",
+        optionA: "1/2",
+        optionB: "&#8730;3",
+        optionC: "3/2",
+        optionD: "1",
+        correctOption: "optionD"
+    },
+	    
+
+	    
+    {
+        question: "yang termasuk sudut istimewa, kecuali ",
+        optionA: "30",
+        optionB: "45",
+        optionC: "60",
+        optionD: "75",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "jika sin A = 1/2 maka csc A adalah ?",
+        optionA: "1/3",
+        optionB: "2",
+        optionC: "3",
+        optionD: "1/4",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: "jika tan A = 2/3 maka sinA.cos A adalah ?",
+        optionA: "2/13",
+        optionB: "5/13",
+        optionC: "6/13",
+        optionD: "8/13",
+        correctOption: "optionC"
+    },
+
+	     {
+        question: "..jika cos A = 3/5 maka sec A adalah ?",
+        optionA: "4/3",
+        optionB: "5/3",
+        optionC: "5/2",
+        optionD: "5/6",
+        correctOption: "optionB"
+    },
+	    
+    {
+        question: "sin 15  adalah ",
+        optionA: "sin 45. cos 30 - cos 45 . sin 30",
+        optionB: "sin 45. cos 30 + cos 45 . sin 30",
+        optionC: "sin 45. sin 30 - cos 45 . cos 30",
+        optionD: "sin 45. sin 30 + cos 45 . cos 30",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "cos A=-1, maka besar sudut A adalah  ",
+        optionA: "0",
+        optionB: "90",
+        optionC: "180",
+        optionD: "270",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "cos 0 , cos 90 dan cos 180 berturut-turut adalah ",
+        optionA: "0,1,-1",
+        optionB: "1,0,-1/2",
+        optionC: "1,0,-1",
+        optionD: "0,1,0",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika sec A= 3/2 maka cos A=... ?",
+        optionA: "2",
+        optionB: "2/3",
+        optionC: "1/3",
+        optionD: "1/4",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "tan 45 =  ",
+        optionA: "1",
+        optionB: "1/2",
+        optionC: "1/2.&#8730;2",
+        optionD: "&#8730;2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "cos 60 + sin 30 = ... ",
+        optionA: "2",
+        optionB: "1",
+        optionC: "0",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika sin A = 0,6 dan cos A = 0,8 maka tan A= ... ",
+        optionA: "3/4",
+        optionB: "5/3",
+        optionC: "3/5",
+        optionD: "4/3",
+        correctOption: "optionA"
+    }, 
+
+    {
+        question: "jika cos A = 0,6 dan sin A = 0,8 maka tan A= ... ",
+        optionA: "3/4",
+        optionB: "5/3",
+        optionC: "3/5",
+        optionD: "4/3",
+        correctOption: "optionD"
+    }, 
+
+    {
+        question: "jika cos A=3/5 maka sec A = ",
+        optionA: "5/4",
+        optionB: "5/3",
+        optionC: "3/5",
+        optionD: "4/3",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika sin A=3/5 maka csc A = ",
+        optionA: "5/4",
+        optionB: "5/3",
+        optionC: "3/4",
+        optionD: "4/3",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Luas segitiga sama sisi dengan sisi = 4  adalah ",
+        optionA: "12",
+        optionB: "6",
+        optionC: "24",
+        optionD: " &#8730;48 ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "Luas segitiga dengan sisi-sisi :  5 , 4 ,7   adalah ",
+        optionA: "&#8730;90",
+        optionB: "6",
+        optionC: "8",
+        optionD: " 4 &#8730;6 ",
+        correctOption: "optionD"
+    },
+    {
+        question: "jika tan A=3/4 maka cot A=",
+        optionA: "3/5",
+        optionB: "4/5",
+        optionC: "4/3",
+        optionD: "5/3",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "fungsi y=sin x dikuadran I ",
+        optionA: "naik",
+        optionB: "turun",
+        optionC: "tetap",
+        optionD: "naik turun",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "fungsi y=cos x dikuadran I ",
+        optionA: "naik",
+        optionB: "turun",
+        optionC: "tetap",
+        optionD: "naik turun",
+        correctOption: "optionB"
+    },
+
+
+    {
+        question: "Dalam segitiga bukan siku, jika a dan b diketahui maka c ditentukan dengan ... ",
+        optionA: "teorema phytagoras",
+        optionB: "tripel phytagoras",
+        optionC: "aturan cosinus",
+        optionD: "aturan sinus",
+        correctOption: "optionC"
+    },
+    
+    {
+        question: "perbandingan antara sisi depan dengan sisi samping adalah definisi dari  ",
+        optionA: "sin",
+        optionB: "cos",
+        optionC: "tan",
+        optionD: "cot",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika cos A=7/25 maka sec A =   ",
+        optionA: "25/24",
+        optionB: "25/7",
+        optionC: "24/25",
+        optionD: "7/24",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "kebalikan  dari sin adalah  ",
+        optionA: "csc",
+        optionB: "sec",
+        optionC: "cot",
+        optionD: "cos",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "cos 0 =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "cos 270   =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin 30=...  ",
+        optionA: "-sin 120",
+        optionB: "sin 210",
+        optionC: "-sin 330",
+        optionD: "sin-30",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika sin A diketahui, maka cos A dapat ditentukan dengan ",
+        optionA: "identitas trigonometri",
+        optionB: "tripel phytagoras",
+        optionC: "aturan cosinus",
+        optionD: "aturan sinus",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "luas segitiga yang sisi-sisinya 3,4,3 adalah",
+        optionA: "5 ",
+        optionB: "4",
+        optionC: "3",
+        optionD: " &#8730;20 ",
+        correctOption: "optionD"
+    },
+   
+    {
+        question: "grafik sinus naik pada kuadran ...",
+        optionA: "I dan II ",
+        optionB: "I dan III",
+        optionC: "I dan III",
+        optionD: "I dan IV ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "Bentuk lain aturan sinus",
+        optionA: "a : b = sin A : sin B",
+        optionB: "a : b = sin B : sin A",
+        optionC: "a : sin B = b : sin A",
+        optionD: "a : sin A = sin B : b",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sudut 120 berada dikuadran ...",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sin 45 =  ,",
+        optionA: "cos 45",
+        optionB: "cos 135",
+        optionC: "cos 225",
+        optionD: "cos -45",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
+        optionA: "5",
+        optionB: "6",
+        optionC: "7",
+        optionD: "8",
+        correctOption: "optionB"
+    },
+    {
+        question: 'Vektor adalah besaran yang memiliki ',
+        optionA: "arah",
+        optionB: "arah dan nilai",
+        optionC: "nilai ",
+        optionD: "nilai dan ukuran ",
+        correctOption: "optionB"
+    },
+
+    {
+        question: 'dibawah ini besaran vektor, kecuali',
+        optionA: "kecepatam mobil",
+        optionB: "arah angin",
+        optionC: "jumlah siswa dalam kelas",
+        optionD: "dorongan mesin",
+        correctOption: "optionC"
+    },
+
+    {
+        
+        question: 'vektor satuan arah x+ adalah',
+        optionA: 'i',
+        optionB: "j",
+        optionC: "k",
+        optionD: "-i",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "besar i adalah  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "2",
+        optionD: "3",
+        correctOption: "optionB" 
+    },
+
+    {
+        question: "jika vektor a bergerak 5 satuan  ke x+ ditulis ",
+        optionA: "2i",
+        optionB: "4i",
+        optionC: "5i",
+        optionD: "9i",
+        correctOption: "optionC"
+    },
+
+    {
+        question: 'arah vektor v=3i+3j',
+        optionA: "30&#176",
+        optionB: "45&#176",
+        optionC: "180&#176",
+        optionD: "360&#176",
+        correctOption: "optionB"
+    },
+
+    {
+        question: 'arah vektor v=2i+2j',
+        optionA: "30&#176",
+        optionB: "45&#176",
+        optionC: "180&#176",
+        optionD: "360&#176",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika a=5i dan b=3i+2j maka a+2b adalah",
+        optionA: "8i+2j",
+        optionB: "11i+4j",
+        optionC: "11j+2j",
+        optionD: "8i",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika a=5i-2j dan b=3i+2j maka a-2b adalah",
+        optionA: "2i+4j",
+        optionB: "i+4j",
+        optionC: "i-6j",
+        optionD: "-i-6j",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "jika a=i+3j maka 4a adalah",
+        optionA: "4i+3j",
+        optionB: "i+7j",
+        optionC: "4i+12j",
+        optionD: "4i-12j",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika c=2i+3j maka c.c adalah",
+        optionA: "&#8730;13",
+        optionB: "13",
+        optionC: "5",
+        optionD: "7",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika a=4i+3j maka a.a adalah",
+        optionA: "&#8730;12",
+        optionB: "13",
+        optionC: "25",
+        optionD: "5",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika d=5i+12j maka besar d adalah",
+        optionA: "11",
+        optionB: "12",
+        optionC: "13",
+        optionD: "25",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika a=3i+2j dan b=2i-5j maka b-a adalah",
+        optionA: "-i-7j",
+        optionB: "i-7j",
+        optionC: "-i+3j",
+        optionD: "i-3j",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "i.j=? ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "(3i+5j).(2i-j)",
+        optionA: "6i+j",
+        optionB: "6i-5j",
+        optionC: "6i+5j",
+        optionD: "1",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "jika anak panah dengan kecepatan v=20 satuan , melesat keatas dengan sudut 60, maka kecepatan bayangannya",
+        optionA: "10",
+        optionB: "12",
+        optionC: "15",
+        optionD: "20",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "arah vektor a=2i+5j adalah",
+        optionA: "arc tan 5/4",
+        optionB: "arc tan 5/2",
+        optionC: "arc tan 2/5",
+        optionD: "arc tan 5/4",
+        correctOption: "optionB"
+    },
+    {
+        question: "besar vektor satuan a=3i+4j adalah ",
+        optionA: "3i+4j",
+        optionB: "(3/5)i+(4/5)j",
+        optionC: "5",
+        optionD: "5i",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika b=2i maka besar vektor satuannya adalah",
+        optionA: "i",
+        optionB: "2i",
+        optionC: "2",
+        optionD: "1",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "jika a=5j , b=i-j , c= 2i maka besar d=a+b+c  adalah",
+        optionA: "3",
+        optionB: "5",
+        optionC: "7",
+        optionD: "8",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika a=5i , b=-2j , c= 2i maka besar vektor a+b+c  adalah",
+        optionA: "5i-2j",
+        optionB: "7i-2j",
+        optionC: "7i+2j",
+        optionD: "5i",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Sebuah benda dtarik oleh  2 gaya (F) yaitu F1=3i+4j dan F2=-2j maka resultannya adalah",
+        optionA: "3i+5j",
+        optionB: "3i+2j",
+        optionC: "3i-2j",
+        optionD: "5i-j",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "besar/nilai vektor a=-2i-5j adalah",
+        optionA: "&#8730;20",
+        optionB: "&#8730;29",
+        optionC: "&#8730;21",
+        optionD: "&#8730;50",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: "Susunan bilangan dalam bentuk baris dan kolom diantara dua garis vertikal disebut ...?",
+        optionA: "deret",
+        optionB: "tabel",
+        optionC: "matrik",
+        optionD: "barisan",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jenis matrik yang hanya terdiri atas 1 baris disebut...",
+        optionA: "matrik identitas",
+        optionB: "matrik kolom",
+        optionC: "matrik baris",
+        optionD: "matrik nol",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "matrik berordo 2 x 3 hanya dapat dijumlah/dikurang  dengan matrik berordo",
+        optionA: " 2 x 3 ",
+        optionB: "2 x 2",
+        optionC: "3 x 2",
+        optionD: "3 x 3",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "perkalian dua matrik A dan B  dapat terjadi jika... ?",
+        optionA: "jumlah baris A = jumlah baris B",
+        optionB: "jumlah baris A= jumlah kolom B",
+        optionC: "semua matrik dapat dikalikan",
+        optionD: "jumlah kolom A = jumlah baris B",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "jika ordo A adalah 2 x 4 sedangkan ordo B: 4 x 1  maka ordo hasil perkaliannya adalah...?",
+        optionA: "2 x 2",
+        optionB: "2 x 1",
+        optionC: "2 x 4",
+        optionD: "4 x 4",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika ordo A adalah 3 x 3 sedangkan ordo B: 3 x 3  maka ordo hasil perkaliannya adalah...?",
+        optionA: "2 x 2",
+        optionB: "3 x 3",
+        optionC: "4 x 4",
+        optionD: "9 x 9",
+        correctOption: "optionB"
+    },
+
+    {
+        question:  "invers dari matrik A sama dengan ",
+        optionA: "adj A + det A",
+        optionB: "adj A x det A",
+        optionC: "adj A / det A",
+        optionD: "adj A - det A",
+        correctOption: "optionC"
+    },
+    {
+        question:  "jika minor 12 adalah -4 maka cofaktor 12 adalah",
+        optionA: "-4",
+        optionB: "4",
+        optionC: "12",
+        optionD: "3",
+        correctOption: "optionB"
+    },
+  
+    {
+        question:  "jika matrik A dikali matrik B sama dengan 1, maka B adalah ",
+        optionA: "minor A",
+        optionB: "invers A",
+        optionC: "transpose A",
+        optionD: "cofaktor A",
+        correctOption: "optionB"
+    }, 
    
     {
         question:  "urutan menentukan invers adalah ",
