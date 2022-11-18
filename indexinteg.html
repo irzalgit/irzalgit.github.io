@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en">
+ 
+
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hallo,sahabat</title>
+    <script src:/js/tyles.js></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+	<!-- <link rel="stylesheet" href="./css/styles.css">
+	 -->
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
+
+body{
+    font-family: 'Montserrat', serif;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color : grey;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.game-quiz-container{
+    width: 40rem;
+    height: 30rem;
+    background-color:gray;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+}
+
+.game-details-container{
+    width: 80%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.game-details-container h1{
+    font-size: 1.4rem;
+    color: black;
+    font-weight: 800;
+    
+}
+
+.game-question-container{
+    width: 80%;
+    height: 8rem;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    border: 2px solid darkgray;
+    border-radius: 25px;
+    margin:2px;
+}
+
+.game-question-container h1{
+    font-size: 1.6rem;
+    text-align: center;
+    color: black;
+    padding: 3px;
+    font-weight: 600;
+    
+}
+
+.game-options-container{
+    width: 80%;
+    height: 12rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.game-options-container span{
+    width: 45%;
+    height: 3rem;
+    border: 2px solid darkgray;
+    border-radius: 20px;
+    
+    overflow: hidden;
+}
+span label{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    font-weight: 600;
+    color: rgb(22, 22, 22);
+}
+
+span label:hover{
+    -ms-transform: scale(1.12);
+    -webkit-transform: scale(1.12);
+    transform: scale(1.12);
+    color: white;
+}
+
+input[type="radio"] {
+    position: relative;
+    display: none;
+}
+
+
+input[type=radio]:checked ~ .option {
+    background: paleturquoise;
+}
+
+.next-button-container{
+    width: 50%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+}
+.next-button-container button{
+    width: 8rem;
+    margin:2px;
+    height: 2rem;
+    border-radius: 10px;
+    background: green;
+    color: rgb(25, 25, 25);
+    font-weight: 600;
+    border: 3px solid black;
+    cursor: pointer;
+    outline: none;
+}
+.next-button-container button:hover{
+    background-color: rgb(143, 93, 93);
+}
+
+.modal-container{
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    -webkit-animation: fadeIn 1.2s ease-in-out;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.modal-content-container{
+    height: 20rem;
+    width: 25rem;
+    background-color: rgb(43, 42, 42);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 25px;
+}
+
+.modal-content-container h1{
+    font-size: 1.3rem;
+    height: 3rem;
+    color: lightgray;
+    text-align: center;
+}
+
+.grade-details{
+    width: 15rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.grade-details p{
+    color: white;
+    text-align: center;
+}
+
+.modal-button-container{
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-button-container button{
+    width: 10rem;
+    height: 2rem;
+    background: none;
+    outline: none;
+    border: 1px solid rgb(252, 242, 241);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.modal-button-container button:hover{
+    background-color: rgb(83, 82, 82);
+}
+
+@media(min-width : 300px) and (max-width : 350px){
+    .game-quiz-container{
+        width: 90%;
+        height: 80vh;
+     }
+     .game-details-container h1{
+        font-size: 0.8rem;
+     }
+
+     .game-question-container{
+        height: 6rem;
+     }
+     .game-question-container h1{
+       font-size: 0.9rem;
+    }
+
+    .game-options-container span{
+        width: 90%;
+        height: 2.5rem;
+    }
+    .game-options-container span label{
+        font-size: 0.8rem;
+    }
+    .modal-content-container{
+        width: 90%;
+        height: 25rem;
+    }
+
+    .modal-content-container h1{
+        font-size: 1.2rem;
+    }
+}
+
+@media(min-width : 350px) and (max-width : 700px){
+   .game-quiz-container{
+       width: 90%;
+       height: 80vh;
+    }
+    .game-details-container h1{
+        font-size: 1rem;
+    }
+
+    .game-question-container{
+        height: 8rem;
+    }
+
+    .game-question-container h1{
+        font-size: 0.9rem;
+     }
+
+    .game-options-container span{
+        width: 90%;
+    }
+    .modal-content-container{
+        width: 90%;
+        height: 25rem;
+    }
+    .modal-content-container h1{
+        font-size: 1.2rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+    </style>
+</head>
+
+<body class="bg-grey-500" onload="NextQuestion(0)"> 
+
+
+  <div>
+          <a href="index.html"><p>BACK</p></a>
+          <p style="text-align: center;">INTEGRAL/antiturunan</p>
+  </div>
+
+</h5>
+<main class="bg-grey-500">
+        <!-- creating a modal for when quiz ends -->
+        <div class="modal-container" id="score-modal">
+            $b=\sqrt{a}$  
+            <div class="modal-content-container">
+
+                <h1>Selamat. Anda sudah di test</h1>
+
+                <div class="grade-details">
+                    <p>Nilai : </p>
+                    <p>Jumlah jawaban salah : <span id="wrong-answers"></span></p>
+                    <p>Jumlah jawaban benar : <span id="right-answers"></span></p>
+                    <p>Passing grade : <span id="grade-percentage"></span>%</p>
+                    <p ><span id="remarks"></span></p>
+                </div>
+
+                <div class="modal-button-container">
+                    <button onclick="closeScoreModal()">Lanjut</button>
+                </div>
+
+            </div>
+        </div>
+<!-- end of modal of quiz details-->
+
+        <div class="game-quiz-container">
+
+            <div class="game-details-container">
+                <h1>Jumlah skor benar  : <span id="player-score"></span> / 10</h1>
+                <h1> Pertanyaan ke- : <span id="question-number"></span> / 10</h1>
+            </div>
+
+            <div class="game-question-container">
+                <h1 id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+
+               <div class="modal-container" id="option-modal">
+
+                    <div class="modal-content-container">
+                         <h1>Silakan pilih </h1>
+
+                         <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">Lanjutkan?</button>
+                        </div>
+
+                    </div>
+
+               </div>
+
+		     <span  style="background: rgb(16, 219, 50);">
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label> 
+                </span>
+            
+
+                <span  style="background: rgb(162, 226, 43);">
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+               </span>
+       
+ 
+                <span style="background: rgb(112, 20, 199);">
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+
+
+                <span  style="background: rgb(218, 10, 90);">
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+
+            </div>
+
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Lanjutkan </button>
+            </div>
+
+        </div>
+        <br>
+        <a href="indexturun.html"><h3>go to DEFERENSIAL</h3></a>
+      
+                
+    </div>
+    <!-- <div id="contentContainer"> -->
+ <!-- <div  class="middle1">
+<iframe   width=100% height="299" src="https://docs.google.com/document/d/e/2PACX-1vSNdgHsgRuZHzCvR6iEiVscFpgxfJAz9Q5eWts7HBYPmJK12lGGvVo--5F6jblQGARiA7I91k_UGaOt/pub?embedded=true"></iframe>
+</div> -->
+<!-- <div  class="middle2">
+ 
+<iframe width="100%" height="299" src="https://docs.google.com/presentation/d/e/2PACX-1vSZCV_Na_ykbORgQBDwEGfSpiZXnDCy-8Zlej6s9LXiz4cahJRIULFoYPoVx6TdlFw6GCi2ZWG5_bpZ/embed?start=true&loop=true&delayms=2000" frameborder="0"  allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div> -->
+<!-- 
+<div  class="middle2">
+  <iframe width='853' height='480' src='https://embed.coggle.it/diagram/YWvzt9ACK0JIfpWo/7cdb349c2397dd7ba9d9b5668f607d40467db1e9e953183ff39bba715d9177d4' frameborder='0' allowfullscreen></iframe> -->
+ 
+<!-- <iframe width='853' height='480' src='https://embed.coggle.it/diagram/YWvzt9ACK0JIfpWo/7cdb349c2397dd7ba9d9b5668f607d40467db1e9e953183ff39bba715d9177d4' frameborder='0' allowfullscreen></iframe> -->
+<!-- </div> -->
+<div style="color:white ; background: black; margin: 15px ; padding: 10px ; overflow:scroll ; width: 100%; height: 50vh; ">
+<audio src="vidio/integral.m4a" type="audio/x-m4a" controls autoplay> 
+   </audio>  
+   <div  >
+         <p>
+             <br>
+    Integral adalah kebalikan dari deferensial. 
+    Simbol integral adalah \(\int ... dx\). 
+    Tanda ... adalah tempat meletakkan fungsi f.
+    Jika fungsi yang akan diintegralkan adalah f(x) maka ditulis 
+    \(\int f(x) dx\)      . Jika hasil integrasi adalah F maka ditulis
+    F= \(\int f(x) dx\) . 
+    Hasil dari integral adalah kebalikan dari 
+    deferensial . 
+</p>
+   </div>
+ 
+<h1>
+  
+	
+    <hr>
+    Sifat 1 :  F= \(\int ax^n dx\)=\(\frac{a}{n+1}x^{n+1}\)
+<hr>
+</h1>
+<p>
+    Contoh soal 1 ( menggunakan sifat 1)
+</p>
+<p>
+    Tentukan hasil integral dari \(\int 3x^2 dx\) 
+    <br>
+</p>
+    
+    <p>
+       Jawab;
+       <br> 
+    a=3 dan n=2 
+
+</p>
+
+
+   
+   <div >
+      F= \(\int ax^ndx=  \frac{a}{n+1}x^{n+1}\)
+       </div>
+      
+   
+    <div  >
+        \(\int 3x^2dx=\frac{3}{2+1}x^{2+1}
+        =\frac{3}{3}x^{3}
+        =x^3
+        \)
+    </div>
+  
+     <div  >   Jadi integral dari  3\(x^2\)  adalah F=\(x^3\)</div>
+      <div ></div>
+     <div>  Uji apakah turunan F= \(x^3\) adalah F'=3\(x^2\)</div>
+       <div ></div>
+    
+   Bukti
+   <div >
+    misal F= y
+    <br>
+     maka y= \(x^3\)
+    \(\rightarrow\) 
+   y'=3\(x^{3-1}\)  
+   \(\rightarrow\)  y'=3\(x^2\)
+   (terbukti)
+   
+   </div>
+   Jadi integral adalah kebalikan dari deferensial.
+   <br>
+   Akan tetapi,
+   
+   y= \(x^3\) + C   juga solusi, karena	\(\rightarrow\) 
+       y'=3\(x^2\)   + 0
+   \(\rightarrow\)  y'=3\(x^2\)
+   
+   <br>
+   jadi solusi umum jika C adalah konstanta 
+   adalah
+   adalah 
+   
+       y=\(x^3\) + C
+       <br>
+<br>
+   </div>
+</div>
+
+</div>
+
+
+
+</main>
+
+
+<div class="bg-white h-3 footer">
+			<p class="bg-green-200">Copyright © Irzal Achmad  <script>document.write(new Date().getFullYear());</script> </p>
+			</p><br>
+			
+</div>
+
+
+
+
+
+
+
+
+<script>
+    const questions = [
+        {
+            question: "Integral adalah",
+            optionA: "kebalikan deferensial",
+            optionB: "kebalikan dari limit",
+            optionC: "sama dengan deferensial",
+            optionD: "sama dengan turunan ke dua",
+            correctOption: "optionA"
+        },
+
+        {
+            question: "Jika y=2x&#178  maka integralnya adalah ?",
+            optionA: "3x&#178",
+            optionB: "2/3.x&#179",
+            optionC: "3/4.x&#178",
+            optionD: "3/2.x&#178",
+            correctOption: "optionB"
+        },
+    
+        {
+            question: "Jika y=2 maka integralnya ?",
+            optionA: "3x",
+            optionB: "x + C",
+            optionC: "2x+C",
+            optionD: "1/2.x",
+            correctOption: "optionC"
+        },
+
+        {
+            question: "Jika y=x&#178 maka F",
+            optionA: " 0 ",
+            optionB: "2/3.x&#178",
+            optionC: "1/3.x&#179",
+            optionD: "x",
+            correctOption: "optionC"
+        },
+
+        {
+            question: "Jika y=2x&#178 +3x  maka F= ... ?",
+            optionA: "1/3.x&#179 +3x",
+            optionB: "2/3.x&#179+3/2.x&#178",
+            optionC: "6x&#178 + 6x + 3",
+            optionD: "6x&#178 + 3",
+            correctOption: "optionB"
+        },
+
+        {
+            question: "Jika y=6x&#178 maka integralnya adalah...?",
+            optionA: "2",
+            optionB: "3x-1",
+            optionC: "2x&#179",
+            optionD: "4x-1",
+            correctOption: "optionC"
+        },
+
+        {
+            question: "jika y=1 maka integralnya F= ?",
+            optionA: "x",
+            optionB: "1",
+            optionC: "0",
+            optionD: "x + C",
+            correctOption: "optionD"
+        },
+
+        {
+            question: "y=4x&#178 maka F adalah?",
+            optionA: "4",
+            optionB: "4/3.x&#179",
+            optionC: "1/2.x&#179",
+            optionD: "6",
+            correctOption: "optionB"
+        },
+        {
+            question: "Fungsi y=2 diputar 360 derajat terhadap x. Volume benda putar dari x=2 sampai x=5 adalah...  ",
+            optionA: "2phi",
+            optionB: "4phi",
+            optionC: "12phi",
+            optionD: "18phi",
+            correctOption: "optionC"
+        },
+     {
+            question: "y=6x maka F adalah  ",
+            optionA: "0",
+            optionB: "3x&#178",
+            optionC: "3x&#179",
+            optionD: "12",
+            correctOption: "optionB"
+        },
+        {
+            question: "integral dapat menghitung ...., kecuali",
+            optionA: "luas dibawah kurva dengan x",
+            optionB: "volume benda putar",
+            optionC: "luas antara 2 kurva",
+            optionD: "jarak antar dua titik",
+            correctOption: "optionD"
+        },
+    ]
+    
+    
+    let shuffledQuestions = [] //empty array to hold shuffled selected questions out of all available questions
+    
+    function handleQuestions() { 
+        //function to shuffle and push 10 questions to shuffledQuestions array
+    //app would be dealing with 10questions per session
+        while (shuffledQuestions.length <= 9) {
+            const random = questions[Math.floor(Math.random() * questions.length)]
+            if (!shuffledQuestions.includes(random)) {
+                shuffledQuestions.push(random)
+            }
+        }
+    }
+    
+    
+    let questionNumber = 1 //holds the current question number
+    let playerScore = 0  //holds the player score
+    let wrongAttempt = 0 //amount of wrong answers picked by player
+    let indexNumber = 0 //will be used in displaying next question
+    
+    // function for displaying next question in the array to dom
+    //also handles displaying players and quiz information to dom
+    function NextQuestion(index) {
+        handleQuestions()
+        const currentQuestion = shuffledQuestions[index]
+        document.getElementById("question-number").innerHTML = questionNumber
+        document.getElementById("player-score").innerHTML = playerScore
+        document.getElementById("display-question").innerHTML = currentQuestion.question;
+        document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+        document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+        document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+        document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+    
+    }
+    
+    
+    function checkForAnswer() {
+        const currentQuestion = shuffledQuestions[indexNumber] //gets current Question 
+        const currentQuestionAnswer = currentQuestion.correctOption //gets current Question's answer
+        const options = document.getElementsByName("option"); //gets all elements in dom with name of 'option' (in this the radio inputs)
+        let correctOption = null
+    
+        options.forEach((option) => {
+            if (option.value === currentQuestionAnswer) {
+                //get's correct's radio input with correct answer
+                correctOption = option.labels[0].id
+            }
+        })
+    
+        //checking to make sure a radio input has been checked or an option being chosen
+        if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+            document.getElementById('option-modal').style.display = "flex"
+        }
+    
+        //checking if checked radio button is same as answer
+        options.forEach((option) => {
+            if (option.checked === true && option.value === currentQuestionAnswer) {
+                document.getElementById(correctOption).style.backgroundColor = "green"
+                playerScore++ //adding to player's score
+                indexNumber++ //adding 1 to index so has to display next question..
+                //set to delay question number till when next question loads
+                setTimeout(() => {
+                    questionNumber++
+                }, 1000)
+            }
+    
+            else if (option.checked && option.value !== currentQuestionAnswer) {
+                const wrongLabelId = option.labels[0].id
+                document.getElementById(wrongLabelId).style.backgroundColor = "red"
+                document.getElementById(correctOption).style.backgroundColor = ""
+                wrongAttempt++ //adds 1 to wrong attempts 
+                indexNumber++
+                //set to delay question number till when next question loads
+                setTimeout(() => {
+                    questionNumber++
+                }, 1000)
+            }
+        })
+    }
+    
+    
+    
+    //called when the next button is called
+    function handleNextQuestion() {
+        checkForAnswer() //check if player picked right or wrong option
+        unCheckRadioButtons()
+        //delays next question displaying for a second just for some effects so questions don't rush in on player
+        setTimeout(() => {
+            if (indexNumber <= 9) {
+    //displays next question as long as index number isn't greater than 9, remember index number starts from 0, so index 9 is question 10
+                NextQuestion(indexNumber)
+            }
+            else {
+                handleEndGame()//ends game if index number greater than 9 meaning we're already at the 10th question
+            }
+            resetOptionBackground()
+        }, 1000);
+    }
+    
+    //sets options background back to null after display the right/wrong colors
+    function resetOptionBackground() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).style.backgroundColor = ""
+        })
+    }
+    
+    // unchecking all radio buttons for next question(can be done with map or foreach loop also)
+    function unCheckRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+    
+    // function for when all questions being answered
+    function handleEndGame() {
+        let remark = null
+        let remarkColor = null
+    
+        // condition check for player remark and remark color
+        if (playerScore <= 3) {
+            remark = "Kurang, C"
+            remarkColor = "red"
+        }
+        else if (playerScore >= 4 && playerScore < 7) {
+            remark = "Cukup , B"
+            remarkColor = "orange"
+        }
+        else if (playerScore >= 7) {
+            remark = "Excellent , baik , A"
+            remarkColor = "green"
+        }
+        const playerGrade = (playerScore / 10) * 100
+    
+        //data to display to score board
+        document.getElementById('remarks').innerHTML = remark
+        document.getElementById('remarks').style.color = remarkColor
+        document.getElementById('grade-percentage').innerHTML = playerGrade
+        document.getElementById('wrong-answers').innerHTML = wrongAttempt
+        document.getElementById('right-answers').innerHTML = playerScore
+        document.getElementById('score-modal').style.display = "flex"
+    
+    }
+    
+    //closes score modal, resets game and reshuffles questions
+    function closeScoreModal() {
+        questionNumber = 1
+        playerScore = 0
+        wrongAttempt = 0
+        indexNumber = 0
+        shuffledQuestions = []
+        NextQuestion(indexNumber)
+        document.getElementById('score-modal').style.display = "none"
+    }
+    
+    //function to close warning modal
+    function closeOptionModal() {
+        document.getElementById('option-modal').style.display = "none"
+    }
+    </script>
+    
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+    </script>
+      <script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</body>
+</html>

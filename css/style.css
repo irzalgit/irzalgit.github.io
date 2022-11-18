@@ -103,22 +103,18 @@ img {
     .middle1{
         width: 50%;
         height:300px;
-        border: 1px solid #2e2121;
+        border: 1px solid #dedede;
         padding: 5px;
-        margin:0px;
+        margin: 0px;
         float: left;
-        overflow: scroll;
     }
       .middle2{
-        width: 50%;
+        width: 45%;
         height:300px;
-        border: 1px solid #1d1c1a;
+        border: 1px solid #dedede;
         padding: 5px;
         margin: 0px;
         float: right;
-        overflow: scroll;
-        align-items: center;
-        
     }
  .middle img{
             max-width: 100%;
@@ -326,7 +322,7 @@ figure#video-track-container figcaption {
   color: #666; 
   height: 100%; 
   overflow-y: scroll; 
-  /* -moz-scrollbars-vertical; */
+  -moz-scrollbars-vertical;
 }
 figure#video-track-container figcaption ol { 
   position: relative;

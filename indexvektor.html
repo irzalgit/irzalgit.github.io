@@ -1,0 +1,1597 @@
+<!doctype html>
+<html lang="en">
+ 
+
+  <head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallo,sahabat</title>
+      
+    
+  <style>
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  html, body{
+      height: 100%;
+  }
+  
+  
+  body{
+      font-family: 'Montserrat', serif;
+  }
+  
+  main{
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color : rgb(228, 238, 171);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+  }
+  
+  .game-quiz-container{
+      width: 40rem;
+      height: 30rem;
+      background-color:rgb(182, 184, 211);
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 30px;
+  }
+  .game-quiz-container-vek{
+      width: 40rem;
+    
+      height:fit-content;
+      background-color:goldenrod;
+      
+      
+      flex-direction: column;
+      
+      
+      border-radius: 30px;
+  }
+  
+  .game-details-container{
+      width: 80%;
+      height: 4rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  }
+  
+  .game-details-container h1{
+      font-size: 1.4rem;
+      color: black;
+      font-weight: 800;
+      
+  }
+  
+  .game-question-container{
+      width: 80%;
+      height: 8rem;
+      display: flex;
+      
+      align-items: center;
+      justify-content: center;
+      border: 2px solid darkgray;
+      border-radius: 25px;
+      margin:2px;
+  }
+  
+  .game-question-container h1{
+      font-size: 1.6rem;
+      text-align: center;
+      color: black;
+      padding: 3px;
+      font-weight: 600;
+      
+  }
+  
+  .game-options-container{
+      width: 80%;
+      height: 12rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      
+  }
+  
+  .game-options-container span{
+      width: 45%;
+      height: 3rem;
+      border: 2px solid darkgray;
+      border-radius: 20px;
+      
+      overflow: hidden;
+  }
+  span label{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      font-weight: 600;
+      color: rgb(22, 22, 22);
+  }
+  
+  span label:hover{
+      -ms-transform: scale(1.12);
+      -webkit-transform: scale(1.12);
+      transform: scale(1.12);
+      color: white;
+  }
+  
+  input[type="radio"] {
+      position: relative;
+      display: none;
+  }
+  
+  
+  input[type=radio]:checked ~ .option {
+      background: paleturquoise;
+  }
+  
+  .next-button-container{
+      width: 50%;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+  }
+  .next-button-container button{
+      width: 8rem;
+      margin:2px;
+      height: 2rem;
+      border-radius: 10px;
+      background: green;
+      color: rgb(25, 25, 25);
+      font-weight: 600;
+      border: 3px solid black;
+      cursor: pointer;
+      outline: none;
+  }
+  .next-button-container button:hover{
+      background-color: rgb(143, 93, 93);
+  }
+  
+  .modal-container{
+      display: none;
+      position: fixed;
+      z-index: 1; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.4); 
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; 
+      -webkit-animation: fadeIn 1.2s ease-in-out;
+      animation: fadeIn 1.2s ease-in-out;
+  }
+  
+  .modal-content-container{
+      height: 20rem;
+      width: 25rem;
+      background-color: rgb(43, 42, 42);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 25px;
+  }
+  
+  .modal-content-container h1{
+      font-size: 1.3rem;
+      height: 3rem;
+      color: lightgray;
+      text-align: center;
+  }
+  
+  .grade-details{
+      width: 15rem;
+      height: 10rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+  }
+  
+  .grade-details p{
+      color: white;
+      text-align: center;
+  }
+  
+  .modal-button-container{
+      height: 2rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .modal-button-container button{
+      width: 10rem;
+      height: 2rem;
+      background: none;
+      outline: none;
+      border: 1px solid rgb(252, 242, 241);
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 20px;
+  }
+  .modal-button-container button:hover{
+      background-color: rgb(83, 82, 82);
+  }
+  
+  @media(min-width : 300px) and (max-width : 350px){
+      .game-quiz-container{
+          width: 90%;
+          height: 80vh;
+       }
+       .game-quiz-container-vek{
+          width: 90%;
+          
+       }
+       
+       .game-details-container h1{
+          font-size: 0.8rem;
+       }
+  
+       .game-question-container{
+          height: 6rem;
+       }
+       .game-question-container h1{
+         font-size: 0.9rem;
+      }
+  
+      .game-options-container span{
+          width: 90%;
+          height: 2.5rem;
+      }
+      .game-options-container span label{
+          font-size: 0.8rem;
+      }
+      .modal-content-container{
+          width: 90%;
+          height: 25rem;
+      }
+  
+      .modal-content-container h1{
+          font-size: 1.2rem;
+      }
+  }
+  
+  @media(min-width : 350px) and (max-width : 700px){
+     .game-quiz-container{
+         width: 90%;
+         height: 80vh;
+      }
+      .game-quiz-container-vek{
+         width: 90%;
+         
+      }
+      .game-details-container h1{
+          font-size: 1rem;
+      }
+  
+      .game-question-container{
+          height: 8rem;
+      }
+  
+      .game-question-container h1{
+          font-size: 0.9rem;
+       }
+  
+      .game-options-container span{
+          width: 90%;
+      }
+      .modal-content-container{
+          width: 90%;
+          height: 25rem;
+      }
+      .modal-content-container h1{
+          font-size: 1.2rem;
+      }
+  }
+  
+  @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity:1 ;}
+    }
+  
+    @-webkit-keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  
+      </style>
+  
+  
+	
+    
+    <script src="js/main.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+<script type="text/javascript" async   
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+    
+     <script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+<script type="text/x-mathjax-config"> 
+
+  MathJax.Hub.Config({ 
+  
+  extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"], 
+  
+  jax: ["input/TeX", "output/HTML-CSS"], 
+  
+  tex2jax: { 
+  
+   inlineMath: [ ["$","$"], ["\\(","\\)"] ], 
+  
+   displayMath: [ ["$$","$$"], ["\\[","\\]"] ], 
+  
+   processEscapes: true 
+  
+  }, 
+  
+  "HTML-CSS": { availableFonts: ["TeX"] } 
+  
+  }); 
+  
+  </script>
+
+	
+</head>
+
+<body class="bg-grey-500" onload="NextQuestion(0)"> 
+
+
+  <div>
+          <a href="index.html"><p>BACK</p></a>
+          <h2 style="text-align: center;color:green">VEKTOR</h2>
+  </div>
+
+<main>
+        <!-- creating a modal for when quiz ends -->
+        <div class="modal-container" id="score-modal">
+            
+            <div class="modal-content-container">
+
+                <h1>Selamat. Anda sudah di test    </h1>
+
+                <div class="grade-details">
+                    <p>Nilai : </p>
+                    <p>Jumlah jawaban salah : <span id="wrong-answers"></span></p>
+                    <p>Jumlah jawaban benar : <span id="right-answers"></span></p>
+                    <p>Passing grade : <span id="grade-percentage"></span>%</p>
+                    <p ><span id="remarks"></span></p>
+                </div>
+
+                <div class="modal-button-container">
+                    <button onclick="closeScoreModal()">Lanjut</button>
+                </div>
+
+            </div>
+        </div>
+<!-- end of modal of quiz details-->
+
+        <div class="game-quiz-container">
+
+            <div class="game-details-container">
+                <p> Jumlah jawaban benar : <span style="font-size: 1.2rem;" id="player-score"></span></p>
+                <p> Pertanyaan ke- : <span id="question-number"></span></p>
+            </div>
+
+            <div  style="background: rgb(212, 91, 21);"class="game-question-container">
+                <h1 style="color:wheat" id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+
+               <div class="modal-container" id="option-modal">
+
+                    <div class="modal-content-container">
+                         <h1>Silakan pilih </h1>
+
+                         <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">Lanjutkan?</button>
+                        </div>
+
+                    </div>
+
+               </div>
+  
+                <span  style="background: rgb(16, 219, 50);">
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label> 
+                </span>
+            
+
+                <span  style="background: rgb(162, 226, 43);">
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+               </span>
+       
+ 
+                <span style="background: rgb(112, 20, 199);">
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+
+
+                <span  style="background: rgb(218, 10, 90);">
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+
+
+            </div>
+
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Lanjutkan </button>
+            </div>
+            <a href="index.html"><p>BACK</p></a>
+        </div>
+        <br>
+       
+      <div style="font-size: 1.2rem ;padding: 1rem;" class="game-quiz-container-vek"> 
+
+
+    <h2>Vektor</h2> 
+      
+        
+      
+      <hr>
+<section>
+    <p>
+        TEORI.<br>Vektor adalah besaran yang memiliki nilai dan arah. 
+    Simbol tambahan agar a menjadi vektor 
+    adalah menambah tanda panah diatas a sehingga menjadi
+     <?xml version='1.0' encoding='UTF-8'?>
+    <svg  version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='12.739308pt' height='15.098936pt' viewBox='-.299738 -.265408 12.739308 15.098936'>
+    <defs>
+    <path id='g1-97' d='M3.124284-3.036613C3.052553-3.172105 2.82142-3.514819 2.335243-3.514819C1.3868-3.514819 .342715-2.406974 .342715-1.227397C.342715-.398506 .876712 .079701 1.490411 .079701C2.000498 .079701 2.438854-.326775 2.582316-.486177C2.725778 .063761 3.267746 .079701 3.363387 .079701C3.730012 .079701 3.913325-.223163 3.977086-.358655C4.136488-.645579 4.24807-1.107846 4.24807-1.139726C4.24807-1.187547 4.216189-1.243337 4.120548-1.243337S4.008966-1.195517 3.961146-.996264C3.849564-.557908 3.698132-.143462 3.387298-.143462C3.203985-.143462 3.132254-.294894 3.132254-.518057C3.132254-.653549 3.203985-.924533 3.251806-1.123786S3.419178-1.801245 3.451059-1.944707L3.610461-2.550436C3.650311-2.741719 3.737983-3.076463 3.737983-3.116314C3.737983-3.299626 3.58655-3.363387 3.482939-3.363387C3.363387-3.363387 3.164134-3.283686 3.124284-3.036613ZM2.582316-.860772C2.183811-.310834 1.769365-.143462 1.514321-.143462C1.147696-.143462 .964384-.478207 .964384-.892653C.964384-1.267248 1.179577-2.12005 1.354919-2.470735C1.586052-2.956912 1.976588-3.291656 2.343213-3.291656C2.86127-3.291656 3.012702-2.709838 3.012702-2.614197C3.012702-2.582316 2.81345-1.801245 2.765629-1.594022C2.662017-1.219427 2.662017-1.203487 2.582316-.860772Z'/>
+    <path id='g0-33' d='M9.97061-2.749689C9.313076-2.247572 8.990286-1.75741 8.894645-1.601993C8.356663-.777086 8.261021-.02391 8.261021-.011955C8.261021 .131507 8.404483 .131507 8.500125 .131507C8.703362 .131507 8.715318 .107597 8.763138-.107597C9.038107-1.279203 9.743462-2.283437 11.094396-2.833375C11.237858-2.881196 11.273724-2.905106 11.273724-2.988792S11.201993-3.108344 11.178082-3.120299C10.652055-3.323537 9.205479-3.921295 8.751183-5.929763C8.715318-6.073225 8.703362-6.109091 8.500125-6.109091C8.404483-6.109091 8.261021-6.109091 8.261021-5.965629C8.261021-5.941719 8.368618-5.188543 8.870735-4.387547C9.109838-4.028892 9.456538-3.610461 9.97061-3.227895H1.08792C.872727-3.227895 .657534-3.227895 .657534-2.988792S.872727-2.749689 1.08792-2.749689H9.97061Z'/>
+    </defs>
+    
+    <g id='page1' transform='matrix(1.13 0 0 1.13 -80.23 -71.04084)'>
+    <use x='70.734745' y='68.742217' xlink:href='#g0-33'/>
+    <use x='74.463347' y='75.915315' xlink:href='#g1-97'/>
+    </g>
+  
+    </svg>.
+    Vektor satuan yang arahnya x+ diberi simbol i, sehingga untuk 
+    menyatakan  4 satuan arah x+ adalah 4i.Sedangkan untuk satuan arah  y+ diberi simbol j.
+<br>Operasi Vektor:<br>
+jika $$\vec{a}=x_{1}i+y_{1}j $$
+$$\vec{b}=x_{2}i+y_{2}j $$
+
+<br>1.Penjumlahan dan pengurangan.<br>
+$$\vec{a}+\vec{b}=(x_{{1}}+x_{2})i+(y_{1}+y_{2})j  $$
+$$\vec{a}-\vec{b}=(x_{{1}}-x_{2})i+(y_{1}-y_{2})j $$
+<br>2.Perkalian skalar<br>
+jika m skalar maka
+$$m\vec{a}=(mx_{1})i+(my_{1})j $$
+
+
+
+
+<br>3.Perkalian titik.<br>
+$$a\bullet b=\begin{vmatrix}
+a\end{vmatrix}\begin{vmatrix}
+b\end{vmatrix}cos\theta $$
+
+<br>4.Perkalian silang<br>
+$$  a\times  b=\begin{vmatrix}
+a\end{vmatrix}\begin{vmatrix}
+b\end{vmatrix}sin\theta $$
+<br>
+
+    </p>
+    <hr>
+</section>
+<hr>
+
+
+      <label for="">
+        <p>Vektor posisi A </p> 
+        <p style="font-size:small">
+        
+             <svg width="180" height="140">
+         
+             
+          
+              <circle r="3" cx="120" cy="130"> </circle> 
+
+          <line x1="10" y1="10" x2="10" y2="130" 
+          stroke="black"></line> 
+          
+          <line x1="10" y1="130" x2="160" y2="130" 
+          stroke="blue"></line> 
+
+          <text x="10" y="10"></text>
+          <text x="130" y="120">A</text>
+          <text x="170" y="130">x</text>
+          <text x="60" y="125">4</text>
+          <text x="15" y="80">B
+      
+            </text>
+          <text x="60" y="125"></text>
+          
+
+     
+      </p>
+       
+       adalah
+       <br>
+       
+      
+      
+      </label><br>
+      <input type="radio" name="no1"  style=" display:inline-flex">3i<br>
+<input type="radio" name="no1" id="jno1" style=" display:inline-flex">4i<br>
+      <input type="radio" name="no1" style=" display:inline-flex">4j<br>
+      <input type="radio" name="no1" style=" display:inline">3j<br>
+      <div id="rno1"></div>
+      <hr>
+    
+      
+      <label for="">
+        <p>vektor posisi P   </p> 
+        <p style="font-size:small">
+      
+          <p style="font-size:small">
+        
+        <svg width="180" height="140">
+    
+        
+   
+     <line x1="10" y1="10" x2="10" y2="130" 
+     stroke="black"></line> 
+     
+     <line x1="10" y1="130" x2="160" y2="130" 
+          stroke="blue"></line> 
+
+     <circle r="3" cx="80" cy="80"> </circle> 
+      
+
+     <text x="10" y="10">0</text>
+     <text x="90" y="80">P(3,2)</text>
+     <text x="170" y="130">x</text>
+     <text x="60" y="125"></text>
+     <text x="15" y="80"></text>
+     <text x="60" y="125"></text>
+
+      
+       </p>
+         
+         adalah
+        
+      </label><br>
+      <input type="radio" name="no2" style=" display:inline-flex">
+      <label for="">3i
+      <br>
+      
+      </label>
+      <br>
+      <input type="radio" name="no2" id="jno2" style=" display:inline-flex">
+      <label for="">
+        3i+2j
+        
+       <br>
+      </label><br>
+      <input type="radio" name="no2" style=" display:inline-flex">
+      <label for="">
+        2i+3j
+      <br>
+      
+      </label><br>
+      <input type="radio" name="no2" style=" display:inline-flex">
+      <label for="">
+        2j+3i
+      </label><br>
+      <br>
+      <div id="rno2"></div>
+      
+      <hr>
+      
+      <label for="">
+        <h2>vektor posisi titik P dapat dinyatakan </h2> 
+        <p style="font-size:small">
+      
+            <svg width="180" height="160">
+                <line x1="130" y1="10" x2="35" y2="130" 
+                stroke="black"></line> 
+              
+                <line x1="130" y1="10" x2="130" y2="130" 
+                stroke="black"></line> 
+                <circle r="3" cx="130" cy="10"> </circle> 
+
+                
+                <line x1="35" y1="10" x2="35" y2="130" 
+                stroke="black"></line> 
+      
+                <line x1="35" y1="130" x2="170" y2="130" 
+                stroke="blue"></line> 
+
+
+                <text x="135" y="10">P</text></text>
+                <text x="40" y="20">y</text></text>
+                <text x="160" y="130">x</text></text>
+                <text x="30" y="145">0</text></text>
+                <text x="120" y="80">4</text></text>
+                <text x="80" y="125">3</text></text>
+      
+       
+       </p>
+         dengan
+        
+         <br>
+      </label><br>
+      <input type="radio" name="no3"  id="jno3" style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$P=\bigl(\begin{smallmatrix}3 \\4\end{smallmatrix}\bigr)$$
+      </label><br>
+      
+      
+      <input type="radio" name="no3" style=" display:inline">
+      
+      <label style="display: inline-block;" for="">
+        $$P=\bigl(\begin{smallmatrix}4 \\3\end{smallmatrix}\bigr)$$
+      </label><br>
+
+
+
+      <input type="radio" name="no3" style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$P=\bigl(\begin{smallmatrix}3 \\5\end{smallmatrix}\bigr)$$
+      </label>
+      <br>
+      <input type="radio" name="no3"  style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$P=\bigl(\begin{smallmatrix}4 \\5\end{smallmatrix}\bigr)$$
+      </label><br>
+      <br>
+      <div id="rno3"></div>
+      <hr>
+      
+      
+      <label for="">
+        <h3 style="display:inline">jika $$\vec{a}=3i$$ 
+          dan $$\vec{b}=4j$$  maka $$\vec{R}=\vec{a}+\vec{b}$$</h3> 
+        <br>
+        
+         adalah
+         <br>
+      </label><br>
+      <input type="radio" name="no4" style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$\vec{R}=3i+5j$$
+      </label>
+       
+       
+      </label><br>
+      <input type="radio" name="no4" style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$\vec{R}=3i+4$$
+      </label>
+     
+      <br>
+      <input type="radio" name="no4" id="jno4" style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$\vec{R}=3i+4j$$
+      </label>
+     
+      <br>
+      <input type="radio" name="no4"  style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$\vec{R}=4j+3$$
+      </label>
+     
+      <br>
+      <div id="rno4"></div>
+      
+      <hr>
+      
+      <label for="">
+        <p> vektor PQ  </p> 
+      
+      
+      
+      <div style="display:inline-block">
+      <p>
+     
+    
+        <svg width="190" height="140">
+            <line x1="80" y1="80" x2="120" y2="40" 
+            stroke="green"></line> 
+          
+            <line x1="10" y1="10" x2="10" y2="130" 
+            stroke="black"></line> 
+  
+            <circle r="3" cx="80" cy="80"> </circle> 
+
+            <circle r="3" cx="120" cy="40"> </circle> 
+
+            <line x1="10" y1="130" x2="130" y2="130" 
+            stroke="blue"></line> 
+            <text x="90" y="90">P(3,2)</text></text>
+            <text x="120" y="30">Q(6,5)</text></text>
+            <text x="15" y="80">1</text></text>
+            <text x="60" y="125">1</text></text>
+        </svg>
+        
+  
+    </div>
+      
+      
+      <br>
+      adalah
+      
+      </label><br>
+      <input type="radio" name="no5" id="jno5" style=" display:inline-flex">
+      <label for="">
+        3i+3j
+      
+      </label>
+      <br>
+      <input type="radio" name="no5"  style=" display:inline-flex">
+      <label for="">
+        3i+2j
+      
+      </label><br>
+      
+      <input type="radio" name="no5"  style=" display:inline-flex">
+      <label for="">
+        2i+3j
+      
+      </label><br>
+      <input type="radio" name="no5" style=" display:inline-flex">
+      <label for="">
+        2i+2j
+      </label><br>
+      <br>
+      <div id="rno5"></div>
+      
+      <hr>
+      
+      <label for="">
+        <p style="font-size:1.4rem">Vektor AB  </p> 
+       
+         
+        <svg width="190" height="140">
+            <line x1="80" y1="80" x2="10" y2="100" 
+            stroke="green"></line> 
+          
+            <line x1="10" y1="10" x2="10" y2="130" 
+            stroke="black"></line> 
+  
+            <circle r="3" cx="80" cy="80"> </circle> 
+
+            <circle r="3" cx="10" cy="100"> </circle> 
+
+            <line x1="10" y1="130" x2="130" y2="130" 
+            stroke="blue"></line> 
+            <text x="90" y="90">B(3,2)</text></text>
+            <text x="120" y="30"></text></text>
+            <text x="15" y="120">1</text></text>
+            <text x="15" y="100">A</text></text>
+        </svg>
+        
+  
+         adalah
+         <br>
+      </label><br>
+      <input type="radio" name="no6" style=" display:inline-flex">
+      <label for="">
+        3i+2j
+        
+      
+      </label>
+      <br>
+      <input type="radio" name="no6" id="jno6" style=" display:inline-flex">
+      <label for="">
+       3i+j
+        
+       
+      </label><br>
+      <input type="radio" name="no6" style=" display:inline-flex">
+      <label for="">
+       i+j
+       
+      
+      </label><br>
+      <input type="radio" name="no6" style=" display:inline-flex">
+      <label for="">
+          2i+2j
+        
+      
+      </label><br>
+      <br>
+      <div id="rno6"></div>
+      
+      <hr>
+      
+      <label for="">
+        <p style="font-size:1.4rem">Besar dan arah vektor AB=3i+4j  </p> 
+        <p style="font-size:small">
+         
+       
+      
+      
+       </p>
+         
+         adalah
+         <br>
+      </label><br>
+      <input type="radio" name="no7" style=" display:inline-flex">
+      <label for="">
+          5 dan arc tan 3/4
+        
+      
+      </label>
+      <br>
+      <input type="radio" name="no7"  style=" display:inline-flex">
+      <label for="A">
+        5 dan arc tan 3/5
+        
+       
+       
+      </label><br>
+      <input type="radio" name="no7" id="jno7" style=" display:inline-flex">
+      <label for="">
+        5 dan arc tan 4/3
+        
+       
+      </label><br>
+      <input type="radio" name="no7" style=" display:inline-flex">
+      <label for="">
+        6 dan arc tan 4/3
+        
+        
+       
+      
+      </label><br>
+      <br>
+      <div id="rno7"></div>
+      <hr>
+      
+      <label for="">
+        <p style="font-size:1.4rem">perhatikan titik P(4,4) </p> 
+        <p style="font-size:small">
+      
+      
+            <svg width="180" height="140">
+                <line x1="10" y1="40" x2="130" y2="40" 
+                stroke="green"></line> 
+             
+                <line x1="130" y1="40" x2="130" y2="130" 
+                stroke="blue"></line> 
+             
+                <line x1="10" y1="10" x2="10" y2="130" 
+                stroke="black"></line> 
+      
+                <line x1="10" y1="130" x2="130" y2="130" 
+                stroke="blue"></line> 
+                <text x="10" y="10">B</text></text>
+                <text x="15" y="125">O</text></text>
+                <text x="130" y="40">P(4,4)</text></text>
+                <text x="15" y="80">4</text></text>
+                <text x="60" y="125">4</text></text>
+      
+           
+       </p>
+         
+         arah vektor OP adalah 
+         <br>
+
+      <br>
+      <input type="radio" name="no8" style=" display:inline-flex">
+      <label for="">
+        30
+      </label><br>
+    <input type="radio" name="no8"  style=" display:inline-flex">
+         <label for="">
+           60
+           
+      </label><br>
+      <input type="radio" name="no8" style=" display:inline-flex">
+      <label for="">
+        80
+       
+      </label><br>
+
+      <input type="radio" name="no8" id="jno8" style=" display:inline-flex">
+      <label for="">
+        45
+      </label><br>
+
+
+      <br>
+      <div id="rno8"></div>
+      
+      <hr>
+      
+      <label for="">
+        <p style="font-size:1.4rem">jika 
+          $$\vec{a}=3i+4j $$
+          $$\vec{b}=5i+8j $$
+
+        </p> 
+        <p style="font-size:small">
+          </label><br>
+      <h3>
+        maka $$\vec{a}-\vec{b}=$$
+        adalah
+        </h3>
+
+      <div style="display:inline">
+      
+
+
+      <input type="radio" name="no9"  style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$2i+4j $$
+
+      </label>
+      <br>
+      <input type="radio" name="no9" id="jno9" style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$-2i-4j $$
+
+      </label>
+        
+         
+        
+          
+<br>
+      <div style="display:inline">
+      <input type="radio" name="no9"  style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$2i-4j $$
+
+      </label><br>
+      <input type="radio" name="no9" style=" display:inline-flex">
+      <label style="display: inline-block;" for="">
+        $$2i+2j $$
+
+      </label>
+      </div>
+      <br>
+      <br>
+      <div id="rno9"></div>
+      <hr>
+      <hr>
+      
+      <label for="">
+        <p style="font-size:1.4rem";> </p> 
+        <p style="font-size:1.4rem">jika
+          $$\vec{a}=3i+4j $$
+          maka $$\vec{a}.\vec{a} $$  
+          adalah</p> 
+        <p style="font-size:small">
+    
+      
+      <div style="display:inline-block">
+      <p>
+      
+      </label><br>
+      <input type="radio" name="no10"  style=" display:inline-flex">
+      <label for="">
+        5
+      
+      </label>
+      <br>
+      <input type="radio" name="no10" id="jno10" style=" display:inline-flex">
+      <label for="">
+        
+       25
+       
+      </label><br>
+      <input type="radio" name="no10" style=" display:inline-flex">
+      <label for="">
+        15
+       
+      
+      </label><br>
+      <input type="radio" name="no10" style=" display:inline-flex">
+      <label for="">
+        0
+       
+      </label><br>
+      <br>
+      </div>
+      <div id="rno10"></div>
+      
+      
+      
+      <hr>
+      <h2>isilah dengan jawanan yang benar</h2>
+      <label>
+       $$\vec{a}=3i+4j $$
+      </label>
+      besar vektor a adalah 
+      <input type="text" id="sno1">
+      <div id="rsno1"></div>
+      <hr>
+      
+        <label style="font-size: large;">
+          $$\vec{c}=i+j $$
+          </label>
+      besar sudut arah c adalah
+      <input type="text" id="sno2">
+      <div id="rsno2"></div>
+      <hr>
+      
+      
+      <div style="font-size:20px;text-align:center;width:3.6rem ; height:2rem;background:rgb(143, 168, 32)" id="nilai" style="font-size:2rem"></div>
+      <button onclick="kirimvektor()">Cek Nilai </button>
+  
+      
+</div> 
+
+
+
+  
+	
+
+
+
+
+
+</main>
+
+
+
+<script>
+
+    function kirimvektor(){
+        const jno1=document.querySelector('#jno1')
+        const jno2=document.querySelector('#jno2')
+        const jno3=document.querySelector('#jno3')
+        const jno4=document.querySelector('#jno4')
+        const jno5=document.querySelector('#jno5')
+        const jno6=document.querySelector('#jno6')
+        const jno7=document.querySelector('#jno7')
+        const jno8=document.querySelector('#jno8')
+        const jno9=document.querySelector('#jno9')
+        const jno10=document.querySelector('#jno10')
+    
+    
+    
+        const sno1=document.querySelector('#sno1')
+        const sno2=document.querySelector('#sno2')
+        const sno3=document.querySelector('#sno3')
+        const sno4=document.querySelector('#sno4')
+        const sno5=document.querySelector('#sno5')
+        const sno6=document.querySelector('#sno6')
+        const sno7=document.querySelector('#sno7')
+        const sno8=document.querySelector('#sno8')
+        const sno9=document.querySelector('#sno9')
+        const sno10=document.querySelector('#sno10')
+    
+    
+    
+    
+    
+        const rno1=document.querySelector('#rno1')
+        const rno2=document.querySelector('#rno2')
+        const rno3=document.querySelector('#rno3')
+        const rno4=document.querySelector('#rno4')
+        const rno5=document.querySelector('#rno5')
+        const rno6=document.querySelector('#rno6')
+        const rno7=document.querySelector('#rno7')
+        const rno8=document.querySelector('#rno8')
+        const rno9=document.querySelector('#rno9')
+        const rno10=document.querySelector('#rno10')
+    
+        const rsno1=document.querySelector('#rsno1')
+        const rsno2=document.querySelector('#rsno2')
+        const rsno3=document.querySelector('#rsno3')
+        const rsno4=document.querySelector('#rsno4')
+        const rsno5=document.querySelector('#rsno5')
+        const rsno6=document.querySelector('#rsno6')
+        const rsno7=document.querySelector('#rsno7')
+        const rsno8=document.querySelector('#rsno8')
+        const rsno9=document.querySelector('#rsno9')
+        const rsno10=document.querySelector('#rsno10')
+    
+    
+    
+    
+    
+    
+    
+        const nilai=document.querySelector('#nilai')
+    
+    
+        let response
+        let poin=0
+        if (jno1.checked){
+          response="benar"
+          poin=poin+10
+        }else {
+          response=""
+        }
+        rno1.innerHTML=response
+      
+    
+      if (jno2.checked){
+        response="benar"
+        poin=poin+10
+      }else {
+        response=""
+      }
+      rno2.innerHTML=response
+    
+      if (jno3.checked){
+        response=" benar"
+        poin=poin+10
+      }else {
+        response=""
+      }
+      rno3.innerHTML=response
+    
+    
+    if (jno4.checked){
+      response=" benar"
+      poin=poin+10
+    }else {
+      response=""
+    }
+    rno4.innerHTML=response
+    
+    
+    
+    
+      if (jno5.checked){
+        response="benar"
+        poin=poin+10
+      }else {
+        response=" "
+      }
+      rno5.innerHTML=response
+    
+    
+    if (jno6.checked){
+      response="benar"
+      poin=poin+10
+    }else {
+      response=""
+    }
+    rno6.innerHTML=response
+    
+    
+    if (jno7.checked){
+        response=" benar"
+        poin=poin+10
+      }else {
+        response=""
+      }
+      rno7.innerHTML=response
+    
+    
+    if (jno8.checked){
+      response="benar"
+      poin=poin+10
+    }else {
+      response=""
+    }
+    rno8.innerHTML=response
+    
+    if (jno9.checked){
+        response="benar"
+        poin=poin+10
+      }else {
+        response=""
+      }
+      rno9.innerHTML=response
+    
+    
+    if (jno10.checked){
+      response="benar"
+      poin=poin+10
+    }else {
+      response=""
+    }
+    rno10.innerHTML=response
+    
+    
+    if (sno1.value=="5"){
+        response="benar"; poin=poin+10} 
+    else {response=""}
+    rsno1.innerHTML=response
+    nilai.innerHTML=poin
+      
+      
+    
+       if (sno2.value=="45"){
+         response="benar"
+         poin=poin+10
+       }else {
+         response=""
+       }
+       rsno2.innerHTML=response
+     nilai.innerHTML=poin
+    }
+     
+ </script>
+
+	
+
+
+<script>
+    const questions = [
+    {
+        question: "Vektor adalah besaran yang memiliki",
+        optionA: "arah",
+        optionB: "arah dan nilai",
+        optionC: "nilai ",
+        optionD: "nilai dan ukuran ",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: "dibawah ini besaran vektor, kecuali",
+        optionA: "kecepatam mobil",
+        optionB: "arah angin",
+        optionC: "jumlah siswa dalam kelas",
+        optionD: "dorongan mesin",
+        correctOption: "optionC"
+    },
+
+    {
+        question: " vektor satuan arah x+ adalah",
+        optionA: 'i',
+        optionB: "j",
+        optionC: "k",
+        optionD: "-i",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "besar i adalah  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "2",
+        optionD: "3",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika vektor a bergerak 5 satuan  kex+ ditulis ",
+        optionA: "2i",
+        optionB: "4i",
+        optionC: "5i",
+        optionD: "9i",
+        correctOption: "optionC"
+    },
+
+    {
+        question: " arah vektor v=3i+3j",
+        optionA: "30&#176",
+        optionB: "45&#176",
+        optionC: "180&#176",
+        optionD: "360&#176",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika a=5i dan b=3i+2j maka a+2b adalah",
+        optionA: "8i+2j",
+        optionB: "11i+4j",
+        optionC: "11j+2j",
+        optionD: "8i",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika a=i+3j maka 4a adalah",
+        optionA: "4i+3j",
+        optionB: "i+7j",
+        optionC: "4i+12j",
+        optionD: "4i-12j",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika c=2i+3j maka c.c adalah",
+        optionA: "&#8730;13",
+        optionB: "13",
+        optionC: "5",
+        optionD: "7",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika d=5i+12j maka besar d adalah",
+        optionA: "11",
+        optionB: "12",
+        optionC: "13",
+        optionD: "25",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika a=3i+2j dan b=2i-5j maka b-a adalah",
+        optionA: "-i-7j",
+        optionB: "i-7j",
+        optionC: "-i+3j",
+        optionD: "i-3j",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "i.j=? ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "(3i+5j).(2i-j)",
+        optionA: "6i+j",
+        optionB: "6i-5j",
+        optionC: "6i+5j",
+        optionD: "1",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "jika anak panah dengan kecepatan v=20 satuan , melesat keatas dengan sudut 60, maka kecepatan bayangannya",
+        optionA: "10",
+        optionB: "12",
+        optionC: "15",
+        optionD: "20",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "arah vektor a=2i+5j adalah",
+        optionA: "arc tan 5/4",
+        optionB: "arc tan 5/2",
+        optionC: "arc tan 2/5",
+        optionD: "arc tan 5/4",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "besar vektor satuan a=3i+4j adalah ",
+        optionA: "3i+4j",
+        optionB: "3/5i+4/5j",
+        optionC: "5",
+        optionD: "5i",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika b=2i maka besar vektor satuannya adalah",
+        optionA: "i",
+        optionB: "2i",
+        optionC: "2",
+        optionD: "1",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "jika a=5j , b=i-j , c= 2i maka besar d=a+b+c  adalah",
+        optionA: "3",
+        optionB: "5",
+        optionC: "7",
+        optionD: "8",
+        correctOption: "optionB"
+    },
+
+
+    {
+        question: "Sebuah benda dtarik oleh  2 gaya yaitu F1=3i+4j dan F2=-2j maka resultannya adalah",
+        optionA: "3i+5j",
+        optionB: "3i+2j",
+        optionC: "3i-2j",
+        optionD: "5i-j",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "besar/nilai vektor a=-2i-5j adalah",
+        optionA: "&#8730;20",
+        optionB: "&#8730;29",
+        optionC: "&#8730;21",
+        optionD: "&#8730;50",
+        correctOption: "optionB"
+    },
+    ]
+    
+    
+    let shuffledQuestions = [] //empty array to hold shuffled selected questions out of all available questions
+    
+    function handleQuestions() { 
+        //function to shuffle and push 10 questions to shuffledQuestions array
+    //app would be dealing with 10questions per session
+        while (shuffledQuestions.length <= 9) {
+            const random = questions[Math.floor(Math.random() * questions.length)]
+            if (!shuffledQuestions.includes(random)) {
+                shuffledQuestions.push(random)
+            }
+        }
+    }
+    
+    
+    let questionNumber = 1 //holds the current question number
+    let playerScore = 0  //holds the player score
+    let wrongAttempt = 0 //amount of wrong answers picked by player
+    let indexNumber = 0 //will be used in displaying next question
+    
+    // function for displaying next question in the array to dom
+    //also handles displaying players and quiz information to dom
+    function NextQuestion(index) {
+        handleQuestions()
+        const currentQuestion = shuffledQuestions[index]
+        document.getElementById("question-number").innerHTML = questionNumber
+        document.getElementById("player-score").innerHTML = playerScore
+        document.getElementById("display-question").innerHTML = currentQuestion.question ;
+        document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+        document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+         document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+        document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
+        
+        
+    }
+    
+    
+    function checkForAnswer() {
+        const currentQuestion = shuffledQuestions[indexNumber] //gets current Question 
+        const currentQuestionAnswer = currentQuestion.correctOption //gets current Question's answer
+        const options = document.getElementsByName("option"); //gets all elements in dom with name of 'option' (in this the radio inputs)
+        let correctOption = null
+    
+        options.forEach((option) => {
+            if (option.value === currentQuestionAnswer) {
+                //get's correct's radio input with correct answer
+                correctOption = option.labels[0].id
+            }
+        })
+    
+        //checking to make sure a radio input has been checked or an option being chosen
+        if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
+            document.getElementById('option-modal').style.display = "flex"
+        }
+    
+        //checking if checked radio button is same as answer
+        options.forEach((option) => {
+            if (option.checked === true && option.value === currentQuestionAnswer) {
+                document.getElementById(correctOption).style.backgroundColor = "green"
+                playerScore++ //adding to player's score
+                indexNumber++ //adding 1 to index so has to display next question..
+                //set to delay question number till when next question loads
+                setTimeout(() => {
+                    questionNumber++
+                }, 1000)
+            }
+    
+            else if (option.checked && option.value !== currentQuestionAnswer) {
+                const wrongLabelId = option.labels[0].id
+                document.getElementById(wrongLabelId).style.backgroundColor = "red"
+                document.getElementById(correctOption).style.backgroundColor = ""
+                wrongAttempt++ //adds 1 to wrong attempts 
+                indexNumber++
+                //set to delay question number till when next question loads
+                setTimeout(() => {
+                    questionNumber++
+                }, 1000)
+            }
+        })
+    }
+    
+    
+    
+    //called when the next button is called
+    function handleNextQuestion() {
+        checkForAnswer() //check if player picked right or wrong option
+        unCheckRadioButtons()
+        //delays next question displaying for a second just for some effects so questions don't rush in on player
+        setTimeout(() => {
+            if (indexNumber <= 9) {
+    //displays next question as long as index number isn't greater than 9, remember index number starts from 0, so index 9 is question 10
+                NextQuestion(indexNumber)
+            }
+            else {
+                handleEndGame()//ends game if index number greater than 9 meaning we're already at the 10th question
+            }
+            resetOptionBackground()
+        }, 1000);
+    }
+    
+    //sets options background back to null after display the right/wrong colors
+    function resetOptionBackground() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).style.backgroundColor = ""
+        })
+    }
+    
+    // unchecking all radio buttons for next question(can be done with map or foreach loop also)
+    function unCheckRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+    
+    // function for when all questions being answered
+    function handleEndGame() {
+        let remark = null
+        let remarkColor = null
+    
+        // condition check for player remark and remark color
+        if (playerScore <= 3) {
+            remark = "Kurang, C"
+            remarkColor = "red"
+        }
+        else if (playerScore >= 4 && playerScore < 7) {
+            remark = "Cukup , B"
+            remarkColor = "orange"
+        }
+        else if (playerScore >= 7) {
+            remark = "Excellent , baik , A"
+            remarkColor = "green"
+        }
+        const playerGrade = (playerScore / 10) * 100
+    
+        //data to display to score board
+        document.getElementById('remarks').innerHTML = remark
+        document.getElementById('remarks').style.color = remarkColor
+        document.getElementById('grade-percentage').innerHTML = playerGrade
+        document.getElementById('wrong-answers').innerHTML = wrongAttempt
+        document.getElementById('right-answers').innerHTML = playerScore
+        document.getElementById('score-modal').style.display = "flex"
+    
+    }
+    
+    //closes score modal, resets game and reshuffles questions
+    function closeScoreModal() {
+        questionNumber = 1
+        playerScore = 0
+        wrongAttempt = 0
+        indexNumber = 0
+        shuffledQuestions = []
+        NextQuestion(indexNumber)
+        document.getElementById('score-modal').style.display = "none"
+    }
+    
+    //function to close warning modal
+    function closeOptionModal() {
+        document.getElementById('option-modal').style.display = "none"
+    }
+    </script>
+
+
+<!--   
+    <script src="js/vidcha.js"></script>
+    -->
+       
+</body>
+</html>
