@@ -20,12 +20,6 @@
 <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<script>
-MathJax = {
-  loader: {load: ['input/asciimath', 'output/chtml']}
-}
-</script>
-      
 <script type="text/javascript">
 	function ganti(gambar) {
 	var targetgambar = document.getElementById('targetgambar')
@@ -38,7 +32,6 @@ MathJax = {
 	targetvidio.src = vidio.getAttribute('src');}
 </script>
 
-
 	
 <style>
 	*{
@@ -47,14 +40,19 @@ MathJax = {
 		box-sizing: border-box;
 	}
 	
-	html, body{
-		height: 100%;
-	}
 	
-	
-	body{
-		font-family: 'Montserrat', serif;
-	}
+	html,body {
+  font-family: Nunito, sans-serif;
+  min-height: 100vh;
+  font-size: 1rem;
+  line-height: 0.9rem;
+  color: #333;
+  overflow-x: hidden;
+    background: black;
+    height:100%;
+}
+
+
 	
 	main{
 		width: 100%;
@@ -63,17 +61,44 @@ MathJax = {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		background-color : rgb(44, 105, 47);
+		background-color:black;
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center;
 	}
-	
+	article{
+    background:black;
+    color:white;
+    text-align: justify;
+  }
+.container{
+ max-width: 100vw;
+  /* width: calc(100vw - 100px); */
+  width: calc(100vw - 4em);/*agar jarak spasi mode mobile*/
+  margin: 0 auto;   
+    background: #e8aa8c;
+    overflow: hidden;
+    padding: 10px;
+}
+.kelasx{
+  
+  
+        border: 1px solid #dedede;
+        padding: 10px;
+        margin: 10px;
+        float: right;
+        background: #00b8c0;
+        font-size: 0.9rem;
+
+
+}
+
 	.game-quiz-container{
 		width: 40rem;
 		height: 30rem;
-		background-color:rgb(196, 233, 199);
 		
+    background-color:floralwhite;
+      color:black;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -83,11 +108,13 @@ MathJax = {
 	.game-quiz-container-tri{
         width: 40rem;
         height: fit-content;
-        background-color:rgb(196, 202, 170);
+        
         padding: 1rem;
-        margin:1rem;
+        margin:1rm;
         flex-direction: column;  
         border-radius: 30px;
+        background-color:floralwhite;
+      color:black;
     }
     
 	.game-details-container{
@@ -204,7 +231,7 @@ MathJax = {
 		width: 100%; 
 		height: 100%; 
 		overflow: auto; 
-		background-color: rgb(0,0,0); 
+	
 		background-color: rgba(0,0,0,0.4); 
 		flex-direction: column;
 		align-items: center;
@@ -272,13 +299,16 @@ MathJax = {
 		.game-quiz-container{
 			width: 90%;
 			height: 80vh;
-        
+      background-color:floralwhite;
+      color:black; 
 		 }
          .game-quiz-container-tri{
 			width: 90%;
             height: fit-content;
-            background-color:rgb(130, 146, 66);
-      
+            padding:1rem;
+            margin:1rem;
+            background-color:floralwhite;
+      color:black;
 		 }
 		 .game-details-container h1{
 			font-size: 0.8rem;
@@ -312,12 +342,16 @@ MathJax = {
 	   .game-quiz-container-tri{
 		   width: 90%;
            height: fit-content;
-           background-color:rgb(166, 145, 214);
-      
+           background-color:floralwhite;
+      color:black;
+      padding:1rem;
+      margin:1rem;
 		}
         .game-quiz-container{
 		   width: 90%;
 		   height: 80vh;
+       background-color:floralwhite;
+      color:black;
 		}
 		.game-details-container h1{
 			font-size: 1rem;
@@ -331,6 +365,8 @@ MathJax = {
 			font-size: 0.9rem;
 		 }
 	
+
+  }
 		.game-options-container span{
 			width: 90%;
 		}
@@ -354,12 +390,10 @@ MathJax = {
 	  }
 	
 		</style>
-   
+ 
 </head>
 
 <body onload="NextQuestion(0)">
-
-
 
  <!-- <track src="tripel.vtt" label="English" kind="captions" srclang="en-us" default > -->
 <div class="container">
@@ -383,7 +417,7 @@ MathJax = {
 <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script> 
 		  			   			</div>
 				<h1 class="text-3xl" style="text-align: center;">Portal Peta Pikiran</h1>
-				<h3 style="text-align: center;">Profesional Kolaboratif</h3>  
+				<h3 style="text-align: center;">Profesional & Kolaboratif</h3>  
 				
 		</div>
 
@@ -395,7 +429,7 @@ MathJax = {
 		</div>
 
 		<div class="middle">
-			<h2 style="text-align: center;">Update 10/11/22 
+			<h2 style="text-align: center;">Update 18/11/22 
 			<br></h2>
 			<img   width="65%" sr="gbr/heli.jpg" alt="">
 			<br>
@@ -407,12 +441,9 @@ MathJax = {
 			3.Klik caption vidio sesuai dengan materi<br>
 			4.Sambil mendengar audio/vidio  ... geser-geser gambar sesuai dengan narasi<br>
 			5.Pahami materi lalu kerjakan soalnya...ok, broo.<br>
-			6.Silakan download  
-      <a href="gbr/map11.svg" download="MAP.svg">
-        <img src="gbr/download.svg">
-
-      
-      </a>
+			6.Klik gbr dibawah untuk mendownload  <a href="./gbr/map11.svg" download="MindmapMatematika">
+					       <img src="./gbr/download.svg" alt="ng ada gbr" width="25" height="36">
+					      </a>
 		
 			<content>
       
@@ -434,10 +465,11 @@ MathJax = {
 		
 		</div>
 </div>		
-
-<div class="container" >
-
-	<div class="left">
+<div class="container" style="display:none" >
+  <div  id="thing" >
+    <img class='zoom'  src='gbr/map11.svg' alt='hup ng ada gbr' />
+    </div> 
+	<div class="left" style="display:none">
 	
 	
  <content>
@@ -459,24 +491,18 @@ MathJax = {
 	
 	</div>
 	
-		<div class="midgbr">
+	
 			
 		
-			<div id="contentContainer"> 
-				 <div  id="thing" >
-					<img class='zoom'  src='gbr/map11.svg' 
-          alt='hup ng ada gbr' />
-  				</div> 
-          
-  			</div> 
+!-<div id="contentContainer"> </div> 
 	
-        
-		</div>
-   
+			
+
+			
+		
   </div>
 
-
-<div class="container">
+<div class="container" style="display:none">
 
 <figure id="video-track-container">
     <video  id="targetvidio" class="vidchaVideo"  controls>
@@ -508,9 +534,9 @@ Selamat pagi
 
 
 <div class="kanan">
-	<main class="bg-grey-500">
+	<main >
 <div class="modal-container" id="score-modal">
-	$b=\sqrt{a}$  
+
 	<div class="modal-content-container">
 
 		<h1>Selamat.</h1>
@@ -534,13 +560,8 @@ Selamat pagi
 <div class="game-quiz-container">
 
 	<div class="game-details-container">
-		<h3>Jumlah benar : <span id="player-score"></span> </h3>
-        <h3> Soal ke- : <span id="question-number"></span> dari 40</h3>
-       
-      
-        
-        
-    
+		<p>Benar : <span id="player-score"></span> </p><br>
+    <p> No.: <span id="question-number"></span> / dari 40</p>
     </div>
 <!--  
         <div>
@@ -641,7 +662,7 @@ Selamat pagi
 \end{vmatrix} -->
 
 <div class="game-quiz-container-tri">
-<div style="background-color:black ;" class="nav">
+<div  class="nav">
   <nav >
   
   <a href="#kelasx">kelasx</a><br>
@@ -650,10 +671,11 @@ Selamat pagi
   
 </nav>
 </div>
+<hr>
 <div class="kelasx" id="kelasx"></div>
-    <hr>
-    <p style="background-color:chocolate; 
-    font-size: 1.2rem; text-align: center";>pilih 1 jawaban </p> 
+    
+    <p style="font-size: 1.2rem; 
+    text-align: center">pilih 1 jawaban </p> 
    <hr> 
 <h2>Bilangan Berpangkat(kelas X)</h2>
 
@@ -778,14 +800,7 @@ Selamat pagi
         </msup></math></mi>
   </math><br>
   
-  <input type="radio" name="no33" id="jno33" style=" display:inline-flex">
-  <math>
-  <mi><math> <msup>
-            <mi>3</mi>
-            <mn>1</mn>
-        </msup></math></mi>
-  </math><br>
-
+  
   <input type="radio" name="no33" style=" display:inline-flex">
   <math>
   <mi><math> <msup>
@@ -801,7 +816,14 @@ Selamat pagi
             <mn>-1</mn>
         </msup></math></mi>
   </math><br>
-  
+  <input type="radio" name="no33" id="jno33" style=" display:inline-flex">
+  <math>
+  <mi><math> <msup>
+            <mi>3</mi>
+            <mn>1</mn>
+        </msup></math></mi>
+  </math><br>
+
   <div id="rno33"></div>
   <hr>
   
@@ -984,15 +1006,7 @@ Selamat pagi
       <msqrt> <mi> 2 </mi>  </msqrt>
       </math><br>
 
-  <input type="radio" name="no37"  style=" display:inline-flex"> 
-  <math>
-      <msqrt> <mi><msup>
-            <mi>2</mi>
-            <mn>3</mn>
-        </msup></mi>  </msqrt>
-      </math><br>
-                   
-  <input type="radio" name="no37" id="jno37" style=" display:inline-flex">
+      <input type="radio" name="no37" id="jno37" style=" display:inline-flex">
   
     <math>
       <mroot>
@@ -1003,6 +1017,15 @@ Selamat pagi
       <mn>3</mn>
   </mroot>
 </math><br>
+  
+  <input type="radio" name="no37"  style=" display:inline-flex"> 
+  <math>
+      <msqrt> <mi><msup>
+            <mi>2</mi>
+            <mn>3</mn>
+        </msup></mi>  </msqrt>
+      </math><br>
+                   
   
   <input type="radio" name="no37" style=" display:inline">
   <math>
@@ -1158,26 +1181,26 @@ Selamat pagi
   <hr>
 
   <label for="">
-    <p>Logaritma 
+    <h2>Logaritma</h2>
    $$a^c=b $$ 
-   <p>bentuk logaritmanya adalah</p>
+   <p>bentuk bilangan berpangkat diatas dalam bentuk logaritmanya adalah</p>
     
    $$c=\log_ab$$
      </p> 
      <p>
       a disebut basis;<br>
       b disebut numerus;<br>
-      c adalah nilai logaritmanya</p>
-
-      $$2^3=8 $$ 
-      $$3=\log_2 8$$ 
+      c adalah nilai logaritmanya</p><br>
+<p>dengan demikian bilangan berpangkat  : 
+  <label>$$2^3=8 $$ </label>... dapat menjadi bentuk logaritma  :
+  <label>$$3=\log_2 8$$ </label></p>
       <p>atau</p>
       $$\log_2 8=3$$ 
     <hr>
-<h5>Sifat 1</h5>
-$$\log_aa^n=n$$
+<h5>Sifat :</h5><label>$$\log_aa^n=n$$</label>
+
 <hr>
-Tentukan nilai logaritma berikut ini $$\log_2 16=...$$
+Tentukan nilai logaritma berikut  berdasarkan sifat 1 diatas:  <label>$$\log_2 16=...$$</label>
 
 <p style="font-size:small">
 <input type="radio" name="no51" style=" display:inline-flex">0<br>
@@ -1186,16 +1209,16 @@ Tentukan nilai logaritma berikut ini $$\log_2 16=...$$
 <input type="radio" name="no51" id="jno51" style=" display:inline">4<br>
 <div id="rno51"></div>
 <hr>
-Tentukan nilai logaritma berikut ini menggunakan sifat 1 $$\log_55=...$$
+Tentukan nilai logaritma berikut ini menggunakan sifat 1 <label>$$\log_55=...$$</label>
 
 <p style="font-size:small">
 <input type="radio" name="no52" style=" display:inline-flex">0<br>
-<input type="radio" name="no52"  style=" display:inline-flex">2 <br>
 <input type="radio" name="no52" style=" display:inline-flex">3<br>
+<input type="radio" name="no52"  style=" display:inline-flex">2 <br>
 <input type="radio" name="no52" id="jno52" style=" display:inline">1<br>
 <div id="rno52"></div>
 <hr>
-Tentukan nilai logaritma berikut ini menggunakan sifat 1 $$\log_31=...$$
+Tentukan nilai logaritma berikut ini menggunakan sifat 1 <label> $$\log_31=...$$</label>
 
 <p style="font-size:small">
 <input type="radio" name="no53" id="jno53" style=" display:inline-flex" >0<br>
@@ -1204,20 +1227,21 @@ Tentukan nilai logaritma berikut ini menggunakan sifat 1 $$\log_31=...$$
 <input type="radio" name="no53"  style=" display:inline">4<br>
 <div id="rno53"></div>
 <hr>
-Tentukan nilai logaritma berikut ini menggunakan sifat 1 $$\log_525=...$$
+Tentukan nilai logaritma berikut ini menggunakan sifat 1 <label> $$\log_525=...$$</label>
 
 <p style="font-size:small">
 <input type="radio" name="no54" style=" display:inline-flex">0<br>
 <input type="radio" name="no54" id="jno54" style=" display:inline-flex" >2 <br>
 <input type="radio" name="no54" style=" display:inline-flex">3<br>
-<input type="radio" name="no54"  style=" display:inline">4<br>
+<input type="radio" name="no54"  style=" display:inline">4<br> 
 <div id="rno54"></div>
 <hr>
-Tentukan nilai logaritma berikut ini menggunakan sifat 1 $$\log_575=...$$
+Tentukan nilai logaritma berikut ini menggunakan sifat 1 <label>$$\log_575=...$$</label>
 
 <p style="font-size:small">
 <input type="radio" name="no55" style=" display:inline">0<br>
-<input type="radio" name="no55" id="jno55" style="display: inline; " >$$2.\log_53$$<br>
+<input type="radio" name="no55" id="jno55" style="display: inline; " >
+<label>$$2.\log_53$$</label><br>
 <input type="radio" name="no55" style=" display:inline">3<br>
 <input type="radio" name="no55" style=" display:inline">4<br>
 <div id="rno55"></div>
@@ -1259,15 +1283,17 @@ Tentukan nilai logaritma berikut ini menggunakan sifat 1 $$\log_575=...$$
   </math><br>
   
   <div id="rno101"></div>
-  <hr>
+  
   
   </p>
-</label>
+</label><br>
+<hr>
+<label>
 $$\left\{\begin{matrix}
 2x+3y=5 & \\ 
 3x-y=13 & 
 \end{matrix}\right.$$
-
+</label>
      <label for="">
      <p style="font-size:small">
   <p>nilai x dan y yang memenuhi sitem persamaan diatas , berturut-turut adalah</p>
@@ -1276,34 +1302,36 @@ $$\left\{\begin{matrix}
   <mi>2,4</mi>
   </math><br>
   
-  <input  type="radio" name="no102" id="jno102" style=" display:inline-flex">
-  <math>
-  <mi>4,-1</mi>
-  </math><br>
 
   <input  type="radio" name="no102" style=" display:inline-flex">
   <math>
   <mi>4,0</mi>
   </math><br>
 
+  <input  type="radio" name="no102" id="jno102" style=" display:inline-flex">
+  <math>
+  <mi>4,-1</mi>
+  </math><br>
+
   <input type="radio" name="no102" style=" display:inline">
   <math>
   <mi>4,1</mi>
-  </math><br>
+  </math>
   
   <div id="rno102"></div>
   <hr>
   
   </p>
-</label>
+</label><br>
+<label>
 $$\left\{\begin{matrix}
 2x+3y=5 & \\ 
 3x+2y=13 & 
 \end{matrix}\right.$$
-
+</label><br>
      <label for="">
      <p style="font-size:small">
-  <p> nilai x - y = ... adalah</p>
+  <p> nilai x - y = ... adalah</p><br>
   <input type="radio" name="no103" style=" display:inline-flex"> 
   <math>
   <mi>6</mi>
@@ -1328,12 +1356,13 @@ $$\left\{\begin{matrix}
   <hr>
   
   </p>
-</label>
+</label><br>
+<label>
 $$\left\{\begin{matrix}
 x-3y=5 & \\ 
 3x+2y=13 & 
 \end{matrix}\right.$$
-
+</label><br>
      <label for="">
      <p style="font-size:small">
   <p>dengan metoda substitusi maka nilai 11y   adalah</p>
@@ -1362,11 +1391,12 @@ x-3y=5 & \\
   
   </p>
 </label>
+<label>
 $$\left\{\begin{matrix}
 3x+5y=13 & \\ 
 x+5y=11 & 
 \end{matrix}\right.$$
-
+</label>
      <label for="">
      <p style="font-size:small">
   <p>dengan metoda eliminasi maka nilai 2x   adalah</p>
@@ -1423,12 +1453,13 @@ x+5y=11 &
   
   </p>
 </label>
+<label>
 $$\left\{\begin{matrix}
 x+y+z=6 & \\ 
 x+y-z=4 & \\
 2x+y-z=7 
 \end{matrix}\right.$$
-
+</label>
      <label for="">
      <p style="font-size:small">
   <p>nilai x , y dan z yang memenuhi sitem persamaan diatas , berturut-turut adalah</p>
@@ -1458,12 +1489,13 @@ x+y-z=4 & \\
   
   </p>
 </label>
+<label>
 $$\left\{\begin{matrix}
 2x+3y+z=7 & \\ 
 3x+2y+z=15 & \\
 2x-y-z=2
 \end{matrix}\right.$$
-
+</label><br>
      <label for="">
      <p style="font-size:small">
   <p> nilai x,y dan z adalah</p>
@@ -1472,6 +1504,11 @@ $$\left\{\begin{matrix}
   <mi>3,3,2</mi>
   </math><br>
   
+  <input type="radio" name="no108" style=" display:inline">
+  <math>
+  <mi>3,2,1</mi>
+  </math><br>
+
   <input  type="radio" name="no108" id="jno108" style=" display:inline-flex">
   <math>
   <mi>3,2,2</mi>
@@ -1481,26 +1518,22 @@ $$\left\{\begin{matrix}
   <math>
   <mi>2,3,3</mi>
   </math><br>
-
-  <input type="radio" name="no108" style=" display:inline">
-  <math>
-  <mi>3,2,1</mi>
-  </math><br>
   
   <div id="rno108"></div>
   <hr>
   
   </p>
-</label>
+</label><br>
+<label>
 $$\left\{\begin{matrix}
 x-3y+2z=-2 & \\ 
 x+2y+2z=8 & \\
 x+y+z=5
 \end{matrix}\right.$$
-
+</label><br>
      <label for="">
      <p style="font-size:small">
-  <p>nilai  x+y  adalah</p>
+  <p>nilai  x+y  adalah</p><br>
   <input type="radio" name="no109" style=" display:inline-flex"> 
   <math>
   <mi>1</mi>
@@ -1525,13 +1558,14 @@ x+y+z=5
   <hr>
   
   </p>
-</label>
+</label><br>
+<label>
 $$\left\{\begin{matrix}
 3x+2y+z=7 & \\ 
 3x+5y-z=6 & \\
 x+y-z=0
 \end{matrix}\right.$$
-
+</label><br>
      <label for="">
      <p style="font-size:small">
   <p>nilai z   adalah</p>
@@ -1566,20 +1600,21 @@ x+y-z=0
 <hr>
 <hr>
   <h2>isilah dengan jawaban yang benar</h2>
+  <label>
   $$\left\{\begin{matrix}
 x-2y+z=-1 & \\ 
 2x-3y+4z=-5 & \\
 3x-4y+2z=1
 \end{matrix}\right.$$
-
+</label><br>
   <label>
     nilai x adalah
-  </label><br>
+  </label>
   <input type="text" id="sno101">
   <div id="rsno101"></div>
   <hr>
-  <hr>
-  <h2></h2>
+  
+  
   <label>
     $$\left\{\begin{matrix}
 2x-y+z=3 & \\ 
@@ -1674,6 +1709,8 @@ x+3y-2z=11 & \\
   <label style="display:inline-block">$${\color{Blue} \mathbf{2\leq x\leq 4}}$$</label><br>
   <input  type="radio" name="no111"  style=" display:inline-flex">
   <label>$${\color{Blue} \mathbf{1\leq x\leq 4}}$$</label><br>
+  <input type="radio" name="no111" id="jno111" style=" display:inline">
+  <label>$$ \mathbf{1\leq x < 4}$$</label><br>
   <input  type="radio" name="no111" style=" display:inline-flex">
   <label>$${\color{Blue} \mathbf{2\leq x < 4}}$$</label> <br> 
   <input type="radio" name="no111" id="jno111" style=" display:inline">
@@ -1815,15 +1852,15 @@ $$\left\{\begin{matrix}
   <math>
   <mi>(1,2)</mi>
   </math><br>
-  
-  <input  type="radio" name="no113" id="jno113" style=" display:inline-flex">
-  <math>
-  <mi>(1,4)</mi>
-  </math><br>
-
+    
   <input  type="radio" name="no113" style=" display:inline-flex">
   <math>
   <mi>(4,2)</mi>
+  </math><br>
+
+  <input  type="radio" name="no113" id="jno113" style=" display:inline-flex">
+  <math>
+  <mi>(1,4)</mi>
   </math><br>
 
   <input type="radio" name="no113" style=" display:inline">
@@ -1953,11 +1990,12 @@ $$\left\{\begin{matrix}
   <input type="radio" name="no115" style=" display:inline-flex"> 
  <label> $$ \frac{x}{2}+\frac{y}{3}\leq 1$$</label><br>
   
-  <input  type="radio" name="no115" id="jno115" style=" display:inline-flex">
-  <label>$$ x+2y\leq 4$$</label><br>
-
+  
   <input  type="radio" name="no115" style=" display:inline-flex">
   <label>$$ \frac{x}{4}+\frac{y}{2}\leq 0$$</label><br>
+
+  <input  type="radio" name="no115" id="jno115" style=" display:inline-flex">
+  <label>$$ x+2y\leq 4$$</label><br>
 
   <input type="radio" name="no115" style=" display:inline">
   <label>$$ \frac{x}{2}+\frac{y}{4}\leq 1$$</label><br>
@@ -2113,6 +2151,13 @@ y > 0
 \frac{x}{2}+\frac{y}{4}> 1
 \end{matrix}\right.$$</label><br>
   
+<input type="radio" name="no117" id="jno117" style=" display:inline">
+  <label>$$\left\{\begin{matrix}
+\frac{x}{4}+\frac{y}{2} < 1\\ 
+\frac{x}{2}+\frac{y}{4}\geq 1\\
+y > 0
+\end{matrix}\right.$$</label><br>
+
   <input  type="radio" name="no117"  style=" display:inline-flex">
   <label>$$\left\{\begin{matrix}
 \frac{x}{4}+\frac{y}{2}< 1\\ 
@@ -2126,12 +2171,6 @@ y > 0
 \end{matrix}\right.$$</label>
   <br>
 
-  <input type="radio" name="no117" id="jno117" style=" display:inline">
-  <label>$$\left\{\begin{matrix}
-\frac{x}{4}+\frac{y}{2} < 1\\ 
-\frac{x}{2}+\frac{y}{4}\geq 1\\
-y > 0
-\end{matrix}\right.$$</label><br>
   
   <div id="rno117"></div>
   <hr>
@@ -2367,20 +2406,20 @@ x> 0;y> 0\\
 \end{matrix}\right.$$</label>
   <br>
 
-  
-  <input  type="radio" name="no120" id="jno120" style=" display:inline-flex">
-  <label>$$\left\{\begin{matrix}
-\frac{x}{2}+\frac{y}{4}\leqslant 1\\
-\frac{x}{3}+\frac{y}{3} \leqslant 1\\
-x> 0;y> 0\\
-\end{matrix}\right.$$</label>
-  <br>
-
+ 
 
   <input  type="radio" name="no120" style=" display:inline-flex">
   <label>$$\left\{\begin{matrix}
 \frac{x}{2}+\frac{y}{4}\leqslant 1\\
 \frac{x}{4}+\frac{y}{3} \leqslant 1\\
+x> 0;y> 0\\
+\end{matrix}\right.$$</label>
+  <br>
+ 
+  <input  type="radio" name="no120" id="jno120" style=" display:inline-flex">
+  <label>$$\left\{\begin{matrix}
+\frac{x}{2}+\frac{y}{4}\leqslant 1\\
+\frac{x}{3}+\frac{y}{3} \leqslant 1\\
 x> 0;y> 0\\
 \end{matrix}\right.$$</label>
   <br>
@@ -2413,11 +2452,11 @@ Problem: Pak Amir ingin berdagang 2 jenis kopi saset yaitu kopi capucino dan kop
 maksimum 50 buah saset, agar  bebas ongkir.
      <label for="">
     <p>jika x adalah kopi capucino dan y adalah kopi gingseng maka 
-      pernyataan diatas dapat diubah menjadi model matematika sbb:
+	    pernyataan diatas dapat diubah menjadi model matematika sbb:</p>
         
             
   
-  <input type="radio" name="no131" id="jno131" style=" display:inline-flex"> 
+  <input type="radio" id="jno131" name="no131" style=" display:inline-flex"> 
   <label style="display:inline-block" >$${x+y\leq 50}$$</label><br>
   <input  type="radio" name="no131"  style=" display:inline-flex">
   <label>$${ { x-y\leq 50}}$$</label><br>
@@ -2546,13 +2585,13 @@ dari gambar dibawah ini</p>
   <label> 2</label>
   <br>
   
-  <input  type="radio" name="no134" id="jno134" style=" display:inline-flex">
-  <label>4</label>
-  <br>
-
   <input  type="radio" name="no134" style=" display:inline-flex">
   <label>5</label>
 <br>
+
+<input  type="radio" name="no134" id="jno134" style=" display:inline-flex">
+  <label>4</label>
+  <br>
 
   <input type="radio" name="no134" style=" display:inline">
 <label>6</label><br>
@@ -2575,7 +2614,7 @@ dari gambar dibawah ini</p>
   <label>terkecil</label><br>
 
   <input  type="radio" name="no135" style=" display:inline-flex">
-  <label>optimum</label><br>
+  <label>rata-rata</label><br>
 
   <input type="radio" name="no135" id="jno135" style=" display:inline">
   <label>nilai optimum dari fungsi tujuan</label><br>
@@ -2714,15 +2753,15 @@ jika z=2x+3y adalah
 <input type="radio" name="no137" style=" display:inline-flex"> 
 <label>8</label><br>
   
+<input type="radio" name="no137" id="jno137" style=" display:inline">
+  <label>4</label><br>
+
   <input  type="radio" name="no137"  style=" display:inline-flex">
   <label>6</label><br>
 
   <input  type="radio" name="no137" style=" display:inline-flex">
  <label>5</label>
   <br>
-
-  <input type="radio" name="no137" id="jno137" style=" display:inline">
-  <label>4</label><br>
   
   <div id="rno137"></div>
   <hr>
@@ -2730,12 +2769,36 @@ jika z=2x+3y adalah
   </p>
 </label>
 <h2>Barisan & Deret</h2>
-Perhatikan barisan aritmatika dibawah ini
+<article>
+  <h1>Teori</h1>
+  <p>Barisan adalah susunan angka angka berdasarkan pola bilangan.Barisan aritmatika
+  jika selesih angka yang berurutan besarnya tetap, sedangkan
+  barisan geometri jika perbandingan angka angka 
+  yang berurutan besarnya tetap.
+  Simbol selisih/beda : b sedangkan simbol perbandingan/rasio adalah r.</p> 
+  <h3>Barisan</h3>
+  <h4>Barisan aritmatika</h4>
+  <p>Barisan aritmatika yang bedanya b adalah <label>$$U_n=a+(n-1).b$$</label></p>
+  <h4>Barisan geometri</h4>
+  <p>Barisan geometri yang rasionya r adalah <label>$$U_n=ar^{n-1}$$</label></p>
+  <h3>Deret</h3>
+  <p>Deret  adalah penjumlahan suatu barisan, disimbolkan <label>$$S_n=\sum_{1}^{n}U_n=U_1+U_2+U_3+...+U_n$$</label></p>
+  
+  <h4>Deret aritmatika</h4>
+  <p>Jika <label>$$U_n=2n-1$$</label> maka deret aritmatika adalah penjumlahan barisan aritmatika, disimbolkan <label>$$S_n=\sum_{1}^{n}U_n=U_1+U_2+U_3+...+U_n$$</label></p>
+  <p> <label>$$S_n=\sum_{1}^{n}2n-1=1+3+5+...+(2n-1)$$</label></p>
+  
+  <h4>Deret geometri</h4>
+  <p>Deret geometri adalah penjumlahan barisan geometri, disimbolkan <label>$$S_n=\sum_{1}^{n}U_n=U_1+U_2+U_3+...+U_n$$</label></p>
+  <p>Jika <label>$$U_n=2^{n}$$</label> maka deret geometri adalah penjumlahan barisan geometri, disimbolkan <label>$$S_n=\sum_{1}^{n}2^{n}=2+4+8+...+2^{n}$$</label></p>
+  
+  </article>
+<p>Perhatikan barisan aritmatika dibawah ini</p>
   
 
      <label for="">
      <p style="font-size:small">
-  <h3> 2 , 5 , 8 ,..., Un</h3>
+  <h3>$$ 2 , 5 , 8 ,..., U_n$$</h3>
   maka pola bilangan Un adalah<br>
   <input type="radio" name="no138" style=" display:inline-flex"> 
   <label>2n-1</label><br>
@@ -2776,9 +2839,9 @@ Perhatikan barisan aritmatika dibawah ini
   
   </p>
 </label>
-Perhatikan deret berikut ini
- <h2>  2 + 5 + 8 + ...+U10</h2>
- <p>maka jumlah 10 suku pertama atau   atau S10 adalah</p>  
+<p>Perhatikan deret berikut ini</p>
+ <p> <label> $$2 + 5 + 8 + ...+U_{10}  $$</label></p>
+ <p>maka jumlah 10 suku pertama   atau <label>$$ S_{10}$$</label> adalah</p>  
  <label for="">
      <p style="font-size:small">
 
@@ -2794,6 +2857,50 @@ Perhatikan deret berikut ini
   
   <div id="rno140"></div>
   <hr>
+</label>
+  </p>
+</label>
+<p></p>Perhatikan deret geometri berikut ini</p>
+ <p> $$ 2 + 4 + 8 + ...+U_5=S_5$$</p>
+ <p>maka suku ke 5 yakni <label>$$U_5$$</label> dan jumlah 5 suku pertama
+   <label>$$S_5$$</label> berturut turut adalah</p>  
+ <label for="">
+     <p style="font-size:small">
+
+  <input type="radio" name="no141" style=" display:inline-flex"> 
+  <label>32 dan 64</label><br>
+  <input  type="radio" name="no141" id="jno141" style=" display:inline-flex">
+  <label>32 dan 62</label><br>
+  <input  type="radio" name="no141" style=" display:inline-flex">
+  <label>16 dan 30</label><br>
+  <input type="radio" name="no141" style=" display:inline">
+  <label>64 dan 32</label><br>
+
+  
+  <div id="rno141"></div>
+  <hr>
+  
+  </p>
+</label>
+<p>Perhatikan deret geometri berikut ini</p>
+ <p style="font-size:small"> 
+   <label>$$\frac {1} {3}+\frac {1} {9}+\frac {1} {27}+...+U_4=S_4$$</label></p>
+ <p>maka jumlah 4 suku pertama   atau <label>$$S_4$$</label> adalah</p>  
+ <label for="">
+     <p style="font-size:small">
+
+  <input type="radio" name="no142" style=" display:inline-flex"> 
+  <label>$$\frac {1} {81}$$</label><br>
+  <input  type="radio" name="no142" id="jno142" style=" display:inline-flex">
+  <label>$$\frac {40} {81}$$</label><br>
+  <input  type="radio" name="no142" style=" display:inline-flex">
+  <label>$$\frac {80} {81}$$</label><br>
+  <input type="radio" name="no142" style=" display:inline">
+  <label>$$\frac {50} {81}$$</label><br>
+
+  
+  <div id="rno142"></div>
+  <hr>
   
   </p>
 </label>
@@ -2802,45 +2909,25 @@ Perhatikan deret berikut ini
 <hr>
 
   <h2>isilah dengan jawaban yang benar</h2>
-  $$\left\{\begin{matrix}
-x-2y+z=-1 & \\ 
-2x-3y+4z=-5 & \\
-3x-4y+2z=1
-\end{matrix}\right.$$
-
-  <label>
-    nilai x adalah
-  </label><br>
-  <input type="text" id="sno111">
-  <div id="rsno111"></div>
+  
+<label><h2><label>  $$2 + 5 + 8 + ...+U_{10}$$</label><br></h2></label>
+  nilai<label>$$ S_{10}$$</label>  adalah
+  <input style="background-color: #dedede" type="text" id="sno111"><div id="rsno111"></div>
   <hr>
-  <hr>
-  <h2></h2>
-  <label>
-    $$\left\{\begin{matrix}
-2x-y+z=3 & \\ 
-x+3y-2z=11 & \\
-3x-2y+4z=1
-\end{matrix}\right.$$
-
-  </label><br>
-  nilai z adalah
-  <input type="text" id="sno112">
-  <div id="rsno112"></div>
+  
+  <h2>Jumlah 10 suku pertama dari deret :</h2>
+  
+    
+<h2> <label>$$ 2 + 6 + 10 + ...+U_{10}$$</label></h2>
+  nilai <label>$$S_{10}$$</label> adalah
+  <input style="background-color: #dedede" type="text" id="sno112"><div id="rsno112"></div>
   <hr>
 
-<div style="text-align:center;font-size:30px; height: 50px; width:50px;background:rgb(76, 76, 238)" id="nilai2"></div>
-<button onclick="kirimtri2()">Cek Nilai  </button>
+<h2 id="nilai2"></h2>
+<button style="height:40px;width:100px;background:rgb(76, 76, 238)" onclick="kirimtri2()">Cek Nilai  </button>
 
 <h2>Trigonometri</h2>
-$$
-  \begin{array} {|r|r|}\hline p & q & pVq \\ 
-  \hline 1_0 & 1_1 & 1_2 \\ 
-  \hline 2_0 & 2_1 & 2_2 \\ 
-  \hline 3_0 & 3_1 & 3_2 \\ 
-  \hline 4_0 & 4_1 & 4_2 \\ 
-  \hline  \end{array}
-$$
+
 <label>
 
 
@@ -6071,9 +6158,9 @@ b\end{vmatrix}sin\theta $$
   <div id="rno73"></div>
   <hr>
 
-  <hr>
 
-akar-akar persamaan 
+
+Akar-akar persamaan 
 <math>
       
       <mrow>
@@ -6101,7 +6188,7 @@ adalah
 <hr>
 
 
-<hr>
+
 
 perkalian akar-akar persamaan 
 <math>
@@ -6133,9 +6220,9 @@ adalah
 
 
 
-<hr>
 
-persamaan garis simetri dari persamaan kuadrat
+
+Persamaan garis simetri dari persamaan kuadrat
 <math>
       
       <mrow>
@@ -6157,17 +6244,17 @@ adalah
 </p>
 <input type="radio" name="no76"   style=" display:inline-flex">x=-1<br>
 <input type="radio" name="no76"  style=" display:inline-flex">x=-2<br>
-<input type="radio" name="no76" id="jno76" style=" display:inline-flex">x=2<br>
-<input type="radio" name="no76" style=" display:inline">x=3/2<br>
+<input type="radio" name="no76"  style=" display:inline-flex">x=2<br>
+<input type="radio" name="no76" id="jno76" style=" display:inline">x=3/2<br>
 <div id="rno76"></div>
 <hr>
 
 
 
 
-<hr>
 
-sketsa/grafik  dari persamaan kuadrat
+
+Sketsa/grafik  dari persamaan kuadrat
 <math>
       
       <mrow>
@@ -6196,8 +6283,8 @@ adalah
 
 
 
-<hr>
-titik puncak  dari persamaan kuadrat
+
+Titik puncak  dari persamaan kuadrat
 <math>
       
       <mrow>
@@ -6224,10 +6311,6 @@ adalah
 <div id="rno78"></div>
 <hr>
 
-
-
-
-<hr>
 Nilai f(2) dari fungsi kuadrat
 <math>
   <mo>f(x)=</mo>
@@ -6253,9 +6336,6 @@ adalah
 <input type="radio" name="no79" id="jno79" style=" display:inline-flex">1<br>
 <input type="radio" name="no79" style=" display:inline">5<br>
 <div id="rno79"></div>
-<hr>
-
-
 <hr>
 Titik potong  fungsi kuadrat 
 <math>
@@ -6283,6 +6363,7 @@ terhadap sumbu y adalah
 <input type="radio" name="no80" id="jno80" style=" display:inline">5<br>
 <div id="rno80"></div>
 <hr>
+<hr>
 <h2>Fungsi Komposisi dan invers fungsi komposisi (XI)</h2>
 <p>
   Komposisi fungsi adalah penggabungan operasi dua fungsi atau lebih secara
@@ -6295,7 +6376,7 @@ f(g(x)) artinya fungsi f dikomposisikan dengan  fungsi g(x) sedangkan g(f(x)) ar
 dikomposisikan dengan f(x).
 Notasi lainnya adalah $$f\circ g $$ dibaca f bundaran g.
 dan $$g\circ f $$ dibaca g bundaran f , dimana $$f\circ g =f(g(x))$$ dan $$g\circ f =g(f(x))$$.
-<br><br><p>contoh</p><br>
+<br><p>contoh</p><br>
 Langkah menentukan f(g(x)) jika f=2x dan g=x-1 adalah
 <p>1.Tulis f=2x</p>
 <p>2.Ganti x dengan g sehingga menjadi f=2g</p>
@@ -6531,6 +6612,16 @@ $$x^{2}+y^{2}-2x+6y+1=0$$
 <div id="rno94"></div>
 <hr>
 
+<p>Persamaan garis singgung yang melalui titik P(3,4) dari persamaan</p>
+<label>$$x^{2}+y^{2}=25$$</label>
+<p>adalah</p>
+<input type="radio" name="no95"   style=" display:inline-flex"><label>$$x^{2}+y^{2}+3x+4y=25$$</label><br>
+<input type="radio" name="no95"  style=" display:inline-flex"><label>$$4x+3y=25$$</label><br>
+<input type="radio" name="no95" id="jno95" style=" display:inline-flex"><label>$$3x+4y=25$$</label><br>
+<input type="radio" name="no95" style=" display:inline"><label>$$3x+y^{2}=25$$</label><br>
+<div id="rno95"></div>
+<hr>
+
 <h2>Logika Matematika</h2>
 
 
@@ -6541,22 +6632,23 @@ $$x^{2}+y^{2}-2x+6y+1=0$$
       </p> 
      <label for="">
      <p style="font-size:small">
- <p>Dibawah ini yang dikategorikan pernyataan adalah</p>
-  <input type="radio" name="no121" style=" display:inline-flex"> 
+ <p>Dibawah ini yang dikategorikan bukan pernyataan/proposisi adalah</p>
+  <input id="jno121" type="radio" name="no121" style=" display:inline-flex"> 
   <math>
-  <mi>Negara menjamin kebebasan beragama</mi>
+  <mi>berolah ragalah secara teratur</mi>
   </math><br>
   
   <input  type="radio" name="no121"  style=" display:inline-flex">
   <math>
-  <mi>Harga ayam  naik dua kali lipat</mi>
+  <mi>Taufik pandai main sepakbola</mi>
   </math><br>
+
   <input  type="radio" name="no121" style=" display:inline-flex">
   <math>
   <mi>Siswa SMK di Pekanbaru disiplin</mi>
   </math><br>
 
-  <input type="radio" name="no121" id="jno121" style=" display:inline">
+  <input type="radio" name="no121"  style=" display:inline">
   <math>
   <mi>Ibukota Indonesia adalah Pekanbaru</mi>
   </math><br>
@@ -6585,18 +6677,19 @@ Bukan Amir siswa yang tidak berprestasi<br>
   <div id="rno122"></div>
   <hr>
   Pernyataan majemuk adalah suatu pernyataan yang diperoleh 
-  dengan cara mengga dua atau lebih pernyataaan.Kata hubung 
+  dengan cara menggabungkan dua atau lebih pernyataaan.Kata hubung 
   yang digunakan:
-  <p>1.Konjungsi : dan,tetapi, meskipun,walaupun, sedangkan, lagi pula.<br>
+  <p>1.Konjungsi (simbol:<label>$$\wedge$$</label> ;kata kunci: dan,tetapi, meskipun,walaupun, sedangkan, lagi pula.)<br>
     contoh: Ani anak yang cerdas , tetapi tidak sombong.<br>Artinya:
     Ani anak yang cerdas dan tidak sombong</p>
   
-  <p>2.Disjungsi :atau,</p>
-  <p>3.Implikasi:jika ... maka ,</p> 
-  <p>4.Biimplikasi :jika dan hanya jika</p>
+  <p>2.Disjungsi (simbol:<label>$$\vee$$</label> ;kata kunci:atau,)</p>
+  <p>3.Implikasi (simbol: <label>$$\Rightarrow$$</label>;kata kunci:jika ... maka ...,)</p> 
+  <p>4.Biimplikasi (kata kunci :jika  dan hanya jika ...)</p>
   </p>
 </label>
-Berdasarkan pengertian konjungsi maka pernyataan p: Walaupun sering diejek, Ani tidak  marah.
+<p>Berdasarkan pengertian konjungsi maka 
+  pernyataan : Walaupun sering diejek, Ani tidak  marah.</p>
      <label for="">
      <p style="font-size:small">
   <p> artinya</p>
@@ -6618,19 +6711,18 @@ Berdasarkan pengertian konjungsi maka pernyataan p: Walaupun sering diejek, Ani 
   
   </p>
 </label>
-<p>Berdasarkan pengertian disjungsi maka <br>p:Sekolah tempat orang belajar. <br>q:Bank tempat orang sakit maka</p>
+<p>Invers dari pernyataan:<br>"Jika Budi lulus, maka ia dibelikan laptop" , adalah</p>
      <label for="">
-     <p style="font-size:small">
-  
-  $$p\vee q$$ 
+     <p style="font-size:small"><br>
+
   <input type="radio" name="no124" style=" display:inline-flex"> 
-  sekolah tempat orang belajar dan bank tempat orang sakit<br>
+  Jika budi lulus ia tidak dibelikan laptop<br>
   <input  type="radio" name="no124" id="jno124" style=" display:inline-flex">
-  sekolah tempat orang belajar dan tidak benar bank tempat orang sakit<br>
+  jika Budi lulus maka ia tidak dibelikan laptop<br>
   <input  type="radio" name="no124" style=" display:inline-flex">
-  sekolah tempat orang belajar atau bank tempat orang sakit<br>
+  jika Budi lulus maka ia dibelikan laptop<br>
 <input type="radio" name="no124" style=" display:inline">
-  tidak benar sekolah tempat orang belajar dan bank tempat orang sakit<br>
+  jika Budi dibelikan laptop maka ia lulus<br>
 
   
   
@@ -6640,27 +6732,24 @@ Berdasarkan pengertian konjungsi maka pernyataan p: Walaupun sering diejek, Ani 
   </p>
 </label>
 <p>Pernyataan majemuk dapat juga ditentukan ingkarannya/negasinya.
-1.Negasi konjungsi ~(p dan q) = ~p atau ~q<br>
-2.Negasi disjungsi ~(p atau q) = ~p dan ~q<br>
-3.Negasi implikasi ~(p => q) = p dan ~q<br>
-
+1.Negasi Konjungsi <br>
 p:saya naik kelas; q:saya gembira</p><br>
-$$\sim \left ( p\wedge q \right )=\sim p\wedge \sim q$$
+$$\sim \left ( p\wedge q \right )\equiv  p\wedge \sim q$$
 
      <label for="">
      <p style="font-size:small">
-  <p>ingkaran konjungsinya adalah</p><br>
+  <p>saya naik kelas dan saya gembira maka ingkarannya adalah</p><br>
   <input type="radio" name="no125" style=" display:inline-flex"> 
   saya tidak naik kelas atau saya tidak gembira<br>
   
   <input  type="radio" name="no125" id="jno125" style=" display:inline-flex">
-  saya tidak naik kelas dan saya tidak gembira<br>
+  saya  naik kelas tetapi saya tidak gembira<br>
 
   <input  type="radio" name="no125" style=" display:inline-flex">
-  saya naik kelas tetapi tidak gembira<br>
+  saya tidak naik kelas tetapi  gembira<br>
 
   <input type="radio" name="no125" style=" display:inline">
-  meskipun tidak naik kelas saya gembira<br>
+  meskipun tidak naik kelas saya tidak gembira<br>
   
   <div id="rno125"></div>
   <hr>
@@ -6669,19 +6758,19 @@ $$\sim \left ( p\wedge q \right )=\sim p\wedge \sim q$$
 </label>
 
 <p>Suatu kalimat terbuka dapat diubah menjadi pernyataan dengan menggunakan kuantor yakni ungkapan
-  yang bermakna "berapa banyak" . Ada dua jenis:,br>
+  yang bermakna "berapa banyak" . Ada dua jenis:,<br>
   1.Kuantor universal yakni menggunakan kata "semua" atau "setiap".<br>2.Kuantor eksistensial yakni menggunakan : ada, beberapa </p>
-<p>negasi dari "semua siswa kelas xi mengikuti upacara"</p>
+<p>negasi dari "semua siswa kelas xi mengikuti upacara" adalah</p>
 <input type="radio" name="no126" style=" display:inline-flex"> 
   semua siswa kelas xi mengikuti upacara<br>
   
-  <input  type="radio" name="no126"  style=" display:inline-flex">
+  <input  type="radio" name="no126" id="jno126"  style=" display:inline-flex">
   beberapa siswa kelas xi mengikuti upacara<br>
 
   <input  type="radio" name="no126" style=" display:inline-flex">
   Ani kelas x tidak mengikuti upacara<br>
 
-  <input type="radio" name="no126" id="jno126" style=" display:inline">
+  <input type="radio" name="no126"  style=" display:inline">
    semua siswa kelas xi tidak mengikuti upacara<br>
   
   <div id="rno126"></div>
@@ -6691,12 +6780,15 @@ $$\sim \left ( p\wedge q \right )=\sim p\wedge \sim q$$
 </label>
 Pernyataan majemuk erat kaitannya dengan<br>
 1.Ekivalensi yakni jika kedua pernyataan mempunyai nilai kebenaran yang sama
-<br>2.Kontradiksi.<br>
-3.Tautologi.<br>
+<br>2.Kontradiksi:tabel kebenaran dari kedua pernyataan selalu salah<br>
+3.Tautologi:tabel kebenaran selalu benar disebut juga valid;
+penarikan kesimpulan berdasar modus: ponens, 
+tollens dan silogisme adalah valid/sah karena tabel kebenarannya benar semua<br>
      <label for="">
      <p style="font-size:small">
   <p>$$p\Rightarrow q\equiv \sim q\Rightarrow  \sim p$$</p>
-  p:hari hujan; q:sungai banjir;<br> maka bentuk ekivalennya adalah<br>
+  p:hari hujan; q:sungai banjir;(simbol ekivalen:
+  <label>$$\equiv$$</label> )<br> maka bentuk ekivalennya  adalah<br>
   <input type="radio" name="no127" style=" display:inline-flex"> 
   sungai banjir jika hari hujan<br>
   
@@ -6712,167 +6804,169 @@ Pernyataan majemuk erat kaitannya dengan<br>
   <br>
   
   <div id="rno127"></div>
-  <hr>
+  
   
   </p>
 </label>
 <hr>
 
 
-$$
+<label>
+  $$
   \begin{array} {|r|r|}\hline p & q & pVq \\ 
-  \hline 1_0 & 1_1 & 1_2 \\ 
-  \hline 2_0 & 2_1 & 2_2 \\ 
-  \hline 3_0 & 3_1 & 3_2 \\ 
-  \hline 4_0 & 4_1 & 4_2 \\ 
+  \hline B & B &  \\ 
+  \hline B & S &  \\ 
+  \hline S & B &  \\ 
+  \hline S & S &  \\ 
   \hline  \end{array}
 $$
+</label><br>
 
-
-Pernyataan majemuk erat kaitannya dengan<br>
-1.Ekivalensi yakni jika kedua pernyataan mempunyai nilai kebenaran yang sama
-<br>2.Kontradiksi.<br>
-3.Tautologi.<br>
      <label for="">
      <p style="font-size:small">
-  <p>$$p\Rightarrow q\equiv \sim q\Rightarrow  \sim p$$</p>
-  p:hari hujan; q:sungai banjir;<br> maka bentuk ekivalennya adalah<br>
+  <p> tabel kebenaran pVq adalah</p>
   <input type="radio" name="no128" style=" display:inline-flex"> 
-  sungai banjir jika hari hujan<br>
+  <math>
+  <mi>BBBB</mi>
+  </math><br>
   
   <input  type="radio" name="no128" id="jno128" style=" display:inline-flex">
-  jika sungai tidak banjir maka hari tidak hujan<br>
+  <math>
+  <mi>BBBS</mi>
+  </math><br>
 
   <input  type="radio" name="no128" style=" display:inline-flex">
-  
-  jika hujan sungai tidak banjir<br>
+  <math>
+  <mi>BSSS</mi>
+  </math><br>
 
   <input type="radio" name="no128" style=" display:inline">
-  meskipun hari hujan sungai tidak banjir
-  <br>
+  <math>
+  <mi>BSSB</mi>
+  </math><br>
   
   <div id="rno128"></div>
   <hr>
   
   </p>
-</label>
-<hr>
+</label><br>
 
-
-$$
-  \begin{array} {|r|r|}\hline p & q & pVq \\ 
-  \hline 1_0 & 1_1 & 1_2 \\ 
-  \hline 2_0 & 2_1 & 2_2 \\ 
-  \hline 3_0 & 3_1 & 3_2 \\ 
-  \hline 4_0 & 4_1 & 4_2 \\ 
+<label>
+  $$
+  \begin{array} {|r|r|}\hline p & q & p=>q\\ 
+  \hline B & B &  \\ 
+  \hline B & S &  \\ 
+  \hline S & B &  \\ 
+  \hline S & S &  \\ 
   \hline  \end{array}
 $$
+</label><br>
 
-
-Bentuk implikasi p => q dapat diubah ke bentuk implikasi yang lain yaitu<br>
-1.Konvers yakni q => p
-<br>2.Invers yakni ~p => ~q.<br>
-3.Kontraposisi yakni ~q => ~p.<br>
      <label for="">
      <p style="font-size:small">
-  <p>$$p\Rightarrow q\equiv \sim q\Rightarrow  \sim p$$</p>
-  p:hari hujan; q:sungai banjir;<br> maka bentuk ekivalennya adalah<br>
+  <p>tabel kebenaran dari implikasi  <label>$$p\Rightarrow q$$</label>  adalah</p>
   <input type="radio" name="no129" style=" display:inline-flex"> 
-  sungai banjir jika hari hujan<br>
+  <math>
+  <mi>BBBB</mi>
+  </math><br>
   
   <input  type="radio" name="no129" id="jno129" style=" display:inline-flex">
-  jika sungai tidak banjir maka hari tidak hujan<br>
+  <math>
+  <mi>BSBB</mi>
+  </math><br>
 
   <input  type="radio" name="no129" style=" display:inline-flex">
-  
-  jika hujan sungai tidak banjir<br>
+  <math>
+  <mi>SSSB</mi>
+  </math><br>
 
   <input type="radio" name="no129" style=" display:inline">
-  meskipun hari hujan sungai tidak banjir
-  <br>
+  <math>
+  <mi>BSBS</mi>
+  </math><br>
   
   <div id="rno129"></div>
-
-
   <hr>
   
   </p>
-</label>
-  <hr>
-  
-  </p>
-</label>
+</label><br>
 
-$$
-  \begin{array} {|r|r|}\hline p & q & pVq \\ 
-  \hline 1_0 & 1_1 & 1_2 \\ 
-  \hline 2_0 & 2_1 & 2_2 \\ 
-  \hline 3_0 & 3_1 & 3_2 \\ 
-  \hline 4_0 & 4_1 & 4_2 \\ 
+
+<label>
+  $$
+  \begin{array} {|r|r|}\hline p & q & -pVq \\ 
+  \hline B & B &  \\ 
+  \hline B & S &  \\ 
+  \hline S & B &  \\ 
+  \hline S & S &  \\ 
   \hline  \end{array}
 $$
+</label><br>
 
 
-Pernyataan majemuk erat kaitannya dengan<br>
-1.Ekivalensi yakni jika kedua pernyataan mempunyai nilai kebenaran yang sama
-<br>2.Kontradiksi.<br>
-3.Tautologi.<br>
      <label for="">
      <p style="font-size:small">
-  <p>$$p\Rightarrow q\equiv \sim q\Rightarrow  \sim p$$</p>
-  p:hari hujan; q:sungai banjir;<br> maka bentuk ekivalennya adalah<br>
+  <p>tabel kebenaran ~pVq   adalah</p>
   <input type="radio" name="no130" style=" display:inline-flex"> 
-  sungai banjir jika hari hujan<br>
+  <math>
+  <mi>BBBB</mi>
+  </math><br>
   
   <input  type="radio" name="no130" id="jno130" style=" display:inline-flex">
-  jika sungai tidak banjir maka hari tidak hujan<br>
+  <math>
+  <mi>BSBB</mi>
+  </math><br>
 
   <input  type="radio" name="no130" style=" display:inline-flex">
-  
-  jika hujan sungai tidak banjir<br>
+  <math>
+  <mi>BBSS</mi>
+  </math><br>
 
   <input type="radio" name="no130" style=" display:inline">
-  meskipun hari hujan sungai tidak banjir
-  <br>
+  <math>
+  <mi>BSBS</mi>
+  </math><br>
   
   <div id="rno130"></div>
+  <hr>
+  
+  </p>
+</label>
 
 
 
 <hr>
-<hr>
+
   <h2>isilah dengan jawaban yang benar</h2>
-  $$\left\{\begin{matrix}
-x-2y+z=-1 & \\ 
-2x-3y+4z=-5 & \\
-3x-4y+2z=1
-\end{matrix}\right.$$
-
-  <label>
-    nilai x adalah
-  </label><br>
-  <input type="text" id="sno121">
+ <p>perhatikan premis-premis p dan q dibawah ini</p> 
+ p:hari hujan <br>
+ q:jalanan basah<br>
+ Argumen dibawah ini<br>
+ <label>$$p\Rightarrow q$$</label>...jika hari hujan maka jalanan basah(benar)<br> ~ q jalanan tidak basah (benar)<br>
+ kesimpulannya: hari tidak hujan <br>
+maka penarikan kesimpulan cara diatas 
+adalah berdasarkan modus:<input style="background-color:rgb(67, 193, 231)"
+width: 70px;" type="text" id="sno121">
   <div id="rsno121"></div>
   <hr>
-  <hr>
-  <h2></h2>
-  <label>
-    $$\left\{\begin{matrix}
-2x-y+z=3 & \\ 
-x+3y-2z=11 & \\
-3x-2y+4z=1
-\end{matrix}\right.$$
 
-  </label><br>
-  nilai z adalah
-  <input type="text" id="sno122">
+  bentuk implikasi: <label> $$\sim q\Rightarrow  \sim p$$ </label>,  disebut: 
+maka penarikan kesimpulan cara diatas 
+  <input style="background-color:rgb(192, 168, 168)"; width: 80px;" type="text" id="sno122">terhadap:<label> $$p\Rightarrow q$$</label>
   <div id="rsno122"></div>
-  </div>
+  
   <hr>
 
 
-<div style="text-align:center;font-size:30px; height: 50px; width:50px;background:rgb(76, 76, 238)" id="nilaik2"></div>
-<button onclick="kirim2()">Cek Nilai Persamaan Kuadrat, Komposisi, Lingkaran </button>
+<div 
+style="background-color:rgb(192, 168, 168); 
+text-align:center;
+font-size:30px; 
+height: 50px; width:50px;"
+ id="nilaik2"></div>
+<button onclick="kirim2()">Cek Nilai Pers. Kuadrat, Komposisi, Lingkaran , 
+  Logika Matematika</button>
+
 
 
 <hr>
@@ -7861,11 +7955,13 @@ $$\lim\limits_{x \to \sim} \frac{4x-5}{3x+2}$$
 
 
 
-<div style="text-align:center;font-size:30px; height: 50px; width:50px;background:rgb(76, 76, 238)" id="nilai3"></div>
+<div style="text-align:center;font-size:30px; height: 50px; width:50px;background:rgb(76, 76, 238)" 
+id="nilai3"></div>
 <button onclick="kirimtri3()">Cek Nilai Limit  dan Integral</button>
 <br><br>
 <hr>
-<div style="font-size:3rem;text-align:center;height: 50px; width:50px;background:rgb(148, 148, 158)" id="nilai">
+<div style="font-size:3rem;text-align:center;height: 50px; width:50px;background:rgb(148, 148, 158)"
+ id="nilai">
    
   </div>
 <button>Nilai Total</button>
@@ -8093,24 +8189,978 @@ init();
 
 
 <script>
-const questions = [
+    const questions = [
+        {
+        question: "Persamaan kuadrat yang melalui dua titik potong dengan sumbu x yakni (x1,0) dan (x2,0) adalah",
+        optionA: "y=a(x-x1)(x-x2)",
+        optionB: "y=a(x-x1)(x+x2)",
+        optionC: "y=a(x+x1)(x+x)",
+        optionD: "y=(x+x1)(x-x2) ",
+        correctOption: "optionA"
+    },
+
     {
-        question: "Yang termasuk tripel phytagoras ?",
-        optionA: "x",
-        optionB: "3,4,5",
-        optionC: "4,5,6",
-        optionD: "5,10,12",
+        question: "Dalam persamaan kuadrat, jika nilai D>0 maka grafik  ?",
+        optionA: "tidak memotong sumbu x",
+        optionB: "memotong sumbu x didua titik",
+        optionC: "memotong sumbu x disatu titik",
+        optionD: "tidak bisa ditentukan dengan nilai D",
         correctOption: "optionB"
     },
+
+    {
+      question: "Kontraposisi dari : Jika covid berbahaya maka semua orang takut covid",
+      optionA: "jika covid tidak berbahaya maka semua orang tidak takut covid",
+      optionB: "jika ada yang takut covid, maka covid tidak berbahaya",
+      optionC: "jika covid berbahaya, maka semua orang tidak takut covid",
+      optionD: "jika semua orang takut covid maka covid tidak berbahaya",
+      correctOption: "optionB"
+  },
 
     {
         question: "Grafik sinus pada kuadran IV  ",
         optionA: "naik",
         optionB: "turun",
-        optionC: " datar",
+        optionC: "datar",
         optionD: "tak tentu",
         correctOption: "optionA"
     },
+
+    
+    {
+      question: "negasi dari pernyataan : matematika tidak sulit atau membosankan , adalah  ",
+      optionA: "matematika sulit dan tidak membosankan",
+      optionB: "matematika sulit atau membosankan ",
+      optionC: "matematika tidak sulit dan tidak membosankan",
+      optionD: "matematika tidak sulit melainkan membosankan",
+      correctOption: "optionA"
+  },
+
+      
+  {
+    question: "kesimpulan silogisme dari argumen berikut: jika p maka q dan jika q maka r  , adalah",
+    optionA: "jika p maka r",
+    optionB: "jika ~p maka ~r ",
+    optionC: "jika r maka p",
+    optionD: "jika ~r maka ~q",
+    correctOption: "optionA"
+},
+
+    {
+        question: "persamaan kuadrat yang akar akarnya 2 dan 3 adalah  ",
+        optionA: "x&#178+5x+6",
+        optionB: "x&#178-5x+6",
+        optionC: "x&#178+5x-6",
+        optionD: "x&#178-5x-6",
+        correctOption: "optionB"
+    },
+
+ {
+        question: "persamaan lingkaran yang berpusat P(2,3) dan jari-jarinya 5 adalah  ",
+        optionA: "x&#178+y&#178+4x+6y=25",
+        optionB: "x&#178+y&#178-4x-6y-12=0",
+        optionC: "x&#178+y&#178-4x-6y=25",
+        optionD: "x&#178+y&#178+4x-6y=25",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
+        optionA: "1/3",
+        optionB: "3/5",
+        optionC: "4/3",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sisi terpanjang atau garis miring dari tripel phytagoras {3,4,5} adalah",
+        optionA: "3",
+        optionB: "4",
+        optionC: "5",
+        optionD: "6",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Jumlah sudut-sudut dalam segitiga adalah",
+        optionA: "30&#176",
+        optionB: "90&#176",
+        optionC: "180&#176",
+        optionD: "360&#176",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Nilai sin 30&#176 , sin 45&#176 , sin 60&#176 , berturut-turut adalah",
+        optionA: "1/2,1/3,1/4",
+        optionB: "1/2,1/3.&#8730;2;1/3.&#8730;3",
+        optionC: "1/2,1/2.&#8730;2;1/2.&#8730;3 ",
+        optionD: "1/2,1/2.&#8730;3;1/2.&#8730;2",
+        correctOption: "optionC"
+    },
+	     {
+        question: "Nilai sin 210&#176 , sin 225&#176 , sin 240&#176 , berturut-turut adalah",
+        optionA: "1/2,1/3,1/4",
+        optionB: "-1/2,-1/3.&#8730;2;1/3.&#8730;3",
+        optionC: "-1/2,-1/2.&#8730;2;-1/2.&#8730;3 ",
+        optionD: "1/2,1/2.&#8730;3;1/2.&#8730;2",
+        correctOption: "optionC"
+    },
+	    
+ {
+        question: ".. sin 135&#176  adalah",
+        optionA: "1/2",
+        optionB: "-1/2",
+        optionC: "1/2.&#8730;2 ",
+        optionD: "1/2.&#8730;3",
+        correctOption: "optionC"
+    },
+
+	    
+ {
+        question: ".. tan 225&#176  adalah",
+        optionA: "-1",
+        optionB: "-1/2",
+        optionC: "1/2.&#8730;2 ",
+        optionD: "1",
+        correctOption: "optionD"
+    },
+
+	    
+    {
+        question: "dalam segitiga siku siku, jika sudut alpha 30 derajat, maka sudut beta adalah",
+        optionA: "10&#176",
+        optionB: "60&#176",
+        optionC: "80&#176",
+        optionD: "90 &#176",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Jumlah sudut alpha dan sudut beta dalam segitiga siku-siku adalah",
+        optionA: "30 &#176",
+        optionB: "60 &#176",
+        optionC: "90 &#176",
+        optionD: "180&#176",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Sudut 180 derajat jika dikonversi ke radian adalah",
+        optionA: "2&#8508",
+        optionB: "1&#8508",
+        optionC: "1/2.&#8508",
+        optionD: "1/3.&#8508",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Sudut 30 derajat jika dikonversi ke radian adalah",
+        optionA: "1/3.&#8508",
+        optionB: "1/4.&#8508",
+        optionC: "1/6.&#8508",
+        optionD: "1/9.&#8508",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Sin 30 = ",
+        optionA: "cos 60",
+        optionB: "cos 30",
+        optionC: "cos 45",
+        optionD: "cos 90",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin A dan cos A dikuadran 1 memiliki tanda ",
+        optionA: "positif dan positif",
+        optionB: "negatif dan negatif",
+        optionC: "positif dan negatif",
+        optionD: "negatif dan positif",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin dan cos dibawah ini yang nilainya 1/2 , kecuali ?",
+        optionA: "cos 60",
+        optionB: "sin 30",
+        optionC: "sin 150",
+        optionD: "cos 120",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "sudut 380 berada di kuadran ... ?",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionA"
+    },
+  {
+        question: "sin 40=...",
+        optionA: "sin 30",
+        optionB: "sin 45",
+        optionC: "sin 60",
+        optionD: "sin 140",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "..  perbandingan sisi samping dengan sisi depan adalah",
+        optionA: "sin ",
+        optionB: "cos",
+        optionC: "cot",
+        optionD: "tan",
+        correctOption: "optionC"
+    },
+     {
+        question: "..  7/6.&#8508 rad jika dikonversi ke derajat adalah",
+        optionA: "120",
+        optionB: "210",
+        optionC: "300",
+        optionD: "310",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: ".. Sudut 150 derajat jika dikonversi ke radian adalah",
+        optionA: "2/3.&#8508",
+        optionB: "1/5.&#8508",
+        optionC: "5/6.&#8508",
+        optionD: "5/9.&#8508",
+        correctOption: "optionC"
+    },
+    {
+        question: "sin(180 + 30) =...",
+        optionA: "sin 30",
+        optionB: "-sin 30",
+        optionC: "sin 60",
+        optionD: "-sin 60",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sin(90-30)=...",
+        optionA: "cos 30",
+        optionB: "sin 30",
+        optionC: "tan 30",
+        optionD: "cot 30",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
+        optionA: "cos A",
+        optionB: "sin A",
+        optionC: "tan A",
+        optionD: "csc A",
+        correctOption: "optionB"
+    },
+ {
+        question: ".. Sudut 90 derajat jika dikonversi ke radian adalah",
+        optionA: "2/7 rad",
+        optionB: "11/7 rad",
+        optionC: "6/5 rad",
+        optionD: "1/2. rad",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
+        optionA: "28",
+        optionB: "38",
+        optionC: "56",
+        optionD: "60",
+        correctOption: "optionC"
+    },
+   
+    {
+        question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25. Luas segitiga ini sama dengan ...",
+        optionA: "80",
+        optionB: "68",
+        optionC: "84",
+        optionD: "100",
+        correctOption: "optionC"
+    },
+   
+    {
+        question: "sin(-30) =...",
+        optionA: "sin(180+60)",
+        optionB: "sin(360-30)",
+        optionC: "sin(360+30)",
+        optionD: "sin(180-30)",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sin 45=...",
+        optionA: "cos 45",
+        optionB: "-cos 45",
+        optionC: "cos -145",
+        optionD: "1/2.sin(90)",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin 45.cos 45",
+        optionA: "1/2",
+        optionB: "1/4",
+        optionC: "1",
+        optionD: "1/4.&#8730;6",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin 30.cos 60",
+        optionA: "1/2",
+        optionB: "1/4",
+        optionC: "1/3",
+        optionD: "1/4.&#8730;6",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sin 30 . cos 45 adalah ",
+        optionA: "1/4.&#8730;2",
+        optionB: "1/4.&#8730;3",
+        optionC: "1/6",
+        optionD: "1/6.&#8730;6",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sudut 114,6 &#176 jika dikonversi ke radian sama dengan ",
+        optionA: "1 rad",
+        optionB: "1,5 rad",
+        optionC: "2 rad",
+        optionD: "1/2 rad",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "cos 30 . sin 45 adalah ",
+        optionA: "1/4.&#8730;2",
+        optionB: "1/4.&#8730;3",
+        optionC: "1/2",
+        optionD: "1/4.&#8730;6",
+        correctOption: "optionD"
+    },
+
+	    
+    {
+        question: "sin 150 . tan 225 = ",
+        optionA: "1/4",
+        optionB: "1/3.&#8730;3",
+        optionC: "1/2",
+        optionD: "1/3",
+        correctOption: "optionB"
+    },
+	    	    
+    {
+        question: "cos 60 + sin 210 +  tan 225 = ",
+        optionA: "1/2",
+        optionB: "&#8730;3",
+        optionC: "3/2",
+        optionD: "1",
+        correctOption: "optionD"
+    },
+	    
+
+	    
+    {
+        question: "yang termasuk sudut istimewa, kecuali ",
+        optionA: "30",
+        optionB: "45",
+        optionC: "60",
+        optionD: "75",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "jika sin A = 1/2 maka csc A adalah ?",
+        optionA: "1/3",
+        optionB: "2",
+        optionC: "3",
+        optionD: "1/4",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: "jika tan A = 2/3 maka sinA.cos A adalah ?",
+        optionA: "2/13",
+        optionB: "5/13",
+        optionC: "6/13",
+        optionD: "8/13",
+        correctOption: "optionC"
+    },
+
+	     {
+        question: "..jika cos A = 3/5 maka sec A adalah ?",
+        optionA: "4/3",
+        optionB: "5/3",
+        optionC: "5/2",
+        optionD: "5/6",
+        correctOption: "optionB"
+    },
+	    
+    {
+        question: "sin 15  adalah ",
+        optionA: "sin 45. cos 30 - cos 45 . sin 30",
+        optionB: "sin 45. cos 30 + cos 45 . sin 30",
+        optionC: "sin 45. sin 30 - cos 45 . cos 30",
+        optionD: "sin 45. sin 30 + cos 45 . cos 30",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "cos A=-1, maka besar sudut A adalah  ",
+        optionA: "0",
+        optionB: "90",
+        optionC: "180",
+        optionD: "270",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "cos 0 , cos 90 dan cos 180 berturut-turut adalah ",
+        optionA: "0,1,-1",
+        optionB: "1,0,-1/2",
+        optionC: "1,0,-1",
+        optionD: "0,1,0",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika sec A= 3/2 maka cos A=... ?",
+        optionA: "2",
+        optionB: "2/3",
+        optionC: "1/3",
+        optionD: "1/4",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "tan 45 =  ",
+        optionA: "1",
+        optionB: "1/2",
+        optionC: "1/2.&#8730;2",
+        optionD: "&#8730;2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "cos 60 + sin 30 = ... ",
+        optionA: "2",
+        optionB: "1",
+        optionC: "0",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika sin A = 0,6 dan cos A = 0,8 maka tan A= ... ",
+        optionA: "3/4",
+        optionB: "5/3",
+        optionC: "3/5",
+        optionD: "4/3",
+        correctOption: "optionA"
+    }, 
+
+    {
+        question: "jika cos A = 0,6 dan sin A = 0,8 maka tan A= ... ",
+        optionA: "3/4",
+        optionB: "5/3",
+        optionC: "3/5",
+        optionD: "4/3",
+        correctOption: "optionD"
+    }, 
+
+    {
+        question: "jika cos A=3/5 maka sec A = ",
+        optionA: "5/4",
+        optionB: "5/3",
+        optionC: "3/5",
+        optionD: "4/3",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika sin A=3/5 maka csc A = ",
+        optionA: "5/4",
+        optionB: "5/3",
+        optionC: "3/4",
+        optionD: "4/3",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Luas segitiga sama sisi dengan sisi = 4  adalah ",
+        optionA: "12",
+        optionB: "6",
+        optionC: "24",
+        optionD: " &#8730;48 ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "Luas segitiga dengan sisi-sisi :  5 , 4 ,7   adalah ",
+        optionA: "&#8730;90",
+        optionB: "6",
+        optionC: "8",
+        optionD: " 4 &#8730;6 ",
+        correctOption: "optionD"
+    },
+    {
+        question: "jika tan A=3/4 maka cot A=",
+        optionA: "3/5",
+        optionB: "4/5",
+        optionC: "4/3",
+        optionD: "5/3",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "fungsi y=sin x dikuadran I ",
+        optionA: "naik",
+        optionB: "turun",
+        optionC: "tetap",
+        optionD: "naik turun",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "fungsi y=cos x dikuadran I ",
+        optionA: "naik",
+        optionB: "turun",
+        optionC: "tetap",
+        optionD: "naik turun",
+        correctOption: "optionB"
+    },
+
+
+    {
+        question: "Dalam segitiga bukan siku, jika a dan b diketahui maka c ditentukan dengan ... ",
+        optionA: "teorema phytagoras",
+        optionB: "tripel phytagoras",
+        optionC: "aturan cosinus",
+        optionD: "aturan sinus",
+        correctOption: "optionC"
+    },
+    
+    {
+        question: "perbandingan antara sisi depan dengan sisi samping adalah definisi dari  ",
+        optionA: "sin",
+        optionB: "cos",
+        optionC: "tan",
+        optionD: "cot",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika cos A=7/25 maka sec A =   ",
+        optionA: "25/24",
+        optionB: "25/7",
+        optionC: "24/25",
+        optionD: "7/24",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "kebalikan  dari sin adalah  ",
+        optionA: "csc",
+        optionB: "sec",
+        optionC: "cot",
+        optionD: "cos",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "cos 0 =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "cos 270   =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sin 30=...  ",
+        optionA: "-sin 120",
+        optionB: "sin 210",
+        optionC: "-sin 330",
+        optionD: "sin-30",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika sin A diketahui, maka cos A dapat ditentukan dengan ",
+        optionA: "identitas trigonometri",
+        optionB: "tripel phytagoras",
+        optionC: "aturan cosinus",
+        optionD: "aturan sinus",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "luas segitiga yang sisi-sisinya 3,4,3 adalah",
+        optionA: "5 ",
+        optionB: "4",
+        optionC: "3",
+        optionD: " &#8730;20 ",
+        correctOption: "optionD"
+    },
+   
+    {
+        question: "grafik sinus naik pada kuadran ...",
+        optionA: "I dan II ",
+        optionB: "I dan III",
+        optionC: "I dan III",
+        optionD: "I dan IV ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "Bentuk lain aturan sinus",
+        optionA: "a : b = sin A : sin B",
+        optionB: "a : b = sin B : sin A",
+        optionC: "a : sin B = b : sin A",
+        optionD: "a : sin A = sin B : b",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "sudut 120 berada dikuadran ...",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "sin 45 =  ,",
+        optionA: "cos 45",
+        optionB: "cos 135",
+        optionC: "cos 225",
+        optionD: "cos -45",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
+        optionA: "5",
+        optionB: "6",
+        optionC: "7",
+        optionD: "8",
+        correctOption: "optionB"
+    },
+    {
+        question: 'Vektor adalah besaran yang memiliki ',
+        optionA: "arah",
+        optionB: "arah dan nilai",
+        optionC: "nilai ",
+        optionD: "nilai dan ukuran ",
+        correctOption: "optionB"
+    },
+
+    {
+        question: 'dibawah ini besaran vektor, kecuali',
+        optionA: "kecepatam mobil",
+        optionB: "arah angin",
+        optionC: "jumlah siswa dalam kelas",
+        optionD: "dorongan mesin",
+        correctOption: "optionC"
+    },
+
+    {
+        
+        question: 'vektor satuan arah x+ adalah',
+        optionA: 'i',
+        optionB: "j",
+        optionC: "k",
+        optionD: "-i",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "besar i adalah  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "2",
+        optionD: "3",
+        correctOption: "optionB" 
+    },
+
+    {
+        question: "jika vektor a bergerak 5 satuan  ke x+ ditulis ",
+        optionA: "2i",
+        optionB: "4i",
+        optionC: "5i",
+        optionD: "9i",
+        correctOption: "optionC"
+    },
+
+    {
+        question: 'arah vektor v=3i+3j',
+        optionA: "30&#176",
+        optionB: "45&#176",
+        optionC: "180&#176",
+        optionD: "360&#176",
+        correctOption: "optionB"
+    },
+
+    {
+        question: 'arah vektor v=2i+2j',
+        optionA: "30&#176",
+        optionB: "45&#176",
+        optionC: "180&#176",
+        optionD: "360&#176",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika a=5i dan b=3i+2j maka a+2b adalah",
+        optionA: "8i+2j",
+        optionB: "11i+4j",
+        optionC: "11j+2j",
+        optionD: "8i",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika a=5i-2j dan b=3i+2j maka a-2b adalah",
+        optionA: "2i+4j",
+        optionB: "i+4j",
+        optionC: "i-6j",
+        optionD: "-i-6j",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "jika a=i+3j maka 4a adalah",
+        optionA: "4i+3j",
+        optionB: "i+7j",
+        optionC: "4i+12j",
+        optionD: "4i-12j",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika c=2i+3j maka c.c adalah",
+        optionA: "&#8730;13",
+        optionB: "13",
+        optionC: "5",
+        optionD: "7",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika a=4i+3j maka a.a adalah",
+        optionA: "&#8730;12",
+        optionB: "13",
+        optionC: "25",
+        optionD: "5",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika d=5i+12j maka besar d adalah",
+        optionA: "11",
+        optionB: "12",
+        optionC: "13",
+        optionD: "25",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika a=3i+2j dan b=2i-5j maka b-a adalah",
+        optionA: "-i-7j",
+        optionB: "i-7j",
+        optionC: "-i+3j",
+        optionD: "i-3j",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "i.j=? ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "(3i+5j).(2i-j)",
+        optionA: "6i+j",
+        optionB: "6i-5j",
+        optionC: "6i+5j",
+        optionD: "1",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "jika anak panah dengan kecepatan v=20 satuan , melesat keatas dengan sudut 60, maka kecepatan bayangannya",
+        optionA: "10",
+        optionB: "12",
+        optionC: "15",
+        optionD: "20",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "arah vektor a=2i+5j adalah",
+        optionA: "arc tan 5/4",
+        optionB: "arc tan 5/2",
+        optionC: "arc tan 2/5",
+        optionD: "arc tan 5/4",
+        correctOption: "optionB"
+    },
+    {
+        question: "besar vektor satuan a=3i+4j adalah ",
+        optionA: "3i+4j",
+        optionB: "(3/5)i+(4/5)j",
+        optionC: "5",
+        optionD: "5i",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika b=2i maka besar vektor satuannya adalah",
+        optionA: "i",
+        optionB: "2i",
+        optionC: "2",
+        optionD: "1",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "jika a=5j , b=i-j , c= 2i maka besar d=a+b+c  adalah",
+        optionA: "3",
+        optionB: "5",
+        optionC: "7",
+        optionD: "8",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika a=5i , b=-2j , c= 2i maka besar vektor a+b+c  adalah",
+        optionA: "5i-2j",
+        optionB: "7i-2j",
+        optionC: "7i+2j",
+        optionD: "5i",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Sebuah benda dtarik oleh  2 gaya (F) yaitu F1=3i+4j dan F2=-2j maka resultannya adalah",
+        optionA: "3i+5j",
+        optionB: "3i+2j",
+        optionC: "3i-2j",
+        optionD: "5i-j",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "besar/nilai vektor a=-2i-5j adalah",
+        optionA: "&#8730;20",
+        optionB: "&#8730;29",
+        optionC: "&#8730;21",
+        optionD: "&#8730;50",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: "Susunan bilangan dalam bentuk baris dan kolom diantara dua garis vertikal disebut ...?",
+        optionA: "deret",
+        optionB: "tabel",
+        optionC: "matrik",
+        optionD: "barisan",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jenis matrik yang hanya terdiri atas 1 baris disebut...",
+        optionA: "matrik identitas",
+        optionB: "matrik kolom",
+        optionC: "matrik baris",
+        optionD: "matrik nol",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "matrik berordo 2 x 3 hanya dapat dijumlah/dikurang  dengan matrik berordo",
+        optionA: " 2 x 3 ",
+        optionB: "2 x 2",
+        optionC: "3 x 2",
+        optionD: "3 x 3",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "perkalian dua matrik A dan B  dapat terjadi jika... ?",
+        optionA: "jumlah baris A = jumlah baris B",
+        optionB: "jumlah baris A= jumlah kolom B",
+        optionC: "semua matrik dapat dikalikan",
+        optionD: "jumlah kolom A = jumlah baris B",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "jika ordo A adalah 2 x 4 sedangkan ordo B: 4 x 1  maka ordo hasil perkaliannya adalah...?",
+        optionA: "2 x 2",
+        optionB: "2 x 1",
+        optionC: "2 x 4",
+        optionD: "4 x 4",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika ordo A adalah 3 x 3 sedangkan ordo B: 3 x 3  maka ordo hasil perkaliannya adalah...?",
+        optionA: "2 x 2",
+        optionB: "3 x 3",
+        optionC: "4 x 4",
+        optionD: "9 x 9",
+        correctOption: "optionB"
+    },
+
+    {
+        question:  "invers dari matrik A sama dengan ",
+        optionA: "adj A + det A",
+        optionB: "adj A x det A",
+        optionC: "adj A / det A",
+        optionD: "adj A - det A",
+        correctOption: "optionC"
+    },
+    {
+        question:  "jika minor 12 adalah -4 maka cofaktor 12 adalah",
+        optionA: "-4",
+        optionB: "4",
+        optionC: "12",
+        optionD: "3",
+        correctOption: "optionB"
+    },
+  
+    {
+        question:  "jika matrik A dikali matrik B sama dengan 1, maka B adalah ",
+        optionA: "minor A",
+        optionB: "invers A",
+        optionC: "transpose A",
+        optionD: "cofaktor A",
+        correctOption: "optionB"
+    }, 
    
     {
         question:  "urutan menentukan invers adalah ",
@@ -8288,321 +9338,353 @@ const questions = [
     <script>
       
     function kirim2() {
-    let poin=0
-    const jno71=document.querySelector('#jno71')
-    const jno72=document.querySelector('#jno72')
-    const jno73=document.querySelector('#jno73')
-    const jno74=document.querySelector('#jno74')
-    const jno75=document.querySelector('#jno75')
-    const jno76=document.querySelector('#jno76')
-    const jno77=document.querySelector('#jno77')
-    const jno78=document.querySelector('#jno78')
-    const jno79=document.querySelector('#jno79')
-    const jno80=document.querySelector('#jno80')
-    const jno81=document.querySelector('#jno81')
-    const jno82=document.querySelector('#jno82')
-    const jno83=document.querySelector('#jno83')
-    const jno84=document.querySelector('#jno84')
-    const jno85=document.querySelector('#jno85')
-    const jno86=document.querySelector('#jno86')
-    const jno87=document.querySelector('#jno87')
-    const jno88=document.querySelector('#jno88')
-    const jno89=document.querySelector('#jno89')
-    const jno90=document.querySelector('#jno90')   
-    const jno91=document.querySelector('#jno91')   
-    const jno92=document.querySelector('#jno92')   
-    const jno93=document.querySelector('#jno93')   
-    const jno94=document.querySelector('#jno94')   
-    const jno121=document.querySelector('#jno121')   
-    const jno122=document.querySelector('#jno122')   
-    const jno123=document.querySelector('#jno123')   
-    const jno124=document.querySelector('#jno124')   
-    const jno125=document.querySelector('#jno125')   
-    const jno126=document.querySelector('#jno126')   
-    const jno127=document.querySelector('#jno127')   
-    
-    
-if (jno71.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno71.innerHTML=response
+      let poin=0
+      const jno71=document.querySelector('#jno71')
+      const jno72=document.querySelector('#jno72')
+      const jno73=document.querySelector('#jno73')
+      const jno74=document.querySelector('#jno74')
+      const jno75=document.querySelector('#jno75')
+      const jno76=document.querySelector('#jno76')
+      const jno77=document.querySelector('#jno77')
+      const jno78=document.querySelector('#jno78')
+      const jno79=document.querySelector('#jno79')
+      const jno80=document.querySelector('#jno80')
+      const jno81=document.querySelector('#jno81')
+      const jno82=document.querySelector('#jno82')
+      const jno83=document.querySelector('#jno83')
+      const jno84=document.querySelector('#jno84')
+      const jno85=document.querySelector('#jno85')
+      const jno86=document.querySelector('#jno86')
+      const jno87=document.querySelector('#jno87')
+      const jno88=document.querySelector('#jno88')
+      const jno89=document.querySelector('#jno89')
+      const jno90=document.querySelector('#jno90')   
+      const jno91=document.querySelector('#jno91')   
+      const jno92=document.querySelector('#jno92')   
+      const jno93=document.querySelector('#jno93')   
+      const jno94=document.querySelector('#jno94')   
+      const jno95=document.querySelector('#jno95') 
+      const jno121=document.querySelector('#jno121')   
+      const jno122=document.querySelector('#jno122')   
+      const jno123=document.querySelector('#jno123')   
+      const jno124=document.querySelector('#jno124')   
+      const jno125=document.querySelector('#jno125')   
+      const jno126=document.querySelector('#jno126')   
+      const jno127=document.querySelector('#jno127')   
+      const jno128=document.querySelector('#jno128')   
+      const jno129=document.querySelector('#jno129') 
+      const jno130=document.querySelector('#jno130') 
+  
 
-if (jno72.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno72.innerHTML=response
+      const sno121=document.querySelector('#sno121')
+      const sno122=document.querySelector('#sno122')
+      
 
-if (jno73.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno73.innerHTML=response
+      const nilaik2=document.querySelector('#nilaik2') 
 
+      if (jno71.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno71.innerHTML=response
+      
+      if (jno72.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno72.innerHTML=response
 
-if (jno74.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno74.innerHTML=response
+      if (jno73.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno73.innerHTML=response
+      
+      if (jno74.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno74.innerHTML=response
+      
+      if (jno75.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno75.innerHTML=response
+      
+      if (jno76.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno76.innerHTML=response
+      
+      if (jno77.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno77.innerHTML=response
+      
+      if (jno78.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno78.innerHTML=response
+      
+      if (jno79.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno79.innerHTML=response
+      
+      if (jno80.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno80.innerHTML=response
+      
+      if (jno81.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno81.innerHTML=response
+      
+      if (jno82.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno82.innerHTML=response
+      
+      if (jno83.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno83.innerHTML=response
+      
+      
+      if (jno84.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno84.innerHTML=response
+      
+      if (jno85.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno85.innerHTML=response
+      
+      if (jno86.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno86.innerHTML=response
+      
+      if (jno87.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno87.innerHTML=response
+      
+      if (jno88.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno88.innerHTML=response
+      
+      if (jno89.checked){
+        response="ok"
+        poin=poin+10
+      }else {
+          response="x" 
+      }
+      rno89.innerHTML=response
+      
+      if (jno90.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno90.innerHTML=response
 
-if (jno75.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno75.innerHTML=response
+      if (jno91.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno91.innerHTML=response
+      
+      if (jno92.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno92.innerHTML=response
+      
+      if (jno93.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno93.innerHTML=response
+      
+      if (jno94.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno94.innerHTML=response
 
-if (jno76.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno76.innerHTML=response
+      if (jno95.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno95.innerHTML=response
 
-if (jno77.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno77.innerHTML=response
+      if (jno121.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno121.innerHTML=response
+      
+      if (jno122.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno122.innerHTML=response
 
-if (jno78.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno78.innerHTML=response
+      if (jno123.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno123.innerHTML=response
 
-if (jno79.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno79.innerHTML=response
+      if (jno124.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno124.innerHTML=response
 
-if (jno80.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno80.innerHTML=response
+      if (jno125.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno125.innerHTML=response
 
-if (jno81.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno81.innerHTML=response
+      if (jno126.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno126.innerHTML=response
 
-if (jno82.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno82.innerHTML=response
+      if (jno127.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno127.innerHTML=response
 
-if (jno83.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno83.innerHTML=response
+      if (jno128.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno128.innerHTML=response
+      
+      if (jno129.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno129.innerHTML=response
+      
+      if (jno130.checked){
+        response="ok"
+        poin=poin+10  
+      }else {
+          response="x" 
+      }
+      rno130.innerHTML=response
+      
+if (sno121.value=="ponens"){
+  response="ok";poin=poin+25} 
+else {
+  response="x"}
+rsno121.innerHTML=response
 
+if (sno122.value=="kontraposisi"){
+  response="ok";poin=poin+25} 
+else {
+  response="x"}
+rsno122.innerHTML=response
 
-if (jno84.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno84.innerHTML=response
-
-if (jno85.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno85.innerHTML=response
-
-if (jno86.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno86.innerHTML=response
-
-if (jno87.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno87.innerHTML=response
-
-if (jno88.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno88.innerHTML=response
-
-if (jno89.checked){
-  response="ok"
-  poin=poin+10
-}else {
-    response="x" 
-}
-rno89.innerHTML=response
-
-if (jno90.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno90.innerHTML=response
-if (jno91.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno91.innerHTML=response
-
-if (jno92.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno92.innerHTML=response
-
-if (jno93.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno93.innerHTML=response
-
-if (jno94.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno94.innerHTML=response
-if (jno121.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno121.innerHTML=response
-
-if (jno122.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno122.innerHTML=response
-if (jno123.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno123.innerHTML=response
-if (jno124.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno124.innerHTML=response
-if (jno125.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno125.innerHTML=response
-if (jno126.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno126.innerHTML=response
-if (jno127.checked){
-  response="ok"
-  poin=poin+10  
-}else {
-    response="x" 
-}
-rno127.innerHTML=response
 
 nilaik2.innerHTML=poin
 
-if(jno71.checked)jno71.checked=false
-if(jno72.checked)jno72.checked=false
-if(jno73.checked)jno73.checked=false
-if(jno74.checked)jno74.checked=false
-if(jno75.checked)jno75.checked=false
-if(jno76.checked)jno76.checked=false
-if(jno77.checked)jno77.checked=false
-if(jno78.checked)jno78.checked=false
-if(jno79.checked)jno79.checked=false
-if(jno80.checked)jno80.checked=false
-if(jno81.checked)jno81.checked=false
-if(jno82.checked)jno82.checked=false
-if(jno83.checked)jno83.checked=false
-if(jno84.checked)jno84.checked=false
-if(jno85.checked)jno85.checked=false
-if(jno86.checked)jno86.checked=false
-if(jno87.checked)jno87.checked=false
-if(jno88.checked)jno88.checked=false
-if(jno89.checked)jno89.checked=false
-if(jno90.checked)jno90.checked=false
-if(jno91.checked)jno91.checked=false
-if(jno92.checked)jno92.checked=false
-if(jno93.checked)jno93.checked=false
-if(jno94.checked)jno94.checked=false
-if(jno121.checked)jno121.checked=false
-if(jno122.checked)jno122.checked=false
-if(jno123.checked)jno123.checked=false
-if(jno124.checked)jno124.checked=false
-if(jno125.checked)jno125.checked=false
-if(jno126.checked)jno126.checked=false
-if(jno127.checked)jno127.checked=false
 
-
-
-}
-
+      
+      nilaik2.innerHTML=poin
+    }
+  </script>
+  <script>
+  
     function kirimtri2() {
     let poin=0
     const jno31=document.querySelector('#jno31')
@@ -8650,6 +9732,8 @@ if(jno127.checked)jno127.checked=false
     const jno138=document.querySelector('#jno138')
     const jno139=document.querySelector('#jno139')
     const jno140=document.querySelector('#jno140')
+    const jno141=document.querySelector('#jno141')
+    const jno142=document.querySelector('#jno142')
 
 
 
@@ -8658,6 +9742,9 @@ if(jno127.checked)jno127.checked=false
     
     const sno101=document.querySelector('#sno101')
     const sno102=document.querySelector('#sno102')
+    
+    const sno111=document.querySelector('#sno111')
+    const sno112=document.querySelector('#sno112')
     
 
         if (jno31.checked){
@@ -8997,6 +10084,25 @@ if (jno140.checked){
 }
 rno140.innerHTML=response
 
+if (jno141.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno141.innerHTML=response
+
+
+if (jno142.checked){
+  response="ok"
+  poin=poin+10
+}else {
+    response="x" 
+}
+rno142.innerHTML=response
+
+
+
 
 if (sno101.value=="3"){
   response="ok";poin=poin+25} 
@@ -9012,6 +10118,23 @@ nilai2.innerHTML=poin
    }
    rsno102.innerHTML=response
    nilai2.innerHTML=poin
+
+   if (sno111.value=="155"){
+    response="ok";poin=poin+25
+  }else {
+    response="x"
+  }
+  rsno111.innerHTML=response
+  nilai2.innerHTML=poin
+  if (sno112.value=="200"){
+    response="ok";poin=poin+25
+  }else {
+    response="x"
+  }
+  rsno112.innerHTML=response
+  nilai2.innerHTML=poin
+
+   
 
    if(jno31.checked)jno31.checked=false
 if(jno32.checked)jno32.checked=false
@@ -9059,6 +10182,8 @@ if(jno137.checked)jno137.checked=false
 if(jno138.checked)jno138.checked=false
 if(jno139.checked)jno139.checked=false
 if(jno140.checked)jno140.checked=false
+if(jno141.checked)jno141.checked=false
+if(jno142.checked)jno142.checked=false
 
 
 }
@@ -10196,7 +11321,6 @@ nilai.innerHTML=poin
  
 
 
- 
 
 reset()
 
