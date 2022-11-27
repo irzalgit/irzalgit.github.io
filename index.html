@@ -32,6 +32,18 @@
       targetvidio.src = vidio.getAttribute('src');
     }
   </script>
+ <style>
+  .demo{
+    background-color:green;
+    font-size:2rem;
+  }
+  btn{
+    padding:7px;
+    border:none;
+    cursor:pointer;
+    border-radius:4px;
+  }
+</style>
 
 
   <style>
@@ -411,7 +423,7 @@
       }
 
 
-    }
+    
 
     .game-options-container span {
       width: 90%;
@@ -447,7 +459,41 @@
       }
     }
   </style>
-
+  <style>
+    .demo{
+      background-color:green;
+      font-size:2rem;
+    }
+    button{
+      padding:7px;
+      border:none;
+      cursor:pointer;
+      border-radius:4px;
+    }
+  </style>
+<style>
+  .all-browsers {
+    margin: 0;
+    padding: 5px;
+    background-color: lightgray;
+    
+  }
+  
+  .all-browsers > h1, .browser {
+    margin: 10px;
+    padding: 5px;
+    color:black;
+  }
+  
+  .browser {
+    background: white;
+  }
+  
+  .browser > h2, p {
+    margin: 4px;
+    font-size: 90%;
+  }
+  </style>
 </head>
 
 <body onload="NextQuestion(0)">
@@ -527,8 +573,12 @@
 
     </div>
 
-
+  
     <div class="left">
+      
+    
+   
+
       <h3>Tentang Portal Peta Pikiran</h3>
       <p>B'PHY merupakan website yang berisi peta pikiran atau mindmap, yang dimulai dari matematika; berisi
         visual/gambar koneksi antar teori/dalil/azas/prinsip ataupun gagasan untuk menemukan solusi</p>
@@ -536,7 +586,7 @@
     </div>
 
     <div class="middle" style="background-color:aquamarine">
-      <h2 style="text-align: center;">Update21/11/22
+      <h2 style="text-align: center;">Update 27/11/22
         <br>
       </h2>
       <img width="65%" sr="gbr/heli.jpg" alt="">
@@ -774,7 +824,7 @@
 
       <hr>
       <h2>Bilangan Berpangkat(kelas X)</h2>
-
+      <btn>tekan aku</btn>
       <p>definisi bilangan berpangkat
         <math>
           <msup>
@@ -813,6 +863,17 @@
 
         </p>
 
+<article>
+  <h1>Teori</h1>
+  <p>Bilangan berpangkat adalah bentuk lain dari perkalian yang berulang.
+    <br><p>Sifat 1 <h2>$$a^{n}.a^{m}=a^{n+m}  $$</h2>yaitu perkalian bilangan berpangkat menyebabkan pangkatnya bertambah</p>
+    <br><p>Sifat 2 <h2>$$\frac{a^{n}}{a^{m}}=a^{n-m}  $$</h2>yaitu pembagian bilangan berpangkat menyebabkan pangkatnya berkurang</p>
+    <br><p>Sifat 3 <h2>$$\frac{a^{n}}{a^{n}}=a^{0} =1 $$</h2>yaitu pembagian bilangan berpangkat jika pangkatnya sama hasilnya 1</p>
+ 
+ 
+    </p>
+  
+</article>
 
         <label for="">
           <p>Bentuk sederhana dari
@@ -2990,6 +3051,17 @@
           <p>Jika <label>$$U_n=2^{n}$$</label> maka deret geometri adalah penjumlahan barisan geometri,
             disimbolkan
             <label>$$S_n=\sum_{1}^{n}2^{n}=2+4+8+...+2^{n}$$</label>
+          </p> 
+          <p>Jika rasio <label>$$r>1$$</label> maka deret geometri adalah penjumlahan barisan geometri,
+            disimbolkan
+            <label>$$S_n=\frac{a(r^{n}-1)}{r-1}$$</label>
+            <p>dimana a adalah suku pertama dan r adalah rasio r>1</p>
+          </p>
+
+          <p>Jika rasio r adalah pecahan maka deret geometri adalah penjumlahan barisan geometri,
+            disimbolkan
+            <label>$$S_n=\frac{a(1-r^{n})}{1-r}$$</label>
+            <p>dimana a adalah suku pertama dan r adalah bilangan pecahan</p>
           </p>
 
         </article>
@@ -3128,9 +3200,39 @@
         <input style="background-color: #dedede" type="text" id="sno112">
         <div id="rsno112"></div>
         <hr>
-
         <h2 id="nilai2"></h2>
-        <button style="height:40px;width:100px;background:rgb(76, 76, 238)" onclick="kirimtri2()">Cek Nilai </button>
+        <button style="color:black;
+        height:40px;
+        width:170px;
+        background:rgb(155, 185, 45)" onclick="kirimtri2()">Cek Nilai Kelas x </button>
+
+
+        <article class="all-browsers">
+          <h1>Statistik</h1>
+          <article class="browser">
+            <h2>Definisi</h2>
+            <p>
+              Statistik adalah ilmu yang berkaitan dengan data/informasi yakni cara 
+              merencanakan,mengumpulkan ,menganalisis dan mengintrepetasikan suatu data agar
+              dapat ditarik suatu kesimpulan yang benar</p>
+          </article>
+          <article class="browser">
+            <h2>Jenis data</h2>
+            <p>Ada 2 jenis data yaitu 1.Data kuantitatif dan 2.Data kualitatif.</p>
+          </article>
+          <article class="browser">
+            <h2>Susunan Data</h2>
+            <p>Ada 2 susunan data yaitu 1.Data tunggal dan 2.Data berkelompok</p>
+            <p>Data tunggal adalah data yang susunannya acak </p>
+            <p>Data berkelompok adalah data yang disusun berkelompok.Data 
+              tunggal dapat diubah menjadi data berkelompok dengan aturan
+              Sturgess yakni banyak kelas k=1+3,3 log n  dimana n adalah banyak data
+            </p>
+          </article>
+        </article>
+        
+
+
 
         <div style="background-color:#15f15f" ) <h2>Trigonometri</h2>
 
@@ -11294,8 +11396,24 @@ height: 50px; width:50px;" id="nilaik2"></div>
 
     //         
   </script>
+<script>
+  const button = document.querySelector('button');
+button.addEventListener('click', () => {
+    const element = document.querySelector('.demo');
+    element.style.backgroundColor = 'red';
+    element.style.color='yellow';
+});
+  
+</script>
 
-
+<script>
+  const btn = document.querySelector('btn');
+btn.addEventListener('click', () => {
+    const element = document.querySelector('.kelasx');
+    element.style.backgroundColor = 'black';
+    element.style.color='white';
+})
+</script>
 </body>
 
 </html>
