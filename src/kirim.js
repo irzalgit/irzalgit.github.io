@@ -765,4 +765,36 @@ function kirim3() {
   rno192.innerHTML = response;
 
   nilai3.innerHTML = poin;
+
+  if (jno71.checked) jno71.checked = false;
+  if (jno72.checked) jno72.checked = false;
+  if (jno73.checked) jno73.checked = false;
+  if (jno74.checked) jno74.checked = false;
+  if (jno75.checked) jno75.checked = false;
+  if (jno77.checked) jno77.checked = false;
+  if (jno78.checked) jno78.checked = false;
+  if (jno79.checked) jno79.checked = false;
+  if (jno80.checked) jno80.checked = false;
+  if (jno172.checked) jno172.checked = false;
+  if (jno173.checked) jno173.checked = false;
+  if (jno174.checked) jno174.checked = false;
+  if (jno175.checked) jno175.checked = false;
+  if (jno176.checked) jno176.checked = false;
+  if (jno177.checked) jno177.checked = false;
+
+  if (jno178.checked) jno178.checked = false;
+  if (jno179.checked) jno179.checked = false;
+  if (jno180.checked) jno180.checked = false;
+  if (jno181.checked) jno181.checked = false;
+  if (jno182.checked) jno182.checked = false;
+  if (jno183.checked) jno183.checked = false;
+  if (jno184.checked) jno184.checked = false;
+  if (jno185.checked) jno185.checked = false;
+  if (jno186.checked) jno186.checked = false;
+  if (jno187.checked) jno187.checked = false;
+  if (jno188.checked) jno188.checked = false;
+  if (jno189.checked) jno189.checked = false;
+  if (jno190.checked) jno190.checked = false;
+  if (jno191.checked) jno191.checked = false;
+  if (jno192.checked) jno192.checked = false;
 }
