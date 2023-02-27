@@ -924,14 +924,6 @@ function kirimtri(){
 
   const sno1=document.querySelector('#sno1')
   const sno2=document.querySelector('#sno2')
-  const sno3=document.querySelector('#sno3')
-  const sno4=document.querySelector('#sno4')
-  const sno5=document.querySelector('#sno5')
-  const sno6=document.querySelector('#sno6')
-  const sno7=document.querySelector('#sno7')
-  const sno8=document.querySelector('#sno8')
-  const sno9=document.querySelector('#sno9')
-  const sno10=document.querySelector('#sno10')
 
 
 
