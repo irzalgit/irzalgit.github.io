@@ -55,388 +55,388 @@ function kirimtri2() {
   const sno112 = document.querySelector("#sno112");
 
   if (jno31.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno31.innerHTML = response;
 
   if (jno32.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno32.innerHTML = response;
 
   if (jno33.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno33.innerHTML = response;
 
   if (jno34.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno34.innerHTML = response;
 
   if (jno35.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno35.innerHTML = response;
 
   if (jno36.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno36.innerHTML = response;
 
   if (jno37.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno37.innerHTML = response;
 
   if (jno38.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno38.innerHTML = response;
 
   if (jno39.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno39.innerHTML = response;
 
   if (jno40.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno40.innerHTML = response;
 
   if (jno51.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno51.innerHTML = response;
 
   if (jno52.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno52.innerHTML = response;
 
   if (jno53.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno53.innerHTML = response;
 
   if (jno54.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno54.innerHTML = response;
 
   if (jno55.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno55.innerHTML = response;
 
   if (jno101.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno101.innerHTML = response;
   if (jno102.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno102.innerHTML = response;
   if (jno103.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno103.innerHTML = response;
   if (jno104.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno104.innerHTML = response;
   if (jno105.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno105.innerHTML = response;
 
   if (jno106.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno106.innerHTML = response;
   if (jno107.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno107.innerHTML = response;
   if (jno108.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno108.innerHTML = response;
   if (jno109.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno109.innerHTML = response;
   if (jno110.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno110.innerHTML = response;
 
   if (jno111.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno111.innerHTML = response;
 
   if (jno112.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno112.innerHTML = response;
   if (jno113.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno113.innerHTML = response;
   if (jno114.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno114.innerHTML = response;
   if (jno115.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno115.innerHTML = response;
   if (jno116.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno116.innerHTML = response;
   if (jno117.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno117.innerHTML = response;
   if (jno118.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno118.innerHTML = response;
   if (jno119.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno119.innerHTML = response;
   if (jno120.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno120.innerHTML = response;
 
   if (jno131.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno131.innerHTML = response;
 
   if (jno132.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno132.innerHTML = response;
   if (jno133.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno133.innerHTML = response;
   if (jno134.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno134.innerHTML = response;
   if (jno135.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno135.innerHTML = response;
   if (jno136.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno136.innerHTML = response;
   if (jno137.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno137.innerHTML = response;
   if (jno138.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno138.innerHTML = response;
   if (jno139.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno139.innerHTML = response;
   if (jno140.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno140.innerHTML = response;
 
   if (jno141.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno141.innerHTML = response;
 
   if (jno142.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno142.innerHTML = response;
 
   if (sno101.value == "3") {
-    response = "ok";
+    response = "";
     poin = poin + 25;
   } else {
-    response = "x";
+    response = "";
   }
   rsno101.innerHTML = response;
   nilai2.innerHTML = poin;
 
   if (sno102.value == "-1") {
-    response = "ok";
+    response = "";
     poin = poin + 25;
   } else {
-    response = "x";
+    response = "";
   }
   rsno102.innerHTML = response;
   nilai2.innerHTML = poin;
 
   if (sno111.value == "155") {
-    response = "ok";
+    response = "";
     poin = poin + 25;
   } else {
-    response = "x";
+    response = "";
   }
   rsno111.innerHTML = response;
   nilai2.innerHTML = poin;
   if (sno112.value == "200") {
-    response = "ok";
+    response = "";
     poin = poin + 25;
   } else {
-    response = "x";
+    response = "";
   }
   rsno112.innerHTML = response;
   nilai2.innerHTML = poin;
@@ -525,242 +525,242 @@ function kirim3() {
   const jno192 = document.querySelector("#jno192");
 
   if (jno71.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno71.innerHTML = response;
 
   if (jno72.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno72.innerHTML = response;
 
   if (jno73.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno73.innerHTML = response;
 
   if (jno74.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno74.innerHTML = response;
 
   if (jno75.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno75.innerHTML = response;
 
   if (jno77.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno77.innerHTML = response;
 
   if (jno78.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno78.innerHTML = response;
 
   if (jno79.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno79.innerHTML = response;
 
   if (jno80.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno80.innerHTML = response;
 
   if (jno172.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno172.innerHTML = response;
 
   if (jno173.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno173.innerHTML = response;
 
   if (jno174.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno174.innerHTML = response;
 
   if (jno175.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno175.innerHTML = response;
 
   if (jno176.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno176.innerHTML = response;
 
   if (jno177.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno177.innerHTML = response;
 
   if (jno178.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno178.innerHTML = response;
 
   if (jno179.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno179.innerHTML = response;
 
   if (jno180.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno180.innerHTML = response;
 
   if (jno181.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno181.innerHTML = response;
 
   if (jno182.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno182.innerHTML = response;
 
   if (jno183.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno183.innerHTML = response;
 
   if (jno184.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno184.innerHTML = response;
 
   if (jno185.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno185.innerHTML = response;
 
   if (jno186.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno186.innerHTML = response;
 
   if (jno187.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno187.innerHTML = response;
 
   if (jno188.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno188.innerHTML = response;
 
   if (jno189.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno189.innerHTML = response;
 
   if (jno190.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno190.innerHTML = response;
 
   if (jno191.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno191.innerHTML = response;
 
   if (jno192.checked) {
-    response = "ok";
+    response = "";
     poin = poin + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno192.innerHTML = response;
 
@@ -814,82 +814,82 @@ function kirim4() {
   
 
   if (jno600.checked) {
-    response = "ok";
+    response = "";
     poin4 = poin4 + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno600.innerHTML = response;
 
   if (jno601.checked) {
-    response = "ok";
+    response = "";
     poin4 = poin4 + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno601.innerHTML = response;
 
   if (jno602.checked) {
-    response = "ok";
+    response = "";
     poin4 = poin4 + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno602.innerHTML = response;
 
   if (jno603.checked) {
-    response = "ok";
+    response = "";
     poin4 = poin4 + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno603.innerHTML = response;
 
   if (jno604.checked) {
-    response = "ok";
+    response = "";
     poin4 = poin4 + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno604.innerHTML = response;
 
   if (jno605.checked) {
-    response = "ok";
+    response = "";
     poin4 = poin4 + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno605.innerHTML = response;
 
   if (jno606.checked) {
-    response = "ok";
+    response = "";
     poin4 = poin4 + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno606.innerHTML = response;
 
   if (jno607.checked) {
-    response = "ok";
+    response = "";
     poin4 = poin4 + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno607.innerHTML = response;
 
   if (jno608.checked) {
-    response = "ok";
+    response = "";
     poin4 = poin4 + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno608.innerHTML = response;
 
   if (jno609.checked) {
-    response = "ok";
+    response = "";
     poin4 = poin4 + 10;
   } else {
-    response = "x";
+    response = "";
   }
   rno609.innerHTML = response;
 
