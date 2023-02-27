@@ -1063,4 +1063,14 @@ nilai.innerHTML=poin
  rsno2.innerHTML=response
 nilai.innerHTML=poin
 
+  if (jno1.checked) jno1.checked = false;
+  if (jno2.checked) jno2.checked = false;
+  if (jno3.checked) jno3.checked = false;
+  if (jno4.checked) jno4.checked = false;
+  if (jno5.checked) jno5.checked = false;
+  if (jno6.checked) jno6.checked = false;
+  if (jno7.checked) jno7.checked = false;
+  if (jno8.checked) jno8.checked = false;
+  if (jno9.checked) jno9.checked = false;
+  if (jno10.checked) jno10.checked = false;
 }
