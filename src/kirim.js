@@ -798,3 +798,113 @@ function kirim3() {
   if (jno191.checked) jno191.checked = false;
   if (jno192.checked) jno192.checked = false;
 }
+
+function kirim4() {
+  let poin4 = 0;
+  const jno600 = document.querySelector("#jno600");
+  const jno601 = document.querySelector("#jno601");
+  const jno602 = document.querySelector("#jno602");
+  const jno603 = document.querySelector("#jno603");
+  const jno604 = document.querySelector("#jno604");
+  const jno605 = document.querySelector("#jno605");
+  const jno606 = document.querySelector("#jno606");
+  const jno607 = document.querySelector("#jno607");
+  const jno608 = document.querySelector("#jno608");
+  const jno609 = document.querySelector("#jno609");
+  
+
+  if (jno600.checked) {
+    response = "ok";
+    poin4 = poin4 + 10;
+  } else {
+    response = "x";
+  }
+  rno600.innerHTML = response;
+
+  if (jno601.checked) {
+    response = "ok";
+    poin4 = poin4 + 10;
+  } else {
+    response = "x";
+  }
+  rno601.innerHTML = response;
+
+  if (jno602.checked) {
+    response = "ok";
+    poin4 = poin4 + 10;
+  } else {
+    response = "x";
+  }
+  rno602.innerHTML = response;
+
+  if (jno603.checked) {
+    response = "ok";
+    poin4 = poin4 + 10;
+  } else {
+    response = "x";
+  }
+  rno603.innerHTML = response;
+
+  if (jno604.checked) {
+    response = "ok";
+    poin4 = poin4 + 10;
+  } else {
+    response = "x";
+  }
+  rno604.innerHTML = response;
+
+  if (jno605.checked) {
+    response = "ok";
+    poin4 = poin4 + 10;
+  } else {
+    response = "x";
+  }
+  rno605.innerHTML = response;
+
+  if (jno606.checked) {
+    response = "ok";
+    poin4 = poin4 + 10;
+  } else {
+    response = "x";
+  }
+  rno606.innerHTML = response;
+
+  if (jno607.checked) {
+    response = "ok";
+    poin4 = poin4 + 10;
+  } else {
+    response = "x";
+  }
+  rno607.innerHTML = response;
+
+  if (jno608.checked) {
+    response = "ok";
+    poin4 = poin4 + 10;
+  } else {
+    response = "x";
+  }
+  rno608.innerHTML = response;
+
+  if (jno609.checked) {
+    response = "ok";
+    poin4 = poin4 + 10;
+  } else {
+    response = "x";
+  }
+  rno609.innerHTML = response;
+
+nilai4.innerHTML=poin4;
+  
+  
+  if (jno600.checked) jno600.checked = false;
+  if (jno601.checked) jno601.checked = false;
+  if (jno602.checked) jno602.checked = false;
+  if (jno603.checked) jno603.checked = false;
+  if (jno604.checked) jno604.checked = false;
+  if (jno605.checked) jno605.checked = false;
+  if (jno606.checked) jno606.checked = false;
+  if (jno607.checked) jno607.checked = false;
+  if (jno608.checked) jno608.checked = false;
+  if (jno609.checked) jno609.checked = false;
+  if (jno610.checked) jno610.checked = false;
+}
