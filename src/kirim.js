@@ -919,12 +919,21 @@ function kirimtri(){
   const jno8=document.querySelector('#jno8')
   const jno9=document.querySelector('#jno9')
   const jno10=document.querySelector('#jno10')
-
+  const jno701=document.querySelector('#jno701')
+  const jno702=document.querySelector('#jno702')
+  const jno703=document.querySelector('#jno703')
+  const jno704=document.querySelector('#jno704')
+  const jno705=document.querySelector('#jno705')
+  const jno706=document.querySelector('#jno706')
+  const jno707=document.querySelector('#jno707')
+  const jno708=document.querySelector('#jno708')
+  const jno709=document.querySelector('#jno709')
+  const jno710=document.querySelector('#jno710')
 
 
   const sno1=document.querySelector('#sno1')
   const sno2=document.querySelector('#sno2')
-
+ 
 
 
 
@@ -939,6 +948,17 @@ function kirimtri(){
   const rno8=document.querySelector('#rno8')
   const rno9=document.querySelector('#rno9')
   const rno10=document.querySelector('#rno10')
+
+  const rno701=document.querySelector('#rno701')
+  const rno702=document.querySelector('#rno702')
+  const rno703=document.querySelector('#rno703')
+  const rno704=document.querySelector('#rno704')
+  const rno705=document.querySelector('#rno705')
+  const rno706=document.querySelector('#rno706')
+  const rno707=document.querySelector('#rno707')
+  const rno708=document.querySelector('#rno708')
+  const rno709=document.querySelector('#rno709')
+  const rno710=document.querySelector('#rno710')
 
   const rsno1=document.querySelector('#rsno1')
   const rsno2=document.querySelector('#rsno2')
@@ -1046,23 +1066,99 @@ response=""
 rno10.innerHTML=response
 
 
-if (sno1.value=="1,57"){
-  response="benar"; poin=poin+10} 
-else {response=""}
-rsno1.innerHTML=response
+if (jno701.checked){
+  response=""
+  poin=poin+5
+}else {
+  response=""
+}
+rno701.innerHTML=response
+
+
+if (jno702.checked){
+response=""
+poin=poin+5
+}else {
+response=""
+}
+rno702.innerHTML=response
+
+if (jno703.checked){
+response=" "
+poin=poin+10
+}else {
+response=""
+}
+rno703.innerHTML=response
+
+
+if (jno704.checked){
+response=" "
+poin=poin+10
+}else {
+response=""
+}
+rno704.innerHTML=response
+
+
+
+
+if (jno705.checked){
+response=""
+poin=poin+10
+}else {
+response=""
+}
+rno705.innerHTML=response
+
+
+if (jno706.checked){
+response=""
+poin=poin+5
+}else {
+response=""
+}
+rno706.innerHTML=response
+
+
+if (jno707.checked){
+response=" "
+poin=poin+10
+}else {
+response=""
+}
+rno707.innerHTML=response
+
+
+if (jno708.checked){
+response=""
+poin=poin+10
+}else {
+response=""
+}
+rno708.innerHTML=response
+
+if (jno709.checked){
+response=""
+poin=poin+5
+}else {
+response=""
+}
+rno709.innerHTML=response
+
+
+if (jno710.checked){
+response=""
+poin=poin+10
+}else {
+response=""
+}
+rno710.innerHTML=response
+
+
 nilai.innerHTML=poin
 
-
-
- if (sno2.value=="csc"){
-   response="benar"
-   poin=poin+10
- }else {
-   response=""
- }
- rsno2.innerHTML=response
-nilai.innerHTML=poin
-
+  
   if (jno1.checked) jno1.checked = false;
   if (jno2.checked) jno2.checked = false;
   if (jno3.checked) jno3.checked = false;
@@ -1073,4 +1169,15 @@ nilai.innerHTML=poin
   if (jno8.checked) jno8.checked = false;
   if (jno9.checked) jno9.checked = false;
   if (jno10.checked) jno10.checked = false;
+  if (jno701.checked) jno701.checked = false;
+  if (jno702.checked) jno702.checked = false;
+  if (jno703.checked) jno703.checked = false;
+  if (jno704.checked) jno704.checked = false;
+  if (jno705.checked) jno705.checked = false;
+  if (jno706.checked) jno706.checked = false;
+  if (jno707.checked) jno707.checked = false;
+  if (jno708.checked) jno708.checked = false;
+  if (jno709.checked) jno709.checked = false;
+  if (jno710.checked) jno710.checked = false;
+
 }
