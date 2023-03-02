@@ -919,6 +919,7 @@ function kirimtri(){
   const jno8=document.querySelector('#jno8')
   const jno9=document.querySelector('#jno9')
   const jno10=document.querySelector('#jno10')
+  const jno700=document.querySelector('#jno700')
   const jno701=document.querySelector('#jno701')
   const jno702=document.querySelector('#jno702')
   const jno703=document.querySelector('#jno703')
@@ -948,7 +949,7 @@ function kirimtri(){
   const rno8=document.querySelector('#rno8')
   const rno9=document.querySelector('#rno9')
   const rno10=document.querySelector('#rno10')
-
+  const rno700=document.querySelector('#rno700')
   const rno701=document.querySelector('#rno701')
   const rno702=document.querySelector('#rno702')
   const rno703=document.querySelector('#rno703')
@@ -1066,6 +1067,14 @@ response=""
 rno10.innerHTML=response
 
 
+if (jno700.checked){
+  response=""
+  poin=poin+5
+}else {
+  response=""
+}
+rno700.innerHTML=response
+
 if (jno701.checked){
   response=""
   poin=poin+5
@@ -1169,6 +1178,7 @@ nilai.innerHTML=poin
   if (jno8.checked) jno8.checked = false;
   if (jno9.checked) jno9.checked = false;
   if (jno10.checked) jno10.checked = false;
+  if (jno700.checked) jno700.checked = false;
   if (jno701.checked) jno701.checked = false;
   if (jno702.checked) jno702.checked = false;
   if (jno703.checked) jno703.checked = false;
