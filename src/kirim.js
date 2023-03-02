@@ -1005,7 +1005,7 @@ rno3.innerHTML=response
 
 if (jno4.checked){
 response=" "
-poin=poin+10
+poin=poin+5
 }else {
 response=""
 }
@@ -1025,7 +1025,7 @@ rno5.innerHTML=response
 
 if (jno6.checked){
 response=""
-poin=poin+5
+poin=poin+10
 }else {
 response=""
 }
@@ -1051,7 +1051,7 @@ rno8.innerHTML=response
 
 if (jno9.checked){
   response=""
-  poin=poin+5
+  poin=poin+10
 }else {
   response=""
 }
@@ -1077,7 +1077,7 @@ rno700.innerHTML=response
 
 if (jno701.checked){
   response=""
-  poin=poin+5
+  poin=poin+10
 }else {
   response=""
 }
@@ -1123,7 +1123,7 @@ rno705.innerHTML=response
 
 if (jno706.checked){
 response=""
-poin=poin+5
+poin=poin+10
 }else {
 response=""
 }
@@ -1167,7 +1167,28 @@ rno710.innerHTML=response
 
 nilai.innerHTML=poin
 
+if (sno1.value == "1,57") {
+  response = "";
+  poin = poin + 10;
+} else {
+  response = "";
+}
+rsno1.innerHTML = response;
+nilai.innerHTML = poin;
   
+
+if (sno2.value == "sec") {
+  response = "";
+  poin = poin + 10;
+} else {
+  response = "";
+}
+rsno2.innerHTML = response;
+nilai.innerHTML = poin;
+  
+
+
+
   if (jno1.checked) jno1.checked = false;
   if (jno2.checked) jno2.checked = false;
   if (jno3.checked) jno3.checked = false;
