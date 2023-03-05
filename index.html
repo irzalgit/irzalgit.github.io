@@ -7,8 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hallo,sahabat</title>
 
+<link href="./css/pas.css" rel="stylesheet">  
   <link href="./css/output.css" rel="stylesheet"> 
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>  
+
+<script src="js/index.js"></script> 
 <script src="./src/kirim.js"></script>
  <!-- <script src="./src/perskuad.js"></script>  -->
 <!-- <script src="https://cdn.tailwindcss.com"></script>  -->
@@ -23,10 +26,9 @@
 <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-
 </head>
 
-<body class=" h-full">
+<body onload="NextQuestion(0)" class=" h-full">
  
     
     
@@ -315,9 +317,9 @@
     <aside class="w-full md:w-1/4 bg-green-200 p-4">
 
 
-  <h2 style="text-align: center;">Update 02/03/23 
+  <h2 style="text-align: center;">Update 06/03/23 
   <br>
-  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
+  <!-- <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script> -->
 
 </h2>
   
@@ -347,15 +349,19 @@
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab3">03</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab4">04</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab5">05</a></button>
-<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab6">06</a></button>
+<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab6">tri</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab7">07</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab8">08</a></button>
-<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab9">09</a></button>
-<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab10">10</a></button>
+<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab9">kwd</a></button>
+<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab10">exp</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab11">11</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab12">12</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab13">13</a></button>
-<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab14">14</a></button>
+<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab14">lim</a></button>
+<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab15">def</a></button>
+<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab16">int</a></button>
+<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab17">sta</a></button>
+<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#pas">PAS</a></button>
 
   </div>
   
@@ -2662,19 +2668,18 @@ nilai <label>$$S_{10}$$</label> adalah
 
 <h2 id="nilai2"></h2>
 <br>
-<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Barisan dan Deret</button>
+<button class="py-2 px-6 bg-red-500 text-slate-200 rounded-3xl">Cek Nilai Barisan dan Deret</button>
 </div> 
-<div id="bab6" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
+
+
+<div id="bab6" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4 text-black  bg-blue-200">
     <div>
       <input  type="checkbox" name="flexRadioDefault" id="toggle5">
       <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
         mode
       </label>
     </div>
-<h2 >Trigonometri</h2>
-
-<label>
-
+    <h2 class=" text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Trigonometri</h2>
 
 <label for="">
 <p>besar sudut A pada segitiga siku dibawah ini adalah</p> 
@@ -3410,6 +3415,99 @@ jika sudut 90 derajat diubah ke radian menjadi
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl"  onclick=kirimtri()>Cek Nilai Trigonometri </button>
 </div>
 <!-- batas trigono -->
+<div id="pas" class="dark:bg-slate-700 dark:text-green-500 border-1 rounded-2xl box-border  border-black p-0  text-slate-700 bg-slate-100">
+  <div class="modal-container" id="score-modal">
+  <div class="modal-content-container"> 
+        <h1>Selamat.</h1> 
+        <div class="grade-details">
+          <p>Nilai : </p>
+          <p>Jumlah jawaban salah : <span id="wrong-answers"></span></p>
+          <p>Jumlah jawaban benar : <span id="right-answers"></span></p>
+          <p>Passing grade : <span id="grade-percentage"></span>%</p>
+          <p ><span id="remarks"></span></p>
+        </div>  
+        <div class="modal-button-container">
+          <button onclick="closeScoreModal()">Lanjut</button>
+        </div>
+  </div>
+  
+  </div>
+  
+  
+    <!-- end of modal of quiz details-->
+    
+    <div class="game-quiz-container">
+    
+      <div class="game-details-container">
+        <br>
+        <h2>Persamaan Kuadrat-Exponen Trigonometri</h2>
+        <h3>Jumlah benar : <span id="player-score"></span> </h3>
+        <h3> Soal ke- : <span id="question-number"></span> dari 40</h3>
+      </div>
+    <!--  
+            <div>
+             <label>Score:</label> <input style="width:50px; text-align:center;" ;name="score" type="text"  value="0" id="player-score-form"  readonly>
+                
+        
+            </div>
+              
+             -->
+           
+      <div class="game-question-container">
+        <h1 id="display-question"></h1>
+      </div>
+    
+      <div class="game-options-container">
+    
+         <div class="modal-container" id="option-modal">
+    
+          <div class="modal-content-container">
+             <h1>Silakan pilih </h1>
+    
+             <div class="modal-button-container">
+              <button onclick="closeOptionModal()">Lanjutkan?</button>
+            </div>
+    
+          </div>
+    
+         </div>
+    
+        <span>
+          <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+          <label for="option-one" class="option" id="option-one-label"></label>
+        </span>
+    
+    
+        <span>
+          <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+          <label for="option-two" class="option" id="option-two-label"></label>
+        </span>
+    
+    
+        <span>
+          <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+          <label for="option-three" class="option" id="option-three-label"></label>
+        </span>
+    
+    
+        <span>
+          <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+          <label for="option-four" class="option" id="option-four-label"></label>
+        </span>
+    
+    
+      </div>
+    
+      <div class="next-button-container">
+        <button onclick="handleNextQuestion()">Lanjutkan </button>
+      </div>
+      
+    </div>
+    
+  </div>
+
+
+<!-- batas -->
 <div id="bab7" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
   <div>
     <input  type="checkbox" name="flexRadioDefault" id="toggle6">
@@ -5947,7 +6045,7 @@ jika sudut 90 derajat diubah ke radian menjadi
     </div>
 
 
-<h2 >
+<h2 class=" text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">
   Persamaan dan Fungsi Kuadrat </h2>
 <label for="">
 
@@ -6805,9 +6903,8 @@ terhadap sumbu y adalah
     </div>
 
 
-<h2 >
-  Persamaan dan Fungsi Exponen </h2>
-<label for="">
+<h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Persamaan dan Fungsi Exponen </h1>
+<label for=""> 
 
   <p>definisi persamaan exponen, jika a adalah konstanta dan 
     <math>
@@ -7163,6 +7260,11 @@ maka nilai f(2) <br>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim4() >Cek Nilai Persamaan Exponen</button>
 </div>
 <!-- batas akhir 7-->
+
+
+<!-- batas -->
+
+
 <div id="bab11" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
     <div>
       <input  type="checkbox" name="flexRadioDefault" id="toggle9"
@@ -8138,6 +8240,351 @@ $$\lim\limits_{x \to \sim} \sqrt {x^2 + 3x - 1}  - \sqrt {x^2 -2x + 1}=...$$
 
 <hr>
 
+</div>
+<div id="bab15" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
+  <div>
+    <input  type="checkbox" name="flexRadioDefault" id="toggle12">
+    <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+      mode
+    </label>
+  </div>
+<h2>Deferensial</h2>
+Misalkan y=f(x) adalah fungsi dari x maka turunan dari y terhadap x dinotasikan dengan y'=f'(x) dan
+didefinisikan sbb:
+$$y'=\lim\limits_{h \to 0} \frac{f(x+h)-f(x)}{h} $$
+Dari definisi diatas dapat diperoleh sifat-sifat deferensial sbb:
+
+<h5>Sifat 1 :</h5>
+<math>
+  <mi>y</mi>
+  <mo>=</mo>
+  <msup>
+      <mi>x</mi>
+      <mn>n</mn>
+  </msup>
+</math>
+maka turunannya
+<math>
+  <mi>y'</mi>
+  <mo>=</mo>
+  <mi>n</mi>
+  <msup>
+      <mi>x</mi>
+      <mn>n-1</mn>
+  </msup>
+</math>
+<br>
+<hr>
+<p>Berdasarkan sifat 1 diatas,  nilai y' dari $$y=x^3$$ adalah</p>
+<label>
+<p>
+<input type="radio" name="no961" style="display:inline-flex" id="jno961">
+<math>
+  <mi>3</mi>
+  <msup>
+      <mi>x</mi>
+      <mn>2</mn>
+  </msup>
+</math>
+<br>
+
+<input type="radio" name="no961" style="display:inline-flex">
+<math>
+  <mi>3</mi>
+  <msup>
+      <mi>x</mi>
+      <mn>3</mn>
+  </msup>
+</math>
+<br>
+<input type="radio" name="no961" style=" display:inline-flex" >
+<math>
+  <mi>3</mi>
+  <msup>
+      <mi>x</mi>
+      <mn>4</mn>
+  </msup>
+</math>
+<br>
+<input type="radio" name="no961" style=" display:inline">
+<math>
+  <mi>2</mi>
+  <msup>
+      <mi>x</mi>
+      <mn>2</mn>
+  </msup>
+</math>
+<br>
+<div id="rno961"></div>
+</p>
+</label>
+<hr>
+<p>Berdasarkan sifat 1 diatas,  nilai y' dari $$y=\frac{1}{x^3}$$  adalah</p>
+<label>
+<p>
+<input type="radio" name="no962" style="display:inline-flex" id="jno962">
+<math>
+  <mfrac>
+    <mi>-3</mi>  
+    <mi> 
+      <msup>
+      <mi>x</mi>
+      <mn>4</mn>
+      </msup>
+    </mi> 
+  </mfrac>
+</math>
+<br>
+
+<input type="radio" name="no962" style="display:inline-flex">
+<math>
+  <mi>-3</mi>
+  <msup>
+      <mi>x</mi>
+      <mn>2</mn>
+  </msup>
+</math>
+<br>
+<input type="radio" name="no962" style=" display:inline-flex" >
+<math>
+  <mi>-3</mi>
+  <msup>
+      <mi>x</mi>
+      <mn>4</mn>
+  </msup>
+</math>
+<br>
+<input type="radio" name="no962" style=" display:inline">
+<math>
+  <mi>3</mi>
+  <msup>
+      <mi>x</mi>
+      <mn>2</mn>
+  </msup>
+</math>
+<br>
+<div id="rno962"></div>
+</p>
+</label>
+<hr>
+<h5>Sifat 2 :</h5>
+<math>
+  <mi>y</mi>
+  <mo>=</mo>
+  <mn>k.</mn>
+  <msup>
+      <mi>x</mi>
+      <mn>n</mn>
+  </msup>
+</math>
+maka turunannya
+<math>
+  <mi>y'</mi>
+  <mo>=</mo>
+  <mo>k.</mo>
+  <mi>n</mi>
+  <msup>
+      <mi>x</mi>
+      <mn>n-1</mn>
+  </msup>
+</math>
+<br>
+<hr>
+<p>Berdasarkan sifat 2 diatas,  nilai y' dari $$y=2x^3$$ adalah</p>
+<label>
+  <p>
+  <input type="radio" name="no963" style="display:inline-flex" id="jno963">
+  <math>
+    <mi>6</mi>
+    <msup>
+        <mi>x</mi>
+        <mn>2</mn>
+    </msup>
+  </math>
+  <br>
+  
+  <input type="radio" name="no963" style="display:inline-flex">
+  <math>
+    <mi>6</mi>
+    <msup>
+        <mi>x</mi>
+        <mn>3</mn>
+    </msup>
+  </math>
+  <br>
+  <input type="radio" name="no963" style=" display:inline-flex" >
+  <math>
+    <mi>6</mi>
+    <msup>
+        <mi>x</mi>
+        <mn>4</mn>
+    </msup>
+  </math>
+  <br>
+  <input type="radio" name="no963" style=" display:inline">
+  <math>
+    <mi>2</mi>
+    <msup>
+        <mi>x</mi>
+        <mn>3</mn>
+    </msup>
+  </math>
+  <br>
+  <div id="rno963"></div>
+  </p>
+  </label>
+  <hr>
+  <h5>Sifat 3 :</h5>
+<math>
+  <mi>y</mi>
+  <mo>=</mo>
+  <mn>k.</mn>
+  <msup>
+      <mi>u</mi>
+      <mn>n</mn>
+  </msup>
+</math>
+dimana u(x) adalah fungsi x maka turunannya
+<math>
+  <mi>y'</mi>
+  <mo>=</mo>
+  <mo>k.</mo>
+  <mi>n</mi>
+  <msup>
+      <mi>u</mi>
+      <mn>n-1</mn>
+  </msup>
+  <mn>u'</mn>
+</math>
+<br>
+<hr>
+<p>Berdasarkan sifat 3 diatas,  nilai y' dari $$y=2(x^2+1)^3$$ adalah</p>
+<label>
+  <p>
+  <input type="radio" name="no964" style="display:inline-flex" ">
+  <math>
+    <mi>6</mi>
+    <msup>
+        <mi>(x+1)</mi>
+        <mn>2</mn>
+    </msup>
+  </math>
+  <br>
+  
+  <input type="radio" name="no964" style="display:inline-flex">
+  <math>
+    <mi>6</mi>
+    <msup>
+        <mi>(x+1)</mi>
+        <mn>3</mn>
+    </msup>
+    <mn>2x</mn>
+  </math>
+  <br>
+  <input type="radio" name="no964" id="jno964" style=" display:inline-flex" >
+  <math>
+    <mi>6</mi>
+    <msup>
+        <mi>(<msup><mi>x</mi><mn>2</mn></msup>+1)</mi>
+        <mn>2</mn>
+    </msup>
+    <mn>.2x</mn>
+  </math>
+  <br>
+  <input type="radio" name="no964" style=" display:inline">
+  <math>
+    <mi>12</mi>
+    <msup>
+        <mi>x</mi>
+        <mn>2</mn>
+    </msup>
+  </math>
+  <br>
+  <div id="rno964"></div>
+  </p>
+  </label>
+  <hr>
+
+  <h5>Sifat 4 :</h5>
+<math>
+  <mi>y</mi>
+  <mo>=</mo>
+  <mn>u(x)</mn>
+  <mo>+</mo>
+  <mn>v(x)</mn>
+</math>
+dimana u(x) dan v(x) adalah fungsi x maka turunannya
+<math>
+  <mi>y'</mi>
+  <mo>=</mo>
+  <mn>u'(x)</mn>
+  <mo>+</mo>
+  <mn>v'(x)</mn>
+</math>
+<br>
+<hr>
+<p>Berdasarkan sifat 4 diatas,  nilai y' dari $$y=2x^3+3x^2$$ adalah</p>
+<label>
+  <p>
+  <input type="radio" name="no965" id="jno965" style="display:inline-flex" ">
+  <math>
+    <mi>6</mi>
+    <msup>
+        <mi>x</mi>
+        <mn>2</mn>
+    </msup>
+    <mo>+</mo>
+    <mn>6x</mn>
+  </math>
+  <br>
+  
+  <input type="radio" name="no965" style="display:inline-flex">
+  <math>
+    <mi>6</mi>
+    <msup>
+        <mi>x</mi>
+        <mn>2</mn>
+    </msup>
+    <mo>+</mo>
+    <mn>6</mn>
+  </math>
+  <br>
+  <input type="radio" name="no965"  style=" display:inline-flex" >
+  <math>
+    <mi>3</mi>
+    <msup>
+        <mi>x</mi>
+        <mn>2</mn>
+    </msup>
+  </math>
+  <br>  
+  <input type="radio" name="no965" style=" display:inline">
+  <math>
+    <mi>6</mi>
+    <msup>
+        <mi>x</mi>
+        <mn>2</mn>
+    </msup>
+    <mo>+</mo>
+    <mn>x</mn>
+  </math>
+  <br>
+  <div id="rno965"></div>
+  </p>
+  </label>
+  <hr>
+  <h1 id="nilai9"></h1>
+<br>
+<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim9() >Cek Nilai Deferensial</button>
+
+</div>
+<div id="bab16" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
+  <div>
+    <input  type="checkbox" name="flexRadioDefault" id="toggle12">
+    <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+      mode
+    </label>
+  </div>
 
 
 <h5>Sifat  1 Integral</h5> 
@@ -8780,10 +9227,6 @@ $$\lim\limits_{x \to \sim} \sqrt {x^3 + 3x - 1}  - \sqrt {x^3 -x + 1}=...$$
 <div id="rsno45"></div>
 <hr>
 
-
-
-
-
 <div style="text-align:center;font-size:30px; height: 50px; width:250px;background:rgb(241, 241, 247)" 
 id="nilai3arsip"></div>
 
@@ -8791,6 +9234,375 @@ id="nilai3arsip"></div>
 
 <br><br>
 <hr>
+<!-- batas bab -->
+<div id="bab17" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
+  <div>
+    <input  type="checkbox" name="flexRadioDefault" id="toggle13">
+    <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+      mode
+    </label>
+  </div>
+
+
+<h2 >
+Statistik </h2>
+<label for="">
+
+<p>definisi persamaan exponen, jika a adalah konstanta dan 
+  <math>
+    
+    <mrow>
+  <mrow>
+    <msup> <mi>a</mi> <mn>f(x)</mn> </msup> 
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <msup> <mi>a</mi> <mn>g(x)</mn> </msup> 
+  </mrow>
+  </mrow>
+  </math>
+    maka
+  </p> 
+  <p style="font-size:small">
+  <input type="radio" name="no800" style=" display:inline-flex">  f(x)=1<br>
+  <input type="radio" name="no800" id="jno800" style=" display:inline-flex"> <msup>f(x)=g(x)<br>
+  <input type="radio" name="no800" style=" display:inline-flex">f(x)=0<br>
+  <input type="radio" name="no800" style=" display:inline">g(x)=1<br>
+  <div id="rno800"></div>
+  <hr>
+<p>definisi persamaan exponen, jika a dan b konstanta dan
+<math>
+
+<mrow>
+<mrow>
+<msup> <mi>a</mi> <mn>f(x)</mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+<msup> <mi>b</mi> <mn>f(x)</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+maka
+</p> 
+<p style="font-size:small">
+<input type="radio" name="no801" style=" display:inline-flex">  f(x)=1<br>
+<input type="radio" name="no801" id="jno801" style=" display:inline-flex"> <msup>f(x)=0<br>
+<input type="radio" name="no801" style=" display:inline-flex">f(x)=a<br>
+<input type="radio" name="no801" style=" display:inline">f(x)=b<br>
+<div id="rno801"></div>
+<hr>
+<p>Tiga asumsi menentukan x suatu persamaan exponen </p>
+<math>
+
+<mrow>
+<mrow>
+<msup> <mi>f(x)</mi> <mn>g(x)</mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+<msup> <mi>f(x)</mi> <mn>h(x)</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+
+<ul class="list-outside list-decimal">
+<li>g(x)=h(x)</li>
+<li>f(x)=1</li>
+<li>f(x)=0</li>
+</ul>
+<p></p>
+Untuk menentukan x  adalah mengubah persamaan exponen menjadi  persamaan biasa
+</p>
+<hr>
+
+<p> persamaan exponen 
+</p>
+<math>
+    
+<mrow>
+<mrow>
+<msup> <mi>2</mi> <mn>x-1</mn> </msup> 
+</mrow>
+<mo>=</mo>
+<mrow>
+<msup> <mi>2</mi> <mn>3x+2</mn> </msup> 
+</mrow>
+</mrow>
+</math>
+dapat diubah menjadi
+</p>
+<input type="radio" name="no802" id="jno802" style=" display:inline-flex">x-1=3x+2 <br>
+<input type="radio" name="no802" style=" display:inline-flex">x+1=3x-2<br>
+<input type="radio" name="no802" style=" display:inline-flex">(x-1)(3x+2)=0<br>
+<input type="radio" name="no802" style=" display:inline">(x+1)(3x-2)=0<br>
+<div id="rno802"></div>
+<hr>
+<p>jika suatu persamaan exponen dapat diubah menjadi x-4=3x+2 maka x  adalah
+</p>
+</p>
+<input type="radio" name="no803" style=" display:inline-flex">2<br>
+<input type="radio" name="no803" style=" display:inline-flex">3<br>
+<input type="radio" name="no803" id="jno803" style=" display:inline-flex">-3 <br>
+<input type="radio" name="no803" style=" display:inline">-2<br>
+<div id="rno803"></div>
+<hr>
+
+<p>persamaan  exponen
+</p>
+<math>
+
+<mrow>
+<mrow>
+<msup> <mi>3</mi> <mn>
+  <mrow>
+    <msup> <mi>x</mi> <mn>2</mn> </msup> 
+  </mrow>
+</mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+<msup> <mi>3</mi> <mn>x+6</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+</p>
+dapat diubah menjadi<br>
+<input type="radio" name="no804" style=" display:inline-flex">
+<math>
+
+<mrow>
+<mrow>
+<msup> <mi>x</mi> <mn>2</mn> </msup> <mo>+</mo>
+    <mrow>
+      <mn></mn>
+      <mo>&InvisibleTimes;</mo>
+      <mi>x</mi>
+    </mrow>
+<mo>-</mo>
+<mn>6</mn>
+</mrow>
+<mo>=</mo>
+<mn>0</mn>
+</mrow>
+</math>
+<br>
+<input type="radio" name="no804" style=" display:inline-flex">
+<math>
+
+<mrow>
+<mrow>
+<msup> <mi>x</mi> <mn>2</mn> </msup> <mo>+</mo>
+    <mrow>
+      <mn></mn>
+      <mo>&InvisibleTimes;</mo>
+      <mi>x</mi>
+    </mrow>
+<mo>+</mo>
+<mn>6</mn>
+</mrow>
+<mo>=</mo>
+<mn>0</mn>
+</mrow>
+</math>
+<br>
+<input type="radio" name="no804"  style=" display:inline-flex">
+<math>
+
+<mrow>
+<mrow>
+<msup> <mi>x</mi> <mn>2</mn> </msup> <mo>-</mo>
+    <mrow>
+      <mn></mn>
+      <mo>&InvisibleTimes;</mo>
+      <mi>x</mi>
+    </mrow>
+<mo>+</mo>
+<mn>6</mn>
+</mrow>
+<mo>=</mo>
+<mn>0</mn>
+</mrow>
+</math>
+<br>
+<input type="radio" name="no804" id="jno804" style=" display:inline">
+<math>
+
+<mrow>
+<mrow>
+<msup> <mi>x</mi> <mn>2</mn> </msup> <mo>-</mo>
+    <mrow>
+      <mn></mn>
+      <mo>&InvisibleTimes;</mo>
+      <mi>x</mi>
+    </mrow>
+<mo>-</mo>
+<mn>6</mn>
+</mrow>
+<mo>=</mo>
+<mn>0</mn>
+</mrow>
+</math>
+<br> 
+<div id="rno804"></div>
+<hr>
+
+<p>nilai x dari persamaan exponen 
+</p>
+<math>
+
+<mrow>
+<mrow>
+<msup> <mi>5</mi> <mn>
+  <mrow>
+    <msup> <mi>x</mi> <mn>2</mn> </msup> 
+  </mrow>
+</mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+<msup> <mi>5</mi> <mn>x+6</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+</p>
+<input type="radio" name="no805" style=" display:inline-flex">2 dan 3<br>
+<input type="radio" name="no805" style=" display:inline-flex">-2 dan -3<br>
+<input type="radio" name="no805" style=" display:inline">-2 dan -3<br>
+<input type="radio" name="no805" id="jno805" style=" display:inline-flex">3 dan -2<br>
+<div id="rno805"></div>
+<hr>
+
+Persamaan exponen..
+<math>
+
+<mrow>
+<mrow>
+<msup> <mi>(x-1)</mi> <mn>x</mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+<msup> <mi>(x-1)</mi> <mn>2</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+
+himpunan penyelesaiaannya adalah x berturut-turut
+</p>
+</p>
+<input type="radio" name="no806" style=" display:inline-flex">-1,0,2<br>
+<input type="radio" name="no806" id="jno806" style=" display:inline-flex">0,1,2<br>
+<input type="radio" name="no806" style=" display:inline-flex">1,2<br>
+<input type="radio" name="no806" style=" display:inline">2<br>
+<div id="rno806"></div>
+<hr>
+
+Persamaan exponen
+<math>
+<mrow>
+<msup> <mi>3</mi> 
+  
+  <mn>
+  <mrow>
+     <mi>x+1</mi>   
+  </mrow>
+  </mn>
+</msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+<mn>27</mn>     
+</mrow>
+
+</math>
+
+
+nilai x adalah
+</p>
+</p>
+<input type="radio" name="no807" style=" display:inline-flex">4<br>
+<input type="radio" name="no807" style=" display:inline-flex">3<br>
+<input type="radio" name="no807" id="jno807" style=" display:inline-flex">2<br>
+<input type="radio" name="no807" style=" display:inline">1<br>
+<div id="rno807"></div>
+<hr>
+
+
+Fungsi exponen 
+<math>
+
+<mrow>
+  <mn>f(x)</mn>
+  <mo>=</mo>
+<mrow>
+<msup> <mi>2</mi> <mn>x+1</mn> </msup> 
+</mrow>
+</mrow>
+</math><br>
+<p>maka f(2) adalah</p>
+<input type="radio" name="no808" style=" display:inline-flex">5<br>
+<input type="radio" name="no808" style=" display:inline-flex">6<br>
+<input type="radio" name="no808" id="jno808" style=" display:inline-flex">8<br>
+<input type="radio" name="no808" style=" display:inline">9<br>
+<div id="rno808"></div>
+<hr>
+
+
+
+
+Fungsi exponen 
+<math>
+
+<mrow>
+  <mn>f(x)</mn>
+  <mo>=</mo>
+  <mn>3</mn>
+  <mo>.</mo>
+<mrow>
+<msup> <mfrac>
+  <mi><mn>1</mn></mi>
+  <mi><mn>2</mn></mi>
+  </mfrac>  <mn>(x+1)</mn> </msup> 
+</mrow>
+
+
+</mrow>
+</math>
+
+maka nilai f(2) <br>
+
+<input type="radio" name="no809" style=" display:inline-flex">
+<math>
+<mfrac>
+<mi><mn>3</mn></mi>
+<mi><mn>2</mn></mi>
+</mfrac></math> <br>
+<input type="radio" name="no809" style=" display:inline-flex">
+<math>
+<mfrac>
+<mi><mn>3</mn></mi>
+<mi><mn>4</mn></mi>
+</mfrac></math> <br>
+<input type="radio" name="no809" id="jno809" style=" display:inline-flex">
+<math>
+<mfrac>
+<mi><mn>3</mn></mi>
+<mi><mn>8</mn></mi>
+</mfrac></math> <br>
+<input type="radio" name="no809" style=" display:inline">
+<math>  
+<mfrac>
+<mi><mn>24</mn></mi>
+<mi><mn>3</mn></mi>
+</mfrac></math> <br>
+<div id="rno809"></div>
+<hr>
+<h1 id="nilai8"></h1>
+<br>
+<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim8() >Cek Nilai Statistk</button>
+</div>
+
+<!-- 
 <div style="font-size:3rem;text-align:center;height: 50px; width:150px;background:rgb(148, 148, 158)"
 id="nilai">
 
@@ -8798,7 +9610,7 @@ id="nilai">
 <button>Nilai Total</button>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">cek nilai total</button>
 
-<hr>
+<hr> -->
 
 </div>
 
@@ -8837,6 +9649,38 @@ id="nilai">
   </div>
 </aside>
 </div>
+
+	  
+<!-- 
+
+	  <div class="modal-button-container">
+	<button style=" background-color: rgba(25, 233, 136, 0.753);" ><a href="indextrigonometri.html"><h3>TRIGONOMETRI</h3></a></button>
+	<button style=" background-color: rgb(163, 140, 194);"><a href="indexmatrik.html"><h3>MATRIK</h3></a>
+	<button style=" background-color: rgb(224, 158, 114);"><a href="indexvektor.html"><h3>VEKTOR</h3></a> </button>
+	</div> -->
+
+<form name="submit-to-google-sheet">
+<br>
+	<div class="modal-button-container">
+	<input style=" background-color: rgb(188, 241, 188); font-size: 1.2rem; height: 2rem;width: 200px;" name="nama" type="text" placeholder="Isi nama anda " required >
+	<input style="text-align: center; font-size: 1.2rem; height: 2rem; width: 60px;" name="score" type="text"  value="" id="player-score-form" readonly >
+     <button type="submite" class="btn btn-primary btn-kirim " > Simpan </button> 
+     <button class="btn btn-primary btn-loading d-none " disabled>
+            
+            Loading..
+    </button>
+  
+   
+	
+	</div>
+<div class="alert alert-success alert-dismissible d-none my-alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
+  </div>
+
+</form>
+
+
 
 </div>
 </main> 
@@ -8960,6 +9804,7 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           checkbo13.checked ? html13.classList.add('dark') : html13.classList.remove('dark'); 
           });
           </script>
+
 
 </body>
 </html>
