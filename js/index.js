@@ -1,7 +1,7 @@
 const questions = [
     {
         question: "Perbandingan sisi depan dengan sisi miring adalah ?",
-        optionA: "$$\beta_{1c} = 25 \pm 11 \text{ km s}^{-1}$$ sin",
+        optionA: " sin",
         optionB: "cos",
         optionC: "tan ",
         optionD: "sec ",
@@ -27,7 +27,7 @@ const questions = [
     },
 
     {
-        question: "jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
+        question: " jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
         optionA: "1/3",
         optionB: "3/5",
         optionC: "4/3",
@@ -432,183 +432,183 @@ const questions = [
         correctOption: "optionB"
     },
     {
-        question: 'Vektor adalah besaran yang memiliki ',
-        optionA: "arah",
-        optionB: "arah dan nilai",
-        optionC: "nilai ",
-        optionD: "nilai dan ukuran ",
+        question: 'Persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0 mempunyai akar berturut-turut ',
+        optionA: "-4 dan -1",
+        optionB: "4 dan -1",
+        optionC: "-4 dan -1 ",
+        optionD: "4 dan 1 ",
         correctOption: "optionB"
     },
 
     {
-        question: 'dibawah ini besaran vektor, kecuali',
-        optionA: "kecepatam mobil",
-        optionB: "arah angin",
-        optionC: "jumlah siswa dalam kelas",
-        optionD: "dorongan mesin",
+        question: 'Persamaan kuadrat x<sup>2</sup> <span>-3x -4</span> = 0 dapat difaktorisasi  menjadi',
+        optionA: "(x+4)(x+1)=0",
+        optionB: "(x+4)(x-1)=0",
+        optionC: "(x-4)(x+1)=0",
+        optionD: "(x-4)(x-1)=0",
         correctOption: "optionC"
     },
 
     {
         
-        question: 'vektor satuan arah x+ adalah',
-        optionA: 'i',
-        optionB: "j",
-        optionC: "k",
-        optionD: "-i",
+        question: 'Jumlah akar-akar persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0',
+        optionA: '3',
+        optionB: "2",
+        optionC: "1",
+        optionD: "-3",
         correctOption: "optionA"
     },
 
     {
-        question: "besar i adalah  ",
-        optionA: "0",
-        optionB: "1",
-        optionC: "2",
+        question: "Perkalian akar-akar persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0  ",
+        optionA: "1",
+        optionB: "-4",
+        optionC: "4",
         optionD: "3",
         correctOption: "optionB"
     },
 
     {
-        question: "jika vektor a bergerak 5 satuan  kex+ ditulis ",
-        optionA: "2i",
-        optionB: "4i",
-        optionC: "5i",
-        optionD: "9i",
-        correctOption: "optionC"
-    },
-
-    {
-        question: 'arah vektor v=3i+3j',
-        optionA: "30&#176",
-        optionB: "45&#176",
-        optionC: "180&#176",
-        optionD: "360&#176",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "jika a=5i dan b=3i+2j maka a+2b adalah",
-        optionA: "8i+2j",
-        optionB: "11i+4j",
-        optionC: "11j+2j",
-        optionD: "8i",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "jika a=i+3j maka 4a adalah",
-        optionA: "4i+3j",
-        optionB: "i+7j",
-        optionC: "4i+12j",
-        optionD: "4i-12j",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "jika c=2i+3j maka c.c adalah",
-        optionA: "&#8730;13",
+        question: "Deskriminan D persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0 adalah ",
+        optionA: "9", 
         optionB: "13",
-        optionC: "5",
-        optionD: "7",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "jika d=5i+12j maka besar d adalah",
-        optionA: "11",
-        optionB: "12",
-        optionC: "13",
-        optionD: "25",
+        optionC: "25",
+        optionD: "19",
         correctOption: "optionC"
     },
 
     {
-        question: "jika a=3i+2j dan b=2i-5j maka b-a adalah",
-        optionA: "-i-7j",
-        optionB: "i-7j",
-        optionC: "-i+3j",
-        optionD: "i-3j",
+        question: 'Garis simetri  persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0 adalah',
+        optionA: "x=-3/2",
+        optionB: "x=3/2",
+        optionC: "x=5/2",
+        optionD: "x=-5/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Titik puncak P persamaan kuadrat x<sup>2</sup> <span>-3x -4</span> =0 adalah",
+        optionA: "P(-3/2,-25/4)",
+        optionB: "P(3/2,-25/4)",
+        optionC: "P(-3/2,25/4)",
+        optionD: "P(3/2,25/4)",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Bentuk sketsa/grafik persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0",
+        optionA: "lingkaran",
+        optionB: "parabola terbuka kebawah",
+        optionC: "parabola terbuka keatas",
+        optionD: "garis lurus",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "jika suatu persamaan kuadrat memiliki a<0 dan D>0 maka sketsanya",
+        optionA: "parabola terbuka keatas dan memotong sumbu x di dua titik berbeda",
+        optionB: "parabola terbuka kebawah dan memotong sumbu x di dua titik berbeda",
+        optionC: "parabola terbuka kebawah dan memotong sumbu x di satu titik yang sama",
+        optionD: "parabola terbuka kebawah dan tidak memotong sumbu x ",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "jika suatu persamaan kuadrat memiliki a<0 dan D=0 maka sketsanya",
+        optionA: "parabola terbuka keatas dan memotong sumbu x didua titik berrbeda",
+        optionB: "parabola terbuka keatas",
+        optionC: "parabola terbuka kebawah dan menyinggung sumbu x ",
+        optionD: "parabola terbuka kebawah dan tidak memotong sumbu x",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Persamaan exponen 2<sup>2x</sup><span>= 2<sup>4</sup></span>, nilai x adalah",
+        optionA: "2",
+        optionB: "4",
+        optionC: "-2",
+        optionD: "-4",
         correctOption: "optionA"
     },
 
     {
-        question: "i.j=? ",
-        optionA: "0",
-        optionB: "1",
-        optionC: "-1",
-        optionD: "2",
+        question: "Persamaan exponen 2<sup>2x-1</sup><span>= 2<sup>4x+3</sup></span>,  maka",
+        optionA: "(2x-1)=(4x+3)",
+        optionB: "(2x-1)=0",
+        optionC: "(4x+3)=0",
+        optionD: "(2x-1)(4x+3)=0",
         correctOption: "optionA"
     },
 
     {
-        question: "(3i+5j).(2i-j)",
-        optionA: "6i+j",
-        optionB: "6i-5j",
-        optionC: "6i+5j",
-        optionD: "1",
+        question: "Persamaan exponen (2)<sup>(2x-1)</sup><span>= (3)<sup>(2x-1)</sup></span> maka",
+        optionA: "2x-1=2",
+        optionB: "2x-1=3",
+        optionC: "2x-1=1",
+        optionD: "2x-1=0",
         correctOption: "optionD"
     },
 
     {
-        question: "jika anak panah dengan kecepatan v=20 satuan , melesat keatas dengan sudut 60, maka kecepatan bayangannya",
-        optionA: "10",
-        optionB: "12",
-        optionC: "15",
-        optionD: "20",
+        question: "Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (4x-1)<sup>(x-1)</sup></span> maka",
+        optionA: "(4x-1)=0;4x-1=1;(2x-3)=(x-1)",
+        optionB: "(2x-3)=(x-1)",
+        optionC: "(4x-1)=0;4x-1=1",
+        optionD: "(2x-3)=0;(x-1)=0",
         correctOption: "optionA"
     },
 
     {
-        question: "arah vektor a=2i+5j adalah",
-        optionA: "arc tan 5/4",
-        optionB: "arc tan 5/2",
-        optionC: "arc tan 2/5",
-        optionD: "arc tan 5/4",
+        question: "Kasus dibawah ini  yang dapat dijelaskan dengan fungsi exponen,kecuali",
+        optionA: "pertumbuhan penduduk",
+        optionB: "gerak parabola",
+        optionC: "bunga majemuk di bank",
+        optionD: "peluruhan radioaktif",
         correctOption: "optionB"
     },
     {
-        question: "besar vektor satuan a=3i+4j adalah ",
-        optionA: "3i+4j",
-        optionB: "3/5i+4/5j",
-        optionC: "5",
-        optionD: "5i",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "jika b=2i maka besar vektor satuannya adalah",
-        optionA: "i",
-        optionB: "2i",
-        optionC: "2",
-        optionD: "1",
+        question: "salah satu sifat fungsi exponen  y=2<sup>x</sup>",
+        optionA: "grafik tidak pernah memotong sumbu x",
+        optionB: "jika x>0 grafik selalu turun",
+        optionC: "jika x<0 graik selalu naik",
+        optionD: "grafik tidak memotong sumbu y",
         correctOption: "optionA"
     },
 
     {
-        question: "jika a=5j , b=i-j , c= 2i maka besar d=a+b+c  adalah",
-        optionA: "3",
-        optionB: "5",
-        optionC: "7",
-        optionD: "8",
-        correctOption: "optionB"
+        question: "Grafik y=(1/2)<sup>x</sup> ",
+        optionA: "jika x membesar , grafik menurun",
+        optionB: "jika x membesar , grafik menurun",
+        optionC: "jika x membesar , grafik menurun sampai memotong sumbu x",
+        optionD: "jika x membesar , grafik naik sampai memotong sumbu y",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (2x+1)<sup>(2x-3)</sup></span>, jika f dan g tidak 0 maka",
+        optionA: "4x-1=2x+1 atau 2x-3=0",
+        optionB: "2x-3=0",
+        optionC: "4x-1=1",
+        optionD: "2x+1=1",
+        correctOption: "optionA"
     },
 
 
     {
-        question: "Sebuah benda dtarik oleh  2 gaya yaitu F1=3i+4j dan F2=-2j maka resultannya adalah",
-        optionA: "3i+5j",
-        optionB: "3i+2j",
-        optionC: "3i-2j",
-        optionD: "5i-j",
+        question: "2<sup>x</sup>.2<sup>3x-1</sup> adalah",
+        optionA: "2<sup>4x</sup>",
+        optionB: "2<sup>(4x-1)</sup>",
+        optionC: "2<sup>3x<sup>2</sup></sup>",
+        optionD: "2<sup>x(3x-1)</sup>",
         correctOption: "optionB"
     },
 
     {
-        question: "besar/nilai vektor a=-2i-5j adalah",
-        optionA: "&#8730;20",
-        optionB: "&#8730;29",
-        optionC: "&#8730;21",
-        optionD: "&#8730;50",
+        question: "3<sup>(x+2)</sup>=9<sup>x</sup> , maka x adalah",
+        optionA: "-2",
+        optionB: "2",
+        optionC: "3",
+        optionD: "-3",
         correctOption: "optionB"
     },
     
@@ -622,102 +622,40 @@ const questions = [
     },
 
     {
-        question: "jenis matrik yang hanya terdiri atas 1 baris disebut...",
-        optionA: "matrik identitas",
-        optionB: "matrik kolom",
-        optionC: "matrik baris",
-        optionD: "matrik nol",
+        question: "fungsi exponen g(x)=4.(1/2)<sup>x</sup> maka g(2)=",
+        optionA: "0",
+        optionB: "1/2",
+        optionC: "1",
+        optionD: "2",
         correctOption: "optionC"
     },
 
     {
-        question: "matrik berordo 2 x 3 hanya dapat dijumlah/dikurang  dengan matrik berordo",
-        optionA: " 2 x 3 ",
-        optionB: "2 x 2",
-        optionC: "3 x 2",
-        optionD: "3 x 3",
+        question: "fungsi exponen g(x)=4.(1/3)<sup>x</sup> maka g(2)=",
+        optionA: " 4/9 ",
+        optionB: "2/9",
+        optionC: "8/9",
+        optionD: "4/6",
         correctOption: "optionA"
     },
 
     {
-        question: "perkalian dua matrik A dan B  dapat terjadi jika... ?",
-        optionA: "jumlah baris A = jumlah baris B",
-        optionB: "jumlah baris A= jumlah kolom B",
-        optionC: "semua matrik dapat dikalikan",
-        optionD: "jumlah kolom A = jumlah baris B",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "jika ordo A adalah 2 x 4 sedangkan ordo B: 4 x 1  maka ordo hasil perkaliannya adalah...?",
-        optionA: "2 x 2",
-        optionB: "2 x 1",
-        optionC: "2 x 4",
-        optionD: "4 x 4",
-        correctOption: "optionB"
-    },
-
-    {
-        question:  "invers dari matrik A sama dengan ",
-        optionA: "adj A + det A",
-        optionB: "adj A x det A",
-        optionC: "adj A / det A",
-        optionD: "adj A - det A",
-        correctOption: "optionC"
-    },
-    {
-        question:  "jika minor 12 adalah -4 maka cofaktor 12 adalah",
-        optionA: "-4",
-        optionB: "4",
-        optionC: "12",
-        optionD: "3",
-        correctOption: "optionB"
-    },
-  
-    {
-        question:  "jika matrik A dikali matrik B sama dengan 1, maka B adalah ",
-        optionA: "minor A",
-        optionB: "invers A",
-        optionC: "transpose A",
-        optionD: "cofaktor A",
-        correctOption: "optionB"
-    }, 
-   
-    {
-        question:  "urutan menentukan invers adalah ",
-        optionA: "minor , transpose, cofaktor",
-        optionB: "minor, cofaktor,transpose",
-        optionC: "transpose, cofaktor,minor",
-        optionD: "cofaktor,minor,transpose",
-        correctOption: "optionB"
-    },
-    
-    
-    {
-        question:  "berdasarkan daftar matrik yang ada dibawah, matrik B adalah ?",
-        optionA: "matrik segi tiga",
-        optionB: "matrik nol",
-        optionC: "matrik diagonal",
-        optionD: "matrik kolom",
+        question: "Bank memberi bunga 10%/tahun, jika modal 2T maka setelah 2 tahun berdasarkan   fungsi bunga majemuk M(t)=M<sub>0</sub>.(1+10%)<sup>t</sup>  adalah",
+        optionA: "2.42T",
+        optionB: "1.4T",
+        optionC: "2T",
+        optionD: "2.1T",
         correctOption: "optionA"
     },
-    {
-        question:  "berdasarkan daftar matrik yang ada dibawah, det C adalah ?",
-        optionA: "-5",
-        optionB: "11",
-        optionC: "3",
-        optionD: "-3",
-        correctOption: "optionB"
-    },
-  
+
      {
-         question:  "berdasarkan daftar matrik yang ada dibawah, determinan dari invers  C adalah ?",
-         optionA: "-11",
+         question:  "3. 2<sup>3x</sup>=192, maka x= ?",
+         optionA: "-1",
          optionB: "3",
          optionC: "0",
-         optionD: "11",
+         optionD: "2",
          correctOption: "optionD"
-     }
+     },
 
 ]
 
@@ -727,7 +665,7 @@ let shuffledQuestions = [] //empty array to hold shuffled selected questions out
 function handleQuestions() { 
     //function to shuffle and push 10 questions to shuffledQuestions array
 //app would be dealing with 10questions per session
-    while (shuffledQuestions.length <= ) {
+    while (shuffledQuestions.length <=40 ) {
         const random = questions[Math.floor(Math.random() * questions.length)]
         if (!shuffledQuestions.includes(random)) {
             shuffledQuestions.push(random)
@@ -809,7 +747,7 @@ function handleNextQuestion() {
     unCheckRadioButtons()
     //delays next question displaying for a second just for some effects so questions don't rush in on player
     setTimeout(() => {
-        if (indexNumber <= 30) {
+        if (indexNumber <= 39) {
 //displays next question as long as index number isn't greater than 9, remember index number starts from 0, so index 9 is question 10
             NextQuestion(indexNumber)
         }
@@ -842,19 +780,19 @@ function handleEndGame() {
     let remarkColor = null
 
     // condition check for player remark and remark color
-    if (playerScore <= 10) {
+    if (playerScore <= 20) {
         remark = "Kurang, C"
         remarkColor = "red"
     }
-    else if (playerScore >= 12 && playerScore < 21) {
+    else if (playerScore >= 21 && playerScore < 30) {
         remark = "Cukup , B"
         remarkColor = "yellow"
     }
-    else if (playerScore >= 21) {
+    else if (playerScore >= 31) {
         remark = "Excellent , baik , A"
         remarkColor = "green"
     }
-    const playerGrade = (playerScore / 30) * 100
+    const playerGrade =(playerScore / 40) * 100
 
     //data to display to score board
     document.getElementById('remarks').innerHTML = remark
