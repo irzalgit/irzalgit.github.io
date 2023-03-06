@@ -81,6 +81,17 @@ const questions = [
     },
 
     {
+        question: "Sudut 200 derajat jika dikonversi ke radian adalah",
+        optionA: "2&#8508",
+        optionB: "1&#8508",
+        optionC: "10/9.&#8508",
+        optionD: "1/3.&#8508",
+        correctOption: "optionC"
+    },
+
+    
+
+    {
         question: "Sudut 30 derajat jika dikonversi ke radian adalah",
         optionA: "1/3.&#8508",
         optionB: "1/4.&#8508",
@@ -334,12 +345,12 @@ const questions = [
     },
 
     {
-        question: "cos 0 =  ",
+        question: "cos 420 =  ",
         optionA: "0",
         optionB: "1",
         optionC: "-1",
         optionD: "1/2",
-        correctOption: "optionB"
+        correctOption: "optionD"
     },
 
     {
@@ -353,11 +364,11 @@ const questions = [
 
     {
         question: "sin 30=...  ",
-        optionA: "-sin 120",
+        optionA: "sin 150",
         optionB: "sin 210",
         optionC: "-sin 330",
         optionD: "sin-30",
-        correctOption: "optionC"
+        correctOption: "optionA"
     },
 
     {
@@ -415,14 +426,24 @@ const questions = [
     },
 
     {
-        question: "sin 45 =  , kecuali ...",
-        optionA: "cos 45",
-        optionB: "sin 135",
-        optionC: "sin 225",
-        optionD: "-sin 225",
-        correctOption: "optionC"
+        question: "sudut -200&#176 berada di kuadran  ",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionB"
     },
 
+
+    {
+        question: "sudut 2&#8508/3 berada di kuadran  ",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionB"
+    },
+    
     {
         question: "luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
         optionA: "5",
