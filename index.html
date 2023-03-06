@@ -9,7 +9,7 @@
 
 <link href="./css/pas.css" rel="stylesheet">  
   <link href="./css/output.css" rel="stylesheet"> 
-  <script src="./js/main.js"></script>  
+  <script src="js/main.js"></script>  
 
 <script src="./js/index.js"></script> 
 <script src="./src/kirim.js"></script>
@@ -317,9 +317,9 @@
     <aside class="w-full md:w-1/4 bg-green-200 p-4">
 
 
-  <h2 style="text-align: center;">Update 06/03/23 
+  <h2 style="text-align: center;">Update 07/03/23 
   <br>
-  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script> 
+  <!-- <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script> -->
 
 </h2>
   
@@ -2680,10 +2680,65 @@ nilai <label>$$S_{10}$$</label> adalah
       </label>
     </div>
     <h2 class=" text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Trigonometri</h2>
-
+Trigonometri mempelajari perbandingan sisi sisi suatu segitiga siku.Ada 6 perbandingan dengan simbol sbb.
+Perhatikan segitiga siku dibawah ini.
+<hr>
+<svg width="180" height="140">
+  <line x1="10" y1="10" x2="130" y2="130" 
+  stroke="green"></line> 
+  
+  <line x1="10" y1="10" x2="10" y2="130" 
+  stroke="black"></line> 
+  
+  <line x1="10" y1="130" x2="130" y2="130" 
+  stroke="blue"></line> 
+  <text x="10" y="10">B</text>
+  <text x="130" y="130">A</text>
+  <text x="0" y="70">sisi </text>
+  <text x="0" y="80">depan</text>
+  <text x="70" y="80">sisi miring</text>
+  <text x="20" y="125">sisi samping</text>
+  </svg>
+  
+<ul>
+  <li>sin A = sisi depan / sisi miring</li>
+  <li>cos A = sisi samping / sisi miring</li>
+  <li>tan A = sisi depan / sisi samping</li>
+  <li>csc A = sisi miring/sisi depan</li>
+  <li>sec A = sisi miring / sisi samping</li>
+  <li>ctan A = sisi samping / sisi depan</li>
+</ul>
+<hr>
+jika ketiga sisi diketahui nilainya sbb:
+<svg width="180" height="140">
+  <line x1="10" y1="10" x2="130" y2="130" 
+  stroke="green"></line> 
+  
+  <line x1="10" y1="10" x2="10" y2="130" 
+  stroke="black"></line> 
+  
+  <line x1="10" y1="130" x2="130" y2="130" 
+  stroke="blue"></line> 
+  <text x="10" y="10">B</text>
+  <text x="130" y="130">A</text>
+  <text x="0" y="80">3</text>
+  <text x="70" y="80">5</text>
+  <text x="60" y="125">4</text>
+  </svg>
+perhatikan bahwa 3,4,5 adalah tripel phytagoras , sehingga segitiga ini adalah siku, sehingga berlaku:
+<ul>
+  <li>sin A = 3/5</li>
+  <li>cos A = 4/5</li>
+  <li>tan A = 3/4</li>
+  <li>csc A = 5/3</li>
+  <li>sec A = 5/4</li>
+  <li>ctan A = 4/3</li>
+</ul>
+<hr>
 <label for="">
-<p>besar sudut A pada segitiga siku dibawah ini adalah</p> 
-<p style="font-size:small">
+<p>Beberapa segitiga istimewa dengan sudut 30, 45 dan 60 adalah segitiga sama sisi dan sama kaki.</p>
+<p>Perhatikan segitiga istimewa dibawah ini</p> 
+<p style="font-size:small"> 
 
    <svg width="180" height="140">
 <line x1="10" y1="10" x2="130" y2="130" 
@@ -2704,7 +2759,7 @@ stroke="blue"></line>
 
 </p>
 
-adalah
+besar sudut A adalah
 <br>
 
 
@@ -2749,7 +2804,68 @@ adalah
 <hr>
 </label>
 <br>
+
 <label for="">
+  <p> Perhatikan segitiga siku dibawah ini,   </p> 
+  
+  
+  
+  <div style="display:inline-block">
+  <p>
+  
+  
+  <svg width="180" height="140">
+    <line x1="10" y1="10" x2="130" y2="130" 
+    stroke="green"></line> 
+  
+    <line x1="10" y1="10" x2="10" y2="130" 
+    stroke="black"></line> 
+  
+    <line x1="10" y1="130" x2="130" y2="130" 
+    stroke="blue"></line> 
+    <text x="10" y="10">B</text></text>
+    <text x="130" y="130">A</text></text>
+    <text x="15" y="80">1</text></text>
+    <text x="60" y="125">1</text></text>
+  </svg>
+  
+  
+  </div>
+  
+  
+  <br>
+  sec A = ...adalah
+  
+  </label><br>
+  <input type="radio" name="no5" id="jno5" style=" display:inline-flex">
+  <label for="">
+  &#8730;2
+  
+  </label>
+  <br>
+  <input type="radio" name="no5"  style=" display:inline-flex">
+  <label for="">
+  &#8730;3 
+  
+  </label><br>
+  
+  <input type="radio" name="no5"  style=" display:inline-flex">
+  <label for="">
+  1/2.&#8730;2
+  
+  </label><br>
+  <input type="radio" name="no5" style=" display:inline-flex">
+  <label for="">
+  1/2.&#8730;3
+  </label><br>
+  <br>
+  <div id="rno5"></div>
+  
+  <hr>
+<br>  
+
+<label for="">
+  Jika sisi a dan b diketahui akan tetapi sudut C tidak siku maka digunakan aturan cosinus untuk mencari sisi c. 
 <p>jika cos C=1/6 maka panjang AB </p> 
 <p style="font-size:small">
 
@@ -2826,64 +2942,6 @@ adalah
 <br>
 <div id="rno4"></div>
 </label><br>
-<hr>
-
-<label for="">
-<p> Perhatikan segitiga dibawah ini,  sec A = </p> 
-
-
-
-<div style="display:inline-block">
-<p>
-
-
-<svg width="180" height="140">
-  <line x1="10" y1="10" x2="130" y2="130" 
-  stroke="green"></line> 
-
-  <line x1="10" y1="10" x2="10" y2="130" 
-  stroke="black"></line> 
-
-  <line x1="10" y1="130" x2="130" y2="130" 
-  stroke="blue"></line> 
-  <text x="10" y="10">B</text></text>
-  <text x="130" y="130">A</text></text>
-  <text x="15" y="80">1</text></text>
-  <text x="60" y="125">1</text></text>
-</svg>
-
-
-</div>
-
-
-<br>
-adalah
-
-</label><br>
-<input type="radio" name="no5" id="jno5" style=" display:inline-flex">
-<label for="">
-&#8730;2
-
-</label>
-<br>
-<input type="radio" name="no5"  style=" display:inline-flex">
-<label for="">
-&#8730;3 
-
-</label><br>
-
-<input type="radio" name="no5"  style=" display:inline-flex">
-<label for="">
-1/2.&#8730;2
-
-</label><br>
-<input type="radio" name="no5" style=" display:inline-flex">
-<label for="">
-1/2.&#8730;3
-</label><br>
-<br>
-<div id="rno5"></div>
-
 <hr>
 
 <label for="">
@@ -3028,6 +3086,8 @@ P(5,arc tan(4/3))
 <hr>
 
 <label for="">
+  Jika sisi a dan b serta sudut A diketahui maka sudut B dapat ditentukan dengan aturan sinus.
+
 <p>jika a=4 dan b=3 serta sudut A=30 
   maka sudut B adalah
 </p> 
@@ -9659,6 +9719,27 @@ id="nilai">
 	<button style=" background-color: rgb(224, 158, 114);"><a href="indexvektor.html"><h3>VEKTOR</h3></a> </button>
 	</div> -->
 
+<form name="submit-to-google-sheet">
+<br>
+	<div class="modal-button-container">
+	<input style=" background-color: rgb(188, 241, 188); font-size: 1.2rem; height: 2rem;width: 200px;" name="nama" type="text" placeholder="Isi nama anda " required >
+	<input style="text-align: center; font-size: 1.2rem; height: 2rem; width: 60px;" name="score" type="text"  value="" id="player-score-form" readonly >
+     <button type="submite" class="btn btn-primary btn-kirim " > Simpan </button> 
+     <button class="btn btn-primary btn-loading d-none " disabled>
+            
+            Loading..
+    </button>
+  
+   
+	
+	</div>
+<div class="alert alert-success alert-dismissible d-none my-alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
+  </div>
+
+</form>
+
 
 
 </div>
@@ -9678,7 +9759,7 @@ id="nilai">
 
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2023 Copyright:
-    <a class="text-white" >Irzal Achmad </a>
+    <a class="text-white" href="https://tailwind-elements.com/">Irzal Achmad </a>
   </div>
 </footer>
 <!-- 
