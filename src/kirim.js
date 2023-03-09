@@ -1435,3 +1435,83 @@ nilai9.innerHTML=poin9;
    }
    
 }
+
+
+function kirim17() {
+  let poin17 = 0;
+  const jno1701 = document.querySelector("#jno1701");
+  const jno1702 = document.querySelector("#jno1702");
+  const jno1703 = document.querySelector("#jno1703");
+  const jno1704 = document.querySelector("#jno1704");
+  const jno1705 = document.querySelector("#jno1705");
+  
+  const nilai17=document.querySelector('#nilai17')
+
+
+  if (jno1701.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1702.innerHTML = response;
+
+  if (jno1702.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1702.innerHTML = response;
+
+  if (jno1703.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1702.innerHTML = response;
+
+  if (jno1704.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1702.innerHTML = response;
+
+  if (jno1705.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1702.innerHTML = response;
+
+nilai17.innerHTML=poin17;
+  
+  
+
+   const optionsno1701 = document.getElementsByName("no1701");
+   for (let i = 0; i < optionsno1701.length; i++) {
+       optionsno1701[i].checked = false;
+   }
+   const optionsno1702 = document.getElementsByName("no1702");
+   for (let i = 0; i < optionsno1702.length; i++) {
+       optionsno1702[i].checked = false;
+   }
+   const optionsno1703 = document.getElementsByName("no1703");
+   for (let i = 0; i < optionsno1703.length; i++) {
+       optionsno1703[i].checked = false;
+   }
+   const optionsno1704 = document.getElementsByName("no1704");
+   for (let i = 0; i < optionsno1704.length; i++) {
+       optionsno1704[i].checked = false;
+   }
+
+   const optionsno1705 = document.getElementsByName("no1705");
+   for (let i = 0; i < optionsno1705.length; i++) {
+       optionsno1705[i].checked = false;
+   }
+   
+}
