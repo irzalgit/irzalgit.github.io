@@ -72,12 +72,21 @@ const questions = [
     },
 
     {
-        question: "Sudut 180 derajat jika dikonversi ke radian adalah",
+        question: "jika &#8508  =3,14 maka sudut 60 &#176 =",
+        optionA: "3,14/2",
+        optionB: "3,14/4",
+        optionC: "3,14/3",
+        optionD: "3,14/6",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Sudut 120 derajat jika dikonversi ke radian adalah",
         optionA: "2&#8508",
         optionB: "1&#8508",
         optionC: "1/2.&#8508",
-        optionD: "1/3.&#8508",
-        correctOption: "optionB"
+        optionD: "2/3.&#8508",
+        correctOption: "optionD"
     },
 
     {
@@ -89,8 +98,6 @@ const questions = [
         correctOption: "optionC"
     },
 
-    
-
     {
         question: "Sudut 30 derajat jika dikonversi ke radian adalah",
         optionA: "1/3.&#8508",
@@ -101,7 +108,7 @@ const questions = [
     },
 
     {
-        question: "Sin 30 = ",
+        question: "Relasi antara sin dan cos adalah sin 30 = ",
         optionA: "cos 60",
         optionB: "cos 30",
         optionC: "cos 45",
@@ -110,12 +117,39 @@ const questions = [
     },
 
     {
-        question: "sin A dan cos A dikuadran 1 memiliki tanda ",
+        question: "sin A dan cos A dikuadran I memiliki tanda ",
         optionA: "positif dan positif",
         optionB: "negatif dan negatif",
         optionC: "positif dan negatif",
         optionD: "negatif dan positif",
         correctOption: "optionA"
+    },
+
+    {
+        question: "sin A dan cos A dikuadran II memiliki tanda ",
+        optionA: "positif dan positif",
+        optionB: "negatif dan negatif",
+        optionC: "positif dan negatif",
+        optionD: "negatif dan positif",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "cos(180-A) dan cos(180+A) bernilai sama, memiliki tanda ",
+        optionA: "positif dan positif",
+        optionB: "negatif dan negatif",
+        optionC: "positif dan negatif",
+        optionD: "negatif dan positif",
+        correctOption: "optionB"
+    },
+
+{
+        question: "jika sin A=2/3 maka sin(180-A) dan sin(180+A) adalah ",
+        optionA: "2/3 dan 2/3",
+        optionB: "-2/3 dan -2/3",
+        optionC: "+2/3 dan -2/3",
+        optionD: "-2/3 dan 2/3",
+        correctOption: "optionC"
     },
 
     {
@@ -527,16 +561,16 @@ const questions = [
 
     {
         question: "jika suatu persamaan kuadrat memiliki a<0 dan D>0 maka sketsanya",
-        optionA: "parabola terbuka keatas dan memotong sumbu x di dua titik berbeda",
-        optionB: "parabola terbuka kebawah dan memotong sumbu x di dua titik berbeda",
-        optionC: "parabola terbuka kebawah dan memotong sumbu x di satu titik yang sama",
+        optionA: "parabola terbuka keatas dan memotong sumbu x",
+        optionB: "parabola terbuka kebawah dan memotong sumbu x ",
+        optionC: "parabola terbuka kebawah dan menyinggung sumbu x ",
         optionD: "parabola terbuka kebawah dan tidak memotong sumbu x ",
         correctOption: "optionB"
     },
 
     {
         question: "jika suatu persamaan kuadrat memiliki a<0 dan D=0 maka sketsanya",
-        optionA: "parabola terbuka keatas dan memotong sumbu x didua titik berrbeda",
+        optionA: "parabola terbuka keatas dan memotong sumbu x ",
         optionB: "parabola terbuka keatas",
         optionC: "parabola terbuka kebawah dan menyinggung sumbu x ",
         optionD: "parabola terbuka kebawah dan tidak memotong sumbu x",
@@ -580,18 +614,18 @@ const questions = [
     },
 
     {
-        question: "Kasus dibawah ini  yang dapat dijelaskan dengan fungsi exponen,kecuali",
+        question: "Kasus dibawah ini ada hubungannya dengan fungsi exponen, kecuali",
         optionA: "pertumbuhan penduduk",
         optionB: "gerak parabola",
         optionC: "bunga majemuk di bank",
         optionD: "peluruhan radioaktif",
-        correctOption: "optionB"
+        correctOption: "optionB" 
     },
     {
         question: "salah satu sifat fungsi exponen  y=2<sup>x</sup>",
-        optionA: "grafik tidak pernah memotong sumbu x",
+        optionA: "grafik tidak memotong sb. x",
         optionB: "jika x>0 grafik selalu turun",
-        optionC: "jika x<0 graik selalu naik",
+        optionC: "jika x<0 grafik selalu naik",
         optionD: "grafik tidak memotong sumbu y",
         correctOption: "optionA"
     },
@@ -599,9 +633,9 @@ const questions = [
     {
         question: "Grafik y=(1/2)<sup>x</sup> ",
         optionA: "jika x membesar , grafik menurun",
-        optionB: "jika x membesar , grafik menurun",
-        optionC: "jika x membesar , grafik menurun sampai memotong sumbu x",
-        optionD: "jika x membesar , grafik naik sampai memotong sumbu y",
+        optionB: "jika x membesar , grafik naik",
+        optionC: "jika x membesar , grafik menurun dan memotong sb. x",
+        optionD: "jika x membesar , grafik naik dan memotong sumbu y",
         correctOption: "optionA"
     },
 
@@ -632,15 +666,6 @@ const questions = [
         optionD: "-3",
         correctOption: "optionB"
     },
-    
-    {
-        question: "Susunan bilangan dalam bentuk baris dan kolom diantara dua garis vertikal disebut ...?",
-        optionA: "deret",
-        optionB: "tabel",
-        optionC: "matrik",
-        optionD: "barisan",
-        correctOption: "optionC"
-    },
 
     {
         question: "fungsi exponen g(x)=4.(1/2)<sup>x</sup> maka g(2)=",
@@ -667,6 +692,33 @@ const questions = [
         optionC: "2T",
         optionD: "2.1T",
         correctOption: "optionA"
+    },
+    
+    {
+        question: "akar persamaan  (x+2)(x-3)=0 adalah",
+        optionA: "-2 dan 3",
+        optionB: "2 dan 3",
+        optionC: "2 dan -3",
+        optionD: "-2 dan -3",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "jumlah akar-akar persamaan  (x-2)(x-3)=0 adalah",
+        optionA: "6",
+        optionB: "5",
+        optionC: "-1",
+        optionD: "-5",
+        correctOption: "optionB"
+    },
+
+    {
+        question:  "Perkalian akar-akar persamaan x<sup>2</sup>-2x-8=0 adalah",
+        optionA: "-4",
+        optionB: "8",
+        optionC: "6",
+        optionD: "-8",
+        correctOption: "optionD"
     },
 
      {
