@@ -25,7 +25,27 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
+<style>
+  #more {display: none;}
+  #more1 {display: none;}
+  #more2 {display: none;}
+  #more3 {display: none;}
+  #more4 {display: none;}
+  #more5 {display: none;}
+  #more6 {display: none;}
+  #more7 {display: none;}
+  #more8 {display: none;}
+  #more9 {display: none;}
+  #more10 {display: none;}
+  #more11 {display: none;}
+  #more12 {display: none;}
+  #more13 {display: none;}
+  #more14 {display: none;}
+  #more15 {display: none;}
+  #more16 {display: none;}
+  #more17 {display: none;}
+  #more18 {display: none;}
+  </style>
 </head>
 
 <body onload="NextQuestion(0)" class=" h-full">
@@ -317,9 +337,9 @@
     <aside class="w-full md:w-1/4 bg-green-200 p-4">
 
 
-  <h2 style="text-align: center;">Update 07/03/23 
+  <h2 style="text-align: center;">Update 09/03/23 
   <br>
-  <!-- <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script> -->
+  <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
 
 </h2>
   
@@ -344,6 +364,7 @@
 </aside>
 <section  class="bg-green-200 w-full md:w-1/2 relative">
 <div class=" sticky top-0 left-0 right-0 z-50  w-full h-8 bg-green-500 items-center">
+<!-- 
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab1">01</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab2">02</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab3">03</a></button>
@@ -361,7 +382,7 @@
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab15">def</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab16">int</a></button>
 <button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#bab17">sta</a></button>
-<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#pas">PAS</a></button>
+<button class="bg-blue-500 text-white rounded-full"><a class="text-white" href="#pas">PAS</a></button> -->
 
   </div>
   
@@ -377,11 +398,10 @@
     <img src="./gbr/download.svg" alt="ng ada gbr" width="25" height="36">
    </a> -->
 
-<p style="font-size: 1.2rem; 
-text-align: center">pilih 1 jawaban </p> 
-<hr> 
+ 
 <h2>Bilangan Berpangkat</h2>
-
+<span id="dots1">...</span>
+    <div id="more1">
 
 <p>definisi bilangan berpangkat
 <math>
@@ -953,10 +973,10 @@ Tentukan nilai logaritma berikut ini menggunakan sifat 1 <label>$$\log_575=...$$
 <hr>
 
 </label>
-
+</div>
 
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">cek nilai bilangan berpangkat</button>
-
+<button onclick="myFunction1()" id="myBtn1">Read more</button>
 </div>
 <!-- batas -->
 <div id="bab2" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
@@ -968,10 +988,12 @@ Tentukan nilai logaritma berikut ini menggunakan sifat 1 <label>$$\log_575=...$$
     </label>
   </div>
 <h2 > Sistem Persamaan Linier</h2>
-
+Dua atau lebih persamaan
+<span id="dots2">...</span>
+<div id="more2">
 
 <p>
-Dua atau lebih persamaan linier dapat digabungkan kedalam suatu sistem persamaan linier.
+ linier dapat digabungkan kedalam suatu sistem persamaan linier.
 Beberapa metoda untuk menentukan nilai variabel, kecuali   
 </p> 
 <label for="">
@@ -1343,7 +1365,10 @@ nilai z adalah
 <input type="text" id="sno102">
 <div id="rsno102"></div>
 <hr>
+</div>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Sistem Persamaan Linier</button>
+<button onclick="myFunction2()" id="myBtn2">Read more</button>
+
 </div>
 
 <!-- batas -->
@@ -1354,9 +1379,11 @@ nilai z adalah
       mode
     </label>
   </div>
-  <h2>Sistem Pertidaksamaan Linier</h2>
+  <h2>Sistem Pertidaksamaan Linier</h2>Himpunan penyelesaian
+  <span id="dots3">...</span>
+    <div id="more3">
 <label for="">
-  <p> Himpunan penyelesaian dari pertidaksamaan 1 variabel:<label>$$\mathbf{a\leq x\leq d}$$</label> adalah {a,b,c,d}</p> 
+  <p>  dari pertidaksamaan 1 variabel:<label>$$\mathbf{a\leq x\leq d}$$</label> adalah {a,b,c,d}</p> 
  secara visual digambar sbb:
   <p style="font-size:small">
   
@@ -2167,7 +2194,10 @@ x> 0;y> 0\\
 
 
 </p>
+</div>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Sistem Pertidaksamaan Linier</button>
+<button onclick="myFunction3()" id="myBtn3">Read more</button>
+
 </div>
 
 <div id="bab4" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
@@ -2178,6 +2208,8 @@ x> 0;y> 0\\
     </label>
   </div>
 <h2 >PROGRAM LINIER</h2>
+<span id="dots4">...</span>
+    <div id="more4">
 <label for="">
   <p>Program linier adalah metoda untuk menentukan nilai optimum
     dari fungsi tujuan berdasarkan
@@ -2502,8 +2534,10 @@ jika z=2x+3y adalah
 <hr>
 
 </p>
+</div>
 </label>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Program Linier</button>
+<button onclick="myFunction4()" id="myBtn4">Read more</button>
 </div>
 <div  id="bab5" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
     <div>
@@ -2513,6 +2547,8 @@ jika z=2x+3y adalah
       </label>
     </div>
 <h2>Barisan & Deret</h2>
+<span id="dots5">...</span>
+    <div id="more5">
 <article>
 <h1>Teori</h1>
 <p>Barisan adalah susunan angka angka berdasarkan pola bilangan.Barisan aritmatika
@@ -2668,7 +2704,9 @@ nilai <label>$$S_{10}$$</label> adalah
 
 <h2 id="nilai2"></h2>
 <br>
+</div>
 <button class="py-2 px-6 bg-red-500 text-slate-200 rounded-3xl">Cek Nilai Barisan dan Deret</button>
+<button onclick="myFunction5()" id="myBtn5">Read more</button>
 </div> 
 
 
@@ -2680,8 +2718,11 @@ nilai <label>$$S_{10}$$</label> adalah
       </label>
     </div>
     <h2 class=" text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Trigonometri</h2>
+    <span id="dots6">...</span>
+    <div id="more6">
 Trigonometri mempelajari perbandingan sisi sisi suatu segitiga siku.Ada 6 perbandingan dengan simbol sbb.
 Perhatikan segitiga siku dibawah ini.
+
 <hr>
 <svg width="180" height="140">
   <line x1="10" y1="10" x2="130" y2="130" 
@@ -3471,8 +3512,10 @@ jika sudut 90 derajat diubah ke radian menjadi
 <div id="rsno2"></div>
 <hr>
 <h1 id="nilai"></h1>
+</div>
 <br>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl"  onclick=kirimtri()>Cek Nilai Trigonometri </button>
+<button onclick="myFunction6()" id="myBtn6">Read more</button>
 </div>
 <!-- batas trigono -->
 <div id="pas" class="dark:bg-slate-700 dark:text-green-500 border-1 rounded-2xl box-border  border-black p-0  text-slate-700 bg-slate-100">
@@ -3576,7 +3619,8 @@ jika sudut 90 derajat diubah ke radian menjadi
     </label>
   </div>
   <h1 >MATRIK</h1>
-    
+  <span id="dots7">...</span>
+  <div id="more7">
   <hr>
   <label for="">
     <p>Determinan dari matrik A </p> 
@@ -5495,10 +5539,10 @@ jika sudut 90 derajat diubah ke radian menjadi
 <br>
 <input type="text" id="sno14">
 <div id="rsno14"></div>
-<hr>
+<hr></div>
 <br>
  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Matrik</button>
- 
+ <button onclick="myFunction7()" id="myBtn7">Read more</button>
 </div>
 <div id="bab8" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
     <div>
@@ -5509,7 +5553,8 @@ jika sudut 90 derajat diubah ke radian menjadi
     </div>
   <h2 >Vektor</h2> 
   
-
+  <span id="dots8">...</span>
+  <div id="more8">
   <p>
     TEORI.<br>Vektor adalah besaran yang memiliki nilai dan arah. 
   Simbol tambahan agar a menjadi vektor 
@@ -6087,9 +6132,9 @@ jika sudut 90 derajat diubah ke radian menjadi
   
   
   <hr>
-    
+    </div>
  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Vektor </button>
-
+ <button onclick="myFunction8()" id="myBtn8">Read more</button>
  </div>
 
 <!-- batas vektor -->
@@ -6108,7 +6153,8 @@ jika sudut 90 derajat diubah ke radian menjadi
 <h2 class=" text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">
   Persamaan dan Fungsi Kuadrat </h2>
 <label for="">
-
+  <span id="dots9">...</span>
+  <div id="more9">
 <p>definisi persamaan kuadrat
 <math>
   
@@ -6946,9 +6992,10 @@ terhadap sumbu y adalah
   
 
 <h1 id="nilai3"></h1>
+</div>
 <br>
 <button  class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim3()>Cek Nilai Persamaan Kuadrat</button>  
-  
+<button onclick="myFunction9()" id="myBtn9">Read more</button>
  
 </div>
 
@@ -6965,7 +7012,8 @@ terhadap sumbu y adalah
 
 <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Persamaan dan Fungsi Exponen </h1>
 <label for=""> 
-
+  <span id="dots10">...</span>
+  <div id="more10">
   <p>definisi persamaan exponen, jika a adalah konstanta dan 
     <math>
       
@@ -7316,8 +7364,10 @@ maka nilai f(2) <br>
 <div id="rno609"></div>
 <hr>
 <h1 id="nilai4"></h1>
+</div>
 <br>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim4() >Cek Nilai Persamaan Exponen</button>
+<button onclick="myFunction10()" id="myBtn10">Read more</button>
 </div>
 <!-- batas akhir 7-->
 
@@ -7333,6 +7383,8 @@ maka nilai f(2) <br>
       </label>
     </div>
 <h2>Fungsi Komposisi dan invers fungsi komposisi (XI)</h2>
+<span id="dots11">...</span>
+    <div id="more11">
 <p>
 Komposisi fungsi adalah penggabungan operasi dua fungsi atau lebih secara
 berurutan sehingga menghasilkan fungsi baru
@@ -7467,8 +7519,10 @@ $$(g\circ f)(2)=... $$
 <input type="radio" name="no90" id="jno90" style=" display:inline-flex">8<br>
 <input type="radio" name="no90" style=" display:inline">9<br>
 <div id="rno90"></div>
+</div>
 <hr>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Fungsi Komposisi </button>
+<button onclick="myFunction11()" id="myBtn11">Read more</button>
 </div>
 
 <!-- batas akhir 8 -->
@@ -7480,6 +7534,8 @@ $$(g\circ f)(2)=... $$
     </label>
   </div>
 <h2 >Persamaan Lingkaran (XI)</h2>
+<span id="dots12">...</span>
+    <div id="more12">
 <hr>
 <p>Lingkaran adalah tempat kedudukan titik - titik yang berjarak sama
 terhadap 1 titik, yang disebut titik pusat lingkaran. Jarak dari lingkaran
@@ -7598,7 +7654,10 @@ $$x^{2}+y^{2}-2x+6y+1=0$$
 <input type="radio" name="no95" id="jno95" style=" display:inline-flex"><label>$$3x+4y=25$$</label><br>
 <input type="radio" name="no95" style=" display:inline"><label>$$3x+y^{2}=25$$</label><br>
 <div id="rno95"></div>
-<hr><button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Persamaan Lingkaran</button>
+</div>
+<hr>
+<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Persamaan Lingkaran</button>
+<button onclick="myFunction12()" id="myBtn12">Read more</button>
 </div>
 <div id="bab13" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
   <div>
@@ -7608,7 +7667,8 @@ $$x^{2}+y^{2}-2x+6y+1=0$$
     </label>
   </div>
 <h2>Logika Matematika</h2>
-
+<span id="dots13">...</span>
+    <div id="more13">
 
 <p>
 Suatu pernyataan yang bernilai benar atau salah disebut kalimat tertutup sebaliknya jika pernyataan tersebut nilai 
@@ -7947,9 +8007,9 @@ text-align:center;
 font-size:30px; 
 height: 50px; width:50px;"
 id="nilaik2"></div>
-
+</div>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Logika Matematika</button>
-
+<button onclick="myFunction13()" id="myBtn13">Read more</button>
 
 <hr>
 </div>
@@ -7961,6 +8021,8 @@ id="nilaik2"></div>
     </label>
   </div>
 <h2>Limit Fungsi Aljabar (XII)</h2>
+<span id="dots14">...</span>
+    <div id="more14">
 <p>Definisi limit secara intuitif</p>
 jika x mendekati 2  nilai f mendekati 7 ( berdasarkan tabel)<br><br>
 <p>Definisi limit secara aljabar</p>
@@ -8295,12 +8357,15 @@ $$\lim\limits_{x \to \sim} \sqrt {x^2 + 3x - 1}  - \sqrt {x^2 -2x + 1}=...$$
 <br>
 <div id="rno50"></div>
 </p>
-</label>
 
+</label>
+</div>
 
 <hr>
-
+<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim9() >Cek Nilai Limit</button>
+<button onclick="myFunction14()" id="myBtn1">Read more</button>
 </div>
+
 <div id="bab15" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
   <div>
     <input  type="checkbox" name="flexRadioDefault" id="toggle12">
@@ -8309,6 +8374,8 @@ $$\lim\limits_{x \to \sim} \sqrt {x^2 + 3x - 1}  - \sqrt {x^2 -2x + 1}=...$$
     </label>
   </div>
 <h2>Deferensial</h2>
+<span id="dots15">...</span>
+    <div id="more15">
 Misalkan y=f(x) adalah fungsi dari x maka turunan dari y terhadap x dinotasikan dengan y'=f'(x) dan
 didefinisikan sbb:
 $$y'=\lim\limits_{h \to 0} \frac{f(x+h)-f(x)}{h} $$
@@ -8634,10 +8701,13 @@ dimana u(x) dan v(x) adalah fungsi x maka turunannya
   </label>
   <hr>
   <h1 id="nilai9"></h1>
+  </div>
 <br>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim9() >Cek Nilai Deferensial</button>
-
+<button onclick="myFunction15()" id="myBtn15">Read more</button>
 </div>
+<!-- batas -->
+
 <div id="bab16" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
   <div>
     <input  type="checkbox" name="flexRadioDefault" id="toggle12">
@@ -8648,6 +8718,8 @@ dimana u(x) dan v(x) adalah fungsi x maka turunannya
 
 
 <h5>Sifat  1 Integral</h5> 
+<span id="dots16">...</span>
+    <div id="more16">
 <div style="display: inline;" >
 <p style="display: inline;">jika a bilangan real , dan</p>  
 <span style="display:inline-flex;">$$n\neq -1$$</span>
@@ -9290,392 +9362,200 @@ $$\lim\limits_{x \to \sim} \sqrt {x^3 + 3x - 1}  - \sqrt {x^3 -x + 1}=...$$
 <div style="text-align:center;font-size:30px; height: 50px; width:250px;background:rgb(241, 241, 247)" 
 id="nilai3arsip"></div>
 
-<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">Cek Nilai Limit  dan Integral</button>
-
 <br><br>
 <hr>
+</div>
+<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim9() >Cek Nilai Integral</button>
+<button onclick="myFunction16()" id="myBtn16">Read more</button>
+
+</div>
 <!-- batas bab -->
-<div id="bab17" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
+
+  <!-- batas -->
+
+  <div id="bab17" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
+    <div>
+      <input  type="checkbox" name="flexRadioDefault" id="toggle13">
+      <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+        mode
+      </label>
+      
+    </div>
+   
+  
+  <h2 >Peluang </h2> 
+Peluang adalah ukuran seberapa besar kemungkinan sesuatu akan terjadi. 
+Simbol peluang adalah p. Nilai p=1 artinya pasti terjadi, p=0 tidak mungkin terjadi.
+Nilai peluang 0<p<1.
+
+   Kaidah pencacahan dalah aturan untuk menghitung banyaknya susunan objek, antara lain 
+     <ul>
+    <li>Aturan pengisian tempat
+      <li>Aturan penjumlahan</li>
+      <li>Aturan perkalian</li>
+    </li>
+    <li>Faktorial</li>
+    <li>Permutasi</li>
+    <li>Kombinasi</li>
+    </ul>
+    Guna kaidah pencacahan adalah menentukan banyaknya objek/kejadian tertentu yang muncul.
+    <span id="dots17">...</span>
+    <div id="more17">
+      <h3>Aturan penjumlahan</h3>
+      Kaidah penjumlahan digunakan pada suatu prosedur yang dapat dikerjakan dengan beberapa cara, tetapi cara-cara ini 
+      tidak dapat dikerjakan pada waktu bersamaan. Misalkan jika ada suatu prosedur/kegiatan  memiliki a cara atau b cara maka banyak cara adalah (a+b) . 
+      <p>Contoh:</p>
+Bapak Budi mempunyai 2 buah sepeda yakni sepeda A dan sepeda B. 
+Dan mempunyai juga 3 motor yakni Beat, Revo dan Vesva.
+<p>Pertanyaannya:</p> Jika bapak Budi ke pasar, ada berapa pilihan kendaraan yang digunakan.
+<br>
+<p>Jawab:</p> 
+Dari persoalan ini tidak mungkin bapak Budi sekaligus  
+menggunakan sepeda  dan motor,
+jadi banyaknya cara pergi ke pasar  adalah 2+3 yakni 5 cara, yakni menggunakan
+ sepeda A atau Beat atau sepeda B atau Revo atau Vespa.
+ <hr>
+Berapa peluang melihat bapak Budi menggunakan sepeda kepasar?<br>
+      Penjumlahan peluang terjadi pada kejadian saling lepas.Misalkan 
+      bila ada dua himpunan A dan B dengan anggota himpunannya a  dan b   dan 
+      kedua himpunan saling lepas maka banyaknya cara mengambil 1 pilihan dari kedua himpunan  
+      adalah menjumlahkan a + b.
+      <br> 
+      Persamaan penjumlahan peluang pada dua kejadian A dan B yang saling lepas adalah
+      $$P\left ( A\cup  B\right )=P(A)+P(B)$$
+Jadi peluang melihat bapak Budi menggunakan <br>
+<p>P(sepeda)=2/5</p>
+<p>P(sepeda atau motor)=2/5 + 3/5 =1</p>
+<p>P(sepeda A atau motor)=1/5 + 3/5 =4/5</p>
+<p>P(sepeda A atau Beat)=1/5 + 1/5 =2/5</p>
+<p>P(sepeda atau Beat)=2/5 + 1/5 =3/5</p>
+<hr>
+Tentukan berapa banyak cara jika ada 4 calon laki-laki dan 2 calon perempuan 
+untuk menjadi 1 ketua kelas.?<br>
+<label> <br>
+      <input type="radio" name="no69" style="display:inline-flex">4<br>
+      <input type="radio" name="no69" style="display:inline-flex">5<br>
+      <input type="radio" name="no69" id="jno69" style=" display:inline-flex" >6
+      <br>
+      <input type="radio" name="no69" style=" display:inline" >8<br>
+      <div id="rno69"></div>
+</label>
+      <hr>
+     Berapa peluang laki-laki menjadi ketua kelas.<br>
+      <label><br>
+      <input type="radio" name="no69" style="display:inline-flex">1/2<br>
+      <input type="radio" name="no69" style="display:inline-flex">1/3<br>
+      <input type="radio" name="no69" id="jno69" style=" display:inline-flex" >2/3<br>
+      <input type="radio" name="no69" style=" display:inline" >1/6<br>
+      <div id="rno69"></div>
+      </label>
+      <hr>
+
+      <div id="rno69"></div>
+      
+      </label>
+      <hr>
+      <h3>Aturan perkalian</h3>
+      Kaidah perkalian digunakan pada suatu prosedur yang dapat dikerjakan dengan beberapa cara, tetapi cara-cara ini 
+      dikerjakan pada waktu bersamaan. Misalkan jika ada suatu prosedur/kegiatan  memiliki a cara dan b cara maka banyak cara adalah (a x b) . 
+      <p>Contoh:</p>
+      Warung bapak Budi menyediakan 2 macam nasi yaitu nasi putih dan nasi uduk serta lauknya ada 3 macam yaitu ayam geprek, 
+      ayam bakar dan ikan bakar. 
+      Berapa banyaknya paket makanan warung bapak Budi ini.
+      <p>Jawab:</p> 
+Dari persoalan diatas setiap paket terdiri atas nasi dan lauk (bersama-sama),  masing-masing 2 pilihan nasi dan 3 pilihan lauk.
+Maka menurut kaidah perkalian maka banyaknya paket adalah 2 x 3 = 6 paket.
+yakni
+<p>paket 1: nasi putih dan ayam geprek</p>
+<p>paket 2: nasi putih dan ayam bakar</p>
+<p>paket 3: nasi putih dan ikan bakar</p>
+<p>paket 4: nasi uduk dan ayam geprek</p>
+<p>paket 5: nasi uduk dan ayam bakar</p>
+<p>paket 6: nasi uduk dan ikan bakar</p>
+<hr>
+<br>
+Jika setiap paket terdiri atas 3 jenis makanan dimana jenis 1: nasi dan kentang. Jenis 2:ayambakar dan ayam goreng. Jenis 3:jus jeruk, jus melon ,jus mangga.
+Berapa jumlah variasi paket makanan  yang tersedia? <br>
+<label> <br>
+      <input type="radio" name="no69" style="display:inline-flex">4<br>
+      <input type="radio" name="no69" style="display:inline-flex">6<br>
+      <input type="radio" name="no69" id="jno69" style=" display:inline-flex" >12<br>
+      <input type="radio" name="no69" style=" display:inline" >16<br>
+      <div id="rno69"></div>
+</label>
+      <hr>
+
+
+
+
+
+
+ <hr>
+    </div>
+
+   <h1 id="nilai17"></h1>
+   
+    <br>
+    <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim17() >Cek Nilai Peluang</button>
+    <button onclick="myFunction17()" id="myBtn17">Read more</button>
+            
+   
+  </div>
+  
+
+
+<!-- batas bab -->
+
+<div id="bab18" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-100">
   <div>
     <input  type="checkbox" name="flexRadioDefault" id="toggle13">
     <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
       mode
     </label>
-  </div>
-
+  </div> 
+ 
 
 <h2 >
 Statistik </h2>
-<label for="">
+Statistik adalah angka-angka yang dikumpulkan, dikelompkkan 
+atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
 
-<p>definisi persamaan exponen, jika a adalah konstanta dan 
-  <math>
-    
-    <mrow>
-  <mrow>
-    <msup> <mi>a</mi> <mn>f(x)</mn> </msup> 
-  </mrow>
-  <mo>=</mo>
-  <mrow>
-    <msup> <mi>a</mi> <mn>g(x)</mn> </msup> 
-  </mrow>
-  </mrow>
-  </math>
-    maka
-  </p> 
-  <p style="font-size:small">
-  <input type="radio" name="no800" style=" display:inline-flex">  f(x)=1<br>
-  <input type="radio" name="no800" id="jno800" style=" display:inline-flex"> <msup>f(x)=g(x)<br>
-  <input type="radio" name="no800" style=" display:inline-flex">f(x)=0<br>
-  <input type="radio" name="no800" style=" display:inline">g(x)=1<br>
-  <div id="rno800"></div>
+<span id="dots18">...</span>
+  <div id="more18">
+ <p> Jenis data</p>  
+ Data berupa angka yang diperoleh melalui pengukuran disebut data kuantitatif Contoh data kuantitatif : angka yang diperoleh dari pengukuran tinggi badan siswa;
+ sedangkan data kualitatif adalah data yang diperileh melalui pengamatan.Contoh data kualitatif : nomor WA siswa. 
   <hr>
-<p>definisi persamaan exponen, jika a dan b konstanta dan
-<math>
-
-<mrow>
-<mrow>
-<msup> <mi>a</mi> <mn>f(x)</mn> </msup>    
-</mrow>
-<mo>=</mo>
-<mrow>
-<msup> <mi>b</mi> <mn>f(x)</mn> </msup>    
-</mrow>
-</mrow>
-</math>
-maka
-</p> 
-<p style="font-size:small">
-<input type="radio" name="no801" style=" display:inline-flex">  f(x)=1<br>
-<input type="radio" name="no801" id="jno801" style=" display:inline-flex"> <msup>f(x)=0<br>
-<input type="radio" name="no801" style=" display:inline-flex">f(x)=a<br>
-<input type="radio" name="no801" style=" display:inline">f(x)=b<br>
-<div id="rno801"></div>
-<hr>
-<p>Tiga asumsi menentukan x suatu persamaan exponen </p>
-<math>
-
-<mrow>
-<mrow>
-<msup> <mi>f(x)</mi> <mn>g(x)</mn> </msup>    
-</mrow>
-<mo>=</mo>
-<mrow>
-<msup> <mi>f(x)</mi> <mn>h(x)</mn> </msup>    
-</mrow>
-</mrow>
-</math>
-
-<ul class="list-outside list-decimal">
-<li>g(x)=h(x)</li>
-<li>f(x)=1</li>
-<li>f(x)=0</li>
-</ul>
-<p></p>
-Untuk menentukan x  adalah mengubah persamaan exponen menjadi  persamaan biasa
-</p>
-<hr>
-
-<p> persamaan exponen 
-</p>
-<math>
-    
-<mrow>
-<mrow>
-<msup> <mi>2</mi> <mn>x-1</mn> </msup> 
-</mrow>
-<mo>=</mo>
-<mrow>
-<msup> <mi>2</mi> <mn>3x+2</mn> </msup> 
-</mrow>
-</mrow>
-</math>
-dapat diubah menjadi
-</p>
-<input type="radio" name="no802" id="jno802" style=" display:inline-flex">x-1=3x+2 <br>
-<input type="radio" name="no802" style=" display:inline-flex">x+1=3x-2<br>
-<input type="radio" name="no802" style=" display:inline-flex">(x-1)(3x+2)=0<br>
-<input type="radio" name="no802" style=" display:inline">(x+1)(3x-2)=0<br>
-<div id="rno802"></div>
-<hr>
-<p>jika suatu persamaan exponen dapat diubah menjadi x-4=3x+2 maka x  adalah
-</p>
-</p>
-<input type="radio" name="no803" style=" display:inline-flex">2<br>
-<input type="radio" name="no803" style=" display:inline-flex">3<br>
-<input type="radio" name="no803" id="jno803" style=" display:inline-flex">-3 <br>
-<input type="radio" name="no803" style=" display:inline">-2<br>
-<div id="rno803"></div>
-<hr>
-
-<p>persamaan  exponen
-</p>
-<math>
-
-<mrow>
-<mrow>
-<msup> <mi>3</mi> <mn>
-  <mrow>
-    <msup> <mi>x</mi> <mn>2</mn> </msup> 
-  </mrow>
-</mn> </msup>    
-</mrow>
-<mo>=</mo>
-<mrow>
-<msup> <mi>3</mi> <mn>x+6</mn> </msup>    
-</mrow>
-</mrow>
-</math>
-</p>
-dapat diubah menjadi<br>
-<input type="radio" name="no804" style=" display:inline-flex">
-<math>
-
-<mrow>
-<mrow>
-<msup> <mi>x</mi> <mn>2</mn> </msup> <mo>+</mo>
-    <mrow>
-      <mn></mn>
-      <mo>&InvisibleTimes;</mo>
-      <mi>x</mi>
-    </mrow>
-<mo>-</mo>
-<mn>6</mn>
-</mrow>
-<mo>=</mo>
-<mn>0</mn>
-</mrow>
-</math>
-<br>
-<input type="radio" name="no804" style=" display:inline-flex">
-<math>
-
-<mrow>
-<mrow>
-<msup> <mi>x</mi> <mn>2</mn> </msup> <mo>+</mo>
-    <mrow>
-      <mn></mn>
-      <mo>&InvisibleTimes;</mo>
-      <mi>x</mi>
-    </mrow>
-<mo>+</mo>
-<mn>6</mn>
-</mrow>
-<mo>=</mo>
-<mn>0</mn>
-</mrow>
-</math>
-<br>
-<input type="radio" name="no804"  style=" display:inline-flex">
-<math>
-
-<mrow>
-<mrow>
-<msup> <mi>x</mi> <mn>2</mn> </msup> <mo>-</mo>
-    <mrow>
-      <mn></mn>
-      <mo>&InvisibleTimes;</mo>
-      <mi>x</mi>
-    </mrow>
-<mo>+</mo>
-<mn>6</mn>
-</mrow>
-<mo>=</mo>
-<mn>0</mn>
-</mrow>
-</math>
-<br>
-<input type="radio" name="no804" id="jno804" style=" display:inline">
-<math>
-
-<mrow>
-<mrow>
-<msup> <mi>x</mi> <mn>2</mn> </msup> <mo>-</mo>
-    <mrow>
-      <mn></mn>
-      <mo>&InvisibleTimes;</mo>
-      <mi>x</mi>
-    </mrow>
-<mo>-</mo>
-<mn>6</mn>
-</mrow>
-<mo>=</mo>
-<mn>0</mn>
-</mrow>
-</math>
-<br> 
-<div id="rno804"></div>
-<hr>
-
-<p>nilai x dari persamaan exponen 
-</p>
-<math>
-
-<mrow>
-<mrow>
-<msup> <mi>5</mi> <mn>
-  <mrow>
-    <msup> <mi>x</mi> <mn>2</mn> </msup> 
-  </mrow>
-</mn> </msup>    
-</mrow>
-<mo>=</mo>
-<mrow>
-<msup> <mi>5</mi> <mn>x+6</mn> </msup>    
-</mrow>
-</mrow>
-</math>
-</p>
-<input type="radio" name="no805" style=" display:inline-flex">2 dan 3<br>
-<input type="radio" name="no805" style=" display:inline-flex">-2 dan -3<br>
-<input type="radio" name="no805" style=" display:inline">-2 dan -3<br>
-<input type="radio" name="no805" id="jno805" style=" display:inline-flex">3 dan -2<br>
-<div id="rno805"></div>
-<hr>
-
-Persamaan exponen..
-<math>
-
-<mrow>
-<mrow>
-<msup> <mi>(x-1)</mi> <mn>x</mn> </msup>    
-</mrow>
-<mo>=</mo>
-<mrow>
-<msup> <mi>(x-1)</mi> <mn>2</mn> </msup>    
-</mrow>
-</mrow>
-</math>
-
-himpunan penyelesaiaannya adalah x berturut-turut
-</p>
-</p>
-<input type="radio" name="no806" style=" display:inline-flex">-1,0,2<br>
-<input type="radio" name="no806" id="jno806" style=" display:inline-flex">0,1,2<br>
-<input type="radio" name="no806" style=" display:inline-flex">1,2<br>
-<input type="radio" name="no806" style=" display:inline">2<br>
-<div id="rno806"></div>
-<hr>
-
-Persamaan exponen
-<math>
-<mrow>
-<msup> <mi>3</mi> 
-  
-  <mn>
-  <mrow>
-     <mi>x+1</mi>   
-  </mrow>
-  </mn>
-</msup>    
-</mrow>
-<mo>=</mo>
-<mrow>
-<mn>27</mn>     
-</mrow>
-
-</math>
+ Jenis data dibawah yang termasuk data kuantitatif adalah <br>
+ <label> <br>
+       <input type="radio" name="no69" style="display:inline-flex">nomer hp<br>
+       <input type="radio" name="no69" style="display:inline-flex">no. kartu penduduk<br>
+       <input type="radio" name="no69" id="jno69" style=" display:inline-flex" >tinggi badan<br>
+       <input type="radio" name="no69" style=" display:inline" >plat nomor kendaraan<br>
+       <div id="rno69"></div>
+ </label>
+       <hr>
+       <p> Penyajian data</p>
+       <p> 1.Penyajian data tunggal</p>
+       1.diagram batang,garis,lingkaran,pikogram
+       2.diagram titik,diagram pencar
+       <p> 2.Penyajian data berkelompok</p>
+       1.tabel.
+       2.histogram,poligon.ogive.
+       <p> Ukuran pemusatan data</p>
+       1.mean/rerata 
+       2.modus
+       3.median .
 
 
-nilai x adalah
-</p>
-</p>
-<input type="radio" name="no807" style=" display:inline-flex">4<br>
-<input type="radio" name="no807" style=" display:inline-flex">3<br>
-<input type="radio" name="no807" id="jno807" style=" display:inline-flex">2<br>
-<input type="radio" name="no807" style=" display:inline">1<br>
-<div id="rno807"></div>
-<hr>
-
-
-Fungsi exponen 
-<math>
-
-<mrow>
-  <mn>f(x)</mn>
-  <mo>=</mo>
-<mrow>
-<msup> <mi>2</mi> <mn>x+1</mn> </msup> 
-</mrow>
-</mrow>
-</math><br>
-<p>maka f(2) adalah</p>
-<input type="radio" name="no808" style=" display:inline-flex">5<br>
-<input type="radio" name="no808" style=" display:inline-flex">6<br>
-<input type="radio" name="no808" id="jno808" style=" display:inline-flex">8<br>
-<input type="radio" name="no808" style=" display:inline">9<br>
-<div id="rno808"></div>
-<hr>
-
-
-
-
-Fungsi exponen 
-<math>
-
-<mrow>
-  <mn>f(x)</mn>
-  <mo>=</mo>
-  <mn>3</mn>
-  <mo>.</mo>
-<mrow>
-<msup> <mfrac>
-  <mi><mn>1</mn></mi>
-  <mi><mn>2</mn></mi>
-  </mfrac>  <mn>(x+1)</mn> </msup> 
-</mrow>
-
-
-</mrow>
-</math>
-
-maka nilai f(2) <br>
-
-<input type="radio" name="no809" style=" display:inline-flex">
-<math>
-<mfrac>
-<mi><mn>3</mn></mi>
-<mi><mn>2</mn></mi>
-</mfrac></math> <br>
-<input type="radio" name="no809" style=" display:inline-flex">
-<math>
-<mfrac>
-<mi><mn>3</mn></mi>
-<mi><mn>4</mn></mi>
-</mfrac></math> <br>
-<input type="radio" name="no809" id="jno809" style=" display:inline-flex">
-<math>
-<mfrac>
-<mi><mn>3</mn></mi>
-<mi><mn>8</mn></mi>
-</mfrac></math> <br>
-<input type="radio" name="no809" style=" display:inline">
-<math>  
-<mfrac>
-<mi><mn>24</mn></mi>
-<mi><mn>3</mn></mi>
-</mfrac></math> <br>
-<div id="rno809"></div>
-<hr>
-<h1 id="nilai8"></h1>
-<br>
-<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim8() >Cek Nilai Statistk</button>
-</div>
-
-<!-- 
-<div style="font-size:3rem;text-align:center;height: 50px; width:150px;background:rgb(148, 148, 158)"
-id="nilai">
+  </div>
+  <h1 id="nilai18">  </h1><br>
+<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim17() >Cek Nilai Statistik</button>
+  <button onclick="myFunction18()" id="myBtn18">Read more</button>
 
 </div>
-<button>Nilai Total</button>
-<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl">cek nilai total</button>
-
-<hr> -->
-
+ 
 </div>
-
- </div>
-
 
 </section>
 
@@ -9718,7 +9598,7 @@ id="nilai">
 	<button style=" background-color: rgb(163, 140, 194);"><a href="indexmatrik.html"><h3>MATRIK</h3></a>
 	<button style=" background-color: rgb(224, 158, 114);"><a href="indexvektor.html"><h3>VEKTOR</h3></a> </button>
 	</div> -->
-<!-- 
+
 <form name="submit-to-google-sheet">
 <br>
 	<div class="modal-button-container">
@@ -9740,7 +9620,7 @@ id="nilai">
 
 </form>
 
- -->
+
 
 </div>
 </main> 
@@ -9864,6 +9744,293 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           checkbo13.checked ? html13.classList.add('dark') : html13.classList.remove('dark'); 
           });
           </script>
+<script>
+  function myFunction() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("myBtn");
+  
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Read more";
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Read less";
+      moreText.style.display = "inline";
+    }
+  }
+
+  function myFunction1() {
+    var dots1 = document.getElementById("dots1");
+    var moreText1 = document.getElementById("more1");
+    var btnText1 = document.getElementById("myBtn1");
+  
+    if (dots1.style.display === "none") {
+      dots1.style.display = "inline";
+      btnText1.innerHTML = "Read more";
+      moreText1.style.display = "none";
+    } else {
+      dots1.style.display = "none";
+      btnText1.innerHTML = "Read less";
+      moreText1.style.display = "inline";
+    }
+  }
+  function myFunction2() {
+    var dots2= document.getElementById("dots2");
+    var moreText2 = document.getElementById("more2");
+    var btnText2 = document.getElementById("myBtn2");
+  
+    if (dots2.style.display === "none") {
+      dots2.style.display = "inline";
+      btnText2.innerHTML = "Read more";
+      moreText2.style.display = "none";
+    } else {
+      dots2.style.display = "none";
+      btnText2.innerHTML = "Read less";
+      moreText2.style.display = "inline";
+    }
+  }
+  function myFunction3() {
+    var dots3 = document.getElementById("dots3");
+    var moreText3 = document.getElementById("more3");
+    var btnText3 = document.getElementById("myBtn3");
+  
+    if (dots3.style.display === "none") {
+      dots3.style.display = "inline";
+      btnText3.innerHTML = "Read more";
+      moreText3.style.display = "none";
+    } else {
+      dots3.style.display = "none";
+      btnText3.innerHTML = "Read less";
+      moreText3.style.display = "inline";
+    }
+  }
+  function myFunction4() {
+    var dots4 = document.getElementById("dots4");
+    var moreText4 = document.getElementById("more4");
+    var btnText4 = document.getElementById("myBtn");
+  
+    if (dots4.style.display === "none") {
+      dots4.style.display = "inline";
+      btnText4.innerHTML = "Read more";
+      moreText4.style.display = "none";
+    } else {
+      dots4.style.display = "none";
+      btnText4.innerHTML = "Read less";
+      moreText4.style.display = "inline";
+    }
+  }
+  function myFunction5() {
+    var dots5 = document.getElementById("dots5");
+    var moreText5 = document.getElementById("more5");
+    var btnText5 = document.getElementById("myBtn5");
+  
+    if (dots5.style.display === "none") {
+      dots5.style.display = "inline";
+      btnText5.innerHTML = "Read more";
+      moreText5.style.display = "none";
+    } else {
+      dots5.style.display = "none";
+      btnText5.innerHTML = "Read less";
+      moreText5.style.display = "inline";
+    }
+  }
+  function myFunction6() {
+    var dots6 = document.getElementById("dots6");
+    var moreText6 = document.getElementById("more6");
+    var btnText6 = document.getElementById("myBtn6");
+  
+    if (dots6.style.display === "none") {
+      dots6.style.display = "inline";
+      btnText6.innerHTML = "Read more";
+      moreText6.style.display = "none";
+    } else {
+      dots6.style.display = "none";
+      btnText6.innerHTML = "Read less";
+      moreText6.style.display = "inline";
+    }
+  }
+  function myFunction7() {
+    var dots7 = document.getElementById("dots7");
+    var moreText7 = document.getElementById("more7");
+    var btnText7 = document.getElementById("myBtn7");
+  
+    if (dots7.style.display === "none") {
+      dots7.style.display = "inline";
+      btnText7.innerHTML = "Read more";
+      moreText7.style.display = "none";
+    } else {
+      dots7.style.display = "none";
+      btnText7.innerHTML = "Read less";
+      moreText7.style.display = "inline";
+    }
+  }function myFunction8() {
+    var dots8 = document.getElementById("dots8");
+    var moreText8 = document.getElementById("more8");
+    var btnText8 = document.getElementById("myBtn8");
+  
+    if (dots8.style.display === "none") {
+      dots8.style.display = "inline";
+      btnText8.innerHTML = "Read more";
+      moreText8.style.display = "none";
+    } else {
+      dots8.style.display = "none";
+      btnText8.innerHTML = "Read less";
+      moreText8.style.display = "inline";
+    }
+  }
+  function myFunction9() {
+    var dots9 = document.getElementById("dots9");
+    var moreText9 = document.getElementById("more9");
+    var btnText9 = document.getElementById("myBtn9");
+  
+    if (dots9.style.display === "none") {
+      dots9.style.display = "inline";
+      btnText9.innerHTML = "Read more";
+      moreText9.style.display = "none";
+    } else {
+      dots9.style.display = "none";
+      btnText9.innerHTML = "Read less";
+      moreText9.style.display = "inline";
+    }
+  }
+  function myFunction10() {
+    var dots10 = document.getElementById("dots10");
+    var moreText10 = document.getElementById("more10");
+    var btnText10 = document.getElementById("myBtn10");
+  
+    if (dots10.style.display === "none") {
+      dots10.style.display = "inline";
+      btnText10.innerHTML = "Read more";
+      moreText10.style.display = "none";
+    } else {
+      dots10.style.display = "none";
+      btnText10.innerHTML = "Read less";
+      moreText10.style.display = "inline";
+    }
+  }
+  function myFunction11() {
+    var dots11 = document.getElementById("dots11");
+    var moreText11 = document.getElementById("more11");
+    var btnText11 = document.getElementById("myBtn11");
+  
+    if (dots11.style.display === "none") {
+      dots11.style.display = "inline";
+      btnText11.innerHTML = "Read more";
+      moreText11.style.display = "none";
+    } else {
+      dots11.style.display = "none";
+      btnText11.innerHTML = "Read less";
+      moreText11.style.display = "inline";
+    }
+  }
+  function myFunction12() {
+    var dots12 = document.getElementById("dots12");
+    var moreText12 = document.getElementById("more12");
+    var btnText12 = document.getElementById("myBtn12");
+  
+    if (dots12.style.display === "none") {
+      dots12.style.display = "inline";
+      btnText12.innerHTML = "Read more";
+      moreText12.style.display = "none";
+    } else {
+      dots12.style.display = "none";
+      btnText12.innerHTML = "Read less";
+      moreText12.style.display = "inline";
+    }
+  }
+  function myFunction13() {
+    var dots13 = document.getElementById("dots13");
+    var moreText13 = document.getElementById("more13");
+    var btnText13 = document.getElementById("myBtn13");
+  
+    if (dots13.style.display === "none") {
+      dots13.style.display = "inline";
+      btnText13.innerHTML = "Read more";
+      moreText13.style.display = "none";
+    } else {
+      dots13.style.display = "none";
+      btnText13.innerHTML = "Read less";
+      moreText13.style.display = "inline";
+    }
+  }
+  function myFunction14() {
+    var dots14 = document.getElementById("dots14");
+    var moreText14 = document.getElementById("more14");
+    var btnText14 = document.getElementById("myBtn14");
+  
+    if (dots14.style.display === "none") {
+      dots14.style.display = "inline";
+      btnText14.innerHTML = "Read more";
+      moreText14.style.display = "none";
+    } else {
+      dots14.style.display = "none";
+      btnText14.innerHTML = "Read less";
+      moreText14.style.display = "inline";
+    }
+  }
+  function myFunction15() {
+    var dots15 = document.getElementById("dots15");
+    var moreText15 = document.getElementById("more15");
+    var btnText15 = document.getElementById("myBtn15");
+  
+    if (dots15.style.display === "none") {
+      dots15.style.display = "inline";
+      btnText15.innerHTML = "Read more";
+      moreText15.style.display = "none";
+    } else {
+      dots15.style.display = "none";
+      btnText15.innerHTML = "Read less";
+      moreText15.style.display = "inline";
+    }
+  }
+  function myFunction16() {
+    var dots16 = document.getElementById("dots16");
+    var moreText16 = document.getElementById("more16");
+    var btnText16 = document.getElementById("myBtn16");
+  
+    if (dots16.style.display === "none") {
+      dots16.style.display = "inline";
+      btnText16.innerHTML = "Read more";
+      moreText16.style.display = "none";
+    } else {
+      dots16.style.display = "none";
+      btnText16.innerHTML = "Read less";
+      moreText16.style.display = "inline";
+    }
+  }
+  function myFunction17() {
+    var dots17 = document.getElementById("dots17");
+    var moreText17 = document.getElementById("more17");
+    var btnText17 = document.getElementById("myBtn17");
+  
+    if (dots17.style.display === "none") {
+      dots17.style.display = "inline";
+      btnText17.innerHTML = "Read more";
+      moreText17.style.display = "none";
+    } else {
+      dots17.style.display = "none";
+      btnText17.innerHTML = "Read less";
+      moreText17.style.display = "inline";
+    }
+  }
+  function myFunction18() {
+    var dots18 = document.getElementById("dots18");
+    var moreText18 = document.getElementById("more18");
+    var btnText18 = document.getElementById("myBtn18");
+  
+    if (dots18.style.display === "none") {
+      dots18.style.display = "inline";
+      btnText18.innerHTML = "Read more";
+      moreText18.style.display = "none";
+    } else {
+      dots18.style.display = "none";
+      btnText18.innerHTML = "Read less";
+      moreText18.style.display = "inline";
+    }
+  }
+</script>
 
 
 </body>
