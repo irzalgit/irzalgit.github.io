@@ -1,4 +1,4 @@
-function kirimtri2() {
+function kirim1() {
   let poin = 0;
   const jno31 = document.querySelector("#jno31");
   const jno32 = document.querySelector("#jno32");
@@ -15,45 +15,35 @@ function kirimtri2() {
   const jno53 = document.querySelector("#jno53");
   const jno54 = document.querySelector("#jno54");
   const jno55 = document.querySelector("#jno55");
-  const jno101 = document.querySelector("#jno101");
-  const jno102 = document.querySelector("#jno102");
-  const jno103 = document.querySelector("#jno103");
-  const jno104 = document.querySelector("#jno104");
-  const jno105 = document.querySelector("#jno105");
-  const jno106 = document.querySelector("#jno106");
-  const jno107 = document.querySelector("#jno107");
-  const jno108 = document.querySelector("#jno108");
-  const jno109 = document.querySelector("#jno109");
-  const jno110 = document.querySelector("#jno110");
-  const jno111 = document.querySelector("#jno111");
-  const jno112 = document.querySelector("#jno112");
-  const jno113 = document.querySelector("#jno113");
-  const jno114 = document.querySelector("#jno114");
-  const jno115 = document.querySelector("#jno115");
-  const jno116 = document.querySelector("#jno116");
-  const jno117 = document.querySelector("#jno117");
-  const jno118 = document.querySelector("#jno118");
-  const jno119 = document.querySelector("#jno119");
-  const jno120 = document.querySelector("#jno120");
-  const jno131 = document.querySelector("#jno131");
-  const jno132 = document.querySelector("#jno132");
-  const jno133 = document.querySelector("#jno133");
-  const jno134 = document.querySelector("#jno134");
-  const jno135 = document.querySelector("#jno135");
-  const jno136 = document.querySelector("#jno136");
-  const jno137 = document.querySelector("#jno137");
-  const jno138 = document.querySelector("#jno138");
-  const jno139 = document.querySelector("#jno139");
-  const jno140 = document.querySelector("#jno140");
-  const jno141 = document.querySelector("#jno141");
-  const jno142 = document.querySelector("#jno142");
+  // const jno111 = document.querySelector("#jno111");
+  // const jno112 = document.querySelector("#jno112");
+  // const jno113 = document.querySelector("#jno113");
+  // const jno114 = document.querySelector("#jno114");
+  // const jno115 = document.querySelector("#jno115");
+  // const jno116 = document.querySelector("#jno116");
+  // const jno117 = document.querySelector("#jno117");
+  // const jno118 = document.querySelector("#jno118");
+  // const jno119 = document.querySelector("#jno119");
+  // const jno120 = document.querySelector("#jno120");
+  // const jno131 = document.querySelector("#jno131");
+  // const jno132 = document.querySelector("#jno132");
+  // const jno133 = document.querySelector("#jno133");
+  // const jno134 = document.querySelector("#jno134");
+  // const jno135 = document.querySelector("#jno135");
+  // const jno136 = document.querySelector("#jno136");
+  // const jno137 = document.querySelector("#jno137");
+  // const jno138 = document.querySelector("#jno138");
+  // const jno139 = document.querySelector("#jno139");
+  // const jno140 = document.querySelector("#jno140");
+  // const jno141 = document.querySelector("#jno141");
+  // const jno142 = document.querySelector("#jno142");
 
-  const sno101 = document.querySelector("#sno101");
-  const sno102 = document.querySelector("#sno102");
+  // const sno101 = document.querySelector("#sno101");
+  // const sno102 = document.querySelector("#sno102");
 
-  const sno111 = document.querySelector("#sno111");
-  const sno112 = document.querySelector("#sno112");
-
+  // const sno111 = document.querySelector("#sno111");
+  // const sno112 = document.querySelector("#sno112");
+  const nilai1=document.querySelector('#nilai1')
   if (jno31.checked) {
     response = "";
     poin = poin + 10;
@@ -174,14 +164,145 @@ function kirimtri2() {
   }
   rno55.innerHTML = response;
 
-  if (jno101.checked) {
+  // if (jno101.checked) {
+  //   response = "";
+  //   poin = poin + 10;
+  // } else {
+  //   response = "";
+  // }
+  
+  // if (sno101.value == "3") {
+  //   response = "";
+  //   poin = poin + 25;
+  // } else {
+  //   response = "";
+  // }
+  // rsno101.innerHTML = response;
+
+  // nilai1.innerHTML = poin;
+
+  // if (sno102.value == "-1") {
+  //   response = "";
+  //   poin = poin + 25;
+  // } else {
+  //   response = "";
+  // }
+  // rsno102.innerHTML = response;
+  // nilai1.innerHTML = poin;
+
+  // if (sno111.value == "155") {
+  //   response = "";
+  //   poin = poin + 25;
+  // } else {
+  //   response = "";
+  // }
+  // rsno111.innerHTML = response;
+  // nilai1.innerHTML = poin;
+  // if (sno112.value == "200") {
+  //   response = "";
+  //   poin = poin + 25;
+  // } else {
+  //   response = "";
+  // }
+  // rsno112.innerHTML = response;
+
+  nilai1.innerHTML = poin;
+
+
+  const optionsno31 = document.getElementsByName("no31");
+  for (let i = 0; i < optionsno31.length; i++) {
+      optionsno31[i].checked = false;
+  }
+  const optionsno32 = document.getElementsByName("no32");
+  for (let i = 0; i < optionsno32.length; i++) {
+      optionsno32[i].checked = false;
+  }
+  const optionsno33 = document.getElementsByName("no33");
+  for (let i = 0; i < optionsno33.length; i++) {
+      optionsno33[i].checked = false;
+  }
+  const optionsno34 = document.getElementsByName("no34");
+  for (let i = 0; i < optionsno34.length; i++) {
+      optionsno34[i].checked = false;
+  }
+
+  const optionsno35 = document.getElementsByName("no35");
+  for (let i = 0; i < optionsno35.length; i++) {
+      optionsno35[i].checked = false;
+  }
+
+  const optionsno36 = document.getElementsByName("no36");
+  for (let i = 0; i < optionsno36.length; i++) {
+      optionsno36[i].checked = false;
+  }
+  const optionsno37 = document.getElementsByName("no37");
+  for (let i = 0; i < optionsno37.length; i++) {
+      optionsno37[i].checked = false;
+  }
+  const optionsno38 = document.getElementsByName("no38");
+  for (let i = 0; i < optionsno38.length; i++) {
+      optionsno38[i].checked = false;
+  }
+  const optionsno39 = document.getElementsByName("no39");
+  for (let i = 0; i < optionsno39.length; i++) {
+      optionsno39[i].checked = false;
+  }
+
+  const optionsno40 = document.getElementsByName("no40");
+  for (let i = 0; i < optionsno40.length; i++) {
+      optionsno40[i].checked = false;
+  }
+  
+  const optionsno51 = document.getElementsByName("no51");
+  for (let i = 0; i < optionsno51.length; i++) {
+      optionsno51[i].checked = false;
+  }
+  const optionsno52 = document.getElementsByName("no52");
+  for (let i = 0; i < optionsno52.length; i++) {
+      optionsno52[i].checked = false;
+  }
+  const optionsno53 = document.getElementsByName("no53");
+  for (let i = 0; i < optionsno53.length; i++) {
+      optionsno53[i].checked = false;
+  }
+  const optionsno54 = document.getElementsByName("no54");
+  for (let i = 0; i < optionsno54.length; i++) {
+      optionsno54[i].checked = false;
+  }
+
+  const optionsno55 = document.getElementsByName("no55");
+  for (let i = 0; i < optionsno55.length; i++) {
+      optionsno55[i].checked = false;
+  }
+
+}
+function kirim2() {
+  let poin = 0;
+  
+   const jno101 = document.querySelector("#jno101");
+   const jno102 = document.querySelector("#jno102");
+   const jno103 = document.querySelector("#jno103");
+   const jno104 = document.querySelector("#jno104");
+   const jno105 = document.querySelector("#jno105");
+   const jno106 = document.querySelector("#jno106");
+   const jno107 = document.querySelector("#jno107");
+   const jno108 = document.querySelector("#jno108");
+   const jno109 = document.querySelector("#jno109");
+   const jno110 = document.querySelector("#jno110");
+       
+   const sno101=document.querySelector('#sno101')
+   const sno102=document.querySelector('#sno102')
+   
+   const nilai2=document.querySelector('#nilai2')
+  
+   if (jno101.checked) {
     response = "";
     poin = poin + 10;
   } else {
     response = "";
   }
   rno101.innerHTML = response;
-  if (jno102.checked) {
+   if (jno102.checked) {
     response = "";
     poin = poin + 10;
   } else {
@@ -209,7 +330,7 @@ function kirimtri2() {
     response = "";
   }
   rno105.innerHTML = response;
-
+ 
   if (jno106.checked) {
     response = "";
     poin = poin + 10;
@@ -246,250 +367,73 @@ function kirimtri2() {
   }
   rno110.innerHTML = response;
 
-  if (jno111.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno111.innerHTML = response;
 
-  if (jno112.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno112.innerHTML = response;
-  if (jno113.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno113.innerHTML = response;
-  if (jno114.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno114.innerHTML = response;
-  if (jno115.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno115.innerHTML = response;
-  if (jno116.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno116.innerHTML = response;
-  if (jno117.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno117.innerHTML = response;
-  if (jno118.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno118.innerHTML = response;
-  if (jno119.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno119.innerHTML = response;
-  if (jno120.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno120.innerHTML = response;
+  if (sno101.value=="3"){
+    response="ok";poin=poin+25} 
+  else {
+    response="x"}
+  rsno101.innerHTML=response
+  
 
-  if (jno131.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno131.innerHTML = response;
+  
+     if (sno102.value=="-1"){
+       response="ok";poin=poin+25
+     }else {
+       response="x"
+     }
+     rsno102.innerHTML=response
+     
+  
 
-  if (jno132.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno132.innerHTML = response;
-  if (jno133.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno133.innerHTML = response;
-  if (jno134.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno134.innerHTML = response;
-  if (jno135.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno135.innerHTML = response;
-  if (jno136.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno136.innerHTML = response;
-  if (jno137.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno137.innerHTML = response;
-  if (jno138.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno138.innerHTML = response;
-  if (jno139.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno139.innerHTML = response;
-  if (jno140.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno140.innerHTML = response;
-
-  if (jno141.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno141.innerHTML = response;
-
-  if (jno142.checked) {
-    response = "";
-    poin = poin + 10;
-  } else {
-    response = "";
-  }
-  rno142.innerHTML = response;
-
-  if (sno101.value == "3") {
-    response = "";
-    poin = poin + 25;
-  } else {
-    response = "";
-  }
-  rsno101.innerHTML = response;
   nilai2.innerHTML = poin;
 
-  if (sno102.value == "-1") {
-    response = "";
-    poin = poin + 25;
-  } else {
-    response = "";
+  
+  const optionsno101 = document.getElementsByName("no101");
+  for (let i = 0; i < optionsno101.length; i++) {
+      optionsno101[i].checked = false;
   }
-  rsno102.innerHTML = response;
-  nilai2.innerHTML = poin;
-
-  if (sno111.value == "155") {
-    response = "";
-    poin = poin + 25;
-  } else {
-    response = "";
+  const optionsno102 = document.getElementsByName("no102");
+  for (let i = 0; i < optionsno102.length; i++) {
+      optionsno102[i].checked = false;
   }
-  rsno111.innerHTML = response;
-  nilai2.innerHTML = poin;
-  if (sno112.value == "200") {
-    response = "";
-    poin = poin + 25;
-  } else {
-    response = "";
+  const optionsno103 = document.getElementsByName("no103");
+  for (let i = 0; i < optionsno103.length; i++) {
+      optionsno103[i].checked = false;
   }
-  rsno112.innerHTML = response;
-  nilai2.innerHTML = poin;
+  const optionsno104 = document.getElementsByName("no104");
+  for (let i = 0; i < optionsno104.length; i++) {
+      optionsno104[i].checked = false;
+  }
 
-  if (jno31.checked) jno31.checked = false;
-  if (jno32.checked) jno32.checked = false;
-  if (jno33.checked) jno33.checked = false;
-  if (jno34.checked) jno34.checked = false;
-  if (jno35.checked) jno35.checked = false;
-  if (jno36.checked) jno36.checked = false;
-  if (jno37.checked) jno37.checked = false;
-  if (jno38.checked) jno38.checked = false;
-  if (jno39.checked) jno39.checked = false;
-  if (jno40.checked) jno40.checked = false;
-  if (jno51.checked) jno51.checked = false;
-  if (jno52.checked) jno52.checked = false;
-  if (jno53.checked) jno53.checked = false;
-  if (jno54.checked) jno54.checked = false;
-  if (jno55.checked) jno55.checked = false;
+  const optionsno105 = document.getElementsByName("no105");
+  for (let i = 0; i < optionsno105.length; i++) {
+      optionsno105[i].checked = false;
+  }
 
-  if (jno101.checked) jno101.checked = false;
-  if (jno102.checked) jno102.checked = false;
-  if (jno103.checked) jno103.checked = false;
-  if (jno104.checked) jno104.checked = false;
-  if (jno105.checked) jno105.checked = false;
-  if (jno106.checked) jno106.checked = false;
-  if (jno107.checked) jno107.checked = false;
-  if (jno108.checked) jno108.checked = false;
-  if (jno109.checked) jno109.checked = false;
-  if (jno110.checked) jno110.checked = false;
-  if (jno111.checked) jno111.checked = false;
-  if (jno112.checked) jno112.checked = false;
-  if (jno113.checked) jno113.checked = false;
-  if (jno114.checked) jno114.checked = false;
-  if (jno115.checked) jno115.checked = false;
-  if (jno116.checked) jno116.checked = false;
-  if (jno117.checked) jno117.checked = false;
-  if (jno118.checked) jno118.checked = false;
-  if (jno119.checked) jno119.checked = false;
-  if (jno120.checked) jno120.checked = false;
-  if (jno131.checked) jno131.checked = false;
-  if (jno132.checked) jno132.checked = false;
-  if (jno133.checked) jno133.checked = false;
-  if (jno134.checked) jno134.checked = false;
-  if (jno135.checked) jno135.checked = false;
-  if (jno136.checked) jno136.checked = false;
-  if (jno137.checked) jno137.checked = false;
-  if (jno138.checked) jno138.checked = false;
-  if (jno139.checked) jno139.checked = false;
-  if (jno140.checked) jno140.checked = false;
-  if (jno141.checked) jno141.checked = false;
-  if (jno142.checked) jno142.checked = false;
+  const optionsno106 = document.getElementsByName("no106");
+  for (let i = 0; i < optionsno106.length; i++) {
+      optionsno106[i].checked = false;
+  }
+  const optionsno107 = document.getElementsByName("no107");
+  for (let i = 0; i < optionsno107.length; i++) {
+      optionsno107[i].checked = false;
+  }
+  const optionsno108 = document.getElementsByName("no108");
+  for (let i = 0; i < optionsno108.length; i++) {
+      optionsno108[i].checked = false;
+  }
+  const optionsno109 = document.getElementsByName("no109");
+  for (let i = 0; i < optionsno109.length; i++) {
+      optionsno109[i].checked = false;
+  }
+
+  const optionsno110 = document.getElementsByName("no110");
+  for (let i = 0; i < optionsno110.length; i++) {
+      optionsno110[i].checked = false;
+  }
+  
 }
+
 function kirim3() {
   let poin = 0;
   const jno71 = document.querySelector("#jno71");
