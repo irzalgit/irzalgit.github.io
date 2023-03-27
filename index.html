@@ -9876,7 +9876,7 @@ Transformasi = perubahan ; geometri : hal yang berhubungan dengan titik , sudut,
 
    
 </div>
-<div x-data="{open:false}">
+<!-- <div x-data="{open:false}">
  
   <button @click='open=!open' x-text="open ? 'tutup' : 'buka'">buka</button>
  <div x-show='open'> 
@@ -9885,8 +9885,15 @@ Transformasi = perubahan ; geometri : hal yang berhubungan dengan titik , sudut,
   </div>
   
   
-</div>
+</div> -->
  
+<div x-data="{open:false}">
+  <button @click='open=!open ' x-text="open ? 'tutup' : 'buka mindmap'">buka</button>
+  <div x-show="open" class="w-auto h-96 overflow-auto touch-auto"> 
+      
+      <img class="zoom w-[150%] max-w-none h-auto" src="./gbr/map11.svg" alt="ng ada gbr"  >   
+    </div>
+  </div>
 </section>
  
 <aside class="w-full md:w-1/4 bg-blue-200 p-4">
