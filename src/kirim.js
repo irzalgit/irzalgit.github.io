@@ -2482,6 +2482,14 @@ function kirim17() {
   const jno1703 = document.querySelector("#jno1703");
   const jno1704 = document.querySelector("#jno1704");
   const jno1705 = document.querySelector("#jno1705");
+  const jno1706 = document.querySelector("#jno1706");
+  const jno1707 = document.querySelector("#jno1707");
+  const jno1708 = document.querySelector("#jno1708");
+  const jno1709 = document.querySelector("#jno1709");
+  const jno1710 = document.querySelector("#jno1710");
+  const jno1711 = document.querySelector("#jno1711");
+  const jno1712 = document.querySelector("#jno1712");
+  const jno1713 = document.querySelector("#jno1713");
   
   const nilai17=document.querySelector('#nilai17')
 
@@ -2492,7 +2500,7 @@ function kirim17() {
   } else {
     response = "";
   }
-  rno1702.innerHTML = response;
+  rno1701.innerHTML = response;
 
   if (jno1702.checked) {
     response = "";
@@ -2508,7 +2516,7 @@ function kirim17() {
   } else {
     response = "";
   }
-  rno1702.innerHTML = response;
+  rno1703.innerHTML = response;
 
   if (jno1704.checked) {
     response = "";
@@ -2516,7 +2524,7 @@ function kirim17() {
   } else {
     response = "";
   }
-  rno1702.innerHTML = response;
+  rno1704.innerHTML = response;
 
   if (jno1705.checked) {
     response = "";
@@ -2524,7 +2532,72 @@ function kirim17() {
   } else {
     response = "";
   }
-  rno1702.innerHTML = response;
+  rno1705.innerHTML = response;
+
+
+  if (jno1706.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1706.innerHTML = response;
+
+  if (jno1707.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1707.innerHTML = response;
+
+  if (jno1708.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1708.innerHTML = response;
+
+  if (jno1709.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1709.innerHTML = response;
+
+  if (jno1710.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1710.innerHTML = response;
+
+  if (jno1711.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1711.innerHTML = response;
+
+  if (jno1712.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1712.innerHTML = response;
+
+  if (jno1713.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1713.innerHTML = response;
 
 nilai17.innerHTML=poin17;
   
@@ -2550,6 +2623,40 @@ nilai17.innerHTML=poin17;
    const optionsno1705 = document.getElementsByName("no1705");
    for (let i = 0; i < optionsno1705.length; i++) {
        optionsno1705[i].checked = false;
+   }
+
+   const optionsno1706 = document.getElementsByName("no1706");
+   for (let i = 0; i < optionsno1706.length; i++) {
+       optionsno1706[i].checked = false;
+   }
+   const optionsno1707 = document.getElementsByName("no1707");
+   for (let i = 0; i < optionsno1707.length; i++) {
+       optionsno1707[i].checked = false;
+   }
+   const optionsno1708 = document.getElementsByName("no1708");
+   for (let i = 0; i < optionsno1708.length; i++) {
+       optionsno1708[i].checked = false;
+   }
+   const optionsno1709 = document.getElementsByName("no1709");
+   for (let i = 0; i < optionsno1709.length; i++) {
+       optionsno1709[i].checked = false;
+   }
+
+   const optionsno1710 = document.getElementsByName("no1710");
+   for (let i = 0; i < optionsno1710.length; i++) {
+       optionsno1710[i].checked = false;
+   }
+   const optionsno1711 = document.getElementsByName("no1711");
+   for (let i = 0; i < optionsno1711.length; i++) {
+       optionsno1711[i].checked = false;
+   }
+   const optionsno1712 = document.getElementsByName("no1712");
+   for (let i = 0; i < optionsno1712.length; i++) {
+       optionsno1712[i].checked = false;
+   }
+   const optionsno1713 = document.getElementsByName("no1713");
+   for (let i = 0; i < optionsno1713.length; i++) {
+       optionsno1713[i].checked = false;
    }
    
 }
