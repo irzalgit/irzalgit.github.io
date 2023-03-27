@@ -818,6 +818,10 @@ video {
   width: 150%;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .w-4 {
   width: 1rem;
 }
@@ -878,6 +882,10 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.touch-auto {
+  touch-action: auto;
 }
 
 .list-outside {
@@ -955,6 +963,10 @@ video {
 
 .divide-gray-500\/10 > :not([hidden]) ~ :not([hidden]) {
   border-color: rgb(107 114 128 / 0.1);
+}
+
+.overflow-auto {
+  overflow: auto;
 }
 
 .overflow-hidden {
