@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+'<!DOCTYPE html>
 <html lang="en" class=" h-full ">
 
 <head>
@@ -28,6 +28,8 @@
 <style>
   #more {display: none;}
   #more1 {display: none;}
+  #map1 {display: none;}
+  
   #more2 {display: none;}
   #more3 {display: none;}
   #more4 {display: none;}
@@ -45,6 +47,7 @@
   #more16 {display: none;}
   #more17 {display: none;}
   #more18 {display: none;}
+  #more19 {display: none;}
   </style>
   
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -53,6 +56,13 @@
 <body onload="NextQuestion(0)" class=" h-full">
 
 
+  
+<!--   
+    
+     <img class='zoom'  src='gbr/map19.svg' alt='hup ng ada gbr' />
+      
+    -->
+   
   
 <!-- This example requires Tailwind CSS v3.0+ -->
 <div class="isolate bg-white">
@@ -318,6 +328,9 @@
     </div>
   </header>
    <main>
+    
+  
+   
   <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
       
       <!-- <div class="px-4 py-6 sm:px-0">
@@ -338,7 +351,7 @@
     <aside class="w-full md:w-1/4 bg-green-200 p-4">
 
 
-  <h2 style="text-align: center;">Update 21/03/23 01:00 WIB
+  <h2 style="text-align: center;">Update 28/03/23 01:00 WIB
   <br>
   <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
 
@@ -362,26 +375,31 @@
   </p>
 
   
+    
 </aside>
 <section  class="bg-green-100 w-full md:w-1/2 relative">
 <div class=" sticky top-0 left-0 right-0 z-50  w-full h-8  items-center">
 
   </div>
   
- <div class=" flex flex-col space-y-4 px-2  " >
-  <div id="bab1" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFFACD]">
+ <div  class=" flex flex-col space-y-4 px-2  " >
+  <div  id="bab1" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFFACD]">
       
     
   <div>
     <input  type="checkbox" name="flexRadioDefault" id="toggle1">
     <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">mode gelap</label>
-  </div> 
+    
+   
+    </div> 
+
   <!-- <a href="./gbr/map11.svg" download="MindmapMatematika">
     <img src="./gbr/download.svg" alt="ng ada gbr" width="25" height="36">
    </a> -->
-
  
-<h2>Bilangan Berpangkat</h2>
+ 
+<div class="text-2xl">Bilangan Berpangkat</div>
+
 <span id="dots1">...</span>
     <div id="more1">
 
@@ -957,10 +975,19 @@ Tentukan nilai logaritma berikut ini menggunakan sifat 1 <label>$$\log_575=...$$
 </label>
 <h1 id="nilai1"></h1>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim1()>cek nilai  bilangan berpangkat</button>
-
-
+   
 </div>
+<!-- 
+<div x-data="{open:false}">
+   <button class="outline outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' : 'buka mindmap'">buka</button>
+    <div x-show='open'> 
+        <div class="bg-sky-300 ">
+        <img class="zoom2  object-center " src='gbr/map1.svg'>
+        </div> 
+    </div>
+</div> -->
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction1()" id="myBtn1">buka</button>
+
 </div>
 <!-- batas -->
 <div id="bab2" class="bg-[#E6E6FA] dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700">
@@ -9512,18 +9539,104 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
             <div id="rno1704"></div>
       </label>
             <hr>
-    
-            Sebuah angka ribuan terdiri dari 4 angka. Jika tersedia angka 0,1,3,5,7 
-            berapa jumlah angka ribuan yang terbentuk? <br>
+                  Sebuah angka ribuan terdiri dari 4 angka. Jika tersedia angka 0,1,3,5,7 
+                  berapa jumlah angka ribuan yang terbentuk? <br>
+                  <label> <br>
+                        <input type="radio" name="no1705" style="display:inline-flex">12<br>
+                        <input type="radio" name="no1705" id="jno1705" style=" display:inline-flex" >96<br>
+                        <input type="radio" name="no1705" style="display:inline-flex">16<br>
+                        <input type="radio" name="no1705" style=" display:inline" >48<br>
+                        <div id="rno1705"></div>
+                  </label>    
+           <hr>
+            Pada plat nomor kendaraan terdapat urutan  xx 41nn Ay: diawali 2 abjad diikuti 4 nomor dan diakhiri 2 abjad.<br>           
+            Jika xx adalah BA atau BM; nn angka dari 0 s/d 99; dan Ay
+            dan y adalah A s/d F.
+            Berapa jumlah no. kendaaan yang dapat dibuat? <br>
             <label> <br>
-                  <input type="radio" name="no1705" style="display:inline-flex">12<br>
-                  <input type="radio" name="no1705" id="jno1705" style=" display:inline-flex" >96<br>
-                  <input type="radio" name="no1705" style="display:inline-flex">16<br>
-                  <input type="radio" name="no1705" style=" display:inline" >48<br>
-                  <div id="rno1705"></div>
+                  <input type="radio" name="no1706" style="display:inline-flex">200<br>
+                  <input type="radio" name="no1706" id="jno1706" style=" display:inline-flex" >1200<br>
+                  <input type="radio" name="no1706" style="display:inline-flex">2400<br>
+                  <input type="radio" name="no1706" style=" display:inline" >400<br>
+                  <div id="rno1706"></div>
             </label>
                   <hr>
-<!--             
+                  <h1>Faktorial</h1><br> didefinisikan sbb:<br>
+                  n!=n.(n-1).(n-2). ... .3.2.1
+                  <br>Sifat 1 :<br>n!=n.(n-1)!
+                  <br>Contoh: 4!=4.3.2.1=24
+                  <hr>
+                 Hitung 5! - 3! <br>
+                  <label> <br>
+                        <input type="radio" name="no1707" style="display:inline-flex">120<br>
+                        <input type="radio" name="no1707" id="jno1707" style=" display:inline-flex" >114<br>
+                        <input type="radio" name="no1707" style="display:inline-flex">115<br>
+                        <input type="radio" name="no1707" style=" display:inline" >100<br>
+                        <div id="rno1707"></div>
+                  </label>
+                        <hr>
+                        Hitung 5! / 3! <br>
+                  <label> <br>
+                        <input type="radio" name="no1708" style="display:inline-flex">15<br>
+                        <input type="radio" name="no1708" id="jno1708" style=" display:inline-flex" >20<br>
+                        <input type="radio" name="no1708" style="display:inline-flex">5<br>
+                        <input type="radio" name="no1708" style=" display:inline" >1<br>
+                        <div id="rno1708"></div>
+                  </label>
+                        <hr>
+                        Dengan menggunakan sifat 1 :
+                        <p>n!=n.(n-1)! . Tentukan:</p>
+                        <label>
+                         $$\frac{5!.3!}{6!.2!}$$                    
+                        <input type="radio" name="no1709" style="display:inline-flex">1<br>
+                        <input type="radio" name="no1709" id="jno1709" style=" display:inline-flex" >1/2<br>
+                        <input type="radio" name="no1709" style="display:inline-flex">3/2<br>
+                        <input type="radio" name="no1709" style=" display:inline" >7/4<br>
+                        <div id="rno1709"></div>
+                  </label>
+                        <hr> 
+                        <label>  Tentukan:
+                          $$\frac{7!}{5!.2!}$$
+                              <input type="radio" name="no1710" style="display:inline-flex">42<br>
+                              <input type="radio" name="no1710" id="jno1710" style=" display:inline-flex" >21<br>
+                              <input type="radio" name="no1710" style="display:inline-flex">20<br>
+                              <input type="radio" name="no1710" style=" display:inline" >8<br>
+                              <div id="rno1710"></div>
+                        </label>
+                              <hr>
+                              <h1>Permutasi</h1>
+                              <p>Permutasi r dari n ditulis nPr.</p>
+                              <label> 
+                                Hitung 4P2<br>
+                                    <input type="radio" name="no1711" style="display:inline-flex">2<br>
+                                    <input type="radio" name="no1711" id="jno1711" style=" display:inline-flex" >6<br>
+                                    <input type="radio" name="no1711" style="display:inline-flex">2<br>
+                                    <input type="radio" name="no1711" style=" display:inline" >8<br>
+                                    <div id="rno1711"></div>
+                              </label>
+                              <hr>
+                         <label>
+                              Dalam sebuah kotak ada 4 abjad yakni p,q,r,s . Dari kotak itu diambil 3 abjad sekaligus . Banyak permutasi  dari 3 abjad ini adalah<br>
+                              <input type="radio" name="no1712" style="display:inline-flex">4<br>
+                              <input type="radio" name="no1712" id="jno1712" style=" display:inline-flex" >24<br>
+                              <input type="radio" name="no1712" style="display:inline-flex">16<br>
+                              <input type="radio" name="no1712" style=" display:inline" >12<br>
+                              <div id="rno1712"></div>
+                        </label>
+                        <hr>
+                        <h1>Kombinasi</h1>
+                        Kombinasi r dari n ditulis nCr <br>
+                        
+                        <label>
+                          Dalam sebuah kotak ada 5 abjad yakni p,q,r,s,t . Dari kotak itu diambil 3 abjad sekaligus . Banyak kombinasi  dari 3 abjad ini adalah <br>
+                              <input type="radio" name="no1713" style="display:inline-flex">4<br>
+                              <input type="radio" name="no1713" id="jno1713" style=" display:inline-flex" >10<br>
+                              <input type="radio" name="no1713" style="display:inline-flex">24<br>
+                              <input type="radio" name="no1713" style=" display:inline" >6<br>
+                              <div id="rno1713"></div>
+                        </label>
+
+                  <!--             
 <div x-data>
     <ul>
 <template x-for="nm in $store.mahasiswa.nama">
@@ -9563,7 +9676,8 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
       mode
     </label>
   </div> 
- 
+
+   
 
 <h2 >
 Statistik </h2>
@@ -9583,7 +9697,8 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
        <input type="radio" name="no1801" id="jno1801" style=" display:inline-flex" >tinggi badan<br>
        <input type="radio" name="no1801" style=" display:inline" >plat nomor kendaraan<br>
        <div id="rno1801"></div>
- </label>
+ </label> 
+ 
        <hr>
        Jenis data dibawah yang termasuk data kualitatif adalah <br>
        <label> <br>
@@ -9606,6 +9721,7 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
        2.modus
        3.median .
 <hr>
+
  <h1 id="nilai18"></h1>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim18()" >Cek Nilai Statistik</button>
 
@@ -9613,20 +9729,166 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
    <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction18()" id="myBtn18">buka</button>
 
 </div>
+
+<div id="bab19" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-800 bg-[#BDAAFD]">
+  <div>
+    <input  type="checkbox" name="flexRadioDefault" id="toggle19">
+    <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+      mode
+    </label>
+  </div> 
  
-<div x-data="{open:false}">
-  <button @click='open=!open ' x-text="open ? 'tutup' : 'buka mindmap'">buka</button>
-  <div x-show="open" class="w-full h-96 overflow-auto touch-outo"> 
-      
-      <img class="w-[150%] max-w-none h-auto" src="./gbr/map11.svg" alt="ng ada gbr" style="width:fit-content ; height:fit-content" >   
-    </div>
-  </div>
+
+<h2 class="text-2xl">Transformasi Geometri </h2>
+Transformasi = perubahan ; geometri : hal yang berhubungan dengan titik , sudut, garis , bidang, ruang. Transformasi geometri antara laian:<br>1.Translasi.<br>2.Refleksi.<br>3.Rotasi.<br>4.Dilatasi.
+
+<span id="dots19">...</span>
+  <div id="more19">
+ 
+ <div class="text-2xl">Translasi </div>
+ <p>Translasi  adalah pergeseran koordinat titik A(x,y)  oleh
+ traslasi T(a,b)  sehingga diperoleh titik baru A'(x+a,y+b).</p>
+<hr>
+ <p>Tentukan hasil translasi A(2,3) oleh T(1,2)</p>
+<label> 
+       <input type="radio" name="no1901" style="display:inline-flex">A'(3,3)<br>
+       <input type="radio" name="no1901" style="display:inline-flex">A'(3,4)<br>
+       <input type="radio" name="no1901" id="jno1901" style=" display:inline-flex" >A'(3,5)<br>
+       <input type="radio" name="no1901" style=" display:inline" >A'(5,3)<br>
+       <div id="rno1901"></div>
+ </label><br>
+       <hr>
+       <p>Tentukan hasil translasi A(2,3) oleh T(1,2)</p>
+       <label> 
+        <input type="radio" name="no1902" style="display:inline-flex">A'(2,3)<br>
+        <input type="radio" name="no1902" style="display:inline-flex">A'(2,2)<br>
+        <input type="radio" name="no1902" id="jno1902" style=" display:inline-flex" >A'(3,3) <br>
+        <input type="radio" name="no1902" style=" display:inline" >A'(4,3)<br>
+        <div id="rno1902"></div>
+  </label>
+        <hr>      
+       
+       <div class="text-2xl"> Refleksi</div>
+       <p>refleksi adalah perubahan koordinat titik A(x,y) dengan menggunakan sifat bayagan dari  cermin datar, yaitu
+       jarak titik A(x,y) kecermin sama dengan jarak bayangan A'(x',y') ke cermin.
+
+        <br>Pencerminan terhadap sumbu x : 
+        <br>A(x,y) -> A'(x,-y)
+        <br>Pencerminan terhadap sumbu y : 
+        <br>A(x,y) -> A'(-x,y)
+        <br>Pencerminan terhadap garis x=h : 
+        <br>A(x,y) -> A'(2h-x,y)
+        <br>Pencerminan terhadap garis y=h : 
+        <br>A(x,y) -> A'(x,2h-y)
+        <br>Pencerminan terhadap garis y=x : 
+        <br>A(x,y) -> A'(-y,-x)
+
+</p>
+<p>itik A(4,-8) dicerminkan terhadap garis x=6, maka bayangan A' adalah</p>
+ <label>
+       <input type="radio" name="no1903" style="display:inline-flex">A'(4,-4)<br>
+       <input type="radio" name="no1903" style="display:inline-flex">A'(4,-8)<br>
+       <input type="radio" name="no1903" id="jno1903" style=" display:inline-flex" >A'(8,-8)<br>
+       <input type="radio" name="no1903" style=" display:inline" >A(-8,-8)<br>
+       <div id="rno1903"></div>
+ </label><hr> 
+<p>Garis 2x-y+5=0 direfeksikan terhadap x=-3 menjadi</p>
+       <label> 
+        <input type="radio" name="no1904" style="display:inline-flex">-2x+y-7=0<br>
+        <input type="radio" name="no1904" style="display:inline-flex">-2x-y+7=0<br>
+        <input type="radio" name="no1904" id="jno1904" style=" display:inline-flex" >-2x-y-7=0 <br>
+        <input type="radio" name="no1904" style=" display:inline" >-2x+y+7=0<br>
+        <div id="rno1904"></div>
+  </label>
+  <hr> 
+  <div class="text-2xl"> Rotasi</div> 
+  <p>Rotasi adalah perubahan koordinat titik A(x,y) akibat perputaran terhadap titik putar dengan besar A derajat.
+  Jika titik putarnya O(0,0) maka hasil putaran A(x,y) adalah A'(x',y') dimana:
+</p>
+<p>x'=x cos A - y sin A</p>
+<p>y'=x sin A + y cos A</p>
+    <label>
+<br>dimana A adalah besarnya sudut  putaran dalam derajat, bernilai positif jika berlawanan arah jarum jam dan sebaliknya.
+
+      <hr> 
+   <p>Bayangan titik A(6,-4) akibat rotasi 90 derajat berlawanan arah jarum jam dengan pusat putaran O(0,0) adalah
+     </p>   
+ <input type="radio" name="no1905" style="display:inline-flex">A'(6,-2)<br>
+ <input type="radio" name="no1905" style="display:inline-flex">A'(6,-3)<br>
+ <input type="radio" name="no1905" id="jno1905" style=" display:inline-flex" >A'(6,-4) <br>
+ <input type="radio" name="no1905" style=" display:inline" >A'(6,2)<br>
+ <div id="rno1905"></div>
+<br> <hr>
+<p>Bayangan titik A(6,-4) akibat rotasi 90 derajat berlawanan arah jarum jam dengan pusat putaran B(-3,4) adalah
+  </p 
+<input type="radio" name="no1906" style="display:inline-flex">A'(5,6)<br>
+<input type="radio" name="no1906" style="display:inline-flex"> A'(2,6)<br>
+<input type="radio" name="no1906" id="jno1906" style=" display:inline-flex" >A'(3,6) <br>
+<input type="radio" name="no1906" style=" display:inline" >A'(5,4)<br>
+<div id="rno1906"></div>
+        <hr>  
+  <div class="text-2xl"> Dilatasi</div>
+        <br>
+     <p> Dilatasi adalah perubahan jarak dari suatu titik A(x,y) ke O(0,0) dengan faktor skala .
+ <p>A(x,y)->A'(kx,ky) dengan faktor skala k</p>
+ <hr> 
+   <p>Bayangan A(4,-2) oleh dilatasi dengan faktor skala 4 terhadap O(0,0) adalah</p>    
+     
+        <input type="radio" name="no1907" style="display:inline-flex">A'(16,8)<br>
+        <input type="radio" name="no1907" style="display:inline-flex">A'(16,4)<br>
+        <input type="radio" name="no1907" id="jno1907" style=" display:inline-flex" >A'(16,-8) <br>
+        <input type="radio" name="no1907" style=" display:inline" >A'(16,-4)<br>
+        <div id="rno1907"></div>
+
+ <label> <br>
+   <hr>
+   <p>Bayangan A(4,-2) oleh dilatasi dengan faktor skala 4 terhadap P(2,4) adalah</p>    
+    
+ <input type="radio" name="no1908" style="display:inline-flex">A'(40,26)<br>
+ <input type="radio" name="no1908" style="display:inline-flex">A'(40,6)<br>
+ <input type="radio" name="no1908" id="jno1908" style=" display:inline-flex" >A'(4,6) <br>
+ <input type="radio" name="no1908" style=" display:inline" >A'(40,-6)<br>
+ <div id="rno1908"></div>
+ <hr> 
+ 
   
+  
+  
+ 
+<hr>
+ <h1 id="nilai19"></h1>
+
+
+<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim19()" >Cek Nilai Transformasi Geometri</button>
+
+  </div>
+  <!-- <div id="contentContainer"> 
+    <div  id="thing" >
+     <img class='zoom'  src='gbr/map11.svg' alt='hup ng ada gbr' />
+     </div> 
+   
+   </div>  -->
+  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction19()" id="myBtn19">buka</button>
+
 </div>
 
+  
+
+   
+</div>
+<div x-data="{open:false}">
+ 
+  <button @click='open=!open' x-text="open ? 'tutup' : 'buka'">buka</button>
+ <div x-show='open'> 
+   <img class='zoom  w-[150%] max-w-none h-auto' src="./gbr/map11.svg" alt="ng ada gbr" >   
+ 
+  </div>
+  
+  
+</div>
+ 
 </section>
-
-
+ 
 <aside class="w-full md:w-1/4 bg-blue-200 p-4">
   <p class="dark:bg-white dark:text-black border border-slate-600 ">
   
@@ -9640,12 +9902,7 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
   <!-- <div class="flex justify-center"> -->
     <div>
     <div>
-      <div>
-        <input  type="checkbox" name="flexRadioDefault" >
-        <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-          mode
-        </label>
-      </div>
+   
       <!-- <div class="form-check">
         <input class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
         <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault2">
@@ -9833,6 +10090,8 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
   function myFunction1() {
     var dots1 = document.getElementById("dots1");
     var moreText1 = document.getElementById("more1");
+    var moremap1 = document.getElementById("map1");
+    
     var btnText1 = document.getElementById("myBtn1");
   
     if (dots1.style.display === "none") {
@@ -10099,6 +10358,26 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
       moreText18.style.display = "inline";
     }
   }
+
+  function myFunction19() {
+    var dots19 = document.getElementById("dots19");
+    var moreText19 = document.getElementById("more19");
+    var btnText19 = document.getElementById("myBtn19");
+  
+    if (dots19.style.display === "none") {
+      dots19.style.display = "inline";
+      btnText19.innerHTML = "buka";
+      moreText19.style.display = "none";
+    } else {
+      dots19.style.display = "none";
+      btnText19.innerHTML = "tutup";
+      moreText19.style.display = "inline";
+    }
+  }
+
+
+
+
 </script>
 <!-- 
 <script>
@@ -10107,5 +10386,17 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
     Alpine:store('mahasiswa',{tahun:2023,nama:['irzal','dani','deri'],});
   }
 </script> -->
+
+
+<script src="js/wheelzoom.js"></script>
+<script>
+	wheelzoom(document.querySelector('img.zoom'));
+
+	wheelzoom(document.querySelector('img.zoom2'));
+
+
+</script>
+
 </body>
 </html>
+'
