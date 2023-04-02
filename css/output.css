@@ -782,6 +782,10 @@ video {
   height: 24rem;
 }
 
+.h-\[280\] {
+  height: 280;
+}
+
 .h-auto {
   height: auto;
 }
@@ -814,12 +818,16 @@ video {
   width: 100%;
 }
 
-.w-\[150\%\] {
-  width: 150%;
+.w-\[397\] {
+  width: 397;
 }
 
 .w-auto {
   width: auto;
+}
+
+.w-\[150\%\] {
+  width: 150%;
 }
 
 .w-4 {
