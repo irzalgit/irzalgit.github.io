@@ -3,8 +3,8 @@
 
 <svg
    width="105mm"
-   height="74mm"
-   viewBox="0 0 105 74"
+   height="225mm"
+   viewBox="0 0 105 225"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
@@ -24,9 +24,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.5"
-     inkscape:cx="199"
-     inkscape:cy="141"
+     inkscape:zoom="1.5698611"
+     inkscape:cx="198.4252"
+     inkscape:cy="548.77466"
      inkscape:window-width="1366"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -44,16 +44,6 @@
          offset="0"
          id="stop6506" />
     </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient6508"
-       id="linearGradient6510"
-       x1="2.4869499"
-       y1="40.411156"
-       x2="112.75967"
-       y2="40.411156"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-6.4476187,-4.3422616)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient6508"
@@ -109,13 +99,6 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#7fe445;stroke:#00075b;stroke-width:0.00177057;fill-opacity:1"
-       id="rect5063"
-       width="110.00847"
-       height="78.230576"
-       x="-3.8285453"
-       y="-4.3695998" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.67613px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#241c1c;stroke-width:0.250354"
@@ -165,49 +148,6 @@
          style="font-size:8.32764px;stroke-width:0.312286"
          x="623.40918"
          y="14.906974">Bentuk Logaritma</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.67613px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#241c1c;stroke-width:0.250354"
-       x="56.067802"
-       y="69.074669"
-       id="text5613"
-       transform="scale(0.60646943,1.6488877)"><tspan
-         sodipodi:role="line"
-         id="tspan5611"
-         style="font-size:6.67613px;stroke-width:0.250354"
-         x="56.067802"
-         y="69.074669">Sifat-sifat</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.67613px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#241c1c;stroke-width:0.250354"
-       x="43.111298"
-       y="114.00623"
-       id="text5617"
-       transform="scale(0.60646943,1.6488877)"><tspan
-         sodipodi:role="line"
-         id="tspan5615"
-         style="font-size:6.67613px;stroke-width:0.250354"
-         x="43.111298"
-         y="114.00623">TRANSFORMASI GEOMETRI</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.67613px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#241c1c;stroke-width:0.250354"
-       x="44.962227"
-       y="151.4492"
-       id="text5621"
-       transform="scale(0.60646943,1.6488877)"><tspan
-         sodipodi:role="line"
-         id="tspan5619"
-         style="font-size:6.67613px;stroke-width:0.250354"
-         x="44.962227"
-         y="151.4492">TRANSFORMASI GEOMETRI</tspan></text>
-    <rect
-       style="fill:none;stroke:url(#linearGradient6510);stroke-width:0.264583;stroke-opacity:1"
-       id="rect5645"
-       width="110.00813"
-       height="75.583824"
-       x="-3.8283768"
-       y="-1.7230197" />
     <rect
        style="fill:none;stroke:url(#linearGradient6622);stroke-width:0.253239;stroke-opacity:1"
        id="rect6620"
@@ -279,63 +219,222 @@
          y="37.758724">Sifat-sifat</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11666667px;font-family:Cambria;-inkscape-font-specification:Cambria;fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.02645833;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       x="6.6071424"
-       y="49.949997"
-       id="text21341"><tspan
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="18.892555"
+       y="68.932579"
+       id="text2074"><tspan
          sodipodi:role="line"
-         id="tspan21339"
-         style="stroke-width:0.02645833;font-size:2.11666667px;-inkscape-font-specification:Cambria;font-family:Cambria;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;fill:#4d1ca9;stroke:#00075b;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
-         x="6.6071424"
-         y="49.949997">sifat 1</tspan></text>
-    <path
-       style="fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.079375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 19.953571,56.821429 C 12.289286,51.535713 12.289286,51.535713 12.289286,51.535713"
-       id="path25783" />
-    <path
-       style="fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.079375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 45.721428,40.303571 C 29.600001,57.217857 29.600001,57.217857 29.600001,57.217857"
-       id="path25785" />
-    <path
-       style="fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.079375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 51.403569,40.435715 c 7.003574,6.739284 7.003574,6.739284 7.003574,6.739284"
-       id="path25787" />
-    <path
-       style="fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.079375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 59.72857,53.517858 c -1.189286,8.853569 -1.189286,8.853569 -1.189286,8.853569"
-       id="path25789" />
-    <path
-       style="fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.079375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 9.1731276,48.230049 C 10.919456,47.347073 10.919456,47.347073 10.919456,47.347073"
-       id="path26012" />
-    <path
-       style="fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.079375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 8.280342,48.279102 C 8.7610727,47.072369 8.7610727,47.072369 8.7610727,47.072369"
-       id="path26014" />
-    <path
-       style="fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.079375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 8.3293962,50.339378 C 6.229878,51.153676 6.229878,51.153676 6.229878,51.153676"
-       id="path26016" />
-    <path
-       style="fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.079375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 8.7905052,50.319757 c 1.5010578,1.069379 1.5010578,1.069379 1.5010578,1.069379"
-       id="path26018" />
-    <path
-       style="fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.079375;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 6.7694738,48.632292 C 6.229878,47.817994 6.229878,47.817994 6.229878,47.817994"
-       id="path26020" />
+         id="tspan2072"
+         style="stroke-width:0.264583"
+         x="18.892555"
+         y="68.932579">matrik kolom</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:0.748796px;font-family:Cambria;-inkscape-font-specification:Cambria;fill:#4d1ca9;fill-opacity:1;stroke:#00075b;stroke-width:0.0015875;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="11.734914"
-       y="53.90242"
-       id="text29976"
-       transform="scale(1.1136412,0.89795526)"><tspan
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="19.061096"
+       y="79.746338"
+       id="text3464"><tspan
          sodipodi:role="line"
-         id="tspan29974"
-         style="stroke-width:0.0015875;stroke-miterlimit:4;stroke-dasharray:none"
-         x="11.734914"
-         y="53.90242">perkalian</tspan></text>
+         id="tspan3462"
+         style="stroke-width:0.264583"
+         x="19.061096"
+         y="79.746338">matrik baris</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="13.769426"
+       y="120.67416"
+       id="text5088"><tspan
+         sodipodi:role="line"
+         id="tspan5086"
+         style="stroke-width:0.264583"
+         x="13.769426"
+         y="120.67416">matik persgi</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="22.247189"
+       y="90.842697"
+       id="text6844"><tspan
+         sodipodi:role="line"
+         id="tspan6842"
+         style="stroke-width:0.264583"
+         x="22.247189"
+         y="90.842697">matrik diagonal</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="15.168538"
+       y="104.32584"
+       id="text8762"><tspan
+         sodipodi:role="line"
+         id="tspan8760"
+         style="stroke-width:0.264583"
+         x="15.168538"
+         y="104.32584">matrik identitas</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="13.490536"
+       y="133.7657"
+       id="text10536"><tspan
+         sodipodi:role="line"
+         id="tspan10534"
+         style="stroke-width:0.264583"
+         x="13.490536"
+         y="133.7657">matrik segitiga</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="81.404495"
+       y="78.401733"
+       id="text14397"><tspan
+         sodipodi:role="line"
+         id="tspan14395"
+         style="stroke-width:0.264583"
+         x="81.404495"
+         y="78.401733">penjumlahan matrik</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="81.040169"
+       y="113.27824"
+       id="text15325"><tspan
+         sodipodi:role="line"
+         id="tspan15323"
+         style="stroke-width:0.264583"
+         x="81.040169"
+         y="113.27824">perkalian matrik</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="85.320602"
+       y="130.28088"
+       id="text16319"><tspan
+         sodipodi:role="line"
+         id="tspan16317"
+         style="stroke-width:0.264583"
+         x="85.320602"
+         y="130.28088">invers matrik</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="44.534088"
+       y="181.85394"
+       id="text18369"><tspan
+         sodipodi:role="line"
+         id="tspan18367"
+         style="stroke-width:0.264583"
+         x="44.534088"
+         y="181.85394">transpose</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="41.359089"
+       y="197.69662"
+       id="text19406"><tspan
+         sodipodi:role="line"
+         id="tspan19404"
+         style="stroke-width:0.264583"
+         x="41.359089"
+         y="197.69662">determinan</tspan></text>
+    <path
+       style="fill:none;stroke:#0000a3;stroke-width:0.965;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 40.955055,36.741573 23.764045,47.022472 13.146067,60.505617 13.483146,83.932584 11.629213,109.88764 9.1011234,137.35955"
+       id="path20694" />
+    <path
+       style="fill:none;stroke:#008c00;stroke-width:1.165;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 48.707865,36.404494 25.449438,37.247189 2.35955,44.831467 9.94382,51.23595 0.168539,47.86517"
+       id="path20696"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:none;stroke:#d20000;stroke-width:1.065;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 44.83146,37.078652 3.876405,38.595504 v 53.932584 l -5.05618,27.64045 -8.595505,42.13483"
+       id="path20811" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 16.853932,68.932583 -3.202247,4.88764 3.370787,4.550564"
+       id="path21171" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 19.382022,91.348313 -6.404494,3.539326 0.842697,9.269661"
+       id="path21173" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 13.820224,122.02247 -3.8764038,5.5618 2.0224718,5.73034"
+       id="path21175" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 45.674158,166.85393 -5.224719,5.22472 2.528089,9.26966"
+       id="path21290" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 35.05618,199.38202 5.056179,-2.35955"
+       id="path21292" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 82.921347,79.550561 -8.595505,5.056179 7.247192,6.573035"
+       id="path21407" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 76.516851,118.48315 7.415733,-3.03371"
+       id="path21409" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="82.921349"
+       y="94.55056"
+       id="text23033"><tspan
+         sodipodi:role="line"
+         id="tspan23031"
+         style="stroke-width:0.264583"
+         x="82.921349"
+         y="94.55056">pengurangan</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 76.516851,118.48315 6.067417,10.61797"
+       id="path23676" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="51.404491"
+       y="165.67415"
+       id="text24772"><tspan
+         sodipodi:role="line"
+         id="tspan24770"
+         style="stroke-width:0.264583"
+         x="51.404491"
+         y="165.67415">minor</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="48.033707"
+       y="174.4382"
+       id="text25394"><tspan
+         sodipodi:role="line"
+         id="tspan25392"
+         style="stroke-width:0.264583"
+         x="48.033707"
+         y="174.4382">cofactor</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 40.449439,172.07865 4.55056,1.17977"
+       id="path25935" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.11667px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="58.483147"
+       y="7.4157305"
+       id="text26899"><tspan
+         sodipodi:role="line"
+         id="tspan26897"
+         style="stroke-width:0.264583"
+         x="58.483147"
+         y="7.4157305">definisi</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 46.179774,20.730337 55.617977,9.4382023"
+       id="path27278" />
   </g>
   <script
      id="mesh_polyfill"
