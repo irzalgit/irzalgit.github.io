@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:ital,wght@0,300;1,200&display=swap" rel="stylesheet">
 <link rel="stylesheet href="https://fonts.googleapis.com/css2?family=Tangerine">
-
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <!-- <script id="MathJax-script" async
@@ -364,7 +364,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     <aside class="w-full md:w-1/4 bg-green-200 p-4">
 
 
-  <h2 style="text-align: center;">Update 10/04/23 00:45 WIB
+  <h2 style="text-align: center;">Update 02/05/23 01:00 WIB
   <br>
   <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
   
@@ -387,6 +387,46 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   
   </p>
   
+
+  <div>
+		<div>
+<!-- <a href="https://script.google.com/macros/s/AKfycbzJXM5DmJUUAJtanx6AT_2DNnzUNi1aDgyA-9Hc5y-VcI7Xs9aFe9wLz-wTxQXi3GHNTQ/exec"><h3>TAMPILKAN S C O R E</h3></a>
+ -->
+<!-- <a href="https://script.google.com/macros/s/AKfycbyfSYlN6eiXIBJDTSZkRDKLS97BefRjvYLQd1j-HYu7CQPxW7JjYcggTQZDj2ViXi1ZDA/exec"><h3>TAMPILKAN Score UAS</h3></a>
+		</div> -->
+<!-- 	<div  class="middle2">
+   <iframe width=100% height="100%" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSSAxfka_PDpyHu4hji9-vy8A_nOB2bfXPbsc3Z63IDZ5dR519LRloWMdDTZPk-oCTiAFClfBaRf-kT/pubhtml?widget=true&amp;headers=false"></iframe>
+	   </div> -->
+     <!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRRJkpc6XQKfNMe_J-VqbyhZYU958FAu4JH4bhTLxbod91qzUpa7JE8TC1af1PgB9CquBZLPNtV8mu5/pubhtml?widget=true&amp;headers=false"></iframe>
+    </div> -->
+  <!-- 
+    <form id="test-form">
+  
+      <div>
+        <label>Field 1</label>
+        <input type="text" name="form_field_1" placeholder="Field 1"/>
+      </div>
+    
+      <div>
+        <label>Field 2</label>
+        <input type="text" name="form_field_2" placeholder="Field 2"/>
+      </div>
+      
+      <div>
+        <label>Field 3</label>
+        <input type="text" name="form_field_3" placeholder="Field 3"/>
+      </div>
+      
+      <div>
+        <label>Field 4</label>
+        <input type="text" name="form_field_4" placeholder="Field 4"/>
+      </div>
+    
+      <div>
+        <button type="submit"id="submit-form">Submit</button>
+      </div>
+    
+    </form> -->
     
 </aside>
 
@@ -3647,7 +3687,8 @@ jika sudut 90 derajat diubah ke radian menjadi
       </div>
     <!--  
             <div>
-             <label>Score:</label> <input style="width:50px; text-align:center;" ;name="score" type="text"  value="0" id="player-score-form"  readonly>
+             <label>Score:</label> 
+             <input style="width:50px; text-align:center;" name="score" type="text"  value="0" id="player-score-form"  readonly>
                 
         
             </div>
@@ -3700,11 +3741,29 @@ jika sudut 90 derajat diubah ke radian menjadi
       </div>
     
       <div class="next-button-container">
+        
+        <form  name="submit-to-google-sheet" class="flex">
+        <input  name="nama" type="text" placeholder="Isi nama anda " required > 
         <button onclick="handleNextQuestion()">Lanjutkan </button>
+        <button type="submit" class="btn btn-primary btn-kirim "> Simpan </button>  
+        <button class="btn btn-primary btn-loading d-none " disabled >Loading..</button></div>
+        <div class="alert alert-success alert-dismissible d-none my-alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
+        </form>
+        
+        
       </div>
       
     </div>
-    
+
+
+<div class="alert alert-success alert-dismissible d-none my-alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
+  </div>
+
+
   </div>
 
 
@@ -6280,7 +6339,10 @@ jika sudut 90 derajat diubah ke radian menjadi
 
 <h2 class=" text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">
   Persamaan dan Fungsi Kuadrat </h2>
-<label for="">
+
+
+
+
   <span id="dots9">...</span>
   <div id="more9">
 <p>definisi persamaan kuadrat
@@ -7142,8 +7204,20 @@ terhadap sumbu y adalah
 
 <!-- batas -->
 
+<!-- aaaa -->
+<!--  -->
+<!-- bbbbb -->
+
+
+
+
+
+
+
 <div id="bab10" class="bg-gradient-to-r from-yellow-100 to-red-100  dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 ">
-    <div>
+
+
+  <div>
       <input  type="checkbox" name="flexRadioDefault" id="toggle13">
       <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
         mode
@@ -7152,7 +7226,7 @@ terhadap sumbu y adalah
 
 
 <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Persamaan dan Fungsi Exponen </h1>
-<label for=""> 
+
   Bentuk umum persamaan exponen 
   <span id="dots10">...</span>
   <div id="more10">
@@ -7509,24 +7583,23 @@ maka nilai f(2) <br>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim10() >Cek Nilai Persamaan Exponen</button>
 
 
-</div>
-
+</div> 
+<!-- batas ivmore -->
 <div x-data="{open:false}">
   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' : 'buka mindmap'">buka</button>
   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction10()" id="myBtn10">buka</button>
  <div x-show='open'> 
-       <!-- <div class="bg-sky-300 w-full h-48 overflow-auto touch-auto  ">
-       <img class="zoom10  max-w-none h-auto w-full " src='gbr/mapexp.svg'> -->
-       <div class="bg-green-100 w-full h-48 overflow-auto touch-auto object-center">
-        <img class="zoom10   max-w-none h-auto w-full" src='gbr/mapexp.svg'>
-        
 
-      </div> 
+      
+       <div class="bg-sky-300 w-full h-48 overflow-auto touch-auto object-center">
+       <img class="zoom10  max-w-none h-auto w-full " src='gbr/mapexp.svg'>
+       </div> 
+
    </div>
 </div> 
 
-</div>
-<!-- batas akhir 7-->
+</div> 
+<!-- batas akhir 10-->
 
 
 <!-- batas -->
@@ -10130,6 +10203,20 @@ Transformasi = perubahan ; geometri : hal yang berhubungan dengan titik , sudut,
 </section>
  
 <aside class="w-full md:w-1/4 bg-blue-200 p-4">
+   <!-- <iframe src="https://docs.google.com/document/d/e/2PACX-1vSNU2N5MtQqYQ2BWLGXSxd8WWKvBWH6k5UPmR7kzYvxTjclTkBWW93dRGAPKzAifITZTXOQusBMNmfe/pub?embedded=true"></iframe>
+    
+   <iframe width="100%" height="299" src="https://docs.google.com/presentation/d/e/2PACX-1vSZCV_Na_ykbORgQBDwEGfSpiZXnDCy-8Zlej6s9LXiz4cahJRIULFoYPoVx6TdlFw6GCi2ZWG5_bpZ/embed?start=true&loop=true&delayms=2000" frameborder="0"  allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+  
+       <iframe  padding="20px" width=100% height="300" src="https://docs.google.com/document/d/e/2PACX-1vSNdgHsgRuZHzCvR6iEiVscFpgxfJAz9Q5eWts7HBYPmJK12lGGvVo--5F6jblQGARiA7I91k_UGaOt/pub?embedded=true"></iframe> 
+       
+       
+       <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRRJkpc6XQKfNMe_J-VqbyhZYU958FAu4JH4bhTLxbod91qzUpa7JE8TC1af1PgB9CquBZLPNtV8mu5/pubhtml?widget=true&amp;headers=false"></iframe>
+     -->   
+<!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS7Ht8rhADB58PHijP_BF1svroMlYTlVRp-qVd54v97She68MNdsWAYZ9jSnQnmqyL1vIJM6dJldDxR/pubhtml?gid=1619994486&amp;single=true&amp;widget=true&amp;headers=false"></iframe> -->
+
+
+
+
   <p class="dark:bg-white dark:text-black border border-slate-600 ">
   
       <h3 style="text-align: center;"></h3>
@@ -10154,40 +10241,15 @@ Transformasi = perubahan ; geometri : hal yang berhubungan dengan titik , sudut,
 </aside>
 </div>
 
-	  
-<!-- 
-
-	  <div class="modal-button-container">
-	<button style=" background-color: rgba(25, 233, 136, 0.753);" ><a href="indextrigonometri.html"><h3>TRIGONOMETRI</h3></a></button>
-	<button style=" background-color: rgb(163, 140, 194);"><a href="indexmatrik.html"><h3>MATRIK</h3></a>
-	<button style=" background-color: rgb(224, 158, 114);"><a href="indexvektor.html"><h3>VEKTOR</h3></a> </button>
-	</div> -->
-
-<form name="submit-to-google-sheet">
-<br>
-	<div class="modal-button-container">
-	<input style=" background-color: rgb(188, 241, 188); font-size: 1.2rem; height: 2rem;width: 200px;" name="nama" type="text" placeholder="Isi nama anda " required >
-	<input style="text-align: center; font-size: 1.2rem; height: 2rem; width: 60px;" name="score" type="text"  value="" id="player-score-form" readonly >
-     <button type="submite" class="btn btn-primary btn-kirim " > Simpan </button> 
-     <button class="btn btn-primary btn-loading d-none " disabled>
-            
-            Loading..
-    </button>
-  
-   
-	
-	</div>
-<div class="alert alert-success alert-dismissible d-none my-alert">
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
-  </div>
-
-</form>
-
-
 
 </div>
+
+<
+
 </main> 
+<!-- <a href="https://script.google.com/macros/s/AKfycbzJXM5DmJUUAJtanx6AT_2DNnzUNi1aDgyA-9Hc5y-VcI7Xs9aFe9wLz-wTxQXi3GHNTQ/exec"><h3>TAMPILKAN S C O R E</h3></a>
+<iframe width=100% height="100%" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSSAxfka_PDpyHu4hji9-vy8A_nOB2bfXPbsc3Z63IDZ5dR519LRloWMdDTZPk-oCTiAFClfBaRf-kT/pubhtml?widget=true&amp;headers=false"></iframe> -->
+	   
 
 </div>
 
@@ -10207,6 +10269,61 @@ Transformasi = perubahan ; geometri : hal yang berhubungan dengan titik , sudut,
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2023 Copyright:
     <a class="text-white" >Irzal Achmad </a>
+  </div>
+  <div>
+       <!-- Contact Form - sent to a Google Sheet -->
+    <form id='foo'>
+      <p>
+        <label>Nama </label>
+        <input id='name' name='name' type='text'>
+      </p>
+      <div class="d-none"
+      <p>
+        <label>Email Address</label>
+        <input id='email' name='email' type='email'>
+      </p>
+      <p>
+        <label>Phone Number</label>
+        <input id='phone' name='phone' type='tel'>
+      </p>
+      <p>
+        <label>Pesan</label>
+        <textarea id='message' name='message' rows='1'></textarea>
+      </p>
+      </div>
+      <hr>
+      <div class="bg-blue-200 text-black m-5">
+        <label>Score Bilangan Berpangkat</label>
+        <input id='name1a' name='name' type='text'><br>
+        <label>Score Sistem Persamaan Linier</label>
+        <input id='name1' name='name' type='text'><br>
+        <label>Score Sistem Pertidaksamaan Linier</label>
+        <input id='name2' name='name' type='text'><br>
+        <label>Score Sistem Program  Linier</label>
+        <input id='name3' name='name' type='text'><br>
+        <label>Score Persamaan Kuadrat</label>
+        <input id='name4' name='name' type='text'><br>
+        <label>Score Persamaan Ekponen</label>
+        <input id='name5' name='name' type='text'><br>
+        <label>Score Barisan dan Deret</label>
+        <input id='name6' name='name' type='text'><br>
+        <label>Score Trigonometri</label>
+        <input id='name7' name='name' type='text'><br>
+        <label>Score Peluang</label>
+        <input class="w-5" id='name8' name='name' type='text'><br>
+        <label>Score Statistik</label>
+        <input class="w-20 bg-blue-500" id='name9' name='name' type='text'><br>
+        <hr>
+        <label>Total Score </label>
+        <input id='name10' name='name' type='text'><br>
+        <hr>
+      </div>
+      
+        <div id='success'></div>
+        <button class="px-6 py-2 border-2 border-white text-white font-medium" type='submit'>Simpan Nilai</button>
+    </form>
+
+      
   </div>
 </footer> 
 
@@ -10659,7 +10776,56 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
 
 </script>
 
+<!-- kkk -->
 
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz45F8SMN9OXopec06yeCpeUOKmixCvxEcOoZrU67GtJt01LwfY5Hh69AfqxghqFq2ATQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const btnKirim = document.querySelector('.btn-kirim');
+    const btnLoading = document.querySelector('.btn-loading');
+    const myAlert= document.querySelector('.my-alert');
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+    btnKirim.classList.toggle('d-none');
+    btnLoading.classList.toggle('d-none');
+      myAlert.classList.toggle('d-none');
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            btnKirim.classList.toggle('d-none');
+            btnLoading.classList.toggle('d-none');
+            myAlert.classList.toggle('d-none');
+            form.reset();
+            playerScore = 0;
+            console.log('Success!', response));
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+
+<!-- mmm -->
+
+<script>
+var $form = $('form#test-form'),
+    // url = 'https://script.google.com/macros/s/abcdefghijklmnopqrstuvwxyz1234567890/exec'
+    url = 'https://script.google.com/macros/s/AKfycbw75IpHd4Ik8PF10wLrM3LI39sdDQ9-8xyNW7CKkLuXq9QY4-6Q40VruyAmPVJ4qPjm/exec'
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+  );
+})
+</script>
+  
+  <!-- Custom Theme JavaScript -->
+  <script src='./js/google-sheet.js'></script>
 </body>
+
+
 </html>
-'
