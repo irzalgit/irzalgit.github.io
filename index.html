@@ -11,7 +11,7 @@
 <link href="./css/pas.css" rel="stylesheet">  
   <link href="./css/output.css" rel="stylesheet"> 
   <!-- <script src="js/main.js"></script>   -->
-
+<script src="https://unpkg.com/feather-icons"></script>
 <script src="./js/index.js"></script> 
 <script src="./src/kirim.js"></script>
  <!-- <script src="./src/perskuad.js"></script>  -->
@@ -364,8 +364,11 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     <aside class="w-full md:w-1/4 bg-green-200 p-4">
 
 
-  <h2 style="text-align: center;">Update 02/05/23 01:00 WIB
+  <h2 style="text-align: center;"> <i data-feather="edit"></i> 02/05/23 23:00 WIB
+   
+    
   <br>
+  <i data-feather="eye"></i>
   <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
   
   
@@ -3742,12 +3745,9 @@ jika sudut 90 derajat diubah ke radian menjadi
     
       <div class="next-button-container">
         
-          
+      
         <button onclick="handleNextQuestion()">Lanjutkan </button>
         
-        
-        
-       
         
         
       </div>
@@ -10160,8 +10160,9 @@ Transformasi = perubahan ; geometri : hal yang berhubungan dengan titik , sudut,
 
   </div>
   <div x-data="{open:false}">
-    <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' : 'buka mindmap'">buka</button>
-   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction19()" id="myBtn19">buka</button>
+    <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' :  'buka mindmap'"> </button>
+   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction19()" id="myBtn19">
+      <i data-feather="book-open"></i></button>
   <div x-show='open'> 
          
          <div class="bg-green-100 w-full h-48 overflow-auto touch-auto object-center">
@@ -10307,7 +10308,7 @@ Transformasi = perubahan ; geometri : hal yang berhubungan dengan titik , sudut,
         <label>Score Trigonometri</label>
         <input id='name7' name='name' type='text'><br>
         <label>Score Peluang</label>
-        <input  id='name8' name='name' type='text'><br>
+        <input id='name8' name='name' type='text'><br>
         <label>Score Statistik</label>
         <input  id='name9' name='name' type='text'><br>
         <hr>
@@ -10822,6 +10823,11 @@ $('#submit-form').on('click', function(e) {
   
   <!-- Custom Theme JavaScript -->
   <script src='./js/google-sheet.js'></script>
+
+
+    <script>
+      feather.replace()
+    </script>
 </body>
 
 
