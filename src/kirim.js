@@ -1,5 +1,7 @@
-function kirim1() {
+  
+  function kirim1() {
   let poin = 0;
+  
   const jno31 = document.querySelector("#jno31");
   const jno32 = document.querySelector("#jno32");
   const jno33 = document.querySelector("#jno33");
@@ -15,7 +17,7 @@ function kirim1() {
   const jno53 = document.querySelector("#jno53");
   const jno54 = document.querySelector("#jno54");
   const jno55 = document.querySelector("#jno55");
-  
+  const nilaitotal=document.querySelector('#nilaitotal');
   const nilai1=document.querySelector('#nilai1')
   if (jno31.checked) {
     response = "";
@@ -138,6 +140,8 @@ function kirim1() {
   rno55.innerHTML = response;
 
   nilai1.innerHTML = poin;
+  
+  nilaitotal.innerHTML = poin+scoretotal();
 
 
   const optionsno31 = document.getElementsByName("no31");
@@ -205,7 +209,7 @@ function kirim1() {
   for (let i = 0; i < optionsno55.length; i++) {
       optionsno55[i].checked = false;
   }
-
+  scoretotal();
 }
 function kirim2() {
   let poin = 0;
@@ -317,7 +321,7 @@ function kirim2() {
   
 
   nilai2.innerHTML = poin;
-
+  
   
   const optionsno101 = document.getElementsByName("no101");
   for (let i = 0; i < optionsno101.length; i++) {
@@ -362,9 +366,9 @@ function kirim2() {
   for (let i = 0; i < optionsno110.length; i++) {
       optionsno110[i].checked = false;
   }
-  
+  scoretotal();
 }
-function kirimb3() {
+function kirimptd() {
   let poin = 0;
   
    const jno111 = document.querySelector("#jno111");
@@ -473,7 +477,7 @@ function kirimb3() {
      
   
 
-  nilaib3.innerHTML = poin;
+  nilaiptd.innerHTML = poin;
 
   
   const optionsno111 = document.getElementsByName("no111");
@@ -522,7 +526,7 @@ function kirimb3() {
   
 }
 
-function kirim3() {
+function kirimkua() {
   let poin = 0;
   const jno71 = document.querySelector("#jno71");
   const jno72 = document.querySelector("#jno72");
@@ -796,7 +800,7 @@ function kirim3() {
   }
   rno192.innerHTML = response;
 
-  nilai3.innerHTML = poin;
+  nilaikua.innerHTML = poin;
 
   if (jno71.checked) jno71.checked = false;
   if (jno72.checked) jno72.checked = false;
@@ -829,6 +833,7 @@ function kirim3() {
   if (jno190.checked) jno190.checked = false;
   if (jno191.checked) jno191.checked = false;
   if (jno192.checked) jno192.checked = false;
+  
 }
 
 function kirim7() {
@@ -965,7 +970,7 @@ for (let i = 0; i < optionsno19.length; i++) {
     optionsno19[i].checked = false;
 }
 
-
+scoretotal();
 }
 
 function kirim8() {
@@ -1114,7 +1119,7 @@ for (let i = 0; i < optionsno30.length; i++) {
     optionsno30[i].checked = false;
 }
 
-
+scoretotal();
 }
 function kirim6(){
   const jno1=document.querySelector('#jno1')
@@ -1179,7 +1184,7 @@ function kirim6(){
 
 
 
-  const nilai=document.querySelector('#nilai')
+  const nilaitri=document.querySelector('#nilaitri')
 
 
   let response
@@ -1373,7 +1378,7 @@ response=""
 rno710.innerHTML=response
 
 
-nilai.innerHTML=poin
+nilaitri.innerHTML=poin
 
 if (sno1.value == "1,57") {
   response = "";
@@ -1382,7 +1387,7 @@ if (sno1.value == "1,57") {
   response = "";
 }
 rsno1.innerHTML = response;
-nilai.innerHTML = poin;
+nilaitri.innerHTML = poin;
   
 
 if (sno2.value == "sec") {
@@ -1392,7 +1397,7 @@ if (sno2.value == "sec") {
   response = "";
 }
 rsno2.innerHTML = response;
-nilai.innerHTML = poin;
+nilaitri.innerHTML = poin;
   
 
 
@@ -1633,6 +1638,7 @@ nilai10.innerHTML=poin10;
    for (let i = 0; i < options9.length; i++) {
        options9[i].checked = false;
    }
+   scoretotal();
 }
 function kirim4() {
   let poin4 = 0;
@@ -1738,7 +1744,7 @@ nilai4.innerHTML=poin4;
    for (let i = 0; i < options137.length; i++) {
        options137[i].checked = false;
    }
-   
+   scoretotal();
 }
 
 
@@ -1752,7 +1758,7 @@ function kirim5() {
   const jno141 = document.querySelector("#jno141");
   const jno142 = document.querySelector("#jno142");
   
-  const nilai5=document.querySelector('#nilai5')
+  const nilaider=document.querySelector('#nilaider')
 
 
   if (jno138.checked) {
@@ -1795,7 +1801,7 @@ function kirim5() {
   }
   rno142.innerHTML = response;
 
-nilai5.innerHTML=poin5;
+nilaider.innerHTML=poin5;
   
   
   
@@ -1819,7 +1825,7 @@ nilai5.innerHTML=poin5;
    for (let i = 0; i < options142.length; i++) {
        options142[i].checked = false;
    }
-   
+   scoretotal();
 }
 
 
@@ -1899,7 +1905,7 @@ nilai9.innerHTML=poin9;
    for (let i = 0; i < options65.length; i++) {
        options65[i].checked = false;
    }
-   
+   scoretotal();
 }
 
 function kirim10e() {
@@ -1978,7 +1984,7 @@ nilai9.innerHTML=poin9;
    for (let i = 0; i < options65.length; i++) {
        options65[i].checked = false;
    }
-   
+   scoretotal();
 }
 function kirim11() {
   let poin11 = 0;
@@ -2123,7 +2129,7 @@ for (let i = 0; i < options85.length; i++) {
    for (let i = 0; i < options90.length; i++) {
        options90[i].checked = false;
    }
-   
+   scoretotal();
 }
 
 function kirim12() {
@@ -2202,7 +2208,7 @@ nilai12.innerHTML=poin12;
    for (let i = 0; i < options95.length; i++) {
        options95[i].checked = false;
    }
-   
+   scoretotal();
 }
 function kirim13() {
   let poin13 = 0;
@@ -2324,7 +2330,7 @@ nilai13.innerHTML=poin13;
    for (let i = 0; i < options125.length; i++) {
        options125[i].checked = false;
    }
-   
+   scoretotal();
 }
 
 function kirim14() {
@@ -2470,7 +2476,7 @@ for (let i = 0; i < options45.length; i++) {
    for (let i = 0; i < options50.length; i++) {
        options50[i].checked = false;
    }
-   
+   scoretotal();
 }
 
 
@@ -2658,7 +2664,7 @@ nilai17.innerHTML=poin17;
    for (let i = 0; i < optionsno1713.length; i++) {
        optionsno1713[i].checked = false;
    }
-   
+   scoretotal();
 }
 
 function kirim16() {
@@ -2806,6 +2812,7 @@ nilai16.innerHTML=poin16;
    for (let i = 0; i < optionsno70.length; i++) {
        optionsno70[i].checked = false;
    }
+   
 }
 function kirim18() {
   let poin18 = 0;
@@ -2833,7 +2840,7 @@ if (jno1802.checked) {
 rno1802.innerHTML = response;
 
 if (jno1803.checked) {
-  response = "ok";
+  response = "";
   poin18 = poin18 + 10;
 } else {
   response = "";
@@ -2841,7 +2848,7 @@ if (jno1803.checked) {
 rno1803.innerHTML = response;
 
 if (jno1804.checked) {
-  response = "ok";
+  response = "";
   poin18 = poin18 + 10;
 } else {
   response = "";
@@ -2849,7 +2856,7 @@ if (jno1804.checked) {
 rno1804.innerHTML = response;
 
 if (jno1805.checked) {
-  response = "ok";
+  response = "";
   poin18 = poin18 + 10;
 } else {
   response = "";
@@ -2883,4 +2890,6 @@ const optionsno1801 = document.getElementsByName("no1801");
    for (let i = 0; i < optionsno1805.length; i++) {
        optionsno1805[i].checked = false;
    }
+   
   }
+  
