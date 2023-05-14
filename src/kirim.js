@@ -2821,6 +2821,11 @@ function kirim18() {
   const jno1803 = document.querySelector("#jno1803");
   const jno1804 = document.querySelector("#jno1804");
   const jno1805 = document.querySelector("#jno1805");
+  const jno1806 = document.querySelector("#jno1806");
+  const jno1807 = document.querySelector("#jno1807");
+  const jno1808 = document.querySelector("#jno1808");
+  const jno1809 = document.querySelector("#jno1809");
+  const jno1810 = document.querySelector("#jno1810");
   
   
   if (jno1801.checked) {
@@ -2863,6 +2868,44 @@ if (jno1805.checked) {
 }
 rno1805.innerHTML = response;
 
+if (jno1806.checked) {
+  response = "ok";
+  poin18 = poin18 + 10;
+} else {
+  response = "";
+}
+rno1806.innerHTML = response;
+if (jno1807.checked) {
+  response = "ok";
+  poin18 = poin18 + 10;
+} else {
+  response = "";
+}
+rno1807.innerHTML = response;
+if (jno1808.checked) {
+  response = "ok";
+  poin18 = poin18 + 10;
+} else {
+  response = "";
+}
+rno1808.innerHTML = response;
+if (jno1809.checked) {
+  response = "ok";
+  poin18 = poin18 + 10;
+} else {
+  response = "";
+}
+rno1809.innerHTML = response;
+if (jno1810.checked) {
+  response = "ok";
+  poin18 = poin18 + 10;
+} else {
+  response = "";
+}
+rno1810.innerHTML = response;
+
+
+
 nilai18.innerHTML=poin18;
 const optionsno1801 = document.getElementsByName("no1801");
    for (let i = 0; i < optionsno1801.length; i++) {
@@ -2891,5 +2934,28 @@ const optionsno1801 = document.getElementsByName("no1801");
        optionsno1805[i].checked = false;
    }
    
+   const optionsno1806 = document.getElementsByName("no1806");
+   for (let i = 0; i < optionsno1806.length; i++) {
+       optionsno1806[i].checked = false;
+   }
+
+   const optionsno1807 = document.getElementsByName("no1807");
+   for (let i = 0; i < optionsno1807.length; i++) {
+       optionsno1807[i].checked = false;
+   }
+   const optionsno1808 = document.getElementsByName("no1808");
+   for (let i = 0; i < optionsno1808.length; i++) {
+       optionsno1808[i].checked = false;
+   }
+   const optionsno1809 = document.getElementsByName("no1809");
+   for (let i = 0; i < optionsno1809.length; i++) {
+       optionsno1809[i].checked = false;
+   }
+   const optionsno1810 = document.getElementsByName("no1810");
+   for (let i = 0; i < optionsno1810.length; i++) {
+       optionsno1810[i].checked = false;
+   }
+
+
   }
   
