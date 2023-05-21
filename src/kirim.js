@@ -211,6 +211,121 @@
   }
   scoretotal();
 }
+function kirim20() {
+  let poin = 0;
+  const sno20101=document.querySelector('#sno20101')
+  const sno20102=document.querySelector('#sno20102')
+  const sno20103=document.querySelector('#sno20103')
+  const sno20104=document.querySelector('#sno20104')
+  const sno20105=document.querySelector('#sno20105')
+  const sno20106=document.querySelector('#sno20106')
+  const sno20107=document.querySelector('#sno20107')
+  const sno20108=document.querySelector('#sno20108')
+  const sno20109=document.querySelector('#sno20109')
+  const sno20110=document.querySelector('#sno20110')
+  const sno20111=document.querySelector('#sno20111')
+  
+
+
+
+  const nilai20=document.querySelector('#nilai20')
+
+  if (sno20101.value=="statistika"){
+    response="ok";poin=poin+10} 
+  else {
+    response="x"}
+  rsno20101.innerHTML=response
+  
+
+  
+     if (sno20102.value=="histogram"){
+       response="ok";poin=poin+10
+     }else {
+       response="x"
+     }
+     rsno20102.innerHTML=response
+     
+     if (sno20103.value=="77,1"){
+      response="ok";poin=poin+10} 
+    else {
+      response="x"}
+    rsno20103.innerHTML=response
+    
+  
+    
+       if (sno20104.value=="172,5"){
+         response="ok";poin=poin+10
+       }else {
+         response="x"
+       }
+       rsno20104.innerHTML=response
+       
+    
+       if (sno20105.value=="5"){
+        response="ok";poin=poin+10} 
+      else {
+        response="x"}
+      rsno20105.innerHTML=response
+      
+    
+      
+         if (sno20106.value=="56,4"){
+           response="ok";poin=poin+10
+         }else {
+           response="x"
+         }
+         rsno20106.innerHTML=response
+         
+      
+         if (sno20107.value=="5"){
+          response="ok";poin=poin+10} 
+        else {
+          response="x"}
+        rsno20107.innerHTML=response
+        
+      
+        
+           if (sno20108.value=="19"){
+             response="ok";poin=poin+10
+           }else {
+             response="x"
+           }
+           rsno20108.innerHTML=response
+           
+        
+           if (sno20109.value=="123"){
+            response="ok";poin=poin+10} 
+          else {
+            response="x"}
+          rsno20109.innerHTML=response
+          
+     
+        
+          if (sno20110.value=="6"){
+            response="ok";poin=poin+10
+          }else {
+            response="x"
+          }
+          rsno20110.innerHTML=response
+          
+       
+          if (sno20111.value=="11"){
+           response="ok";poin=poin+10} 
+         else {
+           response="x"}
+         rsno20111.innerHTML=response   
+          
+          
+                      
+
+  nilai20.innerHTML = poin;
+  
+
+
+
+}
+
+
 function kirim2() {
   let poin = 0;
   
