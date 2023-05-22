@@ -230,7 +230,7 @@ function kirim20() {
 
   const nilai20=document.querySelector('#nilai20')
 
-  if (sno20101.value=="statistika"){
+  if (sno20101.value=="statistika" || sno20101.value=="Statistika" ){
     response="ok";poin=poin+10} 
   else {
     response="x"}
@@ -238,7 +238,7 @@ function kirim20() {
   
 
   
-     if (sno20102.value=="histogram"){
+     if (sno20102.value=="histogram" || sno20102.value=="Histogram" ){
        response="ok";poin=poin+10
      }else {
        response="x"
@@ -269,7 +269,7 @@ function kirim20() {
       
     
       
-         if (sno20106.value=="56,4"){
+         if (sno20106.value=="55,9"){
            response="ok";poin=poin+10
          }else {
            response="x"
@@ -285,7 +285,7 @@ function kirim20() {
         
       
         
-           if (sno20108.value=="19"){
+           if (sno20108.value=="20"){
              response="ok";poin=poin+10
            }else {
              response="x"
@@ -293,7 +293,7 @@ function kirim20() {
            rsno20108.innerHTML=response
            
         
-           if (sno20109.value=="123"){
+           if (sno20109.value=="53,8"){
             response="ok";poin=poin+10} 
           else {
             response="x"}
