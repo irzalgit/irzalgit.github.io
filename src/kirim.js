@@ -224,12 +224,24 @@ function kirim20() {
   const sno20109=document.querySelector('#sno20109')
   const sno20110=document.querySelector('#sno20110')
   const sno20111=document.querySelector('#sno20111')
-  
-
+  const sno20112=document.querySelector('#sno20112')
+  const sno20113=document.querySelector('#sno20113')
+  const sno20114=document.querySelector('#sno20114')
+  const sno20115=document.querySelector('#sno20115')
+  const sno20116=document.querySelector('#sno20116')
+  const sno20117=document.querySelector('#sno20117')
+  const sno20118=document.querySelector('#sno20118')
+  const sno20119=document.querySelector('#sno20119')
+  const sno20120=document.querySelector('#sno20120')
+  const sno20121=document.querySelector('#sno20121')
+  const sno20122=document.querySelector('#sno20122')
+  const sno20123=document.querySelector('#sno20123')
+  const sno20124=document.querySelector('#sno20124')
 
 
   const nilai20=document.querySelector('#nilai20')
-
+  const nilai20a=document.querySelector('#nilai20a')
+let poin20a=0
   if (sno20101.value=="statistika" || sno20101.value=="Statistika" ){
     response="ok";poin=poin+10} 
   else {
@@ -316,10 +328,90 @@ function kirim20() {
          rsno20111.innerHTML=response   
           
           
+         if (sno20112.value=="x+z=2"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="x"}
+        rsno20112.innerHTML=response   
+         
+        if (sno20113.value=="menghilangkan" || sno20113.value=="membuang" || sno20113.value=="menyingkirkan" ){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="x"}
+        rsno20113.innerHTML=response   
+         
+        if (sno20114.value=="4"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="x"}
+        rsno20114.innerHTML=response   
+         
+        if (sno20115.value=="7"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="x"}
+        rsno20115.innerHTML=response   
+         
+        if (sno20116.value=="3"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="x"}
+        rsno20116.innerHTML=response   
+         
+        if (sno20117.value=="4x+3y+z=14000" || sno20117.value=="2x+4y+z=11000" || sno20117.value=="5x+2z=8000" ){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="pilih salah satu saja "}
+        rsno20117.innerHTML=response   
+         
+        if (sno20118.value=="4"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="x"}
+        rsno20118.innerHTML=response   
+         
+         
+        if (sno20119.value=="-3"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="x"}
+        rsno20119.innerHTML=response   
                       
 
+        if (sno20120.value=="-1,2,4"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="format penulisan x,y,z"}
+        rsno20120.innerHTML=response   
+
+
+        if (sno20121.value=="-2"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="x"}
+        rsno20121.innerHTML=response   
+        
+        if (sno20122.value=="3"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="x"}
+        rsno20122.innerHTML=response   
+
+        if (sno20123.value=="1000"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="x"}
+        rsno20123.innerHTML=response   
+
+
+        if (sno20124.value=="x+y=80;5x+3y=340"){
+          response="ok";poin20a=poin20a+10} 
+        else {
+          response="format penulisan  f1;f2"}
+        rsno20124.innerHTML=response   
+
   nilai20.innerHTML = poin;
-  
+  nilai20a.innerHTML = poin20a;
 
 
 
