@@ -39,9 +39,9 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
 <style>
   #more {display: none;}
-  #more1 {display: none;}
-  #map1 {display: none;}
   
+  #map1 {display: none;}
+  #more1 {display: none;}
   #more2 {display: none;}
   #more3 {display: none;}
   #more4 {display: none;}
@@ -66,6 +66,8 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 
 </head>
 <body onload="NextQuestion(0)" class=" h-full">
+
+  
 
 
   
@@ -339,8 +341,9 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </div>
   </header>
    <main>
+
     
-  <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+  <div  class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
       
       <!-- <div class="px-4 py-6 sm:px-0">
         <div class="h-96 rounded-lg border-4 border-dashed border-gray-200"></div>
@@ -357,7 +360,10 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 <!-- <main class=" mx-auto mt-8"> -->
   
 
-
+  <div>
+    <input  type="checkbox" name="flexRadioDefault" id="toggle1">
+    <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">mode gelap</label>
+    </div> 
 
 
 <div class="box-border flex  ">
@@ -450,7 +456,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
       
     
   <div>
-    <input  type="checkbox" name="flexRadioDefault" id="toggle1">
+    <input  type="checkbox" name="flexRadioDefault" id="toggle">
     <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">mode gelap</label>
     
    
@@ -11178,7 +11184,7 @@ Bekerja </b></font></font><font face="Wingdings, serif">
   <!-- <iframe src="https://docs.google.com/document/d/e/2PACX-1vQZsvdrNLVKkvdFy-6j2F65MtgtkfX2VWE_4EpUARiZWQudWjVvvbsMNrY9abmyYOqW8kzyPqFv7flH/pub?embedded=true"></iframe> -->
 </section>
  
-<aside class="w-full md:w-1/4 bg-blue-100 ">
+<aside  class="w-full md:w-1/4 bg-blue-100 ">
    <!-- <iframe src="https://docs.google.com/document/d/e/2PACX-1vSNU2N5MtQqYQ2BWLGXSxd8WWKvBWH6k5UPmR7kzYvxTjclTkBWW93dRGAPKzAifITZTXOQusBMNmfe/pub?embedded=true"></iframe>
      -->
    <!-- <iframe width="100%" height="299" src="https://docs.google.com/presentation/d/e/2PACX-1vSZCV_Na_ykbORgQBDwEGfSpiZXnDCy-8Zlej6s9LXiz4cahJRIULFoYPoVx6TdlFw6GCi2ZWG5_bpZ/embed?start=true&loop=true&delayms=2000" frameborder="0"  allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
@@ -11229,22 +11235,7 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 </div>
 
 
-<footer class="text-center text-white" style="background-color: #0a4275;">
-  <div class="container p-6">
-    <div class="">
-      <p class="flex justify-center items-center">
-        <span class="mr-4">Pendaftaran</span>
-        <button type="button" class="inline-block px-6 py-2 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-          Sign up!
-        </button>
-      </p>
-    </div>
-  </div>
-
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2023 Copyright:
-    <a class="text-white" >Irzal Achmad </a>
-  </div>
+ 
   <div>
        <!-- Contact Form - sent to a Google Sheet -->
     <!-- <form id='foo'>
@@ -11300,6 +11291,8 @@ Bekerja </b></font></font><font face="Wingdings, serif">
     <br>
 
       </form> -->
+      
+<footer class="text-center text-white" style="background-color: #0a4275;">
       <form id='foo'>
         <p>
           <label>Name</label>
@@ -11348,6 +11341,22 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 <hr>
     
 
+<footer class="text-center text-white" style="background-color: #0a4275;">
+  <div class="container p-6">
+    <div class="">
+      <p class="flex justify-center items-center">
+        <span class="mr-4">Pendaftaran</span>
+        <button type="button" class="inline-block px-6 py-2 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+          Sign up!
+        </button>
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white" >Irzal Achmad </a>
   </div>
 </footer> 
 
@@ -11856,6 +11865,7 @@ $('#submit-form').on('click', function(e) {
 <!-- 
     <iframe class="w-full h-48 overflow-auto" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8Kvs-b22tPAbIKNbuNJ6xjyJy2GWT6ZXFVuTEPi6ifxRjkmKsRzPNIyxU_gKgvuS0ph5DsBdeIL_w/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
  -->
+ 
   </body>
 
 
