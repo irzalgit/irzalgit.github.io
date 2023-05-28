@@ -213,6 +213,7 @@
 }
 function kirim20() {
   let poin = 0;
+
   const sno20101=document.querySelector('#sno20101')
   const sno20102=document.querySelector('#sno20102')
   const sno20103=document.querySelector('#sno20103')
@@ -237,11 +238,24 @@ function kirim20() {
   const sno20122=document.querySelector('#sno20122')
   const sno20123=document.querySelector('#sno20123')
   const sno20124=document.querySelector('#sno20124')
-
-
+  const sno20131=document.querySelector('#sno20131')
+  const sno20132=document.querySelector('#sno20132')
+  const sno20133=document.querySelector('#sno20133')
+  const sno20134=document.querySelector('#sno20134')
+  const sno20135=document.querySelector('#sno20135')
+  const sno20136=document.querySelector('#sno20136')
+  const sno20137=document.querySelector('#sno20137')
+  const sno20138=document.querySelector('#sno20138')
+  const sno20139=document.querySelector('#sno20139')
+  const sno20140=document.querySelector('#sno20140')
+  const sno20141=document.querySelector('#sno20141')
+  const sno20142=document.querySelector('#sno20142')
+  const sno20143=document.querySelector('#sno20143')
+  const sno20144=document.querySelector('#sno20144')
   const nilai20=document.querySelector('#nilai20')
-  const nilai20a=document.querySelector('#nilai20a')
-let poin20a=0
+ 
+
+
   if (sno20101.value=="statistika" || sno20101.value=="Statistika" ){
     response="ok";poin=poin+10} 
   else {
@@ -329,89 +343,195 @@ let poin20a=0
           
           
          if (sno20112.value=="x+z=2"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="x"}
         rsno20112.innerHTML=response   
          
         if (sno20113.value=="menghilangkan" || sno20113.value=="membuang" || sno20113.value=="menyingkirkan" ){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="x"}
         rsno20113.innerHTML=response   
          
         if (sno20114.value=="4"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="x"}
         rsno20114.innerHTML=response   
          
         if (sno20115.value=="7"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="x"}
         rsno20115.innerHTML=response   
          
         if (sno20116.value=="3"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="x"}
         rsno20116.innerHTML=response   
          
         if (sno20117.value=="4x+3y+z=14000" || sno20117.value=="2x+4y+z=11000" || sno20117.value=="5x+2z=8000" ){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="pilih salah satu saja "}
         rsno20117.innerHTML=response   
          
         if (sno20118.value=="4"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="x"}
         rsno20118.innerHTML=response   
          
          
         if (sno20119.value=="-3"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="x"}
         rsno20119.innerHTML=response   
                       
 
         if (sno20120.value=="-1,2,4"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="format penulisan x,y,z"}
         rsno20120.innerHTML=response   
 
 
         if (sno20121.value=="-2"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="x"}
         rsno20121.innerHTML=response   
         
         if (sno20122.value=="3"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="x"}
         rsno20122.innerHTML=response   
 
         if (sno20123.value=="1000"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="x"}
         rsno20123.innerHTML=response   
 
 
         if (sno20124.value=="x+y=80;5x+3y=340"){
-          response="ok";poin20a=poin20a+10} 
+          response="ok";poin=poin+10} 
         else {
           response="format penulisan  f1;f2"}
         rsno20124.innerHTML=response   
 
+
+        if (sno20131.value=="32" ){
+          response="ok";poin=poin+10} 
+        else {
+          response="x"}
+        rsno20131.innerHTML=response
+        
+      
+        
+           if (sno20132.value=="26" ){
+             response="ok";poin=poin+10
+           }else {
+             response="x"
+           }
+           rsno20132.innerHTML=response
+           
+           if (sno20133.value=="2"){
+            response="ok";poin=poin+10} 
+          else {
+            response="x"}
+          rsno20133.innerHTML=response
+          
+        
+          
+             if (sno20134.value=="ggffrrr172,5"){
+               response="ok";poin=poin+10
+             }else {
+               response="x"
+             }
+             rsno20134.innerHTML=response
+             
+          
+             if (sno20135.value=="hhgggff5"){
+              response="ok";poin=poin+10} 
+            else {
+              response="x"}
+            rsno20135.innerHTML=response
+            
+          
+            
+               if (sno20136.value=="hhhhhh55,9"){
+                 response="ok";poin=poin+10
+               }else {
+                 response="x"
+               }
+               rsno20136.innerHTML=response
+               
+            
+               if (sno20137.value=="hggff5"){
+                response="ok";poin=poin+10} 
+              else {
+                response="x"}
+              rsno20137.innerHTML=response
+              
+            
+              
+                 if (sno20138.value=="uhygg20"){
+                   response="ok";poin=poin+10
+                 }else {
+                   response="x"
+                 }
+                 rsno20138.innerHTML=response
+                 
+              
+                 if (sno20139.value=="rtttt53,8"){
+                  response="ok";poin=poin+10} 
+                else {
+                  response="x"}
+                rsno20139.innerHTML=response
+                
+           
+              
+                if (sno20140.value=="6reeerr"){
+                  response="ok";poin=poin+10
+                }else {
+                  response="x"
+                }
+                rsno20140.innerHTML=response
+                
+             
+                if (sno20141.value=="ytgf11"){
+                 response="ok";poin=poin+10} 
+               else {
+                 response="x"}
+               rsno20141.innerHTML=response   
+                
+                
+               if (sno20142.value=="rerx+z=2"){
+                response="ok";poin=poin+10} 
+              else {
+                response="x"}
+              rsno20142.innerHTML=response   
+               
+              if (sno20143.value=="embuarkan" ){
+                response="ok";poin=poin+10} 
+              else {
+                response="x"}
+              rsno20143.innerHTML=response   
+               
+              if (sno20144.value=="rty4"){
+                response="ok";poin=poin+10} 
+              else {
+                response="x"}
+              rsno20144.innerHTML=response   
+        
+
+
   nilai20.innerHTML = poin;
-  nilai20a.innerHTML = poin20a;
 
 
 
