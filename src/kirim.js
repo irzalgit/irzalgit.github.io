@@ -2825,7 +2825,7 @@ function kirim17() {
   const jno1713 = document.querySelector("#jno1713");
   const jno1714 = document.querySelector("#jno1714");
   const jno1715 = document.querySelector("#jno1715");
-  
+  const jno1716 = document.querySelector("#jno1716");
   const nilai17=document.querySelector('#nilai17')
 
 
@@ -2948,7 +2948,13 @@ function kirim17() {
     response = "";
   }
   rno1715.innerHTML = response;
-
+  if (jno1716.checked) {
+    response = "";
+    poin17 = poin17 + 10;
+  } else {
+    response = "";
+  }
+  rno1716.innerHTML = response;
 nilai17.innerHTML=poin17;
   
   
@@ -3015,6 +3021,11 @@ nilai17.innerHTML=poin17;
    const optionsno1715 = document.getElementsByName("no1715");
    for (let i = 0; i < optionsno1715.length; i++) {
        optionsno1715[i].checked = false;
+   }
+
+   const optionsno1716 = document.getElementsByName("no1716");
+   for (let i = 0; i < optionsno1716.length; i++) {
+       optionsno1716[i].checked = false;
    }
    scoretotal();
 }
