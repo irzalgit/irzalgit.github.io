@@ -425,7 +425,7 @@ function kirim20() {
         rsno20124.innerHTML=response   
 
 
-        if (sno20131.value=="32" ){
+        if (sno20131.value=="34" ){
           response="ok";poin=poin+10} 
         else {
           response="x"}
