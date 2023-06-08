@@ -448,15 +448,15 @@ function kirim20() {
           
         
           
-             if (sno20134.value=="ggffrrr172,5"){
+             if (sno20134.value=="2,3"){
                response="ok";poin=poin+10
              }else {
-               response="x"
+               response="format x,y"
              }
              rsno20134.innerHTML=response
              
           
-             if (sno20135.value=="hhgggff5"){
+             if (sno20135.value=="-1/2"){
               response="ok";poin=poin+10} 
             else {
               response="x"}
@@ -464,7 +464,7 @@ function kirim20() {
             
           
             
-               if (sno20136.value=="hhhhhh55,9"){
+               if (sno20136.value=="d"){
                  response="ok";poin=poin+10
                }else {
                  response="x"
@@ -472,7 +472,7 @@ function kirim20() {
                rsno20136.innerHTML=response
                
             
-               if (sno20137.value=="hggff5"){
+               if (sno20137.value=="3/2"){
                 response="ok";poin=poin+10} 
               else {
                 response="x"}
@@ -480,7 +480,7 @@ function kirim20() {
               
             
               
-                 if (sno20138.value=="uhygg20"){
+                 if (sno20138.value=="2"){
                    response="ok";poin=poin+10
                  }else {
                    response="x"
@@ -488,7 +488,7 @@ function kirim20() {
                  rsno20138.innerHTML=response
                  
               
-                 if (sno20139.value=="rtttt53,8"){
+                 if (sno20139.value=="d"){
                   response="ok";poin=poin+10} 
                 else {
                   response="x"}
@@ -496,7 +496,7 @@ function kirim20() {
                 
            
               
-                if (sno20140.value=="6reeerr"){
+                if (sno20140.value=="e"){
                   response="ok";poin=poin+10
                 }else {
                   response="x"
@@ -511,19 +511,19 @@ function kirim20() {
                rsno20141.innerHTML=response   
                 
                 
-               if (sno20142.value=="rerx+z=2"){
+               if (sno20142.value=="6"){
                 response="ok";poin=poin+10} 
               else {
                 response="x"}
               rsno20142.innerHTML=response   
                
-              if (sno20143.value=="embuarkan" ){
+              if (sno20143.value=="7" ){
                 response="ok";poin=poin+10} 
               else {
                 response="x"}
               rsno20143.innerHTML=response   
                
-              if (sno20144.value=="rty4"){
+              if (sno20144.value=="e"){
                 response="ok";poin=poin+10} 
               else {
                 response="x"}
