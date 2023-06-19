@@ -63,7 +63,11 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </style>
   
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+ <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel Script -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+    
 </head>
 <body onload="NextQuestion(0)" class=" h-full">
 
@@ -371,10 +375,11 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 
 
 <aside class="border-1 rounded-3xl border-black  p-4 w-full md:w-1/4 box-border bg-[#FFFACD]">
-
+<div id="app"></div>
+ 
 
   <i data-feather="edit"> </i> 
- <p>update:08/06/23 17:30 WIB</p>
+ <p>update:19/06/23 17:30 WIB</p>
 <i data-feather="eye"></i>view
   <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
   
@@ -12007,8 +12012,42 @@ $('#submit-form').on('click', function(e) {
  -->
  
   </body>
+   <!-- <script type="text/jsx">
+      const app = document.getElementById('app');
+      ReactDOM.render(<h1>Pekanbaru</h1>, app);
+    </script> -->
+    <script type="text/jsx">
+      const app = document.getElementById("app")
 
+      function Header({ title }) {
+        return <h1>{title ? title : "Hello,sahabat"}</h1>
+      }
 
+      function HomePage() {
+        const names = ["tanggap", "tangkas", "jitu"]
+
+        const [likes, setLikes] = React.useState(0)
+
+        function handleClick() {
+          setLikes(likes + 1)
+        }
+
+        return (
+          <div>
+            <Header title="Moto" />
+            <ul>
+              {names.map((name) => (
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
+
+            <button onClick={handleClick}>Suka ({likes})</button>
+          </div>
+        )
+      }
+
+      ReactDOM.render(<HomePage />, app)
+    </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   
   <script src='./js/google-sheet.js'></script>
