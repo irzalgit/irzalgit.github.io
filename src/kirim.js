@@ -2325,7 +2325,11 @@ function kirim11() {
   const jno88 = document.querySelector("#jno88");
   const jno89 = document.querySelector("#jno89");
   const jno90 = document.querySelector("#jno90");
-  
+  const jno911 = document.querySelector("#jno911");
+  const jno912 = document.querySelector("#jno912");
+  const jno913 = document.querySelector("#jno913");
+  const jno914 = document.querySelector("#jno914");
+  const jno915 = document.querySelector("#jno915");
   const nilai11=document.querySelector('#nilai11')
 
 
@@ -2409,6 +2413,41 @@ function kirim11() {
   }
   rno90.innerHTML = response;
 
+  if (jno911.checked) {
+    response = "";
+    poin11 = poin11 + 10;
+  } else {
+    response = "";
+  }
+  rno911.innerHTML = response;
+  if (jno912.checked) {
+    response = "";
+    poin11 = poin11 + 10;
+  } else {
+    response = "";
+  }
+  rno912.innerHTML = response;
+  if (jno913.checked) {
+    response = "";
+    poin11 = poin11 + 10;
+  } else {
+    response = "";
+  }
+  rno913.innerHTML = response;
+  if (jno914.checked) {
+    response = "";
+    poin11 = poin11 + 10;
+  } else {
+    response = "";
+  }
+  rno914.innerHTML = response;
+  if (jno915.checked) {
+    response = "";
+    poin11 = poin11 + 10;
+  } else {
+    response = "";
+  }
+  rno915.innerHTML = response;
 nilai11.innerHTML=poin11;
   
   
