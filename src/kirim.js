@@ -2338,7 +2338,11 @@ function kirim11() {
   const jno918 = document.querySelector("#jno918");
   const jno919 = document.querySelector("#jno919");
   const jno920 = document.querySelector("#jno920");
-
+  const jno921 = document.querySelector("#jno921");
+  const jno922 = document.querySelector("#jno922");
+  const jno923 = document.querySelector("#jno923");
+  const jno924 = document.querySelector("#jno924");
+  const jno925 = document.querySelector("#jno925");
   const nilai11=document.querySelector('#nilai11')
 
 
@@ -2497,6 +2501,53 @@ function kirim11() {
     response = "";
   }
   rno920.innerHTML = response;
+
+
+  if (jno921.checked) {
+    response = "";
+    poin11 = poin11 + 10;
+  } else {
+    response = "";
+  }
+  rno921.innerHTML = response;
+
+
+  if (jno922.checked) {
+    response = "";
+    poin11 = poin11 + 10;
+  } else {
+    response = "";
+  }
+  rno922.innerHTML = response;
+
+
+  if (jno923.checked) {
+    response = "";
+    poin11 = poin11 + 10;
+  } else {
+    response = "";
+  }
+  rno923.innerHTML = response;
+
+
+  if (jno924.checked) {
+    response = "";
+    poin11 = poin11 + 10;
+  } else {
+    response = "";
+  }
+  rno924.innerHTML = response;
+
+
+  if (jno925.checked) {
+    response = "";
+    poin11 = poin11 + 10;
+  } else {
+    response = "";
+  }
+  rno925.innerHTML = response;
+
+
 nilai11.innerHTML=poin11;
   
   
@@ -2593,6 +2644,31 @@ const options912 = document.getElementsByName("no912");
    const options920 = document.getElementsByName("no920");
    for (let i = 0; i < options920.length; i++) {
        options920[i].checked = false;
+   }
+
+   const options921 = document.getElementsByName("no921");
+   for (let i = 0; i < options921.length; i++) {
+       options921[i].checked = false;
+   }
+
+   const options922 = document.getElementsByName("no922");
+   for (let i = 0; i < options922.length; i++) {
+       options922[i].checked = false;
+   }
+
+   const options923 = document.getElementsByName("no923");
+   for (let i = 0; i < options923.length; i++) {
+       options923[i].checked = false;
+   }
+
+   const options924 = document.getElementsByName("no924");
+   for (let i = 0; i < options924.length; i++) {
+       options924[i].checked = false;
+   }
+
+   const options925 = document.getElementsByName("no925");
+   for (let i = 0; i < options925.length; i++) {
+       options925[i].checked = false;
    }
 
    scoretotal();
