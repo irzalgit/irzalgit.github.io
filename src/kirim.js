@@ -1309,6 +1309,18 @@ function kirimkua() {
 
 function kirim7() {
   let poin7 = 0;
+  const jno0107 = document.querySelector("#jno0107");
+  const jno0207 = document.querySelector("#jno0207");
+  const jno0307 = document.querySelector("#jno0307");
+  const jno0407 = document.querySelector("#jno0407");
+  const jno0507 = document.querySelector("#jno0507");
+  const jno0607 = document.querySelector("#jno0607");
+  const jno0707 = document.querySelector("#jno0707");
+  const jno0807 = document.querySelector("#jno0807");
+  const jno0907 = document.querySelector("#jno0907");
+  const jno01007 = document.querySelector("#jno01007");
+  
+  
   const jno11 = document.querySelector("#jno11");
   const jno12 = document.querySelector("#jno12");
   const jno13 = document.querySelector("#jno13");
@@ -1318,6 +1330,8 @@ function kirim7() {
   const jno17 = document.querySelector("#jno17");
   const jno18 = document.querySelector("#jno18");
   const jno19 = document.querySelector("#jno19");
+  const jno20 = document.querySelector("#jno20");
+  
   const nilai7=document.querySelector("#nilai7");
 
   const sno11=document.querySelector('#sno11')
@@ -1325,6 +1339,90 @@ function kirim7() {
   const sno13=document.querySelector('#sno13')
   const sno14=document.querySelector('#sno14')
  
+
+  if (jno0107.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno0107.innerHTML = response;
+
+  if (jno0207.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno0207.innerHTML = response;
+
+  if (jno0307.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno0307.innerHTML = response;
+
+  
+  if (jno0407.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno0407.innerHTML = response;
+
+  if (jno0507.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno0507.innerHTML = response;
+
+  if (jno0607.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno0607.innerHTML = response;
+
+
+  if (jno0707.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno0707.innerHTML = response;
+
+  if (jno0807.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno0807.innerHTML = response;
+
+  if (jno0907.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno0907.innerHTML = response;
+
+
+  if (jno01007.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno01007.innerHTML = response;
+
 
   if (jno11.checked) {
     response = "";
@@ -1398,6 +1496,14 @@ function kirim7() {
   }
   rno19.innerHTML = response;
 
+  if (jno20.checked) {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rno20.innerHTML = response;
+
 nilai7.innerHTML=poin7;
 
 
@@ -1440,6 +1546,12 @@ const optionsno19 = document.getElementsByName("no19");
 for (let i = 0; i < optionsno19.length; i++) {
     optionsno19[i].checked = false;
 }
+
+const optionsno20 = document.getElementsByName("no20");
+for (let i = 0; i < optionsno20.length; i++) {
+    optionsno20[i].checked = false;
+}
+
 
 scoretotal();
 }
