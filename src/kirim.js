@@ -1610,6 +1610,40 @@ function kirim7() {
   }
   rno20.innerHTML = response;
 
+  if (sno11.value == "1") {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rsno11.innerHTML = response;
+
+  if (sno12.value == "3") {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rsno12.innerHTML = response;
+
+  if (sno13.value == "1") {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rsno13.innerHTML = response;
+
+  if (sno14.value == "10") {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rsno14.innerHTML = response;
+
+
+
 nilai7.innerHTML=poin7;
 
 
@@ -2200,7 +2234,7 @@ function kirim10() {
   const jno607 = document.querySelector("#jno607");
   const jno608 = document.querySelector("#jno608");
   const jno609 = document.querySelector("#jno609");
-  
+  const nilai10=document.querySelector('#nilai10')
 
   if (jno600.checked) {
     response = "";
