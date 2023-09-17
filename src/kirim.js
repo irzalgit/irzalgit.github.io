@@ -1444,6 +1444,13 @@ function kirim7() {
   const sno12=document.querySelector('#sno12')
   const sno13=document.querySelector('#sno13')
   const sno14=document.querySelector('#sno14')
+  const sno15=document.querySelector('#sno15')
+  const sno16=document.querySelector('#sno16')
+  const sno17=document.querySelector('#sno17')
+  const sno18=document.querySelector('#sno18')
+  const sno19=document.querySelector('#sno19')
+  const sno1901=document.querySelector('#sno1901')
+  
  
 
   if (jno0107.checked) {
@@ -1642,7 +1649,53 @@ function kirim7() {
   }
   rsno14.innerHTML = response;
 
+  if (sno15.value == "4") {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rsno15.innerHTML = response;
 
+  if (sno16.value == "12") {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rsno16.innerHTML = response;
+
+  if (sno17.value == "50") {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rsno17.innerHTML = response;
+
+  if (sno18.value == "40") {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rsno18.innerHTML = response;
+
+  if (sno19.value == "-1") {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rsno19.innerHTML = response;
+
+  if (sno1901.value == "10") {
+    response = "";
+    poin7 = poin7 + 10;
+  } else {
+    response = "";
+  }
+  rsno1901.innerHTML = response;
 
 nilai7.innerHTML=poin7;
 
