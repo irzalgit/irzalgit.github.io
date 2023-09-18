@@ -24,9 +24,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="923.25"
-     inkscape:cy="252.75"
+     inkscape:zoom="1"
+     inkscape:cx="900"
+     inkscape:cy="81.5"
      inkscape:window-width="1366"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -41,6 +41,18 @@
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <linearGradient
+       id="linearGradient26650"
+       inkscape:swatch="gradient">
+      <stop
+         style="stop-color:#6539cb;stop-opacity:1;"
+         offset="0"
+         id="stop26646" />
+      <stop
+         style="stop-color:#f1dd18;stop-opacity:0;"
+         offset="1"
+         id="stop26648" />
+    </linearGradient>
     <linearGradient
        id="linearGradient6508"
        inkscape:swatch="solid">
@@ -440,7 +452,7 @@
        xlink:href="#linearGradient6508"
        id="linearGradient51821"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.95720455,0,0,0.98019427,207.04178,-2.8173053)"
+       gradientTransform="matrix(0.95720455,0,0,0.98019427,205.91589,-1.8078373)"
        x1="2.4869499"
        y1="40.411156"
        x2="112.75967"
@@ -555,44 +567,347 @@
        y1="40.411156"
        x2="112.75967"
        y2="40.411156" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter21403"
+       x="-0.010510751"
+       y="-0.029304687"
+       width="1.0216158"
+       height="1.0588788">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.21671812"
+         id="feGaussianBlur21405" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter23851"
+       x="-0.023498712"
+       y="-0.065746257"
+       width="1.0475918"
+       height="1.1317619">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.58027276"
+         id="feGaussianBlur23849" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter26280"
+       x="-0.064758115"
+       y="-0.18151172"
+       width="1.1301106"
+       height="1.3632929">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.7351919"
+         id="feGaussianBlur26278" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient26650"
+       id="linearGradient26660"
+       gradientUnits="userSpaceOnUse"
+       x1="-7.6165921"
+       y1="169.83959"
+       x2="94.773798"
+       y2="169.83959" />
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <g
+       id="page1"
+       transform="matrix(0.49829861,0,0,0.49829861,188.20661,-11.152293)"
+       style="opacity:1;fill:#000000">
+      <use
+         x="56.413265"
+         y="70.852394"
+         xlink:href="#g3-102"
+         id="use1447"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="63.459705"
+         y="65.916206"
+         xlink:href="#g0-48"
+         id="use1449"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="66.254776"
+         y="70.852394"
+         xlink:href="#g5-40"
+         id="use1451"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="70.807106"
+         y="70.852394"
+         xlink:href="#g3-120"
+         id="use1453"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="77.45919"
+         y="70.852394"
+         xlink:href="#g5-41"
+         id="use1455"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="85.332344"
+         y="70.852394"
+         xlink:href="#g5-61"
+         id="use1457"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="98.419914"
+         y="70.852394"
+         xlink:href="#g5-108"
+         id="use1459"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="101.67157"
+         y="70.852394"
+         xlink:href="#g5-105"
+         id="use1461"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="104.92323"
+         y="70.852394"
+         xlink:href="#g5-109"
+         id="use1463"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="97.757828"
+         y="78.379723"
+         xlink:href="#g2-104"
+         id="use1465"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="102.63773"
+         y="78.379723"
+         xlink:href="#g0-33"
+         id="use1467"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="111.1061"
+         y="78.379723"
+         xlink:href="#g4-48"
+         id="use1469"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="118.5283"
+         y="62.764633"
+         xlink:href="#g3-102"
+         id="use1471"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="125.57474"
+         y="62.764633"
+         xlink:href="#g5-40"
+         id="use1473"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="130.12706"
+         y="62.764633"
+         xlink:href="#g3-120"
+         id="use1475"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="139.43581"
+         y="62.764633"
+         xlink:href="#g5-43"
+         id="use1477"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="151.19713"
+         y="62.764633"
+         xlink:href="#g3-104"
+         id="use1479"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="157.93568"
+         y="62.764633"
+         xlink:href="#g5-41"
+         id="use1481"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="165.14467"
+         y="62.764633"
+         xlink:href="#g1-0"
+         id="use1483"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="177.09982"
+         y="62.764633"
+         xlink:href="#g3-102"
+         id="use1485"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="184.14627"
+         y="62.764633"
+         xlink:href="#g5-40"
+         id="use1487"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="188.69859"
+         y="62.764633"
+         xlink:href="#g3-120"
+         id="use1489"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <use
+         x="195.35068"
+         y="62.764633"
+         xlink:href="#g5-41"
+         id="use1491"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+      <rect
+         x="118.5283"
+         y="67.624504"
+         height="0.47818699"
+         width="81.374702"
+         id="rect1493"
+         style="fill:#000000" />
+      <use
+         x="155.84637"
+         y="79.053055"
+         xlink:href="#g3-104"
+         id="use1495"
+         width="100%"
+         height="100%"
+         style="fill:#000000" />
+    </g>
     <path
-       style="fill:#ff8080;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 16.536458,79.507291 1.190625,7.011458 4.497917,4.894792 17.330208,-0.264584 c 0,0 25.4,0.79375 26.061458,0.79375 0.661458,0 10.847916,-0.926041 10.847916,-0.926041 l 0.132292,-7.276042 -3.175,-3.571875 L 58.605208,80.036457 38.1,79.242707 Z"
-       id="path53738" />
+       style="opacity:0.280397;mix-blend-mode:normal;fill:#00ff00;stroke:url(#linearGradient26660);stroke-width:0.359999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter26280)"
+       d="m 9.968647,160.39836 0.443384,11.84356 0.153651,9.56609 27.462546,-1.21073 c 0,0 12.685645,1.38532 25.362647,0.98633 l 12.743277,-0.40108 -1.617946,-9.61467 2.632427,-13.03748 -21.773105,2.70193 -26.564106,-3.36759 z"
+       id="path25916"
+       sodipodi:nodetypes="ccccscccccc"
+       transform="matrix(1.301948,0,0,0.75931188,197.64257,-105.41508)" />
     <path
-       style="fill:#ffb380;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 12.303125,155.04583 c 0,0 4.7625,-3.04271 5.820833,-3.04271 1.058333,0 22.886458,-0.52916 23.547916,-0.52916 0.661459,0 16.933334,0 23.944792,0.26458 7.011458,0.26458 17.065625,0.79375 17.065625,0.79375 l 0.264583,9.78958 c 0,0 -12.038542,3.175 -22.489583,3.43959 -10.451042,0.26458 -29.104166,-1.7198 -29.104166,-1.7198 0,0 -13.890625,-1.85208 -14.684375,-2.77812 -0.79375,-0.92604 -4.365625,-6.21771 -4.365625,-6.21771 z"
-       id="path53605" />
+       style="opacity:0.35732;fill:#cccccc;stroke:#f15e18;stroke-width:0.359999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter21403)"
+       d="m 9.968647,160.39836 0.443384,11.84356 0.153651,9.56609 27.462546,-1.21073 c 0,0 12.685645,1.38532 25.362647,0.98633 l 12.743277,-0.40108 -1.617946,-9.61467 2.632427,-13.03748 -21.773105,2.70193 -26.564106,-3.36759 z"
+       id="path24857"
+       sodipodi:nodetypes="ccccscccccc"
+       transform="matrix(1.3108898,0,0,0.99161244,95.254213,74.184955)" />
     <path
-       style="fill:#f9f9f9;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 4.2333333,227.93854 0.9260416,8.86354 3.0427083,1.98438 c 0,0 16.2718748,0 20.9020828,0 4.630209,0 22.621875,0.26458 22.621875,0.26458 0,0 21.43125,-0.66146 21.960416,-0.66146 0.529167,0 8.202084,0 8.202084,0 l 1.5875,-8.33437 -5.027084,-3.04271 -20.769791,-1.05834 -30.030208,1.45521 z"
-       id="path53472" />
+       sodipodi:type="star"
+       style="opacity:0.833747;fill:#008000;stroke:#20000b;stroke-width:0.999999;stroke-dasharray:0.999999, 0.999999;stroke-opacity:1"
+       id="path24280"
+       inkscape:flatsided="false"
+       sodipodi:sides="5"
+       sodipodi:cx="785"
+       sodipodi:cy="69"
+       sodipodi:r1="217.45116"
+       sodipodi:r2="14.082022"
+       sodipodi:arg1="0.06442684"
+       sodipodi:arg2="1.8915484"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 1002,83.000001 780.56022,82.363819 838.7419,279.70551 770.91828,68.907161 601.21431,185.22317 780.73681,55.578804 617.6723,-69.875646 796.44692,60.798084 865.37148,-133.05304 796.33778,77.352133 Z"
+       transform="matrix(0.0746424,-0.00142567,-9.1755202e-4,0.05390763,92.289908,83.347562)"
+       inkscape:transform-center-x="3.3340977"
+       inkscape:transform-center-y="1.0376258" />
     <path
-       style="fill:#ff8080;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 108.61146,228.20312 c 0,0.52917 0,5.82084 0,5.82084 l 2.51354,6.61458 c 0,0 11.37708,0.39687 16.80104,0.39687 5.42396,0 20.76979,-0.92604 20.76979,-0.92604 l 29.50104,1.19063 4.10104,-1.5875 0.26459,-5.29167 -1.05834,-6.35 -22.62187,-0.13229 -17.19792,0.39687 -11.37708,-1.32291 z"
-       id="path53321" />
+       style="opacity:0.35732;fill:#0000ff;stroke:#f1dd18;stroke-width:0.359999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter21403)"
+       d="m 9.968647,160.39836 0.443384,11.84356 0.153651,9.56609 27.462546,-1.21073 c 0,0 12.685645,1.38532 25.362647,0.98633 l 12.743277,-0.40108 -1.617946,-9.61467 2.632427,-13.03748 -21.773105,2.70193 -26.564106,-3.36759 z"
+       id="path23559"
+       sodipodi:nodetypes="ccccscccccc"
+       transform="matrix(1.3108898,0,0,0.99161244,199.50005,71.539122)" />
     <path
-       style="fill:#e3dbdb;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 214.57708,237.72812 c 0,0 5.68854,-9.26041 7.14375,-9.26041 1.45521,0 22.88646,0.66145 22.88646,0.66145 l 43.78854,-0.52916 6.08542,4.89479 -3.175,12.7 -28.17813,0.92604 -34.26354,1.5875 -11.50937,-1.85208 z"
-       id="path53086" />
+       style="opacity:1;fill:#ffaaaa;stroke:#f1dd18;stroke-width:0.359999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter21403)"
+       d="m 9.968647,160.39836 0.443384,11.84356 0.153651,9.56609 27.462546,-1.21073 c 0,0 12.685645,1.38532 25.362647,0.98633 l 12.743277,-0.40108 -1.617946,-9.61467 2.632427,-13.03748 -21.773105,2.70193 -26.564106,-3.36759 z"
+       id="path23521"
+       sodipodi:nodetypes="ccccscccccc"
+       transform="matrix(1.3299974,0,0,0.99025662,-7.0461765,113.30898)" />
+    <path
+       style="opacity:1;fill:#cccccc;stroke:#f1dd18;stroke-width:0.359999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter21403)"
+       d="m 9.968647,160.39836 0.443384,11.84356 0.153651,9.56609 27.462546,-1.21073 c 0,0 12.685645,1.38532 25.362647,0.98633 l 12.743277,-0.40108 -1.617946,-9.61467 2.632427,-13.03748 -21.773105,2.70193 -26.564106,-3.36759 z"
+       id="path23056"
+       sodipodi:nodetypes="ccccscccccc"
+       transform="matrix(1.1963324,0,0,1,-1.3535344,75.935417)" />
+    <path
+       style="opacity:1;fill:#ffaaaa;stroke:#f1dd18;stroke-width:0.359999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter21403)"
+       d="m 9.968647,160.39836 -4.422181,11.31439 5.019216,10.09526 25.914412,0.64135 c 0,0 14.233779,-0.46676 26.910781,-0.86575 l 12.743277,-0.40108 1.478323,-10.14384 -1.34849,-10.65623 -21.109619,-2.06057 -24.352485,1.6595 z"
+       id="path22318"
+       sodipodi:nodetypes="ccccscccccc"
+       transform="matrix(1.1963324,0,0,1,-3.7347844,38.1)" />
+    <path
+       style="opacity:1;fill:#e9afaf;stroke:#f1dd18;stroke-width:0.359999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter21403)"
+       d="m 9.968647,160.39836 -4.422181,11.31439 5.019216,10.09526 25.914412,0.64135 c 0,0 14.233779,-0.46676 26.910781,-0.86575 l 12.743277,-0.40108 1.478323,-10.14384 -1.34849,-10.65623 -21.109619,-2.06057 -24.352485,1.6595 z"
+       id="path22298"
+       sodipodi:nodetypes="ccccscccccc"
+       transform="matrix(1.1963324,0,0,1,-1.0889511,0)" />
+    <path
+       style="opacity:1;fill:#c8b7b7;stroke:#f1dd18;stroke-width:0.359999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter21403)"
+       d="m 17.906147,125.20878 -4.422181,11.31439 5.019216,10.09526 25.914412,0.64135 c 0,0 14.233779,-0.46676 26.910781,-0.86575 l 12.743277,-0.40108 1.478323,-10.14384 -1.34849,-10.65623 -21.109619,-2.06057 -24.352485,1.6595 z"
+       id="path22260"
+       sodipodi:nodetypes="ccccscccccc" />
+    <path
+       style="opacity:1;fill:#ffd5d5;stroke:#f11d18;stroke-width:0.359999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter21403)"
+       d="m 15.78948,90.812949 -4.422181,11.314391 5.019216,10.09526 25.914412,0.64135 c 0,0 14.233779,-0.46676 26.910781,-0.86575 l 12.743277,-0.40108 1.478323,-10.14384 -1.34849,-10.65623 -21.109619,-2.060572 -24.352485,1.659496 z"
+       id="path53738"
+       sodipodi:nodetypes="ccccscccccc" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.95879px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#2e0e49;fill-opacity:1;stroke-width:0.335951"
-       x="214.42551"
-       y="65.715042"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.9333px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';fill:#501616;fill-opacity:1;stroke-width:0.656155;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="187.89909"
+       y="74.280708"
        id="text5601"
        transform="scale(0.63374184,1.5779296)"
-       inkscape:transform-center-y="16.933333"><tspan
-         sodipodi:role="line"
+       inkscape:transform-center-y="33.072949"
+       inkscape:transform-center-x="6.0479352e-05"><tspan
          id="tspan5599"
-         style="font-size:8.95879px;fill:#2e0e49;fill-opacity:1;stroke-width:0.335951"
-         x="214.42551"
-         y="65.715042">Deferensial</tspan></text>
+         style="font-size:16.93333333px;fill:#501616;fill-opacity:1;stroke-width:0.656155;-inkscape-font-specification:'Tahoma, Bold';font-family:Tahoma;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+         x="187.89909"
+         y="74.280708"
+         sodipodi:role="line">Deferensial</tspan></text>
     <rect
        style="fill:none;stroke:url(#linearGradient6622);stroke-width:0.256283;stroke-opacity:1"
        id="rect6620"
@@ -630,307 +945,130 @@
        inkscape:transform-center-x="21.13168"
        inkscape:transform-center-y="-16.504494" />
     <g
-       id="page1"
-       transform="matrix(0.39863889,0,0,0.39863889,198.09878,-4.5263733)">
-      <use
-         x="56.413265"
-         y="70.852394"
-         xlink:href="#g3-102"
-         id="use1447"
-         width="100%"
-         height="100%" />
-      <use
-         x="63.459705"
-         y="65.916206"
-         xlink:href="#g0-48"
-         id="use1449"
-         width="100%"
-         height="100%" />
-      <use
-         x="66.254776"
-         y="70.852394"
-         xlink:href="#g5-40"
-         id="use1451"
-         width="100%"
-         height="100%" />
-      <use
-         x="70.807106"
-         y="70.852394"
-         xlink:href="#g3-120"
-         id="use1453"
-         width="100%"
-         height="100%" />
-      <use
-         x="77.45919"
-         y="70.852394"
-         xlink:href="#g5-41"
-         id="use1455"
-         width="100%"
-         height="100%" />
-      <use
-         x="85.332344"
-         y="70.852394"
-         xlink:href="#g5-61"
-         id="use1457"
-         width="100%"
-         height="100%" />
-      <use
-         x="98.419914"
-         y="70.852394"
-         xlink:href="#g5-108"
-         id="use1459"
-         width="100%"
-         height="100%" />
-      <use
-         x="101.67157"
-         y="70.852394"
-         xlink:href="#g5-105"
-         id="use1461"
-         width="100%"
-         height="100%" />
-      <use
-         x="104.92323"
-         y="70.852394"
-         xlink:href="#g5-109"
-         id="use1463"
-         width="100%"
-         height="100%" />
-      <use
-         x="97.757828"
-         y="78.379723"
-         xlink:href="#g2-104"
-         id="use1465"
-         width="100%"
-         height="100%" />
-      <use
-         x="102.63773"
-         y="78.379723"
-         xlink:href="#g0-33"
-         id="use1467"
-         width="100%"
-         height="100%" />
-      <use
-         x="111.1061"
-         y="78.379723"
-         xlink:href="#g4-48"
-         id="use1469"
-         width="100%"
-         height="100%" />
-      <use
-         x="118.5283"
-         y="62.764633"
-         xlink:href="#g3-102"
-         id="use1471"
-         width="100%"
-         height="100%" />
-      <use
-         x="125.57474"
-         y="62.764633"
-         xlink:href="#g5-40"
-         id="use1473"
-         width="100%"
-         height="100%" />
-      <use
-         x="130.12706"
-         y="62.764633"
-         xlink:href="#g3-120"
-         id="use1475"
-         width="100%"
-         height="100%" />
-      <use
-         x="139.43581"
-         y="62.764633"
-         xlink:href="#g5-43"
-         id="use1477"
-         width="100%"
-         height="100%" />
-      <use
-         x="151.19713"
-         y="62.764633"
-         xlink:href="#g3-104"
-         id="use1479"
-         width="100%"
-         height="100%" />
-      <use
-         x="157.93568"
-         y="62.764633"
-         xlink:href="#g5-41"
-         id="use1481"
-         width="100%"
-         height="100%" />
-      <use
-         x="165.14467"
-         y="62.764633"
-         xlink:href="#g1-0"
-         id="use1483"
-         width="100%"
-         height="100%" />
-      <use
-         x="177.09982"
-         y="62.764633"
-         xlink:href="#g3-102"
-         id="use1485"
-         width="100%"
-         height="100%" />
-      <use
-         x="184.14627"
-         y="62.764633"
-         xlink:href="#g5-40"
-         id="use1487"
-         width="100%"
-         height="100%" />
-      <use
-         x="188.69859"
-         y="62.764633"
-         xlink:href="#g3-120"
-         id="use1489"
-         width="100%"
-         height="100%" />
-      <use
-         x="195.35068"
-         y="62.764633"
-         xlink:href="#g5-41"
-         id="use1491"
-         width="100%"
-         height="100%" />
-      <rect
-         x="118.5283"
-         y="67.624504"
-         height="0.47818699"
-         width="81.374702"
-         id="rect1493" />
-      <use
-         x="155.84637"
-         y="79.053055"
-         xlink:href="#g3-104"
-         id="use1495"
-         width="100%"
-         height="100%" />
-    </g>
-    <g
        id="page1-5"
-       transform="matrix(0.39863889,0,0,0.39863889,2.1921538,61.016981)">
+       transform="matrix(0.49829861,0,0,0.49829861,-9.1232704,69.566922)"
+       style="fill:#2b0000">
       <use
          x="56.413265"
          y="65.753426"
          xlink:href="#g2-102"
          id="use1600"
          width="100%"
-         height="100%" />
-      <use
-         x="63.459705"
-         y="60.817238"
-         xlink:href="#g0-48-5"
-         id="use1602"
-         width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="66.254776"
          y="65.753426"
          xlink:href="#g3-40"
          id="use1604"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="70.807106"
          y="65.753426"
          xlink:href="#g2-120"
          id="use1606"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="77.45919"
          y="65.753426"
          xlink:href="#g3-41"
          id="use1608"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="85.332344"
          y="65.753426"
          xlink:href="#g3-61"
          id="use1610"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="97.757828"
          y="65.753426"
          xlink:href="#g2-99"
          id="use1612"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="106.11665"
          y="65.753426"
          xlink:href="#g1-33"
          id="use1614"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="121.39268"
          y="65.753426"
          xlink:href="#g2-102"
          id="use1616"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="128.43912"
          y="60.817238"
          xlink:href="#g0-48-5"
          id="use1618"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="131.23419"
          y="65.753426"
          xlink:href="#g3-40"
          id="use1620"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="135.78651"
          y="65.753426"
          xlink:href="#g2-120"
          id="use1622"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="142.4386"
          y="65.753426"
          xlink:href="#g3-41"
          id="use1624"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="150.31175"
          y="65.753426"
          xlink:href="#g3-61"
          id="use1626"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
       <use
          x="162.73724"
          y="65.753426"
          xlink:href="#g3-48"
          id="use1628"
          width="100%"
-         height="100%" />
+         height="100%"
+         style="fill:#2b0000" />
     </g>
     <g
        id="page1-2"
-       transform="matrix(0.39863889,0,0,0.39863889,4.2907183,19.70413)">
+       transform="matrix(0.49829861,0,0,0.49829861,-8.129211,102.89878)">
       <use
          x="56.413265"
          y="65.753426"
          xlink:href="#g2-102-4"
          id="use1717"
-         width="100%"
-         height="100%" />
-      <use
-         x="63.459705"
-         y="60.817238"
-         xlink:href="#g0-48-0"
-         id="use1719"
          width="100%"
          height="100%" />
       <use
@@ -1034,19 +1172,12 @@
     </g>
     <g
        id="page1-6"
-       transform="matrix(0.39863889,0,0,0.39863889,-7.6847363,83.532307)">
+       transform="matrix(0.49829861,0,0,0.49829861,-18.309423,177.85131)">
       <use
          x="56.413265"
          y="65.753426"
          xlink:href="#g3-102-5"
          id="use1860"
-         width="100%"
-         height="100%" />
-      <use
-         x="63.459705"
-         y="60.817238"
-         xlink:href="#g0-48-4"
-         id="use1862"
          width="100%"
          height="100%" />
       <use
@@ -1199,19 +1330,12 @@
     </g>
     <g
        id="page1-3"
-       transform="matrix(0.39863889,0,0,0.39863889,-6.9735973,109.76357)">
+       transform="matrix(0.49829861,0,0,0.49829861,-16.479938,141.58257)">
       <use
          x="56.413265"
          y="65.753426"
          xlink:href="#g3-102-0"
          id="use2019"
-         width="100%"
-         height="100%" />
-      <use
-         x="63.459705"
-         y="60.817238"
-         xlink:href="#g0-48-8"
-         id="use2021"
          width="100%"
          height="100%" />
       <use
@@ -1343,7 +1467,7 @@
     </g>
     <g
        id="page1-56"
-       transform="matrix(0.39863889,0,0,0.39863889,-1.1594221,132.79994)">
+       transform="matrix(0.49829861,0,0,0.49829861,-7.9483385,216.15297)">
       <use
          x="56.413265"
          y="65.753426"
@@ -1480,7 +1604,7 @@
     </g>
     <g
        id="page1-0"
-       transform="matrix(0.39863889,0,0,0.39863889,-12.28974,208.76271)">
+       transform="matrix(0.49829861,0,0,0.49829861,-21.894183,250.72446)">
       <use
          x="56.413265"
          y="65.753426"
@@ -1666,7 +1790,7 @@
     </g>
     <g
        id="page1-63"
-       transform="matrix(0.39863889,0,0,0.39863889,93.593841,148.5348)">
+       transform="matrix(0.49829861,0,0,0.49829861,83.54551,210.69353)">
       <use
          x="56.413265"
          y="65.753426"
@@ -1810,7 +1934,7 @@
     </g>
     <g
        id="page1-31"
-       transform="matrix(0.39863889,0,0,0.39863889,92.13729,209.78752)">
+       transform="matrix(0.49829861,0,0,0.49829861,185.14551,209.6352)">
       <use
          x="56.413265"
          y="65.753426"
@@ -1968,7 +2092,7 @@
     </g>
     <g
        id="page1-1"
-       transform="matrix(0.39863889,0,0,0.39863889,201.28736,212.64239)">
+       transform="matrix(0.49829861,0,0,0.49829861,293.32295,212.07307)">
       <use
          x="56.413265"
          y="70.652306"
@@ -2166,8 +2290,8 @@
        id="rect51815"
        width="105.3003"
        height="74.08683"
-       x="209.54877"
-       y="-0.2499443"
+       x="208.42288"
+       y="0.75952375"
        inkscape:transform-center-x="21.131675"
        inkscape:transform-center-y="-16.504496" />
     <rect
@@ -2271,6 +2395,111 @@
          style="stroke-width:0.264583"
          x="219.47188"
          y="7.9375">Definisi</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+       x="37.835415"
+       y="85.989586"
+       id="text6330"><tspan
+         sodipodi:role="line"
+         id="tspan6328"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         x="37.835415"
+         y="85.989586">sifat 1:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+       x="38.629166"
+       y="122.76666"
+       id="text7492"><tspan
+         sodipodi:role="line"
+         id="tspan7490"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         x="38.629166"
+         y="122.76666">sifat 2:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';stroke-width:0.264583;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="7.9374995"
+       y="157.95625"
+       id="text8522"><tspan
+         sodipodi:role="line"
+         id="tspan8520"
+         style="stroke-width:0.264583;-inkscape-font-specification:'Calibri, Bold';font-family:Calibri;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.88055556px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+         x="7.9374995"
+         y="157.95625">sifat 3:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';stroke-width:0.264583;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="8.7312498"
+       y="195.79167"
+       id="text10014"><tspan
+         sodipodi:role="line"
+         id="tspan10012"
+         style="stroke-width:0.264583;-inkscape-font-specification:'Calibri, Bold';font-family:Calibri;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.88055556px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+         x="8.7312498"
+         y="195.79167">sifat 4:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';stroke-width:0.264583;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="5.8208332"
+       y="232.03958"
+       id="text12691"><tspan
+         sodipodi:role="line"
+         id="tspan12689"
+         style="stroke-width:0.264583;-inkscape-font-specification:'Calibri, Bold';font-family:Calibri;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.88055556px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+         x="5.8208332"
+         y="232.03958">sifat 5:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';stroke-width:0.264583;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       x="5.5562501"
+       y="265.90625"
+       id="text14395"><tspan
+         sodipodi:role="line"
+         id="tspan14393"
+         style="stroke-width:0.264583;-inkscape-font-specification:'Calibri, Bold';font-family:Calibri;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:3.88055556px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+         x="5.5562501"
+         y="265.90625">sifat 6:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+       x="111.38957"
+       y="230.98125"
+       id="text17603"><tspan
+         sodipodi:role="line"
+         id="tspan17601"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         x="111.38957"
+         y="230.98125">sifat 7:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+       x="215.63542"
+       y="228.07083"
+       id="text18963"><tspan
+         sodipodi:role="line"
+         id="tspan18961"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         x="215.63542"
+         y="228.07083">sifat 8:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+       x="324.37915"
+       y="230.98125"
+       id="text20059"><tspan
+         sodipodi:role="line"
+         id="tspan20057"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:Calibri;-inkscape-font-specification:'Calibri, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         x="324.37915"
+         y="230.98125">sifat 9:</tspan></text>
+    <path
+       style="opacity:0.193548;mix-blend-mode:normal;fill:#000080;stroke:#f1dd18;stroke-width:0.359999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter23851)"
+       d="m 9.968647,160.39836 0.443384,11.84356 0.153651,9.56609 27.462546,-1.21073 c 0,0 12.685645,1.38532 25.362647,0.98633 l 12.743277,-0.40108 -1.617946,-9.61467 2.632427,-13.03748 -21.773105,2.70193 -26.564106,-3.36759 z"
+       id="path23775"
+       sodipodi:nodetypes="ccccscccccc"
+       transform="matrix(1.4184639,0,0,0.98586679,304.60386,76.807813)" />
   </g>
   <script
      id="mesh_polyfill"
