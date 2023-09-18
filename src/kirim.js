@@ -2607,12 +2607,16 @@ nilaider.innerHTML=poin5;
 
 function kirim9() {
   let poin9 = 0;
-  const jno161 = document.querySelector("#jno961");
+  const jno961 = document.querySelector("#jno961");
   const jno962 = document.querySelector("#jno962");
   const jno963 = document.querySelector("#jno963");
   const jno964 = document.querySelector("#jno964");
   const jno965 = document.querySelector("#jno965");
-  
+  const jno966 = document.querySelector("#jno966");
+  const jno967 = document.querySelector("#jno967");
+  const jno968 = document.querySelector("#jno968");
+  const jno969 = document.querySelector("#jno969");
+  const jno9610 = document.querySelector("#jno9610");
   const nilai9=document.querySelector('#nilai9')
 
 
@@ -2648,6 +2652,8 @@ function kirim9() {
   }
   rno964.innerHTML = response;
 
+ 
+
   if (jno965.checked) {
     response = "";
     poin9 = poin9 + 10;
@@ -2655,6 +2661,47 @@ function kirim9() {
     response = "";
   }
   rno965.innerHTML = response;
+  
+  if (jno966.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno966.innerHTML = response;
+  
+  if (jno967.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno967.innerHTML = response;
+  
+  if (jno968.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno968.innerHTML = response;
+  
+  if (jno969.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno969.innerHTML = response;
+
+
+  if (jno9610.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9610.innerHTML = response;
 
 nilai9.innerHTML=poin9;
   
