@@ -4114,13 +4114,13 @@ const optionsno1801 = document.getElementsByName("no1801");
     const jno2101 = document.querySelector("#jno2101");
     const jno2102 = document.querySelector("#jno2102");
     const jno2103 = document.querySelector("#jno2103");
-    const jno2104 = document.querySelector("#jno2104");
-    const jno2105 = document.querySelector("#jno2105");
-    const jno2106 = document.querySelector("#jno2106");
-    const jno2107 = document.querySelector("#jno2107");
-    const jno2108 = document.querySelector("#jno2108");
-    const jno2109 = document.querySelector("#jno2109");
-    const jno2110 = document.querySelector("#jno2110");
+    // const jno2104 = document.querySelector("#jno2104");
+    // const jno2105 = document.querySelector("#jno2105");
+    // const jno2106 = document.querySelector("#jno2106");
+    // const jno2107 = document.querySelector("#jno2107");
+    // const jno2108 = document.querySelector("#jno2108");
+    // const jno2109 = document.querySelector("#jno2109");
+    // const jno2110 = document.querySelector("#jno2110");
     const nilai21=document.querySelector('#nilai21')
     
     if (jno2101.checked) {
@@ -4132,7 +4132,7 @@ const optionsno1801 = document.getElementsByName("no1801");
   rno2101.innerHTML = response;
   
   if (jno2102.checked) {
-    response = "";
+    response = "ok";
     poin21 = poin21 + 10;
   } else {
     response = "";
@@ -4140,64 +4140,64 @@ const optionsno1801 = document.getElementsByName("no1801");
   rno2102.innerHTML = response;
   
   if (jno2103.checked) {
-    response = "";
+    response = "ok";
     poin21 = poin21 + 10;
   } else {
     response = "";
   }
   rno2103.innerHTML = response;
   
-  if (jno2104.checked) {
-    response = "";
-    poin21 = poin21 + 10;
-  } else {
-    response = "";
-  }
-  rno2104.innerHTML = response;
+  // if (jno2104.checked) {
+  //   response = "ok";
+  //   poin21 = poin21 + 10;
+  // } else {
+  //   response = "";
+  // }
+  // rno2104.innerHTML = response;
   
-  if (jno2105.checked) {
-    response = "";
-    poin21 = poin21 + 10;
-  } else {
-    response = "";
-  }
-  rno2105.innerHTML = response;
+  // if (jno2105.checked) {
+  //   response = "ok";
+  //   poin21 = poin21 + 10;
+  // } else {
+  //   response = "";
+  // }
+  // rno2105.innerHTML = response;
   
-  if (jno2106.checked) {
-    response = "ok";
-    poin21 = poin21 + 10;
-  } else {
-    response = "";
-  }
-  rno2106.innerHTML = response;
-  if (jno2107.checked) {
-    response = "ok";
-    poin21 = poin21 + 10;
-  } else {
-    response = "";
-  }
-  rno2107.innerHTML = response;
-  if (jno2108.checked) {
-    response = "ok";
-    poin21 = poin21 + 10;
-  } else {
-    response = "";
-  }
-  rno2108.innerHTML = response;
-  if (jno2109.checked) {
-    response = "ok";
-    poin21 = poin21 + 10;
-  } else {
-    response = "";
-  }
-  rno2109.innerHTML = response;
-  if (jno2110.checked) {
-    response = "ok";
-    poin21 = poin21 + 10;
-  } else {
-    response = "";
-  }
-  rno2110.innerHTML = response;
+  // if (jno2106.checked) {
+  //   response = "ok";
+  //   poin21 = poin21 + 10;
+  // } else {
+  //   response = "";
+  // }
+  // rno2106.innerHTML = response;
+  // if (jno2107.checked) {
+  //   response = "ok";
+  //   poin21 = poin21 + 10;
+  // } else {
+  //   response = "";
+  // }
+  // rno2107.innerHTML = response;
+  // if (jno2108.checked) {
+  //   response = "ok";
+  //   poin21 = poin21 + 10;
+  // } else {
+  //   response = "";
+  // }
+  // rno2108.innerHTML = response;
+  // if (jno2109.checked) {
+  //   response = "ok";
+  //   poin21 = poin21 + 10;
+  // } else {
+  //   response = "";
+  // }
+  // rno2109.innerHTML = response;
+  // if (jno2110.checked) {
+  //   response = "ok";
+  //   poin21 = poin21 + 10;
+  // } else {
+  //   response = "";
+  // }
+  // rno2110.innerHTML = response;
   
   
   
@@ -4218,38 +4218,38 @@ const optionsno1801 = document.getElementsByName("no1801");
      }
   
   
-     const optionsno2104 = document.getElementsByName("no2104");
-     for (let i = 0; i < optionsno2104.length; i++) {
-         optionsno2104[i].checked = false;
-     }
+    //  const optionsno2104 = document.getElementsByName("no2104");
+    //  for (let i = 0; i < optionsno2104.length; i++) {
+    //      optionsno2104[i].checked = false;
+    //  }
   
      
-     const optionsno2105 = document.getElementsByName("no2105");
-     for (let i = 0; i < optionsno2105.length; i++) {
-         optionsno2105[i].checked = false;
-     }
+    //  const optionsno2105 = document.getElementsByName("no2105");
+    //  for (let i = 0; i < optionsno2105.length; i++) {
+    //      optionsno2105[i].checked = false;
+    //  }
      
-     const optionsno2106 = document.getElementsByName("no2106");
-     for (let i = 0; i < optionsno2106.length; i++) {
-         optionsno2106[i].checked = false;
-     }
+    //  const optionsno2106 = document.getElementsByName("no2106");
+    //  for (let i = 0; i < optionsno2106.length; i++) {
+    //      optionsno2106[i].checked = false;
+    //  }
   
-     const optionsno2107 = document.getElementsByName("no2107");
-     for (let i = 0; i < optionsno2107.length; i++) {
-         optionsno2107[i].checked = false;
-     }
-     const optionsno2108 = document.getElementsByName("no2108");
-     for (let i = 0; i < optionsno2108.length; i++) {
-         optionsno2108[i].checked = false;
-     }
-     const optionsno2109 = document.getElementsByName("no2109");
-     for (let i = 0; i < optionsno2109.length; i++) {
-         optionsno2109[i].checked = false;
-     }
-     const optionsno2110 = document.getElementsByName("no2110");
-     for (let i = 0; i < optionsno2110.length; i++) {
-         optionsno2110[i].checked = false;
-     }
+    //  const optionsno2107 = document.getElementsByName("no2107");
+    //  for (let i = 0; i < optionsno2107.length; i++) {
+    //      optionsno2107[i].checked = false;
+    //  }
+    //  const optionsno2108 = document.getElementsByName("no2108");
+    //  for (let i = 0; i < optionsno2108.length; i++) {
+    //      optionsno2108[i].checked = false;
+    //  }
+    //  const optionsno2109 = document.getElementsByName("no2109");
+    //  for (let i = 0; i < optionsno2109.length; i++) {
+    //      optionsno2109[i].checked = false;
+    //  }
+    //  const optionsno2110 = document.getElementsByName("no2110");
+    //  for (let i = 0; i < optionsno2110.length; i++) {
+    //      optionsno2110[i].checked = false;
+    //  }
   
   
     }
