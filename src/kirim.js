@@ -2617,6 +2617,13 @@ function kirim9() {
   const jno968 = document.querySelector("#jno968");
   const jno969 = document.querySelector("#jno969");
   const jno9610 = document.querySelector("#jno9610");
+  const jno9611 = document.querySelector("#jno9611");
+  const jno9612 = document.querySelector("#jno9612");
+  const jno9613 = document.querySelector("#jno9613");
+  const jno9614 = document.querySelector("#jno9614");
+  const jno9615 = document.querySelector("#jno9615");
+  
+  
   const nilai9=document.querySelector('#nilai9')
 
 
@@ -2702,6 +2709,43 @@ function kirim9() {
     response = "";
   }
   rno9610.innerHTML = response;
+
+  if (jno9611.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9611.innerHTML = response;
+  if (jno9612.checked) {
+    response = "ok";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9612.innerHTML = response;
+  if (jno9613.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9613.innerHTML = response;
+  if (jno9614.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9614.innerHTML = response;
+  if (jno9615.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9615.innerHTML = response;
+
 
 nilai9.innerHTML=poin9;
   
