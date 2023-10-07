@@ -2622,6 +2622,11 @@ function kirim9() {
   const jno9613 = document.querySelector("#jno9613");
   const jno9614 = document.querySelector("#jno9614");
   const jno9615 = document.querySelector("#jno9615");
+  const jno9616 = document.querySelector("#jno9616");
+  const jno9617 = document.querySelector("#jno9617");
+  const jno9618 = document.querySelector("#jno9618");
+  const jno9619 = document.querySelector("#jno9619");
+  const jno9620 = document.querySelector("#jno9620");
   
   
   const nilai9=document.querySelector('#nilai9')
@@ -2746,6 +2751,45 @@ function kirim9() {
   }
   rno9615.innerHTML = response;
 
+  if (jno9616.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9616.innerHTML = response;
+
+  if (jno9617.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9617.innerHTML = response;
+
+  if (jno9618.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9618.innerHTML = response;
+
+  if (jno9619.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9619.innerHTML = response;
+
+  if (jno9620.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9620.innerHTML = response;
 
 nilai9.innerHTML=poin9;
   
