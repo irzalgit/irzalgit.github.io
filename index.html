@@ -380,7 +380,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
  
 
   <i data-feather="edit"> </i> 
- <p>update:07/10/23 </p>
+ <p>update:08/10/23 </p>
 <i data-feather="eye"></i>view<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
   
   
@@ -390,10 +390,10 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 
 <!--   
     <h3 class="font-tangerine"> Tentang Portal Peta Pikiran</h3>
-     
+     -->
     <br>
-   <p>Bagaimana menggunakan situs ini?</p>
-  <p class="font-inter">
+  <!-- <p>Bagaimana menggunakan situs ini?</p> -->
+  <!-- <p class="font-inter">
   1.Arahkan pointer ke gambar mindmap<br>
   2.Zoom dan geser  kesalah satu materi yang dikehendaki<br>
   3.Klik caption vidio sesuai dengan materi<br>
@@ -407,10 +407,10 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 
 		
 
-    
 
 
-<!--  
+<!-- 
+
     <form id="test-form">
   
       <div>
@@ -438,8 +438,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
       </div>
     
     </form> 
-	  -->
-    
+     -->
 </aside>
 
 <section  class="bg-green-100 w-full md:w-1/2 ">
@@ -5101,18 +5100,55 @@ Penerapan barisan dan deret aritmatika/geometri adalah menghitung dan mengelola 
          <input type="radio" name="no2103" id="jno2103" style="display:inline-flex">133.100.000<br>
           <input type="radio" name="no2103" style=" display:inline" >140.000.000<br>
          <div id="rno2103"></div>
-   </label><hr> 
-   <!--
-   <input type="radio" name="no2104" id="jno2104" style=" display:inline-flex" >120.000.000<br>
-  <input type="radio" name="no2104" style="display:inline-flex">130.000.000<br>
- <input type="radio" name="no2104" style="display:inline-flex">133.100.000<br>
-<input type="radio" name="no2104" style=" display:inline" >140.000.000<br>
- <div id="rno2104"></div>      
- <input type="radio" name="no2105" id="jno2105" style=" display:inline-flex" >120.000.000<br>
- <input type="radio" name="no2105" style="display:inline-flex">130.000.000<br>
-<input type="radio" name="no2105" style="display:inline-flex">133.100.000<br>
-<input type="radio" name="no2105" style=" display:inline" >140.000.000<br>
-<div id="rno2105"></div>      
+   </label><br>
+   <hr>
+   <p>Rumus bunga majemuk:</p>$M_{t}=M_{0}(1+i)^t$
+   <p>dimana $M_0$ pinjaman awal, $M_{t}$ pinjaman/hutang setelah t tahun</p>
+   <p>Tentukan besar hutang nasabah 
+    yang meminjam 100T di suatu bank dengan sistem bunga majemuk dengan buka 4% selama 10 tahun? menggunakan tabel bunga</p>
+
+   
+   
+   <input type="radio" name="no2104" id="jno2104" style=" display:inline-flex" >120T<br>
+  <input type="radio" name="no2104" style="display:inline-flex">130T<br>
+ <input type="radio" name="no2104" style="display:inline-flex">133T<br>
+<input type="radio" name="no2104" style=" display:inline" >140T<br>
+ <div id="rno2104"></div> 
+   <hr> 
+    <div class="text-2xl">Anuitas </div>
+    Anuitas adalah  pengembalian pinjaman secara diangsur dengan besaran yang tetap, 
+    dimana anuitas=angsuran+bunga. 
+    Konsep yang digunakan adalah deret geometri,sbb.
+Berdasarkan rumusan bunga majemuk $M_{t}=M_{0}(1+i)^t$ maka  $M_{0}=\frac{M_{t}}{(1+i)^t}$ 
+jika diuraikan ke deret geometri akan menjadi
+$M_{0}=\frac{M_{t}}{(1+i)} + \frac{M_{t}}{(1+i)^2}+\frac{M_{t}}{(1+i)^3}+...+\frac{M_{t}}{(1+i)^t}$
+Selanjutnya istilah ekonomi $M_{0}=H$ = adalah besarnya pinjaman dan $M_{t}=A$ =adalah anuitas   
+$H=\frac{A}{(1+i)} + \frac{A}{(1+i)^2}+\frac{A}{(1+i)^3}+...+\frac{A}{(1+i)^t}$
+<hr>
+<p>Deret geometri</p>
+$S_{n}=a+ar+ar^2+...ar^n$
+dimana $S_{n}=a(\frac{1-r^n}{1-r})$
+<hr>
+$S_{n}=A(\frac{1}{(1+i)} + \frac{1}{(1+i)^2}+\frac{1}{(1+i)^3}+...+\frac{1}{(1+i)^n})$
+jika H=$S_{n}$ maka
+$H=A(\frac{1}{(1+i)} + \frac{1}{(1+i)^2}+\frac{1}{(1+i)^3}+...+\frac{1}{(1+i)^n})$
+atau
+<p>Rumus anuitas</p>
+$A=H\frac{1}{ \sum_{n=1}^{n} \frac{1}{(1+i)^n}}$
+
+<p>dimana H adalah besar pinjaman dan A adalah angsuran  </p>
+<hr>
+   Seorang pengusaha membeli mobil seharga 
+   360 Juta dengan cara kredit dari
+    OTO Finansial dengan bunga 3% / tahun. 
+    Pengusaha ini mencicil  36 kali. Berapa besar cicilan?    
+     <br>
+ <input type="radio" name="no2105" id="jno2105" style=" display:inline-flex"> 10Jt<br>
+ <input type="radio" name="no2105" style="display:inline-flex">12Jt<br>
+<input type="radio" name="no2105" style="display:inline-flex">15Jt<br>
+<input type="radio" name="no2105" style=" display:inline" >20Jt<br>
+<div id="rno2105"></div>    
+<!--
 <input type="radio" name="no2106" id="jno2106" style=" display:inline-flex" >120.000.000<br>
 <input type="radio" name="no2106" style="display:inline-flex">130.000.000<br>
 <input type="radio" name="no2106" style="display:inline-flex">133.100.000<br>
@@ -5159,6 +5195,11 @@ Penerapan barisan dan deret aritmatika/geometri adalah menghitung dan mengelola 
            <img class="zoom19   max-w-none h-auto w-full" src='gbr/mapsos.svg' alt="ng ada gbr">
             
             </div>
+            <p>Bunga majemuk</p>
+            <iframe width="852" height="480" src="https://www.youtube.com/embed/OP3xtdoEC0Y" title="Barisan geometri dan BUNGA MAJEMUK #8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <br>
+          <p>Anuitas</p>
+          <iframe width="853" height="480" src="https://www.youtube.com/embed/AiCUGhPTOyw" title="Deret geometri: Anuitas #10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>  
        </div>
     </div>
