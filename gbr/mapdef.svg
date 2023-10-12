@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1"
-     inkscape:cx="1056"
-     inkscape:cy="721.5"
+     inkscape:cx="261"
+     inkscape:cy="241.5"
      inkscape:window-width="1366"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -96,7 +96,7 @@
        xlink:href="#linearGradient6508"
        id="linearGradient8672"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.95720456,0,0,0.98019427,312.35469,70.834798)"
+       gradientTransform="matrix(0.95720456,0,0,0.98019427,311.21602,72.278989)"
        x1="2.4869499"
        y1="40.411156"
        x2="112.75967"
@@ -1063,8 +1063,8 @@
        id="rect8670"
        width="105.3003"
        height="74.08683"
-       x="314.86185"
-       y="73.402161"
+       x="313.72318"
+       y="74.846352"
        inkscape:transform-center-x="21.13168"
        inkscape:transform-center-y="-16.504494" />
     <g
@@ -3148,7 +3148,94 @@
        d="m 9.968647,160.39836 0.443384,11.84356 0.153651,9.56609 27.462546,-1.21073 c 0,0 12.685645,1.38532 25.362647,0.98633 l 12.743277,-0.40108 -1.617946,-9.61467 2.632427,-13.03748 -21.773105,2.70193 -26.564106,-3.36759 z"
        id="path39340"
        sodipodi:nodetypes="ccccscccccc"
-       transform="matrix(1.301948,0,0,0.75931188,202.14049,28.199503)" />
+       transform="matrix(1.301948,0,0,0.75931188,202.14049,32.962003)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+       x="320.67499"
+       y="79.11042"
+       id="text1352"><tspan
+         sodipodi:role="line"
+         id="tspan1350"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         x="320.67499"
+         y="79.11042">Fungsi naik/turun</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="319.88123"
+       y="86.783333"
+       id="text4916"><tspan
+         sodipodi:role="line"
+         id="tspan4914"
+         style="stroke-width:0.264583"
+         x="319.88123"
+         y="86.783333">jika m&gt;0 untuk setiap x dalam interval a,b</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="319.88123"
+         y="90.311119"
+         id="tspan6106">maka f(x) merupakan fungsi naik dalam interval ini.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+       x="320.14581"
+       y="8.7312536"
+       id="text6718"><tspan
+         sodipodi:role="line"
+         id="tspan6716"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         x="320.14581"
+         y="8.7312536">Nilai maksimum / minimum</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="321.46875"
+       y="21.695833"
+       id="text8532"><tspan
+         sodipodi:role="line"
+         id="tspan8530"
+         style="stroke-width:0.264583"
+         x="321.46875"
+         y="21.695833">jika f'(x)=0  dan f''(x)&gt;0 maka  titik a,f(a) adalah  titik minimum</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="321.20416"
+       y="40.216667"
+       id="text8934"><tspan
+         sodipodi:role="line"
+         id="tspan8932"
+         style="stroke-width:0.264583"
+         x="321.20416"
+         y="40.216667">jika f'(x)=0  dan f''(x&lt;0 maka  titik a,f(a)adalah  titik maksimum</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="320.93958"
+       y="58.208332"
+       id="text10359"><tspan
+         sodipodi:role="line"
+         id="tspan10357"
+         style="stroke-width:0.264583"
+         x="320.93958"
+         y="58.208332">jika f'(x)=0  dan f''(x=0 maka  titik a,f(a) adalah titik belok</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:sans-serif;stroke-width:0.264583"
+       x="319.88123"
+       y="101.86459"
+       id="text16847"><tspan
+         sodipodi:role="line"
+         id="tspan16843"
+         style="stroke-width:0.264583"
+         x="319.88123"
+         y="101.86459">jika m&lt;0 untuk setiap x dalam interval a,b</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="319.88123"
+         y="105.39238"
+         id="tspan16845">maka f(x) merupakan fungsi turun dalam interval ini.</tspan></text>
   </g>
   <script
      id="mesh_polyfill"
