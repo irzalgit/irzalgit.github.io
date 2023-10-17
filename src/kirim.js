@@ -2627,6 +2627,11 @@ function kirim9() {
   const jno9618 = document.querySelector("#jno9618");
   const jno9619 = document.querySelector("#jno9619");
   const jno9620 = document.querySelector("#jno9620");
+  const jno9621 = document.querySelector("#jno9621");
+  const jno9622 = document.querySelector("#jno9622");
+  const jno9623 = document.querySelector("#jno9623");
+  const jno9624 = document.querySelector("#jno9624");
+  const jno9625 = document.querySelector("#jno9625");
   
   
   const nilai9=document.querySelector('#nilai9')
@@ -2791,112 +2796,160 @@ function kirim9() {
   }
   rno9620.innerHTML = response;
 
-nilai9.innerHTML=poin9;
+  if (jno9621.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9621.innerHTML = response;
+
+  if (jno9622.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9622.innerHTML = response;
+
+  if (jno9623.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9623.innerHTML = response;
+
+  if (jno9624.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9624.innerHTML = response;
+
+  if (jno9625.checked) {
+    response = "";
+    poin9 = poin9 + 10;
+  } else {
+    response = "";
+  }
+  rno9625.innerHTML = response;
+
+  nilai9.innerHTML=poin9;
   
   
   
-   const options61 = document.getElementsByName("no961");
-   for (let i = 0; i < options61.length; i++) {
-       options61[i].checked = false;
+   const options961 = document.getElementsByName("no961");
+   for (let i = 0; i < options961.length; i++) {
+       options961[i].checked = false;
    }
-   const options62 = document.getElementsByName("no962");
-   for (let i = 0; i < options62.length; i++) {
-       options62[i].checked = false;
+   const options962 = document.getElementsByName("no962");
+   for (let i = 0; i < options962.length; i++) {
+       options962[i].checked = false;
    }
-   const options63 = document.getElementsByName("no963");
-   for (let i = 0; i < options63.length; i++) {
-       options63[i].checked = false;
+   const options963 = document.getElementsByName("no963");
+   for (let i = 0; i < options963.length; i++) {
+       options963[i].checked = false;
    }
-   const options64 = document.getElementsByName("no964");
-   for (let i = 0; i < options64.length; i++) {
-       options64[i].checked = false;
+   const options964 = document.getElementsByName("no964");
+   for (let i = 0; i < options964.length; i++) {
+       options964[i].checked = false;
    }
 
-   const options65 = document.getElementsByName("no965");
-   for (let i = 0; i < options65.length; i++) {
-       options65[i].checked = false;
+   const options965 = document.getElementsByName("no965");
+   for (let i = 0; i < options965.length; i++) {
+       options965[i].checked = false;
    }
-   scoretotal();
+   const options966 = document.getElementsByName("no966");
+   for (let i = 0; i < options966.length; i++) {
+       options966[i].checked = false;
+   }
+   const options967 = document.getElementsByName("no967");
+   for (let i = 0; i < options967.length; i++) {
+       options967[i].checked = false;
+   }
+   const options968 = document.getElementsByName("no968");
+   for (let i = 0; i < options968.length; i++) {
+       options968[i].checked = false;
+   }
+   const options969 = document.getElementsByName("no969");
+   for (let i = 0; i < options969.length; i++) {
+       options969[i].checked = false;
+   }
+
+   const options9610 = document.getElementsByName("no9610");
+   for (let i = 0; i < options9610.length; i++) {
+       options9610[i].checked = false;
+   }
+  const options9611 = document.getElementsByName("no9611");
+   for (let i = 0; i < options9611.length; i++) {
+       options9611[i].checked = false;
+   }
+   const options9612 = document.getElementsByName("no9612");
+   for (let i = 0; i < options9612.length; i++) {
+       options9612[i].checked = false;
+   }
+   const options9613 = document.getElementsByName("no9613");
+   for (let i = 0; i < options9613.length; i++) {
+       options9613[i].checked = false;
+   }
+   const options9614 = document.getElementsByName("no9614");
+   for (let i = 0; i < options9614.length; i++) {
+       options9614[i].checked = false;
+   }
+
+   const options9615 = document.getElementsByName("no9615");
+   for (let i = 0; i < options9615.length; i++) {
+       options9615[i].checked = false;
+   }
+
+   const options9616 = document.getElementsByName("no9616");
+   for (let i = 0; i < options9616.length; i++) {
+       options9616[i].checked = false;
+   }
+   const options9617 = document.getElementsByName("no9617");
+   for (let i = 0; i < options9617.length; i++) {
+       options9617[i].checked = false;
+   }
+   const options9618 = document.getElementsByName("no9618");
+   for (let i = 0; i < options9618.length; i++) {
+       options9618[i].checked = false;
+   }
+   const options9619 = document.getElementsByName("no9619");
+   for (let i = 0; i < options9619.length; i++) {
+       options9619[i].checked = false;
+   }
+
+   const options9620 = document.getElementsByName("no9620");
+   for (let i = 0; i < options9620.length; i++) {
+       options9620[i].checked = false;
+   }
+   
+   const options9621 = document.getElementsByName("no9621");
+   for (let i = 0; i < options9621.length; i++) {
+       options9621[i].checked = false;
+   }
+   const options9622 = document.getElementsByName("no9622");
+   for (let i = 0; i < options9622.length; i++) {
+       options9622[i].checked = false;
+   }
+   const options9623 = document.getElementsByName("no9623");
+   for (let i = 0; i < options9623.length; i++) {
+       options9623[i].checked = false;
+   }
+   const options9624 = document.getElementsByName("no9624");
+   for (let i = 0; i < options9624.length; i++) {
+       options9624[i].checked = false;
+   }
+
+   const options9625 = document.getElementsByName("no9625");
+   for (let i = 0; i < options9625.length; i++) {
+       options9625[i].checked = false;
+   }
+   
 }
 
-function kirim10e() {
-  let poin9 = 0;
-  const jno961 = document.querySelector("#jno961");
-  const jno962 = document.querySelector("#jno962");
-  const jno963 = document.querySelector("#jno963");
-  const jno964 = document.querySelector("#jno964");
-  const jno965 = document.querySelector("#jno965");
-  
-  const nilai9=document.querySelector('#nilai9')
-
-
-  if (jno961.checked) {
-    response = "";
-    poin9 = poin9 + 10;
-  } else {
-    response = "";
-  }
-  rno961.innerHTML = response;
-
-  if (jno962.checked) {
-    response = "";
-    poin9 = poin9 + 10;
-  } else {
-    response = "";
-  }
-  rno962.innerHTML = response;
-
-  if (jno963.checked) {
-    response = "";
-    poin9 = poin9 + 10;
-  } else {
-    response = "";
-  }
-  rno963.innerHTML = response;
-
-  if (jno964.checked) {
-    response = "";
-    poin9 = poin9 + 10;
-  } else {
-    response = "";
-  }
-  rno964.innerHTML = response;
-
-  if (jno965.checked) {
-    response = "";
-    poin9 = poin9 + 10;
-  } else {
-    response = "";
-  }
-  rno965.innerHTML = response;
-
-nilai9.innerHTML=poin9;
-  
-  
-  
-   const options61 = document.getElementsByName("no961");
-   for (let i = 0; i < options61.length; i++) {
-       options61[i].checked = false;
-   }
-   const options62 = document.getElementsByName("no962");
-   for (let i = 0; i < options62.length; i++) {
-       options62[i].checked = false;
-   }
-   const options63 = document.getElementsByName("no963");
-   for (let i = 0; i < options63.length; i++) {
-       options63[i].checked = false;
-   }
-   const options64 = document.getElementsByName("no964");
-   for (let i = 0; i < options64.length; i++) {
-       options64[i].checked = false;
-   }
-
-   const options65 = document.getElementsByName("no965");
-   for (let i = 0; i < options65.length; i++) {
-       options65[i].checked = false;
-   }
-   scoretotal();
-}
 function kirim11() {
   let poin11 = 0;
   const jno81 = document.querySelector("#jno81");
