@@ -1918,7 +1918,7 @@ function kirim6(){
   const jno707=document.querySelector('#jno707')
   const jno708=document.querySelector('#jno708')
   const jno709=document.querySelector('#jno709')
-  const jno710=document.querySelector('#jno710')
+  
 
 
   const sno1=document.querySelector('#sno1')
@@ -1948,7 +1948,7 @@ function kirim6(){
   const rno707=document.querySelector('#rno707')
   const rno708=document.querySelector('#rno708')
   const rno709=document.querySelector('#rno709')
-  const rno710=document.querySelector('#rno710')
+  
 
   const rsno1=document.querySelector('#rsno1')
   const rsno2=document.querySelector('#rsno2')
@@ -1968,7 +1968,7 @@ function kirim6(){
   
   if (jno1.checked){
     response=""
-    poin=poin+5
+    poin=poin+10
   }else {
     response=""
   }
@@ -1977,7 +1977,7 @@ function kirim6(){
 
 if (jno2.checked){
   response=""
-  poin=poin+5
+  poin=poin+10
 }else {
   response=""
 }
@@ -1994,7 +1994,7 @@ rno3.innerHTML=response
 
 if (jno4.checked){
 response=" "
-poin=poin+5
+poin=poin+10
 }else {
 response=""
 }
@@ -2058,7 +2058,7 @@ rno10.innerHTML=response
 
 if (jno700.checked){
   response=""
-  poin=poin+5
+  poin=poin+10
 }else {
   response=""
 }
@@ -2075,7 +2075,7 @@ rno701.innerHTML=response
 
 if (jno702.checked){
 response=""
-poin=poin+5
+poin=poin+10
 }else {
 response=""
 }
@@ -2138,27 +2138,21 @@ rno708.innerHTML=response
 
 if (jno709.checked){
 response=""
-poin=poin+5
+poin=poin+10
 }else {
 response=""
 }
 rno709.innerHTML=response
 
 
-if (jno710.checked){
-response=""
-poin=poin+10
-}else {
-response=""
-}
-rno710.innerHTML=response
+
 
 
 nilaitri.innerHTML=poin
 
 if (sno1.value == "1,57") {
   response = "";
-  poin = poin + 10;
+  poin = poin + 50;
 } else {
   response = "";
 }
@@ -2168,7 +2162,7 @@ nilaitri.innerHTML = poin;
 
 if (sno2.value == "sec") {
   response = "";
-  poin = poin + 10;
+  poin = poin + 50;
 } else {
   response = "";
 }
@@ -2266,10 +2260,6 @@ for (let i = 0; i < optionsno709.length; i++) {
     optionsno709[i].checked = false;
 }
 
-const optionsno710 = document.getElementsByName("no710");
-for (let i = 0; i < optionsno710.length; i++) {
-    optionsno710[i].checked = false;
-}
 
 
 
