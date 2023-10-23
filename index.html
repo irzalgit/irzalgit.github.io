@@ -380,7 +380,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
  
 
   <i data-feather="edit"> </i> 
- <p>update:19/10/23 22:00</p>
+ <p>update:23/10/23 </p>
 <i data-feather="eye"></i>
 
   
@@ -13890,8 +13890,8 @@ Jenisnya:
  <div id="rno1905"></div>
 <br> <hr>
 <p>Bayangan titik A(6,-4) akibat rotasi 90 derajat berlawanan arah jarum jam dengan pusat putaran B(2,1) adalah
-  </p 
-<input type="radio" name="no1906" id="jno1906" style=" display:inline-flex" >A'(6,7) <br>
+</p> 
+<input type="radio" name="no1906" id="jno1906" style="display:inline-flex">A'(6,7) <br>
 <input type="radio" name="no1906" style="display:inline-flex">A'(5,6)<br>
 <input type="radio" name="no1906" style="display:inline-flex"> A'(2,6)<br>
 <input type="radio" name="no1906" style=" display:inline" >A'(5,4)<br>
@@ -13923,10 +13923,403 @@ Jenisnya:
  
   
   
-  
+ <div class="text-2xl">Matrik yang bersesuaian dengan transformasi
+  </div>
+ <p>Persoalan transformasi dapat diselesaikan dengan matrik, antara lain</p>
+<hr>
+1.Bentuk umum transformsi titik  menggunakan matrik <math>
+  <mrow>  
+            <mo></mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>a</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>b</mn>  
+                </mtd>  
+                 
+              </mtr>  
+                
+              <mtr>  
+                <mtd>  
+                  <mn>c</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>d</mn>  
+                </mtd>   
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+ </math>
+<p> yaitu P(x,y)=P'(ax+by,cx+dy)</p>
+
+<br>
+2.Bentuk umum transformsi garis  menggunakan matrik  <math>
+  <mrow>  
+            <mo></mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>a</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>b</mn>  
+                </mtd>  
+                 
+              </mtr>  
+                
+              <mtr>  
+                <mtd>  
+                  <mn>c</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>d</mn>  
+                </mtd>   
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+ </math>
+<p> adalah y=mx+k menjadi<br> (a+mb)y=(c+md)x+(ad-bc)k</p><br>
+<p>Contoh Refleksi terhadap sumbu y yaitu dengan matrik
+
+<math>
+      <mrow>  
+                <mo></mo>  
+                <mo>(</mo>  
+                <mtable>  
+                  <mtr>  
+                    <mtd>  
+                      <mn>-1</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>0</mn>  
+                    </mtd>  
+                     
+                  </mtr>  
+                    
+                  <mtr>  
+                    <mtd>  
+                      <mn>0</mn>  
+                    </mtd>  
+                    <mtd>  
+                      <mn>1</mn>  
+                    </mtd>   
+                  </mtr>  
+                </mtable>  
+                <mo>)</mo>  
+              </mrow>
+     </math>
  
 <hr>
- <h1 id="nilai19"></h1>
+<p>contoh 1</p>
+Tentukan bayangan titik A(2,3) jika direfleksikan terhadap sumbu y, menggunakan matrik.
+<p>Jawab</p>
+<math>
+  <mrow>  
+            <mo></mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>x'</mn>  
+                </mtd>   
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>y'</mn>  
+                </mtd>                 
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+            
+            <mrow>  
+                      <mo>=</mo>  
+                      <mo>(</mo>  
+                      <mtable>  
+                        <mtr>  
+                          <mtd>  
+                            <mn>-1</mn>  
+                          </mtd>  
+                          <mtd>  
+                            <mn>0</mn>  
+                          </mtd>  
+                           
+                        </mtr>  
+                          
+                        <mtr>  
+                          <mtd>  
+                            <mn>0</mn>  
+                          </mtd>  
+                          <mtd>  
+                            <mn>1</mn>  
+                          </mtd>   
+                        </mtr>  
+                      </mtable>  
+                      <mo>)</mo>  
+                    </mrow>
+           
+            <mrow>  
+                      <mo></mo>  
+                      <mo>(</mo>  
+                      <mtable>  
+                        <mtr>  
+                          <mtd>  
+                            <mn>x</mn>  
+                          </mtd>   
+                        </mtr>  
+                        <mtr>  
+                          <mtd>  
+                            <mn>y</mn>  
+                          </mtd>                 
+                        </mtr>  
+                      </mtable>  
+                      <mo>)</mo>  
+                    </mrow>
+          
+</math>
+<br>jadi x'=ax+by=-x+0=-x=-2 dan y'=cx+dy=0+y=y=3<br>
+hasil refleksi adalah A'(-2,3)
+<p>contoh 2</p>
+Tentukan bayangan garis y=2x+3 jika direfleksikan terhadap sumbu x, menggunakan matrik.
+<p>Jawab</p>
+<math>
+  <mrow>  
+            <mo></mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>x'</mn>  
+                </mtd>   
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>y'</mn>  
+                </mtd>                 
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+            
+            <mrow>  
+                      <mo>=</mo>  
+                      <mo>(</mo>  
+                      <mtable>  
+                        <mtr>  
+                          <mtd>  
+                            <mn>1</mn>  
+                          </mtd>  
+                          <mtd>  
+                            <mn>0</mn>  
+                          </mtd>  
+                           
+                        </mtr>  
+                          
+                        <mtr>  
+                          <mtd>  
+                            <mn>0</mn>  
+                          </mtd>  
+                          <mtd>  
+                            <mn>-1</mn>  
+                          </mtd>   
+                        </mtr>  
+                      </mtable>  
+                      <mo>)</mo>  
+                    </mrow>
+           
+            <mrow>  
+                      <mo></mo>  
+                      <mo>(</mo>  
+                      <mtable>  
+                        <mtr>  
+                          <mtd>  
+                            <mn>x</mn>  
+                          </mtd>   
+                        </mtr>  
+                        <mtr>  
+                          <mtd>  
+                            <mn>y</mn>  
+                          </mtd>                 
+                        </mtr>  
+                      </mtable>  
+                      <mo>)</mo>  
+                    </mrow>
+          
+</math>
+<p> adalah y=mx+k menjadi<br> (a+mb)y=(c+md)x+(ad-bc)k</p><br>
+<p>substitusikan a=1;b=0;c=0;d=-1;m=2</p>
+<p> maka y=2x+3 menjadi<br> (1+0)y=(0-2)x+(-1+0)3</p>
+Jadi persamaan garis bayangan adalah y=-2x-3
+<p> Rotasi</p>
+Matrik untuk rotasi A derajat adalah <math>
+  <mrow>  
+            <mo></mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>cos A</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>-sin A</mn>  
+                </mtd>  
+                 
+              </mtr>  
+                
+              <mtr>  
+                <mtd>  
+                  <mn>sin A</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>cos A</mn>  
+                </mtd>   
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+ </math>
+ <br>
+ <p>contoh 3</p>
+ Titik A(3,4) diputar 30 derajat berlawanan arah jarum jam. Tentukan koordinat A'
+ <p>jawab</p>
+ 
+ <math>
+  <mrow>  
+            <mo></mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>x'</mn>  
+                </mtd>   
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>y'</mn>  
+                </mtd>                 
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+  <mrow>  
+            <mo>=</mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>cos 30</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>-sin 30</mn>  
+                </mtd>  
+                 
+              </mtr>  
+                
+              <mtr>  
+                <mtd>  
+                  <mn>sin 30</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>cos 30</mn>  
+                </mtd>   
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+          <mrow>  
+            <mo></mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>3</mn>  
+                </mtd>   
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>4</mn>  
+                </mtd>                 
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+ </math>
+ <br>
+ <p> sin 30=0.5</p>
+ <p> cos 30=0.86</p>
+ <br>
+ <math>
+  <mrow>  
+            <mo></mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>x'</mn>  
+                </mtd>   
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>y'</mn>  
+                </mtd>                 
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+  <mrow>  
+            <mo>=</mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>0.86</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>-0.5</mn>  
+                </mtd>  
+                 
+              </mtr>  
+                
+              <mtr>  
+                <mtd>  
+                  <mn>0.5</mn>  
+                </mtd>  
+                <mtd>  
+                  <mn>0.86</mn>  
+                </mtd>   
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+          <mrow>  
+            <mo></mo>  
+            <mo>(</mo>  
+            <mtable>  
+              <mtr>  
+                <mtd>  
+                  <mn>3</mn>  
+                </mtd>   
+              </mtr>  
+              <mtr>  
+                <mtd>  
+                  <mn>4</mn>  
+                </mtd>                 
+              </mtr>  
+            </mtable>  
+            <mo>)</mo>  
+          </mrow>
+ </math>
+ <br>
+<p>x'=0.86(3)-(0.5)(4)=0.58</p>
+<p>y'=0.5(3)+(0.86)(4)=4.94</p>
+<p>Jadi A'(0.58,4.94)</p>
+<h1 id="nilai19"></h1>
 
 
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim19()" >Cek Nilai Transformasi Geometri</button>
