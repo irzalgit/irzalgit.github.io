@@ -487,95 +487,46 @@ const questions = [
         correctOption: "optionB"
     },
     {
-        question: 'Persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0 mempunyai akar berturut-turut ',
-        optionA: "-4 dan -1",
-        optionB: "4 dan -1",
-        optionC: "-4 dan -1 ",
-        optionD: "4 dan 1 ",
+        question: ' 2<sup>6</sup> .2<sup>-3</sup>=? ',
+        optionA: "2<sup>9</sup>",
+        optionB: "2<sup>3</sup>",
+        optionC: "2<sup>5</sup> ",
+        optionD: "2<sup>-3</sup> ",
         correctOption: "optionB"
     },
 
     {
-        question: 'Persamaan kuadrat x<sup>2</sup> <span>-3x -4</span> = 0 dapat difaktorisasi  menjadi',
-        optionA: "(x+4)(x+1)=0",
-        optionB: "(x+4)(x-1)=0",
-        optionC: "(x-4)(x+1)=0",
-        optionD: "(x-4)(x-1)=0",
+        question: '3<sup>2x</sup>=3<sup>6</sup>, nilai x adalah',
+        optionA: "1",
+        optionB: "2",
+        optionC: "2",
+        optionD: "-3",
+        correctOption: "optionC"
+    },
+
+    {
+        question: ' a<sup>3</sup>.a<sup>2</sup>.a<sup>5</sup>',
+        optionA: "a<sup>5</sup>",
+        optionB: "a<sup>6</sup>",
+        optionC: "a<sup>10</sup>",
+        optionD: "a<sup>12</sup>",
         correctOption: "optionC"
     },
 
     {
         
-        question: 'Jumlah akar-akar persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0',
-        optionA: '3',
+        question: 'persamaan exponen 9<sup>2x+1</sup>=3<sup>3x</sup> nilai x adalah',
+        optionA: "-2",
         optionB: "2",
         optionC: "1",
         optionD: "-3",
         correctOption: "optionA"
     },
 
-    {
-        question: "Perkalian akar-akar persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0  ",
-        optionA: "1",
-        optionB: "-4",
-        optionC: "4",
-        optionD: "3",
-        correctOption: "optionB"
-    },
+   
 
-    {
-        question: "Deskriminan D persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0 adalah ",
-        optionA: "9", 
-        optionB: "13",
-        optionC: "25",
-        optionD: "19",
-        correctOption: "optionC"
-    },
 
-    {
-        question: 'Garis simetri  persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0 adalah',
-        optionA: "x=-3/2",
-        optionB: "x=3/2",
-        optionC: "x=5/2",
-        optionD: "x=-5/2",
-        correctOption: "optionB"
-    },
 
-    {
-        question: "Titik puncak P persamaan kuadrat x<sup>2</sup> <span>-3x -4</span> =0 adalah",
-        optionA: "P(-3/2,-25/4)",
-        optionB: "P(3/2,-25/4)",
-        optionC: "P(-3/2,25/4)",
-        optionD: "P(3/2,25/4)",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "Bentuk sketsa/grafik persamaan kuadrat x<sup>2</sup> <span>-3x -4</span>=0",
-        optionA: "lingkaran",
-        optionB: "parabola terbuka kebawah",
-        optionC: "parabola terbuka keatas",
-        optionD: "garis lurus",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "jika suatu persamaan kuadrat memiliki a<0 dan D>0 maka sketsanya",
-        optionA: "parabola terbuka keatas dan memotong sumbu x",
-        optionB: "parabola terbuka kebawah dan memotong sumbu x ",
-        optionC: "parabola terbuka kebawah dan menyinggung sumbu x ",
-        optionD: "parabola terbuka kebawah dan tidak memotong sumbu x ",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "jika suatu persamaan kuadrat memiliki a<0 dan D=0 maka sketsanya",
-        optionA: "parabola terbuka keatas dan memotong sumbu x ",
-        optionB: "parabola terbuka keatas",
-        optionC: "parabola terbuka kebawah dan menyinggung sumbu x ",
-        optionD: "parabola terbuka kebawah dan tidak memotong sumbu x",
-        correctOption: "optionC"
-    },
 
     {
         question: "Persamaan exponen 2<sup>2x</sup><span>= 2<sup>4</sup></span>, nilai x adalah",
@@ -694,32 +645,8 @@ const questions = [
         correctOption: "optionA"
     },
     
-    {
-        question: "akar persamaan  (x+2)(x-3)=0 adalah",
-        optionA: "-2 dan 3",
-        optionB: "2 dan 3",
-        optionC: "2 dan -3",
-        optionD: "-2 dan -3",
-        correctOption: "optionA"
-    },
 
-    {
-        question: "jumlah akar-akar persamaan  (x-2)(x-3)=0 adalah",
-        optionA: "6",
-        optionB: "5",
-        optionC: "-1",
-        optionD: "-5",
-        correctOption: "optionB"
-    },
 
-    {
-        question:  "Perkalian akar-akar persamaan x<sup>2</sup>-2x-8=0 adalah",
-        optionA: "-4",
-        optionB: "8",
-        optionC: "6",
-        optionD: "-8",
-        correctOption: "optionD"
-    },
 
      {
          question:  "3. 2<sup>3x</sup>=192, maka x= ?",
@@ -874,7 +801,7 @@ function handleEndGame() {
     document.getElementById('wrong-answers').innerHTML = wrongAttempt
     document.getElementById('right-answers').innerHTML = playerScore
     document.getElementById('score-modal').style.display = "flex"
-
+    document.getElementById('right').innerHTML = playerScore     
 }
 
 //closes score modal, resets game and reshuffles questions
