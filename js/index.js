@@ -188,7 +188,6 @@ const questions = [
         correctOption: "optionA"
     },
 
-
     {
         question: "Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
         optionA: "cos A",
@@ -468,7 +467,6 @@ const questions = [
         correctOption: "optionB"
     },
 
-
     {
         question: "sudut 2&#8508/3 berada di kuadran  ",
         optionA: "I",
@@ -486,6 +484,7 @@ const questions = [
         optionD: "8",
         correctOption: "optionB"
     },
+
     {
         question: ' 2<sup>6</sup> .2<sup>-3</sup>=? ',
         optionA: "2<sup>9</sup>",
@@ -499,7 +498,7 @@ const questions = [
         question: '3<sup>2x</sup>=3<sup>6</sup>, nilai x adalah',
         optionA: "1",
         optionB: "2",
-        optionC: "2",
+        optionC: "3",
         optionD: "-3",
         correctOption: "optionC"
     },
@@ -513,8 +512,7 @@ const questions = [
         correctOption: "optionC"
     },
 
-    {
-        
+    { 
         question: 'persamaan exponen 9<sup>2x+1</sup>=3<sup>3x</sup> nilai x adalah',
         optionA: "-2",
         optionB: "2",
@@ -522,11 +520,6 @@ const questions = [
         optionD: "-3",
         correctOption: "optionA"
     },
-
-   
-
-
-
 
     {
         question: "Persamaan exponen 2<sup>2x</sup><span>= 2<sup>4</sup></span>, nilai x adalah",
@@ -572,6 +565,7 @@ const questions = [
         optionD: "peluruhan radioaktif",
         correctOption: "optionB" 
     },
+
     {
         question: "salah satu sifat fungsi exponen  y=2<sup>x</sup>",
         optionA: "grafik tidak memotong sb. x",
@@ -598,7 +592,6 @@ const questions = [
         optionD: "2x+1=1",
         correctOption: "optionA"
     },
-
 
     {
         question: "2<sup>x</sup>.2<sup>3x-1</sup> adalah",
@@ -645,9 +638,6 @@ const questions = [
         correctOption: "optionA"
     },
     
-
-
-
      {
          question:  "3. 2<sup>3x</sup>=192, maka x= ?",
          optionA: "-1",
