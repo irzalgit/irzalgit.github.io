@@ -2,13 +2,14 @@
 .game-quiz-container{
     width: auto;
     height: 30rem;
-    background-color:rgb(95, 248, 75);
+    padding: 5px;
+    background-color:rgb(119, 235, 103);
     color:black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border-radius: 30px;
+    border-radius: 20px;
 }
 .game-quiz-containerxi{
     width: auto;
@@ -108,11 +109,11 @@
 }
 
 .game-question-container h1{
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align:auto;
     color: black;
     padding: 3px;
-    font-weight: 800;
+    font-weight: 500;
     
 }
 
