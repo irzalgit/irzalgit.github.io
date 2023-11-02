@@ -1,6 +1,6 @@
-const questions = [
+const questionsx = [
     {
-        question: "Perbandingan sisi depan dengan sisi miring adalah ?",
+        question: "1.Perbandingan sisi depan dengan sisi miring adalah ?",
         optionA: " sin",
         optionB: "cos",
         optionC: "tan ",
@@ -9,7 +9,7 @@ const questions = [
     },
 
     {
-        question: "Yang termasuk tripel phytagoras ?",
+        question: "2.Yang termasuk tripel phytagoras ?",
         optionA: "3,4,6",
         optionB: "3,4,5",
         optionC: "4,5,6",
@@ -18,7 +18,7 @@ const questions = [
     },
 
     {
-        question: "Grafik sinus pada kuadran IV  ",
+        question: "3.Grafik sinus pada kuadran IV  ",
         optionA: "naik",
         optionB: "turun",
         optionC: "datar",
@@ -27,7 +27,7 @@ const questions = [
     },
 
     {
-        question: " jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
+        question: " 4.Jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
         optionA: "1/3",
         optionB: "3/5",
         optionC: "4/3",
@@ -36,7 +36,7 @@ const questions = [
     },
 
     {
-        question: "sisi terpanjang atau garis miring dari tripel phytagoras {3,4,5} adalah",
+        question: "5.Sisi terpanjang atau garis miring dari tripel phytagoras {3,4,5} adalah",
         optionA: "3",
         optionB: "4",
         optionC: "5",
@@ -45,7 +45,7 @@ const questions = [
     },
 
     {
-        question: "Jumlah sudut-sudut dalam segitiga adalah",
+        question: "6.Jumlah sudut-sudut dalam segitiga adalah",
         optionA: "30&#176",
         optionB: "90&#176",
         optionC: "180&#176",
@@ -54,7 +54,7 @@ const questions = [
     },
 
     {
-        question: "dalam segitiga siku siku, jika sudut alpha 30 derajat, maka sudut beta adalah",
+        question: "7.dalam segitiga siku siku, jika sudut alpha 30 derajat, maka sudut beta adalah",
         optionA: "10&#176",
         optionB: "60&#176",
         optionC: "80&#176",
@@ -63,7 +63,7 @@ const questions = [
     },
 
     {
-        question: "Jumlah sudut alpha dan sudut beta dalam segitiga siku-siku adalah",
+        question: "8.Jumlah sudut alpha dan sudut beta dalam segitiga siku-siku adalah",
         optionA: "30 &#176",
         optionB: "60 &#176",
         optionC: "90 &#176",
@@ -72,7 +72,7 @@ const questions = [
     },
 
     {
-        question: "jika &#8508  =3,14 maka sudut 60 &#176 =",
+        question: "10.Jika &#8508  =3,14 maka sudut 60 &#176 =",
         optionA: "3,14/2",
         optionB: "3,14/4",
         optionC: "3,14/3",
@@ -81,7 +81,7 @@ const questions = [
     },
 
     {
-        question: "Sudut 120 derajat jika dikonversi ke radian adalah",
+        question: "11.Sudut 120 derajat jika dikonversi ke radian adalah",
         optionA: "2&#8508",
         optionB: "1&#8508",
         optionC: "1/2.&#8508",
@@ -90,7 +90,7 @@ const questions = [
     },
 
     {
-        question: "Sudut 200 derajat jika dikonversi ke radian adalah",
+        question: "12.Sudut 200 derajat jika dikonversi ke radian adalah",
         optionA: "2&#8508",
         optionB: "1&#8508",
         optionC: "10/9.&#8508",
@@ -99,7 +99,7 @@ const questions = [
     },
 
     {
-        question: "Sudut 30 derajat jika dikonversi ke radian adalah",
+        question: "13.Sudut 30 derajat jika dikonversi ke radian adalah",
         optionA: "1/3.&#8508",
         optionB: "1/4.&#8508",
         optionC: "1/6.&#8508",
@@ -108,7 +108,7 @@ const questions = [
     },
 
     {
-        question: "Relasi antara sin dan cos adalah sin 30 = ",
+        question: "14.Relasi antara sin dan cos adalah sin 30 = ",
         optionA: "cos 60",
         optionB: "cos 30",
         optionC: "cos 45",
@@ -117,7 +117,7 @@ const questions = [
     },
 
     {
-        question: "sin A dan cos A dikuadran I memiliki tanda ",
+        question: "15.Nilai grafik sin A dan cos A dikuadran I memiliki tanda ",
         optionA: "positif dan positif",
         optionB: "negatif dan negatif",
         optionC: "positif dan negatif",
@@ -126,7 +126,7 @@ const questions = [
     },
 
     {
-        question: "sin A dan cos A dikuadran II memiliki tanda ",
+        question: "16. Nilai sin A dan cos A dikuadran II memiliki tanda ",
         optionA: "positif dan positif",
         optionB: "negatif dan negatif",
         optionC: "positif dan negatif",
@@ -135,7 +135,7 @@ const questions = [
     },
 
     {
-        question: "cos(180-A) dan cos(180+A) bernilai sama, memiliki tanda ",
+        question: "17.cos(180-A) dan cos(180+A) bernilai sama, memiliki tanda ",
         optionA: "positif dan positif",
         optionB: "negatif dan negatif",
         optionC: "positif dan negatif",
@@ -144,7 +144,7 @@ const questions = [
     },
 
 {
-        question: "jika sin A=2/3 maka sin(180-A) dan sin(180+A) adalah ",
+        question: "18.Jika sin A=2/3 maka sin(180-A) dan sin(180+A) adalah ",
         optionA: "2/3 dan 2/3",
         optionB: "-2/3 dan -2/3",
         optionC: "+2/3 dan -2/3",
@@ -153,7 +153,7 @@ const questions = [
     },
 
     {
-        question: "sin dan cos dibawah ini yang nilainya 1/2 , kecuali ?",
+        question: "19.sin dan cos dibawah ini yang nilainya 1/2 , kecuali ?",
         optionA: "cos 60",
         optionB: "sin 30",
         optionC: "sin 150",
@@ -162,7 +162,7 @@ const questions = [
     },
 
     {
-        question: "sudut 380 berada di kuadran ... ?",
+        question: "20.Sudut 380 berada di kuadran ... ?",
         optionA: "I",
         optionB: "II",
         optionC: "III",
@@ -171,7 +171,7 @@ const questions = [
     },
 
     {
-        question: "sin(180 + 30) =...",
+        question: "21.Nilai sin(180 + 30) =...",
         optionA: "sin 30",
         optionB: "-sin 30",
         optionC: "sin 60",
@@ -180,7 +180,7 @@ const questions = [
     },
 
     {
-        question: "sin(90-30)=...",
+        question: "22.Nilai sin(90-30)=...",
         optionA: "cos 30",
         optionB: "sin 30",
         optionC: "-cos 30",
@@ -189,7 +189,7 @@ const questions = [
     },
 
     {
-        question: "Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
+        question: "23.Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
         optionA: "cos A",
         optionB: "sin A",
         optionC: "tan A",
@@ -198,7 +198,7 @@ const questions = [
     },
 
     {
-        question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
+        question: "24.Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
         optionA: "28",
         optionB: "38",
         optionC: "56",
@@ -207,7 +207,7 @@ const questions = [
     },
    
     {
-        question: "Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25. Luas segitiga ini sama dengan ...",
+        question: "25.Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25. Luas segitiga ini sama dengan ...",
         optionA: "80",
         optionB: "68",
         optionC: "84",
@@ -216,7 +216,7 @@ const questions = [
     },
    
     {
-        question: "sin(-30) =...",
+        question: "26.Nilai sin(-30) =...",
         optionA: "sin(180+30)",
         optionB: "sin(360-30)",
         optionC: "sin(360+30)",
@@ -225,7 +225,7 @@ const questions = [
     },
 
     {
-        question: "sin 45=...",
+        question: "27.Nilai sin 45=...",
         optionA: "cos 45",
         optionB: "-cos 45",
         optionC: "cos -45",
@@ -234,7 +234,7 @@ const questions = [
     },
 
     {
-        question: "sudut 114,6 &#176 jika dikonversi ke radian sama dengan ",
+        question: "28.Sudut 114,6 &#176 jika dikonversi ke radian sama dengan ",
         optionA: "1 rad",
         optionB: "1,5 rad",
         optionC: "2 rad",
@@ -243,7 +243,7 @@ const questions = [
     },
 
     {
-        question: "yang termasuk sudut istimewa, kecuali ",
+        question: "29.Yang termasuk sudut istimewa, kecuali ",
         optionA: "30",
         optionB: "45",
         optionC: "60",
@@ -252,7 +252,7 @@ const questions = [
     },
 
     {
-        question: "jika sin A = 1/2 maka csc A adalah ?",
+        question: "30.Jika sin A = 1/2 maka csc A adalah ?",
         optionA: "1/3",
         optionB: "2",
         optionC: "3",
@@ -261,7 +261,7 @@ const questions = [
     },
 
     {
-        question: "cos A=-1, maka besar sudut A adalah  ",
+        question: "31.Diketahui cos A=-1, maka besar sudut A adalah  ",
         optionA: "0",
         optionB: "90",
         optionC: "180",
@@ -270,7 +270,7 @@ const questions = [
     },
 
     {
-        question: "jika sec A= 3/2 maka cos A=... ?",
+        question: "32.Jika sec A= 3/2 maka cos A=... ?",
         optionA: "2",
         optionB: "2/3",
         optionC: "1/3",
@@ -279,7 +279,7 @@ const questions = [
     },
 
     {
-        question: "tan 45 =  ",
+        question: "33.Nilai tan 45 =  ",
         optionA: "1",
         optionB: "1/2",
         optionC: "1/&#8730;2",
@@ -288,7 +288,7 @@ const questions = [
     },
 
     {
-        question: "cos 60 + sin 30 = ... ",
+        question: "34.Nilai cos 60 + sin 30 = ... ",
         optionA: "2",
         optionB: "1",
         optionC: "0",
@@ -297,7 +297,7 @@ const questions = [
     },
 
     {
-        question: "jika sin A = 0,6 dan cos A = 0,8 maka tan A= ... ",
+        question: "35.Jika sin A = 0,6 dan cos A = 0,8 maka tan A= ... ",
         optionA: "3/4",
         optionB: "5/3",
         optionC: "3/5",
@@ -306,7 +306,7 @@ const questions = [
     }, 
 
     {
-        question: "jika sin A=3/5 maka sec A = ",
+        question: "36.Jika sin A=3/5 maka sec A = ",
         optionA: "5/4",
         optionB: "5/3",
         optionC: "3/4",
@@ -315,7 +315,7 @@ const questions = [
     },
 
     {
-        question: "Luas segitiga sama sisi dengan sisi = 4  adalah ",
+        question: "37.Luas segitiga sama sisi dengan sisi = 4  adalah ",
         optionA: "12",
         optionB: "6",
         optionC: "24",
@@ -324,7 +324,7 @@ const questions = [
     },
 
     {
-        question: "jika tan A=3/4 maka cot A=",
+        question: "38.Jika tan A=3/4 maka cot A=",
         optionA: "3/5",
         optionB: "4/5",
         optionC: "4/3",
@@ -333,7 +333,7 @@ const questions = [
     },
 
     {
-        question: "fungsi y=sin x dikuadran I ",
+        question: "39.Fungsi y=sin x dikuadran I ",
         optionA: "naik",
         optionB: "turun",
         optionC: "tetap",
@@ -342,7 +342,7 @@ const questions = [
     },
 
     {
-        question: "Dalam segitiga bukan siku, jika a dan b diketahui maka c ditentukan dengan ... ",
+        question: "40.Dalam segitiga bukan siku, jika a dan b diketahui maka c ditentukan dengan ... ",
         optionA: "teorema phytagoras",
         optionB: "tripel phytagoras",
         optionC: "aturan cosinus",
@@ -351,7 +351,7 @@ const questions = [
     },
     
     {
-        question: "perbandingan antara sisi depan dengan sisi samping adalah definisi dari  ",
+        question: "41.Perbandingan antara sisi depan dengan sisi samping adalah definisi dari  ",
         optionA: "sin",
         optionB: "cos",
         optionC: "tan",
@@ -360,7 +360,7 @@ const questions = [
     },
 
     {
-        question: "jika cos A=7/25 maka sec A =   ",
+        question: "42.Jika cos A=7/25 maka sec A =   ",
         optionA: "25/24",
         optionB: "25/7",
         optionC: "24/25",
@@ -369,7 +369,7 @@ const questions = [
     },
 
     {
-        question: "kebalikan atau invers dari sin adalah  ",
+        question: "43.Kebalikan atau invers dari sin adalah  ",
         optionA: "csc",
         optionB: "sec",
         optionC: "cot",
@@ -378,7 +378,7 @@ const questions = [
     },
 
     {
-        question: "cos 420 =  ",
+        question: "44. Nilai cos 420 =  ",
         optionA: "0",
         optionB: "1",
         optionC: "-1",
@@ -387,7 +387,7 @@ const questions = [
     },
 
     {
-        question: "cos 180   =  ",
+        question: "45. Nilai cos 180   =  ",
         optionA: "0",
         optionB: "1",
         optionC: "-1",
@@ -396,7 +396,7 @@ const questions = [
     },
 
     {
-        question: "sin 30=...  ",
+        question: "46. Nilai sin 30=...  ",
         optionA: "sin 150",
         optionB: "sin 210",
         optionC: "-sin 330",
@@ -405,7 +405,7 @@ const questions = [
     },
 
     {
-        question: "jika sin A diketahui, maka cos A dapat ditentukan dengan ",
+        question: "47.Jika sin A diketahui, maka cos A dapat ditentukan dengan ",
         optionA: "identitas trigonometri",
         optionB: "tripel phytagoras",
         optionC: "aturan cosinus",
@@ -414,7 +414,7 @@ const questions = [
     },
 
     {
-        question: "luas segitiga yang sisi-sisinya 3,4,3 adalah",
+        question: "48.Luas segitiga yang sisi-sisinya 3,4,3 adalah",
         optionA: "5 ",
         optionB: "4",
         optionC: "3",
@@ -423,7 +423,7 @@ const questions = [
     },
    
     {
-        question: "Pada segitika ABC sebarang diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
+        question: "49.Pada segitika ABC sebarang diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
         optionA: "1/3. &#8730 7 ",
         optionB: "3/7. &#8730 7",
         optionC: "4/5",
@@ -432,7 +432,7 @@ const questions = [
     },
 
     {
-        question: "grafik sinus naik pada kuadran ...",
+        question: "50.Grafik sinus naik pada kuadran ...",
         optionA: "I dan II ",
         optionB: "I dan III",
         optionC: "I dan III",
@@ -441,7 +441,7 @@ const questions = [
     },
 
     {
-        question: "Bentuk lain aturan sinus",
+        question: "51.Bentuk lain aturan sinus",
         optionA: "a : b = sin A : sin B",
         optionB: "a : b = sin B : sin A",
         optionC: "a : sin B = b : sin A",
@@ -450,7 +450,16 @@ const questions = [
     },
 
     {
-        question: "sudut 120 berada dikuadran ...",
+        question: "52.Sudut -120 berada dikuadran ...",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "53.Sudut -200&#176 berada di kuadran  ",
         optionA: "I",
         optionB: "II",
         optionC: "III",
@@ -459,16 +468,7 @@ const questions = [
     },
 
     {
-        question: "sudut -200&#176 berada di kuadran  ",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "sudut 2&#8508/3 berada di kuadran  ",
+        question: "54.sudut 2&#8508/3 berada di kuadran  ",
         optionA: "I",
         optionB: "II",
         optionC: "III",
@@ -477,7 +477,7 @@ const questions = [
     },
     
     {
-        question: "luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
+        question: "55.Luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
         optionA: "5",
         optionB: "6",
         optionC: "7",
@@ -486,7 +486,7 @@ const questions = [
     },
 
     {
-        question: ' 2<sup>6</sup> .2<sup>-3</sup>=? ',
+        question: '56.Sederhanakan  2<sup>6</sup> .2<sup>-3</sup>=? ',
         optionA: "2<sup>9</sup>",
         optionB: "2<sup>3</sup>",
         optionC: "2<sup>5</sup> ",
@@ -495,7 +495,7 @@ const questions = [
     },
 
     {
-        question: '3<sup>2x</sup>=3<sup>6</sup>, nilai x adalah',
+        question: '57.Perhatikan 3<sup>2x</sup>=3<sup>6</sup>, nilai x adalah',
         optionA: "1",
         optionB: "2",
         optionC: "3",
@@ -504,7 +504,7 @@ const questions = [
     },
 
     {
-        question: ' a<sup>3</sup>.a<sup>2</sup>.a<sup>5</sup>',
+        question: '58. a<sup>3</sup>.a<sup>2</sup>.a<sup>5</sup>',
         optionA: "a<sup>5</sup>",
         optionB: "a<sup>6</sup>",
         optionC: "a<sup>10</sup>",
@@ -513,7 +513,7 @@ const questions = [
     },
 
     { 
-        question: 'persamaan exponen 9<sup>2x+1</sup>=3<sup>3x</sup> nilai x adalah',
+        question: '59.Persamaan exponen 9<sup>2x+1</sup>=3<sup>3x</sup> nilai x adalah',
         optionA: "-2",
         optionB: "2",
         optionC: "1",
@@ -522,7 +522,7 @@ const questions = [
     },
 
     {
-        question: "Persamaan exponen 2<sup>2x</sup><span>= 2<sup>4</sup></span>, nilai x adalah",
+        question: "60.Persamaan exponen 2<sup>2x</sup><span>= 2<sup>4</sup></span>, nilai x adalah",
         optionA: "2",
         optionB: "4",
         optionC: "-2",
@@ -531,7 +531,7 @@ const questions = [
     },
 
     {
-        question: "Persamaan exponen 2<sup>2x-1</sup><span>= 2<sup>4x+3</sup></span>,  maka",
+        question: "61.Persamaan exponen 2<sup>2x-1</sup><span>= 2<sup>4x+3</sup></span>,  maka",
         optionA: "(2x-1)=(4x+3)",
         optionB: "(2x-1)=0",
         optionC: "(4x+3)=0",
@@ -540,7 +540,7 @@ const questions = [
     },
 
     {
-        question: "Persamaan exponen (2)<sup>(2x-1)</sup><span>= (3)<sup>(2x-1)</sup></span> maka",
+        question: "62.Persamaan exponen (2)<sup>(2x-1)</sup><span>= (3)<sup>(2x-1)</sup></span> maka",
         optionA: "2x-1=2",
         optionB: "2x-1=3",
         optionC: "2x-1=1",
@@ -549,7 +549,7 @@ const questions = [
     },
 
     {
-        question: "Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (4x-1)<sup>(x-1)</sup></span> maka",
+        question: "63.Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (4x-1)<sup>(x-1)</sup></span> maka",
         optionA: "(4x-1)=0;4x-1=1;(2x-3)=(x-1)",
         optionB: "(2x-3)=(x-1)",
         optionC: "(4x-1)=0;4x-1=1",
@@ -558,7 +558,7 @@ const questions = [
     },
 
     {
-        question: "Kasus dibawah ini ada hubungannya dengan fungsi exponen, kecuali",
+        question: "64.Kasus dibawah ini ada hubungannya dengan fungsi exponen, kecuali",
         optionA: "pertumbuhan penduduk",
         optionB: "gerak parabola",
         optionC: "bunga majemuk di bank",
@@ -567,7 +567,7 @@ const questions = [
     },
 
     {
-        question: "salah satu sifat fungsi exponen  y=2<sup>x</sup>",
+        question: "65.Salah satu sifat fungsi exponen  y=2<sup>x</sup>",
         optionA: "grafik tidak memotong sb. x",
         optionB: "jika x>0 grafik selalu turun",
         optionC: "jika x<0 grafik selalu naik",
@@ -576,7 +576,7 @@ const questions = [
     },
 
     {
-        question: "Grafik y=(1/2)<sup>x</sup> ",
+        question: "66.Grafik y=(1/2)<sup>x</sup> ",
         optionA: "jika x membesar , grafik menurun",
         optionB: "jika x membesar , grafik naik",
         optionC: "jika x membesar , grafik menurun dan memotong sb. x",
@@ -585,7 +585,7 @@ const questions = [
     },
 
     {
-        question: "Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (2x+1)<sup>(2x-3)</sup></span>, jika f dan g tidak 0 maka",
+        question: "67.Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (2x+1)<sup>(2x-3)</sup></span>, jika f dan g tidak 0 maka",
         optionA: "4x-1=2x+1 atau 2x-3=0",
         optionB: "2x-3=0",
         optionC: "4x-1=1",
@@ -594,7 +594,7 @@ const questions = [
     },
 
     {
-        question: "2<sup>x</sup>.2<sup>3x-1</sup> adalah",
+        question: "68.Tentukan 2<sup>x</sup>.2<sup>3x-1</sup> adalah",
         optionA: "2<sup>4x</sup>",
         optionB: "2<sup>(4x-1)</sup>",
         optionC: "2<sup>3x<sup>2</sup></sup>",
@@ -603,7 +603,7 @@ const questions = [
     },
 
     {
-        question: "3<sup>(x+2)</sup>=9<sup>x</sup> , maka x adalah",
+        question: "70.Tentukan 3<sup>(x+2)</sup>=9<sup>x</sup> , maka x adalah",
         optionA: "-2",
         optionB: "2",
         optionC: "3",
@@ -612,7 +612,7 @@ const questions = [
     },
 
     {
-        question: "fungsi exponen g(x)=4.(1/2)<sup>x</sup> maka g(2)=",
+        question: "71.Fungsi exponen g(x)=4.(1/2)<sup>x</sup> maka g(2)=",
         optionA: "0",
         optionB: "1/2",
         optionC: "1",
@@ -621,7 +621,7 @@ const questions = [
     },
 
     {
-        question: "fungsi exponen g(x)=4.(1/3)<sup>x</sup> maka g(2)=",
+        question: "72.Fungsi exponen g(x)=4.(1/3)<sup>x</sup> maka g(2)=",
         optionA: " 4/9 ",
         optionB: "2/9",
         optionC: "8/9",
@@ -630,7 +630,7 @@ const questions = [
     },
 
     {
-        question: "Bank memberi bunga 10%/tahun, jika modal 2T maka setelah 2 tahun berdasarkan   fungsi bunga majemuk M(t)=M<sub>0</sub>.(1+10%)<sup>t</sup>  adalah",
+        question: "73.Bank memberi bunga 10%/tahun, jika modal 2T maka setelah 2 tahun berdasarkan   fungsi bunga majemuk M(t)=M<sub>0</sub>.(1+10%)<sup>t</sup>  adalah",
         optionA: "2.42T",
         optionB: "1.4T",
         optionC: "2T",
@@ -639,7 +639,1308 @@ const questions = [
     },
     
      {
-         question:  "3. 2<sup>3x</sup>=192, maka x= ?",
+         question:  "74.Tentukan 3. 2<sup>3x</sup>=192, maka x= ?",
+         optionA: "-1",
+         optionB: "3",
+         optionC: "0",
+         optionD: "2",
+         correctOption: "optionD"
+     },
+
+]
+const questionsxi = [
+    {
+        question: "1.Perbandingan sisi depan dengan sisi miring adalah ?",
+        optionA: " sin",
+        optionB: "cos",
+        optionC: "tan ",
+        optionD: "sec ",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "2.Yang termasuk tripel phytagoras ?",
+        optionA: "3,4,6",
+        optionB: "3,4,5",
+        optionC: "4,5,6",
+        optionD: "5,10,12",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "3.Grafik sinus pada kuadran IV  ",
+        optionA: "naik",
+        optionB: "turun",
+        optionC: "datar",
+        optionD: "tak tentu",
+        correctOption: "optionA"
+    },
+
+    {
+        question: " 4.Jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
+        optionA: "1/3",
+        optionB: "3/5",
+        optionC: "4/3",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "5.Sisi terpanjang atau garis miring dari tripel phytagoras {3,4,5} adalah",
+        optionA: "3",
+        optionB: "4",
+        optionC: "5",
+        optionD: "6",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "6.Jumlah sudut-sudut dalam segitiga adalah",
+        optionA: "30&#176",
+        optionB: "90&#176",
+        optionC: "180&#176",
+        optionD: "360&#176",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "7.dalam segitiga siku siku, jika sudut alpha 30 derajat, maka sudut beta adalah",
+        optionA: "10&#176",
+        optionB: "60&#176",
+        optionC: "80&#176",
+        optionD: "90 &#176",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "8.Jumlah sudut alpha dan sudut beta dalam segitiga siku-siku adalah",
+        optionA: "30 &#176",
+        optionB: "60 &#176",
+        optionC: "90 &#176",
+        optionD: "180&#176",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "10.Jika &#8508  =3,14 maka sudut 60 &#176 =",
+        optionA: "3,14/2",
+        optionB: "3,14/4",
+        optionC: "3,14/3",
+        optionD: "3,14/6",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "11.Sudut 120 derajat jika dikonversi ke radian adalah",
+        optionA: "2&#8508",
+        optionB: "1&#8508",
+        optionC: "1/2.&#8508",
+        optionD: "2/3.&#8508",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "12.Sudut 200 derajat jika dikonversi ke radian adalah",
+        optionA: "2&#8508",
+        optionB: "1&#8508",
+        optionC: "10/9.&#8508",
+        optionD: "1/3.&#8508",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "13.Sudut 30 derajat jika dikonversi ke radian adalah",
+        optionA: "1/3.&#8508",
+        optionB: "1/4.&#8508",
+        optionC: "1/6.&#8508",
+        optionD: "1/9.&#8508",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "14.Relasi antara sin dan cos adalah sin 30 = ",
+        optionA: "cos 60",
+        optionB: "cos 30",
+        optionC: "cos 45",
+        optionD: "cos 90",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "15.Nilai grafik sin A dan cos A dikuadran I memiliki tanda ",
+        optionA: "positif dan positif",
+        optionB: "negatif dan negatif",
+        optionC: "positif dan negatif",
+        optionD: "negatif dan positif",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "16. Nilai sin A dan cos A dikuadran II memiliki tanda ",
+        optionA: "positif dan positif",
+        optionB: "negatif dan negatif",
+        optionC: "positif dan negatif",
+        optionD: "negatif dan positif",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "17.cos(180-A) dan cos(180+A) bernilai sama, memiliki tanda ",
+        optionA: "positif dan positif",
+        optionB: "negatif dan negatif",
+        optionC: "positif dan negatif",
+        optionD: "negatif dan positif",
+        correctOption: "optionB"
+    },
+
+{
+        question: "18.Jika sin A=2/3 maka sin(180-A) dan sin(180+A) adalah ",
+        optionA: "2/3 dan 2/3",
+        optionB: "-2/3 dan -2/3",
+        optionC: "+2/3 dan -2/3",
+        optionD: "-2/3 dan 2/3",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "19.sin dan cos dibawah ini yang nilainya 1/2 , kecuali ?",
+        optionA: "cos 60",
+        optionB: "sin 30",
+        optionC: "sin 150",
+        optionD: "cos 120",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "20.Sudut 380 berada di kuadran ... ?",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "21.Nilai sin(180 + 30) =...",
+        optionA: "sin 30",
+        optionB: "-sin 30",
+        optionC: "sin 60",
+        optionD: "-sin 60",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "22.Nilai sin(90-30)=...",
+        optionA: "cos 30",
+        optionB: "sin 30",
+        optionC: "-cos 30",
+        optionD: "-sin 30",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "23.Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
+        optionA: "cos A",
+        optionB: "sin A",
+        optionC: "tan A",
+        optionD: "csc A",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "24.Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
+        optionA: "28",
+        optionB: "38",
+        optionC: "56",
+        optionD: "60",
+        correctOption: "optionC"
+    },
+   
+    {
+        question: "25.Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25. Luas segitiga ini sama dengan ...",
+        optionA: "80",
+        optionB: "68",
+        optionC: "84",
+        optionD: "100",
+        correctOption: "optionC"
+    },
+   
+    {
+        question: "26.Nilai sin(-30) =...",
+        optionA: "sin(180+30)",
+        optionB: "sin(360-30)",
+        optionC: "sin(360+30)",
+        optionD: "sin(180-30)",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "27.Nilai sin 45=...",
+        optionA: "cos 45",
+        optionB: "-cos 45",
+        optionC: "cos -45",
+        optionD: "1/2.sin(90)",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "28.Sudut 114,6 &#176 jika dikonversi ke radian sama dengan ",
+        optionA: "1 rad",
+        optionB: "1,5 rad",
+        optionC: "2 rad",
+        optionD: "1/2 rad",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "29.Yang termasuk sudut istimewa, kecuali ",
+        optionA: "30",
+        optionB: "45",
+        optionC: "60",
+        optionD: "75",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "30.Jika sin A = 1/2 maka csc A adalah ?",
+        optionA: "1/3",
+        optionB: "2",
+        optionC: "3",
+        optionD: "1/4",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "31.Diketahui cos A=-1, maka besar sudut A adalah  ",
+        optionA: "0",
+        optionB: "90",
+        optionC: "180",
+        optionD: "270",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "32.Jika sec A= 3/2 maka cos A=... ?",
+        optionA: "2",
+        optionB: "2/3",
+        optionC: "1/3",
+        optionD: "1/4",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "33.Nilai tan 45 =  ",
+        optionA: "1",
+        optionB: "1/2",
+        optionC: "1/&#8730;2",
+        optionD: "&#8730;2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "34.Nilai cos 60 + sin 30 = ... ",
+        optionA: "2",
+        optionB: "1",
+        optionC: "0",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "35.Jika sin A = 0,6 dan cos A = 0,8 maka tan A= ... ",
+        optionA: "3/4",
+        optionB: "5/3",
+        optionC: "3/5",
+        optionD: "4/3",
+        correctOption: "optionA"
+    }, 
+
+    {
+        question: "36.Jika sin A=3/5 maka sec A = ",
+        optionA: "5/4",
+        optionB: "5/3",
+        optionC: "3/4",
+        optionD: "4/3",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "37.Luas segitiga sama sisi dengan sisi = 4  adalah ",
+        optionA: "12",
+        optionB: "6",
+        optionC: "24",
+        optionD: " &#8730;48 ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "38.Jika tan A=3/4 maka cot A=",
+        optionA: "3/5",
+        optionB: "4/5",
+        optionC: "4/3",
+        optionD: "5/3",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "39.Fungsi y=sin x dikuadran I ",
+        optionA: "naik",
+        optionB: "turun",
+        optionC: "tetap",
+        optionD: "naik turun",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "40.Dalam segitiga bukan siku, jika a dan b diketahui maka c ditentukan dengan ... ",
+        optionA: "teorema phytagoras",
+        optionB: "tripel phytagoras",
+        optionC: "aturan cosinus",
+        optionD: "aturan sinus",
+        correctOption: "optionC"
+    },
+    
+    {
+        question: "41.Perbandingan antara sisi depan dengan sisi samping adalah definisi dari  ",
+        optionA: "sin",
+        optionB: "cos",
+        optionC: "tan",
+        optionD: "cot",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "42.Jika cos A=7/25 maka sec A =   ",
+        optionA: "25/24",
+        optionB: "25/7",
+        optionC: "24/25",
+        optionD: "7/24",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "43.Kebalikan atau invers dari sin adalah  ",
+        optionA: "csc",
+        optionB: "sec",
+        optionC: "cot",
+        optionD: "cos",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "44. Nilai cos 420 =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "45. Nilai cos 180   =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "46. Nilai sin 30=...  ",
+        optionA: "sin 150",
+        optionB: "sin 210",
+        optionC: "-sin 330",
+        optionD: "sin-30",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "47.Jika sin A diketahui, maka cos A dapat ditentukan dengan ",
+        optionA: "identitas trigonometri",
+        optionB: "tripel phytagoras",
+        optionC: "aturan cosinus",
+        optionD: "aturan sinus",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "48.Luas segitiga yang sisi-sisinya 3,4,3 adalah",
+        optionA: "5 ",
+        optionB: "4",
+        optionC: "3",
+        optionD: " &#8730;20 ",
+        correctOption: "optionD"
+    },
+   
+    {
+        question: "49.Pada segitika ABC sebarang diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
+        optionA: "1/3. &#8730 7 ",
+        optionB: "3/7. &#8730 7",
+        optionC: "4/5",
+        optionD: " 1/4. &#8730 7 ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "50.Grafik sinus naik pada kuadran ...",
+        optionA: "I dan II ",
+        optionB: "I dan III",
+        optionC: "I dan III",
+        optionD: "I dan IV ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "51.Bentuk lain aturan sinus",
+        optionA: "a : b = sin A : sin B",
+        optionB: "a : b = sin B : sin A",
+        optionC: "a : sin B = b : sin A",
+        optionD: "a : sin A = sin B : b",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "52.Sudut -120 berada dikuadran ...",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "53.Sudut -200&#176 berada di kuadran  ",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "54.sudut 2&#8508/3 berada di kuadran  ",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: "55.Luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
+        optionA: "5",
+        optionB: "6",
+        optionC: "7",
+        optionD: "8",
+        correctOption: "optionB"
+    },
+
+    {
+        question: '56.Sederhanakan  2<sup>6</sup> .2<sup>-3</sup>=? ',
+        optionA: "2<sup>9</sup>",
+        optionB: "2<sup>3</sup>",
+        optionC: "2<sup>5</sup> ",
+        optionD: "2<sup>-3</sup> ",
+        correctOption: "optionB"
+    },
+
+    {
+        question: '57.Perhatikan 3<sup>2x</sup>=3<sup>6</sup>, nilai x adalah',
+        optionA: "1",
+        optionB: "2",
+        optionC: "3",
+        optionD: "-3",
+        correctOption: "optionC"
+    },
+
+    {
+        question: '58. a<sup>3</sup>.a<sup>2</sup>.a<sup>5</sup>',
+        optionA: "a<sup>5</sup>",
+        optionB: "a<sup>6</sup>",
+        optionC: "a<sup>10</sup>",
+        optionD: "a<sup>12</sup>",
+        correctOption: "optionC"
+    },
+
+    { 
+        question: '59.Persamaan exponen 9<sup>2x+1</sup>=3<sup>3x</sup> nilai x adalah',
+        optionA: "-2",
+        optionB: "2",
+        optionC: "1",
+        optionD: "-3",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "60.Persamaan exponen 2<sup>2x</sup><span>= 2<sup>4</sup></span>, nilai x adalah",
+        optionA: "2",
+        optionB: "4",
+        optionC: "-2",
+        optionD: "-4",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "61.Persamaan exponen 2<sup>2x-1</sup><span>= 2<sup>4x+3</sup></span>,  maka",
+        optionA: "(2x-1)=(4x+3)",
+        optionB: "(2x-1)=0",
+        optionC: "(4x+3)=0",
+        optionD: "(2x-1)(4x+3)=0",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "62.Persamaan exponen (2)<sup>(2x-1)</sup><span>= (3)<sup>(2x-1)</sup></span> maka",
+        optionA: "2x-1=2",
+        optionB: "2x-1=3",
+        optionC: "2x-1=1",
+        optionD: "2x-1=0",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "63.Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (4x-1)<sup>(x-1)</sup></span> maka",
+        optionA: "(4x-1)=0;4x-1=1;(2x-3)=(x-1)",
+        optionB: "(2x-3)=(x-1)",
+        optionC: "(4x-1)=0;4x-1=1",
+        optionD: "(2x-3)=0;(x-1)=0",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "64.Kasus dibawah ini ada hubungannya dengan fungsi exponen, kecuali",
+        optionA: "pertumbuhan penduduk",
+        optionB: "gerak parabola",
+        optionC: "bunga majemuk di bank",
+        optionD: "peluruhan radioaktif",
+        correctOption: "optionB" 
+    },
+
+    {
+        question: "65.Salah satu sifat fungsi exponen  y=2<sup>x</sup>",
+        optionA: "grafik tidak memotong sb. x",
+        optionB: "jika x>0 grafik selalu turun",
+        optionC: "jika x<0 grafik selalu naik",
+        optionD: "grafik tidak memotong sumbu y",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "66.Grafik y=(1/2)<sup>x</sup> ",
+        optionA: "jika x membesar , grafik menurun",
+        optionB: "jika x membesar , grafik naik",
+        optionC: "jika x membesar , grafik menurun dan memotong sb. x",
+        optionD: "jika x membesar , grafik naik dan memotong sumbu y",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "67.Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (2x+1)<sup>(2x-3)</sup></span>, jika f dan g tidak 0 maka",
+        optionA: "4x-1=2x+1 atau 2x-3=0",
+        optionB: "2x-3=0",
+        optionC: "4x-1=1",
+        optionD: "2x+1=1",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "68.Tentukan 2<sup>x</sup>.2<sup>3x-1</sup> adalah",
+        optionA: "2<sup>4x</sup>",
+        optionB: "2<sup>(4x-1)</sup>",
+        optionC: "2<sup>3x<sup>2</sup></sup>",
+        optionD: "2<sup>x(3x-1)</sup>",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "70.Tentukan 3<sup>(x+2)</sup>=9<sup>x</sup> , maka x adalah",
+        optionA: "-2",
+        optionB: "2",
+        optionC: "3",
+        optionD: "-3",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "71.Fungsi exponen g(x)=4.(1/2)<sup>x</sup> maka g(2)=",
+        optionA: "0",
+        optionB: "1/2",
+        optionC: "1",
+        optionD: "2",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "72.Fungsi exponen g(x)=4.(1/3)<sup>x</sup> maka g(2)=",
+        optionA: " 4/9 ",
+        optionB: "2/9",
+        optionC: "8/9",
+        optionD: "4/6",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "73.Bank memberi bunga 10%/tahun, jika modal 2T maka setelah 2 tahun berdasarkan   fungsi bunga majemuk M(t)=M<sub>0</sub>.(1+10%)<sup>t</sup>  adalah",
+        optionA: "2.42T",
+        optionB: "1.4T",
+        optionC: "2T",
+        optionD: "2.1T",
+        correctOption: "optionA"
+    },
+    
+     {
+         question:  "74.Tentukan 3. 2<sup>3x</sup>=192, maka x= ?",
+         optionA: "-1",
+         optionB: "3",
+         optionC: "0",
+         optionD: "2",
+         correctOption: "optionD"
+     },
+
+]
+
+const questionsxii = [
+    {
+        question: "1.Perbandingan sisi depan dengan sisi miring adalah ?",
+        optionA: " sin",
+        optionB: "cos",
+        optionC: "tan ",
+        optionD: "sec ",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "2.Yang termasuk tripel phytagoras ?",
+        optionA: "3,4,6",
+        optionB: "3,4,5",
+        optionC: "4,5,6",
+        optionD: "5,10,12",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "3.Grafik sinus pada kuadran IV  ",
+        optionA: "naik",
+        optionB: "turun",
+        optionC: "datar",
+        optionD: "tak tentu",
+        correctOption: "optionA"
+    },
+
+    {
+        question: " 4.Jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
+        optionA: "1/3",
+        optionB: "3/5",
+        optionC: "4/3",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "5.Sisi terpanjang atau garis miring dari tripel phytagoras {3,4,5} adalah",
+        optionA: "3",
+        optionB: "4",
+        optionC: "5",
+        optionD: "6",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "6.Jumlah sudut-sudut dalam segitiga adalah",
+        optionA: "30&#176",
+        optionB: "90&#176",
+        optionC: "180&#176",
+        optionD: "360&#176",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "7.dalam segitiga siku siku, jika sudut alpha 30 derajat, maka sudut beta adalah",
+        optionA: "10&#176",
+        optionB: "60&#176",
+        optionC: "80&#176",
+        optionD: "90 &#176",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "8.Jumlah sudut alpha dan sudut beta dalam segitiga siku-siku adalah",
+        optionA: "30 &#176",
+        optionB: "60 &#176",
+        optionC: "90 &#176",
+        optionD: "180&#176",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "10.Jika &#8508  =3,14 maka sudut 60 &#176 =",
+        optionA: "3,14/2",
+        optionB: "3,14/4",
+        optionC: "3,14/3",
+        optionD: "3,14/6",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "11.Sudut 120 derajat jika dikonversi ke radian adalah",
+        optionA: "2&#8508",
+        optionB: "1&#8508",
+        optionC: "1/2.&#8508",
+        optionD: "2/3.&#8508",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "12.Sudut 200 derajat jika dikonversi ke radian adalah",
+        optionA: "2&#8508",
+        optionB: "1&#8508",
+        optionC: "10/9.&#8508",
+        optionD: "1/3.&#8508",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "13.Sudut 30 derajat jika dikonversi ke radian adalah",
+        optionA: "1/3.&#8508",
+        optionB: "1/4.&#8508",
+        optionC: "1/6.&#8508",
+        optionD: "1/9.&#8508",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "14.Relasi antara sin dan cos adalah sin 30 = ",
+        optionA: "cos 60",
+        optionB: "cos 30",
+        optionC: "cos 45",
+        optionD: "cos 90",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "15.Nilai grafik sin A dan cos A dikuadran I memiliki tanda ",
+        optionA: "positif dan positif",
+        optionB: "negatif dan negatif",
+        optionC: "positif dan negatif",
+        optionD: "negatif dan positif",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "16. Nilai sin A dan cos A dikuadran II memiliki tanda ",
+        optionA: "positif dan positif",
+        optionB: "negatif dan negatif",
+        optionC: "positif dan negatif",
+        optionD: "negatif dan positif",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "17.cos(180-A) dan cos(180+A) bernilai sama, memiliki tanda ",
+        optionA: "positif dan positif",
+        optionB: "negatif dan negatif",
+        optionC: "positif dan negatif",
+        optionD: "negatif dan positif",
+        correctOption: "optionB"
+    },
+
+{
+        question: "18.Jika sin A=2/3 maka sin(180-A) dan sin(180+A) adalah ",
+        optionA: "2/3 dan 2/3",
+        optionB: "-2/3 dan -2/3",
+        optionC: "+2/3 dan -2/3",
+        optionD: "-2/3 dan 2/3",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "19.sin dan cos dibawah ini yang nilainya 1/2 , kecuali ?",
+        optionA: "cos 60",
+        optionB: "sin 30",
+        optionC: "sin 150",
+        optionD: "cos 120",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "20.Sudut 380 berada di kuadran ... ?",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "21.Nilai sin(180 + 30) =...",
+        optionA: "sin 30",
+        optionB: "-sin 30",
+        optionC: "sin 60",
+        optionD: "-sin 60",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "22.Nilai sin(90-30)=...",
+        optionA: "cos 30",
+        optionB: "sin 30",
+        optionC: "-cos 30",
+        optionD: "-sin 30",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "23.Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
+        optionA: "cos A",
+        optionB: "sin A",
+        optionC: "tan A",
+        optionD: "csc A",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "24.Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
+        optionA: "28",
+        optionB: "38",
+        optionC: "56",
+        optionD: "60",
+        correctOption: "optionC"
+    },
+   
+    {
+        question: "25.Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25. Luas segitiga ini sama dengan ...",
+        optionA: "80",
+        optionB: "68",
+        optionC: "84",
+        optionD: "100",
+        correctOption: "optionC"
+    },
+   
+    {
+        question: "26.Nilai sin(-30) =...",
+        optionA: "sin(180+30)",
+        optionB: "sin(360-30)",
+        optionC: "sin(360+30)",
+        optionD: "sin(180-30)",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "27.Nilai sin 45=...",
+        optionA: "cos 45",
+        optionB: "-cos 45",
+        optionC: "cos -45",
+        optionD: "1/2.sin(90)",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "28.Sudut 114,6 &#176 jika dikonversi ke radian sama dengan ",
+        optionA: "1 rad",
+        optionB: "1,5 rad",
+        optionC: "2 rad",
+        optionD: "1/2 rad",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "29.Yang termasuk sudut istimewa, kecuali ",
+        optionA: "30",
+        optionB: "45",
+        optionC: "60",
+        optionD: "75",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "30.Jika sin A = 1/2 maka csc A adalah ?",
+        optionA: "1/3",
+        optionB: "2",
+        optionC: "3",
+        optionD: "1/4",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "31.Diketahui cos A=-1, maka besar sudut A adalah  ",
+        optionA: "0",
+        optionB: "90",
+        optionC: "180",
+        optionD: "270",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "32.Jika sec A= 3/2 maka cos A=... ?",
+        optionA: "2",
+        optionB: "2/3",
+        optionC: "1/3",
+        optionD: "1/4",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "33.Nilai tan 45 =  ",
+        optionA: "1",
+        optionB: "1/2",
+        optionC: "1/&#8730;2",
+        optionD: "&#8730;2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "34.Nilai cos 60 + sin 30 = ... ",
+        optionA: "2",
+        optionB: "1",
+        optionC: "0",
+        optionD: "1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "35.Jika sin A = 0,6 dan cos A = 0,8 maka tan A= ... ",
+        optionA: "3/4",
+        optionB: "5/3",
+        optionC: "3/5",
+        optionD: "4/3",
+        correctOption: "optionA"
+    }, 
+
+    {
+        question: "36.Jika sin A=3/5 maka sec A = ",
+        optionA: "5/4",
+        optionB: "5/3",
+        optionC: "3/4",
+        optionD: "4/3",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "37.Luas segitiga sama sisi dengan sisi = 4  adalah ",
+        optionA: "12",
+        optionB: "6",
+        optionC: "24",
+        optionD: " &#8730;48 ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "38.Jika tan A=3/4 maka cot A=",
+        optionA: "3/5",
+        optionB: "4/5",
+        optionC: "4/3",
+        optionD: "5/3",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "39.Fungsi y=sin x dikuadran I ",
+        optionA: "naik",
+        optionB: "turun",
+        optionC: "tetap",
+        optionD: "naik turun",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "40.Dalam segitiga bukan siku, jika a dan b diketahui maka c ditentukan dengan ... ",
+        optionA: "teorema phytagoras",
+        optionB: "tripel phytagoras",
+        optionC: "aturan cosinus",
+        optionD: "aturan sinus",
+        correctOption: "optionC"
+    },
+    
+    {
+        question: "41.Perbandingan antara sisi depan dengan sisi samping adalah definisi dari  ",
+        optionA: "sin",
+        optionB: "cos",
+        optionC: "tan",
+        optionD: "cot",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "42.Jika cos A=7/25 maka sec A =   ",
+        optionA: "25/24",
+        optionB: "25/7",
+        optionC: "24/25",
+        optionD: "7/24",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "43.Kebalikan atau invers dari sin adalah  ",
+        optionA: "csc",
+        optionB: "sec",
+        optionC: "cot",
+        optionD: "cos",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "44. Nilai cos 420 =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "45. Nilai cos 180   =  ",
+        optionA: "0",
+        optionB: "1",
+        optionC: "-1",
+        optionD: "1/2",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "46. Nilai sin 30=...  ",
+        optionA: "sin 150",
+        optionB: "sin 210",
+        optionC: "-sin 330",
+        optionD: "sin-30",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "47.Jika sin A diketahui, maka cos A dapat ditentukan dengan ",
+        optionA: "identitas trigonometri",
+        optionB: "tripel phytagoras",
+        optionC: "aturan cosinus",
+        optionD: "aturan sinus",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "48.Luas segitiga yang sisi-sisinya 3,4,3 adalah",
+        optionA: "5 ",
+        optionB: "4",
+        optionC: "3",
+        optionD: " &#8730;20 ",
+        correctOption: "optionD"
+    },
+   
+    {
+        question: "49.Pada segitika ABC sebarang diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
+        optionA: "1/3. &#8730 7 ",
+        optionB: "3/7. &#8730 7",
+        optionC: "4/5",
+        optionD: " 1/4. &#8730 7 ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "50.Grafik sinus naik pada kuadran ...",
+        optionA: "I dan II ",
+        optionB: "I dan III",
+        optionC: "I dan III",
+        optionD: "I dan IV ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "51.Bentuk lain aturan sinus",
+        optionA: "a : b = sin A : sin B",
+        optionB: "a : b = sin B : sin A",
+        optionC: "a : sin B = b : sin A",
+        optionD: "a : sin A = sin B : b",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "52.Sudut -120 berada dikuadran ...",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "53.Sudut -200&#176 berada di kuadran  ",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "54.sudut 2&#8508/3 berada di kuadran  ",
+        optionA: "I",
+        optionB: "II",
+        optionC: "III",
+        optionD: "IV",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: "55.Luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
+        optionA: "5",
+        optionB: "6",
+        optionC: "7",
+        optionD: "8",
+        correctOption: "optionB"
+    },
+
+    {
+        question: '56.Sederhanakan  2<sup>6</sup> .2<sup>-3</sup>=? ',
+        optionA: "2<sup>9</sup>",
+        optionB: "2<sup>3</sup>",
+        optionC: "2<sup>5</sup> ",
+        optionD: "2<sup>-3</sup> ",
+        correctOption: "optionB"
+    },
+
+    {
+        question: '57.Perhatikan 3<sup>2x</sup>=3<sup>6</sup>, nilai x adalah',
+        optionA: "1",
+        optionB: "2",
+        optionC: "3",
+        optionD: "-3",
+        correctOption: "optionC"
+    },
+
+    {
+        question: '58. a<sup>3</sup>.a<sup>2</sup>.a<sup>5</sup>',
+        optionA: "a<sup>5</sup>",
+        optionB: "a<sup>6</sup>",
+        optionC: "a<sup>10</sup>",
+        optionD: "a<sup>12</sup>",
+        correctOption: "optionC"
+    },
+
+    { 
+        question: '59.Persamaan exponen 9<sup>2x+1</sup>=3<sup>3x</sup> nilai x adalah',
+        optionA: "-2",
+        optionB: "2",
+        optionC: "1",
+        optionD: "-3",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "60.Persamaan exponen 2<sup>2x</sup><span>= 2<sup>4</sup></span>, nilai x adalah",
+        optionA: "2",
+        optionB: "4",
+        optionC: "-2",
+        optionD: "-4",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "61.Persamaan exponen 2<sup>2x-1</sup><span>= 2<sup>4x+3</sup></span>,  maka",
+        optionA: "(2x-1)=(4x+3)",
+        optionB: "(2x-1)=0",
+        optionC: "(4x+3)=0",
+        optionD: "(2x-1)(4x+3)=0",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "62.Persamaan exponen (2)<sup>(2x-1)</sup><span>= (3)<sup>(2x-1)</sup></span> maka",
+        optionA: "2x-1=2",
+        optionB: "2x-1=3",
+        optionC: "2x-1=1",
+        optionD: "2x-1=0",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "63.Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (4x-1)<sup>(x-1)</sup></span> maka",
+        optionA: "(4x-1)=0;4x-1=1;(2x-3)=(x-1)",
+        optionB: "(2x-3)=(x-1)",
+        optionC: "(4x-1)=0;4x-1=1",
+        optionD: "(2x-3)=0;(x-1)=0",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "64.Kasus dibawah ini ada hubungannya dengan fungsi exponen, kecuali",
+        optionA: "pertumbuhan penduduk",
+        optionB: "gerak parabola",
+        optionC: "bunga majemuk di bank",
+        optionD: "peluruhan radioaktif",
+        correctOption: "optionB" 
+    },
+
+    {
+        question: "65.Salah satu sifat fungsi exponen  y=2<sup>x</sup>",
+        optionA: "grafik tidak memotong sb. x",
+        optionB: "jika x>0 grafik selalu turun",
+        optionC: "jika x<0 grafik selalu naik",
+        optionD: "grafik tidak memotong sumbu y",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "66.Grafik y=(1/2)<sup>x</sup> ",
+        optionA: "jika x membesar , grafik menurun",
+        optionB: "jika x membesar , grafik naik",
+        optionC: "jika x membesar , grafik menurun dan memotong sb. x",
+        optionD: "jika x membesar , grafik naik dan memotong sumbu y",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "67.Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (2x+1)<sup>(2x-3)</sup></span>, jika f dan g tidak 0 maka",
+        optionA: "4x-1=2x+1 atau 2x-3=0",
+        optionB: "2x-3=0",
+        optionC: "4x-1=1",
+        optionD: "2x+1=1",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "68.Tentukan 2<sup>x</sup>.2<sup>3x-1</sup> adalah",
+        optionA: "2<sup>4x</sup>",
+        optionB: "2<sup>(4x-1)</sup>",
+        optionC: "2<sup>3x<sup>2</sup></sup>",
+        optionD: "2<sup>x(3x-1)</sup>",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "70.Tentukan 3<sup>(x+2)</sup>=9<sup>x</sup> , maka x adalah",
+        optionA: "-2",
+        optionB: "2",
+        optionC: "3",
+        optionD: "-3",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "71.Fungsi exponen g(x)=4.(1/2)<sup>x</sup> maka g(2)=",
+        optionA: "0",
+        optionB: "1/2",
+        optionC: "1",
+        optionD: "2",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "72.Fungsi exponen g(x)=4.(1/3)<sup>x</sup> maka g(2)=",
+        optionA: " 4/9 ",
+        optionB: "2/9",
+        optionC: "8/9",
+        optionD: "4/6",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "73.Bank memberi bunga 10%/tahun, jika modal 2T maka setelah 2 tahun berdasarkan   fungsi bunga majemuk M(t)=M<sub>0</sub>.(1+10%)<sup>t</sup>  adalah",
+        optionA: "2.42T",
+        optionB: "1.4T",
+        optionC: "2T",
+        optionD: "2.1T",
+        correctOption: "optionA"
+    },
+    
+     {
+         question:  "74.Tentukan 3. 2<sup>3x</sup>=192, maka x= ?",
          optionA: "-1",
          optionB: "3",
          optionC: "0",
@@ -653,15 +1954,67 @@ const questions = [
 let shuffledQuestions = [] //empty array to hold shuffled selected questions out of all available questions
 
 function handleQuestions() { 
+       const jno18091 = document.querySelector("#jno18091");
+        const jno18092 = document.querySelector("#jno18092");
+        const jno18093 = document.querySelector("#jno18093");
+        const rno18091 = document.querySelector("#rno18091");
+    
+        if ( jno18091.checked){
+            
+            response = "Evaluasi kelas x: Bilangan berpangkat, Fungsi exponen dan Trigonometri";
+
     //function to shuffle and push 10 questions to shuffledQuestions array
 //app would be dealing with 10questions per session
     while (shuffledQuestions.length <=40 ) {
-        const random = questions[Math.floor(Math.random() * questions.length)]
+
+const random = questionsx[Math.floor(Math.random() * questionsx.length)]
         if (!shuffledQuestions.includes(random)) {
             shuffledQuestions.push(random)
         }
     }
-}
+        }
+    
+
+        if ( jno18092.checked){
+            
+            response = "Evaluasi kelas xi: Aritmatika sosial, Matrik dan Fungsi Komposisi";
+
+    //function to shuffle and push 10 questions to shuffledQuestions array
+//app would be dealing with 10questions per session
+    while (shuffledQuestions.length <=40 ) {
+
+const random = questionsxi[Math.floor(Math.random() * questionsxi.length)]
+        if (!shuffledQuestions.includes(random)) {
+            shuffledQuestions.push(random)
+        }
+    }
+        }
+    
+        if ( jno18093.checked){
+            
+            response = "Evaluasi kelas xii:Limit dan Deferensial";
+
+    //function to shuffle and push 10 questions to shuffledQuestions array
+//app would be dealing with 10questions per session
+    while (shuffledQuestions.length <=40 ) {
+
+const random = questionsxii[Math.floor(Math.random() * questionsxii.length)]
+        if (!shuffledQuestions.includes(random)) {
+            shuffledQuestions.push(random)
+        }
+    }
+  }
+
+   rno18091.innerHTML = response;
+          
+            
+        }
+        
+       
+        
+
+
+
 
 
 let questionNumber = 1 //holds the current question number
@@ -809,3 +2162,54 @@ function closeScoreModal() {
 function closeOptionModal() {
     document.getElementById('option-modal').style.display = "none"
 }
+
+ const evaluasi=document.getElementById("eva")
+function kirimeva(){
+     NextQuestion(0);
+    
+     
+}
+
+     function kirimev(){
+
+
+
+    const jno18091 = document.querySelector("#jno18091");
+    const jno18092 = document.querySelector("#jno18092");
+    const jno18093 = document.querySelector("#jno18093");
+    const rno18091 = document.querySelector("#rno18091");
+     NextQuestion(0);
+
+    if ( jno18091.checked){
+        let shuffledQuestions = [];
+        response = "Evaluasi kelas x : Bilangan Berpangkat, Fungsi Exponen dan  Trigonometri";
+        
+        while (shuffledQuestions.length <=40 ) {
+        const random = questionsx[Math.floor(Math.random() * questionsx.length)]
+                    if (!shuffledQuestions.includes(random)) {
+                        shuffledQuestions.push(random)
+                    }}
+                    
+                } 
+    if ( jno18092.checked){
+        response = "Evaluasi kelas xi: Aritmatika Sosial, Fungsi Komposisi dan Matrik";
+        let shuffledQuestions = [];
+        while (shuffledQuestions.length <=40 ) {
+        const random = questions[Math.floor(Math.random() * questions.length)]
+                if (!shuffledQuestions.includes(random)) {
+                    shuffledQuestions.push(random)
+                }}
+            
+            }
+
+    if ( jno18093.checked){
+        response = "Evaluasi kelas xii: Limit dan Deferensial ";
+        shuffledQuestions;
+        
+      
+        
+    }
+    
+     rno18091.innerHTML = response;
+    }
+   
