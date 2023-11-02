@@ -15,14 +15,14 @@
 <script src="./js/index.js"></script> 
 <script src="./src/kirim.js"></script>
  <!-- <script src="./src/perskuad.js"></script>  -->
-<!-- <script src="https://cdn.tailwindcss.com"></script>  -->
+ <script src="https://cdn.tailwindcss.com"></script>  
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:ital,wght@0,300;1,200&display=swap" rel="stylesheet">
 <link rel="stylesheet href="https://fonts.googleapis.com/css2?family=Tangerine">
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async
 src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -61,6 +61,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   #more18 {display: none;}
   #more19 {display: none;}
   #more21 {display: none;}
+  #more23 {display: none;}
   #bab2 {display: none;}
   #bab3 {display: none;}
   #bab4 {display: none;}
@@ -72,27 +73,22 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   #bab17 {display: none;}
   #bab18 {display: none;}
   #bab9 {display: none;}
-  
+  #eva {display:block;}
+  #bab20 {display: none;}
 </style>
   
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> -->
     <!-- Babel Script -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
-    
+    <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
+     -->
 </head>
-<body onload="NextQuestion(0)" class=" h-full">
+<body onload="" class=" h-full">
 
   
 
 
-  
-<!--   
-    
-     <img class='zoom'  src='gbr/map19.svg' alt='hup ng ada gbr' />
-      
-    -->
    
   
 <!-- This example requires Tailwind CSS v3.0+ -->
@@ -392,13 +388,13 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
  
 
   <i data-feather="edit"> </i> 
- <p>update:31/10/23 23:00 </p>
+ <p>update:02/11/23 22:00 </p>
 <!-- <i data-feather="eye"></i> -->
 <br>
   <a href="./gbr/app-debug.apk" download>
     <img src="./gbr/download.svg" alt="ng ada file" width="30px">
    </a> 
-   <p> download apk </p>
+   <p> unduh aplikasi <br>for android versi OS 10 keatas</p>
   
   
   <br>
@@ -459,9 +455,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </aside>
 
 <section  class="bg-green-100 w-full md:w-1/2 ">
-<!-- <div class=" sticky top-0 left-0 right-0 z-50  w-full h-8  items-center">
 
-  </div> -->
   
  <div  class=" flex flex-col space-y-4 px-2  " >
 
@@ -495,6 +489,7 @@ Hanya fokus pada informasi penting saja<br>
    </div>
 </div>  
 </div>
+
 <div  id="bab0" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#D8BFD8]">
   <article"
   <p  class="font-semibold">
@@ -510,6 +505,7 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
   (Neil Degrasse Tyson)
   </p>
 </div>
+
   <div  id="bab1" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFFACD]">
       
     
@@ -5408,114 +5404,6 @@ jika sudut 90 derajat diubah ke radian menjadi</label><br>
 
 </div>
 <!-- batas trigono -->
-<div id="pas" class="dark:bg-slate-700 dark:text-green-500 border-1 rounded-2xl box-border  border-black p-0  text-slate-700 bg-slate-100">
-  <div class="modal-container" id="score-modal">
-  <div class="modal-content-container"> 
-        <h1>Selamat.</h1> 
-        <div class="grade-details">
-          <p>Nilai : </p>
-          <p>Jumlah jawaban salah : <span id="wrong-answers"></span></p>
-          <p>Jumlah jawaban benar : <span id="right-answers"></span></p>
-          <p>Passing grade : <span id="grade-percentage"></span>%</p>
-          <p ><span id="remarks"></span></p>
-        </div>  
-        <div class="modal-button-container">
-          <button onclick="closeScoreModal()">Lanjut</button>
-          <!-- <form method="POST" action="YOUR_APP_SCRIPT_URL">
-            <input name="Email" type="email" placeholder="Email" required>
-            <input name="Name" type="text" placeholder="Name" required>
-            <button type="submit">Send</button>
-          </form> -->
-        </div>
-  </div>
-  
-  </div>
-  
-  
-    <!-- end of modal of quiz details-->
-    
-    <div class="game-quiz-container">
-    
-      <div class="game-details-container">
-        <br>
-        <h2>Evaluasi Fase E kelas x: Bilangan Berpangkat, Fungsi Exponen dan  Trigonometri</h2>
-        <h3>Jumlah benar : <span id="player-score"></span> </h3>
-        <h3> Soal ke- : <span id="question-number"></span> dari 40</h3>
-      </div>
-    <!--  
-            <div>
-             <label>Score:</label> 
-             <input style="width:50px; text-align:center;" name="score" type="text"  value="0" id="player-score-form"  readonly>
-                
-        
-            </div>
-              
-             -->
-           
-      <div class="game-question-container">
-        <h1  id="display-question"></h1>
-      </div>
-    
-      <div class="game-options-container">
-    
-         <div class="modal-container" id="option-modal">
-    
-          <div class="modal-content-container">
-             <h1>Silakan pilih </h1>
-    
-             <div class="modal-button-container">
-              <button onclick="closeOptionModal()">Lanjutkan?</button>
-            </div>
-    
-          </div>
-    
-         </div>
-    
-        <span>
-          <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
-          <label for="option-one" class="option" id="option-one-label"></label>
-        </span>
-    
-    
-        <span>
-          <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
-          <label for="option-two" class="option" id="option-two-label"></label>
-        </span>
-    
-    
-        <span>
-          <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
-          <label for="option-three" class="option" id="option-three-label"></label>
-        </span>
-    
-    
-        <span>
-          <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
-          <label for="option-four" class="option" id="option-four-label"></label>
-        </span>
-    
-    
-      </div>
-    
-      <div class="next-button-container">
-        
-      
-        <button onclick="handleNextQuestion()">Lanjutkan </button>
-        
-        
-        
-      </div>
-      
-    </div>
-
-
-<!-- <div class="alert alert-success alert-dismissible d-none my-alert">
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
-  </div> -->
-
-
-  </div>
 
 <!--batas -->
 <div id="bab21" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-800 bg-[#BDAAFD]">
@@ -11240,103 +11128,6 @@ $g(x) = ...$</p>
        </div>
     </div>
 
-<!-- <div id="pasix" class="dark:bg-slate-700 dark:text-blue-500 border-1 rounded-2xl box-border  border-black p-0  text-slate-700 bg-sky-100">
-  <div class="modal-container" id="score-modalxi">
-  <div class="modal-content-container"> 
-        <h1>Selamat.</h1> 
-        <div class="grade-details">
-          <p>Nilai : </p>
-          <p>Jumlah jawaban salah : <span id="wrong-answers"></span></p>
-          <p>Jumlah jawaban benar : <span id="right-answers"></span></p>
-          <p>Passing grade : <span id="grade-percentage"></span>%</p>
-          <p ><span id="remarks"></span></p>
-        </div>  
-        <div class="modal-button-container">
-          <button onclick="closeScoreModal()">Lanjut</button>
-          <!-- <form method="POST" action="YOUR_APP_SCRIPT_URL">
-            <input name="Email" type="email" placeholder="Email" required>
-            <input name="Name" type="text" placeholder="Name" required>
-            <button type="submit">Send</button>
-          </form> 
-        </div>
-  </div>
-  
-  </div>
-  
-  
-    <!-- end of modal of quiz details-->
-    
-    <!-- <div class="game-quiz-containerxi">
-    
-      <div class="game-details-containerxi">
-        <br>
-        <h2>Evaluasi kelas xi: Aritmatika sosial, Fungsi Komposisi, dan Matrik ,</h2>
-        <h3>Jumlah benar : <span id="player-score"></span> </h3>
-        <h3> Soal ke- : <span id="question-number"></span> dari 40</h3>
-      </div>
-
-           
-      <div class="game-question-container">
-        <h1  id="display-question"></h1>
-      </div>
-    
-      <div class="game-options-container">
-    
-         <div class="modal-container" id="option-modal">
-    
-          <div class="modal-content-container">
-             <h1>Silakan pilih </h1>
-    
-             <div class="modal-button-container">
-              <button onclick="closeOptionModal()">Lanjutkan?</button>
-            </div>
-    
-          </div>
-    
-         </div>
-    
-        <span>
-          <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
-          <label for="option-one" class="option" id="option-one-label"></label>
-        </span>
-    
-    
-        <span>
-          <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
-          <label for="option-two" class="option" id="option-two-label"></label>
-        </span>
-    
-    
-        <span>
-          <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
-          <label for="option-three" class="option" id="option-three-label"></label>
-        </span>
-    
-    
-        <span>
-          <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
-          <label for="option-four" class="option" id="option-four-label"></label>
-        </span>
-    
-    
-      </div>
-    
-      <div class="next-button-containerxi">
-        
-      
-        <button onclick="handleNextQuestionxi()">Lanjutkan </button>
-        
-         
-        
-      </div>
-      
-    </div>
-
-
- <div class="alert alert-success alert-dismissible d-none my-alert">
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
-  </div> -->
 
 
   
@@ -13362,112 +13153,6 @@ turun<br>
 
 </div>
 <!-- batas -->
-<!-- 
-<div id="pasxii" class="dark:bg-slate-700 dark:text-blue-500 border-1 rounded-2xl box-border  border-black p-0  text-slate-700 bg-sky-100">
-  <div class="modal-container" id="score-modalxii">
-  <div class="modal-content-container"> 
-        <h1>Selamat.</h1> 
-        <div class="grade-details">
-          <p>Nilai : </p>
-          <p>Jumlah jawaban salah : <span id="wrong-answers"></span></p>
-          <p>Jumlah jawaban benar : <span id="right-answers"></span></p>
-          <p>Passing grade : <span id="grade-percentage"></span>%</p>
-          <p ><span id="remarks"></span></p>
-        </div>  
-        <div class="modal-button-container">
-          <button onclick="closeScoreModal()">Lanjut</button>
-          <form method="POST" action="YOUR_APP_SCRIPT_URL">
-            <input name="Email" type="email" placeholder="Email" required>
-            <input name="Name" type="text" placeholder="Name" required>
-            <button type="submit">Send</button>
-          </form> 
-        </div>
-  </div>
-  
-  </div>
-  
-  
-   
-    
-    <div class="game-quiz-containerxii">
-    
-      <div class="game-details-containerxii">
-        <br>
-        <h2>Evaluasi kelas xii: Limit, dan Deferensial ,</h2>
-        <h3>Jumlah benar : <span id="player-score"></span> </h3>
-        <h3> Soal ke- : <span id="question-number"></span> dari 40</h3>
-      </div>
-
-           
-      <div class="game-question-container">
-        <h1  id="display-question"></h1>
-      </div>
-    
-      <div class="game-options-container">
-    
-         <div class="modal-container" id="option-modal">
-    
-          <div class="modal-content-container">
-             <h1>Silakan pilih </h1>
-    
-             <div class="modal-button-container">
-              <button onclick="closeOptionModal()">Lanjutkan?</button>
-            </div>
-    
-          </div>
-    
-         </div>
-    
-        <span>
-          <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
-          <label for="option-one" class="option" id="option-one-label"></label>
-        </span>
-    
-    
-        <span>
-          <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
-          <label for="option-two" class="option" id="option-two-label"></label>
-        </span>
-    
-    
-        <span>
-          <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
-          <label for="option-three" class="option" id="option-three-label"></label>
-        </span>
-    
-    
-        <span>
-          <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
-          <label for="option-four" class="option" id="option-four-label"></label>
-        </span>
-    
-    
-      </div>
-    
-      <div class="next-button-containerxii">
-        
-      
-        <button onclick="handleNextQuestionxii()">Lanjutkan </button>
-        
-        
-        
-      </div>
-      
-    </div>
- 
-
- <div class="alert alert-success alert-dismissible d-none my-alert">
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
-  </div>
-
-
-  </div> 
-
-<!--batas -->
-
-
-
 
 
 <div id="bab16" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFB6C1">
@@ -14133,7 +13818,7 @@ $$\lim\limits_{x \to \sim} \sqrt {x^3 + 3x - 1}  - \sqrt {x^3 -x + 1}=...$$
 
 </div>
 
-<!-- batas bab -->
+<!-- batas bab16 -->
 
   <!-- batas -->
 
@@ -14422,7 +14107,7 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
   
 
 
-<!-- batas bab -->
+<!-- batas bab17 -->
 
 <div id="bab18" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFEFD5]">
 
@@ -14582,6 +14267,7 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
    
 </div>
 
+<!-- awal kisi -->
   <div id="bab20" class="p-4 bg-white h-96 w-full overflow-auto  border-1 rounded-3xl box-border  border-black   text-black ">
     <div class="m-3 bg-slate-300"></div>
     <h1>Kisi-kisi Ujian Matematika Kelas x</h1>
@@ -15592,9 +15278,8 @@ Bekerja </b></font></font><font face="Wingdings, serif">
     </div>
   </div> -->
   <!-- <iframe src="https://docs.google.com/document/d/e/2PACX-1vQZsvdrNLVKkvdFy-6j2F65MtgtkfX2VWE_4EpUARiZWQudWjVvvbsMNrY9abmyYOqW8kzyPqFv7flH/pub?embedded=true"></iframe> -->
-</section>
+
  
-<aside  class="w-full md:w-1/5 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFFACD]">
 <!-- 
 <iframe src="https://docs.google.com/document/d/e/2PACX-1vSNU2N5MtQqYQ2BWLGXSxd8WWKvBWH6k5UPmR7kzYvxTjclTkBWW93dRGAPKzAifITZTXOQusBMNmfe/pub?embedded=true"></iframe>
 <iframe width="100%" height="299" src="https://docs.google.com/presentation/d/e/2PACX-1vSZCV_Na_ykbORgQBDwEGfSpiZXnDCy-8Zlej6s9LXiz4cahJRIULFoYPoVx6TdlFw6GCi2ZWG5_bpZ/embed?start=true&loop=true&delayms=2000" frameborder="0"  allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
@@ -15603,8 +15288,139 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRRJkpc6XQKfNMe_J-VqbyhZYU958FAu4JH4bhTLxbod91qzUpa7JE8TC1af1PgB9CquBZLPNtV8mu5/pubhtml?widget=true&amp;headers=false"></iframe>
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS7Ht8rhADB58PHijP_BF1svroMlYTlVRp-qVd54v97She68MNdsWAYZ9jSnQnmqyL1vIJM6dJldDxR/pubhtml?gid=1619994486&amp;single=true&amp;widget=true&amp;headers=false"></iframe> 
 -->
+</div>
+<!-- akhir kisi -->
+
+<div  id="bab23" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#98FB98]">
+
+  <h2>Evaluasi</h2>
+  
+  <span id="dots23">...</span>
+    <div id="more23">
+
+<div id="pas" class="dark:bg-slate-700 dark:text-green-500 border-1 rounded-2xl box-border  border-black p-0  text-slate-700 bg-slate-100">
+  <div class="modal-container" id="score-modal">
+  <div class="modal-content-container"> 
+        <h1>Selamat.</h1> 
+        <div class="grade-details">
+          <p>Nilai : </p>
+          <p>Jumlah jawaban salah : <span id="wrong-answers"></span></p>
+          <p>Jumlah jawaban benar : <span id="right-answers"></span></p>
+          <p>Passing grade : <span id="grade-percentage"></span>%</p>
+          <p ><span id="remarks"></span></p>
+        </div>  
+        <div class="modal-button-container">
+          <button onclick="closeScoreModal()">Lanjut</button>
+      
+        </div>
+  </div>
+  
+  </div>
+  
+  
+    <!-- end of modal of quiz details-->
+    
+    <div class="game-quiz-container">
+    
+      <div class="game-details-container">
+        <br>
+        <h2>e v a l u a s i</h2>
+        <h1 id="rno18091"></h1>
+        
+        <h3>Jumlah benar : <span id="player-score"></span> </h3>
+        <h3> Soal ke- : <span id="question-number"></span> dari 40</h3>
+      </div>
+   
+           
+      <div class="game-question-container">
+        <h1  id="display-question"></h1>
+      </div>
+    
+      <div class="game-options-container">
+    
+         <div class="modal-container" id="option-modal">
+    
+          <div class="modal-content-container">
+             <h1>Silakan pilih </h1>
+    
+             <div class="modal-button-container">
+              <button onclick="closeOptionModal()">Lanjutkan?</button>
+            </div>
+    
+          </div>
+    
+         </div>
+    
+        <span>
+          <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+          <label for="option-one" class="option" id="option-one-label"></label>
+        </span>
+    
+    
+        <span>
+          <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+          <label for="option-two" class="option" id="option-two-label"></label>
+        </span>
+    
+    
+        <span>
+          <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+          <label for="option-three" class="option" id="option-three-label"></label>
+        </span>
+    
+    
+        <span>
+          <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+          <label for="option-four" class="option" id="option-four-label"></label>
+        </span>
+    
+    
+      </div>
+    
+      <div class="next-button-container">
+        
+      
+        <button onclick="handleNextQuestion()">Lanjutkan </button>
+        
+        
+        
+      </div>
+      
+    </div>
 
 
+
+  </div>
+  
+<div id="eva" >
+  <p>Pilih kelas untuk dievaluasi</p>
+    <label>
+         <input type="radio" name="no18091" style="display:inline-flex" id="jno18091">Kelas x<br> 
+         <input type="radio" name="no18091" style="display:inline-flex" id="jno18092">Kelas xi<br>
+         <input type="radio" name="no18091" style="display:inline-flex" id="jno18093">Kelas xii<br>
+    </label> 
+    <br>
+    <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirimeva()>ok </button>
+    
+   <h1 id="rno18091"></h1>
+    <h1 id="nilaieva"></h1>
+  </div>
+</div>
+
+
+
+<div x-data="{open:false}">
+  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction23()" id="myBtn23">buka soal evaluasi</button>
+</div>
+
+
+</div>
+<!-- akhir evaluasi -->
+</div>
+
+</section>
+<br>
+<aside  class="w-full md:w-1/5 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFFACD]">
 
   <p class="dark:bg-white dark:text-black border border-slate-600 ">
   
@@ -15624,7 +15440,7 @@ Bekerja </b></font></font><font face="Wingdings, serif">
     
   
 </aside>
-</div>
+
 
 
 
@@ -16193,6 +16009,22 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
     }
   }
 
+
+  function myFunction23() {
+    var dots23 = document.getElementById("dots23");
+    var moreText23 = document.getElementById("more23");
+    var btnText23 = document.getElementById("myBtn23");
+  
+    if (dots23.style.display === "none") {
+      dots23.style.display = "inline";
+      btnText23.innerHTML = "buka";
+      moreText23.style.display = "none";
+    } else {
+      dots23.style.display = "none";
+      btnText23.innerHTML = "tutup";
+      moreText23.style.display = "inline";
+    }
+  }
 
 
 </script>
