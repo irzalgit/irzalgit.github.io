@@ -1301,70 +1301,70 @@ const questionsxi = [
 
 const questionsxii = [
     {
-        question: "1.Perbandingan sisi depan dengan sisi miring adalah ?",
-        optionA: " sin",
-        optionB: "cos",
-        optionC: "tan ",
-        optionD: "sec ",
+        question: "1.Berdasarkan sifat -sifat limit, maka lim 5x pada saat x mendekati 2 adalah ",
+        optionA: " 2",
+        optionB: "5",
+        optionC: "7 ",
+        optionD: "10 ",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "2.Berdasarkan sifat -sifat limit, maka lim (5x+1) pada saat x mendekati -2 adalah",
+        optionA: "-9",
+        optionB: "11",
+        optionC: "10",
+        optionD: "9",
         correctOption: "optionA"
     },
 
     {
-        question: "2.Yang termasuk tripel phytagoras ?",
-        optionA: "3,4,6",
-        optionB: "3,4,5",
-        optionC: "4,5,6",
-        optionD: "5,10,12",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "3.Grafik sinus pada kuadran IV  ",
-        optionA: "naik",
-        optionB: "turun",
-        optionC: "datar",
+        question: "3.Berdasarkan sifat -sifat limit, maka lim (x-2)/(x-2) pada saat x mendekati 2 adalah",
+        optionA: "0",
+        optionB: "~",
+        optionC: "1",
         optionD: "tak tentu",
+        correctOption: "optionC"
+    },
+
+    {
+        question: " 4.Berdasarkan sifat-sifat limit, maka lim (x-2)/(x+1)(x-2) pada saat x mendekati 2 adalah ",
+        optionA: "1/3",
+        optionB: "1/5",
+        optionC: "0",
+        optionD: "~",
         correctOption: "optionA"
     },
 
     {
-        question: " 4.Jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
-        optionA: "1/3",
-        optionB: "3/5",
-        optionC: "4/3",
-        optionD: "1/2",
+        question: "5.Berdasarkan sifat-sifat limit, maka lim (x-2)(x+2)/(x+1)(x-2) pada saat x mendekati 2 adalah ",
+        optionA: "3/4",
+        optionB: "4/3",
+        optionC: "0",
+        optionD: "~",
         correctOption: "optionB"
     },
 
     {
-        question: "5.Sisi terpanjang atau garis miring dari tripel phytagoras {3,4,5} adalah",
-        optionA: "3",
-        optionB: "4",
-        optionC: "5",
-        optionD: "6",
+        question: "6.Berdasarkan sifat-sifat limit, maka lim (x<sup>2</sup>-4)/(x-1)(x-2) pada saat x mendekati 2 adalah ",
+        optionA: "1",
+        optionB: "2",
+        optionC: "4",
+        optionD: "-1",
         correctOption: "optionC"
     },
 
-    {
-        question: "6.Jumlah sudut-sudut dalam segitiga adalah",
-        optionA: "30&#176",
-        optionB: "90&#176",
-        optionC: "180&#176",
-        optionD: "360&#176",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "7.dalam segitiga siku siku, jika sudut alpha 30 derajat, maka sudut beta adalah",
-        optionA: "10&#176",
-        optionB: "60&#176",
-        optionC: "80&#176",
-        optionD: "90 &#176",
+   {
+        question: "7.Berdasarkan sifat-sifat limit, maka lim  x<sup>2</sup>-3x+2/(x<sup>2</sup>-4) pada saat x mendekati 2 adalah ",
+        optionA: "1",
+        optionB: "1/4",
+        optionC: "0",
+        optionD: "~",
         correctOption: "optionB"
     },
 
     {
-        question: "8.Jumlah sudut alpha dan sudut beta dalam segitiga siku-siku adalah",
+        question: "8.Berdasarkan sifat-sifat limit, maka lim (x<sup>2</sup>-4)/(x-1)(x-2) pada saat x mendekati 2 adalah ",
         optionA: "30 &#176",
         optionB: "60 &#176",
         optionC: "90 &#176",
@@ -1373,7 +1373,7 @@ const questionsxii = [
     },
 
     {
-        question: "10.Jika &#8508  =3,14 maka sudut 60 &#176 =",
+        question: "limits_{x \to 2\}",
         optionA: "3,14/2",
         optionB: "3,14/4",
         optionC: "3,14/3",
@@ -1382,7 +1382,7 @@ const questionsxii = [
     },
 
     {
-        question: "11.Sudut 120 derajat jika dikonversi ke radian adalah",
+        question: "lim<sub>x &#x279D 0</sub>x+3=",
         optionA: "2&#8508",
         optionB: "1&#8508",
         optionC: "1/2.&#8508",
@@ -1391,7 +1391,7 @@ const questionsxii = [
     },
 
     {
-        question: "12.Sudut 200 derajat jika dikonversi ke radian adalah",
+        question: "'&#85940' lim<sub>x&#85940</sub>f(x)=",
         optionA: "2&#8508",
         optionB: "1&#8508",
         optionC: "10/9.&#8508",
@@ -1400,7 +1400,7 @@ const questionsxii = [
     },
 
     {
-        question: "13.Sudut 30 derajat jika dikonversi ke radian adalah",
+        question: "lim<sub>x &#x279D 7</sub>f(x)=",
         optionA: "1/3.&#8508",
         optionB: "1/4.&#8508",
         optionC: "1/6.&#8508",
@@ -1409,8 +1409,8 @@ const questionsxii = [
     },
 
     {
-        question: "14.Relasi antara sin dan cos adalah sin 30 = ",
-        optionA: "cos 60",
+        question: "lim<sub>x &#x279D 9</sub>f(x)=",
+        optionA: "&#85940",
         optionB: "cos 30",
         optionC: "cos 45",
         optionD: "cos 90",
@@ -1418,8 +1418,8 @@ const questionsxii = [
     },
 
     {
-        question: "15.Nilai grafik sin A dan cos A dikuadran I memiliki tanda ",
-        optionA: "positif dan positif",
+        question: "lim<sub>x '&#85940' 7</sub>f(x)=",
+        optionA: "&#85940",
         optionB: "negatif dan negatif",
         optionC: "positif dan negatif",
         optionD: "negatif dan positif",
@@ -1427,7 +1427,7 @@ const questionsxii = [
     },
 
     {
-        question: "16. Nilai sin A dan cos A dikuadran II memiliki tanda ",
+        question: "16. '&#85940'",
         optionA: "positif dan positif",
         optionB: "negatif dan negatif",
         optionC: "positif dan negatif",
@@ -1436,7 +1436,7 @@ const questionsxii = [
     },
 
     {
-        question: "17.cos(180-A) dan cos(180+A) bernilai sama, memiliki tanda ",
+        question: "17.&#10141 ",
         optionA: "positif dan positif",
         optionB: "negatif dan negatif",
         optionC: "positif dan negatif",
@@ -1445,7 +1445,7 @@ const questionsxii = [
     },
 
 {
-        question: "18.Jika sin A=2/3 maka sin(180-A) dan sin(180+A) adalah ",
+        question: "18. <sup>lim</sup><SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB><sup>(x<sup>2</sup>+5)</sup> ",
         optionA: "2/3 dan 2/3",
         optionB: "-2/3 dan -2/3",
         optionC: "+2/3 dan -2/3",
@@ -1454,7 +1454,7 @@ const questionsxii = [
     },
 
     {
-        question: "19.sin dan cos dibawah ini yang nilainya 1/2 , kecuali ?",
+        question: "19.lim<sub>x &#x2192 0</sub>2x+1",
         optionA: "cos 60",
         optionB: "sin 30",
         optionC: "sin 150",
@@ -1463,7 +1463,7 @@ const questionsxii = [
     },
 
     {
-        question: "20.Sudut 380 berada di kuadran ... ?",
+        question: "20.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x+5 ",
         optionA: "I",
         optionB: "II",
         optionC: "III",
@@ -1472,7 +1472,7 @@ const questionsxii = [
     },
 
     {
-        question: "21.Nilai sin(180 + 30) =...",
+        question: "21.Nilai sin(180 + 30) =..&#x279D.",
         optionA: "sin 30",
         optionB: "-sin 30",
         optionC: "sin 60",
@@ -1481,7 +1481,7 @@ const questionsxii = [
     },
 
     {
-        question: "22.Nilai sin(90-30)=...",
+        question: "22.Nilai sin(90-30)=..&#x279D.",
         optionA: "cos 30",
         optionB: "sin 30",
         optionC: "-cos 30",
@@ -1490,43 +1490,43 @@ const questionsxii = [
     },
 
     {
-        question: "23.Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
-        optionA: "cos A",
-        optionB: "sin A",
+        question: "23.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>2</sup>+5",
+        optionA: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
+        optionB: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x+1.",
         optionC: "tan A",
         optionD: "csc A",
         correctOption: "optionB"
     },
 
     {
-        question: "24.Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
-        optionA: "28",
-        optionB: "38",
+        question: "24.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
+        optionA: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
+        optionB: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x+1.",
         optionC: "56",
         optionD: "60",
         correctOption: "optionC"
     },
    
     {
-        question: "25.Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25. Luas segitiga ini sama dengan ...",
-        optionA: "80",
-        optionB: "68",
+        question: "25.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
+        optionA: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
+        optionB: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x+1.",
         optionC: "84",
         optionD: "100",
         correctOption: "optionC"
     },
    
     {
-        question: "26.Nilai sin(-30) =...",
-        optionA: "sin(180+30)",
-        optionB: "sin(360-30)",
+        question: "26..lim<SUB STYLE='font-size:xx-small'>x &#x2192 0,</SUB>(x+2)",
+        optionA: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
+        optionB: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x+1.",
         optionC: "sin(360+30)",
         optionD: "sin(180-30)",
         correctOption: "optionB"
     },
 
     {
-        question: "27.Nilai sin 45=...",
+        question: "27..lim<SUB STYLE='font-size:xx-small'>x &#x2192 0,</SUB>(x+2)",
         optionA: "cos 45",
         optionB: "-cos 45",
         optionC: "cos -45",
@@ -1535,7 +1535,7 @@ const questionsxii = [
     },
 
     {
-        question: "28.Sudut 114,6 &#176 jika dikonversi ke radian sama dengan ",
+        question: "28..lim<SUB STYLE='font-size:xx-small'>x &#x2192 0,</SUB>(x+2) ",
         optionA: "1 rad",
         optionB: "1,5 rad",
         optionC: "2 rad",
@@ -1544,7 +1544,7 @@ const questionsxii = [
     },
 
     {
-        question: "29.Yang termasuk sudut istimewa, kecuali ",
+        question: "29..lim<SUB STYLE='font-size:xx-small'>x &#x2192 0,</SUB>(x+2) ",
         optionA: "30",
         optionB: "45",
         optionC: "60",
@@ -1553,7 +1553,7 @@ const questionsxii = [
     },
 
     {
-        question: "30.Jika sin A = 1/2 maka csc A adalah ?",
+        question: "30. lim<SUB STYLE='font-size:font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "1/3",
         optionB: "2",
         optionC: "3",
@@ -1562,7 +1562,7 @@ const questionsxii = [
     },
 
     {
-        question: "31.Diketahui cos A=-1, maka besar sudut A adalah  ",
+        question: "31.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x ",
         optionA: "0",
         optionB: "90",
         optionC: "180",
@@ -1571,7 +1571,7 @@ const questionsxii = [
     },
 
     {
-        question: "32.Jika sec A= 3/2 maka cos A=... ?",
+        question: "32.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "2",
         optionB: "2/3",
         optionC: "1/3",
@@ -1580,7 +1580,7 @@ const questionsxii = [
     },
 
     {
-        question: "33.Nilai tan 45 =  ",
+        question: "33.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "1",
         optionB: "1/2",
         optionC: "1/&#8730;2",
@@ -1589,7 +1589,7 @@ const questionsxii = [
     },
 
     {
-        question: "34.Nilai cos 60 + sin 30 = ... ",
+        question: "34.lim<SUB STYLE='xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "2",
         optionB: "1",
         optionC: "0",
@@ -1598,7 +1598,7 @@ const questionsxii = [
     },
 
     {
-        question: "35.Jika sin A = 0,6 dan cos A = 0,8 maka tan A= ... ",
+        question: "35.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
         optionA: "3/4",
         optionB: "5/3",
         optionC: "3/5",
@@ -1607,7 +1607,7 @@ const questionsxii = [
     }, 
 
     {
-        question: "36.Jika sin A=3/5 maka sec A = ",
+        question: "36.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "5/4",
         optionB: "5/3",
         optionC: "3/4",
@@ -1616,7 +1616,7 @@ const questionsxii = [
     },
 
     {
-        question: "37.Luas segitiga sama sisi dengan sisi = 4  adalah ",
+        question: "37.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
         optionA: "12",
         optionB: "6",
         optionC: "24",
@@ -1625,7 +1625,7 @@ const questionsxii = [
     },
 
     {
-        question: "38.Jika tan A=3/4 maka cot A=",
+        question: "38.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "3/5",
         optionB: "4/5",
         optionC: "4/3",
@@ -1634,7 +1634,7 @@ const questionsxii = [
     },
 
     {
-        question: "39.Fungsi y=sin x dikuadran I ",
+        question: "39.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
         optionA: "naik",
         optionB: "turun",
         optionC: "tetap",
@@ -1643,7 +1643,7 @@ const questionsxii = [
     },
 
     {
-        question: "40.Dalam segitiga bukan siku, jika a dan b diketahui maka c ditentukan dengan ... ",
+        question: "40.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "teorema phytagoras",
         optionB: "tripel phytagoras",
         optionC: "aturan cosinus",
@@ -1652,7 +1652,7 @@ const questionsxii = [
     },
     
     {
-        question: "41.Perbandingan antara sisi depan dengan sisi samping adalah definisi dari  ",
+        question: "41.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
         optionA: "sin",
         optionB: "cos",
         optionC: "tan",
@@ -1661,7 +1661,7 @@ const questionsxii = [
     },
 
     {
-        question: "42.Jika cos A=7/25 maka sec A =   ",
+        question: "42.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.  ",
         optionA: "25/24",
         optionB: "25/7",
         optionC: "24/25",
@@ -1670,7 +1670,7 @@ const questionsxii = [
     },
 
     {
-        question: "43.Kebalikan atau invers dari sin adalah  ",
+        question: "43.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
         optionA: "csc",
         optionB: "sec",
         optionC: "cot",
@@ -1679,7 +1679,7 @@ const questionsxii = [
     },
 
     {
-        question: "44. Nilai cos 420 =  ",
+        question: "44.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
         optionA: "0",
         optionB: "1",
         optionC: "-1",
@@ -1688,7 +1688,7 @@ const questionsxii = [
     },
 
     {
-        question: "45. Nilai cos 180   =  ",
+        question: "45. lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
         optionA: "0",
         optionB: "1",
         optionC: "-1",
@@ -1697,7 +1697,7 @@ const questionsxii = [
     },
 
     {
-        question: "46. Nilai sin 30=...  ",
+        question: "46.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.  ",
         optionA: "sin 150",
         optionB: "sin 210",
         optionC: "-sin 330",
@@ -1706,7 +1706,7 @@ const questionsxii = [
     },
 
     {
-        question: "47.Jika sin A diketahui, maka cos A dapat ditentukan dengan ",
+        question: "47.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "identitas trigonometri",
         optionB: "tripel phytagoras",
         optionC: "aturan cosinus",
@@ -1715,7 +1715,7 @@ const questionsxii = [
     },
 
     {
-        question: "48.Luas segitiga yang sisi-sisinya 3,4,3 adalah",
+        question: "48.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "5 ",
         optionB: "4",
         optionC: "3",
@@ -1724,7 +1724,7 @@ const questionsxii = [
     },
    
     {
-        question: "49.Pada segitika ABC sebarang diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
+        question: "49.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "1/3. &#8730 7 ",
         optionB: "3/7. &#8730 7",
         optionC: "4/5",
@@ -1733,7 +1733,7 @@ const questionsxii = [
     },
 
     {
-        question: "50.Grafik sinus naik pada kuadran ...",
+        question: "50.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "I dan II ",
         optionB: "I dan III",
         optionC: "I dan III",
@@ -1742,7 +1742,7 @@ const questionsxii = [
     },
 
     {
-        question: "51.Bentuk lain aturan sinus",
+        question: "51.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.s",
         optionA: "a : b = sin A : sin B",
         optionB: "a : b = sin B : sin A",
         optionC: "a : sin B = b : sin A",
@@ -1751,7 +1751,7 @@ const questionsxii = [
     },
 
     {
-        question: "52.Sudut -120 berada dikuadran ...",
+        question: "52.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "I",
         optionB: "II",
         optionC: "III",
@@ -1760,7 +1760,7 @@ const questionsxii = [
     },
 
     {
-        question: "53.Sudut -200&#176 berada di kuadran  ",
+        question: "53.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
         optionA: "I",
         optionB: "II",
         optionC: "III",
@@ -1769,7 +1769,7 @@ const questionsxii = [
     },
 
     {
-        question: "54.sudut 2&#8508/3 berada di kuadran  ",
+        question: "54.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.sudut 2&#8508/3 berada di kuadran  ",
         optionA: "I",
         optionB: "II",
         optionC: "III",
@@ -1778,7 +1778,7 @@ const questionsxii = [
     },
     
     {
-        question: "55.Luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
+        question: "55.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.h",
         optionA: "5",
         optionB: "6",
         optionC: "7",
@@ -1787,7 +1787,7 @@ const questionsxii = [
     },
 
     {
-        question: '56.Sederhanakan  2<sup>6</sup> .2<sup>-3</sup>=? ',
+        question: "56.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "2<sup>9</sup>",
         optionB: "2<sup>3</sup>",
         optionC: "2<sup>5</sup> ",
@@ -1796,7 +1796,7 @@ const questionsxii = [
     },
 
     {
-        question: '57.Perhatikan 3<sup>2x</sup>=3<sup>6</sup>, nilai x adalah',
+        question: "57.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "1",
         optionB: "2",
         optionC: "3",
@@ -1805,7 +1805,7 @@ const questionsxii = [
     },
 
     {
-        question: '58. a<sup>3</sup>.a<sup>2</sup>.a<sup>5</sup>',
+        question: "58. lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "a<sup>5</sup>",
         optionB: "a<sup>6</sup>",
         optionC: "a<sup>10</sup>",
@@ -1814,7 +1814,7 @@ const questionsxii = [
     },
 
     { 
-        question: '59.Persamaan exponen 9<sup>2x+1</sup>=3<sup>3x</sup> nilai x adalah',
+        question: "59.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
         optionA: "-2",
         optionB: "2",
         optionC: "1",
@@ -1823,7 +1823,7 @@ const questionsxii = [
     },
 
     {
-        question: "60.Persamaan exponen 2<sup>2x</sup><span>= 2<sup>4</sup></span>, nilai x adalah",
+        question: "60.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1)",
         optionA: "2",
         optionB: "4",
         optionC: "-2",
@@ -1832,7 +1832,7 @@ const questionsxii = [
     },
 
     {
-        question: "61.Persamaan exponen 2<sup>2x-1</sup><span>= 2<sup>4x+3</sup></span>,  maka",
+        question: "61.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
         optionA: "(2x-1)=(4x+3)",
         optionB: "(2x-1)=0",
         optionC: "(4x+3)=0",
@@ -1841,7 +1841,7 @@ const questionsxii = [
     },
 
     {
-        question: "62.Persamaan exponen (2)<sup>(2x-1)</sup><span>= (3)<sup>(2x-1)</sup></span> maka",
+        question: "62.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
         optionA: "2x-1=2",
         optionB: "2x-1=3",
         optionC: "2x-1=1",
@@ -1850,7 +1850,7 @@ const questionsxii = [
     },
 
     {
-        question: "63.Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (4x-1)<sup>(x-1)</sup></span> maka",
+        question: "63.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1).",
         optionA: "(4x-1)=0;4x-1=1;(2x-3)=(x-1)",
         optionB: "(2x-3)=(x-1)",
         optionC: "(4x-1)=0;4x-1=1",
@@ -1859,7 +1859,7 @@ const questionsxii = [
     },
 
     {
-        question: "64.Kasus dibawah ini ada hubungannya dengan fungsi exponen, kecuali",
+        question: "64.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
         optionA: "pertumbuhan penduduk",
         optionB: "gerak parabola",
         optionC: "bunga majemuk di bank",
@@ -1868,7 +1868,7 @@ const questionsxii = [
     },
 
     {
-        question: "65.Salah satu sifat fungsi exponen  y=2<sup>x</sup>",
+        question: "65.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
         optionA: "grafik tidak memotong sb. x",
         optionB: "jika x>0 grafik selalu turun",
         optionC: "jika x<0 grafik selalu naik",
@@ -1877,7 +1877,7 @@ const questionsxii = [
     },
 
     {
-        question: "66.Grafik y=(1/2)<sup>x</sup> ",
+        question: "66.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1) ",
         optionA: "jika x membesar , grafik menurun",
         optionB: "jika x membesar , grafik naik",
         optionC: "jika x membesar , grafik menurun dan memotong sb. x",
@@ -1886,7 +1886,7 @@ const questionsxii = [
     },
 
     {
-        question: "67.Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (2x+1)<sup>(2x-3)</sup></span>, jika f dan g tidak 0 maka",
+        question: "67.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
         optionA: "4x-1=2x+1 atau 2x-3=0",
         optionB: "2x-3=0",
         optionC: "4x-1=1",
@@ -1895,7 +1895,7 @@ const questionsxii = [
     },
 
     {
-        question: "68.Tentukan 2<sup>x</sup>.2<sup>3x-1</sup> adalah",
+        question: "68.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1)",
         optionA: "2<sup>4x</sup>",
         optionB: "2<sup>(4x-1)</sup>",
         optionC: "2<sup>3x<sup>2</sup></sup>",
@@ -1904,7 +1904,7 @@ const questionsxii = [
     },
 
     {
-        question: "70.Tentukan 3<sup>(x+2)</sup>=9<sup>x</sup> , maka x adalah",
+        question: "70.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1)",
         optionA: "-2",
         optionB: "2",
         optionC: "3",
@@ -1913,7 +1913,7 @@ const questionsxii = [
     },
 
     {
-        question: "71.Fungsi exponen g(x)=4.(1/2)<sup>x</sup> maka g(2)=",
+        question: "71.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1)",
         optionA: "0",
         optionB: "1/2",
         optionC: "1",
@@ -1922,7 +1922,7 @@ const questionsxii = [
     },
 
     {
-        question: "72.Fungsi exponen g(x)=4.(1/3)<sup>x</sup> maka g(2)=",
+        question: "72.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1)",
         optionA: " 4/9 ",
         optionB: "2/9",
         optionC: "8/9",
@@ -1931,7 +1931,7 @@ const questionsxii = [
     },
 
     {
-        question: "73.Bank memberi bunga 10%/tahun, jika modal 2T maka setelah 2 tahun berdasarkan   fungsi bunga majemuk M(t)=M<sub>0</sub>.(1+10%)<sup>t</sup>  adalah",
+        question: "73.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
         optionA: "2.42T",
         optionB: "1.4T",
         optionC: "2T",
@@ -1940,7 +1940,7 @@ const questionsxii = [
     },
     
      {
-         question:  "74.Tentukan 3. 2<sup>3x</sup>=192, maka x= ?",
+         question:  "74.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1) .",
          optionA: "-1",
          optionB: "3",
          optionC: "0",
