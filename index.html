@@ -39,7 +39,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
 <style>
   #more {display: none;}
-  
+  #more00 {display: none;}
   #map1 {display: none;}
   #more1 {display: none;}
   #more2 {display: none;}
@@ -74,7 +74,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   #bab18 {display: none;}
   #bab9 {display: none;}
   #eva {display:block;}
-  #bab20 {display: none;}
+  #bab20 {display: ;}
 </style>
   
 <!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -388,13 +388,13 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
  
 
   <i data-feather="edit"> </i> 
- <p>update:02/11/23 22:00 </p>
-<!-- <i data-feather="eye"></i> -->
+ <p>update:06/11/23 23:59 </p>
+<i data-feather="eye"></i> 
 <br>
   <a href="./gbr/app-debug.apk" download>
     <img src="./gbr/download.svg" alt="ng ada file" width="30px">
    </a> 
-   <p> unduh aplikasi <br>for android versi OS 10 keatas</p>
+   <p> unduh aplikasi <br>for android 10 keatas</p>
   
   
   <br>
@@ -414,7 +414,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   
   </p> -->
   <div class="bg-sky-400 w-full h-96 overflow-auto touch-auto object-center">
-    <img class="zoom2"   src='gbr/fbmtk.jpg'>
+    <img class="zoom2"   src='gbr/brmtk.jpg'>
     </div> 
  
 
@@ -505,21 +505,116 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
   (Neil Degrasse Tyson)
   </p>
 </div>
+<!-- batas aljabar -->
 
+<div  id="bab00" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#D8BFD8]">
+  
+  <div class="text-3xl">Aljabar</div>
+
+<span id="dots00">...</span>
+    <div id="more00">
+
+  <article>
+  <p  class="font-bold">
+  Apa itu Aljabar?
+  </p>
+  
+    <p class="font-bold"> aturan bilangan</p>
+  $$a\dot 0=0$$
+  $$1\dot a=a$$
+<hr>
+  <p class="font-bold">aturan penguraian</p>
+
+  $$-(a+b)=-a-b$$
+  $$-(a-b)=-a+b$$
+  $$-(-a)=a$$
+  $$a(b+c)=ab+ac$$
+  $$a(b+c)(d+e)=abd+acd+abe+ace $$
+  $$(a+b)(c+d)=ac+ad+bc+bd$$
+  <p class="font-bold">aturan pecahan</p>
+  $$\frac{0}{a}=0$$
+  $$\frac{a}{a}=1$$
+  $$\frac{a}{1}=a$$
+  $$(\frac{a}{b})^{-1}=\frac{1}{\frac{a}{b}}=\frac{b}{a}$$
+  $$(a^{-1}=\frac{1}{a}$$
+  $$(a^{-b}=\frac{1}{a^b}$$
+  $$(\frac{-a}{-b})=\frac{a}{b}$$
+  $$(\frac{-a}{b})=-\frac{a}{b}$$
+  $$(\frac{a}{-b})=-\frac{a}{b}$$
+  $$(\frac{a}{\frac{b}{c}})=-\frac{ac}{b}$$
+  $$(\frac{\frac{b}{c}}{a})=-\frac{b}{ac}$$
+  $$(\frac{1}{\frac{b}{c}})=-\frac{c}{b}$$
+  $$(0^0=td$$
+  $$\frac{x}{0}=td$$
+  <hr>
+  <p class="font-bold">aturan pindah ruas pada penjumlahan</p>
+  <p>a+b=c</p>
+   maka a = c - b <br>atau b=c-a<br>
+   <p>jika b dari ruas kiri dipindahkan keruas kanan maka menjadi -b</p>
+   <hr>
+   <p class="font-bold">aturan pindah ruas pada perkalian</p>
+   <p>a.b=c </p>maka
+   a=c/b atau b=c/a<br>
+   <p>jika b dari ruas kiri dipindahkan keruas kanan maka menjadi $\frac{1}{b}$</p>
+   
+   <hr>
+  <p>a.b+c=d</p>maka
+  a.b=d-c 
+  <hr>
+  maka a=(d-c)/b<br>
+  atau b=(d-c)/a
+  <hr>
+  <p>Jika a=2,b=3,maka c =5  , maka perhatikan:</p>
+  <p>a+b=c</p>
+  <p>2+3=5</p>
+  maka 2 = 5 - 3
+  <hr>
+  <p class="font-bold">soal 1</p>
+  Diberikan a+3=8 maka nilai a adalah<br>
+  <input type="radio" name="no3100" style=" display:inline-flex">0<br>
+  <input type="radio" name="no3100"  style=" display:inline-flex">2 <br>
+  <input type="radio" name="no3100" style=" display:inline-flex">3<br>
+  <input type="radio" name="no3100" id="jno3100" style=" display:inline">5<br>
+  <div id="rno3100"></div>
+  <hr>
+
+  </article>
+
+
+  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirimalj()"">cek nilai Aljabar</button>
+       <h1 id="nilai3100"></h1> 
+ </div> 
+  
+  <div x-data="{open:false}">
+     <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' : 'buka mindmap'">buka</button>
+      <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction00()" id="myBtn00">buka</button>
+  <div x-show='open'> 
+  
+       
+         
+    
+      </div>
+  </div> 
+  
+  </div>
+
+
+
+<!-- batas aljabar -->
   <div  id="bab1" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFFACD]">
       
-    
+<!--     
   <div>
     <input  type="checkbox" name="flexRadioDefault" id="toggle">
     <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">mode gelap</label>
     
    
-    </div> 
-
-  <!-- <a href="./gbr/map11.svg" download="MindmapMatematika">
+    </div>  -->
+<!-- 
+   <a href="./gbr/map11.svg" download="MindmapMatematika">
     <img src="./gbr/download.svg" alt="ng ada gbr" width="25" height="36">
-   </a> -->
- 
+   </a> 
+  -->
  
 <div class="text-2xl">Bilangan Berpangkat</div>
 
@@ -11638,17 +11733,111 @@ id="nilai13"></div>
 
 <h2>Limit Fungsi Aljabar (XII)</h2>
 <span id="dots14">...</span>
+    <!-- <img class=" max-w-none h-auto w-50% " src='gbr/ttentu.jpg'> -->
     <div id="more14">
 <p>Definisi limit secara intuitif</p>
-jika x mendekati 2  nilai f mendekati 7 ( berdasarkan tabel)<br><br>
+<p>Perhatikan tabel dibawah ini, jika x mendekati 2  nilai f mendekati 7 .
+  <ol start="6">
+    <li><p></p></li>
+  </ol> 
+  <dl>
+    <dd>
+    <table width="282" cellpadding="7" cellspacing="0">
+      <col width="126"/>
+  
+      <col width="127"/>
+  
+      <tr valign="top">
+        <td width="126" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">x</font></font></font></p>
+        </td>
+        <td width="127" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">f(x)=x+5</font></font></font></p>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td width="126" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">...
+          </font></font></font></p>
+        </td>
+        <td width="127" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">...</font></font></font></p>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td width="126" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">1.9
+          </font></font></font></p>
+        </td>
+        <td width="127" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">6.9</font></font></font></p>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td width="126" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">1.99
+          </font></font></font></p>
+        </td>
+        <td width="127" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">6.99</font></font></font></p>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td width="126" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">1.999
+          </font></font></font></p>
+        </td>
+        <td width="127" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">6.999</font></font></font></p>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td width="126" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">1.9999
+          </font></font></font></p>
+        </td>
+        <td width="127" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">6.9999</font></font></font></p>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td width="126" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">...
+          </font></font></font></p>
+        </td>
+        <td width="127" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">...</font></font></font></p>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td width="126" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">2
+          </font></font></font></p>
+        </td>
+        <td width="127" style="border: 1px solid #000000; padding: 0in 0.08in"><p lang="en-US" align="center" style="orphans: 2; widows: 2">
+          <font color="#000000"><font face="Times New Roman, serif"><font size="3" style="font-size: 12pt">7</font></font></font></p>
+        </td>
+      </tr>
+    </table>
+  </dl>
+  
+  
+  <ol start="7">  
+    <li class="display-inline"> <p>
+      <span>secara matematika ditulis lim<sub STYLE='font-size:xx-small'>x &#x2192 2</sub>(x+5)=7
+      <input class="bg-green-200 " type="text" placeholder=" ..." id="sno20106">
+      </span></p></li>
+      <div id="rsno20106"></div>
+
+  </ol>
 <p>Definisi limit secara aljabar</p>
-Jika  limit fungsi f(x) ada , yaitu ketika x mendekati a adalah L, ditulis
+
+Jika  limit fungsi f(x) ada nilainya , yaitu ketika x mendekati a adalah bernilai L, ditulis
 $$\lim\limits_{x \to a} f(x)=L$$
 maka f(x)-L tidak sama dengan 0, dan x-a tidak sama dengan 0,
 sehingga sedekat apapun x-a maka akan ada f(x)-L sekecil apapun. 
- 
-<p><br>
-  Nilai limit dapat diperoleh dengan cara sbb.</p>
+</p>
+<p>Nilai limit dapat diperoleh dengan cara sbb.</p>
   <p>1.SUBSTITUSI/ pergantian<br>
   2.FAKTORISASI<br>
   3.PERKLIAN DENGAN SEKAWAN</p>
@@ -11659,148 +11848,159 @@ mensubstitusikan/mengganti x dengan a.
 Misalkan f dan g adalah fungsi-fungsi yang mempunyai limit di x=a yaitu 
 $$\lim\limits_{x \to a} f(x)=f(a)=M$$ dan     $$\lim\limits_{x \to a} g(x)=g(a)=N$$
 maka ada sifat-sifat limit sbb:
-<h5>Sifat 1</h5>
+<hr>
+<p class="font-bold">Sifat 1 </p>
+
 <p> Jika f(x)=k dimana k konstanta maka :
 $$\lim\limits_{x \to a} k=k$$</p>
-<label for="">
+<hr>
+
 <p class="font-semibold">soal 1</p>
 <p>Berdasarkan sifat 1, maka $\lim\limits_{x \to 2} 3= ...$ adalah</p> 
-<p style="font-size:small">
+<br>
 <input type="radio" name="no41" style="display:inline-flex">2<br>
 <input type="radio" name="no41" id="jno41" style="display:inline-flex">3<br>
 <input type="radio" name="no41" style=" display:inline-flex">7<br>
 <input type="radio" name="no41" style=" display:inline">10<br>
 <div id="rno41"></div>
-</p>
-<hr>
 
-<label for="">
-<h5>Sifat 2</h5>
+
+
+<hr>
+  <p class="font-bold">Sifat 2 </p>
+
 <p>jika f(x)=x maka $$\lim\limits_{x \to a} x=a$$</p>
+<hr>
 <p class="font-semibold">soal 2</p>
 <p>Berdasarkan sifat 2, maka 
 $\lim\limits_{x \to 2} x= ...$ adalah</p>
-<p style="font-size:small">
+<br>
 <input type="radio" name="no42" style="display:inline-flex">1<br>
 <input type="radio" name="no42" id="jno42" style="display:inline-flex">2<br>
 <input type="radio" name="no42" style=" display:inline-flex">3<br>
 <input type="radio" name="no42" style=" display:inline">5<br>
 <div id="rno42"></div>
-</p>
-</label>
+
+
 
 <hr>
 
-<label for="">
-<h5>Sifat 3</h5>
+
+  <p class="font-bold">Sifat 3</p>
+
 <p>  Jika f(x)=k.f(x) dimana k konstanta maka $$\lim\limits_{x \to a} k.f(x)=k.f(a)$$
 </p>
+<hr>
 <p class="font-semibold">soal 3</p>
 <p>Berdasarkan sifat 3, tentukan : $\lim\limits_{x \to -2} 3x= ...$adalah</p>
-<p style="font-size:small">
+<br>
 <input type="radio" name="no43" style="display:inline-flex">2<br>
 <input type="radio" name="no43"  style="display:inline-flex">3<br>
 <input type="radio" name="no43" id="jno43" style=" display:inline-flex">-6<br>
 <input type="radio" name="no43" style=" display:inline">6<br>
 <div id="rno43"></div>
-</p>
-</label>
+
+
 
 
 <hr>
 
-<label for="">
 
 
-<h5>Sifat 4 : Penjumlahan / pengurangan limit</h5>
+  <p class="font-bold">Sifat 4: Penjumlahan / pengurangan limit </p>
+
+
 <p>  Jika h(x)=f(x)+g(x) dimana f dan g  fungsi x maka 
 $$\lim\limits_{x \to a} (f(x)+g(x))=\lim\limits_{x \to a} f(x)+\lim\limits_{x \to a} g(x)$$
 </p>
+<hr>
 <p class="font-semibold">soal 4</p>
 <p>Berdasarkan sifat 4, maka 
 $\lim\limits_{x \to 2} 3+x= ...$ adalah</p>
-<p style="font-size:small">
+<br>
 <input type="radio" name="no44" style="display:inline-flex">2<br>
 <input type="radio" name="no44" style="display:inline-flex">4<br>
 <input type="radio" name="no44" style=" display:inline-flex">6<br>
 <input type="radio" name="no44" style=" display:inline" id="jno44">5<br>
 <div id="rno44"></div>
-</p>
-</label>
+
+
 
 <hr>
 
-<label for="">
-<h5>Sifat 5 : Perkalian / pembagian  limit </h5><br>
+<p class="font-bold">Sifat 5 : Perkalian / pembagian  limit </p>
+
+
 <p>Jika</p>
 $$h(x)= f(x).g(x) $$
 <p>maka</p> 
 $$\lim\limits_{x \to a} h(x)=\lim\limits_{x \to a} f(x).\lim\limits_{x \to a} g(x)$$
-</p><br>
+<br>
 <p>sebaliknya jika $$h(x)=\frac {f(x)}{g(x)]} $$ </p>
 <p>maka</p>
 $$\lim\limits_{x \to a} h(x) = \frac {\lim\limits_{x \to a}f(x)} {\lim\limits_{x \to a}g(x)}$$
 
-
+<hr>
 
 
 <p class="font-semibold">soal 5</p>
 <p>Berdasarkan sifat 5 , tentukan :  $\lim\limits_{x \to 3} \frac {(2x+1)} {(x-2)}$ adalah</p>
-<p style="font-size:small">
+<br>
 <input type="radio" name="no45" style="display:inline-flex">3<br>
 <input type="radio" name="no45" style="display:inline-flex" >6<br>
 <input type="radio" name="no45" style=" display:inline-flex" id="jno45">7<br>
 <input type="radio" name="no45" style=" display:inline">5<br>
 <div id="rno45"></div>
-</p>
-</label>
+
+
 
 <hr>
 
-<label for="">
   <p class="font-semibold">soal 6</p>
 <p>berdasarkan sifat 5, tentukan :  $\lim\limits_{x \to 4} (x-1)(x-2)$ adalah</p>
-<p style="font-size:small">
+<br>
 <input type="radio" name="no46" style="display:inline-flex">2<br>
 <input type="radio" name="no46" style="display:inline-flex" id="jno46">6<br>
 <input type="radio" name="no46" style=" display:inline-flex">13<br>
 <input type="radio" name="no46" style=" display:inline">14<br>
 <div id="rno46"></div>
-</p>
-</label>
+
+
 
 <hr>
 
-<label for="">
+
 <p>2.Faktorisasi.<br> Jika hasil substitusi menyebabkan 
 
 $$\lim\limits_{x \to a} h(x) =\lim\limits_{x \to a} \frac {0} {0}$$
-
+</p>
 <p>timbul bentuk tak tentu 0/0, maka dilakukan faktorisasi, misalkan
 $$\lim\limits_{x \to 1} \frac {x^2-1} {x-1}$$
 jika angka 1 disubstitusi ke x maka timbul bentuk 0/0
 </p>
-<p>maka $$x^2-1$$ diuraikan/difaktorisasi dahulu  menjadi (x-1)(x+1) sehingga h(x)=x+1</p>
-$$\lim\limits_{x \to 1} \frac {x^2-1} {x-1}=\lim\limits_{x \to 1} \frac {(x-1)(x+1)} {x-1}=\lim\limits_{x \to 1} x+1=2$$
-dimana (x-1) saling meniadakan<br>
-<p class="font-semibold">soal 7</p>  
-Tentukan nilai limit dibawah ini dengan menggunakan cara faktorial. <br>
-$\lim\limits_{x \to 2} \frac {x^2-4} {x-2}$
+<p>maka $$x^2-1$$ diuraikan/difaktorisasi dahulu  menjadi (x-1)(x+1) sehingga h(x)=x+1
+$$\lim\limits_{x \to 1} \frac {x^2-1} {x-1}=\lim\limits_{x \to 1} \frac {(x-1)(x+1)} {x-1}$$
+$$=\lim\limits_{x \to 1} x+1=2$$
+dimana (x-1) saling meniadakan</p><br>
+<hr>
+<p class="font-semibold">soal 7</p> 
 
-<p style="font-size:small">
+Tentukan nilai limit dibawah ini dengan menggunakan cara faktorial.
+$\lim\limits_{x \to 2} \frac {x^2-4} {x-2}$<br>
+
+
 <input type="radio" name="no47" style="display:inline-flex">2<br>
 <input type="radio" name="no47" style="display:inline-flex" id="jno47">4<br>
 <input type="radio" name="no47" style=" display:inline-flex">8<br>
 <input type="radio" name="no47" style=" display:inline">10<br>
 <div id="rno47"></div>
-</p>
-</label>
+
+
 
 <hr>
+  <p class="font-bold">Sifat 6 </p>
 
-<label for="">
-
-<h5>Sifat 6.</h5><br><p>Sebaliknya, jika hasil substitusi menyebabkan 
+<p>Sebaliknya, jika hasil substitusi menyebabkan 
 
 $$\lim\limits_{x \to \sim} h(x) =\frac {\sim} {\sim}$$
 </p>
@@ -11809,10 +12009,11 @@ $$\lim\limits_{x \to \sim} h(x) =\frac {\sim} {\sim}$$
   $$\lim\limits_{x \to \sim} \frac {ax^4+bx^3+cx^2+dx-e} {px^4+qx^3+rx^2+sx-t}=\frac {a}{p}$$
 <p>contoh</p>
   $$\lim\limits_{x \to \sim} \frac {7x^4+2x^3+5x^2+2x-4} {9x^4+3x^3+6x^2+x-2}=\frac{7}{9}$$
+  <hr>
   <p class="font-semibold">soal 8</p>
 <p>Hitung nilai limit dibawah ini menggunakan sifat 6. </p>
 $\lim\limits_{x \to \sim} \frac {2x^3+5x^2+2x-4} {3x^3+6x^2+x-2}$adalah
-<p style="font-size:small">
+<br>
 <input type="radio" name="no48" style="display:inline-flex">
 <math>
   
@@ -11858,25 +12059,28 @@ $\lim\limits_{x \to \sim} \frac {2x^3+5x^2+2x-4} {3x^3+6x^2+x-2}$adalah
 </math>
 <br>
 <div id="rno48"></div>
-</p>
-</label>
+
+
 
 <hr>
 
-<label for="">
-<h5>Sifat 7. </h5>
+
+
+<p class="font-bold">Sifat 7 </p>
+
 $$\lim\limits_{x \to \sim} \frac{1}{x}=0$$
-<p>Contoh. Hitung nilai limit dibawah ini dengan cara pembagian dengan variabel pangkat tertinggi, lalu gunakan sifat 7</p>
+Contoh. Hitung nilai limit dibawah ini dengan cara pembagian dengan variabel pangkat tertinggi, lalu gunakan sifat 7</p>
 $$\lim\limits_{x \to \sim} \frac{6x+2}{3x}$$
 <p>jawab</p>
-<p>bagilah dengan x masing-masing pembilang dan penyebut , menjadi</p>
+<p>bagilah dengan x masing-masing pembilang dan penyebut , menjadi
 $$\lim\limits_{x \to \sim} \frac{6x+2}{3x}=\lim\limits_{x \to \sim} \frac{\frac{6x+2}{x}}{\frac{3x}{x}}$$
 $$=\lim\limits_{x \to \sim} \frac{\frac{6x}{x}+\frac{2}{x}}{\frac{3x}{x}}$$
-$$=\lim\limits_{x \to \sim} \frac{6+0}{3}=2$$
+$$=\lim\limits_{x \to \sim} \frac{6+0}{3}=2$$</p>
+<hr>
 <p class="font-semibold">soal 9</p>
 <p>Hitung limit dibawah ini menggunakan sifat 7 diatas</p>
-$\lim\limits_{x \to \sim} \frac{4x-5}{3x+2}$
-<p style="font-size:small">
+$\lim\limits_{x \to \sim} \frac{4x-5}{3x+2}$<br>
+
 <input type="radio" name="no49" style="display:inline-flex">0<br>
 <input type="radio" name="no49" style="display:inline-flex" >1<br>
 <input type="radio" name="no49" style=" display:inline-flex" id="jno49">
@@ -11903,15 +12107,16 @@ $\lim\limits_{x \to \sim} \frac{4x-5}{3x+2}$
 </math>
 <br>
 <div id="rno49"></div>
-</p>
-</label>
+
+
 
 <hr>
 
+<p class="font-bold">Sifat 8 </p>
 
-<h5>Sifat 8</h5>  
-<p> Pada kasus dibawah perhatikan bahwa pangkat tertingginya sama.</p>
-$$\lim\limits_{x \to \sim} \sqrt {ax^2 + bx + c}  - \sqrt {ax^2 + qx + r}=\frac{b-q}{2\sqrt{a}}$$
+<p> Pada kasus dibawah perhatikan bahwa pangkat tertingginya sama dan koefisien pangkat tertingginya juga sama.</p>
+$$\lim\limits_{x \to \sim} \sqrt {ax^2 + bx + c}  - \sqrt {ax^2 + qx + r}$$
+$$=\frac{b-q}{2\sqrt{a}}$$
 <p class="font-semibold">soal 10</p>
 <p>Berdasarkan sifat 8, maka</p>
 $\lim\limits_{x \to \sim} \sqrt {x^2 + 3x - 1}  - \sqrt {x^2 -2x + 1}=...$<br>
@@ -11962,12 +12167,12 @@ $\lim\limits_{x \to \sim} \sqrt {x^2 + 3x - 1}  - \sqrt {x^2 -2x + 1}=...$<br>
 </math>
 <br>
 <div id="rno5033"></div>
-
+<hr>
 
 <p>Gunakan metoda faktorisasi untuk soal 11-15 </p>
 <p class="font-semibold">soal 11</p>
 $\lim\limits_{x \to 3} \frac {x^2-5x+6} {x-3}=...$
-<p>
+<br>
   <input type="radio" name="no511" style="display:inline-flex">
   <math>
     
@@ -12010,12 +12215,12 @@ $\lim\limits_{x \to 3} \frac {x^2-5x+6} {x-3}=...$
   </math>
   <br>
   <div id="rno511"></div>
-  </p>
+  
   
   
 <p class="font-semibold">soal 12</p>
 $\lim\limits_{x \to 3} \frac {x^2-3x} {x^4-9x^2}=...$
-<p>
+<br>
   <input type="radio" name="no512" style="display:inline-flex">
   <math>
     
@@ -12062,11 +12267,11 @@ $\lim\limits_{x \to 3} \frac {x^2-3x} {x^4-9x^2}=...$
   </math>
   <br>
   <div id="rno512"></div>
-  </p>
+  
 
 <p class="font-semibold">soal 13</p>
 $\lim\limits_{x \to 4} \frac {2x-8} {x^2-x-12}=...$
-<p>
+<br>
   <input type="radio" name="no513" style="display:inline-flex">
   <math>
     
@@ -12113,11 +12318,11 @@ $\lim\limits_{x \to 4} \frac {2x-8} {x^2-x-12}=...$
   </math>
   <br>
   <div id="rno513"></div>
-  </p>
+  
 
 <p class="font-semibold">soal 14</p>
 $\lim\limits_{x \to 2} \frac {x^2+5x-14} {x^2-5x+6}=...$
-<p>
+<br>
   <input type="radio" name="no514" style="display:inline-flex">
   <math>
       
@@ -12150,10 +12355,12 @@ $\lim\limits_{x \to 2} \frac {x^2+5x-14} {x^2-5x+6}=...$
   </math>
   <br>
   <div id="rno514"></div>
-  </p>
+  
 
 <p class="font-semibold">soal 15</p>
-$\lim\limits_{x \to -2} \frac {2x^3+2x^2-4x} {x^2-4}=...$<br>
+$\lim\limits_{x \to -2} \frac {2x^3+2x^2-4x} {x^2-4}=...$
+<br>
+
   <input type="radio" name="no515" style=" display:inline-flex" id="jno515">
   <math>
     
@@ -12192,14 +12399,23 @@ $\lim\limits_{x \to -2} \frac {2x^3+2x^2-4x} {x^2-4}=...$<br>
     </math>
   <br>
   <div id="rno515"></div>
-  </p>
+  
+<hr>
+<p class="font-bold">Dalil d'Hopital</p>
+Untuk
+$\lim\limits_{x \to a} h(x) =\lim\limits_{x \to a} (\frac {f(x)} {g(x)})$<br>
+jika
+$\lim\limits_{x \to a} h(x) =\lim\limits_{x \to a} (\frac {f(x)} {g(x)} =\frac {0} {0}$
+atau
+$\lim\limits_{x \to a} h(x) =\lim\limits_{x \to a} (\frac {f(x)} {g(x)} =\frac {\sim} {\sim}$<br>
+maka<br>
+$\lim\limits_{x \to a} \frac {f(x)} {g(x)}=\lim\limits_{x \to a} (\frac {f'(x)} {g'(x)})$
+
+<hr>
 
 
 
-
-
-
-
+<br>
 <h1 id="nilai14"></h1>
 <br>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim14() >Cek Nilai Limit</button>
@@ -15342,8 +15558,7 @@ Bekerja </b></font></font><font face="Wingdings, serif">
     
           <div class="modal-content-container">
              <h1>Silakan pilih </h1>
-    
-             <div class="modal-button-container">
+    <div class="modal-button-container">
               <button onclick="closeOptionModal()">Lanjutkan?</button>
             </div>
     
@@ -15454,10 +15669,10 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 </div>
 
 
- 
-  <div>
-       <!-- Contact Form - sent to a Google Sheet -->
-    <!-- <form id='foo'>
+
+  
+      <!-- Contact Form - sent to a Google Sheet  -->
+      <!-- <form id='foo'>
       <p>
         <label>Nama </label>
         <input id='name' name='name' type='text'>
@@ -15475,7 +15690,7 @@ Bekerja </b></font></font><font face="Wingdings, serif">
         <label>Pesan</label>
         <textarea id='message' name='message' rows='1'></textarea>
       </p>
-      
+        </form> 
       <hr>
       <div class="bg-blue-200 text-black m-5">
         <label>Score Bilangan Berpangkat</label>
@@ -15506,12 +15721,13 @@ Bekerja </b></font></font><font face="Wingdings, serif">
    
         <div id='success'></div>
         <button class="px-6 py-2 border-2 border-white text-white font-medium" type='submit'>Simpan Nilai</button>
-    <br>
+    <br> -->
 
-      </form> -->
+    
       
 <footer class="text-center text-black" style="background-color: #6CA0DC;">
       <form id='foo'>
+        
         <br>
         <p>
           <label>Nama</label><br>
@@ -15580,13 +15796,13 @@ Bekerja </b></font></font><font face="Wingdings, serif">
   
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2023 Copyright:
-    <a class="text-white" >Irzal Achmad </a>
+    <a class="text-white" >Irzal Achmad S.Si </a>
   </div>
 </footer> 
 
-<script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+<!-- <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> 
-<script>
+<!-- <script>
  const checkbo1=document.querySelector('#toggle1');
   const html1 = document.querySelector('html');
   checkbo1.addEventListener('click',function(){
@@ -15669,7 +15885,7 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
         checkbo11.addEventListener('click',function(){
       checkbo11.checked ? html11.classList.add('dark') : html11.classList.remove('dark'); 
       });
-      </script>
+      </script> 
 
       <script>
         const checkbo12=document.querySelector('#toggle12');
@@ -15686,6 +15902,7 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           checkbo13.checked ? html13.classList.add('dark') : html13.classList.remove('dark'); 
           });
           </script>
+        -->
           
 <script>
   function myFunction() {
@@ -15704,6 +15921,28 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
     }
   }
 
+
+
+
+  
+  function myFunction00() {
+    var dots00 = document.getElementById("dots00");
+    var moreText00 = document.getElementById("more00");
+    var moremap00 = document.getElementById("map00");
+    
+    var btnText00 = document.getElementById("myBtn00");
+  
+    if (dots00.style.display === "none") {
+      dots00.style.display = "inline";
+      btnText00.innerHTML = "buka";
+      moreText00.style.display = "none";
+    } else {
+      dots00.style.display = "none";
+      btnText00.innerHTML = "tutup";
+      moreText00.style.display = "inline";
+    }
+  }
+  
   function myFunction1() {
     var dots1 = document.getElementById("dots1");
     var moreText1 = document.getElementById("more1");
@@ -15721,6 +15960,8 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
       moreText1.style.display = "inline";
     }
   }
+
+
   function myFunction2() {
     var dots2= document.getElementById("dots2");
     var moreText2 = document.getElementById("more2");
@@ -16112,12 +16353,12 @@ $('#submit-form').on('click', function(e) {
 </script> -->
   <!-- Custom Theme JavaScript -->
 
-
+<!-- 
 
     <script>
       feather.replace()
     </script>
-<!-- 
+
     <iframe class="w-full h-48 overflow-auto" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8Kvs-b22tPAbIKNbuNJ6xjyJy2GWT6ZXFVuTEPi6ifxRjkmKsRzPNIyxU_gKgvuS0ph5DsBdeIL_w/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
  -->
  
