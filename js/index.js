@@ -1309,11 +1309,29 @@ const questionsxii = [
         correctOption: "optionD"
     },
 
+     {
+        question: "8.Berdasarkan sifat -sifat limit, maka lim 5-x pada saat x mendekati 2 adalah ",
+        optionA: " 2",
+        optionB: "5",
+        optionC: "7 ",
+        optionD: "3 ",
+        correctOption: "optionD"
+    },
+
+     {
+        question: "9.Berdasarkan sifat -sifat limit, maka lim 5x+2 pada saat x mendekati 2 adalah ",
+        optionA: " 2",
+        optionB: "6",
+        optionC: "7 ",
+        optionD: "12 ",
+        correctOption: "optionD"
+    },
+
     {
-        question: "2.Berdasarkan sifat -sifat limit, maka lim (5x+1) pada saat x mendekati -2 adalah",
-        optionA: "-9",
+        question: "2.Berdasarkan sifat -sifat limit, maka lim (-5x+3) pada saat x mendekati -1 adalah",
+        optionA: "8",
         optionB: "11",
-        optionC: "10",
+        optionC: "1",
         optionD: "9",
         correctOption: "optionA"
     },
