@@ -1364,461 +1364,173 @@ const questionsxii = [
     },
 
     {
-        question: "8.Berdasarkan sifat-sifat limit, maka lim (x<sup>2</sup>-4)/(x-1)(x-2) pada saat x mendekati 2 adalah ",
-        optionA: "30 &#176",
-        optionB: "60 &#176",
-        optionC: "90 &#176",
-        optionD: "180&#176",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "limits_{x \to 2\}",
-        optionA: "3,14/2",
-        optionB: "3,14/4",
-        optionC: "3,14/3",
-        optionD: "3,14/6",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "lim<sub>x &#x279D 0</sub>x+3=",
-        optionA: "2&#8508",
-        optionB: "1&#8508",
-        optionC: "1/2.&#8508",
-        optionD: "2/3.&#8508",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "'&#85940' lim<sub>x&#85940</sub>f(x)=",
-        optionA: "2&#8508",
-        optionB: "1&#8508",
-        optionC: "10/9.&#8508",
-        optionD: "1/3.&#8508",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "lim<sub>x &#x279D 7</sub>f(x)=",
-        optionA: "1/3.&#8508",
-        optionB: "1/4.&#8508",
-        optionC: "1/6.&#8508",
-        optionD: "1/9.&#8508",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "lim<sub>x &#x279D 9</sub>f(x)=",
-        optionA: "&#85940",
-        optionB: "cos 30",
-        optionC: "cos 45",
-        optionD: "cos 90",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "lim<sub>x '&#85940' 7</sub>f(x)=",
-        optionA: "&#85940",
-        optionB: "negatif dan negatif",
-        optionC: "positif dan negatif",
-        optionD: "negatif dan positif",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "16. '&#85940'",
-        optionA: "positif dan positif",
-        optionB: "negatif dan negatif",
-        optionC: "positif dan negatif",
-        optionD: "negatif dan positif",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "17.&#10141 ",
-        optionA: "positif dan positif",
-        optionB: "negatif dan negatif",
-        optionC: "positif dan negatif",
-        optionD: "negatif dan positif",
-        correctOption: "optionB"
-    },
-
-{
-        question: "18. <sup>lim</sup><SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB><sup>(x<sup>2</sup>+5)</sup> ",
-        optionA: "2/3 dan 2/3",
-        optionB: "-2/3 dan -2/3",
-        optionC: "+2/3 dan -2/3",
-        optionD: "-2/3 dan 2/3",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "19.lim<sub>x &#x2192 0</sub>2x+1",
-        optionA: "cos 60",
-        optionB: "sin 30",
-        optionC: "sin 150",
-        optionD: "cos 120",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "20.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x+5 ",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "21.Nilai sin(180 + 30) =..&#x279D.",
-        optionA: "sin 30",
-        optionB: "-sin 30",
-        optionC: "sin 60",
-        optionD: "-sin 60",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "22.Nilai sin(90-30)=..&#x279D.",
-        optionA: "cos 30",
-        optionB: "sin 30",
-        optionC: "-cos 30",
-        optionD: "-sin 30",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "23.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>2</sup>+5",
-        optionA: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionB: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x+1.",
-        optionC: "tan A",
-        optionD: "csc A",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "24.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionB: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x+1.",
-        optionC: "56",
-        optionD: "60",
-        correctOption: "optionC"
-    },
-   
-    {
-        question: "25.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionB: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x+1.",
-        optionC: "84",
-        optionD: "100",
-        correctOption: "optionC"
-    },
-   
-    {
-        question: "26..lim<SUB STYLE='font-size:xx-small'>x &#x2192 0,</SUB>(x+2)",
-        optionA: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionB: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x+1.",
-        optionC: "sin(360+30)",
-        optionD: "sin(180-30)",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "27..lim<SUB STYLE='font-size:xx-small'>x &#x2192 0,</SUB>(x+2)",
-        optionA: "cos 45",
-        optionB: "-cos 45",
-        optionC: "cos -45",
-        optionD: "1/2.sin(90)",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "28..lim<SUB STYLE='font-size:xx-small'>x &#x2192 0,</SUB>(x+2) ",
-        optionA: "1 rad",
-        optionB: "1,5 rad",
-        optionC: "2 rad",
-        optionD: "1/2 rad",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "29..lim<SUB STYLE='font-size:xx-small'>x &#x2192 0,</SUB>(x+2) ",
-        optionA: "30",
-        optionB: "45",
-        optionC: "60",
-        optionD: "75",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "30. lim<SUB STYLE='font-size:font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "1/3",
-        optionB: "2",
+        question: "40.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x+5)",
+        optionA: "2",
+        optionB:"1",
         optionC: "3",
-        optionD: "1/4",
+        optionD: "-2",
+        correctOption: "optionC"
+    },
+    
+    {
+        question: "41.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x<sup>2</sup>-5)",
+        optionA: "-1",
+        optionB: "-2",
+        optionC: "2",
+        optionD: "1",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "42.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x+5)/(x+2)",
+        optionA: "0",
+        optionB: "tak terdefinisi",
+        optionC: "3",
+        optionD: "6",
         correctOption: "optionB"
     },
 
     {
-        question: "31.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x ",
+        question: "43.lim<SUB STYLE='font-size:xx-small'>x &#10230 4</SUB> (x-4)/(x-4) ",
         optionA: "0",
-        optionB: "90",
-        optionC: "180",
-        optionD: "270",
+        optionB: "td",
+        optionC: "1",
+        optionD: "2",
         correctOption: "optionC"
     },
 
     {
-        question: "32.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "2",
-        optionB: "2/3",
-        optionC: "1/3",
-        optionD: "1/4",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "33.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "1",
-        optionB: "1/2",
-        optionC: "1/&#8730;2",
-        optionD: "&#8730;2",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "34.lim<SUB STYLE='xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "2",
-        optionB: "1",
-        optionC: "0",
+        question: "46.lim<SUB STYLE='font-size:xx-small'>x &#10230 2</SUB> (x<sup>2</sup>-x -2)/(x<sup>2</sup>-2x) adalah ",
+        optionA: "3",
+        optionB: "3/4",
+        optionC: "3/2",
         optionD: "1/2",
-        correctOption: "optionB"
+        correctOption: "optionC"
     },
 
     {
-        question: "35.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
-        optionA: "3/4",
-        optionB: "5/3",
-        optionC: "3/5",
-        optionD: "4/3",
-        correctOption: "optionA"
-    }, 
+        question: "47.Persamaan garis singgung yang melalui titik (2,f(2)) pada kurva f(x)=x<sup>2</sup>-6x+5 adalah   ",
+        optionA: "y=-2x",
+        optionB: "y+3=-2x",
+        optionC: "y+3=-2(x-2) ",
+        optionD: "y+3=-2x-2",
+        correctOption: "optionC"
+    },
 
     {
-        question: "36.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "5/4",
-        optionB: "5/3",
-        optionC: "3/4",
-        optionD: "4/3",
+        question: "48.Titik belok pada kurva y=(x-1)<sup>3</sup>+1 adalah",
+        optionA: "(1,1)", 
+        optionB: "1,-1)",
+        optionC: "(-1,-1)",
+        optionD: "(-1,-1)",
         correctOption: "optionA"
     },
 
     {
-        question: "37.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
-        optionA: "12",
-        optionB: "6",
-        optionC: "24",
-        optionD: " &#8730;48 ",
+        question: "49.Jika pada interval 1<x<6 , f(1)>f(6) dan f'(3)=0, maka",
+        optionA: "titik (3,f(3)) minimum  ",
+        optionB: "titik (3,f(3)) maksimum",
+        optionC: "titik (3,f(3)) belok",
+        optionD: " titik (3,3) minimum ",
         correctOption: "optionD"
     },
+   
+    {
+        question: "50.Jika gradien suatu fungsi m>0 maka kurva",
+        optionA: "naik ",
+        optionB: "turun",
+        optionC: "tetap",
+        optionD: "maximum ",
+        correctOption: "optionA"
+    },
 
     {
-        question: "38.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "3/5",
-        optionB: "4/5",
-        optionC: "4/3",
-        optionD: "5/3",
+        question: "51.Pada titik (0,4) kurva y=x<sup>3</sup>+2x<sup>2</sup>-3x+43 adalah",
+        optionA: "naik ",
+        optionB: "turun",
+        optionC: "tetap",
+        optionD: "minimum ",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "52.Titik maksimum kurva y=x<sup>3</sup>+2x<sup>2</sup>+3 adalah",
+        optionA: "(-3/4,3)",
+        optionB: "(-3/4,4)",
+        optionC: "(-4/3,4)",
+        optionD: "(-4/3,3)",
         correctOption: "optionC"
     },
 
     {
-        question: "39.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
+        question: "53.Kurva y=(x-2)(x-1)(x+1) pada interval 0<x<1 ",
         optionA: "naik",
         optionB: "turun",
         optionC: "tetap",
-        optionD: "naik turun",
+        optionD: "tak tentu",
         correctOption: "optionA"
     },
 
     {
-        question: "40.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "teorema phytagoras",
-        optionB: "tripel phytagoras",
-        optionC: "aturan cosinus",
-        optionD: "aturan sinus",
-        correctOption: "optionC"
-    },
-    
-    {
-        question: "41.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
-        optionA: "sin",
-        optionB: "cos",
-        optionC: "tan",
-        optionD: "cot",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "42.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.  ",
-        optionA: "25/24",
-        optionB: "25/7",
-        optionC: "24/25",
-        optionD: "7/24",
+        question: "54.Kurva y=(x-2)(x+1)naik pada interval ",
+        optionA: "x>0",
+        optionB: "x>1/2",
+        optionC: "x<0",
+        optionD: "x<1/2",
         correctOption: "optionB"
     },
 
     {
-        question: "43.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
-        optionA: "csc",
-        optionB: "sec",
-        optionC: "cot",
-        optionD: "cos",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "44.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
-        optionA: "0",
-        optionB: "1",
-        optionC: "-1",
-        optionD: "1/2",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "45. lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
-        optionA: "0",
-        optionB: "1",
-        optionC: "-1",
-        optionD: "1/2",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "46.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.  ",
-        optionA: "sin 150",
-        optionB: "sin 210",
-        optionC: "-sin 330",
-        optionD: "sin-30",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "47.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "identitas trigonometri",
-        optionB: "tripel phytagoras",
-        optionC: "aturan cosinus",
-        optionD: "aturan sinus",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "48.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "5 ",
-        optionB: "4",
-        optionC: "3",
-        optionD: " &#8730;20 ",
-        correctOption: "optionD"
-    },
-   
-    {
-        question: "49.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "1/3. &#8730 7 ",
-        optionB: "3/7. &#8730 7",
-        optionC: "4/5",
-        optionD: " 1/4. &#8730 7 ",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "50.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "I dan II ",
-        optionB: "I dan III",
-        optionC: "I dan III",
-        optionD: "I dan IV ",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "51.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.s",
-        optionA: "a : b = sin A : sin B",
-        optionB: "a : b = sin B : sin A",
-        optionC: "a : sin B = b : sin A",
-        optionD: "a : sin A = sin B : b",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "52.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "53.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x. ",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "54.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.sudut 2&#8508/3 berada di kuadran  ",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
-        correctOption: "optionB"
-    },
-    
-    {
-        question: "55.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.h",
+        question: "55.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (4+(5/x))",
         optionA: "5",
-        optionB: "6",
-        optionC: "7",
-        optionD: "8",
+        optionB: "4",
+        optionC: "9",
+        optionD: "0",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: "56.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> ((-2x<sup>5</sup>+5)/(3x<sup>5</sup>-5))",
+        optionA: "5",
+        optionB: "-2/3",
+        optionC: "2/3",
+        optionD: "-5",
         correctOption: "optionB"
     },
 
     {
-        question: "56.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "2<sup>9</sup>",
-        optionB: "2<sup>3</sup>",
-        optionC: "2<sup>5</sup> ",
-        optionD: "2<sup>-3</sup> ",
+        question: "57.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> ((x+5)/(x<sup>2</sup>+3x)",
+        optionA: "&#8734",
+        optionB: "0",
+        optionC: "tak terdefinisi",
+        optionD: "1 ",
         correctOption: "optionB"
     },
 
     {
-        question: "57.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -1</SUB> (x<sup>3</sup>+5x)",
-        optionA: "4",
-        optionB: "2",
-        optionC: "-6",
-        optionD: "-3",
-        correctOption: "optionC"
+        question: "58.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (x<sup>2</sup>+5/2x<sup>2</sup>)",
+        optionA: "2",
+        optionB: "1",
+        optionC: "-2",
+        optionD: "1/2",
+        correctOption: "optionD"
     },
 
     {
-        question: "58. lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "a<sup>5</sup>",
-        optionB: "a<sup>6</sup>",
-        optionC: "a<sup>10</sup>",
-        optionD: "a<sup>12</sup>",
+        question: "59.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (2x+1)/x",
+        optionA: "0",
+        optionB: "1",
+        optionC: "2",
+        optionD: "-2",
         correctOption: "optionC"
     },
 
     { 
-        question: "59.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "-2",
-        optionB: "2",
+        question: "60.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (5/x)",
+        optionA: "0",
+        optionB: "5",
         optionC: "1",
-        optionD: "-3",
+        optionD: "&#8734",
         correctOption: "optionA"
     },
 
@@ -1850,7 +1562,7 @@ const questionsxii = [
     },
 
     {
-        question: "64.Gradien f'(2) pada kurva y=x<sup>3</sup>-5x+1) adalah ",
+        question: "64.Gradien f'(2) pada kurva y=x<sup>3</sup>-5x+1 adalah ",
         optionA: "12",
         optionB: "7",
         optionC: "8",
