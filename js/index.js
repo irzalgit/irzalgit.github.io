@@ -1796,10 +1796,10 @@ const questionsxii = [
     },
 
     {
-        question: "57.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> x<sup>3</sup>+5x.",
-        optionA: "1",
+        question: "57.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -1</SUB> (x<sup>3</sup>+5x)",
+        optionA: "4",
         optionB: "2",
-        optionC: "3",
+        optionC: "-6",
         optionD: "-3",
         correctOption: "optionC"
     },
@@ -1823,119 +1823,119 @@ const questionsxii = [
     },
 
     {
-        question: "60.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1)",
-        optionA: "2",
-        optionB: "4",
-        optionC: "-2",
-        optionD: "-4",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "61.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
-        optionA: "(2x-1)=(4x+3)",
-        optionB: "(2x-1)=0",
-        optionC: "(4x+3)=0",
-        optionD: "(2x-1)(4x+3)=0",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "62.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
-        optionA: "2x-1=2",
-        optionB: "2x-1=3",
-        optionC: "2x-1=1",
-        optionD: "2x-1=0",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "63.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1).",
-        optionA: "(4x-1)=0;4x-1=1;(2x-3)=(x-1)",
-        optionB: "(2x-3)=(x-1)",
-        optionC: "(4x-1)=0;4x-1=1",
-        optionD: "(2x-3)=0;(x-1)=0",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "64.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
-        optionA: "pertumbuhan penduduk",
-        optionB: "gerak parabola",
-        optionC: "bunga majemuk di bank",
-        optionD: "peluruhan radioaktif",
-        correctOption: "optionB" 
-    },
-
-    {
-        question: "65.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
-        optionA: "grafik tidak memotong sb. x",
-        optionB: "jika x>0 grafik selalu turun",
-        optionC: "jika x<0 grafik selalu naik",
-        optionD: "grafik tidak memotong sumbu y",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "66.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1) ",
-        optionA: "jika x membesar , grafik menurun",
-        optionB: "jika x membesar , grafik naik",
-        optionC: "jika x membesar , grafik menurun dan memotong sb. x",
-        optionD: "jika x membesar , grafik naik dan memotong sumbu y",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "67.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
-        optionA: "4x-1=2x+1 atau 2x-3=0",
-        optionB: "2x-3=0",
-        optionC: "4x-1=1",
-        optionD: "2x+1=1",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "68.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1)",
-        optionA: "2<sup>4x</sup>",
-        optionB: "2<sup>(4x-1)</sup>",
-        optionC: "2<sup>3x<sup>2</sup></sup>",
-        optionD: "2<sup>x(3x-1)</sup>",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "70.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1)",
-        optionA: "-2",
-        optionB: "2",
-        optionC: "3",
-        optionD: "-3",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "71.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1)",
-        optionA: "0",
-        optionB: "1/2",
-        optionC: "1",
-        optionD: "2",
+        question: "61.Bentuk umum persamaan garis singgung pada kurva f(x)  dititik (a,f(a)) adalah",
+        optionA: "y=f'(x-a)",
+        optionB: "y-f(a)=f'(x-a)",
+        optionC: "y-f(a)=f'(a)(x-a)",
+        optionD: "y-a=f'(a)(x-f(a))",
         correctOption: "optionC"
     },
 
     {
-        question: "72.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB> (x<sup>3</sup>+5x+1)",
-        optionA: " 4/9 ",
-        optionB: "2/9",
-        optionC: "8/9",
-        optionD: "4/6",
+        question: "62.Persamaan garis 8x+2y-5=0 memiliki gradien m=",
+        optionA: "4",
+        optionB: "-4",
+        optionC: "2",
+        optionD: "8",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "63.Garis dengan sudut 45 memiliki gradien ",
+        optionA: "m=2",
+        optionB: "m=-1",
+        optionC: "m=0",
+        optionD: "m=1",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "64.Gradien f'(2) pada kurva y=x<sup>3</sup>-5x+1) adalah ",
+        optionA: "12",
+        optionB: "7",
+        optionC: "8",
+        optionD: "1",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "65.Persamman garis singgung yang melalui titik (-1,-7) pada kurva y=x<sup>2</sup>+3x-5 adalah",
+        optionA: "y=x+6",
+        optionB: "y=x-6",
+        optionC: "y+1=-(x+7)",
+        optionD: "y=x+7",
+        correctOption: "optionA" 
+    },
+
+    {
+        question: "66.Persamman garis  yang melalui titik (2,2) dengan gradien 5 adalah",
+        optionA: "y-2=5(x-2)",
+        optionB: "y+2=5(x-2)",
+        optionC: "y-2=5(x+2)",
+        optionD: "y+2=5(x+2)",
         correctOption: "optionA"
     },
 
     {
-        question: "73.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1)",
-        optionA: "2.42T",
-        optionB: "1.4T",
-        optionC: "2T",
-        optionD: "2.1T",
+        question: "67.Persamaan garis singgung yang melalui titik (1,-3) pada kurva y=x<sup>3</sup>+3x<sup>2</sup>-2x-5 adalah",
+        optionA: "y=7x-10",
+        optionB: "y=7x-5",
+        optionC: "y=5x-7",
+        optionD: "y=5x-10",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 3</SUp>2</sup>-5x+3))",
+        optionA: "2 &#8730;2",
+        optionB: "4 &#8730;2",
+        optionC: "1/2 &#8730;2",
+        optionD: " &#8730;2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "69.lim<SUB STYLE='font-size:xx-small'>x &#x2192 3</SUB>(&#8730(5x+1))-&#8730(3x+7))/(x-3)",
+        optionA: "1/2",
+        optionB: "1/4",
+        optionC: "1/8",
+        optionD: "1",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "70.lim<SUB STYLE='font-size:xx-small'>x &#x2192 9</SUB>(x+1)(x-9)/(&#8730;x-3)",
+        optionA: "40",
+        optionB: "60",
+        optionC: "5",
+        optionD: "40",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "71.lim<SUB STYLE='font-size:xx-small'>x &#x2192 9</SUB>(x+1)(&#8730;x+3)",
+        optionA: "10",
+        optionB: "20",
+        optionC: "60",
+        optionD: "40",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "72.lim<SUB STYLE='font-size:xx-small'>x &#x2192 2</SUB>(x+2)/(x<sup>2</sup>+2x+4)",
+        optionA: " 2/9 ",
+        optionB: "4/9",
+        optionC: "4/10",
+        optionD: "1/3",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "73.lim<SUB STYLE='font-size:xx-small'>x &#x2192 2</SUB>(x<sup>2</sup>+2x+4)",
+        optionA: "12",
+        optionB: "10",
+        optionC: "4",
+        optionD: "1",
         correctOption: "optionA"
     },
     
