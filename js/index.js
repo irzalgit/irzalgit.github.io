@@ -1382,6 +1382,33 @@ const questionsxii = [
     },
 
     {
+        question: "8.Turunan y=-2x<sup>-2</sup> adalah",
+        optionA: "y'=-2x<sup>2</sup>",
+        optionB: "y'=-2x<sup>-3</sup>",
+        optionC: "y'=-3x<sup>-4</sup>",
+        optionD: " y'= 4x<sup>-3</sup>",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "9.Turunan y=2x<sup>-1/2</sup> adalah",
+        optionA: "y'=-x<sup>2</sup>",
+        optionB: "y'=-x<sup>-3/2</sup>",
+        optionC: "y'=-2x<sup>-2</sup>",
+        optionD: " y'=2x<sup>-4</sup>",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "10.Turunan y=(2/3)x<sup>3/2</sup> adalah",
+        optionA: "y'=x<sup>2</sup>",
+        optionB: "y'=x<sup>1/2</sup>",
+        optionC: "y'=x<sup>-1/2</sup>",
+        optionD: " y'=x<sup>-1</sup>",
+        correctOption: "optionB"
+    },
+
+    {
         question: "40.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x+5)",
         optionA: "2",
         optionB:"1",
@@ -1445,8 +1472,8 @@ const questionsxii = [
     },
 
     {
-        question: "49.Jika pada interval 1<x<6 , f(1)>f(6) dan f'(3)=0, maka",
-        optionA: "titik (3,f(3)) minimum  ",
+        question: "49.Jika pada interval 1 < x <6 , nilai f(1) > f(6) dan f'(3)=0, ma ka",
+        optionA: "titik (3,f(3)) minimum  ", 
         optionB: "titik (3,f(3)) maksimum",
         optionC: "titik (3,f(3)) belok",
         optionD: " titik (3,3) minimum ",
@@ -1616,12 +1643,12 @@ const questionsxii = [
     },
 
     {
-        question: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 3</SUp>2</sup>-5x+3))",
-        optionA: "2 &#8730;2",
-        optionB: "4 &#8730;2",
-        optionC: "1/2 &#8730;2",
-        optionD: " &#8730;2",
-        correctOption: "optionA"
+        question: "68.Turunan y=x<sup>-3</sup> adalah",
+        optionA: "y'=-3x<sup>2</sup>",
+        optionB: "y'=-3x<sup>-3</sup>",
+        optionC: "y'=-3x<sup>-4</sup>",
+        optionD: " y'=3x<sup>-4</sup>",
+        correctOption: "optionC"
     },
 
     {
