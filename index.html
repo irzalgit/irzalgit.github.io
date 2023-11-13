@@ -23,20 +23,36 @@
 <link rel="stylesheet href="https://fonts.googleapis.com/css2?family=Tangerine">
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>  
-<script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>     
+<!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>  -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
+// <script>
+//   MathJax = {
+//     tex: {
+//       inlineMath: [['$', '$'], ['\\(', '\\)']]
+//     },
+//  loader: {load: ['input/asciimath', 'output/chtml']}
+
+//   };  
+//   </script>
+ 
+
+<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>      -->
+
+  <script>
+MathJax = {
+tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+}
+</script>
+<!-- <script>
   MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    }
-  };
-  </script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-  </script>
+    loader: {load: ['input/asciimath', 'output/chtml']}
+  }
+  </script> -->
+
 <style>
   #more {display: none;}
   #more00 {display: none;}
@@ -76,10 +92,10 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   #eva {display:block;}
   #bab20 {display: none;}
 </style>
-  
-<!-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
- <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> -->
+<!--   
+ <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+ <!-- <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>  -->
     <!-- Babel Script -->
     <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
      -->
@@ -370,8 +386,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 <div class="flex">
   <div class="flex-none w-14 h-14">
     01
-  </div>
-  <div class="flex-initial w-64 ...">
+  </div><div class="flex-initial w-64 ...">
     02
   </div>
   <div class="flex-initial w-32 ...">
@@ -388,8 +403,11 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
  
 
   <i data-feather="edit"> </i> 
- <p>update:09/11/23 23:59 </p>
-<i data-feather="eye"></i> 
+ <p>update:13/11/23 </p>
+<i data-feather="eye"></i>
+<div>
+<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
+</div>
 <br>
   <a href="./gbr/app-debug.apk" download>
     <img src="./gbr/download.svg" alt="ng ada file" width="30px">
@@ -13386,7 +13404,7 @@ Dengan demikian jika d/dx(f(x))=F(x) maka $\int  F(x).dx$=f(x)
     <div id="more16">
 <div style="display: inline;" >
   <hr>
-<p style="display: inline;">jika a bilangan real , dan</p>  
+<p style="disp: inline;">jika a bilangan real , dan</p>  
 <span style="display:inline-flex;">$$n\neq -1$$</span>
 <p style="display:inline-flex;">maka</p>
 </div>
@@ -15517,7 +15535,13 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 <div  id="bab23" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#98FB98]">
 
   <h2>Evaluasi</h2>
-  
+
+  <!-- <p>When `a != 0`, there are two solutions to `ax^2 + bx + c = 0` and
+    they are</p>
+    <p style="text-align:center">
+      `x = (-b +- sqrt(b^2-4ac))/(2a) .`
+    </p>
+   \\frac{1}{\\sqrt{x^2 + 1}} -->
   <span id="dots23">...</span>
     <div id="more23">
 
