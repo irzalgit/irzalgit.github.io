@@ -650,97 +650,97 @@ const questionsx = [
 ]
 const questionsxi = [
     {
-        question: "1.Perbandingan sisi depan dengan sisi miring adalah ?",
-        optionA: " sin",
-        optionB: "cos",
-        optionC: "tan ",
-        optionD: "sec ",
+        question: "1.Matrik yang hanya terdiri atas 1 kolom disebut",
+        optionA: " matrik kolom",
+        optionB: "matrik baris",
+        optionC: "matrik diagonal ",
+        optionD: "matrik segitiga",
         correctOption: "optionA"
     },
 
     {
-        question: "2.Yang termasuk tripel phytagoras ?",
-        optionA: "3,4,6",
-        optionB: "3,4,5",
-        optionC: "4,5,6",
-        optionD: "5,10,12",
+        question: "2.Jika jumlah baris 4 dan jumlah kolom 3 maka ordo matrik ini adalah",
+        optionA: "3 x 4",
+        optionB: "4 x 3",
+        optionC: "12",
+        optionD: "4 x 4",
         correctOption: "optionB"
     },
 
     {
-        question: "3.Grafik sinus pada kuadran IV  ",
-        optionA: "naik",
-        optionB: "turun",
-        optionC: "datar",
-        optionD: "tak tentu",
+        question: "3. Jika angka pada diagonal utama 3 dan 4 sedangkan angka pada diagonal sekunder adalah 1 dan 3 maka determinannya adalah",
+        optionA: "9",
+        optionB: "15",
+        optionC: "11",
+        optionD: "0",
         correctOption: "optionA"
     },
 
     {
-        question: " 4.Jika tripel phytagoras adalah {3,4,5} maka maka salah satu sinusnya adalah ",
-        optionA: "1/3",
-        optionB: "3/5",
-        optionC: "4/3",
-        optionD: "1/2",
+        question: " 4.Jika determinan suatu matrik nilainya 0 maka disebut ",
+        optionA: "linier",
+        optionB: "singuler",
+        optionC: "sekunder",
+        optionD: "mirror",
         correctOption: "optionB"
     },
 
     {
-        question: "5.Sisi terpanjang atau garis miring dari tripel phytagoras {3,4,5} adalah",
-        optionA: "3",
-        optionB: "4",
-        optionC: "5",
-        optionD: "6",
+        question: "5.Jika angka pada kolom diubah menjadi angka pada baris dan sebaliknya maka matrik ini disebut",
+        optionA: "cofactor",
+        optionB: "minnor",
+        optionC: "transpose",
+        optionD: "determinan",
         correctOption: "optionC"
     },
 
     {
-        question: "6.Jumlah sudut-sudut dalam segitiga adalah",
-        optionA: "30&#176",
-        optionB: "90&#176",
-        optionC: "180&#176",
-        optionD: "360&#176",
+        question: "6.Matrik berordo 1 x 2 dikalikan matrik berordo 2 x 3 maka matrik hasilnya berordo",
+        optionA: "1 x 1",
+        optionB: "1 x 2",
+        optionC: "1 x 3",
+        optionD: "3 x 1",
         correctOption: "optionC"
     },
 
     {
-        question: "7.dalam segitiga siku siku, jika sudut alpha 30 derajat, maka sudut beta adalah",
-        optionA: "10&#176",
-        optionB: "60&#176",
-        optionC: "80&#176",
-        optionD: "90 &#176",
+        question: "7.Matrik A=|2 3|  dan matrik B=|-1 1| , jika C=A+2B maka",
+        optionA: "C=|2 3|",
+        optionB: "C=|0 5|",
+        optionC: "C=|0 3|",
+        optionD: "C=|0 1|",
         correctOption: "optionB"
     },
 
     {
-        question: "8.Jumlah sudut alpha dan sudut beta dalam segitiga siku-siku adalah",
-        optionA: "30 &#176",
-        optionB: "60 &#176",
-        optionC: "90 &#176",
-        optionD: "180&#176",
+        question: "8.Matrik A=|2 3|  dan matrik B=|-1 1| , jika D=2A-B maka",
+        optionA: "D=|5 3|",
+        optionB: "D=|5 5|",
+        optionC: "D=|3 3|",
+        optionD: "D=|3 4|",
         correctOption: "optionC"
     },
 
     {
-        question: "10.Jika &#8508  =3,14 maka sudut 60 &#176 =",
-        optionA: "3,14/2",
-        optionB: "3,14/4",
-        optionC: "3,14/3",
-        optionD: "3,14/6",
+        question: "9.Matrik A=|2 a 3|  dan matrik B=|-1 2 1| , jika A+B=|1 4 4| maka a=?",
+        optionA: "1",
+        optionB: "-1",
+        optionC: "2",
+        optionD: "-2",
         correctOption: "optionC"
     },
 
     {
-        question: "11.Sudut 120 derajat jika dikonversi ke radian adalah",
-        optionA: "2&#8508",
-        optionB: "1&#8508",
-        optionC: "1/2.&#8508",
-        optionD: "2/3.&#8508",
-        correctOption: "optionD"
+        question: "10.Jika elemen matrik A masing-masing a<sub>11</sub>=5 dan  a<sub>12</sub>=4 dan elemen matrik B masing-masing b<sub>11</sub>=-2 dan  b<sub>21</sub>=3 maka a.b adalah",
+        optionA: "a.b=|22|",
+        optionB: "a.b=|2|",
+        optionC: "a.b=|0|",
+        optionD: "a.b=|14|", 
+        correctOption: "optionB"
     },
 
     {
-        question: "12.Sudut 200 derajat jika dikonversi ke radian adalah",
+        question: "12.\\( \frac{1}{2}  \\)",
         optionA: "2&#8508",
         optionB: "1&#8508",
         optionC: "10/9.&#8508",
@@ -749,7 +749,7 @@ const questionsxi = [
     },
 
     {
-        question: "13.Sudut 30 derajat jika dikonversi ke radian adalah",
+        question: "13.\\( frac{1}{2}  \\)",
         optionA: "1/3.&#8508",
         optionB: "1/4.&#8508",
         optionC: "1/6.&#8508",
@@ -758,8 +758,8 @@ const questionsxi = [
     },
 
     {
-        question: "14.Relasi antara sin dan cos adalah sin 30 = ",
-        optionA: "cos 60",
+        question: "14.\( \frac{1}{2}  \)",
+        optionA: "'\\( \frac{1}{2}  \\')",
         optionB: "cos 30",
         optionC: "cos 45",
         optionD: "cos 90",
@@ -767,107 +767,111 @@ const questionsxi = [
     },
 
     {
-        question: "15.Nilai grafik sin A dan cos A dikuadran I memiliki tanda ",
+        question: "\\frac{1}{\\sqrt{x^2 + 1}}",
         optionA: "positif dan positif",
         optionB: "negatif dan negatif",
-        optionC: "positif dan negatif",
+        optionC: "'\\( \frac{1}{2}  \\')",
         optionD: "negatif dan positif",
         correctOption: "optionA"
     },
 
     {
-        question: "16. Nilai sin A dan cos A dikuadran II memiliki tanda ",
+        question: "16. $\\( \frac{1}{2}  \\)$ ",
         optionA: "positif dan positif",
         optionB: "negatif dan negatif",
-        optionC: "positif dan negatif",
+        optionC: "'\\( \frac{1}{2}  \\')",
         optionD: "negatif dan positif",
         correctOption: "optionC"
     },
 
     {
-        question: "17.cos(180-A) dan cos(180+A) bernilai sama, memiliki tanda ",
+        question: "17.\\( \frac{1}{2}  \\) ",
         optionA: "positif dan positif",
         optionB: "negatif dan negatif",
-        optionC: "positif dan negatif",
-        optionD: "negatif dan positif",
+        optionC: "'\\( $\frac{1}{2}$  \\')",
+        optionD: "'\\frac{1}{2}(   \\')",
         correctOption: "optionB"
     },
 
 {
-        question: "18.Jika sin A=2/3 maka sin(180-A) dan sin(180+A) adalah ",
-        optionA: "2/3 dan 2/3",
-        optionB: "-2/3 dan -2/3",
-        optionC: "+2/3 dan -2/3",
+        question: "18.\\( \frac{1}{2}  \\) ",
+        optionA: "'\\( frac{1}{2}  \\')",
+        optionB: "'\\( \frac{1}{2}  \\')",
+        optionC: "'\\frac{1}{2}(   \\')",
         optionD: "-2/3 dan 2/3",
         correctOption: "optionC"
     },
 
     {
-        question: "19.sin dan cos dibawah ini yang nilainya 1/2 , kecuali ?",
+        question: "19.\\( \frac{1}{2}  \\)",
         optionA: "cos 60",
-        optionB: "sin 30",
+        optionB: "'\\( \frac{1}{2}  \\')",
         optionC: "sin 150",
         optionD: "cos 120",
         correctOption: "optionD"
     },
 
     {
-        question: "20.Sudut 380 berada di kuadran ... ?",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
+        question: '20.\sqrt{b^2-4ac} ',
+        optionA: "'${\\( \frac{1}{2}  \\}')",
+        optionB: "'\\( \int  \\')",
+        optionC: "'\\( \cdot  \\')",
+        optionD:  "$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$",
+        correctOption: "optionA"
+    },
+  
+   
+    {
+        question: "$ \frac{1}{4}$",
+        optionA: "'\\( \frac{1}{2}  \\')",
+        optionB: "'\\( \int  \\')",
+        optionC: "'\\( \cdot  \\')",
+        optionD: "'\\( \frac{1}{2}  \\')",
         correctOption: "optionA"
     },
 
-    {
-        question: "21.Nilai sin(180 + 30) =...",
-        optionA: "sin 30",
-        optionB: "-sin 30",
-        optionC: "sin 60",
-        optionD: "-sin 60",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "22.Nilai sin(90-30)=...",
-        optionA: "cos 30",
-        optionB: "sin 30",
-        optionC: "-cos 30",
-        optionD: "-sin 30",
+    {    question: "22.'$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$'}",
+        optionA: "'${\\( \frac{1}{2}  \\}')",
+        optionB: "'\\( \int  \\')",
+        optionC: "'\\( \cdot  \\')",
+        optionD: "'\\( \frac{1}{2}  \\')",
         correctOption: "optionA"
     },
 
-    {
-        question: "23.Jika sisi miring segitiga siku sama dengan 1 , maka sisi didepan sudut A sama dengan ...",
-        optionA: "cos A",
-        optionB: "sin A",
-        optionC: "tan A",
-        optionD: "csc A",
-        correctOption: "optionB"
-    },
 
     {
-        question: "24.Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25.Keliling segitiga ini sama dengan ...",
-        optionA: "28",
-        optionB: "38",
-        optionC: "56",
-        optionD: "60",
-        correctOption: "optionC"
+        question: "23.'$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$'",
+        optionA: "'\\( \frac{1}{2}  \\')",
+        optionB: "'\\( \int  \\')",
+        optionC: "'\\( \cdot  \\')",
+        optionD: "'\\( \frac{1}{2}  \\')",
+        correctOption: "optionA"
     },
+
+
+    {
+        question: "24. '\\frac{1}{\\sqrt{x^2 + 1}}';",
+        optionA:"",
+        optionB: "'\\( \int  \\')",
+        optionC: "'\\( \cdot  \\')",
+        optionD: "'\\( \frac{1}{2}  \\')",
+        correctOption: "optionA"
+    },
+
    
     {
-        question: "25.Diketahui sisi-sisi segitiga masing masing a=7, b=24 dan c=25. Luas segitiga ini sama dengan ...",
-        optionA: "80",
-        optionB: "68",
-        optionC: "84",
-        optionD: "100",
-        correctOption: "optionC"
+        question: "25. '\\frac{1}{\\sqrt{x^2 + 1}}'",
+        optionA: "'\\( \frac{1}{2}  \\')",
+        optionB: "'\\( \int  \\')",
+        optionC: "'\\( \cdot  \\')",
+        optionD: "\\( \frac{1}{2}  \\)",
+        correctOption: "optionA"
     },
+
    
     {
-        question: "26.Nilai sin(-30) =...",
-        optionA: "sin(180+30)",
+        question: "26. `x = (-b +- sqrt(b^2-4ac))/(2a) .`",
+        optionA:  '\\frac{1}{\\sqrt{x^2 + 1}}',
         optionB: "sin(360-30)",
         optionC: "sin(360+30)",
         optionD: "sin(180-30)",
@@ -875,7 +879,7 @@ const questionsxi = [
     },
 
     {
-        question: "27.Nilai sin 45=...",
+        question:  `x = (-b +- sqrt(b^2-4ac))/(2a) .` ,
         optionA: "cos 45",
         optionB: "-cos 45",
         optionC: "cos -45",
@@ -884,8 +888,8 @@ const questionsxi = [
     },
 
     {
-        question: "28.Sudut 114,6 &#176 jika dikonversi ke radian sama dengan ",
-        optionA: "1 rad",
+        question:  `x = (-b +- sqrt(b^2-4ac))/(2a) .`,
+        optionA: "",
         optionB: "1,5 rad",
         optionC: "2 rad",
         optionD: "1/2 rad",
@@ -893,7 +897,7 @@ const questionsxi = [
     },
 
     {
-        question: "29.Yang termasuk sudut istimewa, kecuali ",
+        question: "29. `x = (-b +- sqrt(b^2-4ac))/(2a)' ",
         optionA: "30",
         optionB: "45",
         optionC: "60",
@@ -902,7 +906,7 @@ const questionsxi = [
     },
 
     {
-        question: "30.Jika sin A = 1/2 maka csc A adalah ?",
+        question: "30.   \\frac{1}{\\sqrt{x^2 + 1}}",
         optionA: "1/3",
         optionB: "2",
         optionC: "3",
@@ -911,7 +915,7 @@ const questionsxi = [
     },
 
     {
-        question: "31.Diketahui cos A=-1, maka besar sudut A adalah  ",
+        question: "31.   \\frac{1}{\\sqrt{x^2 + 1}}",
         optionA: "0",
         optionB: "90",
         optionC: "180",
@@ -920,7 +924,7 @@ const questionsxi = [
     },
 
     {
-        question: "32.Jika sec A= 3/2 maka cos A=... ?",
+        question: "32.   \\frac{1}{\\sqrt{x^2 + 1}}",
         optionA: "2",
         optionB: "2/3",
         optionC: "1/3",
@@ -1705,6 +1709,47 @@ const questionsxii = [
          correctOption: "optionD"
      },
 
+     {
+        question:  "75.Tentukan hasil integral &#8747 x dx",
+        optionA: "&#8532 x&#179",
+        optionB: "&#190 x&#179", 
+        optionC: "&#8531 x&#178",
+        optionD: "&#189 x&#178",
+        correctOption: "optionD"
+    },
+    {
+        question:  "76.Tentukan hasil integral &#8747 3x&#178 dx",
+        optionA: " x&#179",
+        optionB: "&#189 x&#178", 
+        optionC: "&#8532 x&#179",
+        optionD: "&#8531 x&#179",
+        correctOption: "optionA"
+    },
+    {
+        question:  "77.Tentukan hasil integral &#8747 2x&#178 dx",
+        optionA: "&#189 x&#179",
+        optionB: "&#190 x&#179", 
+        optionC: "&#8531 x&#179 ",
+        optionD: "&#8532 x&#179",
+        correctOption: "optionD"
+    },
+    {
+        question:  "78.Tentukan hasil integral &#8747 (2x+1)&#178 dx",
+        optionA: "&#8532 x&#179 + x",
+        optionB: "&#190 x&#179", 
+        optionC: "&#8531 x&#179 ",
+        optionD: "&#8532 x&#179 + 1",
+        correctOption: "optionA" 
+    },
+
+    {
+        question:  "79.Tentukan hasil integral &#8747 (3x&#178 - 2x + 1) dx",
+        optionA: " x&#179 + x&#178 + x + C",
+        optionB: "x&#179 - x&#178 + x + C", 
+        optionC: "3x&#179 + x&#178 + x + C ",
+        optionD: "3x&#179 + 2x&#178 + x + C",
+        correctOption: "optionB" 
+    },
 ]
 
 
@@ -1718,7 +1763,7 @@ function handleQuestions() {
     
         if ( jno18091.checked){
             
-            response = "Evaluasi kelas x: Bilangan berpangkat, Fungsi exponen dan Trigonometri";
+            response = " Evaluasi kelas x: Bilangan berpangkat, Fungsi exponen dan Trigonometri";
 
     //function to shuffle and push 10 questions to shuffledQuestions array
 //app would be dealing with 10questions per session
@@ -1749,9 +1794,9 @@ const random = questionsxi[Math.floor(Math.random() * questionsxi.length)]
     
         if ( jno18093.checked){
             
-            response = "Evaluasi kelas xii:Limit dan Deferensial";
+            response = "Evaluasi kelas xii/sem.5: limit , deferensial dan integral";
 
-    //function to shuffle and push 10 questions to shuffledQuestions array
+    //function to shuffle and push 10 questions to shuffledQuestions array dan 
 //app would be dealing with 10questions per session
     while (shuffledQuestions.length <=40 ) {
 
