@@ -1734,7 +1734,7 @@ const questionsxii = [
         correctOption: "optionD"
     },
     {
-        question:  "78.Tentukan hasil integral &#8747 (2x+1)&#178 dx",
+        question:  "78.Tentukan hasil integral &#8747 (2x+1) dx",
         optionA: "&#8532 x&#179 + x",
         optionB: "&#190 x&#179", 
         optionC: "&#8531 x&#179 ",
