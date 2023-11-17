@@ -2684,4 +2684,77 @@ rsno45.innerHTML = response;
      
   }
   
+  function kirim19() {
+    let poin19 = 0;
+    const jno1901 = document.querySelector("#jno1901");
+    const jno1902 = document.querySelector("#jno1902");
+    const jno1903 = document.querySelector("#jno1903");
+    const jno1904 = document.querySelector("#jno1904");
+    const jno1905 = document.querySelector("#jno1905");
+    const jno1906 = document.querySelector("#jno1906");
+    const jno1907 = document.querySelector("#jno1907");
+    const jno1908 = document.querySelector("#jno1908");
+    const nilai19=document.querySelector('#nilai19');
+    if (jno1901.checked) {
+      response = "";
+      poin19 = poin19 + 10;
+    } else {
+      response = "";
+    }
+    rno1901.innerHTML = response;
+
+    if (jno1902.checked) {
+      response = "";
+      poin19 = poin19 + 10;
+    } else {
+      response = "";
+    }
+    rno1902.innerHTML = response;
+    if (jno1903.checked) {
+      response = "";
+      poin19 = poin19 + 10;
+    } else {
+      response = "";
+    }
+    rno1903.innerHTML = response;
+    if (jno1904.checked) {
+      response = "";
+      poin19 = poin19 + 10;
+    } else {
+      response = "";
+    }
+    rno1904.innerHTML = response;
+    if (jno1905.checked) {
+      response = "";
+      poin19 = poin19 + 10;
+    } else {
+      response = "";
+    }
+    rno1905.innerHTML = response;
+    if (jno1906.checked) {
+      response = "";
+      poin19 = poin19 + 10;
+    } else {
+      response = "";
+    }
+    rno1906.innerHTML = response;
+    if (jno1907.checked) {
+      response = "";
+      poin19 = poin19 + 10;
+    } else {
+      response = "";
+    }
+    rno1907.innerHTML = response;
+    if (jno1908.checked) {
+      response = "";
+      poin19 = poin19 + 10;
+    } else {
+      response = "";
+    }
+    rno1908.innerHTML = response;
+
+
+
+    nilai19.innerHTML=poin19;
   
+  }
