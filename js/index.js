@@ -677,11 +677,12 @@ const questionsx = [
      {
          question:  "78.Jika sin B= 2/3 maka cos 90-B=...",
          optionA: "-2/3",
-         optionB: "3/2,
+         optionB: "3/2",
          optionC: "-3/2",
          optionD: "2/3",
          correctOption: "optionD"
      },
+
      {
         question:  "79.Jika sin B= 1/2 maka sin(-B)=...",
         optionA: "1/2",
@@ -800,6 +801,7 @@ const questionsxi = [
         optionD: "A'(-3,4)",
         correctOption: "optionC"
     },
+
 {
     question: "14.Jika titik A(3,4) diputar 90 derajat terhadap P(-1,1) maka posisi A sekarang adalah", 
     optionA: "A'(4,3)",
@@ -817,11 +819,12 @@ const questionsxi = [
     optionD: "A'(-3,4)",
     correctOption: "optionC"
 },
+
     {
         question: "16. Titik P(3,5) dicerminkan terhadap cermin yang terletak pada x=2, maka posisi bayangan titik ini adalah  ",
         optionA: "P'(-3,5)",
         optionB: "P'(3,-5)",
-        optionC: "P'(1,5",
+        optionC: "P'(1,5)",
         optionD: "P'(-1,5)",
         correctOption: "optionC"
     },
@@ -848,7 +851,7 @@ const questionsxi = [
         question: "19. Titik D(3,-5) dicerminkan terhadap cermin yang terletak pada sumbu y, maka posisi bayangan titik ini adalah  ",
         optionA: "D'(-3,5)",
         optionB: "D'(3,-5)",
-        optionC: "D'(-3,-5",
+        optionC: "D'(-3,-5)",
         optionD: "D'(-1,5)",
         correctOption: "optionC"
     },
@@ -857,7 +860,7 @@ const questionsxi = [
         question: "20. Titik F(3,5) ditranslasi dengan T(1,2) kemudian dicerminkan terhadap cermin yang terletak pada sb y, maka posisi bayangan titik ini adalah  ",
         optionA: "F'(-4,7)",
         optionB: "F'(4,-7)",
-        optionC: "F'(-1,7",
+        optionC: "F'(-1,7)",
         optionD: "F'(-2,7)",
         correctOption: "optionA"
     },
