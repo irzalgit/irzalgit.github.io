@@ -647,6 +647,50 @@ const questionsx = [
          correctOption: "optionD"
      },
 
+     {
+        question: "75.Jika sin A=a maka sin(180+A) = ... ",
+        optionA: "2a",
+        optionB: "a",
+        optionC: "-a",
+        optionD: "-2a",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "76.Jika grafik y=sin A digeser 90 kekanan menjadi ",
+        optionA: " cos A ",
+        optionB: "-cos A",
+        optionC: "cos -A",
+        optionD: "-cos -A",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "77.Sin(A)=...",
+        optionA: "cos A",
+        optionB: "cos (90+A)",
+        optionC: "cos (90-A)",
+        optionD: "cos -A",
+        correctOption: "optionC"
+    },
+    
+     {
+         question:  "78.Jika sin B= 2/3 maka cos 90-B=...",
+         optionA: "-2/3",
+         optionB: "3/2,
+         optionC: "-3/2",
+         optionD: "2/3",
+         correctOption: "optionD"
+     },
+     {
+        question:  "79.Jika sin B= 1/2 maka sin(-B)=...",
+        optionA: "1/2",
+        optionB: "-1/2",
+        optionC: "-1",
+        optionD: "1",
+        correctOption: "optionB"
+    },
+
 ]
 const questionsxi = [
     {
@@ -740,112 +784,111 @@ const questionsxi = [
     },
 
     {
-        question: "12.\\( \frac{1}{2}  \\)",
-        optionA: "2&#8508",
-        optionB: "1&#8508",
-        optionC: "10/9.&#8508",
-        optionD: "1/3.&#8508",
+        question: "12.Jika titik A(3,4) diputar 90 derajat terhadap O(0,0) maka posisi A sekarang adalah",
+        optionA: "A'(4,3)",
+        optionB: "A'(3,4)",
+        optionC: "A'(-4,3)",
+        optionD: "A'(-3,4)",
         correctOption: "optionC"
     },
 
     {
-        question: "13.\\( frac{1}{2}  \\)",
-        optionA: "1/3.&#8508",
-        optionB: "1/4.&#8508",
-        optionC: "1/6.&#8508",
-        optionD: "1/9.&#8508",
+        question: "13.Jika titik A(3,4) diputar -90 derajat terhadap O(0,0) maka posisi A sekarang adalah", 
+        optionA: "A'(4,3)",
+        optionB: "A'(3,4)",
+        optionC: "A'(-4,3)",
+        optionD: "A'(-3,4)",
         correctOption: "optionC"
     },
-
-    {
-        question: "14.\( \frac{1}{2}  \)",
-        optionA: "'\\( \frac{1}{2}  \\')",
-        optionB: "cos 30",
-        optionC: "cos 45",
-        optionD: "cos 90",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "\\frac{1}{\\sqrt{x^2 + 1}}",
-        optionA: "positif dan positif",
-        optionB: "negatif dan negatif",
-        optionC: "'\\( \frac{1}{2}  \\')",
-        optionD: "negatif dan positif",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "16. $\\( \frac{1}{2}  \\)$ ",
-        optionA: "positif dan positif",
-        optionB: "negatif dan negatif",
-        optionC: "'\\( \frac{1}{2}  \\')",
-        optionD: "negatif dan positif",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "17.\\( \frac{1}{2}  \\) ",
-        optionA: "positif dan positif",
-        optionB: "negatif dan negatif",
-        optionC: "'\\( $\frac{1}{2}$  \\')",
-        optionD: "'\\frac{1}{2}(   \\')",
-        correctOption: "optionB"
-    },
+{
+    question: "14.Jika titik A(3,4) diputar 90 derajat terhadap P(-1,1) maka posisi A sekarang adalah", 
+    optionA: "A'(4,3)",
+    optionB: "A'(3,4)",
+    optionC: "A'(-4,3)",
+    optionD: "A'(-3,4)",
+    correctOption: "optionC"
+},
 
 {
-        question: "18.\\( \frac{1}{2}  \\) ",
-        optionA: "'\\( frac{1}{2}  \\')",
-        optionB: "'\\( \frac{1}{2}  \\')",
-        optionC: "'\\frac{1}{2}(   \\')",
-        optionD: "-2/3 dan 2/3",
+    question: "15.Jika titik A(3,4) diputar -90 derajat terhadap P(-1,1) maka posisi A sekarang adalah", 
+    optionA: "A'(4,3)",
+    optionB: "A'(3,4)",
+    optionC: "A'(-4,3)",
+    optionD: "A'(-3,4)",
+    correctOption: "optionC"
+},
+    {
+        question: "16. Titik P(3,5) dicerminkan terhadap cermin yang terletak pada x=2, maka posisi bayangan titik ini adalah  ",
+        optionA: "P'(-3,5)",
+        optionB: "P'(3,-5)",
+        optionC: "P'(1,5",
+        optionD: "P'(-1,5)",
         correctOption: "optionC"
     },
 
     {
-        question: "19.\\( \frac{1}{2}  \\)",
-        optionA: "cos 60",
-        optionB: "'\\( \frac{1}{2}  \\')",
-        optionC: "sin 150",
-        optionD: "cos 120",
+        question: "17. Titik P(3,5) dicerminkan terhadap cermin yang terletak pada x=-2, maka posisi bayangan titik ini adalah  ",
+        optionA: "P'(-5,5)",
+        optionB: "P'(3,-5)",
+        optionC: "P'(-7,5",
+        optionD: "P'(-1,5)",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "18. Titik Q(-3,5) dicerminkan terhadap cermin yang terletak pada x=2, maka posisi bayangan titik ini adalah  ",
+        optionA: "Q'(3,5)",
+        optionB: "Q'(-3,-5)",
+        optionC: "Q'(-1,5",
+        optionD: "Q'(1,5)",
         correctOption: "optionD"
     },
 
     {
-        question: '20.\sqrt{b^2-4ac} ',
-        optionA: "'${\\( \frac{1}{2}  \\}')",
-        optionB: "'\\( \int  \\')",
-        optionC: "'\\( \cdot  \\')",
-        optionD:  "$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$",
+        question: "19. Titik D(3,-5) dicerminkan terhadap cermin yang terletak pada sumbu y, maka posisi bayangan titik ini adalah  ",
+        optionA: "D'(-3,5)",
+        optionB: "D'(3,-5)",
+        optionC: "D'(-3,-5",
+        optionD: "D'(-1,5)",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "20. Titik F(3,5) ditranslasi dengan T(1,2) kemudian dicerminkan terhadap cermin yang terletak pada sb y, maka posisi bayangan titik ini adalah  ",
+        optionA: "F'(-4,7)",
+        optionB: "F'(4,-7)",
+        optionC: "F'(-1,7",
+        optionD: "F'(-2,7)",
         correctOption: "optionA"
     },
   
    
+ 
     {
-        question: "$ \frac{1}{4}$",
-        optionA: "'\\( \frac{1}{2}  \\')",
-        optionB: "'\\( \int  \\')",
-        optionC: "'\\( \cdot  \\')",
-        optionD: "'\\( \frac{1}{2}  \\')",
+        question: "21. Titik A(3,5) ditranslasi dengan T(-1,2) kemudian dicerminkan terhadap cermin yang terletak pada x=2, maka posisi bayangan titik ini adalah  ",
+        optionA: "P'(2,7)",
+        optionB: "P'(-1,-7)",
+        optionC: "P'(-2,3",
+        optionD: "P'(3,7)",
         correctOption: "optionA"
     },
 
-    {    question: "22.'$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$'}",
-        optionA: "'${\\( \frac{1}{2}  \\}')",
-        optionB: "'\\( \int  \\')",
-        optionC: "'\\( \cdot  \\')",
-        optionD: "'\\( \frac{1}{2}  \\')",
-        correctOption: "optionA"
+    {    question: "22.Titik B(2,4) dicerminkan dan menghasilkan bayangan di B'(-4,4), maka posisi cermin adalah '}",
+        optionA: "x=1",
+        optionB: "x=-1",
+        optionC: "x=2",
+        optionD: "x=-2",
+        correctOption: "optionB"
     },
 
 
-    {
-        question: "23.'$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$'",
-        optionA: "'\\( \frac{1}{2}  \\')",
-        optionB: "'\\( \int  \\')",
-        optionC: "'\\( \cdot  \\')",
-        optionD: "'\\( \frac{1}{2}  \\')",
-        correctOption: "optionA"
+
+    {    question: "23.Tentukan posisi cermin agar bayangan dari titik A(2,3) jatuh pada titik A'(0,3) ?",
+        optionA: "x=0",
+        optionB: "x=-1",
+        optionC: "x=2",
+        optionD: "x=-2",
+        correctOption: "optionB"
     },
 
 
