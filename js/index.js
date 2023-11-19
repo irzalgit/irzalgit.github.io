@@ -896,166 +896,166 @@ const questionsxi = [
 
 
     {
-        question: "24. '\\frac{1}{\\sqrt{x^2 + 1}}';",
-        optionA:"",
-        optionB: "'\\( \int  \\')",
-        optionC: "'\\( \cdot  \\')",
-        optionD: "'\\( \frac{1}{2}  \\')",
+        question: "24. Jika g=2x+1 dikomposisi dengan f=3x maka f(g)=...",
+        optionA:"6x",
+        optionB: "6x+3",
+        optionC: "5x+1",
+        optionD: "5x-1",
+        correctOption: "optionB"
+    },
+
+   
+    {
+        question: "25.Diketahui g=x+2 dan f=3x-1 , jika  h=f(g) maka h(1)= ...",
+        optionA: "8", 
+        optionB: "7",
+        optionC: "1",
+        optionD: "-2",
         correctOption: "optionA"
     },
 
    
     {
-        question: "25. '\\frac{1}{\\sqrt{x^2 + 1}}'",
-        optionA: "'\\( \frac{1}{2}  \\')",
-        optionB: "'\\( \int  \\')",
-        optionC: "'\\( \cdot  \\')",
-        optionD: "\\( \frac{1}{2}  \\)",
-        correctOption: "optionA"
-    },
-
-   
-    {
-        question: "26. `x = (-b +- sqrt(b^2-4ac))/(2a) .`",
-        optionA:  '\\frac{1}{\\sqrt{x^2 + 1}}',
-        optionB: "sin(360-30)",
-        optionC: "sin(360+30)",
-        optionD: "sin(180-30)",
+        question: "26. Hasil komposisi g=3x-1 dengan f=2x-1 h=g(f)=" ,  
+        optionA:  "6x-3",
+        optionB: "6x-4",
+        optionC: "6x",
+        optionD: "6x-1",
         correctOption: "optionB"
     },
 
     {
-        question:  `x = (-b +- sqrt(b^2-4ac))/(2a) .` ,
-        optionA: "cos 45",
-        optionB: "-cos 45",
-        optionC: "cos -45",
-        optionD: "1/2.sin(90)",
+        question:  "Jika g(f)=x" ,
+        optionA: "f invers dari g",
+        optionB: "f=x",
+        optionC: "f=1",
+        optionD: "f--x",
         correctOption: "optionA"
     },
-
+ 
     {
-        question:  `x = (-b +- sqrt(b^2-4ac))/(2a) .`,
-        optionA: "",
-        optionB: "1,5 rad",
-        optionC: "2 rad",
-        optionD: "1/2 rad",
+        question:  `Invers dari f=2x+5 adalah`,
+        optionA: "x-5",
+        optionB: "(x+5)/2",
+        optionC: "(x-5)/2",
+        optionD: "x+5",
         correctOption: "optionC"
     },
 
     {
-        question: "29. `x = (-b +- sqrt(b^2-4ac))/(2a)' ",
-        optionA: "30",
-        optionB: "45",
-        optionC: "60",
-        optionD: "75",
+        question: "29.Invers dari f=(x+2)/(x-1) adalah ",
+        optionA: "(x+2)/(x+1)",
+        optionB: "(-x+2)/(x-1)",
+        optionC: "(-x-2)/(x-1)",
+        optionD: "(x+2)/(x-1)",
         correctOption: "optionD"
     },
 
     {
-        question: "30.   \\frac{1}{\\sqrt{x^2 + 1}}",
-        optionA: "1/3",
-        optionB: "2",
-        optionC: "3",
-        optionD: "1/4",
+        question: "30.Jika f=2x, g=x+1 dan h=2x-5 maka f &#186 g &#186 h=",
+        optionA: "4x-7",
+        optionB: "4x-8",
+        optionC: "4x+8",
+        optionD: "4x-2",
         correctOption: "optionB"
     },
 
     {
-        question: "31.   \\frac{1}{\\sqrt{x^2 + 1}}",
-        optionA: "0",
-        optionB: "90",
-        optionC: "180",
-        optionD: "270",
+        question: "31.Jika f=3x-1 dan f &#186 g=6x-1 maka g=",
+        optionA: "x",
+        optionB: "-2x",
+        optionC: "2x",
+        optionD: "2x-1",
         correctOption: "optionC"
     },
 
     {
-        question: "32.   \\frac{1}{\\sqrt{x^2 + 1}}",
-        optionA: "2",
-        optionB: "2/3",
-        optionC: "1/3",
-        optionD: "1/4",
+        question: "32. Jika f=x+4 dan f &#186 g = x , maka g=",
+        optionA: "x",
+        optionB: "x-4",
+        optionC: "x+2",
+        optionD: "x-2",
         correctOption: "optionB"
     },
 
     {
-        question: "33.Nilai tan 45 =  ",
-        optionA: "1",
-        optionB: "1/2",
-        optionC: "1/&#8730;2",
-        optionD: "&#8730;2",
-        correctOption: "optionA"
+        question: "33.Seseorang mendepositokan uang 100 juta dengan bunga 4% / tahun sistem bunga majemuk. Berapa modal tahun ke 5?",
+        optionA: "100juta",
+        optionB: "110juta",
+        optionC: "120juta",
+        optionD: ">120juta",
+        correctOption: "optionD"
     },
 
     {
-        question: "34.Nilai cos 60 + sin 30 = ... ",
-        optionA: "2",
-        optionB: "1",
-        optionC: "0",
-        optionD: "1/2",
+        question: "34.Bp.Budi membeli rumah seharga 100juta 8 tahun yang lalu dengan mencicil selama 10 tahun .Jika bunga 4%/tahun dan sistem bunga tetap, berapa sisa cicilannya sekarang",
+        optionA: "20juta",
+        optionB: "18juta",
+        optionC: "10juta", 
+        optionD: "8juta",
         correctOption: "optionB"
     },
 
     {
-        question: "35.Jika sin A = 0,6 dan cos A = 0,8 maka tan A= ... ",
-        optionA: "3/4",
-        optionB: "5/3",
-        optionC: "3/5",
-        optionD: "4/3",
+        question: "35.Transformasi geometri membahas mengenai ..., kecuali ",
+        optionA: "transmisi",
+        optionB: "translasi",
+        optionC: "rotasi",
+        optionD: "refleksi",
         correctOption: "optionA"
     }, 
 
     {
-        question: "36.Jika sin A=3/5 maka sec A = ",
-        optionA: "5/4",
-        optionB: "5/3",
-        optionC: "3/4",
-        optionD: "4/3",
-        correctOption: "optionA"
+        question: "36.Memperbesar bayangan gambar / zoom termasuk",
+        optionA: "translasi",
+        optionB: "dilatasi",
+        optionC: "rotasi",
+        optionD: "refleksi",
+        correctOption: "optionB"
     },
 
     {
-        question: "37.Luas segitiga sama sisi dengan sisi = 4  adalah ",
-        optionA: "12",
-        optionB: "6",
-        optionC: "24",
-        optionD: " &#8730;48 ",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "38.Jika tan A=3/4 maka cot A=",
-        optionA: "3/5",
-        optionB: "4/5",
-        optionC: "4/3",
-        optionD: "5/3",
+        question: "37.Jika garis y=x dicerminkan terhadap sumbu y, maka persamaan garis bayangannya adalah",
+        optionA: "y=2x",
+        optionB: "y=-2x",
+        optionC: "y=-x",
+        optionD: " y=-3x ",
         correctOption: "optionC"
     },
 
     {
-        question: "39.Fungsi y=sin x dikuadran I ",
-        optionA: "naik",
-        optionB: "turun",
-        optionC: "tetap",
-        optionD: "naik turun",
+        question: "90.Jika a + b = c maka",
+        optionA: "a = c - b",
+        optionB: "a = c + b",
+        optionC: "b = c + a", 
+        optionD: "c + b = a",
         correctOption: "optionA"
     },
 
     {
-        question: "40.Dalam segitiga bukan siku, jika a dan b diketahui maka c ditentukan dengan ... ",
-        optionA: "teorema phytagoras",
-        optionB: "tripel phytagoras",
-        optionC: "aturan cosinus",
-        optionD: "aturan sinus",
+        question: "91.Jika 2a - b = c maka ",
+        optionA: "2a = c - b",
+        optionB: "a = ( c + b )/2",
+        optionC: "2a-c+b=0",
+        optionD: "a=2(b+c)",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "92.Jika a/x=b/c maka ",
+        optionA: "x=acb",
+        optionB: "x=ab/c",
+        optionC: "x=ac/b",
+        optionD: "x=b/ac",
         correctOption: "optionC"
     },
     
     {
-        question: "41.Perbandingan antara sisi depan dengan sisi samping adalah definisi dari  ",
-        optionA: "sin",
-        optionB: "cos",
-        optionC: "tan",
-        optionD: "cot",
+        question: "93.Nilai x jika 2x=3/7 adalah ",
+        optionA: "6/7",
+        optionB: "3/14",
+        optionC: "1/7",
+        optionD: "5/7",
         correctOption: "optionC"
     },
 
@@ -1068,268 +1068,7 @@ const questionsxi = [
         correctOption: "optionB"
     },
 
-    {
-        question: "43.Kebalikan atau invers dari sin adalah  ",
-        optionA: "csc",
-        optionB: "sec",
-        optionC: "cot",
-        optionD: "cos",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "44. Nilai cos 420 =  ",
-        optionA: "0",
-        optionB: "1",
-        optionC: "-1",
-        optionD: "1/2",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "45. Nilai cos 180   =  ",
-        optionA: "0",
-        optionB: "1",
-        optionC: "-1",
-        optionD: "1/2",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "46. Nilai sin 30=...  ",
-        optionA: "sin 150",
-        optionB: "sin 210",
-        optionC: "-sin 330",
-        optionD: "sin-30",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "47.Jika sin A diketahui, maka cos A dapat ditentukan dengan ",
-        optionA: "identitas trigonometri",
-        optionB: "tripel phytagoras",
-        optionC: "aturan cosinus",
-        optionD: "aturan sinus",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "48.Luas segitiga yang sisi-sisinya 3,4,3 adalah",
-        optionA: "5 ",
-        optionB: "4",
-        optionC: "3",
-        optionD: " &#8730;20 ",
-        correctOption: "optionD"
-    },
-   
-    {
-        question: "49.Pada segitika ABC sebarang diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
-        optionA: "1/3. &#8730 7 ",
-        optionB: "3/7. &#8730 7",
-        optionC: "4/5",
-        optionD: " 1/4. &#8730 7 ",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "50.Grafik sinus naik pada kuadran ...",
-        optionA: "I dan II ",
-        optionB: "I dan III",
-        optionC: "I dan III",
-        optionD: "I dan IV ",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "51.Bentuk lain aturan sinus",
-        optionA: "a : b = sin A : sin B",
-        optionB: "a : b = sin B : sin A",
-        optionC: "a : sin B = b : sin A",
-        optionD: "a : sin A = sin B : b",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "52.Sudut -120 berada dikuadran ...",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "53.Sudut -200&#176 berada di kuadran  ",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "54.sudut 2&#8508/3 berada di kuadran  ",
-        optionA: "I",
-        optionB: "II",
-        optionC: "III",
-        optionD: "IV",
-        correctOption: "optionB"
-    },
-    
-    {
-        question: "55.Luas segitiga yang sisi-sisinya 3 , 4 dan 5 adalah",
-        optionA: "5",
-        optionB: "6",
-        optionC: "7",
-        optionD: "8",
-        correctOption: "optionB"
-    },
-
-    {
-        question: '56.Sederhanakan  2<sup>6</sup> .2<sup>-3</sup>=? ',
-        optionA: "2<sup>9</sup>",
-        optionB: "2<sup>3</sup>",
-        optionC: "2<sup>5</sup> ",
-        optionD: "2<sup>-3</sup> ",
-        correctOption: "optionB"
-    },
-
-    {
-        question: '57.Perhatikan 3<sup>2x</sup>=3<sup>6</sup>, nilai x adalah',
-        optionA: "1",
-        optionB: "2",
-        optionC: "3",
-        optionD: "-3",
-        correctOption: "optionC"
-    },
-
-    {
-        question: '58. a<sup>3</sup>.a<sup>2</sup>.a<sup>5</sup>',
-        optionA: "a<sup>5</sup>",
-        optionB: "a<sup>6</sup>",
-        optionC: "a<sup>10</sup>",
-        optionD: "a<sup>12</sup>",
-        correctOption: "optionC"
-    },
-
-    { 
-        question: '59.Persamaan exponen 9<sup>2x+1</sup>=3<sup>3x</sup> nilai x adalah',
-        optionA: "-2",
-        optionB: "2",
-        optionC: "1",
-        optionD: "-3",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "60.Persamaan exponen 2<sup>2x</sup><span>= 2<sup>4</sup></span>, nilai x adalah",
-        optionA: "2",
-        optionB: "4",
-        optionC: "-2",
-        optionD: "-4",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "61.Persamaan exponen 2<sup>2x-1</sup><span>= 2<sup>4x+3</sup></span>,  maka",
-        optionA: "(2x-1)=(4x+3)",
-        optionB: "(2x-1)=0",
-        optionC: "(4x+3)=0",
-        optionD: "(2x-1)(4x+3)=0",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "62.Persamaan exponen (2)<sup>(2x-1)</sup><span>= (3)<sup>(2x-1)</sup></span> maka",
-        optionA: "2x-1=2",
-        optionB: "2x-1=3",
-        optionC: "2x-1=1",
-        optionD: "2x-1=0",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "63.Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (4x-1)<sup>(x-1)</sup></span> maka",
-        optionA: "(4x-1)=0;4x-1=1;(2x-3)=(x-1)",
-        optionB: "(2x-3)=(x-1)",
-        optionC: "(4x-1)=0;4x-1=1",
-        optionD: "(2x-3)=0;(x-1)=0",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "64.Kasus dibawah ini ada hubungannya dengan fungsi exponen, kecuali",
-        optionA: "pertumbuhan penduduk",
-        optionB: "gerak parabola",
-        optionC: "bunga majemuk di bank",
-        optionD: "peluruhan radioaktif",
-        correctOption: "optionB" 
-    },
-
-    {
-        question: "65.Salah satu sifat fungsi exponen  y=2<sup>x</sup>",
-        optionA: "grafik tidak memotong sb. x",
-        optionB: "jika x>0 grafik selalu turun",
-        optionC: "jika x<0 grafik selalu naik",
-        optionD: "grafik tidak memotong sumbu y",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "66.Grafik y=(1/2)<sup>x</sup> ",
-        optionA: "jika x membesar , grafik menurun",
-        optionB: "jika x membesar , grafik naik",
-        optionC: "jika x membesar , grafik menurun dan memotong sb. x",
-        optionD: "jika x membesar , grafik naik dan memotong sumbu y",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "67.Persamaan exponen (4x-1)<sup>(2x-3)</sup><span>= (2x+1)<sup>(2x-3)</sup></span>, jika f dan g tidak 0 maka",
-        optionA: "4x-1=2x+1 atau 2x-3=0",
-        optionB: "2x-3=0",
-        optionC: "4x-1=1",
-        optionD: "2x+1=1",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "68.Tentukan 2<sup>x</sup>.2<sup>3x-1</sup> adalah",
-        optionA: "2<sup>4x</sup>",
-        optionB: "2<sup>(4x-1)</sup>",
-        optionC: "2<sup>3x<sup>2</sup></sup>",
-        optionD: "2<sup>x(3x-1)</sup>",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "70.Tentukan 3<sup>(x+2)</sup>=9<sup>x</sup> , maka x adalah",
-        optionA: "-2",
-        optionB: "2",
-        optionC: "3",
-        optionD: "-3",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "71.Fungsi exponen g(x)=4.(1/2)<sup>x</sup> maka g(2)=",
-        optionA: "0",
-        optionB: "1/2",
-        optionC: "1",
-        optionD: "2",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "72.Fungsi exponen g(x)=4.(1/3)<sup>x</sup> maka g(2)=",
-        optionA: " 4/9 ",
-        optionB: "2/9",
-        optionC: "8/9",
-        optionD: "4/6",
-        correctOption: "optionA"
-    },
-
-    {
+        {
         question: "73.Bank memberi bunga 10%/tahun, jika modal 2T maka setelah 2 tahun berdasarkan   fungsi bunga majemuk M(t)=M<sub>0</sub>.(1+10%)<sup>t</sup>  adalah",
         optionA: "2.42T",
         optionB: "1.4T",
@@ -1337,15 +1076,6 @@ const questionsxi = [
         optionD: "2.1T",
         correctOption: "optionA"
     },
-    
-     {
-         question:  "74.Tentukan 3. 2<sup>3x</sup>=192, maka x= ?",
-         optionA: "-1",
-         optionB: "3",
-         optionC: "0",
-         optionD: "2",
-         correctOption: "optionD"
-     },
 
 ]
 
