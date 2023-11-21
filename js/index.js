@@ -692,6 +692,70 @@ const questionsx = [
         correctOption: "optionB"
     },
 
+    {
+        question:  "90.Jika a + b = c maka ",
+        optionA: "a+b+c=0",
+        optionB: "a = c + b",
+        optionC: "a - c = b",
+        optionD: "a = c - b",
+        correctOption: "optionD"
+    },
+
+    {
+       question:  "91.Jika a/b=c maka",
+       optionA: "a=b.c",
+       optionB: "a=c/b",
+       optionC: "a/c=1/b",
+       optionD: "b/a=c",
+       correctOption: "optionA"
+    },
+
+    {
+        question:  "92.Jika 3a + b = c maka ",
+        optionA: "3a = c + b",
+        optionB: "b = c + 3a",
+        optionC: "a + b = c/3",
+        optionD: "a = ( c - b )/3",
+        correctOption: "optionD"
+    },
+
+    {
+       question:  "93.Tentukan x jika 3x + 5 = -1",
+       optionA: "2",
+       optionB: "-2",
+       optionC: "4/3",
+       optionD: "-4/3",
+       correctOption: "optionB"
+   },
+   
+   {
+    question:  "94.Tentukan x jika x=-4/(-2) +2(-1) ",
+    optionA: "1",
+    optionB: "-1",
+    optionC: "0",
+    optionD: "-4",
+    correctOption: "optionC"
+},
+   
+{
+    question:  "95.Tentukan x jika -4x = 12 + 8/(-2)",
+    optionA: "2 ",
+    optionB: "-2",
+    optionC: "-4",
+    optionD: "8",
+    correctOption: "optionB"
+},
+
+{
+    question:  "96.Tentukan x jika -4x = 12x + 8(-2)",
+    optionA: "2 ",
+    optionB: "-1",
+    optionC: "1",
+    optionD: "0",
+    correctOption: "optionC"
+},
+
+
 ]
 const questionsxi = [
     {
@@ -916,7 +980,7 @@ const questionsxi = [
 
    
     {
-        question: "26. Hasil komposisi g=3x-1 dengan f=2x-1 h=g(f)=" ,  
+        question: "26. Hasil komposisi g=3x-1 dengan f=2x-1 , maka h=g(f)=" ,  
         optionA:  "6x-3",
         optionB: "6x-4",
         optionC: "6x",
