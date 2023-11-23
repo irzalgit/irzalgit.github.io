@@ -1590,6 +1590,25 @@ const questionsxii = [
         optionD: "3x&#179 + 2x&#178 + x + C",
         correctOption: "optionB" 
     },
+
+    {
+        question:  "80.Salah satu penerapan integral adalah menentukn volume benda putar yakni",
+        optionA: "bola",
+        optionB: "silinder", 
+        optionC: "kerucut ",
+        optionD: "kubus",
+        correctOption: "optionD" 
+    },
+
+    {
+        question:  "81.Luas daerah diantara garis y=2x dengan garis y=1 dapat dinyatakan dengan ...",
+        optionA: "&#8747 (x-2) ",
+        optionB: "&#8747 (x+2) ",
+        optionC: "&#8747 (2x-1) ",
+        optionD: "&#8747 (2x+1)",
+        correctOption: "optionC" 
+    },
+
 ]
 
 
