@@ -2594,41 +2594,41 @@ const optionsno2101 = document.getElementsByName("no2101");
     }
     rno70.innerHTML = response;
   
-  if (sno41.value == "1") {
-  response = "okok";
-  poin16 = poin16 + 50;
+  if (sno41.value == "4") {
+  response = "ok";
+  poin16 = poin16 + 10;
 } else {
   response = "";
 }
 rsno41.innerHTML = response;
 
-if (sno42.value == "1") {
-  response = "okok";
-  poin16 = poin16 + 50;
+if (sno42.value == "5") {
+  response = "ok";
+  poin16 = poin16 + 10;
 } else {
   response = "";
 }
 rsno42.innerHTML = response;
 
-if (sno43.value == "1") {
-  response = "okok";
-  poin16 = poin16 + 50;
+if (sno43.value == "4") {
+  response = "ok";
+  poin16 = poin16 + 10;
 } else {
   response = "";
 }
 rsno43.innerHTML = response;
 
-if (sno44.value == "1") {
-  response = "okok";
-  poin16 = poin16 + 50;
+if (sno44.value == "10") {
+  response = "ok";
+  poin16 = poin16 + 10;
 } else {
   response = "";
 }
 rsno44.innerHTML = response;
 
-if (sno45.value == "1") {
-  response = "okok";
-  poin16 = poin16 + 50;
+if (sno45.value == "2") {
+  response = "ok";
+  poin16 = poin16 + 10;
 } else {
   response = "";
 }
