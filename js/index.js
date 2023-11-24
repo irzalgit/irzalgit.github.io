@@ -1252,6 +1252,42 @@ const questionsxii = [
         correctOption: "optionB"
     },
 
+     {
+        question: "11.Turunan y=(x-2)<sup>-1</sup> adalah",
+        optionA: "y'=(x-2)<sup>-2</sup>",
+        optionB: "y'=-(x-2)<sup>-2</sup>",
+        optionC: "y'=x<sup>-2</sup>",
+        optionD: " y'=x<sup>0</sup>",
+        correctOption: "optionB"
+    },
+
+     {
+        question: "12.Turunan y=-x<sup>2</sup> adalah",
+        optionA: "y'=-2x",
+        optionB: "y'=2x",
+        optionC: "y'=x",
+        optionD: " y'=-x",
+        correctOption: "optionA"
+    },
+
+         {
+        question: "13.Turunan y=(1-x)<sup>2</sup> adalah",
+        optionA: "y'=-2-x",
+        optionB: "y'=2-2x",
+        optionC: "y'=2x-2",
+        optionD: " y'=-2x",
+        correctOption: "optionC"
+    },
+
+             {
+        question: "14.Turunan y=(x+2)(x-4) adalah",
+        optionA: "y'=x+2",
+        optionB: "y'=x-4",
+        optionC: "y'=2x-6",
+        optionD: " y'=2x-2",
+        correctOption: "optionD"
+    },
+    
     {
         question: "40.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x+5)",
         optionA: "2",
@@ -1442,6 +1478,15 @@ const questionsxii = [
     },
 
     {
+        question: "Persamaan garis x+y-5=0 memiliki gradien m=",
+        optionA: "0",
+        optionB: "-1",
+        optionC: "5",
+        optionD: "3",
+        correctOption: "optionB"
+    },
+
+    {
         question: "63.Garis dengan sudut 45 memiliki gradien ",
         optionA: "m=2",
         optionB: "m=-1",
@@ -1455,6 +1500,15 @@ const questionsxii = [
         optionA: "12",
         optionB: "7",
         optionC: "8",
+        optionD: "1",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "Gradien g'(2) pada kurva g(x)=x<sup>2</sup>3x+1 adalah ",
+        optionA: "2",
+        optionB: "7",
+        optionC: "6",
         optionD: "1",
         correctOption: "optionB"
     },
@@ -1492,6 +1546,15 @@ const questionsxii = [
         optionB: "y'=-3x<sup>-3</sup>",
         optionC: "y'=-3x<sup>-4</sup>",
         optionD: " y'=3x<sup>-4</sup>",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Turunan y=&#8730 x adalah",
+        optionA: "y'=-x<sup>-&#189</sup>",
+        optionB: "y'=x<sup>&#189</sup>",
+        optionC: "y'=&#189 x<sup>-&#189</sup>",
+        optionD: " y'=x<sup>-2</sup>",
         correctOption: "optionC"
     },
 
@@ -1592,7 +1655,7 @@ const questionsxii = [
     },
 
     {
-        question:  "80.Salah satu penerapan integral adalah menentukn volume benda putar yakni",
+        question:  "80.Salah satu penerapan integral adalah menentukn volume benda putar yakni , kecuali",
         optionA: "bola",
         optionB: "silinder", 
         optionC: "kerucut ",
@@ -1602,10 +1665,10 @@ const questionsxii = [
 
     {
         question:  "81.Luas daerah diantara garis y=2x dengan garis y=1 dapat dinyatakan dengan ...",
-        optionA: "&#8747 (x-2) ",
-        optionB: "&#8747 (x+2) ",
-        optionC: "&#8747 (2x-1) ",
-        optionD: "&#8747 (2x+1)",
+        optionA: "&#8747 (x-2) dx ",
+        optionB: "&#8747 (x+2) dx",
+        optionC: "&#8747 (2x-1) dx ",
+        optionD: "&#8747 (2x+1) dx",
         correctOption: "optionC" 
     },
 
