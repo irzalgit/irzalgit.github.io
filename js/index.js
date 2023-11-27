@@ -405,6 +405,25 @@ const questionsx = [
     },
 
     {
+        question: "Nilai cos 60=...  ",
+        optionA: "0,5",
+        optionB: "0,7",
+        optionC: "0,86",
+        optionD: "1",
+        correctOption: "optionA"
+    },  
+      {
+        question: "Nilai cos 60 + sin 30 + tan 45  ",
+        optionA: "1",
+        optionB: "2",
+        optionC: "0",
+        optionD: "-1",
+        correctOption: "optionB"
+    },
+
+
+
+    {
         question: "47.Jika sin A diketahui, maka cos A dapat ditentukan dengan ",
         optionA: "identitas trigonometri",
         optionB: "tripel phytagoras",
@@ -413,6 +432,23 @@ const questionsx = [
         correctOption: "optionA"
     },
 
+    {
+        question: "Jika sin&#178 A = 0,2  maka cos&#178 A = ",
+        optionA: "0,8",
+        optionB: "0,6",
+        optionC: "0,4",
+        optionD: "0,2",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "Jika sin&#178 A = 0,36  maka cos A = ",
+        optionA: "0,8",
+        optionB: "0,6",
+        optionC: "0,4",
+        optionD: "0,2",
+        correctOption: "optionA"
+    },
     {
         question: "48.Luas segitiga yang sisi-sisinya 3,4,3 adalah",
         optionA: "5 ",
@@ -424,10 +460,10 @@ const questionsx = [
    
     {
         question: "49.Pada segitika ABC sebarang diketahui AC=5 , BC=4, dan sin A= 3/5. Nilai cos B adalah ...",
-        optionA: "1/3. &#8730 7 ",
-        optionB: "3/7. &#8730 7",
+        optionA: "1/3. &#8730;7 ",
+        optionB: "3/7. &#8730;7",
         optionC: "4/5",
-        optionD: " 1/4. &#8730 7 ",
+        optionD: " 1/4. &#8730;7 ",
         correctOption: "optionD"
     },
 
@@ -435,11 +471,19 @@ const questionsx = [
         question: "50.Grafik sinus naik pada kuadran ...",
         optionA: "I dan II ",
         optionB: "I dan III",
-        optionC: "I dan III",
+        optionC: "II dan III",
         optionD: "I dan IV ",
         correctOption: "optionD"
     },
 
+    {
+        question: "Grafik sinus turun pada kuadran ...",
+        optionA: "I dan II ",
+        optionB: "II dan III",
+        optionC: "I dan III",
+        optionD: "I dan IV ",
+        correctOption: "optionB"
+    },
     {
         question: "51.Bentuk lain aturan sinus",
         optionA: "a : b = sin A : sin B",
@@ -486,6 +530,15 @@ const questionsx = [
     },
 
     {
+        question: "Luas segitiga yang sisi-sisinya 13 , 12 dan 5 adalah",
+        optionA: "15",
+        optionB: "20",
+        optionC: "30",
+        optionD: "35",
+        correctOption: "optionC"
+    },
+
+    {
         question: '56.Sederhanakan  2<sup>6</sup> .2<sup>-3</sup>=? ',
         optionA: "2<sup>9</sup>",
         optionB: "2<sup>3</sup>",
@@ -512,6 +565,69 @@ const questionsx = [
         correctOption: "optionC"
     },
 
+    {
+        question: 'Sederhanakan  a<sup>3</sup>.a<sup>-2</sup>.a<sup>4</sup>',
+        optionA: "a<sup>5</sup>",
+        optionB: "a<sup>6</sup>",
+        optionC: "a<sup>10</sup>",
+        optionD: "a<sup>12</sup>",
+        correctOption: "optionA"
+    },
+
+    {
+        question: 'Sederhanakan  (a<sup>3</sup>)&#178.a<sup>-6</sup>.a<sup>2</sup>',
+        optionA: "a<sup>5</sup>",
+        optionB: "a<sup>6</sup>",
+        optionC: "a<sup>10</sup>",
+        optionD: "a<sup>2</sup>",
+        correctOption: "optionD"
+    },
+
+    {
+        question: 'Tentukan (&#8730;2)&#179 ',
+        optionA: "&#8730;2",
+        optionB: "2&#8730;2",
+        optionC: "3",
+        optionD: "8",
+        correctOption: "optionD"
+    },
+
+    {
+        question: 'Tentukan (&#8730 3)&#179 : &#8730;3',
+        optionA: "&#8730;2",
+        optionB: "2&#8730;3",
+        optionC: "3",
+        optionD: "4",
+        correctOption: "optionC"
+    },
+
+    {
+        question: 'Tentukan log 2 + log 3 =',
+        optionA: "log 5",
+        optionB: "log 6",
+        optionC: "log 23",
+        optionD: "log 8",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: 'Tentukan log 2 - log 3 + log 5 =',
+        optionA: "log 7",
+        optionB: "log 10",
+        optionC: "log 3", 
+        optionD: "1 - log 3",
+        correctOption: "optionD"
+    },
+
+    {
+        question: 'Jika log a=0,2 , tentukan log a&#179  =',
+        optionA: "0,4",
+        optionB: "0,8",
+        optionC: "0,1", 
+        optionD: "0,6",
+        correctOption: "optionD"
+    },
+    
     { 
         question: '59.Persamaan exponen 9<sup>2x+1</sup>=3<sup>3x</sup> nilai x adalah',
         optionA: "-2",
@@ -790,7 +906,7 @@ const questionsxi = [
         optionA: "linier",
         optionB: "singuler",
         optionC: "sekunder",
-        optionD: "mirror",
+        optionD: "minor",
         correctOption: "optionB"
     },
 
@@ -809,6 +925,15 @@ const questionsxi = [
         optionB: "1 x 2",
         optionC: "1 x 3",
         optionD: "3 x 1",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Matrik berordo 2 x 2 dikalikan matrik berordo 2 x 3 maka matrik hasilnya berordo",
+        optionA: "1 x 1",
+        optionB: "1 x 2",
+        optionC: "2 x 3",
+        optionD: "3 x 2",
         correctOption: "optionC"
     },
 
@@ -1070,7 +1195,7 @@ const questionsxi = [
     }, 
 
     {
-        question: "36.Memperbesar bayangan gambar / zoom termasuk",
+        question: "36.Memperbesar bayangan gambar / atau zoom termasuk",
         optionA: "translasi",
         optionB: "dilatasi",
         optionC: "rotasi",
@@ -1287,7 +1412,41 @@ const questionsxii = [
         optionD: " y'=2x-2",
         correctOption: "optionD"
     },
+
+                {
+        question: "Jika x+5=2x-1 maka nilai x  adalah",
+        optionA: "6",
+        optionB: "5",
+        optionC: "4",
+        optionD: " 2",
+        correctOption: "optionA"
+    },
     
+        {
+        question: "Jika x+4=-(2x-1) maka nilai x  adalah",
+        optionA: "1",
+        optionB: "-1",
+        optionC: "4",
+        optionD: " 2",
+        correctOption: "optionB"
+    },
+    {
+        question: "Uraikan: -2(2x-1) = ?",
+        optionA: "-4x-1",
+        optionB: "-4x+2",
+        optionC: "-4x-1",
+        optionD: "4x-2",
+        correctOption: "optionB"
+    },
+    {
+        question: "Uraikan x-4(2x-1) = ?",
+        optionA: "-7x-1",
+        optionB: "-7x+4",
+        optionC: "-4x-1",
+        optionD: "8x-2",
+        correctOption: "optionB"
+    },
+
     {
         question: "40.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x+5)",
         optionA: "2",
@@ -1296,6 +1455,7 @@ const questionsxii = [
         optionD: "-2",
         correctOption: "optionC"
     },
+
     
     {
         question: "41.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x<sup>2</sup>-5)",
@@ -1550,7 +1710,7 @@ const questionsxii = [
     },
 
     {
-        question: "Turunan y=&#8730 x adalah",
+        question: "Turunan y=&#8730;x adalah",
         optionA: "y'=-x<sup>-&#189</sup>",
         optionB: "y'=x<sup>&#189</sup>",
         optionC: "y'=&#189 x<sup>-&#189</sup>",
@@ -1906,7 +2066,7 @@ function kirimeva(){
 
     if ( jno18091.checked){
         let shuffledQuestions = [];
-        response = "Evaluasi kelas x : Bilangan Berpangkat, Fungsi Exponen dan  Trigonometri";
+        response = "Evaluasi kelas x: Bilangan Berpangkat, Fungsi Exponen dan  Trigonometri";
         
         while (shuffledQuestions.length <=40 ) {
         const random = questionsx[Math.floor(Math.random() * questionsx.length)]
