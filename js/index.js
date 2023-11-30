@@ -1448,6 +1448,48 @@ const questionsxii = [
     },
 
     {
+        question: "35.Titik2 dibawah ini terletak pada kurva y=3x&178;+2 kecuali2,1) dan koefisien arah m=3 adalah  ",
+        optionA: "(1,5)",
+        optionB:"(1,2)",
+        optionC: "(0,2)",
+        optionD: "(-1,5)",
+        correctOption: "optionB"
+    },
+    {
+        question: "36.Persamaan garis melalui titik (2,1) dan koefisien arah m=3 adalah  ",
+        optionA: "y-1=3(x-2)",
+        optionB:"y-2=3(x-1)",
+        optionC: "y-3=2(x-1)",
+        optionD: "y+1=3(x+2)",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "37.Bentuk umum persamaan garis yang melaluui titik (a,f(a) pada kurva f(x) adalah ",
+        optionA: "y-a=f'(y-f(a))",
+        optionB:"y=f'(y-f(a))",
+        optionC: "y-f(a)=f'(a)(x-a)",
+        optionD: "y-f(a)=(x-a)",
+        correctOption: "optionC"
+    },
+    {
+        question: "38.Deferensial  kurva y=x&#178; pada titik (3,9) adalah ",
+        optionA: "y'=3",
+        optionB:"y'=1",
+        optionC: "y'=6",
+        optionD: "y=9",
+        correctOption: "optionC"
+    },
+    {
+        question: "39.Persamaan garis singgung dititik (3,9) pada kurva y=x&#178; adalah ",
+        optionA: "y=6x-6",
+        optionB:"y=6x+9",
+        optionC: "y=6x-9",
+        optionD: "y=6x",
+        correctOption: "optionC"
+    },
+
+    {
         question: "40.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x+5)",
         optionA: "2",
         optionB:"1",
@@ -1782,10 +1824,10 @@ const questionsxii = [
     },
     {
         question:  "76.Tentukan hasil integral &#8747 3x&#178 dx",
-        optionA: " x&#179",
-        optionB: "&#189 x&#178", 
-        optionC: "&#8532 x&#179",
-        optionD: "&#8531 x&#179",
+        optionA: " x&#179;+ C",
+        optionB: "&#189 x&#178; + C", 
+        optionC: "&#8532 x&#179; + C",
+        optionD: "&#8531 x&#179; + C",
         correctOption: "optionA"
     },
     {
@@ -1815,7 +1857,7 @@ const questionsxii = [
     },
 
     {
-        question:  "80.Salah satu penerapan integral adalah menentukn volume benda putar yakni , kecuali",
+        question:  "80.Salah satu penerapan integral adalah menentukan volume benda putar yakni , kecuali",
         optionA: "bola",
         optionB: "silinder", 
         optionC: "kerucut ",
