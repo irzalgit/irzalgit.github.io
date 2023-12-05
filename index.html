@@ -6,30 +6,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hallo,sahabat</title>
-
+<link href="./css/styleaudio.css " rel="stylesheet">  
 <link href="./css/pas.css" rel="stylesheet">  
-<link href="./css/output.css" rel="stylesheet">
+<link href="./css/output.css" rel="stylesheet"> 
 <script src="https://unpkg.com/feather-icons"></script>
 <script src="./js/index.js"></script> 
 <script src="./src/kirim.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>  
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script> 
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:ital,wght@0,300;1,200&display=swap" rel="stylesheet">
 <link rel="stylesheet href="https://fonts.googleapis.com/css2?family=Tangerine">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  
+
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>     
 <!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>  -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
 
-// <script>
-//   MathJax = {
-//  loader: {load: ['input/asciimath', 'output/chtml']}
-//   };  
-//   </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<!-- <link rel="stylesheet" href="pas.css"> -->
  
 
 
@@ -70,7 +72,7 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   #bab4 {display: none;}
   #bab5 {display: none;}
   #bab8 {display: none;}
-  #bab12 {display: none;}
+  #bab12 {display: block;}
   #babutama {display: block;}
   #bab13 {display: none;}
   #bab17 {display: none;}
@@ -91,12 +93,14 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
 
   
 
-
-   
+  <div id="signin" style=" font-size: 2rem; text-align:center ; width:20% ;  background-color: blue; color:wheat;" >
+    <a href="#home" class="btn btn-primary" onClick="enableScroll()">OPEN</a>
+            </div>
   
 <!-- This example requires Tailwind CSS v3.0+ -->
 <div class="isolate bg-white">
-  <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+  
+  <!-- <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
     <svg class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]" viewBox="0 0 1155 678" xmlns="http://www.w3.org/2000/svg">
       <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
       <defs>
@@ -106,12 +110,14 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
         </linearGradient>
       </defs> 
     </svg>
-  </div>
+  </div> -->
+
+
   <div class="px-6 pt-6 lg:px-8">
      <!-- <nav class="flex items-center justify-between" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">b'phy</span>
+          <span class="sr-only">B'PHY</span>
 
          
           </a> 
@@ -137,8 +143,8 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
       </div> 
-     </nav>  -->
-<!--   
+     </nav>  
+ 
     <div role="dialog" aria-modal="true">
       <div focus="true" class="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
         <div class="flex items-center justify-between">
@@ -173,7 +179,9 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
       </div>
     </div>  -->
   </div>
+
    <div>
+        
     <div class="relative px-6 lg:px-8">
       <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
         <div class="hidden sm:mb-8 sm:flex sm:justify-center">
@@ -188,18 +196,20 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
           <circle r="0.525" fill="red"><animateMotion dur="16s" repeatCount="indefinite" path="M.12 12.594c.031-.15.095-.27.152-.39.12-.267.294-.425.459-.592.163-.165.342-.277.52-.386.132-.08 1.299 1.177 1.433 1.1.12-.057-.794-1.456-.672-1.503.173-.06.35-.08.525-.097.198-.015.397-.005.596-.006.161.007 3.033 1.414 3.195 1.409.204-.009-2.303-1.428-2.1-1.427.209.012.417 0 .625.012.156.014.312.016.468-.012.151-.03.302-.067.453-.093l.456-.12c.147-.043 5.522 1.89.442-.113.115-.035.231-.057.348-.083.107-.04.216-.065.323-.113.093-.055.19-.076.284-.124.055-.028.11-.064.165-.094.171-.102 4.175.122 4.336-.019.186-.21-2.955-.746-2.768-.951.216-.23-.092-.507.106-.782.284-.388 3.66.823.842-1.186.21-.285 2.335-1 2.516-1.343.175-.335-1.61-.32-1.452-.683-.26 1.124.06-.135.09-.202.147-.329 1.318-.366 1.464-.698.091-.206-1.113-.103-1.024-.312.165-.368.315-.753.463-1.143.02-.053.04-.106.062-.16l-.044-.764V.002c0-.062-.04 1.833-.06 1.892-.148.4-.582.14-.748.518-.173.404-.06 1.467-.24 1.86-.158.35-.313.708-.483 1.04-.18.361-.367.709-.572 1.027-.264.423 1.04-5.267.74-4.926-.205.236-1.987 6.57-2.189 6.816-.183.198-.488-4.051-.68-3.88-.157.146-.2 4.72-.372 4.805a3.36 3.36 0 0 1-.446.183c-.107.034-.215.053-.322.088-.115.044-.23.085-.348.116-.146.05-.712-2.226-.859-2.183-.151.038.117 2.386-.036 2.415-.15.042-.3.09-.451.098-.155.022-.309.052-.464.05-.208.013-.416.001-.624.013-.204.001-.408-.016-.611-.024a5.466 5.466 0 0 0-.486.012c-.199.003-.398.02-.597.022-.177.003-.356.003-.532.042-.126.038-.246.1-.367.167-.135.085-.269.17-.403.257-.176.13-.35.269-.525.409-.167.154-.319.353-.477.533-.055.11-.112.218-.168.324l.058.918z"/></circle>
           <circle r="0.5" fill="black"><animateMotion dur="20s" repeatCount="indefinite" path="M.12 12.594c.031-.15.095-.27.152-.39.12-.267.294-.425.459-.592.163-.165.342-.277.52-.386.132-.08 1.299 1.177 1.433 1.1.12-.057-.794-1.456-.672-1.503.173-.06.35-.08.525-.097.198-.015.397-.005.596-.006.161.007 3.033 1.414 3.195 1.409.204-.009-2.303-1.428-2.1-1.427.209.012.417 0 .625.012.156.014.312.016.468-.012.151-.03.302-.067.453-.093l.456-.12c.147-.043 5.522 1.89.442-.113.115-.035.231-.057.348-.083.107-.04.216-.065.323-.113.093-.055.19-.076.284-.124.055-.028.11-.064.165-.094.171-.102 4.175.122 4.336-.019.186-.21-2.955-.746-2.768-.951.216-.23-.092-.507.106-.782.284-.388 3.66.823.842-1.186.21-.285 2.335-1 2.516-1.343.175-.335-1.61-.32-1.452-.683-.26 1.124.06-.135.09-.202.147-.329 1.318-.366 1.464-.698.091-.206-1.113-.103-1.024-.312.165-.368.315-.753.463-1.143.02-.053.04-.106.062-.16l-.044-.764V.002c0-.062-.04 1.833-.06 1.892-.148.4-.582.14-.748.518-.173.404-.06 1.467-.24 1.86-.158.35-.313.708-.483 1.04-.18.361-.367.709-.572 1.027-.264.423 1.04-5.267.74-4.926-.205.236-1.987 6.57-2.189 6.816-.183.198-.488-4.051-.68-3.88-.157.146-.2 4.72-.372 4.805a3.36 3.36 0 0 1-.446.183c-.107.034-.215.053-.322.088-.115.044-.23.085-.348.116-.146.05-.712-2.226-.859-2.183-.151.038.117 2.386-.036 2.415-.15.042-.3.09-.451.098-.155.022-.309.052-.464.05-.208.013-.416.001-.624.013-.204.001-.408-.016-.611-.024a5.466 5.466 0 0 0-.486.012c-.199.003-.398.02-.597.022-.177.003-.356.003-.532.042-.126.038-.246.1-.367.167-.135.085-.269.17-.403.257-.176.13-.35.269-.525.409-.167.154-.319.353-.477.533-.055.11-.112.218-.168.324l.058.918z"/></circle>
         </svg>
+        
+                  
       </div>
            <!-- <div class="relative rounded-full py-1 px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
             Announcing our next round of funding. <a href="#" class="font-semibold text-indigo-600"><span class="absolute inset-0" aria-hidden="true"></span>buka <span aria-hidden="true">&rarr;</span></a>
           </div>  -->
         </div>
+        
         <div class="text-center">
           <h1><span class="bg-gradient-to-tr from-green-800 via red-500 to-blue-800 bg-clip-text text-transparent text-8xl font-tangerine hover:font-inter">B'phy</span></h1>
           <h1 class="text-4xl  font-bold tracking-tight text-gray-900 sm:text-5xl font-tangerine">Portal Peta Pikiran</h1>
           <h1 class="text-2xl  font-bold tracking-tight text-sky-600 sm:text-3xl">profesional kolaboratif</h1>
           <h1 class="text-2xl  font-bold tracking-tight text-sky-600 sm:text-2xl">untuk</h1>
           <h1 class="text-2xl  font-italic tracking-tight text-red-600 sm:text-xl">kerangka berfikir logis-sistematis</h1>
-
           <p class="mt-6 text-lg leading-8 text-gray-600">cara lain untuk menguasai materi pelajaran dengan cepat dan mudah</p>
            <!-- <div class="mt-10 flex items-center justify-center gap-x-6">
             <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
@@ -218,12 +228,15 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
           </defs>
         </svg>
       </div>
+ 
     </div>
   </div> 
- 
+
+  
+
 <!-- #9089FC -->
 
-<div class="min-h-full">
+<div class="min-h-full home" id="home">
   <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
@@ -236,13 +249,13 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Beranda</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">MTK</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">BLOG</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Literasi Numerik</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Matematika</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Produk Mindmap</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Shop Mindmap</a>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">UTBK</a>
+              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">UTBK24</a>
             </div>
           </div>
         </div>
@@ -277,7 +290,7 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
               -->
               <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0"></a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Sign in</a>
 
                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Pengaturan</a>
 
@@ -317,11 +330,11 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" >Beranda</a>
         <a href="http://www.sainforum.blogspot.com" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Blog</a>
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Literasi Numerik</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Matematika</a>
 
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Produk Mindmap</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Shop Mindmap</a>
 
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">UTBK</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">UTBK24</a>
       </div>
       <div class="border-t border-gray-700 pt-4 pb-3">
         <div class="flex items-center px-5">
@@ -351,9 +364,9 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     </div>
   </nav>
 
-  <header class="bg-white shadow">
+  <header class="bg-white shadow " >
     <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold tracking-tight text-gray-900">Beranda</h1>
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 " >Beranda</h1>
       
     </div>
   </header>  
@@ -393,7 +406,7 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
  
 
   <i data-feather="edit"> </i> 
- <p>update:30/11/23 </p>
+ <p>update:05/12/23 </p>
 <i data-feather="eye"></i>
 <div>
 <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
@@ -406,12 +419,12 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
    -->
   
   <br>
-  <figure>
+  <!-- <figure>
     <figcaption>Putri Ariani</figcaption>
     <audio controls src="./vidio/lier.mp3">
       <a href="./vidio/lier.mp3"> Download audio </a>
     </audio>
-  </figure>
+  </figure> -->
 
 <!--   
     <h3 class="font-tangerine"> Tentang Portal Peta Pikiran</h3>
@@ -629,7 +642,9 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
    </a> 
   -->
  
-<div class="text-2xl">Bilangan Berpangkat</div>
+
+<h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Bilangan Berpangkat (X)</h1>
+
 
 <span id="dots1">...</span>
     <div id="more1">
@@ -2493,7 +2508,7 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
 
 </div>
 <!-- batas -->
-
+<!-- batas awal bab2 -->
 
 
 <div id="bab2" class=" dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700">
@@ -4271,7 +4286,7 @@ nilai <label>$$S_{10}$$</label> adalah
 
 
 
-<h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Persamaan dan Fungsi Exponen </h1>
+<h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Persamaan dan Fungsi Exponen (X)</h1>
 
   
   <span id="dots10">...</span>
@@ -4703,18 +4718,19 @@ maka nilai f(2) <br>
 
 </div> 
 <!-- batas akhir 10-->
-
+<!-- batas awal bab 6 -->
 
 <div id="bab6" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4 text-black bg-[#FFEBCD] ">
   
-    <h2 class=" text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Trigonometri</h2>
-    <span id="dots6">  Trigonometri mempelajari perbandingan sisi sisi 
+  <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Trigonometri (X) </h1>
+  
+    <span id="dots6">  Trigonometri mempelajari perbandingan sisi -sisi 
     pada segitiga siku...</span>
   
 
-    <div class=" w-full h-48 overflow-auto touch-auto object-center">
+    <!-- <div class=" w-full h-48  touch-auto object-center">
       <img    src='gbr/mtk1.jpg'>
-      </div> 
+      </div>  -->
     <div id="more6">
 Perhatikan segitiga siku dibawah ini.
 Ada 6 perbandingan dengan simbol sbb
@@ -5518,7 +5534,8 @@ jika sudut 90 derajat diubah ke radian menjadi</label><br>
 
  
 
-  <h2 class="text-2xl">Aritmatika Sosial </h2>
+  <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Aritmatika Sosial (XI)</h1>
+  
 Penerapan barisan dan deret aritmatika/geometri adalah menghitung dan mengelola keuangan yakni: 
   <br>1.Pinjaman.<br>2.Investasi.<br>3.Anuitas.<br>
   
@@ -5664,9 +5681,11 @@ $A=H\frac{1}{ \sum_{n=1}^{n} \frac{1}{(1+i)^n}}$
     </div>
   </div>
 <!-- batas -->
+<!-- batas awal bab7 -->
   <div id="bab7" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border border-black p-4 text-slate-700 bg-[#DCDCDC] ">
  
-  <h1 >MATRIK</h1>
+  
+    <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Matrik(XI) </h1>
   <span id="dots7">...</span>
   
   <div id="more7">
@@ -10276,8 +10295,7 @@ terhadap sumbu y adalah
 
 
 <div id="bab11" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFE4E1]">
-
-<h2 classs="font-semibold">Fungsi Komposisi dan invers fungsi komposisi (XI)</h2>
+  <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Fungsi Komposisi dan Invers fungsi  (XI) </h1>
 <span id="dots11">...</span>
     <div id="more11">
 <p>
@@ -10703,7 +10721,8 @@ $g(x) = ...$</p>
 
  
 
-  <h2 class="text-2xl">Transformasi Geometri </h2>
+  <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Transformasi Geometri  (XI) </h1>
+  
   Transformasi = perubahan ; geometri : hal yang berhubungan dengan titik , sudut, garis , bidang, ruang. Transformasi geometri 
   dapat diartikan sebagai perubahan kedudukan suatu titik pada koordinat Cartesius.<br>
   Jenisnya:
@@ -11221,10 +11240,12 @@ $g(x) = ...$</p>
   
     </div>
     <div x-data="{open:false}">
-      <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' :  'buka mindmap'"> </button>
-     <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction19()" id="myBtn19">
-        <i data-feather="book-open"></i></button>
-    <div x-show='open'> 
+      <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl " @click='open=!open' x-text="open ? 'tutup mindmap' :  'buka mindmap'"> </button>
+      <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction19()" id="myBtn19">
+        Buka <i data-feather="book-open"></i></button>
+
+
+        <div x-show='open'> 
            
            <div class="bg-green-100 w-full h-48 overflow-auto touch-auto object-center">
            <img class="zoom19   max-w-none h-auto w-full" src='gbr/maptran.svg'>
@@ -11241,8 +11262,9 @@ $g(x) = ...$</p>
 <!--batas -->
 
 <div id="bab12" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFE4C4]">
-  
-<h2 >Persamaan Lingkaran (XI)</h2>
+
+
+  <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Persamaan Lingkaran (XI) </h1>
 <span id="dots12">...</span>
     <div id="more12">
 <hr>
@@ -11742,7 +11764,7 @@ id="nilai13"></div>
 </div>
 <div id="bab14" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFE4B5]">
 
-<h2>Limit Fungsi Aljabar (XII)</h2>
+  <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Limit Fungsi Aljabar (XII) </h1>
 <span id="dots14">...</span>
     <!-- <img class=" max-w-none h-auto w-50% " src='gbr/ttentu.jpg'> -->
     <div id="more14">
@@ -12448,7 +12470,8 @@ $\lim\limits_{x \to a} \frac {f(x)} {g(x)}=\lim\limits_{x \to a} (\frac {f'(x)} 
 
 <div id="bab15" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFA07A]">
 
-<p class="font-bold">DEFERENSIAL</p>
+    <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Deferensial/Turunan(XII)</h1>
+
 <span id="dots15">...</span>
     <div id="more15">
 Misalkan y=f(x) adalah fungsi dari x maka turunan dari y terhadap x dinotasikan dengan y'=f'(x) dan
@@ -13223,7 +13246,6 @@ turun<br>
   <input type="radio" name="no9619" style=" display:inline-flex" >
   
     0 < x < 1 
-  
   <br>
   <input type="radio" name="no9619" style="display:inline-flex" id="jno9619">
   
@@ -13385,8 +13407,10 @@ turun<br>
 <div id="bab16" class=" border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFB6C1">
 
 
+  
+  <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Integral (XII) </h1>
+  
 
-<h1>Integral</h1> 
 Integral adalah kebalikan  dari deferensial atau disebut 
 juga antiderivat. Jika f(x)  diturunkan terhadap x dapat dinyatakan dengan d/dx(f(x)). 
 <br>Dimana d/dx disebut operator untuk turunan.
@@ -13397,7 +13421,7 @@ Dengan demikian jika d/dx(f(x))=F(x) maka $\int  F(x).dx$=f(x)
     <div id="more16">
 <div style="display: inline;" >
   <hr>
-<p style="disp: inline;">jika a bilangan real , dan</p>  
+<p style="display: inline;">jika a bilangan real , dan</p>  
 <span style="display:inline-flex;">$$n\neq -1$$</span>
 <p style="display:inline-flex;">maka</p>
 </div>
@@ -15528,7 +15552,9 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 
 <div  id="bab23" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#98FB98]">
 
-  <h2>Evaluasi</h2>
+
+  <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Evaluasi(Kisi-kisi PAS) </h1>
+  
 
   <!-- <p>When `a != 0`, there are two solutions to `ax^2 + bx + c = 0` and
     they are</p>
@@ -15633,7 +15659,7 @@ Bekerja </b></font></font><font face="Wingdings, serif">
   </div>
   
 <div id="eva" >
-  <p>Pilih kelas untuk dievaluasi</p>
+  <p>Pilih kelas lalu klik tombol ok</p>
     <label>
          <input type="radio" name="no18091" style="display:inline-flex" id="jno18091">Kelas x<br> 
          <input type="radio" name="no18091" style="display:inline-flex" id="jno18092">Kelas xi<br>
@@ -15641,7 +15667,8 @@ Bekerja </b></font></font><font face="Wingdings, serif">
     </label> 
     <br>
     <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirimeva()>ok </button>
-    
+    <!-- <button class="py-2 px-6 bg-slate-700 text-slate-200 rounded-3xl" onclick="putar()">Perfect Lier song's Putri Ariani</button> -->
+
    <h1 id="rno18091"></h1>
     <h1 id="nilaieva"></h1>
   </div>
@@ -15651,6 +15678,8 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 
 <div x-data="{open:false}">
   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction23()" id="myBtn23">buka soal evaluasi</button>
+  
+
 </div>
 
 
@@ -15692,7 +15721,7 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 	   
 <!-- <h1>dimana biru</h1> -->
 </div>
-<h1> hijau</h1>
+
 <!-- </div>  -->
 </div>
 
@@ -15752,6 +15781,19 @@ Bekerja </b></font></font><font face="Wingdings, serif">
     
       
 <footer class="text-center text-black" style="background-color: #6CA0DC;">
+
+<div id="audio-container">
+<audio id="song" autoplay loop>
+<source src="./vidio/lier.mp3" type="audio/mp3">
+</audio>
+<div class="audio-icon-wrapper" >
+  <i class="bi bi-disc"></i>
+</div>
+</div>
+
+
+
+
 <p class="text-3xl font-bold">Analisis</p>
       <form class="mx-10" id='foo'>
         
@@ -15930,7 +15972,59 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           });
           </script>
         -->
-          
+
+        <script>
+          const rootElement = document.querySelector(":root");
+          const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
+          const audioIcon = document.querySelector('.audio-icon-wrapper i');
+          const song = document.querySelector('#song');
+          let isPlaying = false;
+      
+          function disableScroll() {
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+      
+            window.onscroll = function () {
+              window.scrollTo(scrollTop, scrollLeft);
+            }
+      
+            rootElement.style.scrollBehavior = 'auto';
+          }
+      
+          function enableScroll() {
+            window.onscroll = function () { }
+            rootElement.style.scrollBehavior = 'smooth';
+            // localStorage.setItem('opened', 'true');
+            playAudio();
+          }
+      
+          function playAudio() {
+            song.volume = 0.1;
+            audioIconWrapper.style.display = 'flex';
+            song.play();
+            isPlaying = true;
+          }
+      
+          audioIconWrapper.onclick = function () {
+            if (isPlaying) {
+              song.pause();
+              audioIcon.classList.remove('bi-disc');
+              audioIcon.classList.add('bi-pause-circle');
+            } else {
+              song.play();
+              audioIcon.classList.add('bi-disc');
+              audioIcon.classList.remove('bi-pause-circle');
+            }
+      
+            isPlaying = !isPlaying;
+          }
+      
+          // if (!localStorage.getItem('opened')) {
+          //   disableScroll();
+          // }
+          disableScroll();
+        </script>
+        
 <script>
   function myFunction() {
     var dots = document.getElementById("dots");
