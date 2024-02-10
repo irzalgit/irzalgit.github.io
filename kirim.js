@@ -490,7 +490,7 @@ function kirimtri2() {
   if (jno141.checked) jno141.checked = false;
   if (jno142.checked) jno142.checked = false;
 }
-function kirim3() {
+function kirimkua3() {
   let poin = 0;
   const jno71 = document.querySelector("#jno71");
   const jno72 = document.querySelector("#jno72");
