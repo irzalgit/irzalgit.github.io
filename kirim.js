@@ -764,5 +764,5 @@ function kirimkua() {
   }
   rno192.innerHTML = response;
 
-  nilai3.innerHTML = poin;
+  nilaikua.innerHTML = poin;
 }
