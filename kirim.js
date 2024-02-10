@@ -1,4 +1,4 @@
-function kirimtri2() {
+77function kirimtri2() {
   let poin = 0;
   const jno31 = document.querySelector("#jno31");
   const jno32 = document.querySelector("#jno32");
@@ -490,7 +490,7 @@ function kirimtri2() {
   if (jno141.checked) jno141.checked = false;
   if (jno142.checked) jno142.checked = false;
 }
-function kirimkua3() {
+function kirimkua() {
   let poin = 0;
   const jno71 = document.querySelector("#jno71");
   const jno72 = document.querySelector("#jno72");
