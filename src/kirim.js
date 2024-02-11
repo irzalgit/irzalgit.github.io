@@ -2618,7 +2618,7 @@ if (sno43.value == "4") {
 }
 rsno43.innerHTML = response;
 
-if (sno44.value == "10") {
+if (sno44.value == "-10") {
   response = "ok";
   poin16 = poin16 + 10;
 } else {
