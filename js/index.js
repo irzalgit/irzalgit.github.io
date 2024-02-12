@@ -1270,7 +1270,7 @@ const questionsxi = [
 
 const questionsxii = [
     {
-        question: "1.Berdasarkan sifat -sifat limit, maka lim 5x pada saat x mendekati 2 adalah ",
+        question: "Berdasarkan sifat -sifat limit, maka lim 5x pada saat x mendekati 2 adalah ",
         optionA: " 2",
         optionB: "5",
         optionC: "7 ",
@@ -1279,7 +1279,7 @@ const questionsxii = [
     },
 
      {
-        question: "8.Berdasarkan sifat -sifat limit, maka lim 5-x pada saat x mendekati 2 adalah ",
+        question: "Berdasarkan sifat -sifat limit, maka lim 5-x pada saat x mendekati 2 adalah ",
         optionA: " 2",
         optionB: "5",
         optionC: "7 ",
@@ -1288,16 +1288,16 @@ const questionsxii = [
     },
 
      {
-        question: "9.Berdasarkan sifat -sifat limit, maka lim 5x+2 pada saat x mendekati 2 adalah ",
+        question: "Berdasarkan sifat -sifat limit, maka lim 5x+2 pada saat x mendekati 2 adalah ",
         optionA: " 2",
         optionB: "6",
-        optionC: "7 ",
-        optionD: "12 ",
-        correctOption: "optionD"
+        optionC: "12 ",
+        optionD: "14",
+        correctOption: "optionC"
     },
 
     {
-        question: "2.Berdasarkan sifat -sifat limit, maka lim (-5x+3) pada saat x mendekati -1 adalah",
+        question: "Berdasarkan sifat -sifat limit, maka lim (-5x+3) pada saat x mendekati -1 adalah",
         optionA: "8",
         optionB: "11",
         optionC: "1",
@@ -1306,7 +1306,7 @@ const questionsxii = [
     },
 
     {
-        question: "3.Berdasarkan sifat -sifat limit, maka lim (x-2)/(x-2) pada saat x mendekati 2 adalah",
+        question: "Berdasarkan sifat -sifat limit, maka lim (x-2)/(x-2) pada saat x mendekati 2 adalah",
         optionA: "0",
         optionB: "~",
         optionC: "1",
@@ -1315,7 +1315,7 @@ const questionsxii = [
     },
 
     {
-        question: " 4.Berdasarkan sifat-sifat limit, maka lim (x-2)/(x+1)(x-2) pada saat x mendekati 2 adalah ",
+        question: " Berdasarkan sifat-sifat limit, maka lim (x-2)/(x+1)(x-2) pada saat x mendekati 2 adalah ",
         optionA: "1/3",
         optionB: "1/5",
         optionC: "0",
@@ -1324,7 +1324,7 @@ const questionsxii = [
     },
 
     {
-        question: "5.Berdasarkan sifat-sifat limit, maka lim (x-2)(x+2)/(x+1)(x-2) pada saat x mendekati 2 adalah ",
+        question: "Berdasarkan sifat-sifat limit, maka lim (x-2)(x+2)/(x+1)(x-2) pada saat x mendekati 2 adalah ",
         optionA: "3/4",
         optionB: "4/3",
         optionC: "0",
@@ -1333,7 +1333,7 @@ const questionsxii = [
     },
 
     {
-        question: "6.Berdasarkan sifat-sifat limit, maka lim (x<sup>2</sup>-4)/(x-1)(x-2) pada saat x mendekati 2 adalah ",
+        question: "Berdasarkan sifat-sifat limit, maka lim (x<sup>2</sup>-4)/(x-1)(x-2) pada saat x mendekati 2 adalah ",
         optionA: "1",
         optionB: "2",
         optionC: "4",
@@ -1342,7 +1342,7 @@ const questionsxii = [
     },
 
    {
-        question: "7.Berdasarkan sifat-sifat limit, maka lim  x<sup>2</sup>-3x+2/(x<sup>2</sup>-4) pada saat x mendekati 2 adalah ",
+        question: "Berdasarkan sifat-sifat limit, maka lim  x<sup>2</sup>-3x+2/(x<sup>2</sup>-4) pada saat x mendekati 2 adalah ",
         optionA: "1",
         optionB: "1/4",
         optionC: "0",
@@ -1351,7 +1351,7 @@ const questionsxii = [
     },
 
     {
-        question: "8.Turunan y=-2x<sup>-2</sup> adalah",
+        question: "Turunan y=-2x<sup>-2</sup> adalah",
         optionA: "y'=-2x<sup>2</sup>",
         optionB: "y'=-2x<sup>-3</sup>",
         optionC: "y'=-3x<sup>-4</sup>",
@@ -1360,7 +1360,7 @@ const questionsxii = [
     },
 
     {
-        question: "9.Turunan y=2x<sup>-1/2</sup> adalah",
+        question: "Turunan y=2x<sup>-1/2</sup> adalah",
         optionA: "y'=-x<sup>2</sup>",
         optionB: "y'=-x<sup>-3/2</sup>",
         optionC: "y'=-2x<sup>-2</sup>",
@@ -1369,7 +1369,7 @@ const questionsxii = [
     },
 
     {
-        question: "10.Turunan y=(2/3)x<sup>3/2</sup> adalah",
+        question: "Turunan y=(2/3)x<sup>3/2</sup> adalah",
         optionA: "y'=x<sup>2</sup>",
         optionB: "y'=x<sup>1/2</sup>",
         optionC: "y'=x<sup>-1/2</sup>",
@@ -1378,7 +1378,7 @@ const questionsxii = [
     },
 
      {
-        question: "11.Turunan y=(x-2)<sup>-1</sup> adalah",
+        question: "Turunan y=(x-2)<sup>-1</sup> adalah",
         optionA: "y'=(x-2)<sup>-2</sup>",
         optionB: "y'=-(x-2)<sup>-2</sup>",
         optionC: "y'=x<sup>-2</sup>",
@@ -1387,7 +1387,7 @@ const questionsxii = [
     },
 
      {
-        question: "12.Turunan y=-x<sup>2</sup> adalah",
+        question: "Turunan y=-x<sup>2</sup> adalah",
         optionA: "y'=-2x",
         optionB: "y'=2x",
         optionC: "y'=x",
@@ -1396,7 +1396,7 @@ const questionsxii = [
     },
 
          {
-        question: "13.Turunan y=(1-x)<sup>2</sup> adalah",
+        question: "Turunan y=(1-x)<sup>2</sup> adalah",
         optionA: "y'=-2-x",
         optionB: "y'=2-2x",
         optionC: "y'=2x-2",
@@ -1405,7 +1405,7 @@ const questionsxii = [
     },
 
              {
-        question: "14.Turunan y=(x+2)(x-4) adalah",
+        question: "Turunan y=(x+2)(x-4) adalah",
         optionA: "y'=x+2",
         optionB: "y'=x-4",
         optionC: "y'=2x-6",
@@ -1448,7 +1448,7 @@ const questionsxii = [
     },
 
     {
-        question: "35.Titik2 dibawah ini terletak pada kurva y=3x&178;+2 kecuali2,1) dan koefisien arah m=3 adalah  ",
+        question: "Titik2 dibawah ini terletak pada kurva y=3x&178;+2 kecuali2,1) dan koefisien arah m=3 adalah  ",
         optionA: "(1,5)",
         optionB:"(1,2)",
         optionC: "(0,2)",
@@ -1456,7 +1456,7 @@ const questionsxii = [
         correctOption: "optionB"
     },
     {
-        question: "36.Persamaan garis melalui titik (2,1) dan koefisien arah m=3 adalah  ",
+        question: "Persamaan garis melalui titik (2,1) dan koefisien arah m=3 adalah  ",
         optionA: "y-1=3(x-2)",
         optionB:"y-2=3(x-1)",
         optionC: "y-3=2(x-1)",
@@ -1465,7 +1465,7 @@ const questionsxii = [
     },
 
     {
-        question: "37.Bentuk umum persamaan garis yang melaluui titik (a,f(a) pada kurva f(x) adalah ",
+        question: "Bentuk umum persamaan garis yang melalui titik (a,f(a) pada kurva f(x) adalah ",
         optionA: "y-a=f'(y-f(a))",
         optionB:"y=f'(y-f(a))",
         optionC: "y-f(a)=f'(a)(x-a)",
@@ -1473,7 +1473,7 @@ const questionsxii = [
         correctOption: "optionC"
     },
     {
-        question: "38.Deferensial  kurva y=x&#178; pada titik (3,9) adalah ",
+        question: "Deferensial  kurva y=x&#178; pada titik (3,9) adalah ",
         optionA: "y'=3",
         optionB:"y'=1",
         optionC: "y'=6",
@@ -1481,7 +1481,7 @@ const questionsxii = [
         correctOption: "optionC"
     },
     {
-        question: "39.Persamaan garis singgung dititik (3,9) pada kurva y=x&#178; adalah ",
+        question: "Persamaan garis singgung dititik (3,9) pada kurva y=x&#178; adalah ",
         optionA: "y=6x-6",
         optionB:"y=6x+9",
         optionC: "y=6x-9",
@@ -1490,7 +1490,7 @@ const questionsxii = [
     },
 
     {
-        question: "40.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x+5)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x+5)",
         optionA: "2",
         optionB:"1",
         optionC: "3",
@@ -1500,7 +1500,7 @@ const questionsxii = [
 
     
     {
-        question: "41.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x<sup>2</sup>-5)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x<sup>2</sup>-5)",
         optionA: "-1",
         optionB: "-2",
         optionC: "2",
@@ -1509,7 +1509,7 @@ const questionsxii = [
     },
 
     {
-        question: "42.lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x+5)/(x+2)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 -2</SUB> (x+5)/(x+2)",
         optionA: "0",
         optionB: "tak terdefinisi",
         optionC: "3",
@@ -1518,7 +1518,7 @@ const questionsxii = [
     },
 
     {
-        question: "43.lim<SUB STYLE='font-size:xx-small'>x &#10230 4</SUB> (x-4)/(x-4) ",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#10230 4</SUB> (x-4)/(x-4) ",
         optionA: "0",
         optionB: "td",
         optionC: "1",
@@ -1527,7 +1527,7 @@ const questionsxii = [
     },
 
     {
-        question: "46.lim<SUB STYLE='font-size:xx-small'>x &#10230 2</SUB> (x<sup>2</sup>-x -2)/(x<sup>2</sup>-2x) adalah ",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#10230 2</SUB> (x<sup>2</sup>-x -2)/(x<sup>2</sup>-2x) adalah ",
         optionA: "3",
         optionB: "3/4",
         optionC: "3/2",
@@ -1536,7 +1536,7 @@ const questionsxii = [
     },
 
     {
-        question: "47.Persamaan garis singgung yang melalui titik (2,f(2)) pada kurva f(x)=x<sup>2</sup>-6x+5 adalah   ",
+        question: "Persamaan garis singgung yang melalui titik (2,f(2)) pada kurva f(x)=x<sup>2</sup>-6x+5 adalah   ",
         optionA: "y=-2x",
         optionB: "y+3=-2x",
         optionC: "y+3=-2(x-2) ",
@@ -1545,7 +1545,7 @@ const questionsxii = [
     },
 
     {
-        question: "48.Titik belok pada kurva y=(x-1)<sup>3</sup>+1 adalah",
+        question: "Titik belok pada kurva y=(x-1)<sup>3</sup>+1 adalah",
         optionA: "(1,1)", 
         optionB: "1,-1)",
         optionC: "(-1,-1)",
@@ -1554,7 +1554,7 @@ const questionsxii = [
     },
 
     {
-        question: "49.Jika pada interval 1 < x <6 , nilai f(1) > f(6) dan f'(3)=0, ma ka",
+        question: "Jika pada interval 1 < x <6 , nilai f(1) > f(6) dan f'(3)=0, ma ka",
         optionA: "titik (3,f(3)) minimum  ", 
         optionB: "titik (3,f(3)) maksimum",
         optionC: "titik (3,f(3)) belok",
@@ -1563,7 +1563,7 @@ const questionsxii = [
     },
    
     {
-        question: "50.Jika gradien suatu fungsi m>0 maka kurva",
+        question: "Jika gradien suatu fungsi m>0 maka kurva",
         optionA: "naik ",
         optionB: "turun",
         optionC: "tetap",
@@ -1572,7 +1572,7 @@ const questionsxii = [
     },
 
     {
-        question: "51.Pada titik (0,4) kurva y=x<sup>3</sup>+2x<sup>2</sup>-3x+43 adalah",
+        question: "Pada titik (0,4) kurva y=x<sup>3</sup>+2x<sup>2</sup>-3x+43 adalah",
         optionA: "naik ",
         optionB: "turun",
         optionC: "tetap",
@@ -1581,7 +1581,7 @@ const questionsxii = [
     },
 
     {
-        question: "52.Titik maksimum kurva y=x<sup>3</sup>+2x<sup>2</sup>+3 adalah",
+        question: "Titik maksimum kurva y=x<sup>3</sup>+2x<sup>2</sup>+3 adalah",
         optionA: "(-3/4,3)",
         optionB: "(-3/4,4)",
         optionC: "(-4/3,4)",
@@ -1590,7 +1590,7 @@ const questionsxii = [
     },
 
     {
-        question: "53.Kurva y=(x-2)(x-1)(x+1) pada interval 0<x<1 ",
+        question: "Kurva y=(x-2)(x-1)(x+1) pada interval 0<x<1 ",
         optionA: "naik",
         optionB: "turun",
         optionC: "tetap",
@@ -1599,7 +1599,7 @@ const questionsxii = [
     },
 
     {
-        question: "54.Kurva y=(x-2)(x+1)naik pada interval ",
+        question: "Kurva y=(x-2)(x+1)naik pada interval ",
         optionA: "x>0",
         optionB: "x>1/2",
         optionC: "x<0",
@@ -1608,7 +1608,7 @@ const questionsxii = [
     },
 
     {
-        question: "55.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (4+(5/x))",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (4+(5/x))",
         optionA: "5",
         optionB: "4",
         optionC: "9",
@@ -1617,7 +1617,7 @@ const questionsxii = [
     },
     
     {
-        question: "56.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> ((-2x<sup>5</sup>+5)/(3x<sup>5</sup>-5))",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> ((-2x<sup>5</sup>+5)/(3x<sup>5</sup>-5))",
         optionA: "5",
         optionB: "-2/3",
         optionC: "2/3",
@@ -1626,7 +1626,7 @@ const questionsxii = [
     },
 
     {
-        question: "57.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> ((x+5)/(x<sup>2</sup>+3x)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> ((x+5)/(x<sup>2</sup>+3x)",
         optionA: "&#8734",
         optionB: "0",
         optionC: "tak terdefinisi",
@@ -1635,7 +1635,7 @@ const questionsxii = [
     },
 
     {
-        question: "58.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (x<sup>2</sup>+5/2x<sup>2</sup>)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (x<sup>2</sup>+5/2x<sup>2</sup>)",
         optionA: "2",
         optionB: "1",
         optionC: "-2",
@@ -1644,7 +1644,7 @@ const questionsxii = [
     },
 
     {
-        question: "59.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (2x+1)/x",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (2x+1)/x",
         optionA: "0",
         optionB: "1",
         optionC: "2",
@@ -1653,7 +1653,7 @@ const questionsxii = [
     },
 
     { 
-        question: "60.lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (5/x)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (5/x)",
         optionA: "0",
         optionB: "5",
         optionC: "1",
@@ -1662,7 +1662,7 @@ const questionsxii = [
     },
 
     {
-        question: "61.Bentuk umum persamaan garis singgung pada kurva f(x)  dititik (a,f(a)) adalah",
+        question: "Bentuk umum persamaan garis singgung pada kurva f(x)  dititik (a,f(a)) adalah",
         optionA: "y=f'(x-a)",
         optionB: "y-f(a)=f'(x-a)",
         optionC: "y-f(a)=f'(a)(x-a)",
@@ -1671,7 +1671,7 @@ const questionsxii = [
     },
 
     {
-        question: "62.Persamaan garis 8x+2y-5=0 memiliki gradien m=",
+        question: "Persamaan garis 8x+2y-5=0 memiliki gradien m=",
         optionA: "4",
         optionB: "-4",
         optionC: "2",
@@ -1689,7 +1689,7 @@ const questionsxii = [
     },
 
     {
-        question: "63.Garis dengan sudut 45 memiliki gradien ",
+        question: "Garis dengan sudut 45 memiliki gradien ",
         optionA: "m=2",
         optionB: "m=-1",
         optionC: "m=0",
@@ -1698,7 +1698,7 @@ const questionsxii = [
     },
 
     {
-        question: "64.Gradien f'(2) pada kurva y=x<sup>3</sup>-5x+1 adalah ",
+        question: "Gradien f'(2) pada kurva y=x<sup>3</sup>-5x+1 adalah ",
         optionA: "12",
         optionB: "7",
         optionC: "8",
@@ -1716,7 +1716,7 @@ const questionsxii = [
     },
 
     {
-        question: "65.Persamman garis singgung yang melalui titik (-1,-7) pada kurva y=x<sup>2</sup>+3x-5 adalah",
+        question: "Persamman garis singgung yang melalui titik (-1,-7) pada kurva y=x<sup>2</sup>+3x-5 adalah",
         optionA: "y=x+6",
         optionB: "y=x-6",
         optionC: "y+1=-(x+7)",
@@ -1725,7 +1725,7 @@ const questionsxii = [
     },
 
     {
-        question: "66.Persamman garis  yang melalui titik (2,2) dengan gradien 5 adalah",
+        question: "Persamman garis  yang melalui titik (2,2) dengan gradien 5 adalah",
         optionA: "y-2=5(x-2)",
         optionB: "y+2=5(x-2)",
         optionC: "y-2=5(x+2)",
@@ -1734,7 +1734,7 @@ const questionsxii = [
     },
 
     {
-        question: "67.Persamaan garis singgung yang melalui titik (1,-3) pada kurva y=x<sup>3</sup>+3x<sup>2</sup>-2x-5 adalah",
+        question: "Persamaan garis singgung yang melalui titik (1,-3) pada kurva y=x<sup>3</sup>+3x<sup>2</sup>-2x-5 adalah",
         optionA: "y=7x-10",
         optionB: "y=7x-5",
         optionC: "y=5x-7",
@@ -1743,7 +1743,7 @@ const questionsxii = [
     },
 
     {
-        question: "68.Turunan y=x<sup>-3</sup> adalah",
+        question: "Turunan y=x<sup>-3</sup> adalah",
         optionA: "y'=-3x<sup>2</sup>",
         optionB: "y'=-3x<sup>-3</sup>",
         optionC: "y'=-3x<sup>-4</sup>",
@@ -1761,7 +1761,7 @@ const questionsxii = [
     },
 
     {
-        question: "69.lim<SUB STYLE='font-size:xx-small'>x &#x2192 3</SUB>(&#8730(5x+1))-&#8730(3x+7))/(x-3)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 3</SUB>(&#8730(5x+1))-&#8730(3x+7))/(x-3)",
         optionA: "1/2",
         optionB: "1/4",
         optionC: "1/8",
@@ -1770,7 +1770,7 @@ const questionsxii = [
     },
 
     {
-        question: "70.lim<SUB STYLE='font-size:xx-small'>x &#x2192 9</SUB>(x+1)(x-9)/(&#8730;x-3)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 9</SUB>(x+1)(x-9)/(&#8730;x-3)",
         optionA: "40",
         optionB: "60",
         optionC: "5",
@@ -1779,7 +1779,7 @@ const questionsxii = [
     },
 
     {
-        question: "71.lim<SUB STYLE='font-size:xx-small'>x &#x2192 9</SUB>(x+1)(&#8730;x+3)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 9</SUB>(x+1)(&#8730;x+3)",
         optionA: "10",
         optionB: "20",
         optionC: "60",
@@ -1788,7 +1788,7 @@ const questionsxii = [
     },
 
     {
-        question: "72.lim<SUB STYLE='font-size:xx-small'>x &#x2192 2</SUB>(x+2)/(x<sup>2</sup>+2x+4)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 2</SUB>(x+2)/(x<sup>2</sup>+2x+4)",
         optionA: " 2/9 ",
         optionB: "4/9",
         optionC: "4/10",
@@ -1797,7 +1797,7 @@ const questionsxii = [
     },
 
     {
-        question: "73.lim<SUB STYLE='font-size:xx-small'>x &#x2192 2</SUB>(x<sup>2</sup>+2x+4)",
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#x2192 2</SUB>(x<sup>2</sup>+2x+4)",
         optionA: "12",
         optionB: "10",
         optionC: "4",
@@ -1806,7 +1806,7 @@ const questionsxii = [
     },
     
      {
-         question:  "74.lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1) .",
+         question:  "lim<SUB STYLE='font-size:xx-small'>x &#x2192 0</SUB>(x<sup>3</sup>+5x+1) .",
          optionA: "-1",
          optionB: "3",
          optionC: "0",
@@ -1815,7 +1815,7 @@ const questionsxii = [
      },
 
      {
-        question:  "75.Tentukan hasil integral &#8747 x dx",
+        question:  "Tentukan hasil integral &#8747 x dx",
         optionA: "&#8532 x&#179",
         optionB: "&#190 x&#179", 
         optionC: "&#8531 x&#178",
@@ -1823,7 +1823,7 @@ const questionsxii = [
         correctOption: "optionD"
     },
     {
-        question:  "76.Tentukan hasil integral &#8747 3x&#178 dx",
+        question:  "Tentukan hasil integral &#8747 3x&#178 dx",
         optionA: " x&#179;+ C",
         optionB: "&#189 x&#178; + C", 
         optionC: "&#8532 x&#179; + C",
@@ -1831,7 +1831,7 @@ const questionsxii = [
         correctOption: "optionA"
     },
     {
-        question:  "77.Tentukan hasil integral &#8747 2x&#178 dx",
+        question:  "Tentukan hasil integral &#8747 2x&#178 dx",
         optionA: "&#189 x&#179",
         optionB: "&#190 x&#179", 
         optionC: "&#8531 x&#179 ",
@@ -1839,7 +1839,7 @@ const questionsxii = [
         correctOption: "optionD"
     },
     {
-        question:  "78.Tentukan hasil integral &#8747 (2x&#178+1) dx",
+        question:  "Tentukan hasil integral &#8747 (2x&#178+1) dx",
         optionA: "&#8532 x&#179 + x",
         optionB: "&#190 x&#179", 
         optionC: "&#8531 x&#179 ",
@@ -1848,7 +1848,7 @@ const questionsxii = [
     },
 
     {
-        question:  "79.Tentukan hasil integral &#8747 (3x&#178 - 2x + 1) dx",
+        question:  "Tentukan hasil integral &#8747 (3x&#178 - 2x + 1) dx",
         optionA: " x&#179 + x&#178 + x + C",
         optionB: "x&#179 - x&#178 + x + C", 
         optionC: "3x&#179 + x&#178 + x + C ",
@@ -1857,7 +1857,7 @@ const questionsxii = [
     },
 
     {
-        question:  "80.Salah satu penerapan integral adalah menentukan volume benda putar yakni , kecuali",
+        question:  "Salah satu penerapan integral adalah menentukan volume benda putar yakni , kecuali",
         optionA: "bola",
         optionB: "silinder", 
         optionC: "kerucut ",
@@ -1866,7 +1866,7 @@ const questionsxii = [
     },
 
     {
-        question:  "81.Luas daerah diantara garis y=2x dengan garis y=1 dapat dinyatakan dengan ...",
+        question:  "Luas daerah diantara garis y=2x dengan garis y=1 dapat dinyatakan dengan ...",
         optionA: "&#8747 (x-2) dx ",
         optionB: "&#8747 (x+2) dx",
         optionC: "&#8747 (2x-1) dx ",
