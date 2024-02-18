@@ -1,3 +1,60 @@
+
+function kirim12(){
+    let poin=0;
+    const jno91= document.querySelector("#jno91");
+    const jno92= document.querySelector("#jno92");
+    const jno93= document.querySelector("#jno93");
+    const jno94= document.querySelector("#jno94");
+    const jno95= document.querySelector("#jno95");
+    
+    
+    
+   
+    
+const rno91=document.querySelector("#rno91");
+const rno92=document.querySelector("#rno92");
+const rno93=document.querySelector("#rno93");
+const rno94=document.querySelector("#rno94");
+const rno95=document.querySelector("#rno95");
+
+    const nilai12=document.querySelector("#nilai12");
+    
+    
+    
+    
+    
+    if (jno91.checked) {poin=poin + 10;
+    response="ok";
+    } else {response="x";}
+    rno91.innerHTML=response;
+    
+    
+if (jno92.checked) {poin=poin + 10;
+response="ok";
+    } else {response="x";};
+    
+    rno92.innerHTML=response;
+    
+if (jno93.checked) {poin=poin + 10;
+response="ok";
+    } else {response="x";}
+    rno93.innerHTML=response;
+    
+if (jno94.checked) {poin=poin + 10;
+response="ok";
+    } else {response="x";}
+    rno94.innerHTML=response;
+    
+if (jno95.checked) {poin=poin + 10;
+response="ok";
+    } else {response="x";}
+    rno95.innerHTML=response;
+    
+    
+    nilai12.innerHTML=poin;
+}
+
+
 function kirim1() {
   let poin = 0;
   
