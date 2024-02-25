@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en" class=" h-full ">
 <head>
@@ -92,11 +91,11 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
      -->
 </head>
-<body onload="" class="h-full">
+<body  class="h-full">
 
   
 
-  <div id="signin" style=" font-size: 2rem; text-align:center ; width:20% ;  background-color: blue; color:wheat;" >
+  <div id="signin" style=" font-size: 2rem; text-align:center ; width:h-full ;  background-color: blue; color:wheat;" >
     <a href="#home" class="btn btn-primary" onClick="enableScroll()">OPEN</a>
             </div>
   
@@ -488,8 +487,8 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
    
  <div id="babutama"  class=" flex flex-col space-y-4 px-2  " >
 
-  <div  id="bab" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border 
-   border-black p-4  text-slate-700 bg-[#FFE4C4]">
+  <div  id="bab" class="border-1 rounded-3xl box-border 
+   border-black p-4  text-slate-700 bg-slate-100">
   
 <div class="text-2xl">Computational Thinking/CT</div>
 <p>CT : proses berfikir saat memformulasikan persoalan dan berstrategi untuk memilih solusi yang efektif,efisien dan optimal</p>
@@ -519,7 +518,7 @@ Hanya fokus pada informasi penting saja<br>
 </div>  
 </div>
 
-<div  id="bab0123" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#D8BFD8]">
+<div  id="bab0123" class="bg-slate-700 text-slate-100 border-1 rounded-3xl box-border  border-black p-4 ">
   <article"
   <p  class="font-semibold">
   Apa itu Matematika? : Pendekatan Dasar untuk Ide dan Metode.
@@ -536,7 +535,7 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
 </div>
 <!-- batas aljabar -->
 
-<div  id="bab00" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#D8BFD8]">
+<div  id="bab00" class="border-1 rounded-3xl box-border border-black p-4  text-black bg-white">
   
   <div class="text-3xl">Aljabar</div>
 
@@ -597,6 +596,7 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
   <p>a+b=c</p>
   <p>2+3=5</p>
   maka 2 = 5 - 3
+  </article>
   <hr>
   <p class="font-bold">soal 1</p>
   Diberikan a+3=8 maka nilai a adalah<br>
@@ -607,11 +607,46 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
   <div id="rno3100"></div>
   <hr>
 
-  </article>
 
+  <p class="font-bold">soal 2</p>
+  Diberikan a-3=8 maka nilai a adalah<br>
+  <input type="radio" name="no3101" style=" display:inline-flex">10<br>
+  <input type="radio" name="no3101"  style=" display:inline-flex">12 <br>
+  <input type="radio" name="no3101" style=" display:inline-flex">5<br>
+  <input type="radio" name="no3101" id="jno3101" style=" display:inline">11<br>
+  <div id="rno3101"></div>
+  <hr>
 
-  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirimalj()"">cek nilai Aljabar</button>
-       <h1 id="nilai3100"></h1> 
+  <p class="font-bold">soal 3</p>
+  Diberikan a-(-3)=8 maka nilai a adalah<br>
+  <input type="radio" name="no3102" style=" display:inline-flex">6<br>
+  <input type="radio" name="no3102"  style=" display:inline-flex">12 <br>
+  <input type="radio" name="no3102" style=" display:inline-flex" id=jno3102 >5<br>
+  <input type="radio" name="no3102"  style=" display:inline">1<br>
+  <div id="rno3102"></div>
+  <hr>
+  
+  <p class="font-bold">soal 4</p>
+  Diberikan -a+3=-8 maka nilai a adalah<br>
+  <input type="radio" name="no3103" style=" display:inline-flex" id="jno3103">11<br>
+  <input type="radio" name="no3103"  style=" display:inline-flex" >-5 <br>
+  <input type="radio" name="no3103" style=" display:inline-flex">5<br>
+  <input type="radio" name="no3103" style=" display:inline">-11<br>
+  <div id="rno3103"></div>
+  <hr>
+
+  <p class="font-bold">soal 5</p>
+  Diberikan -(a+3)=8 maka nilai a adalah<br>
+  <input type="radio" name="no3104" style=" display:inline-flex">5<br>
+  <input type="radio" name="no3104"  style=" display:inline-flex">-5<br>
+  <input type="radio" name="no3104" style=" display:inline-flex">11<br>
+  <input type="radio" name="no3104" id="jno3104" style=" display:inline">-11<br>
+  <div id="rno3104"></div>
+  <hr>
+<h1 id="nilai3100"></h1>
+<br>
+  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirimalj()">cek nilai Aljabar</button>
+       
  </div> 
   
   <div x-data="{open:false}">
@@ -625,19 +660,17 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
       </div>
   </div> 
   
-  </div>
+  </div >
 
 
 
 <!-- batas aljabar -->
-  <div  id="bab1" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#FFFACD]">
+  <div  id="bab1" class= "border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-200">
       
-<!--     
+<!--
   <div>
     <input  type="checkbox" name="flexRadioDefault" id="toggle">
     <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">mode gelap</label>
-    
-   
     </div>  -->
 <!-- 
    <a href="./gbr/map11.svg" download="MindmapMatematika">
@@ -2514,7 +2547,7 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
 <!-- batas awal bab2 -->
 
 
-<div id="bab2" class=" dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700">
+<div id="bab2" class=" bg-gradient-to-r from-yellow-100 to-red-100 text-black  dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700">
 
   
 <h2 class="text-2xl" > Sistem Persamaan Linier
@@ -2925,7 +2958,7 @@ nilai z adalah
 
 
 <!-- batas -->
-<div  id="bab3" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#98FB98]">
+<div  id="bab3" class=" text-black bg-gradient-to-r from-yellow-100 to-red-100  dark :bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#98FB98]">
 
   <h2 class="text-2xl" >Sistem Pertidaksamaan Linier</h2>Himpunan penyelesaian
   <span id="dots3">...</span>
@@ -3761,7 +3794,7 @@ x> 0;y> 0\\
 
 </div>
 
-<div id="bab4" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#7FFFD4]">
+<div id="bab4" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-green-100">
 
 <h2 >PROGRAM LINIER</h2>
 <span id="dots4">...</span>
@@ -4106,7 +4139,7 @@ jika z=2x+3y adalah
 </div> 
 
 </div>
-<div  id="bab5" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#87CEFA]">
+<div  id="bab5" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-red-300">
 
 <h2>Barisan & Deret</h2>
 <span id="dots5">...</span>
@@ -4284,7 +4317,7 @@ nilai <label>$$S_{10}$$</label> adalah
 </div> 
 
 
-
+    
 <div id="bab10" class="bg-gradient-to-r from-yellow-100 to-red-100  dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 ">
 
 
@@ -15895,7 +15928,7 @@ type="audio/mp3">
 
 <!-- <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> 
-<!-- <script>
+ <script>
  const checkbo1=document.querySelector('#toggle1');
   const html1 = document.querySelector('html');
   checkbo1.addEventListener('click',function(){
@@ -15995,7 +16028,7 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           checkbo13.checked ? html13.classList.add('dark') : html13.classList.remove('dark'); 
           });
           </script>
-        -->
+        
 
         <script>
           const rootElement = document.querySelector(":root");
