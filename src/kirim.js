@@ -1,3 +1,62 @@
+function kirimalj(){
+    let poin=0;
+      const jno3100=document.querySelector("#jno3100");
+      const jno3101=document.querySelector("#jno3101");
+      const jno3102=document.querySelector("#jno3102");
+      const jno3103=document.querySelector("#jno3103");
+      const jno3104=document.querySelector("#jno3104");
+      
+      const rno3100=document.querySelector("#rno3100");
+      const rno3101=document.querySelector("#rno3101");
+      const rno3102=document.querySelector("#rno3102");
+      const rno3103=document.querySelector("#rno3103");
+      const rno3104=document.querySelector("#rno3104");
+      
+      
+const nilai3100=document.querySelector("#nilai3100");
+
+
+
+    if (jno3100.checked) {
+        poin=poin+10;
+        response="ok";}
+        else {response="x";
+        }
+        rno3100.innerHTML=response;
+        
+        if (jno3101.checked) {
+        poin=poin+10;
+        response="ok";}
+        else {response="x";
+        };
+        rno3101.innerHTML=response;
+        
+        if (jno3102.checked) {
+        poin=poin+10;
+        response="ok";}
+        else {response="x";
+        };
+        rno3102.innerHTML=response;
+        
+        if (jno3103.checked) {
+        poin=poin+10;
+        response="ok";}
+        else {response="x";
+        };
+        rno3103.innerHTML=response;
+        
+        if (jno3104.checked) {
+        poin=poin+10;
+        response="ok";}
+        else {response="x";
+        };
+        rno3104.innerHTML=response;
+        
+        
+
+    nilai3100.innerHTML=poin;
+}
+
 
 function kirim12(){
     let poin=0;
