@@ -99,6 +99,9 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     <a href="#home" class="btn btn-primary" onClick="enableScroll()">OPEN</a>
             </div>
   
+<p style="text-align:center" id="datetime" ></>
+
+
 <!-- This example requires Tailwind CSS v3.0+ -->
 <div class="isolate bg-white">
   
@@ -408,7 +411,7 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
  
 
   <i data-feather="edit"> </i> 
- <p>update 25/2/24 </p>
+ <p>update 26/2/24 </p>
 <i data-feather="eye"></i>
 <div>
 <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
@@ -16540,6 +16543,15 @@ $('#submit-form').on('click', function(e) {
     <iframe class="w-full h-48 overflow-auto" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8Kvs-b22tPAbIKNbuNJ6xjyJy2GWT6ZXFVuTEPi6ifxRjkmKsRzPNIyxU_gKgvuS0ph5DsBdeIL_w/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
  -->
  
+
+<script>
+  // Get current date and time
+  var now = new Date();
+  var datetime = now.toLocaleString();
+
+  // Insert date and time into HTML
+  document.getElementById("datetime").innerHTML = datetime;
+</script>
   </body>
    <!-- <script type="text/jsx">
       const app = document.getElementById('app');
