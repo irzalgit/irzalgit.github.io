@@ -1439,11 +1439,11 @@ const questionsxii = [
         correctOption: "optionB"
     },
     {
-        question: "Uraikan x-4(2x-1) = ?",
-        optionA: "-7x-1",
-        optionB: "-7x+4",
-        optionC: "-4x-1",
-        optionD: "8x-2",
+        question: "2.5+5.3-4(-5) = ?",
+        optionA: "5",
+        optionB: "45",
+        optionC: "40",
+        optionD: "-20",
         correctOption: "optionB"
     },
 
@@ -1580,13 +1580,32 @@ const questionsxii = [
         correctOption: "optionB"
     },
 
+
     {
-        question: "Titik maksimum kurva y=x<sup>3</sup>+2x<sup>2</sup>+3 adalah",
-        optionA: "(-3/4,3)",
-        optionB: "(-3/4,4)",
-        optionC: "(-4/3,4)",
-        optionD: "(-4/3,3)",
+        question: "Sebuah bola dilemparkan keatas dengan persamaan gerak h=-t<sup>2</sup>+4t+2  , dimana h ketinggian dalam m dan t waktu dalam detik atau s. Kecepatan awal bola adalah",
+        optionA: "2 m/s ",
+        optionB: "4 m/s ",
+        optionC: "6 m/s ",
+        optionD: "10 m/s",
+        correctOption: "optionB"
+    },
+    {
+        question: "Sebuah bola dilemparkan keatas dengan persamaan gerak h=-t<sup>2</sup>+4t+2  , dimana h ketinggian dalam m dan t waktu dalam detik. Ketinggian maksimum bola adalah",
+        optionA: "2 m",
+        optionB: "4 m",
+        optionC: "6 m",
+        optionD: "10 m",
         correctOption: "optionC"
+    },
+    
+    
+    {
+        question: "Sebuah bola dilemparkan keatas dengan persamaan gerak h=-t<sup>2</sup>+4t+2  , dimana h ketinggian dalam m dan t waktu dalam detik. Kecepatan bola saat t=3 detik adalah",
+        optionA: "2 m/s ",
+        optionB: "-2  m/s ",
+        optionC: "6 m/s ",
+        optionD: "1 m/s ",
+        correctOption: "optionB"
     },
 
     {
@@ -1604,6 +1623,24 @@ const questionsxii = [
         optionB: "x>1/2",
         optionC: "x<0",
         optionD: "x<1/2",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB> (4+(5/x))",
+        optionA: "5",
+        optionB: "4",
+        optionC: "9",
+        optionD: "0",
+        correctOption: "optionB"
+    },
+
+    {
+        question: "lim<SUB STYLE='font-size:xx-small'>x &#10230 &#8734</SUB>(3x<sup>2</sup>)+3x/(x<sup>2</sup>)",
+        optionA: "5",
+        optionB: "3",
+        optionC: "9",
+        optionD: "0",
         correctOption: "optionB"
     },
 
@@ -1810,7 +1847,7 @@ const questionsxii = [
          optionA: "-1",
          optionB: "3",
          optionC: "0",
-         optionD: "2",
+         optionD: "1",
          correctOption: "optionD"
      },
 
@@ -1918,7 +1955,7 @@ const random = questionsxi[Math.floor(Math.random() * questionsxi.length)]
     
         if ( jno18093.checked){
             
-            response = "Evaluasi kelas xii/sem.5: limit , deferensial dan integral";
+            response = "Evaluasi kelas xii/sem.6: limit , deferensial dan integral dan aplikasinya";
 
     //function to shuffle and push 10 questions to shuffledQuestions array dan 
 //app would be dealing with 10questions per session
@@ -2129,7 +2166,7 @@ function kirimeva(){
             }
 
     if ( jno18093.checked){
-        response = "Evaluasi kelas xii: Limit dan Deferensial ";
+        response = "Evaluasi kelas xii: Limit , , Deferensial, Integral dan aplikasinya";
         shuffledQuestions;
         
       
