@@ -66,7 +66,7 @@ function kirim12(){
     const jno94= document.querySelector("#jno94");
     const jno95= document.querySelector("#jno95");
     const jno96= document.querySelector("#jno96");
-    
+    const jno97= document.querySelector("#jno97");
     
    
     
@@ -76,6 +76,7 @@ const rno93=document.querySelector("#rno93");
 const rno94=document.querySelector("#rno94");
 const rno95=document.querySelector("#rno95");
 const rno96=document.querySelector("#rno96");
+const rno97=document.querySelector("#rno97");
 
     const nilai12=document.querySelector("#nilai12");
     
@@ -114,6 +115,11 @@ response="ok";
 response="ok";
     } else {response="x";}
     rno96.innerHTML=response;
+    
+     if (jno97.checked) {poin=poin + 10;
+response="ok";
+    } else {response="x";}
+    rno97.innerHTML=response;
     
    
     
