@@ -65,7 +65,7 @@ function kirim12(){
     const jno93= document.querySelector("#jno93");
     const jno94= document.querySelector("#jno94");
     const jno95= document.querySelector("#jno95");
-    
+    const jno96= document.querySelector("#jno96");
     
     
    
@@ -75,6 +75,7 @@ const rno92=document.querySelector("#rno92");
 const rno93=document.querySelector("#rno93");
 const rno94=document.querySelector("#rno94");
 const rno95=document.querySelector("#rno95");
+const rno96=document.querySelector("#rno96");
 
     const nilai12=document.querySelector("#nilai12");
     
@@ -109,8 +110,19 @@ response="ok";
     } else {response="x";}
     rno95.innerHTML=response;
     
+    if (jno96.checked) {poin=poin + 10;
+response="ok";
+    } else {response="x";}
+    rno96.innerHTML=response;
+    
+   
     
     nilai12.innerHTML=poin;
+      var now = new Date();
+  var datetime = now.toLocaleString();
+
+  // Insert date and time into HTML
+  document.getElementById("datetime").innerHTML = datetime;
 }
 
 
