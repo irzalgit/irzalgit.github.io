@@ -1,4 +1,4 @@
-function kirimtri2() {
+function kirim2() {
   let poin = 0;
   const jno31 = document.querySelector("#jno31");
   const jno32 = document.querySelector("#jno32");
