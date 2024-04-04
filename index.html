@@ -229,7 +229,8 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
             <a href="#" class="text-base font-semibold leading-7 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
           </div> -->
           <br>
-          
+          <h11>Hello</h11>
+          <br>
            <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick="enableScroll()">MULAI </button>
        <!-- 
           
@@ -16149,8 +16150,19 @@ type="audio/mp3">
 </audio>
 <div class="audio-icon-wrapper" >
   <i class="bi bi-disc"></i>
-</div>
-</div>
+  </div>
+  
+  </div>
+  
+ 
+<div id="audio-container">
+
+<div class="audio-icon-wrapper1" >
+  <i class="bi bi-disc"></i>
+  </div>
+  
+  </div>
+  
 
 
 
@@ -16866,7 +16878,22 @@ $('#submit-form').on('click', function(e) {
   <iframe class="w-full" src="https://docs.google.com/document/d/1LT6M62Stho02hFeAx-05KuOmFH2Aeg6eZK-MZcbDsvE/edit?usp=drivesdk"</iframe> 
 -->
 
+
+<script>
+const judul = document.querySelector('h11');
+let nam =localStorage.getItem('nam');
+    if (!nam) {
+        nam=prompt('masukkan nama:');
+        localStorage.setItem('nam',nam);
+    }
+    judul.innerHTML='helo,${nam}!';
+</script>
+
+
   </body>
+  
+
+  
    <script type="text/jsx">
       const app = document.getElementById('app');
       ReactDOM.render(<h1>Pekanbaru</h1>, app);
