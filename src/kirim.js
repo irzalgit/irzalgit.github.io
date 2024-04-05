@@ -501,6 +501,10 @@ function kirim1() {
   
 
 
+localStorage.setItem("nil1",poin);
+juduln1.innerHTML=nil1;
+
+
   const optionsno31 = document.getElementsByName("no31");
   for (let i = 0; i < optionsno31.length; i++) {
       optionsno31[i].checked = false;
@@ -839,6 +843,10 @@ rno709.innerHTML=response
 
 
 nilaitri.innerHTML=poin
+
+localStorage.setItem("nil8",poin);
+juduln8.innerHTML=nil8;
+
 
 if (sno1.value == "1,57") {
   response = "";
