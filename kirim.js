@@ -1,3 +1,56 @@
+
+function kirim13() {
+  let poin = 0;
+  const jno121 = document.querySelector("#jno121");
+  if (jno121.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno121.innerHTML = response;
+  
+   nilai13.innerHTML = poin;
+localStorage.setItem("nil13",poin);
+juduln13.innerHTML=nil13;
+
+
+}
+
+function kirim17() {
+  let poin = 0;
+  const jno1701 = document.querySelector("#jno1701");
+  if (jno1701.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1701.innerHTML = response;
+  
+   nilai17.innerHTML = poin;
+localStorage.setItem("nil17",poin);
+juduln17.innerHTML=nil17;
+}
+
+
+function kirim18() {
+  let poin = 0;
+  const jno1801 = document.querySelector("#jno1801");
+  if (jno1801.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1801.innerHTML = response;
+  
+   nilai18.innerHTML = poin;
+localStorage.setItem("nil18",poin);
+juduln18.innerHTML=nil18;
+}
+
+
 function kirim2() {
   let poin = 0;
   const jno31 = document.querySelector("#jno31");
@@ -520,7 +573,7 @@ juduln2.innerHTML=nil2;
   if (jno141.checked) jno141.checked = false;
   if (jno142.checked) jno142.checked = false;
 }
-function kirim3() {
+function kirim9() {
   let poin = 0;
   const jno71 = document.querySelector("#jno71");
   const jno72 = document.querySelector("#jno72");
@@ -794,9 +847,9 @@ function kirim3() {
   }
   rno192.innerHTML = response;
 
-  nilai3.innerHTML = poin;
+  nilai9.innerHTML = poin;
   
-localStorage.setItem("nil5",poin);
-juduln5.innerHTML=nil5;
+localStorage.setItem("nil9",poin);
+juduln9.innerHTML=nil9;
 
 }
