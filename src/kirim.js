@@ -124,6 +124,8 @@ response="ok";
    
     
     nilai12.innerHTML=poin;
+    localStorage.setItem("nil12",poin);
+juduln12.innerHTML=nil12;
       var now = new Date();
   var datetime = now.toLocaleString();
 
@@ -842,10 +844,10 @@ rno709.innerHTML=response
 
 
 
-nilaitri.innerHTML=poin
+nilai6.innerHTML=poin
 
-localStorage.setItem("nil8",poin);
-juduln8.innerHTML=nil8;
+localStorage.setItem("nil6",poin);
+juduln6.innerHTML=nil6;
 
 
 if (sno1.value == "1,57") {
@@ -1060,7 +1062,8 @@ function kirim10() {
 
 nilai10.innerHTML=poin10;
   
-  
+  localStorage.setItem("nil10",poin10);
+juduln10.innerHTML=nil10;
   
   const options = document.getElementsByName("no600");
    for (let i = 0; i < options.length; i++) {
@@ -1178,7 +1181,8 @@ function kirim4() {
   rno137.innerHTML = response;
 
 nilai4.innerHTML=poin4;
-  
+  localStorage.setItem("nil4",poin4);
+juduln4.innerHTML=nil4;
   
   
    const options131 = document.getElementsByName("no131");
@@ -1643,7 +1647,8 @@ const optionsno2101 = document.getElementsByName("no2101");
   
   nilai7.innerHTML=poin7;
   
-  
+  localStorage.setItem("nil7",poin7);
+juduln7.innerHTML=nil7;
   
   const optionsno11 = document.getElementsByName("no11");
   for (let i = 0; i < optionsno11.length; i++) {
@@ -1928,7 +1933,8 @@ const optionsno2101 = document.getElementsByName("no2101");
   
   nilai11.innerHTML=poin11;
     
-    
+    localStorage.setItem("nil11",poin11);
+juduln11.innerHTML=nil11;
     
   const options81 = document.getElementsByName("no81");
   for (let i = 0; i < options81.length; i++) {
@@ -2207,7 +2213,8 @@ const optionsno2101 = document.getElementsByName("no2101");
   
   nilai14.innerHTML=poin14;
     
-    
+    localStorage.setItem("nil14",poin14);
+juduln14.innerHTML=nil14;
     
   const options41 = document.getElementsByName("no41");
   for (let i = 0; i < options41.length; i++) {
@@ -2278,7 +2285,7 @@ const optionsno2101 = document.getElementsByName("no2101");
      
   }
   
-  function kirim9() {
+  function kirim15() {
     let poin9 = 0;
     const jno961 = document.querySelector("#jno961");
     const jno962 = document.querySelector("#jno962");
@@ -2307,7 +2314,7 @@ const optionsno2101 = document.getElementsByName("no2101");
     const jno9625 = document.querySelector("#jno9625");
     
     
-    const nilai9=document.querySelector('#nilai9')
+    const nilai15=document.querySelector('#nilai15')
   
   
     if (jno961.checked) {
@@ -2509,9 +2516,10 @@ const optionsno2101 = document.getElementsByName("no2101");
     }
     rno9625.innerHTML = response;
   
-    nilai9.innerHTML=poin9;
+    nilai15.innerHTML=poin9;
     
-    
+    localStorage.setItem("nil15",poin9);
+juduln15.innerHTML=nil15;
     
      const options961 = document.getElementsByName("no961");
      for (let i = 0; i < options961.length; i++) {
@@ -2779,7 +2787,9 @@ rsno45.innerHTML = response;
 
   nilai16.innerHTML=poin16;
     
-  
+  localStorage.setItem("nil16",poin16);
+juduln16.innerHTML=nil16;
+
      const optionsno61 = document.getElementsByName("no61");
      for (let i = 0; i < optionsno61.length; i++) {
          optionsno61[i].checked = false;
