@@ -435,7 +435,7 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
  
 
   <i data-feather="edit"> </i> 
- <p>update 7/4/24 17:30</p>
+ <p>update 8/4/24 </p>
 <i data-feather="eye"></i>
 <div>
 <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
@@ -5615,7 +5615,7 @@ jika sudut 90 derajat diubah ke radian menjadi</label><br>
  
 
   <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Aritmatika Sosial (XI)</h1>
-  
+   <div class="text-2xl font-bold" id="nila21"></div> <br>
 Penerapan barisan dan deret aritmatika/geometri adalah menghitung dan mengelola keuangan yakni: 
   <br>1.Pinjaman.<br>2.Investasi.<br>3.Anuitas.<br>
   
@@ -10814,7 +10814,7 @@ $g(x) = ...$</p>
  
 
   <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Transformasi Geometri  (XI) </h1>
-  
+   <div class="text-2xl font-bold" id="nila19"></div> <br>
   Transformasi = perubahan ; geometri : hal yang berhubungan dengan titik , sudut, garis , bidang, ruang. Transformasi geometri 
   dapat diartikan sebagai perubahan kedudukan suatu titik pada koordinat Cartesius.<br>
   Jenisnya:
@@ -16955,6 +16955,9 @@ const juduln16 = document.querySelector('#nila16');
 
 const juduln17 = document.querySelector('#nila17');
 const juduln18 = document.querySelector('#nila18');
+const juduln19 = document.querySelector('#nila19');
+const juduln21 = document.querySelector('#nila21');
+
 
 
 
@@ -16973,15 +16976,11 @@ let nil12 =localStorage.getItem('nil12');
 let nil13 =localStorage.getItem('nil13');
 let nil14 =localStorage.getItem('nil14');
 let nil15 =localStorage.getItem('nil15');
-
 let nil16 =localStorage.getItem('nil16');
-
-
 let nil17 =localStorage.getItem('nil17');
-
 let nil18 =localStorage.getItem('nil18');
-
-
+let nil19 =localStorage.getItem('nil19');
+let nil21 =localStorage.getItem('nil21');
 let nam =localStorage.getItem('nam');
     if (!nam) {
         nam=prompt('masukkan nama:');
@@ -17058,6 +17057,15 @@ let nam =localStorage.getItem('nam');
         localStorage.setItem('nil18',0);
     }
     
+     
+    if (!nil19) {
+        localStorage.setItem('nil19',0);
+    }
+    
+     
+    if (!nil21) {
+        localStorage.setItem('nil21',0);
+    }
     
     
     
@@ -17076,16 +17084,11 @@ let nam =localStorage.getItem('nam');
      juduln13.innerHTML=nil13;
      juduln14.innerHTML=nil14;
      juduln15.innerHTML=nil15;
-     
      juduln16.innerHTML=nil16;
-    
      juduln17.innerHTML=nil17;
-    
-    
      juduln18.innerHTML=nil18;
-    
-    
-    
+     juduln19.innerHTML=nil19;
+      juduln21.innerHTML=nil21;
     
     
 </script>
