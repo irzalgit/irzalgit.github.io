@@ -2,6 +2,16 @@
 function kirim13() {
   let poin = 0;
   const jno121 = document.querySelector("#jno121");
+   const jno122 = document.querySelector("#jno122");
+   const jno123 = document.querySelector("#jno123");
+   const jno124 = document.querySelector("#jno124");
+   const jno125 = document.querySelector("#jno125");
+   const jno126 = document.querySelector("#jno126");
+   const jno127 = document.querySelector("#jno127");
+   const jno128 = document.querySelector("#jno128");
+   const jno129 = document.querySelector("#jno129");
+   const jno130 = document.querySelector("#jno130");
+  
   if (jno121.checked) {
     response = "ok";
     poin = poin + 10;
@@ -9,6 +19,71 @@ function kirim13() {
     response = "x";
   }
   rno121.innerHTML = response;
+  if (jno122.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno122.innerHTML = response;
+  if (jno123.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno123.innerHTML = response;
+  if (jno124.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno124.innerHTML = response;
+  if (jno125.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno125.innerHTML = response;
+  if (jno126.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno126.innerHTML = response;
+  if (jno127.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno127.innerHTML = response;
+  if (jno128.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno128.innerHTML = response;
+  if (jno129.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno129.innerHTML = response;
+  if (jno130.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno130.innerHTML = response;
+  
+  
   
    nilai13.innerHTML = poin;
 localStorage.setItem("nil13",poin);
@@ -19,7 +94,25 @@ juduln13.innerHTML=nil13;
 
 function kirim17() {
   let poin = 0;
-  const jno1701 = document.querySelector("#jno1701");
+ 
+  
+    const jno1701 = document.querySelector("#jno1701");
+    const jno1702 = document.querySelector("#jno1702");
+    const jno1703 = document.querySelector("#jno1703");
+    const jno1704 = document.querySelector("#jno1704");
+    const jno1705 = document.querySelector("#jno1705");
+    const jno1706 = document.querySelector("#jno1706");
+    const jno1707 = document.querySelector("#jno1707");
+    const jno1708 = document.querySelector("#jno1708");
+    const jno1709 = document.querySelector("#jno1709");
+    const jno1710 = document.querySelector("#jno1710");
+    const jno1711 = document.querySelector("#jno1711");
+    const jno1712 = document.querySelector("#jno1712");
+    const jno1713 = document.querySelector("#jno1713");
+    const jno1714 = document.querySelector("#jno1714");
+    const jno1715 = document.querySelector("#jno1715");
+    const jno1716 = document.querySelector("#jno1716");
+  
   if (jno1701.checked) {
     response = "ok";
     poin = poin + 10;
@@ -27,6 +120,116 @@ function kirim17() {
     response = "x";
   }
   rno1701.innerHTML = response;
+  
+  if (jno1702.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1702.innerHTML = response;
+  if (jno1703.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1703.innerHTML = response;
+  if (jno1704.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1704.innerHTML = response;
+  if (jno1705.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1705.innerHTML = response;
+  if (jno1706.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1706.innerHTML = response;
+  if (jno1707.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1707.innerHTML = response;
+  if (jno1708.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1708.innerHTML = response;
+  if (jno1709.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1709.innerHTML = response;
+  if (jno1710.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1710.innerHTML = response;
+  
+  if (jno1711.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1711.innerHTML = response;
+  if (jno1712.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1712.innerHTML = response;
+  if (jno1713.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1713.innerHTML = response;
+  if (jno1714.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1714.innerHTML = response;
+  if (jno1715.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1715.innerHTML = response;
+  
+  if (jno1716.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1716.innerHTML = response;
+  
+  
   
    nilai17.innerHTML = poin;
 localStorage.setItem("nil17",poin);
@@ -37,6 +240,17 @@ juduln17.innerHTML=nil17;
 function kirim18() {
   let poin = 0;
   const jno1801 = document.querySelector("#jno1801");
+   const jno1802 = document.querySelector("#jno1802");
+   const jno1803 = document.querySelector("#jno1803");
+   const jno1804 = document.querySelector("#jno1804");
+   const jno1805 = document.querySelector("#jno1805");
+   const jno1806 = document.querySelector("#jno1806");
+   const jno1807 = document.querySelector("#jno1807");
+   const jno1808 = document.querySelector("#jno1808");
+   const jno1809 = document.querySelector("#jno1809");
+   const jno1810 = document.querySelector("#jno1810");
+  
+  
   if (jno1801.checked) {
     response = "ok";
     poin = poin + 10;
@@ -44,6 +258,71 @@ function kirim18() {
     response = "x";
   }
   rno1801.innerHTML = response;
+  
+  if (jno1802.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1802.innerHTML = response;
+  if (jno1803.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1803.innerHTML = response;
+  if (jno1804.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1804.innerHTML = response;
+  if (jno1805.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1805.innerHTML = response;
+  if (jno1806.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1806.innerHTML = response;
+  if (jno1807.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1807.innerHTML = response;
+  if (jno1808.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1808.innerHTML = response;
+  if (jno1809.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1809.innerHTML = response;
+  if (jno1810.checked) {
+    response = "ok";
+    poin = poin + 10;
+  } else {
+    response = "x";
+  }
+  rno1810.innerHTML = response;
+  
   
    nilai18.innerHTML = poin;
 localStorage.setItem("nil18",poin);
