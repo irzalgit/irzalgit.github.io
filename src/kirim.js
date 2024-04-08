@@ -1221,8 +1221,8 @@ function kirim21() {
   const jno2101 = document.querySelector("#jno2101");
   const jno2102 = document.querySelector("#jno2102");
   const jno2103 = document.querySelector("#jno2103");
-  // const jno2104 = document.querySelector("#jno2104");
-  // const jno2105 = document.querySelector("#jno2105");
+   const jno2104 = document.querySelector("#jno2104");
+  const jno2105 = document.querySelector("#jno2105");
   // const jno2106 = document.querySelector("#jno2106");
   // const jno2107 = document.querySelector("#jno2107");
   // const jno2108 = document.querySelector("#jno2108");
@@ -1234,7 +1234,7 @@ function kirim21() {
     response = "ok";
     poin21 = poin21 + 10;
   } else {
-    response = "";
+    response = "x";
   }
 rno2101.innerHTML = response;
 
@@ -1242,7 +1242,7 @@ if (jno2102.checked) {
   response = "ok";
   poin21 = poin21 + 10;
 } else {
-  response = "";
+  response = "x";
 }
 rno2102.innerHTML = response;
 
@@ -1250,25 +1250,25 @@ if (jno2103.checked) {
   response = "ok";
   poin21 = poin21 + 10;
 } else {
-  response = "";
+  response = "x";
 }
 rno2103.innerHTML = response;
 
-// if (jno2104.checked) {
-//   response = "ok";
-//   poin21 = poin21 + 10;
-// } else {
-//   response = "";
-// }
-// rno2104.innerHTML = response;
+ if (jno2104.checked) {
+   response = "ok";
+ poin21 = poin21 + 10;
+} else {
+ response = "x";
+ }
+rno2104.innerHTML = response;
 
-// if (jno2105.checked) {
-//   response = "ok";
-//   poin21 = poin21 + 10;
-// } else {
-//   response = "";
-// }
-// rno2105.innerHTML = response;
+ if (jno2105.checked) {
+ response = "ok";
+poin21 = poin21 + 10;
+ } else {
+ response = "x";
+ }
+rno2105.innerHTML = response;
 
 // if (jno2106.checked) {
 //   response = "ok";
@@ -1309,6 +1309,9 @@ rno2103.innerHTML = response;
 
 
 nilai21.innerHTML=poin21;
+   localStorage.setItem("nil21",poin21);
+juduln21.innerHTML=nil21;
+
 const optionsno2101 = document.getElementsByName("no2101");
    for (let i = 0; i < optionsno2101.length; i++) {
        optionsno2101[i].checked = false;
@@ -1325,16 +1328,16 @@ const optionsno2101 = document.getElementsByName("no2101");
    }
 
 
-  //  const optionsno2104 = document.getElementsByName("no2104");
-  //  for (let i = 0; i < optionsno2104.length; i++) {
-  //      optionsno2104[i].checked = false;
-  //  }
+   const optionsno2104 = document.getElementsByName("no2104");
+   for (let i = 0; i < optionsno2104.length; i++) {
+       optionsno2104[i].checked = false;
+    }
 
    
-  //  const optionsno2105 = document.getElementsByName("no2105");
-  //  for (let i = 0; i < optionsno2105.length; i++) {
-  //      optionsno2105[i].checked = false;
-  //  }
+   const optionsno2105 = document.getElementsByName("no2105");
+   for (let i = 0; i < optionsno2105.length; i++) {
+      optionsno2105[i].checked = false;
+   }
    
   //  const optionsno2106 = document.getElementsByName("no2106");
   //  for (let i = 0; i < optionsno2106.length; i++) {
@@ -2908,5 +2911,7 @@ juduln16.innerHTML=nil16;
 
 
     nilai19.innerHTML=poin19;
+    localStorage.setItem("nil19",poin19);
+juduln19.innerHTML=nil19;
   
   }
