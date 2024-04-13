@@ -93,6 +93,12 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
      -->
 </head>
 <body  class="h-full">
+<audio class="hidden" id="myAudio" controls autoplay>
+  <source src="./vidio/FM1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
 
 <p>only for smartphone, in development</p>
 
@@ -450,7 +456,7 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
  
 
   <i data-feather="edit"> </i> 
- <p>update 13/4/24 02:30</p>
+ <p>update 13/4/24 14:30</p>
 <i data-feather="eye"></i>
 <div>
 <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script>
@@ -16179,6 +16185,10 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 <div id="audio-container">
 <audio id="song" autoplay loop>
 <source src="./vidio/FM1.mp3" 
+
+
+
+
 type="audio/mp3">
 </audio>
  
@@ -16432,7 +16442,7 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           const rootElement = document.querySelector(":root");
           const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
           const audioIcon = document.querySelector('.audio-icon-wrapper i');
-          const song = document.querySelector('#song');
+          const song = document.querySelector('#myAudio');
           let isPlaying = false;
       
           function disableScroll() {
@@ -16463,8 +16473,10 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           audioIconWrapper.onclick = function () {
             if (isPlaying) {
               song.pause();
+              
               audioIcon.classList.remove('bi-disc');
               audioIcon.classList.add('bi-pause-circle');
+              playSong();
             } else {
               song.play();
               audioIcon.classList.add('bi-disc');
@@ -17119,6 +17131,26 @@ let nam =localStorage.getItem('nam');
 </script>
 
 
+
+<script>
+  const audioFiles = ['./vidio/FM1.mp3', './vidio/lier.mp3', './vidio/FM1.mp3']; // Daftar lagu
+
+  const audioElement = document.getElementById('myAudio');
+  let currentSongIndex = 1; // Indeks lagu saat ini
+
+  audioElement.addEventListener('ended', function() {
+    if (currentSongIndex < audioFiles.length) {
+      audioElement.src = audioFiles[currentSongIndex];
+      audioElement.play();
+      currentSongIndex++;
+    } else {
+      // Jika sudah memutar semua lagu, kembali ke awal
+      currentSongIndex = 0;
+      audioElement.src = audioFiles[currentSongIndex];
+      audioElement.play();
+    }
+  });
+</script>
   </body>
   
 
