@@ -16322,10 +16322,21 @@ type="audio/mp3">
           
        <hr> 
          <label></label><br>
-    <div class="text-2xl font-bold" id=""></div>
+    <div class="text-2xl font-bold" 
+    id="result"></div>
+    
+      
+    
+       
+        
+       
+    
+       <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick="calculate()">TOTAL </button>
+            
+    
+    
 
-          <div id='success'></div>
-          <button type='submit' class="inline-block px-6 py-2 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded-full">Simpan ke data base</button>
+        
       </form>
   <!-- <div class="alert alert-success alert-dismissible d-none my-alert">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -17176,6 +17187,70 @@ let nam =localStorage.getItem('nam');
     }
   });
 </script>
+
+    <script>
+       
+
+        // Function to calculate and display result
+        function calculate() {
+            // Save input values to local storage
+            var num1 = parseFloat(localStorage.getItem("nil1"));
+            var num2 = parseFloat(localStorage.getItem("nil2"));
+            
+            
+            var num3 = parseFloat(localStorage.getItem("nil3"));
+            var num4 = parseFloat(localStorage.getItem("nil4"));
+            
+            
+             var num5 = parseFloat(localStorage.getItem("nil5"));
+            var num6 = parseFloat(localStorage.getItem("nil6"));
+            
+            
+            var num7 = parseFloat(localStorage.getItem("nil7"));
+            var num8 = parseFloat(localStorage.getItem("nil8"));
+            
+            
+            var num9 = parseFloat(localStorage.getItem("nil9"));
+            var num10 = parseFloat(localStorage.getItem("nil10"));
+            
+            
+            var num11 = parseFloat(localStorage.getItem("nil11"));
+            var num12 = parseFloat(localStorage.getItem("nil12"));
+            
+            var num13 = parseFloat(localStorage.getItem("nil13"));
+            var num14 = parseFloat(localStorage.getItem("nil14"));
+            
+            
+            var num15 = parseFloat(localStorage.getItem("nil15"));
+            var num16 = parseFloat(localStorage.getItem("nil16"));
+            
+            var num17 = parseFloat(localStorage.getItem("nil17"));
+            var num18 = parseFloat(localStorage.getItem("nil18"));
+            
+            
+            var num19 = parseFloat(localStorage.getItem("nil19"));
+            var num21 = parseFloat(localStorage.getItem("nil21"));
+            
+            
+            
+            
+            
+            
+            
+            
+var result = num1 + num2+num3+num4+num5 + num6+num7+num8  + num9+num10+num11+num12 + num13+num14+num15 + num16+num17+num18+num19 + num21;
+           
+           
+           
+            document.getElementById("result").innerHTML = "Jumlah Score :" + result;
+        }
+
+        // Load previously saved data when the page loads
+        window.onload = function() {
+            document.getElementById("num1").value = localStorage.getItem("num1") || '';
+            document.getElementById("num2").value = localStorage.getItem("num2") || '';
+        };
+    </script>
   </body>
   
 
