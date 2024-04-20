@@ -91,6 +91,45 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     <!-- Babel Script -->
     <!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> 
      -->
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container1 {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .donate-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .donate-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+ <style>
+  #donasi {
+    display: none;
+  }
+</style>
+     
 </head>
 <body  class="h-full">
 <audio class="hidden" id="myAudio" controls autoplay>
@@ -100,7 +139,7 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
 
 
 
-<p>only for smartphone, in development , update 17/4/24 visitor:<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></p>
+<p class ="text-sm" >only for smartphone, cara mengunakan 1. klik tombol mulai. 2.klik tombol donasi jika mau.3.scroll atau klik nomor bab yg ada dibawah  . 4.Tekan buka untuk melihat materi.. 5. Masukkan nama anda untuk yg pertama.  update 21/4/24 22:45 WIB .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=drivesdk"</iframe>
@@ -232,17 +271,42 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
           
           <h1 class="text-3xl  font-bold tracking-tight text-gray-900 sm:text-5xl font-tangerine">Portal Peta Pikiran</h1>
           <h1 class="text-2xl  font-bold tracking-tight text-sky-600 ">profesional kolaboratif</h1>
+       
+        
+        
           <h1 class="text-2xl  font-bold tracking-tight text-sky-600">untuk</h1>
           <h1 class="text-2xl  font-italic tracking-tight text-red-600 sm:text-xl">kerangka berfikir logis-sistematis</h1>
-           <p class="mt-6 text-lg leading-8 text-gray-600">cara lain untuk menguasai materi pelajaran dengan cepat dan mudah, diperlukan 
-             <a href="
-             
-            https://app.midtrans.com/payment-links/3fb294b6-5486-41c4-9190-4196a08662cc
-             
-             "
+           <p class="mt-6 text-lg leading-8 text-gray-600">cara lain untuk menguasai materi pelajaran dengan cepat dan mudah, diperlukan </p>
+           
+           
+                <button class="text-2xl text-black bg-yellow-400 " onclick="toggleContent()">_Donasi_ mu</button> 
+<br>
+<div id="donasi" class="container1">
+  
+   <h1>Galang Dana untuk Pendidikan Dasar</h1>
+        <p>1.Setiap sumbangan Anda akan membantu meningkatkan akses pendidikan dasar matematika  bagi anak-anak</p>
+        <p>2.Membantu biaya pengembangan dan hosting aplikasi  ini </p>
+        <a href="https://app.midtrans.com/payment-links/3fb294b6-5486-41c4-9190-4196a08662cc" class="donate-button">Sumbangkan Sekarang</a>
+       <button class="text-xl text-black bg-red-400 " onclick="toggleContent()">Belum Sekarang</button> 
+</div>
+
+
+
+        <!--        
                 
-                class="text-black bg-yellow-400  text-2xl">_Donasi_ </a>mu: </p><span class="text-1xl font-bold" id=""></span>
+ <p class="text-black bg-yellow-400  text-2xl">
+<button class="hover:bg-green-600  text-2xl text-red-600 bg-yellow-400 " onclick="toggleContent()">_Donasi_ </button>mu: 
+</p>
+<div id="donasi" class="container">
+  
+   <h1>Galang Dana untuk Pendidikan Dasar</h1>
+        <p>1.Setiap sumbangan Anda akan membantu meningkatkan akses pendidikan dasar matematika  bagi anak-anak</p>
+        <p>2.Membantu biaya pengembangan dan hosting aplikasi  ini </p>
+        <a href="https://app.midtrans.com/payment-links/3fb294b6-5486-41c4-9190-4196a08662cc" class="donate-button">Sumbangkan Sekarang</a>
     
+</div>
+
+-->
 
            <!-- <div class="mt-10 flex items-center justify-center gap-x-6">
             <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
@@ -413,14 +477,119 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     </div>
   </nav>
 
-  <header class="hidden bg-white shadow " >
+  <header class="m-2 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-gray-300 shadow " >
     <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold tracking-tight text-gray-900 " >Beranda</h1>
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 " ></h1>
       
+      <p class="text-3xl font-bold">Analisis</p>
+      <form class="mx-10" id='foo'>
+        
+        <br>
+        <p>
+          <label>Nama</label><br>
+          <div class="text-3xl font-bold" id="nama"></div>
+          
+        </p>
+            <!--
+          <label>Email</label><br>
+          <input id='email' name='email' type='email'>
+        </p><p>
+          <label>No.HP</label><br>
+          <input id='phone' name='phone' type='tel'>
+        </p><p>
+          <label>Pesan</label><br>
+          <textarea id='message' name='message' rows='5'></textarea>
+        -->
+        
+        <hr>
+    <label>Score Bilangan Berpangkat</label>
+        <div class="text-2xl font-bold" id="nila1"></div> 
+        
+    <label>Score Sistem Persamaan Linier</label>
+           <div class="text-2xl font-bold" id="nila2"></div>
+           
+    <label>Score Sistem Pertidaksamaan Linier</label><br>
+          <div class="text-2xl font-bold" id="nila3"></div>
+          
+    <label>Score Sistem Program Linier</label>
+          <div class="text-2xl font-bold" id="nila4"></div>
+        
+    <label>Score Persamaan Kuadrat</label>
+          <div class="text-2xl font-bold" id="nila9"></div>
+          
+    <label>Score Persamaan Ekponen</label>
+          <div class="text-2xl font-bold" id="nila10"></div>
+          
+        <label>Score Barisan dan Deret</label>
+          <div class="text-2xl font-bold" id="nila5"></div>
+          
+        <label>Score Trigonometri</label>
+          <div class="text-2xl font-bold" id="nila6"></div>
+            <label>Score Matrik</label>
+          <div class="text-2xl font-bold" id="nila7"></div>
+            <label>Score Vektor</label>
+          <div class="text-2xl font-bold" id="nila8"></div>
+          
+          
+          
+        <label>Score Aritmatika SOSIAL</label>
+          <div class="text-2xl font-bold" id="nila21"></div>
+          
+        <label>Score Fungsi Komposisi</label> 
+          <div class="text-2xl font-bold" id="nila11"></div>
+          
+          <label>Score Lingkaran</label> 
+          <div class="text-2xl font-bold" id="nila12"></div>
+            <label>Score Logika Matematika</label>
+          <div class="text-2xl font-bold" id="nila13"></div>
+          
+          <label>Score Limit</label> 
+          <div class="text-2xl font-bold" id="nila14"></div>
+          <label>Score Deferensial</label> 
+          <div class="text-2xl font-bold" id="nila15"></div>
+          
+           <label>Score Integral</label> 
+          <div class="text-2xl font-bold" id="nila16"></div>
+          
+           <label>Score Peluang</label> 
+          <div class="text-2xl font-bold" id="nila17"></div>
+          
+           <label>Score Statistik</label> 
+          <div class="text-2xl font-bold" id="nila18"></div>
+             <label>Score Transformasi Geometri</label> 
+          <div class="text-2xl font-bold" id="nila19"></div>
+          
+       <hr> 
+         <label></label><br>
+    <div class="text-2xl font-bold" 
+    id="result"></div>
+    
+      
+    
+       
+        
+       
+    
+       <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick="calculate()">TOTAL </button>
+            
+    
+    
+
+        
+      </form>
+  <!-- <div class="alert alert-success alert-dismissible d-none my-alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
+  </div> -->
+
+     <!-- Custom Theme JavaScript -->
+   
+<hr>
+    
     </div>
   </header>  
 
-  <div class="h-full bg-green-100  p-2 grid grid-cols-2 gap-2 md:grid-cols-4">
+  <div class="hidden h-full bg-green-100  p-2 grid grid-cols-2 gap-2 md:grid-cols-4">
   <div class="h-auto bg-green-600 aspect-[4/3] md:aspect-[3/4] xl:aspect-[4/3] rounded-lg">
   <div class="w-full h-full bg-center bg-cover  bg-[url('./gbr/fb2.jpg')]"></div>
   </div>
@@ -16273,113 +16442,6 @@ type="audio/mp3">
 
 
 
-<p class="text-3xl font-bold">Analisis</p>
-      <form class="mx-10" id='foo'>
-        
-        <br>
-        <p>
-          <label>Nama</label><br>
-          <div class="text-3xl font-bold" id="nama"></div>
-          
-        </p>
-            <!--
-          <label>Email</label><br>
-          <input id='email' name='email' type='email'>
-        </p><p>
-          <label>No.HP</label><br>
-          <input id='phone' name='phone' type='tel'>
-        </p><p>
-          <label>Pesan</label><br>
-          <textarea id='message' name='message' rows='5'></textarea>
-        -->
-        
-        <hr>
-    <label>Score Bilangan Berpangkat</label>
-        <div class="text-2xl font-bold" id="nila1"></div> 
-        
-    <label>Score Sistem Persamaan Linier</label>
-           <div class="text-2xl font-bold" id="nila2"></div>
-           
-    <label>Score Sistem Pertidaksamaan Linier</label><br>
-          <div class="text-2xl font-bold" id="nila3"></div>
-          
-    <label>Score Sistem Program Linier</label>
-          <div class="text-2xl font-bold" id="nila4"></div>
-        
-    <label>Score Persamaan Kuadrat</label>
-          <div class="text-2xl font-bold" id="nila9"></div>
-          
-    <label>Score Persamaan Ekponen</label>
-          <div class="text-2xl font-bold" id="nila10"></div>
-          
-        <label>Score Barisan dan Deret</label>
-          <div class="text-2xl font-bold" id="nila5"></div>
-          
-        <label>Score Trigonometri</label>
-          <div class="text-2xl font-bold" id="nila6"></div>
-            <label>Score Matrik</label>
-          <div class="text-2xl font-bold" id="nila7"></div>
-            <label>Score Vektor</label>
-          <div class="text-2xl font-bold" id="nila8"></div>
-          
-          
-          
-        <label>Score Aritmatika SOSIAL</label>
-          <div class="text-2xl font-bold" id="nila21"></div>
-          
-        <label>Score Fungsi Komposisi</label> 
-          <div class="text-2xl font-bold" id="nila11"></div>
-          
-          <label>Score Lingkaran</label> 
-          <div class="text-2xl font-bold" id="nila12"></div>
-            <label>Score Logika Matematika</label>
-          <div class="text-2xl font-bold" id="nila13"></div>
-          
-          <label>Score Limit</label> 
-          <div class="text-2xl font-bold" id="nila14"></div>
-          <label>Score Deferensial</label> 
-          <div class="text-2xl font-bold" id="nila15"></div>
-          
-           <label>Score Integral</label> 
-          <div class="text-2xl font-bold" id="nila16"></div>
-          
-           <label>Score Peluang</label> 
-          <div class="text-2xl font-bold" id="nila17"></div>
-          
-           <label>Score Statistik</label> 
-          <div class="text-2xl font-bold" id="nila18"></div>
-             <label>Score Transformasi Geometri</label> 
-          <div class="text-2xl font-bold" id="nila19"></div>
-          
-       <hr> 
-         <label></label><br>
-    <div class="text-2xl font-bold" 
-    id="result"></div>
-    
-      
-    
-       
-        
-       
-    
-       <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick="calculate()">TOTAL </button>
-            
-    
-    
-
-        
-      </form>
-  <!-- <div class="alert alert-success alert-dismissible d-none my-alert">
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
-  </div> -->
-
-     <!-- Custom Theme JavaScript -->
-   
-<hr>
-    
-
-
 <footer class="text-center text-white" style="background-color: #0a4275;">
   <div class="container p-6">
     <div class="">
@@ -17282,6 +17344,20 @@ var result = num1 + num2+num3+num4+num5 + num6+num7+num8  + num9+num10+num11+num
             document.getElementById("num2").value = localStorage.getItem("num2") || '';
         };
     </script>
+    
+    
+       
+<script>
+function toggleContent() {
+  var donasi = document.getElementById("donasi");
+  if (donasi.style.display === "none") {
+    donasi.style.display = "block";
+  } else {
+    donasi.style.display = "none";
+  }
+}
+</script>
+
   </body>
   
 
