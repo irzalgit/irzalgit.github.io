@@ -504,6 +504,9 @@ function kirim1() {
 
 
 localStorage.setItem("nil1",poin);
+niltotal=tiltotal+poin;
+localStorage.setItem("niltotal",niltotal);
+
 juduln1.innerHTML=nil1;
 
 
@@ -845,6 +848,8 @@ rno709.innerHTML=response
 
 
 nilai6.innerHTML=poin
+niltotal=niltotal+poin;
+localStorage.setItem("niltotal",niltotal);
 
 localStorage.setItem("nil6",poin);
 juduln6.innerHTML=nil6;
@@ -1061,7 +1066,9 @@ function kirim10() {
   rno609.innerHTML = response;
 
 nilai10.innerHTML=poin10;
-  
+  niltotal=niltotal+poin10;
+localStorage.setItem("niltotal",niltotal);
+
   localStorage.setItem("nil10",poin10);
 juduln10.innerHTML=nil10;
   
@@ -1181,6 +1188,9 @@ function kirim4() {
   rno137.innerHTML = response;
 
 nilai4.innerHTML=poin4;
+niltotal=niltotal+poin4;
+localStorage.setItem("niltotal",niltotal);
+
   localStorage.setItem("nil4",poin4);
 juduln4.innerHTML=nil4;
   
@@ -1309,7 +1319,11 @@ rno2105.innerHTML = response;
 
 
 nilai21.innerHTML=poin21;
-   localStorage.setItem("nil21",poin21);
+
+niltotal=niltotal+poin21;
+localStorage.setItem("niltotal",niltotal);
+
+     localStorage.setItem("nil21",poin21);
 juduln21.innerHTML=nil21;
 
 const optionsno2101 = document.getElementsByName("no2101");
@@ -1649,7 +1663,9 @@ const optionsno2101 = document.getElementsByName("no2101");
     rsno1901.innerHTML = response;
   
   nilai7.innerHTML=poin7;
-  
+  niltotal=niltotal+poin7;
+localStorage.setItem("niltotal",niltotal);
+
   localStorage.setItem("nil7",poin7);
 juduln7.innerHTML=nil7;
   
