@@ -146,12 +146,19 @@ function displayQuestions() {
         }
       }
     });
-document.getElementById('score0').innerText = `Skor ALJABAR: ${correctCount}`;
- //score0.innerText= alert("Jumlah jawaban benar: " +correctCount);
- //localStorage.setItem("nil0",${correctCount});
-//juduln0.innerHTML=nil0;}
-    disableRadioButtons();
+document.getElementById('score0').innerText = `Skor : ${correctCount}`;
 
+
+
+
+
+ //score0.innerText= alert("Jumlah jawaban benar: " +correctCount);
+ localStorage.setItem("nil0",${correctCount});
+
+juduln0.innerHTML=${correctCount} ;
+
+    disableRadioButtons();
+}
   function disableRadioButtons() {
     var radioButtons = document.querySelectorAll('input[type="radio"]');
     radioButtons.forEach(function(radioButton) {
@@ -363,7 +370,7 @@ function displayQuestions() {
   function clearQuestions() {
     questions = [];
   }
-
+//jalan
   function checkAnswers() {
     var correctCount = 0;
     questions.forEach(function(question, index) {
@@ -371,11 +378,18 @@ function displayQuestions() {
       if (selectedAnswer) {
         var selectedOption = question.options[selectedAnswer.value];
         if (selectedOption === question.correctAnswer) {
-          correctCount++;
+          correctCount+=10;
         }
       }
     });
-    alert("Jumlah jawaban benar: " + correctCount);
+//document.getElementById('score0').innerText = `Skor ALJABAR: ${correctCount}`;
+ 
+score0.innerHTML=correctCount;
+
+localStorage.setItem("nil0",correctCount);
+juduln0.innerHTML=nil0;
+
+
     disableRadioButtons();
   }
 
@@ -572,7 +586,7 @@ input[type="radio"] {
 
 
 
-<p class ="text-sm" >only for smartphone, cara mengunakan 1. klik tombol mulai. 2.klik tombol donasi jika mau.3.scroll atau klik nomor bab yg ada dibawah  . 4.Tekan buka untuk melihat materi.. 5. Masukkan nama anda untuk yg pertama.  update 24/4/24 23:30 WIB .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
+<p class ="text-sm" >only for smartphone, cara mengunakan 1. klik tombol mulai. 2.klik tombol donasi jika mau.3.scroll atau klik nomor bab yg ada dibawah  . 4.Tekan buka untuk melihat materi.. 5. Masukkan nama anda untuk yg pertama.  update 29/4/24 .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
@@ -17774,7 +17788,7 @@ let nil18 =localStorage.getItem('nil18');
 let nil19 =localStorage.getItem('nil19');
 let nil21 =localStorage.getItem('nil21');
 let nam =localStorage.getItem('nam');
-    if (!nam || nam=="") {
+    if (!nam || nam==="") {
         nam=prompt('masukkan nama:');
         localStorage.setItem('nam',nam);
     }
@@ -17862,7 +17876,7 @@ let nam =localStorage.getItem('nam');
     }
     
     
-    
+    juduln0.innerHTML=nil0; 
     juduln1.innerHTML=nil1;
     juduln2.innerHTML=nil2;
     juduln3.innerHTML=nil3;
@@ -17915,6 +17929,8 @@ let nam =localStorage.getItem('nam');
         // Function to calculate and display result
         function calculate() {
             // Save input values to local storage
+             var num0 = parseFloat(localStorage.getItem("nil0"));
+            
             var num1 = parseFloat(localStorage.getItem("nil1"));
             var num2 = parseFloat(localStorage.getItem("nil2"));
             
@@ -17959,7 +17975,7 @@ let nam =localStorage.getItem('nam');
             
             
             
-var result = num1 + num2+num3+num4+num5 + num6+num7+num8  + num9+num10+num11+num12 + num13+num14+num15 + num16+num17+num18+num19 + num21;
+var result = num0+num1 + num2+num3+num4+num5 + num6+num7+num8  + num9+num10+num11+num12 + num13+num14+num15 + num16+num17+num18+num19 + num21;
            
            
            
