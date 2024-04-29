@@ -11,6 +11,7 @@
 <link href="./css/pas.css" rel="stylesheet">  
 <link href="./css/output.css" rel="stylesheet"> 
 <script src="https://unpkg.com/feather-icons"></script>
+
 <script src="./js/index.js"></script> 
 <script src="./src/kirim.js"></script>
 
@@ -43,8 +44,355 @@ MathJax = {
 tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
 }
 </script>
+<!--
+<script>
+var questions = [];
 
+  function generateQuestions() {
+    clearQuestions();
+    var aValues = [2, 3, 4, 5];
+    var bValues = [-2, -4, -5];
+    var cValues = [5, 3, 2];
+    var dValues = [10, 12, 16];
 
+    for (var i = 1; i <= 10; i++) {
+      var a = aValues[Math.floor(Math.random() * aValues.length)];
+      var b = bValues[Math.floor(Math.random() * bValues.length)];
+      var c = cValues[Math.floor(Math.random() * cValues.length)];
+      var d = dValues[Math.floor(Math.random() * dValues.length)];
+
+      var question = {};
+      var equation, correctAnswer;
+
+      if (i === 1) {
+        equation = "Tentukan  x dari persamaan : <br> x = " + a + " + (" + b + ")";
+        correctAnswer = a + b;
+      } else if (i === 2) {
+        equation = "Tentukan x dari persamaan : <br>x = " + c + " - (" + d + ")";
+        correctAnswer = c - d;
+      } else if (i === 3) {
+        equation = "Tentukan  x dari persamaan : <br>x = -(" + a + ") ";
+        correctAnswer = -a + c;
+      } else if (i === 4) {
+        equation = "Tentukan x dari persamaan ";
+        correctAnswer = -d - b;
+      } else if (i === 5) {
+        equation = "Tentukan x dari persamaan :";
+        correctAnswer = d + b;
+      }else if (i === 6) {
+        equation = "Tentukan x dari persamaan : ";
+        correctAnswer = c - d;
+      } else if (i === 7) {
+        equation = "Tentukan  x dari persamaan ";
+        correctAnswer = -a + c;
+      } else if (i === 8) {
+        equation = "Tentukan x dari persamaan : ";
+        correctAnswer = -d - b;
+      } else if (i === 9) {
+        equation = "" ;
+        correctAnswer = a;
+      }else if (i === 10) {
+        equation = "Tentukan x dari persamaan : <br>x=("+a+")("+d+")-("+b+")("+c+")";
+        correctAnswer = a;
+      }
+      
+      
+
+      var options = generateOptions(correctAnswer);
+
+      question.equation = equation;
+      question.options = options;
+      question.correctAnswer = correctAnswer;
+
+      questions.push(question);
+    }
+
+    
+    displayQuestions();
+    enableRadioButtons();
+  }
+  
+  
+  function clearQuestions() {
+    questions = [];
+  }
+function displayQuestions() {
+    var container = document.getElementById("questions-container");
+    container.innerHTML = "";
+    questions.forEach(function(question, index) {
+      var questionElement = document.createElement("div");
+      questionElement.classList.add("question");
+      questionElement.innerHTML = `
+        <p class="font-bold" >${question.equation}</p>
+        <form id="form${index}" style="padding:15px" >
+          ${question.options.map((option, i) => `
+            <input type="radio" name="answer${index}" value="${i}">
+            <label>${option}</label><br>
+          `).join('')}
+        </form>
+      `;
+      container.appendChild(questionElement);
+    });
+  }
+   function checkAnswers() {
+    
+    var correctCount = 0;
+    questions.forEach(function(question, index) {
+      var selectedAnswer = document.querySelector(`input[name="answer${index}"]:checked`);
+      if (selectedAnswer) {
+        var selectedOption = question.options[selectedAnswer.value];
+        if (selectedOption === question.correctAnswer) {
+          correctCount+=10;
+        }
+      }
+    });
+document.getElementById('score0').innerText = `Skor ALJABAR: ${correctCount}`;
+ //score0.innerText= alert("Jumlah jawaban benar: " +correctCount);
+ //localStorage.setItem("nil0",${correctCount});
+//juduln0.innerHTML=nil0;}
+    disableRadioButtons();
+
+  function disableRadioButtons() {
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(function(radioButton) {
+      radioButton.disabled = true;
+    });
+  }
+
+  function enableRadioButtons() {
+      
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(function(radioButton) {
+      radioButton.disabled = false;
+    });
+  }
+ function generateOptions(correctAnswer) {
+    var options = [correctAnswer];
+    while (options.length < 4) {
+      var randomOption = Math.floor(Math.random() * 50) - 25; // Generate random numbers near the correct answer
+      if (!options.includes(randomOption)) {
+        options.push(randomOption);
+      }
+    }
+    shuffleArray(options);
+    return options;
+  }
+
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
+
+  }
+</script>
+-->
+<script>
+  var questions = [];
+
+function generateQuestions() {
+    clearQuestions();
+    var aValues = [2, 3, 4, 5];
+    var bValues = [-2, -4, -5];
+    var cValues = [5, 3, 2];
+    var dValues = [10, 12, 16];
+
+    for (var i = 1; i <= 10; i++) {
+      var a = aValues[Math.floor(Math.random() * aValues.length)];
+      var b = bValues[Math.floor(Math.random() * bValues.length)];
+      var c = cValues[Math.floor(Math.random() * cValues.length)];
+      var d = dValues[Math.floor(Math.random() * dValues.length)];
+
+      var question = {};
+      var equation, correctAnswer;
+
+      if (i === 1) {
+        equation = "Tentukan  x dari persamaan : <br> x = " + a + " + (" + b + ")";
+        correctAnswer = a + b;
+      } else if (i === 2) {
+        equation = "Tentukan x dari persamaan : <br>x = " + c + " - (" + d + ")";
+        correctAnswer = c - d;
+      } else if (i === 3) {
+        equation = "Tentukan  x dari persamaan : <br>x = -(" + a + ") ";
+        correctAnswer = -a + c;
+      } else if (i === 4) {
+        equation = "Tentukan x dari persamaan ";
+        correctAnswer = -d - b;
+      } else if (i === 5) {
+        equation = "Tentukan x dari persamaan :";
+        correctAnswer = d + b;
+      }else if (i === 6) {
+        equation = "Tentukan x dari persamaan : ";
+        correctAnswer = c - d;
+      } else if (i === 7) {
+        equation = "Tentukan  x dari persamaan ";
+        correctAnswer = -a + c;
+      } else if (i === 8) {
+        equation = "Tentukan x dari persamaan : ";
+        correctAnswer = -d - b;
+      } else if (i === 9) {
+        equation = "" ;
+        correctAnswer = a;
+      }else if (i === 10) {
+        equation = "Tentukan x dari persamaan : <br>x=("+a+")("+d+")-("+b+")("+c+")";
+        correctAnswer = a;
+      }
+      
+      
+
+      var options = generateOptions(correctAnswer);
+
+      question.equation = equation;
+      question.options = options;
+      question.correctAnswer = correctAnswer;
+
+      questions.push(question);
+    }
+
+    
+    displayQuestions();
+    enableRadioButtons();
+  }
+  
+<!--
+  function generateQuestions() {
+    clearQuestions();
+    var aValues = [2, 3, 4, 5];
+    var bValues = [-2, -4, -5];
+    var cValues = [5, 3, 2];
+    var dValues = [10, 12, 16];
+
+    for (var i = 1; i <= 4; i++) {
+      var a = aValues[Math.floor(Math.random() * aValues.length)];
+      var b = bValues[Math.floor(Math.random() * bValues.length)];
+      var c = cValues[Math.floor(Math.random() * cValues.length)];
+      var d = dValues[Math.floor(Math.random() * dValues.length)];
+
+      var question = {};
+      var equation, correctAnswer;
+
+      if (i === 1) {
+        equation = "x = " + a + " + (" + b + ")";
+        correctAnswer = a + b;
+      } else if (i === 2) {
+        equation = "x = " + c + " - (" + d + ")";
+        correctAnswer = c - d;
+      } else if (i === 3) {
+        equation = "x = -(" + a + ") + " + c;
+        correctAnswer = -a + c;
+      } else if (i === 4) {
+        equation = "x = -(" + d + ") - (" + b + ")";
+        correctAnswer = -d - b;
+      }
+
+      var options = generateOptions(correctAnswer);
+
+      question.equation = equation;
+      question.options = options;
+      question.correctAnswer = correctAnswer;
+
+      questions.push(question);
+    }
+
+    displayQuestions();
+    enableRadioButtons();
+  }
+-->
+  function generateOptions(correctAnswer) {
+    var options = [correctAnswer];
+    while (options.length < 4) {
+      var randomOption = Math.floor(Math.random() * 50) - 25; // Generate random numbers near the correct answer
+      if (!options.includes(randomOption)) {
+        options.push(randomOption);
+      }
+    }
+    shuffleArray(options);
+    return options;
+  }
+
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
+
+function displayQuestions() {
+    var container = document.getElementById("questions-container");
+    container.innerHTML = "";
+    questions.forEach(function(question, index) {
+      var questionElement = document.createElement("div");
+      questionElement.classList.add("question");
+      questionElement.innerHTML = `
+        <p>${question.equation}</p>
+<form id="form${index}" style="padding:5px" >
+          ${question.options.map((option, i) => `
+            <input type="radio" name="answer${index}" value="${i}">
+            <label>${option}</label><br>
+          `).join('')}
+        </form>
+      `;
+      container.appendChild(questionElement);
+    });
+  }
+<!--
+function displayQuestions() {
+    var container = document.getElementById("questions-container");
+    container.innerHTML = "";
+    questions.forEach(function(question, index) {
+      var questionElement = document.createElement("div");
+      questionElement.classList.add("question");
+      questionElement.innerHTML = `
+        <p class="font-bold" >${question.equation}</p>
+        <form id="form${index}" style="padding:15px" >
+          ${question.options.map((option, i) => `
+            <input type="radio" name="answer${index}" value="${i}">
+            <label>${option}</label><br>
+          `).join('')}
+        </form>
+      `;
+      container.appendChild(questionElement);
+    });
+  }
+-->
+  function clearQuestions() {
+    questions = [];
+  }
+
+  function checkAnswers() {
+    var correctCount = 0;
+    questions.forEach(function(question, index) {
+      var selectedAnswer = document.querySelector(`input[name="answer${index}"]:checked`);
+      if (selectedAnswer) {
+        var selectedOption = question.options[selectedAnswer.value];
+        if (selectedOption === question.correctAnswer) {
+          correctCount++;
+        }
+      }
+    });
+    alert("Jumlah jawaban benar: " + correctCount);
+    disableRadioButtons();
+  }
+
+  function disableRadioButtons() {
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(function(radioButton) {
+      radioButton.disabled = true;
+    });
+  }
+
+  function enableRadioButtons() {
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(function(radioButton) {
+      radioButton.disabled = false;
+    });
+  }
+</script>
 <style>
 
   #more {display: none;}
@@ -129,7 +477,92 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     display: none;
   }
 </style>
-     
+   <style>
+  .question {
+    margin-bottom: 20px;
+  }
+  .custom-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  outline: none;
+  cursor: pointer;
+  margin-right: 5px;
+}
+input[type="radio"] {
+    position: relative;
+    display: inline-flex;
+}
+}
+</style>  
+
+
+<script>
+    function generateQuestion() {
+        var a = [2, 3, 4];
+        var b = [2, 1, 0];
+        var c = [-1, 3, 4];
+        var d = [2, 1, 0];
+
+        var index = Math.floor(Math.random() * 3);
+        var answer = [
+            [a[0]*c[index] + b[0]*d[index], a[0]*d[index] + b[0]*d[index]],
+            [a[1]*c[index] + b[1]*d[index], a[1]*d[index] + b[1]*d[index]]
+        ];
+
+        var choices = [
+            answer,
+            [
+                [a[0]*c[(index+1)%3] + b[0]*d[(index+1)%3], a[0]*d[(index+1)%3] + b[0]*d[(index+1)%3]],
+                [a[1]*c[(index+1)%3] + b[1]*d[(index+1)%3], a[1]*d[(index+1)%3] + b[1]*d[(index+1)%3]]
+            ],
+            [
+                [a[0]*c[(index+2)%3] + b[0]*d[(index+2)%3], a[0]*d[(index+2)%3] + b[0]*d[(index+2)%3]],
+                [a[1]*c[(index+2)%3] + b[1]*d[(index+2)%3], a[1]*d[(index+2)%3] + b[1]*d[(index+2)%3]]
+            ],
+            [
+                [a[0]*c[(index+3)%3] + b[0]*d[(index+3)%3], a[0]*d[(index+3)%3] + b[0]*d[(index+3)%3]],
+                [a[1]*c[(index+3)%3] + b[1]*d[(index+3)%3], a[1]*d[(index+3)%3] + b[1]*d[(index+3)%3]]
+            ]
+        ];
+
+        document.getElementById("question").innerHTML = "\\[\\begin{bmatrix}"+a[0]+" & "+b[0]+" \\\\ "+a[1]+" & "+b[1]+"\\end{bmatrix} \\times \\begin{bmatrix}"+c[index]+" & "+d[index]+" \\\\ "+c[(index+1)%3]+" & "+d[(index+1)%3]+"\\end{bmatrix}\\]";
+        
+        var choicesHTML = "";
+        for (var i = 0; i < choices.length; i++) {
+            choicesHTML += "<input type='radio' name='answer' value='"+i+"'>";
+            choicesHTML += "\\[\\begin{bmatrix}"+choices[i][0][0]+" & "+choices[i][0][1]+" \\\\ "+choices[i][1][0]+" & "+choices[i][1][1]+"\\end{bmatrix}\\]";
+            choicesHTML += "<br>";
+        }
+        document.getElementById("choices").innerHTML = choicesHTML;
+    }
+
+    function checkAnswer() {
+        var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+        if (!selectedAnswer) {
+            alert("Pilih salah satu jawaban!");
+            return;
+        }
+
+        var score = parseInt(selectedAnswer.value);
+        var result = document.getElementById("result");
+        if (score === 0) {
+            result.innerHTML = "Jawaban benar! Skor Anda: 10";
+        } else {
+            result.innerHTML = "Jawaban salah. Skor Anda: 0";
+        }
+
+        var inputs = document.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = true;
+        }
+    }
+</script>
+
 </head>
 <body  class="h-full">
 <audio class="hidden" id="myAudio" controls autoplay>
@@ -512,9 +945,14 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
         -->
         
         <hr>
+<p >Score Aljabar/penalaran matematika
+<span class="font-bold" id="nila0"></span>
+</p>
+
  <p >Score Bilangan Berpangkat
 <span class="font-bold" id="nila1"></span>
 </p>
+
 <p>Score Sistem Persamaan Linier
 <span class=" font-bold" id="nila2"></span>
 </p>
@@ -785,7 +1223,7 @@ Harapannya, modul ajar Kurikulum Merdeka Matematika untuk SMK akan menekankan pa
   </p>
     "Matematik sebagai ekspresi pikiran manusia mencerminkan kemauan aktif, alasan kontemplasi, dan keinginan untuk kesempurnaan estetika. Elemen dasarnya adalah logika dan intuisi, analisis dan konstruksi, generalitas dan individualitas. Meskipun tradisi yang berbeda mungkin menekankan aspek yang berbeda, hanya interaksi dari kekuatan antitesis ini dan perjuangan untuk sintesis mereka yang merupakan kehidupan, kegunaan, dan nilai tertinggi dari ilmu matematika.
 Tampaknya ada bahaya besar dalam tekanan berlebihan yang berlaku pada karakter deduktif-postulasi matematika. Benar, unsur penemuan konstruktif, mengarahkan dan memotivasi intuisi, cenderung menghindari rumusan filosofis yang sederhana; tetapi tetap menjadi inti dari pencapaian matematika, bahkan di bidang yang paling abstrak. Jika bentuk deduktif mengkristal adalah tujuannya, intuisi dan konstruksi setidaknya merupakan kekuatan pendorong. Ancaman serius terhadap kehidupan ilmu pengetahuan tersirat dalam pernyataan bahwa matematika tidak lain adalah sistem kesimpulan yang diambil dari definisi dan postulat yang harus konsisten tetapi sebaliknya dapat diciptakan oleh kehendak bebas ahli matematika.
-Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini akan menjadi permainan dengan definisi, aturan, dan silogisme, tanpa motif atau tujuan. Gagasan bahwa kecerdasan dapat menciptakan sistem postulasi yang berarti sesuai keinginannya adalah separuh kebenaran yang menipu. Hanya di bawah disiplin tanggung jawab terhadap keseluruhan organik, hanya dibimbing oleh kebutuhan hakiki, pikiran bebas dapat mencapai hasil nilai ilmiah. "
+Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini akan menjadi permainan dengan definisi, aturan, dan silogisme, tanpa motif atau tujuan. Gagasan bahwa kecerdasan dapat menciptakan sistem postulasi yang berarti sesuai keinginannya adalah separuh kebenaran yang menipu. Hanya di bawah disiplin tanggung jawab terhadap keseluruhan organik, hanya dibimbing oleh kebutuhan hakiki, pikiran bebas dapat mencapai hasil nilai il9miah. "
    (Richard Courant, 1941)🍁❣️ 
   </article>
   <p class="font-bold">
@@ -801,8 +1239,8 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
 
 <span id="dots00">...</span>
     <div id="more00">
-
-  <article>
+<div class="bg-slate-200" id="questions-container"></div>
+  <article class="hidden">
   <p  class="font-bold">
  </p>
 
@@ -858,6 +1296,7 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
   maka 2 = 5 - 3
   </article>
   <hr>
+  <!--
   <p class="font-bold">soal 1</p>
   Diberikan a+3=8 maka nilai a adalah<br>
   <input type="radio" name="no3100" style=" display:inline-flex">0<br>
@@ -903,10 +1342,31 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
   <input type="radio" name="no3104" id="jno3104" style=" display:inline">-11<br>
   <div id="rno3104"></div>
   <hr>
+  -->
+  <br>
+  <hr>
   
-<h1 id="nilai3100"></h1>
+  <div class="font-bold" id="score0"></div>
+  
+ <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestions()">aljabar</button>
+  <br>
+  
+  
+  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="checkAnswers()">cek nilai Aljabar</button>
+  
+  <div class="hidden bg-sky-300" id="questions-containerakar"></div>
+  
+  <div class="hidden font-bold" id="score00">akar</div>
+  
+   <button class="hidden py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestionsakar()">Soal akar</button>
+  <br>
+
+<button class="hidden py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="checkAnswersakar()">cek nilai akar</button>
+    
+ 
+
 <br>
-  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirimalj()">cek nilai Aljabar</button>
+  <button class=" hidden py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirimalj()">cek nilai Aljabar</button>
        
  </div> 
   
@@ -9091,6 +9551,131 @@ jika C=A-2B maka C adalah
  <h1 class="text-3xl font-bold" id="nilai7"></h1>  
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim7()">Cek Nilai Matrik </button>
 
+<!--
+    <script>
+        function generateQuestion() {
+            var a = [[2, 3], [4, 1]];
+            var b = [[2, 1], [0, -1]];
+            var c = [[-1, 3], [4, 2]];
+            var d = [[2, 1], [0, 3]];
+
+            var questions = [
+                { matrix: a, answer: "c" },
+                { matrix: b, answer: "d" },
+                { matrix: c, answer: "a" },
+                { matrix: d, answer: "b" }
+            ];
+
+            var randomIndex = Math.floor(Math.random() * questions.length);
+            var question = questions[randomIndex];
+
+            document.getElementById("question").innerHTML = "$$ A = \\begin{pmatrix} " + question.matrix[0][0] + " & " + question.matrix[0][1] + " \\\\ " + question.matrix[1][0] + " & " + question.matrix[1][1] + " \\end{pmatrix} \\times B = \\, ? $$";
+            var choices = ["a", "b", "c", "d"];
+            choices.splice(choices.indexOf(question.answer), 1);
+            choices = shuffle(choices);
+            for (var i = 0; i < 4; i++) {
+                var option = document.getElementById("option" + (i + 1));
+                if (choices.length > 0) {
+                    option.innerHTML = "$$ C = \\begin{pmatrix} " + questions[choices.pop()].matrix[0][0] + " & " + questions[choices.pop()].matrix[0][1] + " \\\\ " + questions[choices.pop()].matrix[1][0] + " & " + questions[choices.pop()].matrix[1][1] + " \\end{pmatrix} $$";
+                }
+            }
+        }
+
+        function shuffle(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        }
+    </script>
+    <h1>Math Quiz</h1>
+    <div id="question"></div>
+    <input type="radio" id="option1" name="answer" value="a"> <label for="option1" id="label1"></label><br>
+    <input type="radio" id="option2" name="answer" value="b"> <label for="option2" id="label2"></label><br>
+    <input type="radio" id="option3" name="answer" value="c"> <label for="option3" id="label3"></label><br>
+    <input type="radio" id="option4" name="answer" value="d"> <label for="option4" id="label4"></label><br>
+    <button onclick="generateQuestion()">Generate Question</button>
+    <button onclick="checkAnswer()">Check Answer</button>
+    <div id="score"></div>
+    <script>
+        generateQuestion();
+    </script>
+
+
+
+
+<script>
+    function generateQuestion() {
+        var a = [2, 3, 4];
+        var b = [2, 1, 0];
+        var c = [-1, 3, 4];
+        var d = [2, 1, 0];
+
+        var index = Math.floor(Math.random() * 3);
+        var answer = [
+            [a[0]*c[index] + b[0]*d[index], a[0]*d[index] + b[0]*d[index]],
+            [a[1]*c[index] + b[1]*d[index], a[1]*d[index] + b[1]*d[index]]
+        ];
+
+        var choices = [
+            answer,
+            [
+                [a[0]*c[(index+1)%3] + b[0]*d[(index+1)%3], a[0]*d[(index+1)%3] + b[0]*d[(index+1)%3]],
+                [a[1]*c[(index+1)%3] + b[1]*d[(index+1)%3], a[1]*d[(index+1)%3] + b[1]*d[(index+1)%3]]
+            ],
+            [
+                [a[0]*c[(index+2)%3] + b[0]*d[(index+2)%3], a[0]*d[(index+2)%3] + b[0]*d[(index+2)%3]],
+                [a[1]*c[(index+2)%3] + b[1]*d[(index+2)%3], a[1]*d[(index+2)%3] + b[1]*d[(index+2)%3]]
+            ],
+            [
+                [a[0]*c[(index+3)%3] + b[0]*d[(index+3)%3], a[0]*d[(index+3)%3] + b[0]*d[(index+3)%3]],
+                [a[1]*c[(index+3)%3] + b[1]*d[(index+3)%3], a[1]*d[(index+3)%3] + b[1]*d[(index+3)%3]]
+            ]
+        ];
+
+        document.getElementById("question").innerHTML = "\\[\\begin{bmatrix}"+a[0]+" & "+b[0]+" \\\\ "+a[1]+" & "+b[1]+"\\end{bmatrix} \\times \\begin{bmatrix}"+c[index]+" & "+d[index]+" \\\\ "+c[(index+1)%3]+" & "+d[(index+1)%3]+"\\end{bmatrix}\\]";
+        
+        var choicesHTML = "";
+        for (var i = 0; i < choices.length; i++) {
+            choicesHTML += "<input type='radio' name='answer' value='"+i+"'>";
+            choicesHTML += "\\[\\begin{bmatrix}"+choices[i][0][0]+" & "+choices[i][0][1]+" \\\\ "+choices[i][1][0]+" & "+choices[i][1][1]+"\\end{bmatrix}\\]";
+            choicesHTML += "<br>";
+        }
+        document.getElementById("choices").innerHTML = choicesHTML;
+    }
+
+    function checkAnswer() {
+        var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+        if (!selectedAnswer) {
+            alert("Pilih salah satu jawaban!");
+            return;
+        }
+
+        var score = parseInt(selectedAnswer.value);
+        var result = document.getElementById("result");
+        if (score === 0) {
+            result.innerHTML = "Jawaban benar! Skor Anda: 10";
+        } else {
+            result.innerHTML = "Jawaban salah. Skor Anda: 0";
+        }
+
+        var inputs = document.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = true;
+        }
+    }
+</script>
+-->
+<div id="question"></div>
+<div id="choices"></div>
+<button onclick="generateQuestion()">Acak Soal</button>
+<button onclick="checkAnswer()">Cek Jawaban</button>
+<div id="result"></div>
+
+
 </div>
 
 <div x-data="{open:false}">
@@ -14048,6 +14633,28 @@ Dengan demikian jika d/dx(f(x))=F(x) maka $\int  F(x).dx$=f(x)
 
 <h5>sifat 1 :</h5> 
 <label>$$\int ax^n dx=\frac {a} {n+1} x^{n+1}$$</label>
+  <h2>Soal 1:</h2>
+    <p>Hitunglah integral dari:</p>
+    <p>\(\int (3x^2 + 2x - 1) \, dx\)</p>
+    <ul>
+        <li><span style="font-size: 20px;">\(x^3 + x^2 - x\)</span></li>
+        <li><span style="font-size: 20px;">\(x^3 + x - 1\)</span></li>
+        <li><span style="font-size: 20px;">\(x^3 + x^2 + x\)</span></li>
+        <li><span style="font-size: 20px;">\(3x^3 + x^2 - x\)</span></li>
+    </ul>
+
+    <h2>Soal 2:</h2>
+    <p>Hitunglah integral dari:</p>
+    <p>\(\int \frac{1}{x} \, dx\)</p>
+    <ul>
+        <li><span style="font-size: 20px;">\(\ln|x|\)</span></li>
+        <li><span style="font-size: 20px;">\(\ln(x)\)</span></li>
+        <li><span style="font-size: 20px;">\(\ln(x^2)\)</span></li>
+        <li><span style="font-size: 20px;">\(\frac{1}{2}\ln(x^2)\)</span></li>
+    </ul>
+
+
+
 <p>Berdasarkan sifat 1 tentukan nilai dari </p>
 <label>$$\int 2x^3 dx=...$$ </label>
 <p style="font-size:small">
@@ -16173,7 +16780,7 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 </div>
 <!-- akhir kisi -->
 
-<div  id="bab23" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#98FB98]">
+<div  id="bab23" class="hidden dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#98FB98]">
 
 
   <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Evaluasi(Kisi-kisi PAS) </h1>
@@ -17120,6 +17727,7 @@ $('#submit-form').on('click', function(e) {
 
 <script>
 const judul = document.querySelector('#nama');
+const juduln0 = document.querySelector('#nila0');
 const juduln1 = document.querySelector('#nila1');
 const juduln2 = document.querySelector('#nila2');
 const juduln3 = document.querySelector('#nila3');
@@ -17144,7 +17752,7 @@ const juduln21 = document.querySelector('#nila21');
 
 
 
-
+let nil0 =localStorage.getItem('nil0');
 let nil1 =localStorage.getItem('nil1');
 let nil2 =localStorage.getItem('nil2');
 let nil3 =localStorage.getItem('nil3');
@@ -17171,7 +17779,9 @@ let nam =localStorage.getItem('nam');
         localStorage.setItem('nam',nam);
     }
     judul.innerHTML=nam;
-    
+     if (!nil0) {
+        localStorage.setItem('nil0',0);
+    }
     if (!nil1) {
         localStorage.setItem('nil1',0);
     }
