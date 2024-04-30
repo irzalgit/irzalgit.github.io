@@ -149,13 +149,29 @@ function displayQuestions() {
 document.getElementById('score0').innerText = `Skor : ${correctCount}`;
 
 
+if (correctCount==40){
+localStorage.setItem("nil0",${correctCount});
+juduln0.innerHTML=${correctCount} ;
+
+}
+
+
+   // Cek apakah variabel nilai sudah ada di dalam localStorage
+            if(localStorage.getItem('nil0')) {
+                // Jika sudah ada, tambahkan nilai dengan 40
+                var nil0 = parseInt(localStorage.getItem('nil0')) + 40;
+                // Simpan nilai yang baru ke dalam localStorage
+                localStorage.setItem('nil0', nil0);
+            } else {
+                // Jika variabel nilai belum ada, atur nilainya menjadi 0
+                localStorage.setItem('nil0', 0);
+            }
+
 
 
 
  //score0.innerText= alert("Jumlah jawaban benar: " +correctCount);
- localStorage.setItem("nil0",${correctCount});
-
-juduln0.innerHTML=${correctCount} ;
+ 
 
     disableRadioButtons();
 }
@@ -385,9 +401,22 @@ function displayQuestions() {
 //document.getElementById('score0').innerText = `Skor ALJABAR: ${correctCount}`;
  
 score0.innerHTML=correctCount;
+;
 
-localStorage.setItem("nil0",correctCount);
+if (correctCount==40){
+
+   // Cek apakah variabel nilai sudah ada di dalam localStorage
+            if(localStorage.getItem('nil0')) {
+                // Jika sudah ada, tambahkan nilai dengan 40
+                var nilai = parseInt(localStorage.getItem('nil0')) + 40;
+                // Simpan nilai yang baru ke dalam localStorage
+                localStorage.setItem('nil0', nilai);
+            } else {
+                // Jika variabel nilai belum ada, atur nilainya menjadi 0
+                localStorage.setItem('nil0', 0);
+            }
 juduln0.innerHTML=nil0;
+}
 
 
     disableRadioButtons();
@@ -586,7 +615,7 @@ input[type="radio"] {
 
 
 
-<p class ="text-sm" >only for smartphone, cara mengunakan 1. klik tombol mulai. 2.klik tombol donasi jika mau.3.scroll atau klik nomor bab yg ada dibawah  . 4.Tekan buka untuk melihat materi.. 5. Masukkan nama anda untuk yg pertama.  update 29/4/24 .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
+<p class ="text-sm" >only for smartphone, cara mengunakan 1. klik tombol mulai. 2.klik tombol donasi jika mau.3.scroll atau klik nomor bab yg ada dibawah  . 4.Tekan buka untuk melihat materi.. 5. Masukkan nama anda untuk yg pertama.  update 30/4/24  22:00 WIB.Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
