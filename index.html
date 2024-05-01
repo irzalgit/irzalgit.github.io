@@ -283,17 +283,30 @@ function generateQuestions() {
 <!--
   function generateQuestions() {
     clearQuestions();
-    var aValues = [2, 3, 4, 5];
+    var aValues = [2, 3];
     var bValues = [-2, -4, -5];
     var cValues = [5, 3, 2];
     var dValues = [10, 12, 16];
+    var eValues = [4, 5,6];
+     var fValues = [8, 12,10];
+      var gValues = [24, 25,30];
+    
+    
 
-    for (var i = 1; i <= 4; i++) {
+    for (var i = 1; i <= 5; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
       var d = dValues[Math.floor(Math.random() * dValues.length)];
-
+  var e = eValues[Math.floor(Math.random() * eValues.length)];
+   var f = fValues[Math.floor(Math.random() * fValues.length)];
+   var g = gValues[Math.floor(Math.random() * gValues.length)];
+  
+  
+  
+  
+  
+  
       var question = {};
       var equation, correctAnswer;
 
@@ -309,7 +322,12 @@ function generateQuestions() {
       } else if (i === 4) {
         equation = "x = -(" + d + ") - (" + b + ")";
         correctAnswer = -d - b;
+      }else if (i === 5) {
+        equation = "Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka beda b=? adalah " ;
+        correctAnswer = (g-f)/(e-a);
       }
+
+
 
       var options = generateOptions(correctAnswer);
 
@@ -615,7 +633,7 @@ input[type="radio"] {
 
 
 
-<p class ="text-sm" >only for smartphone, cara mengunakan 1. klik tombol mulai. 2.klik tombol donasi jika mau.3.scroll atau klik nomor bab yg ada dibawah  . 4.Tekan buka untuk melihat materi.. 5. Masukkan nama anda untuk yg pertama.  update 30/4/24  22:00 WIB.Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
+<p class ="text-sm" >only for smartphone, cara mengunakan 1. klik tombol mulai. 2.klik tombol donasi jika mau.3.scroll atau klik nomor bab yg ada dibawah  . 4.Tekan buka untuk melihat materi.. 5. Masukkan nama anda untuk yg pertama.  update 1/5/24 .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
