@@ -51,10 +51,11 @@ const nilai3100=document.querySelector("#nilai3100");
         else {response="x";
         };
         rno3104.innerHTML=response;
-        
-        
+   
 
-    nilai3100.innerHTML=poin;
+
+nilai3100.innerHTML=poin;
+    
 }
 
 
