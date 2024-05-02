@@ -140,7 +140,7 @@ if (correctCount==80){
    // Cek apakah variabel nilai sudah ada di dalam localStorage
             if(localStorage.getItem('nil0')) {
                 // Jika sudah ada, tambahkan nilai dengan 40
-                var nilai = parseInt(localStorage.getItem('nil0')) + 80;
+                var nilai = parseInt(localStorage.getItem('nil0')) + 100;
                 // Simpan nilai yang baru ke dalam localStorage
                 localStorage.setItem('nil0', nilai);
             } else {
