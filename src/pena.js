@@ -36,16 +36,16 @@
       var equation, correctAnswer;
 
       if (i === 1) {
-        equation = "x = " + a + " + (" + b + ")";
+        equation = "Hitung nilai x dari <br>x = " + a + " + (" + b + ")";
         correctAnswer = a + b;
       } else if (i === 2) {
-        equation = "x = " + c + " - (" + d + ")";
+        equation = "Hitung nilai x dari <br>x = " + c + " - (" + d + ")";
         correctAnswer = c - d;
       } else if (i === 3) {
-        equation = "x = -(" + a + ") + " + c;
+        equation = "Hitung nilai x dari <br>x = -(" + a + ") + " + c;
         correctAnswer = -a + c;
       } else if (i === 4) {
-        equation = "x = -(" + d + ") - (" + b + ")";
+        equation = "Hitung nilai x dari <br>x = -(" + d + ") - (" + b + ")";
         correctAnswer = -d - b;
       }else if (i === 5) {
         equation = "Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka beda b=? adalah " ;
@@ -143,9 +143,12 @@ function displayQuestions() {
 //document.getElementById('score0').innerText = `Skor ALJABAR: ${correctCount}`;
  
 score0.innerHTML=correctCount;
-;
 
-if (correctCount==80){
+
+if (correctCount==100){
+    var audio = new Audio('./vidio/suara1.mp3');
+    audio.play();
+  
 
    // Cek apakah variabel nilai sudah ada di dalam localStorage
             if(localStorage.getItem('nil0')) {
@@ -178,3 +181,13 @@ juduln0.innerHTML=nil0;
     });
   }
 
+
+
+
+function cekSkor() {
+  var skor = document.getElementById("score0").value;
+  if (skor == 100) {
+    var audio = new Audio('./vidio/suara1.mp3');
+    audio.play();
+  }
+}
