@@ -13,10 +13,11 @@
     var eValues = [4, 5,6];
      var fValues = [8, 12,10];
       var gValues = [24, 25,30];
+      var hValues = [4,8,16,12];
     
     
 
-    for (var i = 1; i <= 8; i++) {
+    for (var i = 1; i <= 10; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -25,6 +26,7 @@
    var f = fValues[Math.floor(Math.random() * fValues.length)];
    var g = gValues[Math.floor(Math.random() * gValues.length)];
   
+    var h = hValues[Math.floor(Math.random() * hValues.length)];
   
   
   
@@ -57,10 +59,18 @@
       }else if (i === 8) {
         equation = "Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka jumlah 10 suku pertama  adalah " ;
         correctAnswer =5*(2*(f-(a-1)*(g-f)/(e-a))+9*(g-f)/(e-a));
+      }else if (i === 9) {
+        equation = "Suku ke 1 dari barisan geometri adalah  "+a+" , jika rasio r= 2, maka suku ke 5 adalah " ;
+        correctAnswer =Math.pow(2,4)*(a);
+      }else if (i === 10) {
+        equation = "Mula mula tinggi pohon "+h+" cm jika setiap hari pertumbuhannya 50% maka hari ke 5 tinggimya  adalah " ;
+        correctAnswer =Math.pow(1.5,4)*(h);
       }
-
-
-
+      
+      
+      
+      
+      
 
       var options = generateOptions(correctAnswer);
 
