@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en" class=" h-full ">
 <head>
@@ -167,7 +169,7 @@ input[type="radio"] {
 
 
 
-<p class ="text-sm" >only for smartphone, cara mengunakan 1. klik tombol mulai. 2.klik tombol donasi jika mau.3.scroll atau klik nomor bab yg ada dibawah  . 4.Tekan buka untuk melihat materi.. 5. Masukkan nama anda untuk yg pertama. update 1/5/24 13:00 .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
+<p class ="text-sm" >only for smartphone, cara mengunakan 1. klik tombol mulai. 2.klik tombol donasi jika mau.3.scroll atau klik nomor bab yg ada dibawah  . 4.Tekan buka untuk melihat materi.. 5. Masukkan nama anda untuk yg pertama. update 5/5/24 13:00 .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
@@ -830,11 +832,11 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
 
 <div  id="bab00" class="border-1 rounded-3xl box-border border-black p-4  text-black bg-white">
   
-  <div class="text-3xl">Aljabar</div>
+  <div class="text-3xl">Penalaran Matematika   </div>
 
 <span id="dots00">...</span>
     <div id="more00">
-<div class="bg-slate-200" id="questions-container"></div>
+
   <article class="hidden">
   <p  class="font-bold">
  </p>
@@ -941,13 +943,23 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
   <br>
   <hr>
   
-  <div class="font-bold" id="score0"></div>
+ 
+ <div class="bg-slate-200" id="questions-container"></div>
+ 
+ 
+ <div style="display:flex">
+     
+ 
+ <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestionsA()">ALJABAR</button>
   
- <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestionsA()">aljabar</button>
-  <br>
   
-  
-  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="checkAnswers()">cek nilai Aljabar</button>
+<div class="font-bold" id="score0"></div>
+  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="checkAnswers()">CEK Aljabar</button>
+ 
+ 
+ </div>
+ 
+ 
   
   <div class="hidden bg-sky-300" id="questions-containerakar"></div>
   
@@ -11737,7 +11749,19 @@ $g(x) = ...$</p>
   <p>Jadi A'(0.58,4.94)</p>
   <h1 id="nilai19"></h1>
   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim19()" >Cek Nilai Transformasi Geometri</button>
+  <!--
+  <div class="bg-slate-200" id="questions-container19"></div>
+  <p>soal penalaran </p>
+   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestions19()">transformasi</button>
+  <br>
   
+  
+  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="checkAnswers19()">cek nilai transformasi</button>
+  -->
+  <div id="questions-container19a"></div>
+<button onclick="randomizeVariables()">Soal Baru</button>
+<button onclick="checkAnswers19a()">Cek</button>
+<div id="score19a"></div>
     </div>
     <div x-data="{open:false}">
       <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl " @click='open=!open' x-text="open ? 'tutup mindmap' :  'buka mindmap'"> </button>
