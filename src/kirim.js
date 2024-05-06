@@ -1810,7 +1810,7 @@ for (let i = 0; i < optionsno709.length; i++) {
     }
     rsno18.innerHTML = response;
   
-    if (sno19.value == "-1") {
+    if (sno19.value == "1") {
       response = "";
       poin7 = poin7 + 10;
     } else {
