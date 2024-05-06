@@ -15,9 +15,11 @@
       var gValues = [24, 25,30];
       var hValues = [4,8,16,12];
     
-    
+    var kValues = [20,30,40,50];
+    var lValues = [6,9,12,15,18];
+ var mValues = [60,65,75];
 
-    for (var i = 1; i <= 10; i++) {
+    for (var i = 1; i <= 14; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -28,6 +30,10 @@
   
     var h = hValues[Math.floor(Math.random() * hValues.length)];
   
+  var k = kValues[Math.floor(Math.random() * kValues.length)];
+   var l = lValues[Math.floor(Math.random() * lValues.length)];
+  
+  var m = mValues[Math.floor(Math.random() * mValues.length)];
   
   
   
@@ -36,36 +42,50 @@
       var equation, correctAnswer;
 
       if (i === 1) {
-        equation = "Hitung nilai x dari <br>x = " + a + " + (" + b + ")";
+        equation = "1.Hitung nilai x dari <br>x = " + a + " + (" + b + ")";
         correctAnswer = a + b;
       } else if (i === 2) {
-        equation = "Hitung nilai x dari <br>x = " + c + " - (" + d + ")";
+        equation = "2.Hitung nilai x dari <br>x = " + c + " - (" + d + ")";
         correctAnswer = c - d;
       } else if (i === 3) {
-        equation = "Hitung nilai x dari <br>x = -(" + a + ") + " + c;
+        equation = "3.Hitung nilai x dari <br>x = -(" + a + ") + (" + c+")";
         correctAnswer = -a + c;
       } else if (i === 4) {
-        equation = "Hitung nilai x dari <br>x = -(" + d + ") - (" + b + ")";
+        equation = "4.Hitung nilai a dari <br>a = -(" + d + ") - (" + b + ")";
         correctAnswer = -d - b;
-      }else if (i === 5) {
-        equation = "Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka beda b=? adalah " ;
-        correctAnswer = (g-f)/(e-a);
-      }else if (i === 6) {
-        equation = "Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka suku pertama a=? adalah " ;
-        correctAnswer = f-(a-1)*(g-f)/(e-a);
+      } else if (i === 5) {
+        equation = "5.Hitung nilai a dari <br>a= -(" + d + ") - (" + b + ") x (" + b + ")    ";
+        correctAnswer = -d - b*b;
+      } else if (i === 6) {
+        equation = "6.Hitung nilai a dari <br>a= -((" + d + ") - (" + b + ")) x (" + a + ")    ";
+        correctAnswer = -(d - b)*a;
       }else if (i === 7) {
-        equation = "Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka suku ke 10  adalah " ;
-        correctAnswer = f-(a-1)*(g-f)/(e-a)+9*(g-f)/(e-a);
-      }else if (i === 8) {
-        equation = "Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka jumlah 10 suku pertama  adalah " ;
-        correctAnswer =5*(2*(f-(a-1)*(g-f)/(e-a))+9*(g-f)/(e-a));
+        equation = "7.Hitung nilai a dari <br>2a= -(-(" + d + ") - (" + b + ")) x (" + b + ")    ";
+        correctAnswer = -(-d - b)*b/2;
+       }else if (i === 8) {
+        equation = "8.Hitung a jika a :"+l+"=2:3" ;
+        correctAnswer = (2/3)*l;
+        
       }else if (i === 9) {
-        equation = "Suku ke 1 dari barisan geometri adalah  "+a+" , jika rasio r= 2, maka suku ke 5 adalah " ;
+        equation = "9.Perbandingan a:b:c=2:3:5. jika rata rata nya "+k+" maka nilai a  adalah " ;
+        correctAnswer = 0.6*k;
+        }else if (i === 10) {
+        equation = "10. Lima tahun yang  lalu perbandingan umur ayah  dan ibu adalah 3 :2 , jika jumlah umur keduanya sekarang "+m+" , umur ayah adalah " ;
+        correctAnswer =5+(3/5)*(m-10);
+      }else if (i === 11) {
+        equation = "11.Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka suku ke 10  adalah " ;
+        correctAnswer = f-(a-1)*(g-f)/(e-a)+9*(g-f)/(e-a);
+      }else if (i === 12) {
+        equation = "12.Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka jumlah 10 suku pertama  adalah " ;
+        correctAnswer =5*(2*(f-(a-1)*(g-f)/(e-a))+9*(g-f)/(e-a));
+      }else if (i === 13) {
+        equation = "13.Suku ke 1 dari barisan geometri adalah  "+a+" , jika rasio r= 2, maka suku ke 5 adalah " ;
         correctAnswer =Math.pow(2,4)*(a);
-      }else if (i === 10) {
-        equation = "Mula mula tinggi pohon "+h+" cm jika setiap hari pertumbuhannya 50% maka hari ke 5 tinggimya  adalah " ;
+      }else if (i === 14) {
+        equation = "14.Mula mula tinggi pohon "+h+" cm jika setiap hari pertumbuhannya 50% maka hari ke 5 tinggimya  adalah " ;
         correctAnswer =Math.pow(1.5,4)*(h);
       }
+      
       
       
       
@@ -145,7 +165,7 @@ function displayQuestions() {
 score0.innerHTML=correctCount;
 
 
-if (correctCount==100){
+if (correctCount=>120){
     var audio = new Audio('./vidio/suara1.mp3');
     audio.play();
   
@@ -153,7 +173,7 @@ if (correctCount==100){
    // Cek apakah variabel nilai sudah ada di dalam localStorage
             if(localStorage.getItem('nil0')) {
                 // Jika sudah ada, tambahkan nilai dengan 40
-                var nilai = parseInt(localStorage.getItem('nil0')) + 100;
+                var nilai = parseInt(localStorage.getItem('nil0')) + 150;
                 // Simpan nilai yang baru ke dalam localStorage
                 localStorage.setItem('nil0', nilai);
             } else {
