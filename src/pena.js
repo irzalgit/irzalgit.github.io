@@ -167,7 +167,7 @@ function displayQuestions() {
 score0.innerHTML=correctCount;
 
 
-if (correctCount==120){
+if (correctCount=>120){
     var audio = new Audio('./vidio/suara1.mp3');
     audio.play();
   
