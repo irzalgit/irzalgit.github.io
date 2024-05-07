@@ -76,8 +76,8 @@
         equation = "11.Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka suku ke 10  adalah " ;
         correctAnswer = f-(a-1)*(g-f)/(e-a)+9*(g-f)/(e-a);
       }else if (i === 12) {
-        equation = "12.Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka jumlah 10 suku pertama  adalah " ;
-        correctAnswer =5*(2*(f-(a-1)*(g-f)/(e-a))+9*(g-f)/(e-a));
+        equation = "12.Suku ke 1 dari barisan aritmatika adalah  " + f + ", jika b="+b+"  maka suku ke 10 adalah " ;
+        correctAnswer =9*b +f;
       }else if (i === 13) {
         equation = "13.Suku ke 1 dari barisan geometri adalah  "+a+" , jika rasio r= 2, maka suku ke 5 adalah " ;
         correctAnswer =Math.pow(2,4)*(a);
@@ -102,7 +102,9 @@
     }
 
     displayQuestions();
+    tombolcekon();
     enableRadioButtons();
+    
   }
 
   function generateOptions(correctAnswer) {
@@ -165,7 +167,7 @@ function displayQuestions() {
 score0.innerHTML=correctCount;
 
 
-if (correctCount=>120){
+if (correctCount==140){
     var audio = new Audio('./vidio/suara1.mp3');
     audio.play();
   
@@ -173,9 +175,9 @@ if (correctCount=>120){
    // Cek apakah variabel nilai sudah ada di dalam localStorage
             if(localStorage.getItem('nil0')) {
                 // Jika sudah ada, tambahkan nilai dengan 40
-                var nilai = parseInt(localStorage.getItem('nil0')) + 150;
+                var nilai = parseInt(localStorage.getItem('nil0')) *0;
                 // Simpan nilai yang baru ke dalam localStorage
-                localStorage.setItem('nil0', nilai);
+                localStorage.setItem('nil0', 150);
             } else {
                 // Jika variabel nilai belum ada, atur nilainya menjadi 0
                 localStorage.setItem('nil0', 0);
@@ -183,15 +185,22 @@ if (correctCount=>120){
 juduln0.innerHTML=nil0;
 }
 
-
+tombolcekoff();
     disableRadioButtons();
+    
   }
 
   function disableRadioButtons() {
     var radioButtons = document.querySelectorAll('input[type="radio"]');
     radioButtons.forEach(function(radioButton) {
       radioButton.disabled = true;
-    });
+      
+      
+      }
+     
+      
+      
+      );
   }
 
   function enableRadioButtons() {
@@ -201,6 +210,20 @@ juduln0.innerHTML=nil0;
     });
   }
 
+function tombolcekoff() {
+  var tombol = document.getElementById("tombolcek");
+  
+  tombol.classList.add("hidden");
+  
+}
+function tombolcekon() {
+  var tombol = document.getElementById("tombolcek");
+   if (tombol.classList.contains("hidden")) {
+    
+    tombol.classList.remove("hidden");
+    
+   }
+}
 
 
 
