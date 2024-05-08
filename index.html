@@ -169,7 +169,7 @@ input[type="radio"] {
 
 
 
-<p class ="text-sm" >only for smartphone, cara mengunakan 1. klik tombol mulai. 2.klik tombol donasi jika mau.3.scroll atau klik nomor bab yg ada dibawah  . 4.Tekan buka untuk melihat materi.. 5. Masukkan nama anda untuk yg pertama. update 7/5/24 13:00 .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
+<p class ="text-sm" >only for smartphone, update 8/5/24.Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
@@ -294,8 +294,9 @@ input[type="radio"] {
         
         
         <div class="text-center">
+        <!--
              <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick="enableScroll()">MULAI </button>
-            
+            -->
           
           <h1><span class="bg-gradient-to-tr from-green-800 via red-500 to-blue-800 bg-clip-text text-transparent text-8xl font-tangerine hover:font-inter">B'phy</span></h1>
           
@@ -954,7 +955,7 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
  <div class="font-bold" id="score0"></div>
  
  <div style="display:flex">
- <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestionsA()">ALJABAR</button>
+ <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestionsA()">Soal baru</button>
   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" id="tombolcek" onclick="checkAnswers()">CEK Aljabar</button>
  </div>
   
@@ -2845,7 +2846,10 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
     </p>
     </label>
   </div>
- <h1 id="nilai1"></h1> 
+   <h1 id="nila1a">nilai senelumnya</h1> 
+ <h1 id="nilai1"></h1> <br>
+  
+ 
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim1()>cek nilai  bilangan berpangkat</button>
    
 </div>
@@ -16812,7 +16816,7 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           checkbo13.checked ? html13.classList.add('dark') : html13.classList.remove('dark'); 
           });
           </script>
-        
+        <!--
 
         <script>
           const rootElement = document.querySelector(":root");
@@ -16835,7 +16839,7 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           function enableScroll() {
             window.onscroll = function () { }
             rootElement.style.scrollBehavior = 'smooth';
-            // localStorage.setItem('opened', 'true');
+             localStorage.setItem('opened', 'true');
             playAudio();
           }
       
@@ -16862,12 +16866,12 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
             isPlaying = !isPlaying;
           }
       
-          // if (!localStorage.getItem('opened')) {
-          //   disableScroll();
-          // }
+           if (!localStorage.getItem('opened')) {
+            disableScroll();
+          }
           disableScroll();
         </script>
-        
+        -->
 <script>
   function myFunction() {
     var dots = document.getElementById("dots");
@@ -17351,6 +17355,7 @@ $('#submit-form').on('click', function(e) {
 const judul = document.querySelector('#nama');
 const juduln0 = document.querySelector('#nila0');
 const juduln1 = document.querySelector('#nila1');
+const juduln1a = document.querySelector('#nila1a');
 const juduln2 = document.querySelector('#nila2');
 const juduln3 = document.querySelector('#nila3');
 const juduln4 = document.querySelector('#nila4');
@@ -17396,10 +17401,15 @@ let nil18 =localStorage.getItem('nil18');
 let nil19 =localStorage.getItem('nil19');
 let nil21 =localStorage.getItem('nil21');
 let nam =localStorage.getItem('nam');
-    if (!nam || nam==="") {
+
+
+if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null') 
+{
         nam=prompt('masukkan nama:');
         localStorage.setItem('nam',nam);
     }
+    
+    
     judul.innerHTML=nam;
      if (!nil0) {
         localStorage.setItem('nil0',0);
@@ -17486,6 +17496,7 @@ let nam =localStorage.getItem('nam');
     
     juduln0.innerHTML=nil0; 
     juduln1.innerHTML=nil1;
+    juduln1a.innerHTML=nil1;
     juduln2.innerHTML=nil2;
     juduln3.innerHTML=nil3;
     juduln4.innerHTML=nil4;
