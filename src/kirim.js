@@ -1,3 +1,5 @@
+
+
 function kirimalj(){
     let poin=0;
       const jno3100=document.querySelector("#jno3100");
@@ -108,7 +110,9 @@ function kirim1() {
   const jno681 = document.querySelector("#jno681");
   const jno691 = document.querySelector("#jno691");
   const jno692 = document.querySelector("#jno692");
-  const nilai1=document.querySelector('#nilai1')
+  const nilai1=document.querySelector('#nilai1');
+  
+  const nilai1a=document.querySelector('#nilai1a');
   
   if (jno31.checked) {
     response = "";
@@ -425,11 +429,12 @@ function kirim1() {
   }
   rno692.innerHTML = response;
   nilai1.innerHTML = poin;
-  
+  nilaia.innerHTML=nilai1a;
   
 
 
 localStorage.setItem("nil1",poin);
+
 juduln1.innerHTML=nil1;
 
 
