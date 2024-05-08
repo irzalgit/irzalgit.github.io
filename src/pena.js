@@ -1,4 +1,5 @@
 
+ 
   var questions = [];
 
 
@@ -18,8 +19,10 @@
     var kValues = [20,30,40,50];
     var lValues = [6,9,12,15,18];
  var mValues = [60,65,75];
-
-    for (var i = 1; i <= 14; i++) {
+ 
+var nValues = [-2,2,4,7];
+ 
+    for (var i = 1; i <= 15; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -35,7 +38,7 @@
   
   var m = mValues[Math.floor(Math.random() * mValues.length)];
   
-  
+    var n = nValues[Math.floor(Math.random() * mValues.length)];
   
   
       var question = {};
@@ -51,8 +54,8 @@
         equation = "3.Hitung nilai x dari <br>x = -(" + a + ") + (" + c+")";
         correctAnswer = -a + c;
       } else if (i === 4) {
-        equation = "4.Hitung nilai a dari <br>a = -(" + d + ") - (" + b + ")";
-        correctAnswer = -d - b;
+        equation = "4.Hitung nilai a dari <br>a =("+b+")(" + d + ") - ("+c+")(" + b + ")";
+        correctAnswer = b*d - c*b;
       } else if (i === 5) {
         equation = "5.Hitung nilai a dari <br>a= -(" + d + ") - (" + b + ") x (" + b + ")    ";
         correctAnswer = -d - b*b;
@@ -63,25 +66,28 @@
         equation = "7.Hitung nilai a dari <br>2a= -(-(" + d + ") - (" + b + ")) x (" + b + ")    ";
         correctAnswer = -(-d - b)*b/2;
        }else if (i === 8) {
-        equation = "8.Hitung a jika a :"+l+"=2:3" ;
+        equation = "8.Hitung x jika x/"+l+"=2/3" ;
         correctAnswer = (2/3)*l;
+       } else if (i === 9) {
+        equation = "9.Hitung n jika 30 =2 +(n-1)("+n+")" ;
+        correctAnswer = 1+(28/n);
         
-      }else if (i === 9) {
+      }else if (i === 10) {
         equation = "9.Perbandingan a:b:c=2:3:5. jika rata rata nya "+k+" maka nilai a  adalah " ;
         correctAnswer = 0.6*k;
-        }else if (i === 10) {
+        }else if (i === 11) {
         equation = "10. Lima tahun yang  lalu perbandingan umur ayah  dan ibu adalah 3 :2 , jika jumlah umur keduanya sekarang "+m+" , umur ayah adalah " ;
         correctAnswer =5+(3/5)*(m-10);
-      }else if (i === 11) {
+      }else if (i === 12) {
         equation = "11.Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka suku ke 10  adalah " ;
         correctAnswer = f-(a-1)*(g-f)/(e-a)+9*(g-f)/(e-a);
-      }else if (i === 12) {
+      }else if (i === 13) {
         equation = "12.Suku ke 1 dari barisan aritmatika adalah  " + f + ", jika b="+b+"  maka suku ke 10 adalah " ;
         correctAnswer =9*b +f;
-      }else if (i === 13) {
+      }else if (i === 14) {
         equation = "13.Suku ke 1 dari barisan geometri adalah  "+a+" , jika rasio r= 2, maka suku ke 5 adalah " ;
         correctAnswer =Math.pow(2,4)*(a);
-      }else if (i === 14) {
+      }else if (i === 15) {
         equation = "14.Mula mula tinggi pohon "+h+" cm jika setiap hari pertumbuhannya 50% maka hari ke 5 tinggimya  adalah " ;
         correctAnswer =Math.pow(1.5,4)*(h);
       }
@@ -167,7 +173,7 @@ function displayQuestions() {
 score0.innerHTML=correctCount;
 
 
-if (correctCount>=120){
+if (correctCount>=130){
     var audio = new Audio('./vidio/suara1.mp3');
     audio.play();
   
