@@ -73,22 +73,22 @@ var nValues = [-2,2,4,7];
         correctAnswer = 1+(28/n);
         
       }else if (i === 10) {
-        equation = "9.Perbandingan a:b:c=2:3:5. jika rata rata nya "+k+" maka nilai a  adalah " ;
+        equation = "10.Perbandingan a:b:c=2:3:5. jika rata rata nya "+k+" maka nilai a  adalah " ;
         correctAnswer = 0.6*k;
         }else if (i === 11) {
-        equation = "10. Lima tahun yang  lalu perbandingan umur ayah  dan ibu adalah 3 :2 , jika jumlah umur keduanya sekarang "+m+" , umur ayah adalah " ;
+        equation = "11. Lima tahun yang  lalu perbandingan umur ayah  dan ibu adalah 3 :2 , jika jumlah umur keduanya sekarang "+m+" , umur ayah adalah " ;
         correctAnswer =5+(3/5)*(m-10);
       }else if (i === 12) {
-        equation = "11.Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka suku ke 10  adalah " ;
+        equation = "12.Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka suku ke 10  adalah " ;
         correctAnswer = f-(a-1)*(g-f)/(e-a)+9*(g-f)/(e-a);
       }else if (i === 13) {
-        equation = "12.Suku ke 1 dari barisan aritmatika adalah  " + f + ", jika b="+b+"  maka suku ke 10 adalah " ;
+        equation = "13.Suku ke 1 dari barisan aritmatika adalah  " + f + ", jika b="+b+"  maka suku ke 10 adalah " ;
         correctAnswer =9*b +f;
       }else if (i === 14) {
-        equation = "13.Suku ke 1 dari barisan geometri adalah  "+a+" , jika rasio r= 2, maka suku ke 5 adalah " ;
+        equation = "14.Suku ke 1 dari barisan geometri adalah  "+a+" , jika rasio r= 2, maka suku ke 5 adalah " ;
         correctAnswer =Math.pow(2,4)*(a);
       }else if (i === 15) {
-        equation = "14.Mula mula tinggi pohon "+h+" cm jika setiap hari pertumbuhannya 50% maka hari ke 5 tinggimya  adalah " ;
+        equation = "15.Mula mula tinggi pohon "+h+" cm jika setiap hari pertumbuhannya 50% maka hari ke 5 tinggimya  adalah " ;
         correctAnswer =Math.pow(1.5,4)*(h);
       }
       
