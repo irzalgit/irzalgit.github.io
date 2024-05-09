@@ -112,7 +112,7 @@ function kirim1() {
   const jno692 = document.querySelector("#jno692");
   const nilai1=document.querySelector('#nilai1');
   
-  const nilai1a=document.querySelector('#nilai1a');
+ 
   
   if (jno31.checked) {
     response = "";
@@ -429,7 +429,7 @@ function kirim1() {
   }
   rno692.innerHTML = response;
   nilai1.innerHTML = poin;
-  nilaia.innerHTML=nilai1a;
+ 
   
 
 
@@ -798,7 +798,7 @@ function kirim3() {
     const jno116 = document.querySelector("#jno116");
     const jno117 = document.querySelector("#jno117");
     const jno118 = document.querySelector("#jno118");
-    const jno119 = document.querySelector("#jno19");
+    const jno119 = document.querySelector("#jno119");
     const jno120 = document.querySelector("#jno120");
     const nilai3 = document.querySelector("#nilai3");
   
