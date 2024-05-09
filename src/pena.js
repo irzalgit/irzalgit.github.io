@@ -7,22 +7,22 @@
 
   function generateQuestionsA() {
     clearQuestions();
-    var aValues = [2, 3];
+    var aValues = [2, 3 ,4];
     var bValues = [-2, -4, -5];
     var cValues = [5, 3, 2];
     var dValues = [10, 12, 16];
-    var eValues = [4, 5,6];
+    var eValues = [5,6,8,7];
      var fValues = [8, 12,10];
       var gValues = [24, 25,30];
       var hValues = [4,8,16,12];
     
     var kValues = [20,30,40,50];
     var lValues = [6,9,12,15,18];
- var mValues = [60,65,75];
+ var mValues = [60,65,75,80,85];
  
 var nValues = [-2,2,4,7];
  
-    for (var i = 1; i <= 15; i++) {
+    for (var i = 1; i <= 17; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -38,7 +38,7 @@ var nValues = [-2,2,4,7];
   
   var m = mValues[Math.floor(Math.random() * mValues.length)];
   
-    var n = nValues[Math.floor(Math.random() * mValues.length)];
+    var n = nValues[Math.floor(Math.random() * nValues.length)];
   
   
       var question = {};
@@ -90,7 +90,18 @@ var nValues = [-2,2,4,7];
       }else if (i === 15) {
         equation = "15.Mula mula tinggi pohon "+h+" cm jika setiap hari pertumbuhannya 50% maka hari ke 5 tinggimya  adalah " ;
         correctAnswer =Math.pow(1.5,4)*(h);
+      }else if (i === 16) {
+        equation = "16.Tentukan x dari <br>&#8730;2x="+b+"&#8730;2+"+e+"&#8730;2   " ;
+        correctAnswer =Math.pow((b+e),2);
+      }else if (i === 17) {
+        equation = "17.&#8730(k+2) -x=0 jika nilai x = "+a+" maka k = ? " ;
+        correctAnswer =Math.pow(a,2)-2;
       }
+      
+      
+      
+      
+      
       
       
       
@@ -116,7 +127,7 @@ var nValues = [-2,2,4,7];
   function generateOptions(correctAnswer) {
     var options = [correctAnswer];
     while (options.length < 4) {
-      var randomOption = Math.floor(Math.random() * 50) - 25; // Generate random numbers near the correct answer
+      var randomOption = Math.floor(Math.random() * 8)+options[0]; // Generate random numbers near the correct answer
       if (!options.includes(randomOption)) {
         options.push(randomOption);
       }
@@ -173,7 +184,7 @@ function displayQuestions() {
 score0.innerHTML=correctCount;
 
 
-if (correctCount>=130){
+if (correctCount>=150){
     var audio = new Audio('./vidio/suara1.mp3');
     audio.play();
   
