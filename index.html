@@ -156,7 +156,8 @@ input[type="radio"] {
     position: relative;
     display: inline-flex;
 }
-}
+
+
 </style>  
 
 
@@ -169,7 +170,7 @@ input[type="radio"] {
 
 
 
-<p class ="text-sm" >only for smartphone, update 8/5/24.Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
+<p class ="text-sm" >only for smartphone, update 9/5/24.Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
@@ -619,7 +620,8 @@ input[type="radio"] {
 <span class="  font-bold" id="nila16"></span>
 </p>
 
-
+<div id="num1">nim1</div>
+    
           
        <hr> 
          
@@ -628,6 +630,10 @@ input[type="radio"] {
        <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick="calculate()">TOTAL </button>
             
     
+    
+    
+    
+    
       </div>
       
       
@@ -635,7 +641,6 @@ input[type="radio"] {
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     <strong>Success!</strong> nilai anda sudah tersimpan, lihat tabel score.
   </div> -->
-
      <!-- Custom Theme JavaScript -->
    <br>
 
@@ -9217,7 +9222,7 @@ jika C=A-2B maka C adalah
         
     </script>
 
-
+<!- 
 
 
 <script>
@@ -9287,7 +9292,7 @@ jika C=A-2B maka C adalah
 <button onclick="checkAnswer()">Cek Jawaban</button>
 <div id="result"></div>
 
-
+--> 
 </div>
 
 <div x-data="{open:false}">
@@ -16715,7 +16720,8 @@ type="audio/mp3">
 </footer> 
 
 <!-- <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+<!-- 
  <script>
  const checkbo1=document.querySelector('#toggle1');
   const html1 = document.querySelector('html');
@@ -16816,7 +16822,7 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           checkbo13.checked ? html13.classList.add('dark') : html13.classList.remove('dark'); 
           });
           </script>
-        <!--
+    
 
         <script>
           const rootElement = document.querySelector(":root");
@@ -16871,7 +16877,7 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           }
           disableScroll();
         </script>
-        -->
+    -->
 <script>
   function myFunction() {
     var dots = document.getElementById("dots");
@@ -16910,7 +16916,6 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
       moreText00.style.display = "inline";
     }
   }
-  
   function myFunction1() {
     var dots1 = document.getElementById("dots1");
     var moreText1 = document.getElementById("more1");
@@ -16928,8 +16933,6 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
       moreText1.style.display = "inline";
     }
   }
-
-
   function myFunction2() {
     var dots2= document.getElementById("dots2");
     var moreText2 = document.getElementById("more2");
@@ -17548,7 +17551,7 @@ if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
         // Function to calculate and display result
         function calculate() {
             // Save input values to local storage
-             var num0 = parseFloat(localStorage.getItem("nil0"));
+            var num0 = parseFloat(localStorage.getItem("nil0"));
             
             var num1 = parseFloat(localStorage.getItem("nil1"));
             var num2 = parseFloat(localStorage.getItem("nil2"));
@@ -17567,7 +17570,7 @@ if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
             
             
             var num9 = parseFloat(localStorage.getItem("nil9"));
-            var num10 = parseFloat(localStorage.getItem("nil10"));
+var num10 = parseFloat(localStorage.getItem("nil10"));
             
             
             var num11 = parseFloat(localStorage.getItem("nil11"));
@@ -17587,40 +17590,26 @@ if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
             var num19 = parseFloat(localStorage.getItem("nil19"));
             var num21 = parseFloat(localStorage.getItem("nil21"));
             
-            
-            
-            
-            
-            
-            
-            
-var result = num0+num1 + num2+num3+num4+num5 + num6+num7+num8  + num9+num10+num11+num12 + num13+num14+num15 + num16+num17+num18+num19 + num21;
-           
-           
-           
-            document.getElementById("result").innerHTML = "Jumlah Score :" + result;
+var result = num0+num1+num2+num3+num4+num5 + num6+num7+num8+num9+num10+num11+num12 + num13+num14+num15+num16+num17+num18+num19 +num21;
+
+document.getElementById("result").innerHTML = "Jumlah Score :" +result;
+ 
         }
 
         // Load previously saved data when the page loads
         window.onload = function() {
-         document.getElementById("num1").value = localStorage.getItem("num1") || '';
-   document.getElementById("num2").value = localStorage.getItem("num2") || '';
-     document.getElementById("num3").value = localStorage.getItem("num3") || '';
-      document.getElementById("num4").value = localStorage.getItem("num4") || '';
-     
-     document.getElementById("num5").value = localStorage.getItem("num5") || '';
-     document.getElementById("num6").value = localStorage.getItem("num6") || '';
-     
-     document.getElementById("num7").value = localStorage.getItem("num7") || '';
-     document.getElementById("num8").value = localStorage.getItem("num8") || '';
-     
-     document.getElementById("num9").value = localStorage.getItem("num9") || '';
-     document.getElementById("num10").value = localStorage.getItem("num10") || '';
-    
-     document.getElementById("num11").value = localStorage.getItem("num11") || '';
-           
-     
-     document.getElementById("num12").value = localStorage.getItem("num12") || '';
+ document.getElementById("num1").value = localStorage.getItem("num1") || '';
+ document.getElementById("num2").value = localStorage.getItem("num2") || '';
+ document.getElementById("num3").value = localStorage.getItem("num3") || '';
+document.getElementById("num4").value = localStorage.getItem("num4") || '';
+ document.getElementById("num5").value = localStorage.getItem("num5") || '';
+ document.getElementById("num6").value = localStorage.getItem("num6") || '';
+ document.getElementById("num7").value = localStorage.getItem("num7") || '';
+ document.getElementById("num8").value = localStorage.getItem("num8") || '';
+ document.getElementById("num9").value = localStorage.getItem("num9") || '';
+document.getElementById("num10").value = localStorage.getItem("num10") || '';
+document.getElementById("num11").value = localStorage.getItem("num11") || '';
+document.getElementById("num12").value = localStorage.getItem("num12") || '';
             document.getElementById("num13").value = localStorage.getItem("num13") || '';
      
      document.getElementById("num14").value = localStorage.getItem("num14") || '';
@@ -17636,15 +17625,7 @@ var result = num0+num1 + num2+num3+num4+num5 + num6+num7+num8  + num9+num10+num1
             document.getElementById("num21").value = localStorage.getItem("num21") || '';
      
      document.getElementById("num23").value = localStorage.getItem("num23") || '';
-            
-     
-     
-     
-     
-     
-     
-     
-        };
+              };
     </script>
     
     
