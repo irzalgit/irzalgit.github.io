@@ -184,7 +184,7 @@ function displayQuestions() {
 score0.innerHTML=correctCount;
 
 
-if (correctCount>=150){
+if (correctCount>=140){
     var audio = new Audio('./vidio/suara1.mp3');
     audio.play();
   
@@ -194,7 +194,7 @@ if (correctCount>=150){
                 // Jika sudah ada, tambahkan nilai dengan 40
                 var nilai = parseInt(localStorage.getItem('nil0')) *0;
                 // Simpan nilai yang baru ke dalam localStorage
-                localStorage.setItem('nil0', 150);
+                localStorage.setItem('nil0', 200);
             } else {
                 // Jika variabel nilai belum ada, atur nilainya menjadi 0
                 localStorage.setItem('nil0', 0);
