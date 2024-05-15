@@ -2140,9 +2140,100 @@ juduln7.innerHTML=nil7;
   
 function kirim8() {
   let poin8 = 0;
+  
+const jno21 = document.querySelector("#jno21");
+const jno22 = document.querySelector("#jno22");
+const jno23 = document.querySelector("#jno23");
+const jno24 = document.querySelector("#jno24");
+const jno25 = document.querySelector("#jno25");
+const jno26 = document.querySelector("#jno26");
+const jno27 = document.querySelector("#jno27");
+const jno28 = document.querySelector("#jno28");
+const jno29 = document.querySelector("#jno29");
+const jno30 = document.querySelector("#jno30");
+    
+  
   const nilai8=document.querySelector('#nilai8');
 
-
+  if (jno21.checked) {
+      response = "";
+      poin8 = poin8 + 10;
+    } else {
+      response = "";
+    }
+    rno21.innerHTML = response;
+  
+    if (jno22.checked) {
+      response = "";
+      poin8 = poin8 + 10;
+    } else {
+      response = "";
+    }
+    rno122.innerHTML = response;
+  
+    if (jno23.checked) {
+      response = "";
+      poin8 = poin8 + 10;
+    } else {
+      response = "";
+    }
+    rno23.innerHTML = response;
+  
+    if (jno24.checked) {
+      response = "";
+      poin8 = poin8 + 10;
+    } else {
+      response = "";
+    }
+    rno24.innerHTML = response;
+  
+    if (jno25.checked) {
+      response = "";
+      poin8 = poin8 + 10;
+    } else {
+      response = "";
+    }
+    rno25.innerHTML = response;
+  
+    if (jno26.checked) {
+      response = "";
+      poin8 = poin8 + 10;
+    } else {
+      response = "";
+    }
+    rno26.innerHTML = response;
+  
+    if (jno27.checked) {
+      response = "";
+      poin8 = poin8 + 10;
+    } else {
+      response = "";
+    }
+    rno27.innerHTML = response;
+  
+    if (jno28.checked) {
+      response = "";
+      poin8 = poin8 + 10;
+    } else {
+      response = "";
+    }
+    rno28.innerHTML = response;
+  
+    if (jno29.checked) {
+      response = "";
+      poin8 = poin8 + 10;
+    } else {
+      response = "";
+    }
+    rno29.innerHTML = response;
+  
+    if (jno30.checked) {
+      response = "";
+      poin8 = poin8 + 10;
+    } else {
+      response = "";
+    }
+    rno30.innerHTML = response;
   
 nilai8.innerHTML=poin8;
 
@@ -2283,7 +2374,7 @@ function kirim10() {
   }
   rno600.innerHTML = response;
 
-  if (jno601.checked) {
+  if (jno601.checked) {0
     response = "";
     poin10 = poin10 + 10;
   } else {
