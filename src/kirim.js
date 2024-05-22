@@ -3790,11 +3790,106 @@ juduln17.innerHTML=nil17;
   let poin18 = 0;
   const nilai18=document.querySelector('#nilai18');
 
-
-  
+const jno1901 = document.querySelector("#jno1801");
+    const jno1802 = document.querySelector("#jno1802");
+    const jno1803 = document.querySelector("#jno1803");
+    const jno1804 = document.querySelector("#jno1804");
+    const jno1805 = document.querySelector("#jno1805");
+    const jno1806 = document.querySelector("#jno1806");
+    
+     if (jno1801.checked) {
+      response = "";
+      poin18 = poin18 + 10;
+    } else {
+      response = "";
+    }
+    rno1801.innerHTML = response;
+    
+    if (jno1802.checked) {
+      response = "";
+      poin18 = poin18 + 10;
+    } else {
+      response = "";
+    }
+    rno1802.innerHTML = response;
+    if (jno1803.checked) {
+      response = "";
+      poin18 = poin18 + 10;
+    } else {
+      response = "";
+    }
+    rno1803.innerHTML = response;
+    if (jno1804.checked) {
+      response = "";
+      poin18 = poin18 + 10;
+    } else {
+      response = "";
+    }
+    rno1804.innerHTML = response;
+    if (jno1805.checked) {
+      response = "";
+      poin18 = poin18 + 10;
+    } else {
+      response = "";
+    }
+    rno1805.innerHTML = response;
+    if (jno1806.checked) {
+      response = "";
+      poin18 = poin18 + 10;
+    } else {
+      response = "";
+    }
+    rno1806.innerHTML = response;
+    
+    
+    const jno1807 = document.querySelector("#jno1807");
+    const jno1808 = document.querySelector("#jno1808");
+    const jno1809 = document.querySelector("#jno1809");
+    const jno1810 = document.querySelector("#jno1810");
+    
+    
+     if (jno1807.checked) {
+      response = "";
+      poin18 = poin18 + 10;
+    } else {
+      response = "";
+    }
+    rno1807.innerHTML = response;
+    
+    if (jno1808.checked) {
+      response = "";
+      poin18 = poin18 + 10;
+    } else {
+      response = "";
+    }
+    rno1808.innerHTML = response;
+    if (jno1809.checked) {
+      response = "";
+      poin18 = poin18 + 10;
+    } else {
+      response = "";
+    }
+    rno1809.innerHTML = response;
+    if (jno1810.checked) {
+      response = "";
+      poin18 = poin18 + 10;
+    } else {
+      response = "";
+    }
+    rno1810.innerHTML = response;
 
     
-    nilai18.innerHTML=poin18;
+
+
+  
+nilai18.innerHTML=poin18;
+
+
+
+  
+nilai18.innerHTML=poin18;
+
+  
 
 localStorage.setItem("nil18",poin18);
 juduln18.innerHTML=nil18;
