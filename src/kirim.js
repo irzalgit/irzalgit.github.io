@@ -3721,6 +3721,60 @@ juduln16.innerHTML=nil16;
   let poin17 = 0;
   const nilai17=document.querySelector('#nilai17');
 
+const jno1701 = document.querySelector("#jno1701");
+    const jno1702 = document.querySelector("#jno1702");
+    const jno1703 = document.querySelector("#jno1703");
+    const jno1704 = document.querySelector("#jno1704");
+    const jno1705 = document.querySelector("#jno1705");
+    const jno1706 = document.querySelector("#jno1706");
+    
+     if (jno1701.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1701.innerHTML = response;
+    
+    if (jno1702.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1702.innerHTML = response;
+    if (jno1703.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1703.innerHTML = response;
+    if (jno1704.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1704.innerHTML = response;
+    if (jno1705.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1705.innerHTML = response;
+    if (jno1706.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1706.innerHTML = response;
+    
+    
+    
+
 
   
 nilai17.innerHTML=poin17;
@@ -3739,58 +3793,6 @@ juduln17.innerHTML=nil17;
 
   
 
- const jno1701 = document.querySelector("#jno1701");
-    const jno1702 = document.querySelector("#jno1702");
-    const jno1703 = document.querySelector("#jno1703");
-    const jno1704 = document.querySelector("#jno1704");
-    const jno1705 = document.querySelector("#jno1705");
-    const jno1706 = document.querySelector("#jno1706");
-    
-     if (jno1701.checked) {
-      response = "";
-      poin18 = poin18 + 10;
-    } else {
-      response = "";
-    }
-    rno1701.innerHTML = response;
-    
-    if (jno1702.checked) {
-      response = "";
-      poin18 = poin18 + 10;
-    } else {
-      response = "";
-    }
-    rno1702.innerHTML = response;
-    if (jno1703.checked) {
-      response = "";
-      poin18 = poin18 + 10;
-    } else {
-      response = "";
-    }
-    rno1703.innerHTML = response;
-    if (jno1704.checked) {
-      response = "";
-      poin18 = poin18 + 10;
-    } else {
-      response = "";
-    }
-    rno1704.innerHTML = response;
-    if (jno1705.checked) {
-      response = "";
-      poin18 = poin18 + 10;
-    } else {
-      response = "";
-    }
-    rno1705.innerHTML = response;
-    if (jno1706.checked) {
-      response = "";
-      poin18 = poin18 + 10;
-    } else {
-      response = "";
-    }
-    rno1706.innerHTML = response;
-    
-    
     
     nilai18.innerHTML=poin18;
 
