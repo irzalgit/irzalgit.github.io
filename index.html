@@ -173,10 +173,24 @@ height:1rem;
 }
 
   </style>
+  
+  <style>
+      
+        audio {
+            display: none;
+        }
+         #backgroundMusic {
+            display: none; /* Sembunyikan elemen audio */
+    </style>
+  
+  
 </head>
-<body>
+<body ondblClick="playRandomSong()" >
+   
+    
+<audio controls id="backgroundMusic"></audio>
 
-
+    
 <p class ="text-sm" >for smartphone, update 20/05/24 09:00 WIB.Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
@@ -294,10 +308,10 @@ height:1rem;
         
         
         <div class="text-center">
-        <!--
-             <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick="enableScroll()">MULAI </button>
-            -->
-          
+
+             <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick=enableScroll()>MUSIC </button>
+    
+         
           <h1><span class="bg-gradient-to-tr from-green-800 via red-500 to-blue-800 bg-clip-text text-transparent text-8xl font-tangerine hover:font-inter">B'phy</span></h1>
           
           <h1 class="text-3xl  font-bold tracking-tight text-gray-900 sm:text-5xl font-tangerine">Portal Peta Pikiran</h1>
@@ -16654,10 +16668,8 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 <footer class="text-center text-black" style="background-color: #6CA0DC;">
 
 <div id="audio-container">
-<audio id="song" autoplay loop>
-<source src="./vidio/r1.mp3" 
-type="audio/mp3">
-</audio>
+    
+playRandomSong();
  
 <div class="audio-icon-wrapper" >
      
@@ -16836,13 +16848,14 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           checkbo13.checked ? html13.classList.add('dark') : html13.classList.remove('dark'); 
           });
           </script>
-    
+    -->
 
         <script>
           const rootElement = document.querySelector(":root");
           const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
           const audioIcon = document.querySelector('.audio-icon-wrapper i');
-          const song = document.querySelector('#myAudio');
+           const song = document.getElementById('backgroundMusic');
+
           let isPlaying = false;
       
           function disableScroll() {
@@ -16857,12 +16870,13 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           }
       
           function enableScroll() {
-            window.onscroll = function () { }
+            window.onscroll = function() { 
             rootElement.style.scrollBehavior = 'smooth';
              localStorage.setItem('opened', 'true');
             playAudio();
+        
           }
-      
+          
           function playAudio() {
             song.volume = 0.1;
             audioIconWrapper.style.display = 'flex';
@@ -16873,10 +16887,8 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           audioIconWrapper.onclick = function () {
             if (isPlaying) {
               song.pause();
-              
               audioIcon.classList.remove('bi-disc');
               audioIcon.classList.add('bi-pause-circle');
-              playSong();
             } else {
               song.play();
               audioIcon.classList.add('bi-disc');
@@ -16889,9 +16901,9 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
            if (!localStorage.getItem('opened')) {
             disableScroll();
           }
-          disableScroll();
+          }
         </script>
-    -->
+    
 <script>
   function myFunction() {
     var dots = document.getElementById("dots");
@@ -17539,33 +17551,7 @@ if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
 
 
 
-<script>
-  const audioFiles = 
-  ['./vidio/r2.mp3', 
-  './vidio/lier.mp3', 
-  './vidio/r3.mp3',
-  './vidio/r4.mp3',
-  './vidio/r1.mp3',
-  './vidio/dimas.mp3'];
-  
-  // Daftar lagu
 
-  const audioElement = document.getElementById('myAudio');
-  let currentSongIndex = 1; // Indeks lagu saat ini
-
-  audioElement.addEventListener('ended', function() {
-    if (currentSongIndex < audioFiles.length) {
-      audioElement.src = audioFiles[currentSongIndex];
-      audioElement.play();
-      currentSongIndex++;
-    } else {
-      // Jika sudah memutar semua lagu, kembali ke awal
-      currentSongIndex = 0;
-      audioElement.src = audioFiles[currentSongIndex];
-      audioElement.play();
-    }
-  });
-</script>
 
     <script>
        
@@ -17621,13 +17607,12 @@ document.getElementById("result").innerHTML = "" +result;
         // Load previously saved data when the page loads
         window.onload = function() {
             
-            
+        
              var item = localStorage.getItem('nil0');
             if (item !== null) {
                 var nilai = parseFloat(item);
-                if (!isNaN(nilai) && nilai > 200) {
+                if ( nilai > 200) {
                     localStorage.removeItem('nil0');
-                
                 } 
             }
             
@@ -17659,6 +17644,7 @@ document.getElementById("num12").value = localStorage.getItem("num12") || '';
      
      document.getElementById("num23").value = localStorage.getItem("num23") || '';
               };
+             
     </script>
     
     
@@ -17674,6 +17660,72 @@ function toggleContent() {
 }
 </script>
 
+    
+
+ 
+
+    <script>
+        // Daftar elemen audio
+        const tracks = [
+            document.getElementById('track1'),
+            document.getElementById('track2'),
+            document.getElementById('track3'),
+            document.getElementById('track4')
+        ];
+
+        let currentTrack = 0;
+
+        // Fungsi untuk memulai pemutaran
+        function playNextTrack() {
+            if (currentTrack < tracks.length) {
+                tracks[currentTrack].play();
+                tracks[currentTrack].addEventListener('ended', playNextTrack);
+                currentTrack++;
+            } else {
+                currentTrack = 0;
+                playNextTrack();
+            }
+        }
+
+        // Mulai pemutaran saat halaman dimuat
+        window.addEventListener('load', playNextTrack);
+    </script>
+
+
+    <script>
+        // Daftar lagu
+        const songs = [
+            './vidio/r1.mp3', // Ganti dengan path lagu Anda
+            './vidio/r2.mp3' , // Ganti dengan path lagu Anda
+            './vidio/r3.mp3', // Ganti dengan path lagu Anda
+            './vidio/r4.mp3', // Ganti dengan path lagu Anda
+            './vidio/lini.m4a', // Ganti dengan path lagu Anda
+            './vidio/whoim.mp3', // Ganti dengan path lagu Anda
+            './vidio/lier.mp3', // Ganti dengan path lagu Anda
+            './vidio/FM1.mp3' // Ganti dengan path lagu Anda
+        ];
+
+        // Mendapatkan elemen audio
+        const audioPlayer = document.getElementById('backgroundMusic');
+
+        // Fungsi untuk memutar lagu secara acak
+        function playRandomSong() {
+            // Memilih lagu secara acak dari daftar
+            const randomIndex = Math.floor(Math.random() * songs.length);
+            const selectedSong = songs[randomIndex];
+            audioPlayer.src = selectedSong;
+            audioPlayer.play();
+        }
+
+        // Memulai pemutaran lagu acak pertama kali
+        playRandomSong();
+
+        // Memutar lagu berikutnya secara acak setelah lagu saat ini selesai
+        audioPlayer.addEventListener('ended', playRandomSong);
+    </script>
+    
+
+    
   </body>
   
 
