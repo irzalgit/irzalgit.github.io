@@ -192,7 +192,7 @@ height:1rem;
 <audio controls id="backgroundMusic"></audio>
 
     
-<p class ="text-sm" >for smartphone, update 28/05/24.Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
+<p class ="text-sm" >for smartphone, update 28/05/24 17:30 WIB .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
@@ -566,10 +566,10 @@ height:1rem;
       </tr>
        <tr>
         <td class="border px-4 py-1 bg-green-400 text-black custom-col-width">10.V e k t o r </td>
-        <td class="border px-4 py-1 bg-green-400- custom-col-width2" id="nila8"></td>
+        <td class="border px-4 py-1 bg-green-400 custom-col-width2" id="nila8"></td>
       </tr>
        <tr>
-        <td class="border px-4 py-1 bg-green-400- text-black custom-col-width">11.Logika Matematika</td>
+        <td class="border px-4 py-1 bg-green-400 text-black custom-col-width">11.Logika Matematika</td>
         <td class="border px-4 py-1 bg-green-400 custom-col-width2" id="nila13"></td>
       </tr>
         <tr>
@@ -9155,45 +9155,7 @@ jika C=A-2B maka C adalah
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim7()">Cek Nilai Matrik </button>
 
 
-    <script>
-        function generateQuestionm() {
-            var a = [[2, 3], [4, 1]];
-            var b = [[2, 1], [0, -1]];
-            var c = [[-1, 3], [4, 2]];
-            var d = [[2, 1], [0, 3]];
-
-            var questions = [
-                { matrix: a, answer: "c" },
-                { matrix: b, answer: "d" },
-                { matrix: c, answer: "a" },
-                { matrix: d, answer: "b" }
-            ];
-
-            var randomIndex = Math.floor(Math.random() * questions.length);
-            var question = questions[randomIndex];
-
-            document.getElementById("question").innerHTML = "$$ A = \\begin{pmatrix} " + question.matrix[0][0] + " & " + question.matrix[0][1] + " \\\\ " + question.matrix[1][0] + " & " + question.matrix[1][1] + " \\end{pmatrix} \\times B = \\, ? $$";
-            var choices = ["a", "b", "c", "d"];
-            choices.splice(choices.indexOf(question.answer), 1);
-            choices = shuffle(choices);
-            for (var i = 0; i < 4; i++) {
-                var option = document.getElementById("option" + (i + 1));
-                if (choices.length > 0) {
-                    option.innerHTML = "$$ C = \\begin{pmatrix} " + questions[choices.pop()].matrix[0][0] + " & " + questions[choices.pop()].matrix[0][1] + " \\\\ " + questions[choices.pop()].matrix[1][0] + " & " + questions[choices.pop()].matrix[1][1] + " \\end{pmatrix} $$";
-                }
-            }
-        }
-
-        function shuffle(array) {
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-            return array;
-        }
-    </script>
+<!--
     <h1>Math Quiz</h1>
     <div id="questionm"></div>
     <input type="radio" id="option1" name="answer" value="a"> <label for="option1" id="label1"></label><br>
@@ -9276,7 +9238,7 @@ jika C=A-2B maka C adalah
 <button onclick="generateQuestionm()">Acak Soal matrik</button>
 <button onclick="checkAnswer()">Cek Jawaban</button>
 <div id="result"></div>
-
+pll
 --> 
 </div>
 
