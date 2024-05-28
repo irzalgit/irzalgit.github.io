@@ -1,46 +1,58 @@
-    
- 
-  var questions = [];
-
-
-   
-
-  function generateQuestionsA() {
+ var questions = [];
+ function generateQuestionsA() {
     clearQuestions();
-    var aValues = [2, 3 ,4];
+    var aValues = [2,3,4];
+    var aaValues = [2,-2,3,-3,4,-4];
     var bValues = [-2, -4, -5];
-    var cValues = [5, 3, 2];
+    var cValues = [5,3,2,6,8];
     var dValues = [10, 12, 16];
     var eValues = [5,6,8,7];
-     var fValues = [8, 12,10];
-      var gValues = [24, 25,30];
-      var hValues = [4,8,16,12];
-    
+    var fValues = [8,12,10];
+    var gValues = [24,25,30];
+    var hValues = [4,8,16,12];
     var kValues = [20,30,40,50];
     var lValues = [6,9,12,15,18];
- var mValues = [60,65,75,80,85];
- 
-var nValues = [-2,2,4,7];
- 
-    for (var i = 1; i <= 17; i++) {
+    var mValues = [60,65,75,80,85];
+    var nValues = [-2,2,4,7];
+    var vValues = [-2,-3,-4];
+    var wValues = [-1,-5,-3];
+    var qValues = [1,4,9,16,25];
+    var sValues = [0,30,45,60,90];
+    var dsValues = [0.5,0.5,0.75,1.25,1.50];
+    var pdsValues = [1/2,3/2];
+     var rdsValues = [5,10];
+      var ddValues = [1,2,3,4,5,6];
+    var dddValues = [1,2,3,4,5,6];
+    var tpValues = [1,2,3];
+    var svValues = [10,100,1000];
+    
+    for (var i = 1; i <= 40; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
-      var d = dValues[Math.floor(Math.random() * dValues.length)];
+    var d = dValues[Math.floor(Math.random() * dValues.length)];
   var e = eValues[Math.floor(Math.random() * eValues.length)];
    var f = fValues[Math.floor(Math.random() * fValues.length)];
    var g = gValues[Math.floor(Math.random() * gValues.length)];
-  
     var h = hValues[Math.floor(Math.random() * hValues.length)];
-  
   var k = kValues[Math.floor(Math.random() * kValues.length)];
    var l = lValues[Math.floor(Math.random() * lValues.length)];
-  
   var m = mValues[Math.floor(Math.random() * mValues.length)];
-  
     var n = nValues[Math.floor(Math.random() * nValues.length)];
-  
-  
+   var v = vValues[Math.floor(Math.random() * vValues.length)];
+    var w = wValues[Math.floor(Math.random() * wValues.length)];
+    var s = sValues[Math.floor(Math.random() * sValues.length)];
+    var q = qValues[Math.floor(Math.random() * qValues.length)];
+    var ds = dsValues[Math.floor(Math.random() * dsValues.length)];
+    var pds = pdsValues[Math.floor(Math.random() * pdsValues.length)];
+     var rds = rdsValues[Math.floor(Math.random() * rdsValues.length)];
+     var aa = aaValues[Math.floor(Math.random() * aaValues.length)];
+      var dd = ddValues[Math.floor(Math.random() * ddValues.length)];
+       var ddd = dddValues[Math.floor(Math.random() * dddValues.length)];
+       
+        var tp = tpValues[Math.floor(Math.random() * tpValues.length)];
+        var sv = svValues[Math.floor(Math.random() * svValues.length)];
+       
       var question = {};
       var equation, correctAnswer;
 
@@ -57,8 +69,8 @@ var nValues = [-2,2,4,7];
         equation = "4.Hitung nilai a dari <br>a =("+b+")(" + d + ") - ("+c+")(" + b + ")";
         correctAnswer = b*d - c*b;
       } else if (i === 5) {
-        equation = "5.Hitung nilai a dari <br>a= -(" + d + ") - (" + b + ") x (" + b + ")    ";
-        correctAnswer = -d - b*b;
+        equation = "5.Hitung nilai a dari a="+ds+"  +<math><mfrac><mi><mn>"+aa+"</mn></mi><mi><mn>"+rds+"</mn></mi></mfrac></math> +"+k+"%";
+        correctAnswer = ds+(aa/rds)+k/100 ;
       } else if (i === 6) {
         equation = "6.Hitung nilai a dari <br>a= -((" + d + ") - (" + b + ")) x (" + a + ")    ";
         correctAnswer = -(d - b)*a;
@@ -66,21 +78,23 @@ var nValues = [-2,2,4,7];
         equation = "7.Hitung nilai a dari <br>2a= -(-(" + d + ") - (" + b + ")) x (" + b + ")    ";
         correctAnswer = -(-d - b)*b/2;
        }else if (i === 8) {
-        equation = "8.Hitung x jika x/"+l+"=2/3" ;
-        correctAnswer = (2/3)*l;
+        equation = "8.Hitung x jika <math><mfrac><mi><mn>X</mn></mi><mi><mn>3</mn></mi></mfrac></math> =<math><mfrac><mi><mn>X</mn></mi><mi><mn>"+l+"</mn></mi></mfrac><mi>+</mi><mn>1</mn></math>" ;
+        correctAnswer = 3/(1-(3/l));
        } else if (i === 9) {
         equation = "9.Hitung n jika 30 =2 +(n-1)("+n+")" ;
         correctAnswer = 1+(28/n);
-        
       }else if (i === 10) {
         equation = "10.Perbandingan a:b:c=2:3:5. jika rata rata nya "+k+" maka nilai a  adalah " ;
         correctAnswer = 0.6*k;
-        }else if (i === 11) {
+      } else if (i === 18) {
+        equation = "18.Perhatikan persamaan linier yakni   <math><mfrac><mi><mn>"+a+"</mn></mi><mi><mn>"+c+"</mn></mi></mfrac></math>x=<math><mfrac><mi><mn>"+b+"</mn></mi><mi><mn>"+h+"</mn></mi></mfrac></math> maka nilai "+h+"x adalah "   ;
+        correctAnswer = (b*c)/(a);
+    }else if (i === 11) {
         equation = "11. Lima tahun yang  lalu perbandingan umur ayah  dan ibu adalah 3 :2 , jika jumlah umur keduanya sekarang "+m+" , umur ayah adalah " ;
         correctAnswer =5+(3/5)*(m-10);
       }else if (i === 12) {
         equation = "12.Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka suku ke 10  adalah " ;
-        correctAnswer = f-(a-1)*(g-f)/(e-a)+9*(g-f)/(e-a);
+        correctAnswer =parseInt( f-(a-1)*(g-f)/(e-a)+9*(g-f)/(e-a));
       }else if (i === 13) {
         equation = "13.Suku ke 1 dari barisan aritmatika adalah  " + f + ", jika b="+b+"  maka suku ke 10 adalah " ;
         correctAnswer =9*b +f;
@@ -88,33 +102,86 @@ var nValues = [-2,2,4,7];
         equation = "14.Suku ke 1 dari barisan geometri adalah  "+a+" , jika rasio r= 2, maka suku ke 5 adalah " ;
         correctAnswer =Math.pow(2,4)*(a);
       }else if (i === 15) {
-        equation = "15.Mula mula tinggi pohon "+h+" cm jika setiap hari pertumbuhannya 50% maka hari ke 5 tinggimya  adalah " ;
+        equation = "15.Mula mula tinggi pohon "+h+" cm jika setiap hari pertumbuhannya 50% maka hari ke 5 tingginya  adalah " ;
         correctAnswer =Math.pow(1.5,4)*(h);
       }else if (i === 16) {
-        equation = "16.Tentukan x dari <br>&#8730;2x="+b+"&#8730;2+"+e+"&#8730;2   " ;
+        equation = "16.Tentukan x dari <br> &#8730;2x="+b+"&#8730;2+"+e+"&#8730;2   " ;
         correctAnswer =Math.pow((b+e),2);
       }else if (i === 17) {
         equation = "17.&#8730(k+2) -x=0 jika nilai x = "+a+" maka k = ? " ;
         correctAnswer =Math.pow(a,2)-2;
+      }else if (i === 19) {
+        equation = "19.Tentukan x jika  log "+e+" + log "+a+"  = log x " ;
+        correctAnswer =a*e;
+      }else if (i === 20) {
+        equation = "20. Tentukan nilai x dari x= 10 log (<math><mfrac><mi><mn>10 <sup>"+f+"</sup></mn></mi><mi><mn>10<sup>"+b+"</sup></mn></mi></mfrac></math>)" ;
+        correctAnswer =(f-b)*10;
+      }else if (i === 21) {
+        equation = "21.Jika x&#178 - y&#178  = "+d+"  dan x - y = 2 maka x + y adalah  " ;
+        correctAnswer =d/2;
+      }else if (i === 22) {
+        equation = "22.Diberikan persamaam  y = x&#178 -("+a+")x -3= 0 maka jumlah akarnya adalah" ;
+        correctAnswer = a;
+      }else if (i === 23) {
+        equation = "23.Hasil perkalian akar dari: (x"+v+")(x"+w+")=0 adalah";
+        correctAnswer =w*v;
+      }else if (i === 24) {
+        equation = "24. Berapa besar "+k+"% dari "+e*100+"  " ;
+        correctAnswer = k*e;
+      }else if (i === 25) {
+        equation = "25.Tentukan x dari persamaan  2<sup>x</sup>=4<sup>2x-"+l+"</sup>";
+        correctAnswer = 2*l/3;
+      }else if (i === 26) {
+        equation = "26.Tentukan x dari persamaan 8<sup>x</sup>=2<sup>2x-"+a+"</sup>";
+        correctAnswer =a;
+      }else if (i === 27) {
+        equation = "27 . Fungsi eksponen berikut:  y=("+a+")<sup>x+1</sup>  akan memotong sumbu y = ?";
+        correctAnswer =a;
+      }else if (i === 28) {
+        equation = "28.Hitung nilai x dari "+c+"(x-2)=(x+2) " ;
+        correctAnswer =(2+2*c)/(c-1);
+      }else if (i === 29) {
+        equation = "29. Hitung  <mn>16</mn><sup>0</sup>+<mn>"+q+"</mn><sup><math><mfrac><mi><mn>2</mn></mi><mi><mn>3</mn></mi></mfrac></math></sup>" ;
+        correctAnswer =Math.pow(q,0.5)+1;
+      }else if (i === 30) {
+        equation = "30.Jika y=10sin "+s+"&#0176; maka besar y =?" ;
+        correctAnswer =parseInt(Math.sin(a))*10;
+      }else if (i === 31) {
+        equation = "31.Hitung nilai a dari a= <math><mfrac><mi><mn>"+a+"</mn></mi><mi><mn>5</mn></mi></mfrac></math> - <math><mfrac><mi><mn>"+c+"</mn></mi><mi><mn>5</mn></mi></mfrac></math> - <math><mfrac><mi><mn>"+b+"</mn></mi><mi><mn>5</mn></mi></mfrac></math> x 2" ;
+        correctAnswer =(a-c-2*b)/5;
+      }else if (i === 32) {
+        equation = "32.Berapa besar "+k+"% x  "+e*100+" + <math><mfrac><mi><mn>"+a+"</mn></mi><mi><mn>"+c+"</mn></mi></mfrac></math> x "+e*15+"  " ;
+        correctAnswer =a*e*15/c +k*e;
+      }else if (i === 33) {
+        equation = "33.Didalam sebuah kotak ada "+a+" buah kelereng biru dan "+c+" buah kelereng merah. Berapa % peluang memperoleh kelereng merah adalah  " ;
+        correctAnswer =parseInt((c*100)/(a+c));
+      }else if (i === 34) {
+        equation = "34.Bapak Budi memiliki  2 sepeda dan 3 motor. Jika bepergian ia memakai  salah satu topi dari 4 topi,  "+tp+"  diantaranya berwarna kuning. Berapa peluang bapak Budi pergi dengan  sepeda dan topi kuning ? (%)" ;
+        correctAnswer= 200*tp/20;
+      }else if (i === 35) {
+        equation = "35.Jika dari survey "+a+" dari "+sv+"   orang menyukai warna merah maka peluang (%) berjumpa orang yang memakai baju merah adalah "  ;
+        correctAnswer =a*100/sv;
+      }else if (i === 36) {
+     equation = "36.Didalam kotak terdapat "+e+" buah angka . Jika diambil sebanyak "+a+" angka maka jumlah angka yang terbentuk adalah  " ;
+        correctAnswer =faktorial(e)/faktorial(e-a);
+      }else if (i === 37) {
+        equation = "37.Diberikan data x:  "+a+","+f+" ,"+c+" ,"+e+" ,"+d+"   maka x rata rata adalah " ;
+        correctAnswer =(a+f+c+d+e)/5;
+      }else if (i === 38) {
+        equation = "38.Diberikan data x yaitu   "+(e-2)+","+(e)+" ,"+(e-3)+" ,"+(e+a)+" ,"+(e+a+1)+" median x adalah  ";
+        correctAnswer =e;
+      }else if (i === 39) {
+        equation = "39.Diberikan data x yaitu   "+a+","+(a-1)+" ,"+a+" ,"+a+" ,"+(a+1)+" maka modus x  adalah   " ;
+        correctAnswer =a;
+      }else if (i === 40) {
+        equation = "40.Diberikan data x yaitu   "+a+","+f+" ,"+c+"  maka simpangan rata rata x adalah   " ;
+        correctAnswer =parseInt(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
       }
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-      var options = generateOptions(correctAnswer);
-
+ var options = generateOptions(correctAnswer);
       question.equation = equation;
       question.options = options;
       question.correctAnswer = correctAnswer;
-
       questions.push(question);
     }
 
@@ -168,6 +235,8 @@ function displayQuestions() {
     questions = [];
   }
 //jalan
+
+
   function checkAnswers() {
     var correctCount = 0;
     questions.forEach(function(question, index) {
@@ -184,26 +253,13 @@ function displayQuestions() {
 score0.innerHTML=correctCount;
 
 
-if (correctCount>=140){
-    var audio = new Audio('./vidio/suara1.mp3');
-    audio.play();
-  
+if (correctCount>=parseInt(localStorage.getItem('nilz')) ){localStorage.setItem("nilz",correctCount);}
 
-   // Cek apakah variabel nilai sudah ada di dalam localStorage
-            if(localStorage.getItem('nil0')) {
-                // Jika sudah ada, tambahkan nilai dengan 40
-                var nilai = parseInt(localStorage.getItem('nil0')) *0;
-                // Simpan nilai yang baru ke dalam localStorage
-                localStorage.setItem('nil0', 200);
-            } else {
-                // Jika variabel nilai belum ada, atur nilainya menjadi 0
-                localStorage.setItem('nil0', 0);
-            }
-juduln0.innerHTML=nil0;
-}
+    
+
 
 tombolcekoff();
-    disableRadioButtons();
+disableRadioButtons();
     
   }
 
@@ -212,12 +268,8 @@ tombolcekoff();
     radioButtons.forEach(function(radioButton) {
       radioButton.disabled = true;
       
-      
       }
-     
-      
-      
-      );
+     );
   }
 
   function enableRadioButtons() {
@@ -250,8 +302,24 @@ function cekSkor() {
     var audio = new Audio('./vidio/suara1.mp3');
     audio.play();
   }
-}  
+}
+  function hitungFaktorial() {
+            let angka = document.getElementById("angka").value;
+            angka = parseInt(angka);
+            if (isNaN(angka) || angka < 0) {
+                document.getElementById("hasil").innerHTML = "Silakan masukkan angka bulat non-negatif.";
+                return;
+            }
+            document.getElementById("hasil").innerHTML = "Faktorial dari " + angka + " adalah " + faktorial(angka);
+        }
 
+        function faktorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            return n * faktorial(n - 1);
+        }
+            
 function kirimalj(){
     let poin=0;
       const jno3100=document.querySelector("#jno3100");
@@ -312,6 +380,33 @@ nilai3100.innerHTML=poin;
     
 }
 
+function refresh(){
+document.getElementById("numz").value = localStorage.getItem("numz") || '';  
+ document.getElementById("num1").value = localStorage.getItem("num1") || '';
+ document.getElementById("num2").value = localStorage.getItem("num2") || '';
+ document.getElementById("num3").value = localStorage.getItem("num3") || '';
+document.getElementById("num4").value = localStorage.getItem("num4") || '';
+ document.getElementById("num5").value = localStorage.getItem("num5") || '';
+ document.getElementById("num6").value = localStorage.getItem("num6") || '';
+ document.getElementById("num7").value = localStorage.getItem("num7") || '';
+ document.getElementById("num8").value = localStorage.getItem("num8") || '';
+ document.getElementById("num9").value = localStorage.getItem("num9") || '';
+document.getElementById("num10").value = localStorage.getItem("num10") || '';
+document.getElementById("num11").value = localStorage.getItem("num11") || '';
+document.getElementById("num12").value = localStorage.getItem("num12") || '';
+document.getElementById("num13").value = localStorage.getItem("num13") || '';
+document.getElementById("num14").value = localStorage.getItem("num14") || '';
+document.getElementById("num15").value = localStorage.getItem("num15") || '';
+document.getElementById("num16").value = localStorage.getItem("num16") || '';
+document.getElementById("num17").value = localStorage.getItem("num17") || '';
+document.getElementById("num18").value = localStorage.getItem("num18") || '';
+document.getElementById("num19").value = localStorage.getItem("num19") || '';
+document.getElementById("num20").value = localStorage.getItem("num20") || '';
+document.getElementById("num21").value = localStorage.getItem("num21") || '';
+document.getElementById("num23").value = localStorage.getItem("num23") || '';
+              };
+    
+    
 
 
 function kirim1() {
@@ -777,19 +872,9 @@ juduln1.innerHTML=nil1;
   for (let i = 0; i < optionsno651.length; i++) {
       optionsno651[i].checked = false;
   }
-
-    
-
-  
 }
 
-function update1(){
 
-localStorage.setItem("nil1",poin);
-juduln1.innerHTML=nil1;
-
-
-}
 function kirim2() {
   let poin2 = 0;
   const jno101 = document.querySelector("#jno101");
@@ -3727,6 +3812,18 @@ const jno1701 = document.querySelector("#jno1701");
     const jno1704 = document.querySelector("#jno1704");
     const jno1705 = document.querySelector("#jno1705");
     const jno1706 = document.querySelector("#jno1706");
+    const jno1707 = document.querySelector("#jno1707");
+    const jno1708 = document.querySelector("#jno1708");
+    const jno1709 = document.querySelector("#jno1709");
+    const jno1710 = document.querySelector("#jno1710");
+    const jno1711 = document.querySelector("#jno1711");
+    const jno1712 = document.querySelector("#jno1712");
+     const jno1713 = document.querySelector("#jno1713");
+    const jno1714 = document.querySelector("#jno1714");
+    const jno1715 = document.querySelector("#jno1715");
+    const jno1716 = document.querySelector("#jno1716");
+    
+    
     
      if (jno1701.checked) {
       response = "";
@@ -3771,12 +3868,91 @@ const jno1701 = document.querySelector("#jno1701");
       response = "";
     }
     rno1706.innerHTML = response;
+    if (jno1707.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1707.innerHTML = response;
     
+    if (jno1708.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1708.innerHTML = response;
     
+    if (jno1709.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1709.innerHTML = response;
+    
+if (jno1710.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1710.innerHTML = response;
     
 
-
+if (jno1711.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1711.innerHTML = response;
   
+  
+if (jno1712.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1712.innerHTML = response;
+  
+  
+if (jno1713.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1713.innerHTML = response;
+    
+    
+if (jno1714.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1714.innerHTML = response;
+    
+    
+if (jno1715.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1715.innerHTML = response;
+    
+if (jno1716.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1716.innerHTML = response;
+    
 nilai17.innerHTML=poin17;
 
 
@@ -3790,12 +3966,17 @@ juduln17.innerHTML=nil17;
   let poin18 = 0;
   const nilai18=document.querySelector('#nilai18');
 
-const jno1901 = document.querySelector("#jno1801");
+const jno1801 = document.querySelector("#jno1801");
     const jno1802 = document.querySelector("#jno1802");
     const jno1803 = document.querySelector("#jno1803");
     const jno1804 = document.querySelector("#jno1804");
     const jno1805 = document.querySelector("#jno1805");
     const jno1806 = document.querySelector("#jno1806");
+     const jno1807 = document.querySelector("#jno1807");
+    const jno1808 = document.querySelector("#jno1808");
+    const jno1809 = document.querySelector("#jno1809");
+    const jno1810 = document.querySelector("#jno1810");
+    
     
      if (jno1801.checked) {
       response = "";
@@ -3841,13 +4022,6 @@ const jno1901 = document.querySelector("#jno1801");
     }
     rno1806.innerHTML = response;
     
-    
-    const jno1807 = document.querySelector("#jno1807");
-    const jno1808 = document.querySelector("#jno1808");
-    const jno1809 = document.querySelector("#jno1809");
-    const jno1810 = document.querySelector("#jno1810");
-    
-    
      if (jno1807.checked) {
       response = "";
       poin18 = poin18 + 10;
@@ -3884,10 +4058,6 @@ const jno1901 = document.querySelector("#jno1801");
   
 nilai18.innerHTML=poin18;
 
-
-
-  
-nilai18.innerHTML=poin18;
 
   
 
