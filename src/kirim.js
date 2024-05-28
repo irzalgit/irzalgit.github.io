@@ -3007,11 +3007,10 @@ response="ok";
     nilai12.innerHTML=poin;
     localStorage.setItem("nil12",poin);
 juduln12.innerHTML=nil12;
-      var now = new Date();
-  var datetime = now.toLocaleString();
+    
 
   // Insert date and time into HTML
-  document.getElementById("datetime").innerHTML = datetime;
+  
 }
 function kirim13() {
   let poin13 = 0;
@@ -3022,8 +3021,8 @@ function kirim13() {
 nilai13.innerHTML=poin13;
 
 
-localStorage.setItem("nil3",poin3);
-juduln3.innerHTML=nil3;
+localStorage.setItem("nil13",poin13);
+juduln13.innerHTML=nil13;
 }
 
 
