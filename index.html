@@ -191,7 +191,7 @@ height:1rem;
 <audio controls id="backgroundMusic"></audio>
 
     
-<p class ="text-sm" >for smartphone, update 29/05/24 22:00 WIB .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
+<p class ="text-sm" >for smartphone, update 30/05/24 10:00 WIB .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
@@ -511,6 +511,7 @@ height:1rem;
   </nav>
 
   <header class=" z-50 relative  p-2 h-full flex flex-col bg-slate-500 shadow overflow-auto">
+ 
 
 <table class="table-auto font-bold">
     <thead>
@@ -625,13 +626,14 @@ height:1rem;
 </tr>
    <tr>
         <td class="border px-4 py-2 bg-green-800 text-2xl font-bold text-black custom-col-width"  id="nama"></td>
+   
      <td class="border text-2xl px-4 py-1 bg-green-800 custom-col-width2" id="resultt"></td>
      
      </tr>
        <tr>
        <td class="border px-4 py-2 bg-green-700 custom-col-width2 " id="datetime"></td>
-        <td class="border px-4 py-2 bg-green-700  font-bold text-black custom-col-width" ></td>
-       
+        <td class="border px-4 py-2 bg-green-700  font-bold text-black custom-col-width"  id="deviceInfo"></td>
+          
       </tr>
     </tbody>
     
@@ -17654,7 +17656,29 @@ function toggleContent() {
     </script>
     
 
-    
+     <script>
+        function getDeviceInfo() {
+            var userAgent = navigator.userAgent;
+            var deviceName = "Unknown Device";
+
+            if (/android/i.test(userAgent)) {
+                var regex = /Android\s+([\d\.]+);\s*(.*?)(?:\s+Build|\))/i;
+                var match = userAgent.match(regex);
+
+                if (match && match.length > 2) {
+                    deviceName = match[2].trim();
+                } else {
+                    deviceName = "Android Device";
+                }
+            } else {
+                deviceName = "Not an Android Device";
+            }
+
+            return deviceName;
+        }
+
+        document.getElementById("deviceInfo").innerText = "Device Name: " + getDeviceInfo();
+    </script>
   </body>
   
 
