@@ -17334,7 +17334,6 @@ $('#submit-form').on('click', function(e) {
   <iframe class="w-full" src="https://docs.google.com/document/d/1LT6M62Stho02hFeAx-05KuOmFH2Aeg6eZK-MZcbDsvE/edit?usp=drivesdk"</iframe> 
 -->
 
-
 <script>
 const judul = document.querySelector('#nama');
 const juduln0 = document.querySelector('#nila0');
@@ -17355,14 +17354,10 @@ const juduln13 = document.querySelector('#nila13');
 const juduln14 = document.querySelector('#nila14');
 const juduln15 = document.querySelector('#nila15');
 const juduln16 = document.querySelector('#nila16');
-
 const juduln17 = document.querySelector('#nila17');
 const juduln18 = document.querySelector('#nila18');
 const juduln19 = document.querySelector('#nila19');
 const juduln21 = document.querySelector('#nila21');
-
-
-
 let nilz =localStorage.getItem('nilz');
 let nil1 =localStorage.getItem('nil1');
 let nil2 =localStorage.getItem('nil2');
@@ -17395,7 +17390,7 @@ if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
     
     
     judul.innerHTML=nam;
-     if (!nilz) {
+    if (!nilz) {
         localStorage.setItem('nilz',0);
     }
     if (!nil1) {
@@ -17507,7 +17502,6 @@ if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
 
 
 
-
     <script>
        
 
@@ -17515,25 +17509,16 @@ if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
         function calculate() {
             // Save input values to local storage
             var numz = parseFloat(localStorage.getItem("nilz"));
-            
             var num1 = parseFloat(localStorage.getItem("nil1"));
             var num2 = parseFloat(localStorage.getItem("nil2"));
-            
-            
             var num3 = parseFloat(localStorage.getItem("nil3"));
             var num4 = parseFloat(localStorage.getItem("nil4"));
-            
-            
              var num5 = parseFloat(localStorage.getItem("nil5"));
             var num6 = parseFloat(localStorage.getItem("nil6"));
-            
-            
             var num7 = parseFloat(localStorage.getItem("nil7"));
             var num8 = parseFloat(localStorage.getItem("nil8"));
-            
-            
             var num9 = parseFloat(localStorage.getItem("nil9"));
-var num10 = parseFloat(localStorage.getItem("nil10"));
+            var num10 = parseFloat(localStorage.getItem("nil10"));
             
             
             var num11 = parseFloat(localStorage.getItem("nil11"));
@@ -17548,7 +17533,6 @@ var num10 = parseFloat(localStorage.getItem("nil10"));
             
             var num17 = parseFloat(localStorage.getItem("nil17"));
             var num18 = parseFloat(localStorage.getItem("nil18"));
-            
             
             var num19 = parseFloat(localStorage.getItem("nil19"));
             var num21 = parseFloat(localStorage.getItem("nil21"));
@@ -17568,13 +17552,38 @@ document.getElementById("resultx").innerHTML = "" +resultx;
  document.getElementById("resultxii").innerHTML = "" +resultxii;
   document.getElementById("resultt").innerHTML = "" +resultt;
  
- refresh();
+
  
         }
         
 
         // Load previously saved data when the page loads
     
+        window.onload = function() {
+ document.getElementById("num1").value = localStorage.getItem("num1") || '';
+ document.getElementById("num2").value = localStorage.getItem("num2") || '';
+ document.getElementById("num3").value = localStorage.getItem("num3") || '';
+document.getElementById("num4").value = localStorage.getItem("num4") || '';
+ document.getElementById("num5").value = localStorage.getItem("num5") || '';
+ document.getElementById("num6").value = localStorage.getItem("num6") || '';
+ document.getElementById("num7").value = localStorage.getItem("num7") || '';
+ document.getElementById("num8").value = localStorage.getItem("num8") || '';
+ document.getElementById("num9").value = localStorage.getItem("num9") || '';
+document.getElementById("num10").value = localStorage.getItem("num10") || '';
+document.getElementById("num11").value = localStorage.getItem("num11") || '';
+document.getElementById("num12").value = localStorage.getItem("num12") || '';
+document.getElementById("num13").value = localStorage.getItem("num13") || '';
+document.getElementById("num14").value = localStorage.getItem("num14") || '';
+document.getElementById("num15").value = localStorage.getItem("num15") || '';
+document.getElementById("num16").value = localStorage.getItem("num16") || '';
+document.getElementById("num17").value = localStorage.getItem("num17") || '';
+document.getElementById("num18").value = localStorage.getItem("num18") || '';
+document.getElementById("num19").value = localStorage.getItem("num19") || '';
+document.getElementById("num20").value = localStorage.getItem("num20") || '';
+document.getElementById("num21").value = localStorage.getItem("num21") || '';
+document.getElementById("num23").value = localStorage.getItem("num23") || '';
+              };
+   
     </script>
     
     
