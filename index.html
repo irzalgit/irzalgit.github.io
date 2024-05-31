@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class=" h-full ">
 <head>
@@ -15,12 +14,10 @@
 <script src="./js/index.js"></script> 
 <script src="./src/kirim.js"></script>
 
-<script src="./src/pena.js"></script>
 
 <script src="https://cdn.tailwindcss.com"></script> 
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,18 +25,16 @@ integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUU
 <link rel="stylesheet href="https://fonts.googleapis.com/css2?family=Tangerine">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  
-
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
+<!--
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>     
-<!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>  -->
+<!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5bbi/startup.js"></script>  -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <!-- <link rel="stylesheet" href="pas.css"> -->
  
-
-
   <script>
 MathJax = {
 tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
@@ -51,11 +46,10 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   
 
 <style>
-
   #more {display: none;}
   #more00 {display: none;}
   #map1 {display: none;}
-  #more1 {display: none;}
+  #more1 {display:none}
   #more2 {display: none;}
   #more3 {display: none;}
   #more4 {display: none;}
@@ -90,8 +84,8 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   #eva {display:block;}
   #bab20 {display: block;}
 </style>
-<!--   
- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+
+ <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
  <!-- <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>  -->
     <!-- Babel Script -->
@@ -106,7 +100,6 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
         }
         .container1 {
             max-width: 800px;
-            margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
@@ -117,9 +110,10 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
         .donate-button {
             display: block;
             width: 200px;
+            top:2px:
             margin: 20px auto;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color:blue;
             color: #fff;
             text-align: center;
             text-decoration: none;
@@ -161,13 +155,17 @@ input[type="radio"] {
 <style>
     /* Custom style untuk menyesuaikan lebar kolom */
     .custom-col-width {
-      width: 225px;
+      width: 200px;
     }
     .custom-col-width2 {
       width: 25px;
     }
+    .custom-col-widthskore {
+      width: 65px;
+    }
+    
     tr {
-height:0.85rem;
+height:0.8rem;
 }
 
   </style>
@@ -180,13 +178,16 @@ height:0.85rem;
          #backgroundMusic {
             display: none; /* Sembunyikan elemen audio */
     </style>
+  
+  
 </head>
-
-<body ondblClick="playRandomSong()" >
+<body onload="refresh()" >
+  
+    
 <audio controls id="backgroundMusic"></audio>
 
-
-<p class ="text-sm" >for smartphone, update 17/05/24 13:00 WIB.Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
+    
+<p class ="text-sm" >for smartphone, update 01/06/24 1:00 WIB .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
@@ -196,7 +197,7 @@ height:0.85rem;
 
 
 <!-- This example requires Tailwind CSS v3.0+ -->
-<div class="isolate bg-black">
+<div class="  relative isolate bg-black">
   
   <!-- <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
     <svg class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]" viewBox="0 0 1155 678" xmlns="http://www.w3.org/2000/svg">
@@ -303,36 +304,36 @@ height:0.85rem;
         
         
         <div class="text-center">
-        <!--
-             <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick="enableScroll()">MULAI </button>
-            -->
-          
+
+             <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick= playRandomSong()>MUSIC </button><br>
+             
+    <div id="donasi" class="container1">
+   <h1>Galang Dana untuk Pendidikan Dasar</h1>
+        <p>1.Sekali bayar untuk selamanya ID Rp.100.000 or $US 100 </p>
+        <p>2.Membantu biaya pengembangan dan hosting aplikasi  ini </p>
+         <a href="" class="donate-button">Transfer sekarang ke BSI no.rek:  7164332475 a/n:Irzal Achmad</a>
+        <br>
+       <button class="text-xl text-black bg-red " onclick="toggleContent()">Belum Sekarang</button> 
+</div>
+
+
+ 
+         
           <h1><span class="bg-gradient-to-tr from-green-800 via red-500 to-blue-800 bg-clip-text text-transparent text-8xl font-tangerine hover:font-inter">B'phy</span></h1>
           
           <h1 class="text-3xl  font-bold tracking-tight text-gray-900 sm:text-5xl font-tangerine">Portal Peta Pikiran</h1>
           <h1 class="text-2xl  font-bold tracking-tight text-sky-600 ">profesional kolaboratif</h1>
        
-           <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick= playRandomSong()>MUSIC </button><br>
+        
         
           <h1 class="text-2xl  font-bold tracking-tight text-sky-600">untuk</h1>
           <h1 class="text-2xl  font-italic tracking-tight text-red-600 sm:text-xl">kerangka berfikir logis-sistematis</h1>
            <p class="mt-6 text-lg leading-8 text-gray-600">cara lain untuk menguasai materi pelajaran dengan cepat dan mudah, diperlukan </p>
            
            
-                <button class="text-2xl text-black bg-yellow-400 " onclick="toggleContent()">_Donasi_ mu</button> 
+     
 
-<div id="donasi" class="container1">
-  
-   <h1>Galang Dana untuk Pendidikan Dasar</h1>
-        <p>1.Setiap sumbangan Anda akan membantu meningkatkan akses pendidikan dasar matematika  bagi anak-anak</p>
-        <p>2.Membantu biaya pengembangan dan hosting aplikasi  ini </p>
-        <a href="" class="donate-button">Sumbangkan Sekarang melalui  BSI : 7164332475</a>
-        <br>
-        
-       <button class="text-xl text-black bg-red-400 " onclick="toggleContent()">Belum Sekarang</button> 
-</div>
-
-
+  <button class="text-2xl text-black bg-yellow-400 " onclick="toggleContent()">berlanganan</button> 
 
   
 
@@ -506,6 +507,7 @@ height:0.85rem;
   </nav>
 
   <header class=" z-50 relative  p-2 h-full flex flex-col bg-slate-500 shadow overflow-auto">
+ 
 
 <table class="table-auto font-bold">
     <thead>
@@ -522,12 +524,12 @@ height:0.85rem;
      
       <tr>
         <td class="border px-4 py-1 bg-blue-200 text-black custom-col-width">1.Bilangan berpangkat</td>
-        <td class="border px-4 py-1 bg-blue-200 custom-col-width2" id="nila2"></td>
+        <td class="border px-4 py-1 bg-blue-200 custom-col-width2" id="nila1"></td>
       </tr>
       
         <tr>
         <td class="border px-4 py-1 bg-blue-200 text-black custom-col-width">2.Sistem Persamaan </td>
-        <td class="border px-4 py-1 bg-blue-200 custom-col-width2" id="nila1"></td>
+        <td class="border px-4 py-1 bg-blue-200 custom-col-width2" id="nila2"></td>
       </tr>
       
        <tr>
@@ -632,12 +634,12 @@ height:0.85rem;
     </tbody>
     
   </table>
-  <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick="calculate()">TOTAL </button>
+  <button class="py-2 px-6 bg-sky-700 text-2xl  text-black rounded-2xl" onClick="calculate()">Refresh </button>
   
   </header>  
 
   <div class="hidden h-full bg-green-100  p-2 grid grid-cols-2 gap-2 md:grid-cols-4">
-  <div class="h-auto bg-green-600 aspect-[4/3] md:aspect-[3/4] xl:aspect-[4/3] rounded-lg">
+  <div class="h-auto bg-green-600 aspect-[4/3] md:aspect-[3/4] xl:-[4/3] rounded-lg">
   <div class="w-full h-full bg-center bg-cover  bg-[url('./gbr/fb2.jpg')]"></div>
   </div>
   <div class="h-auto bg-blue-600 aspect-[4/3]  md:aspect-[3/4] xl:aspect-[4/3] rounded-lg"><div class="w-full h-full bg-center bg-cover  bg-[url('./gbr/fb3.jpg')]"></div></div>
@@ -663,17 +665,16 @@ height:0.85rem;
   
 <div  class="mx-auto bg-yellow-400 flex-col  max-w-7xl " > 
    <!-- <div class="p-2 grid grid-cols-1 gap-2 md:grid-cols-3"> -->
-<!--  -->
+<!-- 
 <aside class="hidden border-1 rounded-3xl border-black   md:w-25% box-border bg-[#FFFACD]">
-<!--
 <div id="app"></div>
--->
+
 
  
 
   <i data-feather="edit"> </i>
 <i data-feather="eye"></i>
-
+-->
 <br>
   <!-- <a href="./gbr/app-debug.apk" download>
     <img src="./gbr/download.svg" alt="ng ada file" width="30px">
@@ -740,15 +741,17 @@ height:0.85rem;
       </div>
     
     </form> 
-     -->
+    
 </aside>
+
+-->
 <br>
-<section  class="  md:w-50% ">
+<section style="background-color:blue;margin:2; padding:2"  class="  md:w-50% ">
 
    
- <div id="babutama"  class=" flex flex-col space-y-4 px-2  " >
+ <div id="babutama"  class="flex flex-col space-y-4 px-2 " >
 
-  <div  id="bab" class=" h-72 overflow-y-auto border-1 rounded-3xl box-border 
+  <div id="bab" class="hidden h-72 overflow-y-auto border-1 rounded-3xl box-border 
    border-black p-4  text-slate-700 bg-slate-100">
   
 <div class="text-2xl">Computational Thinking/CT</div>
@@ -799,13 +802,11 @@ Harapannya, modul ajar Kurikulum Merdeka Matematika untuk SMK akan menekankan pa
    <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction1()" id="myBtn1">buka</button>
 <div x-show='open'> 
        <div class="bg-sky-300 w-full h-48 overflow-auto touch-auto ">
-       <img class="zoom max-w-none h-auto w-full " src='gbr/maphot.svg'>
+       <img class="zoom max-w-none h-auto w-full " src='gbr/maphot.svg'/>
        </div> 
-       
-     
-         
-   </div>
+       </div>
 </div>  
+
 </div>
 
 <div  id="bab0123" class="hidden h-[50%] overflow-y-auto bg-slate-700 text-slate-100 border-1 rounded-3xl box-border  border-black p-4 ">
@@ -950,11 +951,7 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
   
   
   
-  <div class="hidden bg-sky-300" id="questions-containerakar"></div>
   
-  <div class="hidden font-bold" id="score00">akar</div>
-  
-   <button class="hidden py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestionsakar()">Soal akar</button>
   <br>
 
 <button class="hidden py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="checkAnswersakar()">cek nilai akar</button>
@@ -982,24 +979,10 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
 
 
 <!-- batas aljabar -->
-  <div  id="bab1" class= "border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-slate-200">
-      
-<!--
-  <div>
-    <input  type="checkbox" name="flexRadioDefault" id="toggle">
-    <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">mode gelap</label>
-    </div>  -->
-<!-- 
-   <a href="./gbr/map11.svg" download="MindmapMatematika">
-    <img src="./gbr/download.svg" alt="ng ada gbr" width="25" height="36">
-   </a> 
-  -->
- 
-
-<h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Bilangan Berpangkat (X)</h1>
-
- 
+  <div  id="bab1" class= "border-1 rounded-3xl box-border border-black p-4 text-black bg-white">
+<h1 class="text-2xl font-bold text-black ">Bilangan Berpangkat (X)</h1>
 <span id="dots1">...</span>
+
     <div id="more1">
 <p class="font-semibold">soal 1</p>
 <p>definisi bilangan berpangkat
@@ -2390,46 +2373,37 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
   
   </p>
   </label>
+  
+  <label>
   <p class="font-semibold">soal 34</p>
 
-  <p>Bentuk sederhana dari 
-  <math>
-    
+  Bentuk sederhana dari <math>
+<mfrac>
+<mi><math><msup><mi>10</mi><mn>-9</mn></msup>
+<mo>.</mo><msup><mi>10</mi><mn>-9</mn></msup></math></mi> 
+<math> 
+      <mi>
+        (
+       </mi> 
+      <mi><math><msup>
+           <mi>10</mi>
+           <mn>-10</mn>
+       </msup></math> </mi>
+       <mi>
+        )
+       </mi>
+        <msup>
+          <mi></mi>
+        <mn>2</mn>
+      </msup> 
+      </math>
   
+</mfrac>
 
-      <mfrac>
-  <mi> <msup>
-    <mi>10</mi>
-    <mn>-9</mn>
-</msup>
-<mi>.</mi>
-<msup>
-    <mi>10</mi>
-    <mn>-9</mn>
-</msup> </mi> 
-  <mi>
-    <mi>
-      (
-     </mi> 
-        
-    <mi>  <msup>
-         <mi>10</mi>
-         <mn>-10</mn>
-     </msup> </mi> 
-    <mi>
-      )
-     </mi>
-    
-      <msup>
-        <mi></mi>
-      <mn>2</mn>
-    </msup>  </mi> 
-</mfrac> 
-  
-  
-   
-   
-  </math>
+</math>
+ 
+ 
+ 
  
   <p style="font-size:small">
   
@@ -2438,7 +2412,7 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
   <mi><math> <msup>
         <mi>10</mi>
         <mn>-2</mn>
-    </msup></math></mi>
+    </msup>  <mi>m</mi></math></mi>
   </math><br>
   
   <input type="radio" name="no641" id="jno641" style=" display:inline-flex">
@@ -2464,29 +2438,28 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
         <mn>4</mn>
     </msup></math></mi>
   </math><br>
-  
+  </p>
   <div id="rno641"></div>
   <hr>
-  
-  </p>
   </label>
+  
+  
   <p class="font-semibold">soal 35</p>
 <label for="">
   <p>Bentuk sederhana dari 
+  
     <math> 
-    
       <mi>
         (
        </mi> 
-          
-      <mi>  <msup>
+      <mi><math><msup>
            <mi>10</mi>
            <mn>-2</mn>
-       </msup> <mi>m</mi> </mi>
+       </msup></math> </mi>
+       <mi>m</mi>
        <mi>
         )
        </mi>
-      
         <msup>
           <mi></mi>
         <mn>2</mn>
@@ -2494,7 +2467,7 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
       </math>
     
   </p> 
-  <p style="font-size:small">
+ 
   
   <input type="radio" name="no651" style=" display:inline-flex"> 
   <math>
@@ -2551,8 +2524,9 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
   <div id="rno651"></div>
   <hr>
   
-  </p>
+  
   </label>
+  
   <div class="d-none"
   <p class="font-semibold">soal 36</p>
   <label for="">
@@ -2835,7 +2809,7 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
     </p>
     </label>
   </div>
-   <h1 id="nila1a">nilai senelumnya</h1> 
+   
  <h1 id="nilai1"></h1> <br>
   
  
@@ -2959,9 +2933,6 @@ $$\left\{\begin{matrix}
 <math>
 <mi>6</mi>
 </math><br>
-
-
-
 <input  type="radio" name="no103" style=" display:inline-flex">
 <math>
 <mi>-8</mi>
@@ -4132,6 +4103,7 @@ x> 0;y> 0\\
          </p>
 Problem: Pak Amir ingin berdagang 2 jenis kopi saset yaitu kopi capucino dan kopi gingseng.Dia membeli lewat online dengan persyaratan
 maksimum 50 buah saset, agar  bebas ongkir.
+
 <label for="">
 <p>jika x adalah kopi capucino dan y adalah kopi gingseng maka 
   pernyataan diatas dapat diubah menjadi model matematika sbb:</p>
@@ -4157,11 +4129,12 @@ maksimum 50 buah saset, agar  bebas ongkir.
 Selanjutnya modal pak Amir Rp.1500.000
 sedangkan harga per saset  kopi capucino Rp.750 dan kopi gingseng Rp.1000              
 </p> 
+
 <label for="">
 <p>
 maka model matematika kendala modal adalah
     </p>
-</label><br>  
+
 <p>gambar diatas merupakan himpunan penyelesaian pertidaksamaan:</p>
 <input type="radio" name="no132" style=" display:inline-flex"> 
 <label style="display:inline-block" >$${750x-1000y\leq 1500000}$$</label><br>
@@ -4179,13 +4152,11 @@ maka model matematika kendala modal adalah
 </label>
 
 <hr>
-</p>
 
-</label>
 <p>Berdasarkan dua kendala diatas maka model matematika dari kendala tersebut
 dapat ditulis dalam bentuk sistem pertidaksamaan sbb:</p>
 
-<p style="font-size:small">
+
 
 <input type="radio" name="no133" id="jno133" style=" display:inline-flex"> 
 <label>
@@ -4214,21 +4185,18 @@ $$\left\{\begin{matrix}
 <div id="rno133"></div>
 <hr>
 
-</p>
+
 
 <p>Jika fungsi tujuan z(x,y)=x +y, maka nilai z pada titik pojok (0,4) adalah
 dari gambar dibawah ini</p>
+
 <label for="">
-<p>
-  
        <svg width="180" height="140">
- 
         <circle r="3" cx="60" cy="130"> </circle> 
         <circle r="3" cx="120" cy="130" stroke="black" fill="white"> </circle> 
 
         <circle r="3" cx="10" cy="27"> </circle> 
         <circle r="3" cx="10" cy="90" stroke="black" fill="white"> </circle> 
-
 
     <line x1="10" y1="10" x2="10" y2="130" stroke="black"></line> 
     <line x1="10" y1="130" x2="160" y2="130" stroke="black"></line> 
@@ -4257,7 +4225,7 @@ dari gambar dibawah ini</p>
 
     <text x="0" y="135">O</text>
     <text x="170" y="130">x</text>
-    </p>
+</svg>
 </label><br>  
 
 <label for="">
@@ -4309,7 +4277,7 @@ dari gambar dibawah ini</p>
 
 
 <label for="">
-<p>Nilai maksimum fungsi objektif z=x+2y pada daerah yang diarsir dibawah ini
+<p>Nilai maksimum fungsi objektif z=x+2y pada daerah yang diarsir dibawah ini</p>
 
   
        <svg width="180" height="140">
@@ -4357,7 +4325,7 @@ dari gambar dibawah ini</p>
 
 </svg>
 
-    </p>
+    
 </label><br>  
 
 
@@ -4430,17 +4398,12 @@ dari gambar dibawah ini</p>
 jika z=2x+3y adalah
     </p>
 </label><br>  
-
-
 <input type="radio" name="no137" style=" display:inline-flex"> 
 <label>8</label><br>
-
 <input type="radio" name="no137" id="jno137" style=" display:inline">
 <label>4</label><br>
-
 <input  type="radio" name="no137"  style=" display:inline-flex">
 <label>6</label><br>
-
 <input  type="radio" name="no137" style=" display:inline-flex">
 <label>5</label>
 <br>
@@ -4462,10 +4425,10 @@ jika z=2x+3y adalah
        <img class="zoom4  max-w-none h-auto w-full " src='gbr/maplin.svg'>
        </div> 
    </div>
-</div> 
-
 </div>
-<div  id="bab5" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-red-300">
+</div>
+
+<div  id="bab5" class="h-72 overflow-y-auto  border-1 rounded-3xl box-border  border-black p-4 text-black bg-[#FFEBCD] ">
 
 <h2>Barisan & Deret</h2>
 <span id="dots5">...</span>
@@ -5080,6 +5043,7 @@ maka nilai f(2) <br>
 </div> 
 
 </div> 
+
 <!-- batas akhir 10-->
 <!-- batas awal bab 6 -->
 
@@ -5876,7 +5840,7 @@ jika sudut 90 derajat diubah ke radian menjadi</label><br>
 <div id="rsno2"></div>
 <hr><br>
 -->
-<p id="nilai6">nilai tri</p> 
+<p id="nilai6"></p> 
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim60()">Cek Nilai Trigonometri </button>
 
 
@@ -5898,10 +5862,7 @@ jika sudut 90 derajat diubah ke radian menjadi</label><br>
 
 <!--batas -->
 <div id="bab21" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-800 bg-[#BDAAFD]">
-
- 
-
-  <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Aritmatika Sosial (XI)</h1>
+<h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Aritmatika Sosial (XI)</h1>
    
 Penerapan barisan dan deret aritmatika/geometri adalah menghitung dan mengelola keuangan yakni: 
   <br>1.Pinjaman.<br>2.Investasi.<br>3.Anuitas.<br>
@@ -6050,11 +6011,8 @@ $A=H\frac{1}{ \sum_{n=1}^{n} \frac{1}{(1+i)^n}}$
 <!-- batas 21 -->
 <!-- batas awal bab7 -->
   <div id="bab7" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border border-black p-4 text-slate-700 bg-[#DCDCDC] ">
- 
-  
-    <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Matrik(XI) </h1>
-     
-  <span id="dots7">...</span>
+ <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Matrik(XI) </h1>
+<span id="dots7">...</span>
   
   <div id="more7">
     <p class="font-semibold">soal 1</p>
@@ -9154,129 +9112,7 @@ jika C=A-2B maka C adalah
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim7()">Cek Nilai Matrik </button>
 
 
-    <script>
-        function generateQuestionm() {
-            var a = [[2, 3], [4, 1]];
-            var b = [[2, 1], [0, -1]];
-            var c = [[-1, 3], [4, 2]];
-            var d = [[2, 1], [0, 3]];
 
-            var questions = [
-                { matrix: a, answer: "c" },
-                { matrix: b, answer: "d" },
-                { matrix: c, answer: "a" },
-                { matrix: d, answer: "b" }
-            ];
-
-            var randomIndex = Math.floor(Math.random() * questions.length);
-            var question = questions[randomIndex];
-
-            document.getElementById("question").innerHTML = "$$ A = \\begin{pmatrix} " + question.matrix[0][0] + " & " + question.matrix[0][1] + " \\\\ " + question.matrix[1][0] + " & " + question.matrix[1][1] + " \\end{pmatrix} \\times B = \\, ? $$";
-            var choices = ["a", "b", "c", "d"];
-            choices.splice(choices.indexOf(question.answer), 1);
-            choices = shuffle(choices);
-            for (var i = 0; i < 4; i++) {
-                var option = document.getElementById("option" + (i + 1));
-                if (choices.length > 0) {
-                    option.innerHTML = "$$ C = \\begin{pmatrix} " + questions[choices.pop()].matrix[0][0] + " & " + questions[choices.pop()].matrix[0][1] + " \\\\ " + questions[choices.pop()].matrix[1][0] + " & " + questions[choices.pop()].matrix[1][1] + " \\end{pmatrix} $$";
-                }
-            }
-        }
-
-        function shuffle(array) {
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-            return array;
-        }
-    </script>
-    <h1>Math Quiz</h1>
-    <div id="questionm"></div>
-    <input type="radio" id="option1" name="answer" value="a"> <label for="option1" id="label1"></label><br>
-    <input type="radio" id="option2" name="answer" value="b"> <label for="option2" id="label2"></label><br>
-    <input type="radio" id="option3" name="answer" value="c"> <label for="option3" id="label3"></label><br>
-    <input type="radio" id="option4" name="answer" value="d"> <label for="option4" id="label4"></label><br>
-    <button onclick="generateQuestionm()">Generate Question</button>
-    <button onclick="checkAnswer()">Check Answer</button>
-    <div id="score"></div>
-    <script>
-        
-    </script>
-
-<!- 
-
-
-<script>
-   // function generateQuestionm() {
-        var a = [2, 3, 4];
-        var b = [2, 1, 0];
-        var c = [-1, 3, 4];
-        var d = [2, 1, 0];
-
-        var index = Math.floor(Math.random() * 3);
-        var answer = [
-            [a[0]*c[index] + b[0]*d[index], a[0]*d[index] + b[0]*d[index]],
-            [a[1]*c[index] + b[1]*d[index], a[1]*d[index] + b[1]*d[index]]
-        ];
-
-        var choices = [
-            answer,
-            [
-                [a[0]*c[(index+1)%3] + b[0]*d[(index+1)%3], a[0]*d[(index+1)%3] + b[0]*d[(index+1)%3]],
-                [a[1]*c[(index+1)%3] + b[1]*d[(index+1)%3], a[1]*d[(index+1)%3] + b[1]*d[(index+1)%3]]
-            ],
-            [
-                [a[0]*c[(index+2)%3] + b[0]*d[(index+2)%3], a[0]*d[(index+2)%3] + b[0]*d[(index+2)%3]],
-                [a[1]*c[(index+2)%3] + b[1]*d[(index+2)%3], a[1]*d[(index+2)%3] + b[1]*d[(index+2)%3]]
-            ],
-            [
-                [a[0]*c[(index+3)%3] + b[0]*d[(index+3)%3], a[0]*d[(index+3)%3] + b[0]*d[(index+3)%3]],
-                [a[1]*c[(index+3)%3] + b[1]*d[(index+3)%3], a[1]*d[(index+3)%3] + b[1]*d[(index+3)%3]]
-            ]
-        ];
-
-        document.getElementById("questionm").innerHTML = "\\[\\begin{bmatrix}"+a[0]+" & "+b[0]+" \\\\ "+a[1]+" & "+b[1]+"\\end{bmatrix} \\times \\begin{bmatrix}"+c[index]+" & "+d[index]+" \\\\ "+c[(index+1)%3]+" & "+d[(index+1)%3]+"\\end{bmatrix}\\]";
-        
-        var choicesHTML = "";
-        for (var i = 0; i < choices.length; i++) {
-            choicesHTML += "<input type='radio' name='answer' value='"+i+"'>";
-            choicesHTML += "\\[\\begin{bmatrix}"+choices[i][0][0]+" & "+choices[i][0][1]+" \\\\ "+choices[i][1][0]+" & "+choices[i][1][1]+"\\end{bmatrix}\\]";
-            choicesHTML += "<br>";
-        }
-        document.getElementById("choices").innerHTML = choicesHTML;
-    }
-
-    function checkAnswer() {
-        var selectedAnswer = document.querySelector('input[name="answer"]:checked');
-        if (!selectedAnswer) {
-            alert("Pilih salah satu jawaban!");
-            return;
-        }
-
-        var score = parseInt(selectedAnswer.value);
-        var result = document.getElementById("result");
-        if (score === 0) {
-            result.innerHTML = "Jawaban benar! Skor Anda: 10";
-        } else {
-            result.innerHTML = "Jawaban salah. Skor Anda: 0";
-        }
-
-        var inputs = document.getElementsByTagName("input");
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].disabled = true;
-        }
-    }
-</script>
-<div id="questionm"></div>
-<div id="choices"></div>
-<button onclick="generateQuestionm()">Acak Soal matrik</button>
-<button onclick="checkAnswer()">Cek Jawaban</button>
-<div id="result"></div>
-
---> 
 </div>
 
 <div x-data="{open:false}">
@@ -9297,9 +9133,9 @@ jika C=A-2B maka C adalah
 
 </div>
 <!-- batas -->
-<div id="bab8" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border border-black p-4 text-slate-700  bg-[#F5F5DC]">
+<div id="bab8" class="border-1 rounded-3xl box-border border-black p-4 text-slate-700  bg-[#F5F5DC]">
  
-  <h2 >Vektor </h2> 
+  <h1 >Vektor </h1> 
  
   <span id="dots8">...</span>
   <div id="more8">
@@ -12199,7 +12035,7 @@ $$x^{2}+y^{2}-2x+6y+1=0$$
 
 
 <h1 id="nilai12"></h1>
-<p id="datetime" ></p>
+
 <br>
 <button class="py-2 px-6 bg-slate-500 text-4xl-slate-200 rounded-3xl" 
 onclick=kirim12()>
@@ -14224,7 +14060,7 @@ turun<br>
 <!-- batas -->
 
 
-<div id="bab16" class=" border-1 rounded-3xl box-border  border-black p-4  text-black bg-[#FFB6C1]">
+<div id="bab16" class=" border-1 rounded-3xl box-border  border-black p-4  text-black bg-white">
 
 
   
@@ -15011,7 +14847,7 @@ P(sepeda A atau Beat)=1/5 + 1/5 =2/5<br>
 P(sepeda atau Beat)=2/5 + 1/5 =3/5<br>
 </article>
 <hr>
-Tentukan berapa banyak cara jika ada 4 calon laki-laki dan 2 calon perempuan 
+1.Tentukan berapa banyak cara jika ada 4 calon laki-laki dan 2 calon perempuan 
 untuk menjadi 1 ketua kelas.?<br>
 <label> <br>
       <input type="radio" name="no1701" style="display:inline-flex">4<br>
@@ -15022,7 +14858,7 @@ untuk menjadi 1 ketua kelas.?<br>
       <div id="rno1701"></div>
 </label>
       <hr>
-     Berapa peluang laki-laki menjadi ketua kelas.<br>
+    2. Berapa peluang laki-laki menjadi ketua kelas.<br>
       <label><br>
       <input type="radio" name="no1702" style="display:inline-flex">1/2<br>
       <input type="radio" name="no1702" style="display:inline-flex">1/3<br>
@@ -15055,7 +14891,7 @@ yakni
 <p>paket 6: nasi uduk dan ikan bakar</p>
 <hr>
 <br>
-Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kentang. <br>Jenis 2:ayambakar dan ayam goreng. <br>Jenis 3:jus jeruk, jus melon ,jus mangga.
+3.Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kentang. <br>Jenis 2:ayambakar dan ayam goreng. <br>Jenis 3:jus jeruk, jus melon ,jus mangga.
 <br>Berapa jumlah variasi paket makanan  yang tersedia? <br>
 <label> <br>
       <input type="radio" name="no1703" style="display:inline-flex">4<br>
@@ -15065,7 +14901,7 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
       <div id="rno1703"></div>
 </label>
       <hr>
-      Sebuah nomer  terdiri atas 3 angka, yaitu 1,2 dan 3 , berapa jumlah nomor yang terbentuk?
+     4. Sebuah nomer  terdiri atas 3 angka, yaitu 1,2 dan 3 , berapa jumlah nomor yang terbentuk?
        <br> 
       <label> <br>
             <input type="radio" name="no1704" id="jno1704" style="display:inline-flex">6<br>
@@ -15075,7 +14911,7 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
             <div id="rno1704"></div>
       </label>
             <hr>
-                  Sebuah angka ribuan terdiri dari 4 angka. Jika tersedia angka 0,1,3,5,7 
+                5.  Sebuah angka ribuan terdiri dari 4 angka. Jika tersedia angka 0,1,3,5,7 
                   berapa jumlah angka ribuan yang terbentuk? <br>
                   <label> <br>
                         <input type="radio" name="no1705" style="display:inline-flex">12<br>
@@ -15085,7 +14921,7 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
                         <div id="rno1705"></div>
                   </label>    
            <hr>
-            Pada plat nomor kendaraan terdapat urutan  xx 41nn Ay: diawali 2 abjad diikuti 4 nomor dan diakhiri 2 abjad.<br>           
+      6.      Pada plat nomor kendaraan terdapat urutan  xx 41nn Ay: diawali 2 abjad diikuti 4 nomor dan diakhiri 2 abjad.<br>           
             Jika xx adalah BA atau BM; nn angka dari 0 s/d 99; dan Ay
             dan y adalah A s/d F.
             Berapa jumlah no. kendaaan yang dapat dibuat? <br>
@@ -15104,25 +14940,26 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
                   <br>Contoh: 4!=4$\times3!$<br>
                   
                   <hr>
-                 Hitung 5! - 3! <br>
+           7.      Hitung 5! - 3! <br>
                   <label> <br>
+                         <input type="radio" name="no1707" id="jno1707" style=" display:inline-flex" >114<br>
                         <input type="radio" name="no1707" style="display:inline-flex">120<br>
-                        <input type="radio" name="no1707" id="jno1707" style=" display:inline-flex" >114<br>
                         <input type="radio" name="no1707" style="display:inline-flex">115<br>
                         <input type="radio" name="no1707" style=" display:inline" >100<br>
                         <div id="rno1707"></div>
                   </label>
                         <hr>
-                        Hitung 5! / 3! <br>
+                8.        Hitung 5! / 3! <br>
                   <label> <br>
                         <input type="radio" name="no1708" style="display:inline-flex">15<br>
-                        <input type="radio" name="no1708" id="jno1708" style=" display:inline-flex" >20<br>
+                      
                         <input type="radio" name="no1708" style="display:inline-flex">5<br>
+                           <input type="radio" name="no1708" id="jno1708" style=" display:inline-flex" >20<br>
                         <input type="radio" name="no1708" style=" display:inline" >1<br>
                         <div id="rno1708"></div>
                   </label>
                         <hr>
-                        Dengan menggunakan sifat 1 , tentukan:<p><span class="text-2xl">$\frac{5!.3!}{6!.2!}$ </span>   </p>
+                   9.     Dengan menggunakan sifat 1 , tentukan:<p><span class="text-2xl">$\frac{5!.3!}{6!.2!}$ </span>   </p>
                         <label>                
                         <input type="radio" name="no1709" style="display:inline-flex">1<br>
                         <input type="radio" name="no1709" id="jno1709" style=" display:inline-flex" >1/2<br>
@@ -15130,12 +14967,15 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
                         <input type="radio" name="no1709" style=" display:inline" >7/4<br>
                         <div id="rno1709"></div>
                   </label>
-                        <hr> <p>Tentukan:<span class="text-2xl">$\frac{7!}{5!.2!}$</span></p>
+                        <hr> <p>10.Tentukan:<span class="text-2xl">$\frac{7!}{5!.2!}$</span></p>
                         <label>  
                               <input type="radio" name="no1710" style="display:inline-flex">42<br>
-                              <input type="radio" name="no1710" id="jno1710" style=" display:inline-flex" >21<br>
+                              
                               <input type="radio" name="no1710" style="display:inline-flex">20<br>
+                              
                               <input type="radio" name="no1710" style=" display:inline" >8<br>
+                          <input type="radio" name="no1710" id="jno1710" style=" display:inline" >21<br>    
+                             
                               <div id="rno1710"></div>
                         </label>
                               <hr>
@@ -15143,16 +14983,17 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
                               <p>Permutasi r dari n ditulis $ _nP_r$.
                               Rumus permutasi : $ _nP_r=\frac{n!}{(n-r)!}$</p>
                               <label> 
-                                Hitung $ _4P_2$<br>
+                               11. Hitung $ _4P_2$<br>
+                                               <input type="radio" name="no1711" id="jno1711" style=" display:inline-flex" >12<br>
                                     <input type="radio" name="no1711" style="display:inline-flex">2<br>
-                                    <input type="radio" name="no1711" id="jno1711" style=" display:inline-flex" >12<br>
+                     
                                     <input type="radio" name="no1711" style="display:inline-flex">24<br>
                                     <input type="radio" name="no1711" style=" display:inline" >8<br>
                                     <div id="rno1711"></div>
                               </label>
                               <hr>
                          <label>
-                              Dalam sebuah kotak ada 4 abjad yakni p,q,r,s . Dari kotak itu diambil 3 abjad sekaligus . Banyak permutasi  dari 3 abjad ini adalah<br>
+                          12.    Dalam sebuah kotak ada 4 abjad yakni p,q,r,s . Dari kotak itu diambil 3 abjad sekaligus . Banyak permutasi  dari 3 abjad ini adalah<br>
                               <input type="radio" name="no1712" style="display:inline-flex">4<br>
                               <input type="radio" name="no1712" id="jno1712" style=" display:inline-flex" >24<br>
                               <input type="radio" name="no1712" style="display:inline-flex">16<br>
@@ -15162,26 +15003,28 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
                         <hr>
                         <h1>Kombinasi</h1>
                         Kombinasi r dari n ditulis $ _nC_r$ <br>
-                        Rumus kombinasi : $ _nC_r=\frac{n!}{r!.(n-r)!}$
+                        Rumus kombinasi : $ _nC_r=\frac{n!}{r!.(n-r)!}$<br>
                         <label>
-                          Dalam sebuah kotak ada 5 abjad yakni p,q,r,s,t . Dari kotak itu diambil 3 abjad sekaligus . Banyak kombinasi  dari 3 abjad ini adalah <br>
+                         13. Dalam sebuah kotak ada 5 abjad yakni p,q,r,s,t . Dari kotak itu diambil 3 abjad sekaligus . Banyak kombinasi  dari 3 abjad ini adalah <br>
+                            <input type="radio" name="no1713" id="jno1713" style=" display:inline-flex" >10<br>
                               <input type="radio" name="no1713" style="display:inline-flex">4<br>
-                              <input type="radio" name="no1713" id="jno1713" style=" display:inline-flex" >10<br>
+                             
                               <input type="radio" name="no1713" style="display:inline-flex">24<br>
                               <input type="radio" name="no1713" style=" display:inline" >6<br>
                               <div id="rno1713"></div>
                         </label>
                         <label>
-                          Dalam sebuah kotak ada 7 kelereng merah dan 5 kelereng putih . Dari kotak itu diambil 3 kelereng sekaligus . Rumus cara pengambilan kelereng merah
+                        14.  Dalam sebuah kotak ada 7 kelereng merah dan 5 kelereng putih . Dari kotak itu diambil 3 kelereng sekaligus . Rumus cara pengambilan kelereng merah
                            adalah <br>
+                                 <input type="radio" name="no1714" id="jno1714" style=" display:inline-flex" >$_{7}C_3$<br>
                               <input type="radio" name="no1714" style="display:inline-flex">$_{12}C_3$<br>
-                              <input type="radio" name="no1714" id="jno1714" style=" display:inline-flex" >$_{7}C_3$<br>
+                              
                               <input type="radio" name="no1714" style="display:inline-flex">$_{7}P_3$<br>
                               <input type="radio" name="no1714" style=" display:inline" >$_{12}P_3$<br>
                               <div id="rno1714"></div>
                         </label>
                         <label>
-                          Sebuah kotak berisi angka 0 sampai 9. Dari dalam kotak ini diambil 1 buah angka. Peluang  terambil angka prima <br>
+                      15.    Sebuah kotak berisi angka 0 sampai 9. Dari dalam kotak ini diambil 1 buah angka. Peluang  terambil angka prima <br>
                             <input type="radio" name="no1715" style="display:inline-flex">3/10<br>
                             <input type="radio" name="no1715" id="jno1715" style=" display: inline-flex" >2/5<br>
                             <input type="radio" name="no1715" style="display:inline-flex">2/3<br>
@@ -15191,7 +15034,7 @@ Jika setiap paket terdiri atas 3 jenis makanan dimana <br>jenis 1: nasi dan kent
                           
       
                         <label>
-      Dua buah  dadu dilempar bersamaan . Peluang  muncul dadu dengan jumlah dadu ke 1 + dadu ke 2 lebih dari 5 adalah<br>
+    16.  Dua buah  dadu dilempar bersamaan . Peluang  muncul dadu dengan jumlah dadu ke 1 + dadu ke 2 lebih dari 5 adalah<br>
         <input type="radio" name="no1716" style="display:inline-flex">10/36<br>
         <input type="radio" name="no1716" style="display:inline-flex">3/36<br>
         <input type="radio" name="no1716" id="jno1716" style=" display:inline-flex" >13/18<br>
@@ -15296,7 +15139,7 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
  Data berupa angka yang diperoleh melalui pengukuran disebut data kuantitatif Contoh data kuantitatif : angka yang diperoleh dari pengukuran tinggi badan siswa;
  sedangkan data kualitatif adalah data yang diperileh melalui pengamatan.Contoh data kualitatif : nomor WA siswa. 
   <hr>
- Jenis data dibawah yang termasuk data kuantitatif adalah <br>
+ 1.Jenis data dibawah yang termasuk data kuantitatif adalah <br>
  <label> <br>
        <input type="radio" name="no1801" style="display:inline-flex">nomer hp<br>
        <input type="radio" name="no1801" style="display:inline-flex">no. kartu penduduk<br>
@@ -15306,11 +15149,12 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
  </label> 
  
        <hr>
-       Jenis data dibawah yang termasuk data kualitatif adalah <br>
+     2.  Jenis data dibawah yang termasuk data kualitatif adalah <br>
        <label> <br>
+        <input type="radio" name="no1802" id="jno1802" style=" display:inline-flex" >orang kota lebih tinggi dari orang kampung <br>
         <input type="radio" name="no1802" style="display:inline-flex">tinggi badan<br>
         <input type="radio" name="no1802" style="display:inline-flex">berat badan<br>
-        <input type="radio" name="no1802" id="jno1802" style=" display:inline-flex" >orang kota lebih tinggi dari orang kampung <br>
+    
         <input type="radio" name="no1802" style=" display:inline" >usia<br>
         <div id="rno1802"></div>
   </label>
@@ -15328,19 +15172,20 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
        3.Median: data yang terletak ditengah-tengan  data berurut, untuk n ganjil : Me=$x_{\frac {n+1}{2}}$.<br> 
        untuk n genap : Me=$\frac {1}{2}(x_{\frac {n}{2}}+x_{\frac {n+1}{2}})$.
        <hr>
-       <p>Diberikan data x sbb:
+       <p>3.Diberikan data x sbb:
        7,6,8,8,6,7,8,7,8,8,7 <br>
        Jumlah data adalah</p>
        <label> 
              <input type="radio" name="no1803" style="display:inline-flex">9<br>
+              <input type="radio" name="no1803" id="jno1803" style=" display:inline-flex" >11<br>
              <input type="radio" name="no1803" style="display:inline-flex">10<br>
-             <input type="radio" name="no1803" id="jno1803" style=" display:inline-flex" >11<br>
+             
              <input type="radio" name="no1803" style=" display:inline" >12<br>
              <div id="rno1803"></div>
        </label> 
        <hr>
        
-       <p>Diberikan data x sbb:
+       <p>4.Diberikan data x sbb:
        10,6,7,7,9,8,9,9,10,10,6 <br>
        Median dari data ini  <br></p>
        <label> 
@@ -15351,7 +15196,7 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
              <div id="rno1804"></div>
        </label> 
        <hr>
-       <p>Diberikan data x sbb:
+       <p>5.Diberikan data x sbb:
        7,7,8,8,7,7,8,7,8,8 <br>
        Rerata dari x adalah</p>
        <label>
@@ -15363,7 +15208,7 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
        </label> 
                   <br>
       <hr>
-       <p>Diberikan data kelas ke 1 dari data berkelompok : k1 sbb:
+       <p>6.Diberikan data kelas ke 1 dari data berkelompok : k1 sbb:
        164-167 <br>
        Maka tepi bawah kelas ke 1 adalah</p>
        <label>
@@ -15375,7 +15220,7 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
        </label> 
                   <br>
           <hr>
-       <p>Jika kelas k1 adalah 164-167 <br>
+       <p>7.Jika kelas k1 adalah 164-167 <br>
        Maka interval kelas k1 adalah</p>
        <label>
              <input type="radio" name="no1807" style="display:inline-flex">3<br>
@@ -15386,7 +15231,7 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
        </label> 
                   <br>
         <hr>
-       <p>Diberikan kelas  k : 70-74 
+       <p>8.Diberikan kelas  k : 70-74 
         <br>
        Titik tengah kelas k adalah</p>
        <label>
@@ -15398,7 +15243,7 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
        </label> 
                   <br>
         <hr>
-       <p>Aturan Sturgess digunakan untuk menentukan
+       <p>9.Aturan Sturgess digunakan untuk menentukan
        <br>
        </p>
        <label>
@@ -15411,7 +15256,7 @@ atau ditabelkan sehingga didapat informasi terhadap masalah tertentu.
        </label> 
                   <br>
         <hr>
-       <p>Diberikan data x sebanyak n buah data<br>
+       <p>10.Diberikan data x sebanyak n buah data<br>
        jika log n=1,5 maka jumlah kelas dari data x menurut Sturgess adalah</p>
        <label>
              <input type="radio" name="no1810" style="display:inline-flex">3<br>
@@ -16684,14 +16529,8 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 <footer class="text-center text-black" style="background-color: #6CA0DC;">
 
 <div id="audio-container">
-<audio id="song" autoplay loop>
-<source src="./vidio/FM1.mp3" 
-
-
-
-
-type="audio/mp3">
-</audio>
+    
+playRandomSong();
  
 <div class="audio-icon-wrapper" >
      
@@ -16870,13 +16709,14 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           checkbo13.checked ? html13.classList.add('dark') : html13.classList.remove('dark'); 
           });
           </script>
-    
+    -->
 
         <script>
           const rootElement = document.querySelector(":root");
           const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
           const audioIcon = document.querySelector('.audio-icon-wrapper i');
-          const song = document.querySelector('#myAudio');
+           const song = document.getElementById('backgroundMusic');
+
           let isPlaying = false;
       
           function disableScroll() {
@@ -16891,12 +16731,13 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           }
       
           function enableScroll() {
-            window.onscroll = function () { }
+            window.onscroll = function() { 
             rootElement.style.scrollBehavior = 'smooth';
              localStorage.setItem('opened', 'true');
             playAudio();
+        
           }
-      
+          
           function playAudio() {
             song.volume = 0.1;
             audioIconWrapper.style.display = 'flex';
@@ -16907,10 +16748,8 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
           audioIconWrapper.onclick = function () {
             if (isPlaying) {
               song.pause();
-              
               audioIcon.classList.remove('bi-disc');
               audioIcon.classList.add('bi-pause-circle');
-              playSong();
             } else {
               song.play();
               audioIcon.classList.add('bi-disc');
@@ -16923,9 +16762,9 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
            if (!localStorage.getItem('opened')) {
             disableScroll();
           }
-          disableScroll();
+          }
         </script>
-    -->
+    
 <script>
   function myFunction() {
     var dots = document.getElementById("dots");
@@ -17380,7 +17219,7 @@ $('#submit-form').on('click', function(e) {
 
     <iframe class="w-full h-48 overflow-auto" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS8Kvs-b22tPAbIKNbuNJ6xjyJy2GWT6ZXFVuTEPi6ifxRjkmKsRzPNIyxU_gKgvuS0ph5DsBdeIL_w/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
  -->
- <!--
+ 
 
 <script>
   // Get current date and time
@@ -17389,7 +17228,8 @@ $('#submit-form').on('click', function(e) {
 
   // Insert date and time into HTML
   document.getElementById("datetime").innerHTML = datetime;
-</script>-->
+</script>
+
 <!--
 
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=drivesdk"</iframe>
@@ -17398,10 +17238,8 @@ $('#submit-form').on('click', function(e) {
       <iframe class="w-full" src="https://docs.google.com/document/d/e/2PACX-1vQZsvdrNLVKkvdFy-6j2F65MtgtkfX2VWE_4EpUARiZWQudWjVvvbsMNrY9abmyYOqW8kzyPqFv7flH/pub?embedded=true"></iframe> 
 
 
-  <iframe class="w-full" src="https://docs.google.com/document/d/1LT6M62Stho02hFeAx-05KuOmFH2Aeg6eZK-MZcbDsvE/edit?usp=drivesdk"</iframe> 
+  <iframe class="w-full" src="https://docs.google.com/document/d/1LT6M62Stho02hFeAx-05KuOmFH2Aeg6eZK-MZcbDsvE/edit?usp=drivesdk"</iframe
 -->
-
-
 <script>
 const judul = document.querySelector('#nama');
 const juduln0 = document.querySelector('#nila0');
@@ -17422,7 +17260,6 @@ const juduln13 = document.querySelector('#nila13');
 const juduln14 = document.querySelector('#nila14');
 const juduln15 = document.querySelector('#nila15');
 const juduln16 = document.querySelector('#nila16');
-
 const juduln17 = document.querySelector('#nila17');
 const juduln18 = document.querySelector('#nila18');
 const juduln19 = document.querySelector('#nila19');
@@ -17454,100 +17291,78 @@ let nil21 =localStorage.getItem('nil21');
 let nam =localStorage.getItem('nam');
 
 
-if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null') 
-{
+if (!localStorage.getItem('nam') {
         nam=prompt('masukkan nama:');
         localStorage.setItem('nam',nam);
     }
-    
-    
     judul.innerHTML=nam;
-     if (!nil0) {
-        localStorage.setItem('nil0',0);
+if (!nil0){
+    localStorage.setItem('nil0',0);
     }
-    if (!nil1) {
-        localStorage.setItem('nil1',0);
+if (!nil1){
+    localStorage.setItem('nil1',0);
     }
-    
-    if (!nil2) {
-        localStorage.setItem('nil2',0);
+if (!nil2){
+    localStorage.setItem('nil2',0);
     }
-    
-     if (!nil3) {
-        localStorage.setItem('nil3',0);
+if (!nil3){
+    localStorage.setItem('nil3',0);
     }
-    
-    if (!nil4) {
-        localStorage.setItem('nil4',0);
+if (!nil4) { 
+    localStorage.setItem('nil4',0);
     }
-     if (!nil5) {
+if (!nil5) {
         localStorage.setItem('nil5',0);
     }
-    
-    if (!nil6) {
+if (!nil6) {
         localStorage.setItem('nil6',0);
     }
-     if (!nil7) {
+if (!nil7) {
         localStorage.setItem('nil7',0);
     }
-    
-    if (!nil8) {
+if (!nil8) {
         localStorage.setItem('nil8',0);
     }
-    
-     if (!nil9) {
+if (!nil9) {
         localStorage.setItem('nil9',0);
     }
-    
-    if (!nil10) {
+if (!nil10) {
         localStorage.setItem('nil10',0);
     }
-
-    if (!nil11) {
+if (!nil11) {
         localStorage.setItem('nil11',0);
     }
-    
-     if (!nil12) {
+if (!nil12) {
         localStorage.setItem('nil12',0);
     }
-     if (!nil13) {
+if (!nil13) {
         localStorage.setItem('nil13',0);
     }
-     if (!nil14) {
+if (!nil14) {
         localStorage.setItem('nil14',0);
     }
-     if (!nil15) {
+if (!nil15) {
         localStorage.setItem('nil15',0);
     }
-    
-    if (!nil16) {
+if (!nil16) {
         localStorage.setItem('nil16',0);
     }
-    
-     
-    if (!nil17) {
+if (!nil17) {
         localStorage.setItem('nil17',0);
     }
-    
-     
-    if (!nil18) {
+if (!nil18) {
         localStorage.setItem('nil18',0);
     }
-    
-     
-    if (!nil19) {
+if (!nil19) {
         localStorage.setItem('nil19',0);
     }
-    
-     
-    if (!nil21) {
+if (!nil21) {
         localStorage.setItem('nil21',0);
-    }
+    };
     
     
     juduln0.innerHTML=nil0; 
     juduln1.innerHTML=nil1;
-    juduln1a.innerHTML=nil1;
     juduln2.innerHTML=nil2;
     juduln3.innerHTML=nil3;
     juduln4.innerHTML=nil4;
@@ -17566,39 +17381,22 @@ if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
      juduln17.innerHTML=nil17;
      juduln18.innerHTML=nil18;
      juduln19.innerHTML=nil19;
-      juduln21.innerHTML=nil21;
+     juduln21.innerHTML=nil21;
     
     
 </script>
 
 
-
-<script>
-  const audioFiles = ['./vidio/FM1.mp3', './vidio/lier.mp3', './vidio/dimas.mp3']; // Daftar lagu
-
-  const audioElement = document.getElementById('myAudio');
-  let currentSongIndex = 1; // Indeks lagu saat ini
-
-  audioElement.addEventListener('ended', function() {
-    if (currentSongIndex < audioFiles.length) {
-      audioElement.src = audioFiles[currentSongIndex];
-      audioElement.play();
-      currentSongIndex++;
-    } else {
-      // Jika sudah memutar semua lagu, kembali ke awal
-      currentSongIndex = 0;
-      audioElement.src = audioFiles[currentSongIndex];
-      audioElement.play();
-    }
-  });
-</script>
 
     <script>
        
 
-        // Function to calculate and display result
-           function calculate() {
+        // Function to 7 and display result
+     
+     
+        function calculate() {
             // Save input values to local storage
+            var nam = localStorage.getItem("nam");
             var numz = parseFloat(localStorage.getItem("nilz"));
             var num1 = parseFloat(localStorage.getItem("nil1"));
             var num2 = parseFloat(localStorage.getItem("nil2"));
@@ -17612,15 +17410,12 @@ if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
             var num10 = parseFloat(localStorage.getItem("nil10"));
             var num11 = parseFloat(localStorage.getItem("nil11"));
             var num12 = parseFloat(localStorage.getItem("nil12"));
-            
             var num13 = parseFloat(localStorage.getItem("nil13"));
             var num14 = parseFloat(localStorage.getItem("nil14"));
             var num15 = parseFloat(localStorage.getItem("nil15"));
             var num16 = parseFloat(localStorage.getItem("nil16"));
-            
             var num17 = parseFloat(localStorage.getItem("nil17"));
             var num18 = parseFloat(localStorage.getItem("nil18"));
-            
             var num19 = parseFloat(localStorage.getItem("nil19"));
             var num21 = parseFloat(localStorage.getItem("nil21"));
    
@@ -17633,49 +17428,65 @@ var resultxii = num14+num15+num16;
 
 var resultt = resultx+resultxi+resultxii + numz;
 
+document.getElementById("nila0").innerHTML = numz;
+document.getElementById("resultx").innerHTML = resultx;
+document.getElementById("resultxi").innerHTML = resultxi;
+document.getElementById("resultxii").innerHTML = resultxii;
+document.getElementById("resultt").innerHTML = resultt;
+document.getElementById("nama").innerHTML = nam;
+refresh();
+}
+</script>
 
-document.getElementById("resultx").innerHTML = "" +resultx;
- document.getElementById("resultxi").innerHTML = "" +resultxi;
- document.getElementById("resultxii").innerHTML = "" +resultxii;
-  document.getElementById("resultt").innerHTML = "" +resultt;
- 
-
- 
-        }
-
-        // Load previously saved data when the page loads
-        
-        window.onload = function() {
- document.getElementById("num1").value = localStorage.getItem("num1") || '';
- document.getElementById("num2").value = localStorage.getItem("num2") || '';
- document.getElementById("num3").value = localStorage.getItem("num3") || '';
-document.getElementById("num4").value = localStorage.getItem("num4") || '';
- document.getElementById("num5").value = localStorage.getItem("num5") || '';
- document.getElementById("num6").value = localStorage.getItem("num6") || '';
- document.getElementById("num7").value = localStorage.getItem("num7") || '';
- document.getElementById("num8").value = localStorage.getItem("num8") || '';
- document.getElementById("num9").value = localStorage.getItem("num9") || '';
-document.getElementById("num10").value = localStorage.getItem("num10") || '';
-document.getElementById("num11").value = localStorage.getItem("num11") || '';
-document.getElementById("num12").value = localStorage.getItem("num12") || '';
-            document.getElementById("num13").value = localStorage.getItem("num13") || '';
-     
-     document.getElementById("num14").value = localStorage.getItem("num14") || '';
-            document.getElementById("num15").value = localStorage.getItem("num15") || '';
-     
-     document.getElementById("num16").value = localStorage.getItem("num16") || '';
-            document.getElementById("num17").value = localStorage.getItem("num17") || '';
-     
-     document.getElementById("num18").value = localStorage.getItem("num18") || '';
-            document.getElementById("num19").value = localStorage.getItem("num19") || '';
-     
-     document.getElementById("num20").value = localStorage.getItem("num20") || '';
-            document.getElementById("num21").value = localStorage.getItem("num21") || '';
-     
-     document.getElementById("num23").value = localStorage.getItem("num23") || '';
-              };
+<script>
+function refresh(){
+    var nam = localStorage.getItem("nam");
+var numz = parseFloat(localStorage.getItem("nilz"));
+            var num1 = parseFloat(localStorage.getItem("nil1"));
+            var num2 = parseFloat(localStorage.getItem("nil2"));
+            var num3 = parseFloat(localStorage.getItem("nil3"));
+            var num4 = parseFloat(localStorage.getItem("nil4"));
+             var num5 = parseFloat(localStorage.getItem("nil5"));
+            var num6 = parseFloat(localStorage.getItem("nil6"));
+            var num7 = parseFloat(localStorage.getItem("nil7"));
+            var num8 = parseFloat(localStorage.getItem("nil8"));
+            var num9 = parseFloat(localStorage.getItem("nil9"));
+            var num10 = parseFloat(localStorage.getItem("nil10"));
+            var num11 = parseFloat(localStorage.getItem("nil11"));
+            var num12 = parseFloat(localStorage.getItem("nil12"));
+            var num13 = parseFloat(localStorage.getItem("nil13"));
+            var num14 = parseFloat(localStorage.getItem("nil14"));
+            var num15 = parseFloat(localStorage.getItem("nil15"));
+            var num16 = parseFloat(localStorage.getItem("nil16"));
+            var num17 = parseFloat(localStorage.getItem("nil17"));
+            var num18 = parseFloat(localStorage.getItem("nil18"));
+            var num19 = parseFloat(localStorage.getItem("nil19"));
+            var num21 = parseFloat(localStorage.getItem("nil21"));
+             var num23 = parseFloat(localStorage.getItem("nil23"));
    
-    </script>
+document.getElementById("nila1").innerHTML = num1;
+document.getElementById("nila2").innerHTML=num2;
+document.getElementById("nila3").innerHTML = num3;
+document.getElementById("nila4").innerHTML=num4;
+document.getElementById("nila5").innerHTML = num5;
+document.getElementById("nila6").innerHTML=num6;
+document.getElementById("nila7").innerHTML = num7;
+document.getElementById("nila8").innerHTML=num8;
+document.getElementById("nila9").innerHTML = num9;
+document.getElementById("nila10").innerHTML=num10;
+document.getElementById("nila11").innerHTML = num11;
+document.getElementById("nila12").innerHTML=num12;
+document.getElementById("nila13").innerHTML = num13;
+document.getElementById("nila14").innerHTML=num14;
+document.getElementById("nila15").innerHTML = num15;
+document.getElementById("nila16").innerHTML=num16;
+document.getElementById("nila17").innerHTML = num17;
+document.getElementById("nila18").innerHTML=num18;
+document.getElementById("nila19").innerHTML = num19;
+document.getElementById("nila21").innerHTML = num21;
+document.getElementById("nila23").innerHTML=num23;
+document.getElementById("nila0").innerHTML = numz;}     
+</script>
     
     
        
@@ -17689,37 +17500,38 @@ function toggleContent() {
   }
 }
 </script>
+
+    
+
+ 
+
     <script>
-        function getDeviceInfo() {
-            var userAgent = navigator.userAgent;
-            var deviceName = "Unknown Device";
+        // Daftar elemen audio
+        const tracks = [
+            document.getElementById('track1'),
+            document.getElementById('track2'),
+            document.getElementById('track3'),
+            document.getElementById('track4')
+        ];
 
-            if (/android/i.test(userAgent)) {
-                var regex = /Android\s+([\d\.]+);\s*(.*?)(?:\s+Build|\))/i;
-                var match = userAgent.match(regex);
+        let currentTrack = 0;
 
-                if (match && match.length > 2) {
-                    deviceName = match[2].trim();
-                } else {
-                    deviceName = "Android Device";
-                }
+        // Fungsi untuk memulai pemutaran
+        function playNextTrack() {
+            if (currentTrack < tracks.length) {
+                tracks[currentTrack].play();
+                tracks[currentTrack].addEventListener('ended', playNextTrack);
+                currentTrack++;
             } else {
-                deviceName = "Not an Android Device";
+                currentTrack = 0;
+                playNextTrack();
             }
-
-            return deviceName;
         }
 
-        document.getElementById("deviceInfo").innerText = "" + getDeviceInfo();
+        // Mulai pemutaran saat halaman dimuat
+        window.addEventListener('load', playNextTrack);
     </script>
-    <script>
-  // Get current date and time
-  var now = new Date();
-  var datetime = now.toLocaleString();
 
-  // Insert date and time into HTML
-  document.getElementById("datetime").innerHTML = datetime;
-</script>
 
     <script>
         // Daftar lagu
@@ -17755,6 +17567,29 @@ function toggleContent() {
     </script>
     
 
+     <script>
+        function getDeviceInfo() {
+            var userAgent = navigator.userAgent;
+            var deviceName = "Unknown Device";
+
+            if (/android/i.test(userAgent)) {
+                var regex = /Android\s+([\d\.]+);\s*(.*?)(?:\s+Build|\))/i;
+                var match = userAgent.match(regex);
+
+                if (match && match.length > 2) {
+                    deviceName = match[2].trim();
+                } else {
+                    deviceName = "Android Device";
+                }
+            } else {
+                deviceName = "Not an Android Device";
+            }
+
+            return deviceName;
+        }
+
+        document.getElementById("deviceInfo").innerText = "" + getDeviceInfo();
+    </script>
   </body>
   
 
@@ -17824,59 +17659,4 @@ function toggleContent() {
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-<script>
-          const rootElement = document.querySelector(":root");
-          const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
-          const audioIcon = document.querySelector('.audio-icon-wrapper i');
-           const song = document.getElementById('backgroundMusic');
-
-          let isPlaying = false;
-      
-          function disableScroll() {
-            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-      
-            window.onscroll = function () {
-              window.scrollTo(scrollTop, scrollLeft);
-            }
-      
-            rootElement.style.scrollBehavior = 'auto';
-          }
-      
-          function enableScroll() {
-            window.onscroll = function() { 
-            rootElement.style.scrollBehavior = 'smooth';
-             localStorage.setItem('opened', 'true');
-            playAudio();
-        
-          }
-          
-          function playAudio() {
-            song.volume = 0.1;
-            audioIconWrapper.style.display = 'flex';
-            song.play();
-            isPlaying = true;
-          }
-      
-          audioIconWrapper.onclick = function () {
-            if (isPlaying) {
-              song.pause();
-              audioIcon.classList.remove('bi-disc');
-              audioIcon.classList.add('bi-pause-circle');
-            } else {
-              song.play();
-              audioIcon.classList.add('bi-disc');
-              audioIcon.classList.remove('bi-pause-circle');
-            }
-      
-            isPlaying = !isPlaying;
-          }
-      
-           if (!localStorage.getItem('opened')) {
-            disableScroll();
-          }
-          }
-        </script>
 </html>
