@@ -319,7 +319,10 @@ function cekSkor() {
             }
             return n * faktorial(n - 1);
         }
-            
+    //hp
+       
+
+    //hp
 function kirimalj(){
     let poin=0;
       const jno3100=document.querySelector("#jno3100");
@@ -380,31 +383,6 @@ nilai3100.innerHTML=poin;
     
 }
 
-function refresh(){
-document.getElementById("numz").value = localStorage.getItem("numz") || '';  
- document.getElementById("num1").value = localStorage.getItem("num1") || '';
- document.getElementById("num2").value = localStorage.getItem("num2") || '';
- document.getElementById("num3").value = localStorage.getItem("num3") || '';
-document.getElementById("num4").value = localStorage.getItem("num4") || '';
- document.getElementById("num5").value = localStorage.getItem("num5") || '';
- document.getElementById("num6").value = localStorage.getItem("num6") || '';
- document.getElementById("num7").value = localStorage.getItem("num7") || '';
- document.getElementById("num8").value = localStorage.getItem("num8") || '';
- document.getElementById("num9").value = localStorage.getItem("num9") || '';
-document.getElementById("num10").value = localStorage.getItem("num10") || '';
-document.getElementById("num11").value = localStorage.getItem("num11") || '';
-document.getElementById("num12").value = localStorage.getItem("num12") || '';
-document.getElementById("num13").value = localStorage.getItem("num13") || '';
-document.getElementById("num14").value = localStorage.getItem("num14") || '';
-document.getElementById("num15").value = localStorage.getItem("num15") || '';
-document.getElementById("num16").value = localStorage.getItem("num16") || '';
-document.getElementById("num17").value = localStorage.getItem("num17") || '';
-document.getElementById("num18").value = localStorage.getItem("num18") || '';
-document.getElementById("num19").value = localStorage.getItem("num19") || '';
-document.getElementById("num20").value = localStorage.getItem("num20") || '';
-document.getElementById("num21").value = localStorage.getItem("num21") || '';
-document.getElementById("num23").value = localStorage.getItem("num23") || '';
-              };
     
     
 
@@ -781,8 +759,8 @@ function kirim1() {
 
 
 localStorage.setItem("nil1",poin);
+juduln1.innerHTML=localStorage.getItem("nil1");
 
-juduln1.innerHTML=nil1;
 
 
 
@@ -969,7 +947,7 @@ rno110.innerHTML = response;
 nilai2.innerHTML=poin2
 
 localStorage.setItem("nil2",poin2);
-juduln2.innerHTML=nil2;
+juduln2.innerHTML=localStorage.getItem("nil2");
 }
   
 
@@ -3006,7 +2984,8 @@ response="ok";
     
     nilai12.innerHTML=poin;
     localStorage.setItem("nil12",poin);
-juduln12.innerHTML=nil12;
+    
+    juduln12.innerHTML= localStorage.getItem("nil12");
     
 
   // Insert date and time into HTML
