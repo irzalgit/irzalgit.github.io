@@ -298,7 +298,7 @@ function tombolcekon() {
 
 function cekSkor() {
   var skor = document.getElementById("score0").value;
-  if (skor == 100) {
+  if (skor >= 100) {
     var audio = new Audio('./vidio/suara1.mp3');
     audio.play();
   }
@@ -2994,12 +2994,102 @@ response="ok";
 function kirim13() {
   let poin13 = 0;
   const nilai13=document.querySelector('#nilai13');
+ const jno121 = document.querySelector("#jno121");
+ 
+ const jno122 = document.querySelector("#jno122");
 
+  const jno123 = document.querySelector("#jno123");
 
+const jno124 = document.querySelector("#jno124");
+const jno125 = document.querySelector("#jno125");
+const jno126 = document.querySelector("#jno126");
+const jno127 = document.querySelector("#jno127");
+const jno128 = document.querySelector("#jno128");
+const jno129 = document.querySelector("#jno129");
+const jno130 = document.querySelector("#jno130");
+
+ if (jno121.checked) {
+      response = "";
+      poin13 = poin13 + 10;
+    } else {
+      response = "";
+    }
+    rno121.innerHTML = response;
+
+ if (jno122.checked) {
+      response = "";
+      poin13 = poin13 + 10;
+    } else {
+      response = "";
+    }
+    rno122.innerHTML = response;
+
+ if (jno123.checked) {
+      response = "";
+      poin13 = poin13 + 10;
+    } else {
+      response = "";
+    }
+    rno123.innerHTML = response;
+    
+     if (jno124.checked) {
+      response = "";
+      poin13 = poin13 + 10;
+    } else {
+      response = "";
+    }
+    rno124.innerHTML = response;
+    
+     if (jno125.checked) {
+      response = "";
+      poin13 = poin13 + 10;
+    } else {
+      response = "";
+    }
+    rno125.innerHTML = response;
   
+   if (jno126.checked) {
+      response = "";
+      poin13 = poin13 + 10;
+    } else {
+      response = "";
+    }
+    rno126.innerHTML = response;
+  
+    if (jno127.checked) {
+      response = "";
+      poin13 = poin13 + 10;
+    } else {
+      response = "";
+    }
+    rno127.innerHTML = response; 
+    
+     if (jno128.checked) {
+      response = "";
+      poin13 = poin13 + 10;
+    } else {
+      response = "";
+    }
+    rno128.innerHTML = response;
+    
+  if (jno129.checked) {
+      response = "";
+      poin13 = poin13 + 10;
+    } else {
+      response = "";
+    }
+    rno129.innerHTML = response;
+ 
+  if (jno130.checked) {
+      response = "";
+      poin13 = poin13 + 10;
+    } else {
+      response = "";
+    }
+    rno130.innerHTML = response;
+    
+    
 nilai13.innerHTML=poin13;
-
-
 localStorage.setItem("nil13",poin13);
 juduln13.innerHTML=nil13;
 }
