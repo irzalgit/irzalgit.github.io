@@ -178,16 +178,86 @@ height:0.8rem;
          #backgroundMusic {
             display: none; /* Sembunyikan elemen audio */
     </style>
-  
+    
+    <script>
+        // Fungsi untuk menyimpan nama dengan enkripsi sederhana
+        function saveName() {
+            
+            if (nam) {
+                const encodedName = btoa(nam); // Encode nama menggunakan base64
+                localStorage.setItem('nam', encodedName);
+localStorage.setItem('nil1',0);
+localStorage.setItem('nil2',0);
+localStorage.setItem('nil3',0);
+localStorage.setItem('nil4',0);
+localStorage.setItem('nil5',0);
+localStorage.setItem('nil6',0);
+localStorage.setItem('nil7',0);
+localStorage.setItem('nil8',0);
+localStorage.setItem('nil9',0);
+localStorage.setItem('nil10',0);
+localStorage.setItem('nil11',0);
+localStorage.setItem('nil12',0);
+localStorage.setItem('nil13',0);
+localStorage.setItem('nil14',0);
+localStorage.setItem('nil15',0);
+localStorage.setItem('nil16',0);
+localStorage.setItem('nil17',0);
+localStorage.setItem('nil18',0);
+localStorage.setItem('nil19',0);
+localStorage.setItem('nil21',0);
+localStorage.setItem('nil22',0);
+localStorage.setItem('nil23',0);
+localStorage.setItem('nilz',0);
+localStorage.setItem('nil0',0);
+
+                
+                
+                document.getElementById('hiddenInput').value = encodedName; // Set nilai hidden input
+            
+            } else {
+                alert('Silakan masukkan nama.');
+            }
+        }
+
+        // Fungsi untuk mengambil nama yang tersimpan
+        function getName(){
+            const encodedName = localStorage.getItem('nam');
+            if (encodedName) {
+                const decodedName = atob(encodedName); // Decode nama menggunakan base64
+                alert('Nama yang tersimpan adalah: ' + decodedName);
+            } else {
+                alert('Tidak ada nama yang tersimpan.');
+            }
+        }
+
+        // Fungsi untuk menghapus nama yang tersimpan
+        function clearName() {
+            localStorage.removeItem('nam');
+            document.getElementById('hiddenInput').value = ''; // Bersihkan nilai hidden input
+            alert('Nama yang tersimpan telah dihapus.');
+        }
+
+        // Fungsi untuk memuat nama saat halaman dibuka
+        function loadName() {
+            const encodedName = localStorage.getItem('nam');
+            if (encodedName) {
+                document.getElementById('hiddenInput').value = encodedName;
+            }
+        }
+
+        // Muat nama saat halaman dibuka
+        window.onload = loadName;
+    </script>
+    
   
 </head>
 <body onload="refresh()" >
-  
-    
+   
 <audio controls id="backgroundMusic"></audio>
 
     
-<p class ="text-sm" >for smartphone, update 01/06/24 1:00 WIB .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
+<p class ="text-sm" >for smartphone, update 02/06/24 13:00 WIB .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
@@ -17290,12 +17360,15 @@ let nil19 =localStorage.getItem('nil19');
 let nil21 =localStorage.getItem('nil21');
 let nam =localStorage.getItem('nam');
 
+if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
+  {
+        nam=prompt("Masukkan nama")
+        saveName();
+localStorage.setItem('nam',btoa(nam));
 
-if (!localStorage.getItem('nam') {
-        nam=prompt('masukkan nama:');
-        localStorage.setItem('nam',nam);
-    }
-    judul.innerHTML=nam;
+
+            }
+    judul.innerHTML=atob(nam);
 if (!nil0){
     localStorage.setItem('nil0',0);
     }
@@ -17433,7 +17506,7 @@ document.getElementById("resultx").innerHTML = resultx;
 document.getElementById("resultxi").innerHTML = resultxi;
 document.getElementById("resultxii").innerHTML = resultxii;
 document.getElementById("resultt").innerHTML = resultt;
-document.getElementById("nama").innerHTML = nam;
+document.getElementById("nama").innerHTML =atob(nam);
 refresh();
 }
 </script>
