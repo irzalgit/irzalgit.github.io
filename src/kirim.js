@@ -190,11 +190,20 @@
     enableRadioButtons();
     
   }
-
+  function generateRandomNumber() {
+            const numbers = [-2, -1, 1, 2, 3];
+            const randomIndex = Math.floor(Math.random() * numbers.length);
+            const randomNumber = numbers[randomIndex];
+            document.getElementById('random-number').textContent = randomNumber;
+        }
+  
   function generateOptions(correctAnswer) {
+    const numbers = [-2, -1, 1, 2, 3];
+    const randomIndex = Math.floor(Math.random() * numbers.length);
+    const randomNumber = numbers[randomIndex];
     var options = [correctAnswer];
     while (options.length < 4) {
-      var randomOption = Math.floor(Math.random() * 8)+options[0]; // Generate random numbers near the correct answer
+      var randomOption = Math.floor(Math.random() * numbers.length)+options[0]; // Generate random numbers near the correct answer
       if (!options.includes(randomOption)) {
         options.push(randomOption);
       }
@@ -203,6 +212,9 @@
     return options;
   }
 
+ 
+ 
+ 
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
