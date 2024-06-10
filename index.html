@@ -42,7 +42,6 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
 </script>
 
 
-
   
 
 <style>
@@ -70,6 +69,7 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   #more19 {display: none;}
   #more21 {display: none;}
   #more23 {display: none;}
+  #more24 {display: none;}
   #bab2 {display: block;}
   #bab3 {display: block;}
   #bab4 {display: block;}
@@ -256,15 +256,17 @@ localStorage.setItem('nil0',0);
    
 <audio controls id="backgroundMusic"></audio>
 
-<button onclick="clearName()">Hapus Nama</button>
-<p class ="text-sm" >for smartphone, update 01/06/24 18:00 WIB .Jumlah pengunjung:<span><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5"></script></span></p>
 
+<p class ="text-sm" >for smartphone, update 01/06/24 18:00 WIB .Jumlah pengunjung:</p>
+<!--
+<span>
+<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5">
+</script>
+</span>
+-->
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
  -->
-            
-  
-
 
 <!-- This example requires Tailwind CSS v3.0+ -->
 <div class="  relative isolate bg-black">
@@ -383,7 +385,7 @@ localStorage.setItem('nil0',0);
         <p>2.Membantu biaya pengembangan dan hosting aplikasi  ini </p>
          <a href="" class="donate-button">Transfer sekarang ke BSI no.rek:  7164332475 a/n:Irzal Achmad</a>
         <br>
-       <button class="text-xl text-black bg-red " onclick="toggleContent()">Belum Sekarang</button> 
+       <button class="text-black bg-red-500 " onclick="toggleContent()">Belum Sekarang</button> 
 </div>
 
 
@@ -583,7 +585,7 @@ localStorage.setItem('nil0',0);
     <thead>
     <tr>
         <th class="px-4 py-2 text-2xl bg-blue-400 text-black custom-col-width">ANALISIS</th>
-        <th class="px-4 py-2 bg-blue-400 custom-col-width2"></th>
+        <th class="px-4 py-2 bg-blue-400 custom-col-width2"><button onclick="clearName()">Hapus Nama</button></th>
       </tr>
       <tr>
         <th class="px-4 py-1 bg-blue-400 text-white custom-col-width">Materi</th>
@@ -701,6 +703,7 @@ localStorage.setItem('nil0',0);
         <td class="border px-4 py-2 bg-green-700  font-bold text-black custom-col-width"  id="deviceInfo"></td>
           
       </tr>
+      
     </tbody>
     
   </table>
@@ -2918,6 +2921,26 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
 Dua dan Tiga Variabel</h2 >
 
 
+ <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="red"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
 <span id="dots2">...</span>
 <div id="more2">
 
@@ -3306,7 +3329,7 @@ nilai z adalah
 
 <div x-data="{open:false}">
   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline outline-offset-2" @click='open=!open' x-text="open ? 'tutup mindmap' : 'buka mindmap'">buka</button>
-  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction2()" id="myBtn2">buka
+  <button  class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction2()" id="myBtn2">buka
     
 </button>
   <div x-show='open'> 
@@ -3323,10 +3346,30 @@ nilai z adalah
 
 
 <!-- batas -->
-<div  id="bab3" class=" text-black bg-gradient-to-r from-yellow-100 to-red-100  dark :bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#98FB98]">
+<div  id="bab3" class=" text-black bg-gradient-to-r from-yellow-100 to-blue-400  border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#98FB98]">
 
   <h2 class="text-2xl" >Sistem Pertidaksamaan Linier</h2>Himpunan penyelesaian
    
+ <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="blue"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
   <span id="dots3">...</span>
     <div id="more3">
 <label for="">
@@ -4164,6 +4207,26 @@ x> 0;y> 0\\
 
 <h2 >PROGRAM LINIER</h2>
 
+ <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="red"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
 <span id="dots4">...</span>
     <div id="more4">
 <label for="">
@@ -4503,6 +4566,26 @@ jika z=2x+3y adalah
 <h2>Barisan & Deret</h2>
 <span id="dots5">...</span>
 
+ <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="red"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
     <div id="more5">
 <article>
 <h1>Teori</h1>
@@ -4685,6 +4768,26 @@ nilai <label>$$S_{10}$$</label> adalah
 <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Persamaan dan Fungsi Exponen (X)</h1>
 
    
+ <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="red"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
   <span id="dots10">...</span>
   <div id="more10">
   Fungsi eksponen adalah bentuk lain dari fungsi y
@@ -5121,6 +5224,26 @@ maka nilai f(2) <br>
   
   <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Trigonometri (X) </h1>
    
+ <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="red"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
     <span id="dots6">  Trigonometri mempelajari perbandingan sisi -sisi 
     pada segitiga siku...</span>
   
@@ -6082,6 +6205,27 @@ $A=H\frac{1}{ \sum_{n=1}^{n} \frac{1}{(1+i)^n}}$
 <!-- batas awal bab7 -->
   <div id="bab7" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border border-black p-4 text-slate-700 bg-[#DCDCDC] ">
  <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">Matrik(XI) </h1>
+ 
+ <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="red"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
 <span id="dots7">...</span>
   
   <div id="more7">
@@ -9207,6 +9351,26 @@ jika C=A-2B maka C adalah
  
   <h1 >Vektor </h1> 
  
+ <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="red"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
   <span id="dots8">...</span>
   <div id="more8">
   <p>
@@ -9816,6 +9980,26 @@ jika C=A-2B maka C adalah
   Persamaan dan Fungsi Kuadrat </h2>
 
   
+ <svg width="35" height="35"  viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="red"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
 
 
   <span id="dots9">...</span>
@@ -16508,7 +16692,509 @@ Bekerja </b></font></font><font face="Wingdings, serif">
 
 
 </div>
-<!-- akhir evaluasi -->
+<!-- akhir eval uasi -->
+    
+<div id="bab24" class="hidden bg-green-200 border-1 rounded-3xl box-border h-50 overflow-hidden border-black p-4  text-slate-700 ">
+    
+    
+
+
+
+<h1 class="text-2xl font-bold tracking-tight text-sky-600 ">GRA FIK</h1>
+ <span id="dots24">...</span>
+  <div id="more24">
+    <svg width="50" height="50" viewBox="0 0 4 8" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="white"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
+
+ <svg width="40" height="40" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="blue"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
+ <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+    <!-- Latar belakang putih -->
+    <rect width="10" height="10" fill="red"/>
+    
+    <!-- Garis-garis segitiga -->
+    <line x1="0" y1="7" x2="4" y2="7" stroke="blue" stroke-width="0.2"/>
+    <line x1="0" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    <line x1="4" y1="7" x2="0" y2="0" stroke="black" stroke-width="0.1"/>
+    
+    <!-- Titik-titik segitiga -->
+    <circle cx="0" cy="0" r="0.1" fill="black"/>
+    <circle cx="0" cy="7" r="0.1" fill="black"/>
+    <circle cx="4" cy="7" r="0.1" fill="black"/>
+    
+    <!-- Label titik-titik -->
+    <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
+    <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
+    <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+</svg>
+
+ 
+  Fungsi eksponen adalah bentuk lain dari fungsi y
+  dimana x sebagai variabel bebas terletak pada posisi pangkat 
+  dari basis bilangan berpangkat.
+
+  Bentuk umum  dari fungsi exponen adalah 
+  <math>
+      
+    <mrow>
+  <mrow>
+    <msup> <mi>y</mi> <mn></mn> </msup> 
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <msup> <mi>ka</mi> <mn>f(x)</mn> </msup> 
+  </mrow>
+  </mrow>
+  </math>
+  dimana <br>
+  a adalah basis <br>
+  k adalah konstanta <br>
+  f(x) adalah fungsi x.<br>
+  Bentuk paling sederhana adalah jika k=1 , a konstanta dan f(x)=x maka fungsi diatas menjadi
+  <math>
+  <mrow>
+  <mrow>
+    <msup> <mi>y</mi> <mn></mn> </msup> 
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <msup> <mi>a</mi> <mn>x</mn> </msup> 
+  </mrow>
+  </mrow>
+  </math> 
+  <p>Persamaan eksponen adalah persamaan 
+    bilangan berpangkat dimana pangkatnya berupa fungsi x</p>
+  <p>Sifat 1. Jika
+    <math>
+    <mrow>
+    <mrow>
+      <msup> <mi>a</mi> <mn>f(x)</mn> </msup> 
+    </mrow>
+    <mo>=</mo>
+    <mrow>
+      <msup> <mi>a</mi> <mn>n</mn> </msup> 
+    </mrow>
+    </mrow>
+    </math>
+      maka f(x)=n</p>
+
+    
+    <p>Soal 1</p>
+    <math>
+      <mrow>
+      <mrow>
+        <msup> <mi>a</mi> <mn>x+2</mn> </msup> 
+      </mrow>
+      <mo>=</mo>
+      <mrow>
+        <msup> <mi>a</mi> <mn>5</mn> </msup> 
+      </mrow>
+      </mrow>
+      </math>
+      <p>Nilai x agar persamaan diatas benar adalah</p>
+    <input type="radio" name="no600" style=" display:inline-flex">1<br>
+    <input type="radio" name="no600" id="jno600" style=" display:inline-flex">3<br>
+    <input type="radio" name="no600" style=" display:inline-flex">2<br>
+    <input type="radio" name="no600" style=" display:inline">5<br>
+    <div id="rno600"></div>
+    <hr>
+<p>Sifat 2. Jika 
+  <math>
+  <mrow>
+<mrow>
+  <msup> <mi>a</mi> <mn>f(x)</mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+  <msup> <mi>a</mi> <mn>g(x)</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+
+  maka f(x)=g(x)</p>
+<P>Soal 2</P>
+Berdasarkan sifat 2 diatas , nilai x persamaan:
+<math>
+  <mrow>
+<mrow>
+  <msup> <mi>a</mi> <mn>x+2</mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+  <msup> <mi>a</mi> <mn>2x</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+<p>adalah</p>
+<input type="radio" name="no601" style=" display:inline-flex">  1<br>
+<input type="radio" name="no601" id="jno601" style=" display:inline-flex"> 2<br>
+<input type="radio" name="no601" style=" display:inline-flex">4<br>
+<input type="radio" name="no601" style=" display:inline">-3<br>
+<div id="rno601"></div>
+<hr>
+<p>Tiga asumsi menentukan x suatu persamaan exponen adalah</p>
+<math>
+  
+  <mrow>
+<mrow>
+  <msup> <mi>f(x)</mi> <mn>g(x)</mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+  <msup> <mi>f(x)</mi> <mn>h(x)</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+
+<ul class="list-outside list-decimal">
+  <li>g(x)=h(x)</li>
+  <li>f(x)=1</li>
+  <li>f(x)=0</li>
+</ul>
+<p>
+Untuk menentukan x  adalah mengubah persamaan exponen menjadi  persamaan biasa
+</p>
+<hr>
+
+<p> Soal 3 :
+</p>
+<math>
+      
+  <mrow>
+<mrow>
+  <msup> <mi>2</mi> <mn>x-1</mn> </msup> 
+</mrow>
+<mo>=</mo>
+<mrow>
+  <msup> <mi>2</mi> <mn>3x+2</mn> </msup> 
+</mrow>
+</mrow>
+</math>
+<p>berdasarkan sifat 2 maka </p>
+
+<input type="radio" name="no602" id="jno602" style=" display:inline-flex">x-1=3x+2 <br>
+<input type="radio" name="no602" style=" display:inline-flex">x+1=3x-2<br>
+<input type="radio" name="no602" style=" display:inline-flex">(x-1)(3x+2)=0<br>
+<input type="radio" name="no602" style=" display:inline">(x+1)(3x-2)=0<br>
+<div id="rno602"></div>
+<hr>
+<p>Soal 4: jika suatu persamaan exponen dapat diubah menjadi x-4=3x+2 maka x  adalah
+</p>
+
+<input type="radio" name="no603" style=" display:inline-flex">2<br>
+<input type="radio" name="no603" style=" display:inline-flex">3<br>
+<input type="radio" name="no603" id="jno603" style=" display:inline-flex">-3 <br>
+<input type="radio" name="no603" style=" display:inline">-2<br>
+<div id="rno603"></div>
+<hr>
+
+<p>Soal 5.Persamaan  exponen
+</p>
+<math>
+  
+  <mrow>
+<mrow>
+  <msup> <mi>3</mi> <mn>
+    <mrow>
+      <msup> <mi>x</mi> <mn>2</mn> </msup> 
+    </mrow>
+  </mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+  <msup> <mi>3</mi> <mn>x+6</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+
+<p>dapat diubah menjadi</p><br>
+<input type="radio" name="no604" style=" display:inline-flex">
+<math>
+  
+  <mrow>
+<mrow>
+  <msup> <mi>x</mi> <mn>2</mn> </msup> <mo>+</mo>
+      <mrow>
+        <mn></mn>
+        <mo>&InvisibleTimes;</mo>
+        <mi>x</mi>
+      </mrow>
+<mo>-</mo>
+<mn>6</mn>
+</mrow>
+<mo>=</mo>
+<mn>0</mn>
+</mrow>
+</math>
+<br>
+<input type="radio" name="no604" style=" display:inline-flex">
+<math>
+  
+  <mrow>
+<mrow>
+  <msup> <mi>x</mi> <mn>2</mn> </msup> <mo>+</mo>
+      <mrow>
+        <mn></mn>
+        <mo>&InvisibleTimes;</mo>
+        <mi>x</mi>
+      </mrow>
+<mo>+</mo>
+<mn>6</mn>
+</mrow>
+<mo>=</mo>
+<mn>0</mn>
+</mrow>
+</math>
+<br>
+<input type="radio" name="no604"  style=" display:inline-flex">
+<math>
+  
+  <mrow>
+<mrow>
+  <msup> <mi>x</mi> <mn>2</mn> </msup> <mo>-</mo>
+      <mrow>
+        <mn></mn>
+        <mo>&InvisibleTimes;</mo>
+        <mi>x</mi>
+      </mrow>
+<mo>+</mo>
+<mn>6</mn>
+</mrow>
+<mo>=</mo>
+<mn>0</mn>
+</mrow>
+</math>
+<br>
+<input type="radio" name="no604" id="jno604" style=" display:inline">
+<math>
+  
+  <mrow>
+<mrow>
+  <msup> <mi>x</mi> <mn>2</mn> </msup> <mo>-</mo>
+      <mrow>
+        <mn></mn>
+        <mo>&InvisibleTimes;</mo>
+        <mi>x</mi>
+      </mrow>
+<mo>-</mo>
+<mn>6</mn>
+</mrow>
+<mo>=</mo>
+<mn>0</mn>
+</mrow>
+</math>
+<br> 
+<div id="rno604"></div>
+<hr>
+
+<p>Soal 6 </p>
+<p>nilai x dari persamaan exponen 
+</p>
+<math>
+  
+  <mrow>
+<mrow>
+  <msup> <mi>5</mi> <mn>
+    <mrow>
+      <msup> <mi>x</mi> <mn>2</mn> </msup> 
+    </mrow>
+  </mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+  <msup> <mi>5</mi> <mn>x+6</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+<p>adalah</p>
+<input type="radio" name="no605" style=" display:inline-flex">2 dan 3<br>
+<input type="radio" name="no605" style=" display:inline-flex">-2 dan -3<br>
+<input type="radio" name="no605" style=" display:inline">-2 dan -3<br>
+<input type="radio" name="no605" id="jno605" style=" display:inline-flex">3 dan -2<br>
+<div id="rno605"></div>
+<hr>
+
+Soal 7.Persamaan exponen 
+<math>
+  
+  <mrow>
+<mrow>
+  <msup> <mi>(x-1)</mi> <mn>x</mn> </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+  <msup> <mi>(x-1)</mi> <mn>2</mn> </msup>    
+</mrow>
+</mrow>
+</math>
+
+himpunan penyelesaiaannya adalah x berturut-turut<br>
+<input type="radio" name="no606" style=" display:inline-flex">-1,0,2<br>
+<input type="radio" name="no606" id="jno606" style=" display:inline-flex">0,1,2<br>
+<input type="radio" name="no606" style=" display:inline-flex">1,2<br>
+<input type="radio" name="no606" style=" display:inline">2<br>
+<div id="rno606"></div>
+<hr>
+
+Soal 8.Persamaan exponen
+<math>
+<mrow>
+  <msup> <mi>3</mi> 
+    
+    <mn>
+    <mrow>
+       <mi>x+1</mi>   
+    </mrow>
+    </mn>
+ </msup>    
+</mrow>
+<mo>=</mo>
+<mrow>
+  <mn>27</mn>     
+</mrow>
+
+</math>
+
+
+nilai x adalah
+</p>
+</p>
+<input type="radio" name="no607" style=" display:inline-flex">4<br>
+<input type="radio" name="no607" style=" display:inline-flex">3<br>
+<input type="radio" name="no607" id="jno607" style=" display:inline-flex">2<br>
+<input type="radio" name="no607" style=" display:inline">1<br>
+<div id="rno607"></div>
+<hr>
+
+
+Soal 9.Fungsi exponen 
+<math>
+  
+  <mrow>
+    <mn>f(x)</mn>
+    <mo>=</mo>
+<mrow>
+  <msup> <mi>2</mi> <mn>x+1</mn> </msup> 
+</mrow>
+</mrow>
+</math><br>
+<p>maka f(2) adalah</p>
+<input type="radio" name="no608" style=" display:inline-flex">5<br>
+<input type="radio" name="no608" style=" display:inline-flex">6<br>
+<input type="radio" name="no608" id="jno608" style=" display:inline-flex">8<br>
+<input type="radio" name="no608" style=" display:inline">9<br>
+<div id="rno608"></div>
+<hr>
+
+
+
+
+Soal 10.Fungsi exponen 
+<math>
+  
+  <mrow>
+    <mn>f(x)</mn>
+    <mo>=</mo>
+    <mn>3</mn>
+    <mo>.</mo>
+<mrow>
+  <msup> <mfrac>
+    <mi><mn>1</mn></mi>
+    <mi><mn>2</mn></mi>
+    </mfrac>  <mn>(x+1)</mn> </msup> 
+</mrow>
+
+
+</mrow>
+</math>
+
+maka nilai f(2) <br>
+
+<input type="radio" name="no609" style=" display:inline-flex">
+<math>
+<mfrac>
+  <mi><mn>3</mn></mi>
+  <mi><mn>2</mn></mi>
+  </mfrac></math> <br>
+<input type="radio" name="no609" style=" display:inline-flex">
+<math>
+  <mfrac>
+  <mi><mn>3</mn></mi>
+  <mi><mn>4</mn></mi>
+  </mfrac></math> <br>
+<input type="radio" name="no609" id="jno609" style=" display:inline-flex">
+<math>
+  <mfrac>
+  <mi><mn>3</mn></mi>
+  <mi><mn>8</mn></mi>
+  </mfrac></math> <br>
+<input type="radio" name="no609" style=" display:inline">
+<math>  
+  <mfrac>
+  <mi><mn>24</mn></mi>
+  <mi><mn>3</mn></mi>
+  </mfrac></math> <br>
+<div id="rno609"></div>
+<hr>
+ <h1 id="nilai10"></h1> 
+<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick=kirim10() >Cek Nilai Persamaan Exponen</button>
+
+
+</div> 
+<!-- batas ivmore -->
+<div x-data="{open:false}">
+  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mind map' : 'buka mindmap'">buka</button>
+  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction24()" id="myBtn24">buka</button>
+ <div x-show='open'> 
+  <div class="bg-white  overflow-auto h-48 touch-auto ">
+    <img class="zoom10  w-[200] mx-w-none  h-auto " src='gbr/mapexp.svg'>
+    </div> 
+      
+
+  </div>
+</div> 
+
+</div> 
+
+<!-- akhir bab24-->
+
+
 </div>
 
 </section>
@@ -17009,6 +17695,7 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
       moreText9.style.display = "inline";
     }
   }
+  
   function myFunction10() {
     var dots10 = document.getElementById("dots10");
     var moreText10 = document.getElementById("more10");
@@ -17024,6 +17711,23 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
       moreText10.style.display = "inline";
     }
   }
+  
+  function myFunction24() {
+    var dots24 = document.getElementById("dots24");
+    var moreText24 = document.getElementById("more24");
+    var btnText24 = document.getElementById("myBtn24");
+  
+    if (dots24.style.display === "none") {
+      dots24.style.display = "inline";
+      btnText24.innerHTML = "buka";
+      moreText24.style.display = "none";
+    } else {
+      dots24.style.display = "none";
+      btnText24.innerHTML = "tutup";
+      moreText24.style.display = "inline";
+    }
+  }
+  
   function myFunction11() {
     var dots11 = document.getElementById("dots11");
     var moreText11 = document.getElementById("more11");
@@ -17196,6 +17900,24 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
   }
 
 
+function myFunction24() {
+    var dots24 = document.getElementById("dots24");
+    var moreText24 = document.getElementById("more24");
+    var btnText24 = document.getElementById("myBtn24");
+  
+    if (dots24.style.display === "none") {
+      dots24.style.display = "inline";
+      btnText24.innerHTML = "buka";
+      moreText24.style.display = "none";
+    } else {
+      dots24.style.display = "none";
+      btnText24.innerHTML = "tutup";
+      moreText24.style.display = "inline";
+    }
+  }
+
+
+
 </script>
 <!-- 
 <script>
@@ -17314,7 +18036,6 @@ $('#submit-form').on('click', function(e) {
 const judul = document.querySelector('#nama');
 const juduln0 = document.querySelector('#nila0');
 const juduln1 = document.querySelector('#nila1');
-const juduln1a = document.querySelector('#nila1a');
 const juduln2 = document.querySelector('#nila2');
 const juduln3 = document.querySelector('#nila3');
 const juduln4 = document.querySelector('#nila4');
@@ -17364,10 +18085,7 @@ if (!localStorage.getItem('nam') || localStorage.getItem('nam') === 'null')
   {
         nam=prompt("Masukkan nama")
         saveName();
-localStorage.setItem('nam',btoa(nam));
-
-
-            }
+localStorage.setItem('nam',btoa(nam));}
     judul.innerHTML=atob(nam);
 if (!nil0){
     localStorage.setItem('nil0',0);
@@ -17514,7 +18232,7 @@ refresh();
 <script>
 function refresh(){
     var nam = localStorage.getItem("nam");
-var numz = parseFloat(localStorage.getItem("nilz"));
+    var numz = parseFloat(localStorage.getItem("nilz"));
             var num1 = parseFloat(localStorage.getItem("nil1"));
             var num2 = parseFloat(localStorage.getItem("nil2"));
             var num3 = parseFloat(localStorage.getItem("nil3"));
@@ -17538,32 +18256,34 @@ var numz = parseFloat(localStorage.getItem("nilz"));
              var num23 = parseFloat(localStorage.getItem("nil23"));
    
 document.getElementById("nila1").innerHTML = num1;
-document.getElementById("nila2").innerHTML=num2;
+document.getElementById("nila2").innerHTML= num2;
 document.getElementById("nila3").innerHTML = num3;
-document.getElementById("nila4").innerHTML=num4;
+document.getElementById("nila4").innerHTML= num4;
 document.getElementById("nila5").innerHTML = num5;
-document.getElementById("nila6").innerHTML=num6;
+document.getElementById("nila6").innerHTML= num6;
 document.getElementById("nila7").innerHTML = num7;
-document.getElementById("nila8").innerHTML=num8;
+document.getElementById("nila8").innerHTML= num8;
 document.getElementById("nila9").innerHTML = num9;
-document.getElementById("nila10").innerHTML=num10;
+document.getElementById("nila10").innerHTML= num10;
 document.getElementById("nila11").innerHTML = num11;
-document.getElementById("nila12").innerHTML=num12;
+document.getElementById("nila12").innerHTML= num12;
 document.getElementById("nila13").innerHTML = num13;
-document.getElementById("nila14").innerHTML=num14;
+document.getElementById("nila14").innerHTML= num14;
 document.getElementById("nila15").innerHTML = num15;
-document.getElementById("nila16").innerHTML=num16;
+document.getElementById("nila16").innerHTML= num16;
 document.getElementById("nila17").innerHTML = num17;
-document.getElementById("nila18").innerHTML=num18;
+document.getElementById("nila18").innerHTML= num18;
 document.getElementById("nila19").innerHTML = num19;
 document.getElementById("nila21").innerHTML = num21;
-document.getElementById("nila23").innerHTML=num23;
-document.getElementById("nila0").innerHTML = numz;}     
+document.getElementById("nila23").innerHTML= num23;
+document.getElementById("nila0").innerHTML = numz;
+}     
 </script>
     
     
        
 <script>
+
 function toggleContent() {
   var donasi = document.getElementById("donasi");
   if (donasi.style.display === "none") {
@@ -17576,7 +18296,7 @@ function toggleContent() {
 
     
 
- 
+ <!--
 
     <script>
         // Daftar elemen audio
@@ -17604,7 +18324,7 @@ function toggleContent() {
         // Mulai pemutaran saat halaman dimuat
         window.addEventListener('load', playNextTrack);
     </script>
-
+-->
 
     <script>
         // Daftar lagu
