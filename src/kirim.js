@@ -1,4 +1,6 @@
- var questions = [];
+
+ 
+
  function generateQuestionsA() {
     clearQuestions();
     var aValues = [2,3,4];
@@ -17,7 +19,7 @@
     var vValues = [-2,-3,-4];
     var wValues = [-1,-5,-3];
     var qValues = [1,4,9,16,25];
-    var sValues = [0,30,45,60,90];
+    var sValues = [0,30,45,60,90,120,150,135];
     var dsValues = [0.5,0.5,0.75,1.25,1.50];
     var pdsValues = [1/2,3/2];
      var rdsValues = [5,10];
@@ -25,8 +27,10 @@
     var dddValues = [1,2,3,4,5,6];
     var tpValues = [1,2,3];
     var svValues = [10,100,1000];
+    var xxValues = [2,3,4];
+    var yyValues = [4,5,6];
     
-    for (var i = 1; i <= 40; i++) {
+    for (var i = 1; i <= 50; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -52,25 +56,36 @@
        
         var tp = tpValues[Math.floor(Math.random() * tpValues.length)];
         var sv = svValues[Math.floor(Math.random() * svValues.length)];
-       
-      var question = {};
+     var xx = xxValues[Math.floor(Math.random() * xxValues.length)];
+      var yy = yyValues[Math.floor(Math.random() * yyValues.length)];
+      var question= {};
       var equation, correctAnswer;
-
+ 
       if (i === 1) {
-        equation = "1.Hitung nilai x dari <br>x = " + a + " + (" + b + ")";
+         svg= `<svg xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="50" x2="100" y2="50" stroke="black" />
+                <line x1="50" y1="0" x2="50" y2="100" stroke="black" />
+                <circle cx="${50 + a * 10}" cy="${50 - b * 10}" r="3" fill="red" />
+                <text x="${50 + a * 10}" y="${50 - b * 10 - 5}" font-size="12" text-anchor="middle">P(${3},${4})</text>
+              </svg>`;
+        equation = "1.Hitung nilai x dari <br>x = " + a + " + (" + b + ")  ";
         correctAnswer = a + b;
       } else if (i === 2) {
+          
+        svg[2].svg= createSVG(yy, xx);     
         equation = "2.Hitung nilai x dari <br>x = " + c + " - (" + d + ")";
         correctAnswer = c - d;
       } else if (i === 3) {
+       svg= createSVG(4, 2);     
         equation = "3.Hitung nilai x dari <br>x = -(" + a + ") + (" + c+")";
         correctAnswer = -a + c;
       } else if (i === 4) {
+          svg= createSVG(2, 2);     
         equation = "4.Hitung nilai a dari <br>a =("+b+")(" + d + ") - ("+c+")(" + b + ")";
         correctAnswer = b*d - c*b;
       } else if (i === 5) {
         equation = "5.Hitung nilai a dari a="+ds+"  +<math><mfrac><mi><mn>"+aa+"</mn></mi><mi><mn>"+rds+"</mn></mi></mfrac></math> +"+k+"%";
-        correctAnswer = ds+(aa/rds)+k/100 ;
+        correctAnswer = ds+(aa/rds)+k/100;
       } else if (i === 6) {
         equation = "6.Hitung nilai a dari <br>a= -((" + d + ") - (" + b + ")) x (" + a + ")    ";
         correctAnswer = -(d - b)*a;
@@ -79,7 +94,7 @@
         correctAnswer = -(-d - b)*b/2;
        }else if (i === 8) {
         equation = "8.Hitung x jika <math><mfrac><mi><mn>X</mn></mi><mi><mn>3</mn></mi></mfrac></math> =<math><mfrac><mi><mn>X</mn></mi><mi><mn>"+l+"</mn></mi></mfrac><mi>+</mi><mn>1</mn></math>" ;
-        correctAnswer = 3/(1-(3/l));
+        correctAnswer = (3/(1-(3/l))).toFixed(1);
        } else if (i === 9) {
         equation = "9.Hitung n jika 30 =2 +(n-1)("+n+")" ;
         correctAnswer = 1+(28/n);
@@ -105,8 +120,8 @@
         equation = "15.Mula mula tinggi pohon "+h+" cm jika setiap hari pertumbuhannya 50% maka hari ke 5 tingginya  adalah " ;
         correctAnswer =Math.pow(1.5,4)*(h);
       }else if (i === 16) {
-        equation = "16.Tentukan x dari <br> &#8730;2x="+b+"&#8730;2+"+e+"&#8730;2   " ;
-        correctAnswer =Math.pow((b+e),2);
+        equation = "16.Tentukan x dari <br> x&#8730;2="+b+"&#8730;2+"+e+"&#8730;2   " ;
+        correctAnswer =b+e;
       }else if (i === 17) {
         equation = "17.&#8730(k+2) -x=0 jika nilai x = "+a+" maka k = ? " ;
         correctAnswer =Math.pow(a,2)-2;
@@ -120,7 +135,7 @@
         equation = "21.Jika x&#178 - y&#178  = "+d+"  dan x - y = 2 maka x + y adalah  " ;
         correctAnswer =d/2;
       }else if (i === 22) {
-        equation = "22.Diberikan persamaam  y = x&#178 -("+a+")x -3= 0 maka jumlah akarnya adalah" ;
+        equation = "22.Diberikan persamaam  y = x&#178 -("+a+")x -3= 0 maka jumlah akar2 nya adalah" ;
         correctAnswer = a;
       }else if (i === 23) {
         equation = "23.Hasil perkalian akar dari: (x"+v+")(x"+w+")=0 adalah";
@@ -129,23 +144,24 @@
         equation = "24. Berapa besar "+k+"% dari "+e*100+"  " ;
         correctAnswer = k*e;
       }else if (i === 25) {
-        equation = "25.Tentukan x dari persamaan  2<sup>x</sup>=4<sup>2x-"+l+"</sup>";
-        correctAnswer = 2*l/3;
+        //  equation="25";
+         equation = "25. Tentukan nilai a dari a= <math><mfrac><mi><mn>"+a+"<sup>2</sup></mn></mi><mi><mn>4</mn></mi></mfrac></math>+<math><mfrac><mi><mn>"+(a+tp)+"<sup>2</sup></mn></mi><mi><mn>4</mn></mi></mfrac></math> +"+a+"  ";
+        correctAnswer = (a*a + Math.pow(a+tp,2) +4*a)/4;
       }else if (i === 26) {
         equation = "26.Tentukan x dari persamaan 8<sup>x</sup>=2<sup>2x-"+a+"</sup>";
-        correctAnswer =a;
+        correctAnswer =-a;
       }else if (i === 27) {
         equation = "27 . Fungsi eksponen berikut:  y=("+a+")<sup>x+1</sup>  akan memotong sumbu y = ?";
         correctAnswer =a;
       }else if (i === 28) {
         equation = "28.Hitung nilai x dari "+c+"(x-2)=(x+2) " ;
-        correctAnswer =(2+2*c)/(c-1);
+        correctAnswer =(+(2*c+2)/(c-1)).toFixed(1);
       }else if (i === 29) {
-        equation = "29. Hitung  <mn>16</mn><sup>0</sup>+<mn>"+q+"</mn><sup><math><mfrac><mi><mn>2</mn></mi><mi><mn>3</mn></mi></mfrac></math></sup>" ;
-        correctAnswer =Math.pow(q,0.5)+1;
+        equation = "29. Hitung  <mn>16</mn><sup>0</sup>+<mn>"+q+"</mn><sup><math><mfrac><mi><mn>3</mn></mi><mi><mn>2</mn></mi></mfrac></math></sup>" ;
+        correctAnswer =Math.pow(q,1.5)+1;
       }else if (i === 30) {
-        equation = "30.Jika y=10sin "+s+"&#0176; maka besar y =?" ;
-        correctAnswer =parseInt(Math.sin(a))*10;
+         equation = "30.Jika persamaan lingkaran adalah  x&#178 + y&#178  = "+q+"  , maka jari2 lingkarannya adalah  " ;
+        correctAnswer = parseFloat(Math.sqrt(q));
       }else if (i === 31) {
         equation = "31.Hitung nilai a dari a= <math><mfrac><mi><mn>"+a+"</mn></mi><mi><mn>5</mn></mi></mfrac></math> - <math><mfrac><mi><mn>"+c+"</mn></mi><mi><mn>5</mn></mi></mfrac></math> - <math><mfrac><mi><mn>"+b+"</mn></mi><mi><mn>5</mn></mi></mfrac></math> x 2" ;
         correctAnswer =(a-c-2*b)/5;
@@ -166,7 +182,7 @@
         correctAnswer =faktorial(e)/faktorial(e-a);
       }else if (i === 37) {
         equation = "37.Diberikan data x:  "+a+","+f+" ,"+c+" ,"+e+" ,"+d+"   maka x rata rata adalah " ;
-        correctAnswer =(a+f+c+d+e)/5;
+        correctAnswer =((a+f+c+d+e)/5).toFixed(2);
       }else if (i === 38) {
         equation = "38.Diberikan data x yaitu   "+(e-2)+","+(e)+" ,"+(e-3)+" ,"+(e+a)+" ,"+(e+a+1)+" median x adalah  ";
         correctAnswer =e;
@@ -175,8 +191,45 @@
         correctAnswer =a;
       }else if (i === 40) {
         equation = "40.Diberikan data x yaitu   "+a+","+f+" ,"+c+"  maka simpangan rata rata x adalah   " ;
-        correctAnswer =parseInt(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
+        correctAnswer = parseInt((
+     Math.abs(parseFloat(f-(a+f+c)/3))
+    +Math.abs(parseFloat(a-(f+f+c)/3))
+    +Math.abs(parseFloat(c-(a+f+c)/3)))/3);
+      }else if (i === 41) {
+        equation = "41.Dalan segitiga siku perbandingan sisi depan dengan sisi samping adalah 2 : 3. Dengan menggunakan sudut segitiga ini berapa tinggi pohon jika jarak pohon "+k+"   m.";
+        correctAnswer =(2/3)*k;
+      }else if (i === 42) {
+        equation = "42.Diberikan data x yaitu   "+a+","+f+" ,"+c+"  maka simpangan rata rata x adalah   " ;
+        correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
+      }else if (i === 43) {
+        equation = "43.Tentukan nilai a pada persamaan<br> a=("+a+")*("+b+"):("+c+")  " ;
+        correctAnswer =((a*b)/c);
+      }else if (i === 44) {
+        equation = "44.Tentukan nilai a pada persamaan<br> a=("+a+")/("+b+")x("+c+")  " ; ;
+        correctAnswer =a/b*c;
+      }else if (i === 45) {
+        equation = "45.a=("+a+")("+b+")("+c+")+("+d+")  " ;
+        correctAnswer =a*b*c+d;
+      }else if (i === 46) {
+        equation = "46.a= <mn>("+a+")</mn><sup>2</sup>+("+b+")" ;
+        correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
+      }else if (i === 47) {
+        equation = "47a= ("+b+" )*<mn>("+a+")</mn><sup>3</sup>+("+c+" )" ;
+        correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
+      }else if (i === 48) {
+        equation = "48.a= ("+b+" )*<mn>{("+a+")+("+c+" )}</mn><sup>3</sup>+("+c+" )" ;
+        correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
+      }else if (i === 49) {
+        equation = "49.a= ("+b+" )*<mn>{("+a+")+("+c+" )}</mn><sup>3</sup>+("+c+" )*("+c+")"  ;
+        correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
+      }else if (i === 50) {
+      equation = "50.a= ("+b+" )*<mn>{("+a+")+("+c+" )}</mn><sup>3</sup>+("+(c-1)+" )*("+c+")"  ;
+        correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
       }
+      
+      
+      
+      
       
  var options = generateOptions(correctAnswer);
       question.equation = equation;
@@ -190,20 +243,37 @@
     enableRadioButtons();
     
   }
+ //untuk menghasilkan angka -1  3
   function generateRandomNumber() {
-            const numbers = [-2, -1, 1, 2, 3];
+            const numbers = [-2,-1,1,2,3];
             const randomIndex = Math.floor(Math.random() * numbers.length);
-            const randomNumber = numbers[randomIndex];
+            const randomNumber = number0s[randomIndex];
             document.getElementById('random-number').textContent = randomNumber;
         }
-  
-  function generateOptions(correctAnswer) {
-    const numbers = [-2, -1, 1, 2, 3];
+     function generateOptions(correctAnswer) {
+     const numbers = [-2,-1,1,2,3];
+            const randomIndex = Math.floor(Math.random() * numbers.length);
+            const randomNumber = numbers[randomIndex];
+    
+    var options = [correctAnswer];
+    while (options.length < 4) {
+      var randomOption = Math.floor(Math.random() * 4)+randomNumber+options[0]; // Generate random numbers near the correct answer
+      if (!options.includes(randomOption)) {
+        options.push(randomOption);
+      }
+    }
+    shuffleArray(options);
+    return options;
+  }
+
+ 
+  function generateOptionsxx(correctAnswer) {
+    const numbers = [-2,-1,1,2];
     const randomIndex = Math.floor(Math.random() * numbers.length);
     const randomNumber = numbers[randomIndex];
     var options = [correctAnswer];
     while (options.length < 4) {
-      var randomOption = Math.floor(Math.random() * numbers.length)+options[0]; // Generate random numbers near the correct answer
+      var randomOption =  options[0]; // Generate random numbers near the correct answer
       if (!options.includes(randomOption)) {
         options.push(randomOption);
       }
@@ -223,7 +293,7 @@
       array[j] = temp;
     }
   }
-
+//<svg style="background-color:grey"> ${svg}</svg>
 function displayQuestions() {
     var container = document.getElementById("questions-container");
     container.innerHTML = "";
@@ -231,20 +301,23 @@ function displayQuestions() {
       var questionElement = document.createElement("div");
       questionElement.classList.add("question");
       questionElement.innerHTML = `
-        <p>${question.equation}</p>
-<form id="form${index}" style="padding:5px" >
+      <div style=" background-color:wheat " class="text-black bg-green-400 border-1 rounded-3xl box-border  border-black p-2  ">
+<p >${question.equation}</p>
+<form id="form${index}" style=" padding:5px" >
           ${question.options.map((option, i) => `
             <input type="radio" name="answer${index}" value="${i}">
             <label>${option}</label><br>
           `).join('')}
         </form>
-      `;
+     </div> `;
       container.appendChild(questionElement);
     });
+    
   }
 
   function clearQuestions() {
     questions = [];
+    
   }
 //jalan
 
@@ -274,6 +347,8 @@ tombolcekoff();
 disableRadioButtons();
     
   }
+  
+  
 
   function disableRadioButtons() {
     var radioButtons = document.querySelectorAll('input[type="radio"]');
@@ -335,6 +410,18 @@ function cekSkor() {
        
 
     //hp
+    
+     function createSVG(a, b) {
+      return `<svg xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="50" x2="100" y2="50" stroke="black" />
+                <line x1="50" y1="0" x2="50" y2="100" stroke="black" />
+                <circle cx="${50 + a * 10}" cy="${50 - b * 10}" r="3" fill="red" />
+                <text x="${50 + a * 10}" y="${50 - b * 10 - 5}" font-size="12" text-anchor="middle">P(${a},${b})</text>
+              </svg>`;
+    }
+
+    
+    
 function kirimalj(){
     let poin=0;
       const jno3100=document.querySelector("#jno3100");
