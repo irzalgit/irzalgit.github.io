@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class=" h-full ">
 <head>
@@ -41,7 +42,12 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
 }
 </script>
 
-
+ <style>
+        .progress-circle {
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
   
 
 <style>
@@ -253,9 +259,11 @@ localStorage.setItem('nil0',0);
  
 </head>
 <body onload="refresh()" >
+
+<svg width="50px" height="50px" viewBox="-92.16 -92.16 1208.32 1208.32" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#00ffff" transform="matrix(1, 0, 0, -1, 0, 0)rotate(180)" stroke="#00ffff" stroke-width="8.192"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M432 768h208v32H432v104c0 9.6-6.4 16-16 16s-16-6.4-16-16V672c0-9.6 6.4-16 16-16s16 6.4 16 16v96z m96-416c9.6 0 16 6.4 16 16s-6.4 16-16 16H336c-9.6 0-16-6.4-16-16s6.4-16 16-16h192z m352 0c9.6 0 16 6.4 16 16s-6.4 16-16 16h-96c-9.6 0-16-6.4-16-16s6.4-16 16-16h96zM624 160c0-9.6 6.4-16 16-16s16 6.4 16 16v112c0 9.6-6.4 16-16 16s-16-6.4-16-16v-112z m-67.2 102.4c6.4 6.4 6.4 16 0 22.4-6.4 6.4-16 6.4-22.4 0l-67.2-67.2c-6.4-6.4-6.4-16 0-22.4 6.4-6.4 16-6.4 22.4 0l67.2 67.2z m24 182.4c6.4-6.4 16-4.8 22.4 1.6 6.4 6.4 4.8 16-1.6 22.4l-432 392c-6.4 6.4-16 4.8-22.4-1.6s-4.8-16 1.6-22.4l432-392z m-169.6 136l-22.4 22.4-96-96 22.4-22.4 96 96zM640 112c9.6 0 16 6.4 16 16s-6.4 16-16 16h-96c-9.6 0-16-6.4-16-16s6.4-16 16-16h96z" fill="#050D42"></path><path d="M640 528c-88 0-160-72-160-160s72-160 160-160 160 72 160 160-72 160-160 160zM160 880c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m400-64c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m80 0c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m-224 0c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m0 112c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m83.2-745.6c12.8 12.8 12.8 32 0 44.8-12.8 12.8-32 12.8-44.8 0-12.8-12.8-12.8-32 0-44.8 12.8-12.8 33.6-12.8 44.8 0zM416 704c-44.8 0-80-35.2-80-80s35.2-80 80-80 80 35.2 80 80-35.2 80-80 80z m224-544c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zM320 400c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m-16 128c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m-24 240c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z" fill="#2F4BFF"></path></g></svg>
    
 <audio controls id="backgroundMusic"></audio>
-<div class ="text-sm" >for smartphone, update 17/06/24 00:15 WIB .Jumlah pengunjung:
+<div class ="text-sm" >for smartphone, update 24/06/24 19:15 WIB .Jumlah pengunjung:
 
 <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5">
 </script>
@@ -673,9 +681,13 @@ localStorage.setItem('nil0',0);
         <td class="border px-4 py-1 bg-blue-300 text-black custom-col-width"> 20.Integral</td>
         <td class="border px-4 py-1 bg-blue-300 custom-col-width2" id="nila16"></td>
       </tr>
-        
+        <tr>
      <td class="border px-4 py-2 bg-green-700 custom-col-widthskore  font-italic" i>Penalaran MTK</td>
+     
     <td class="border px-4 py-1 bg-green-700 custom-col-width2" id="nila0"></td>
+    
+    
+    
   </tr>
      <tr>
 <td class="border px-4 py-2 bg-green-700 custom-col-width  font-italic">Total kelas x</td>
@@ -706,7 +718,22 @@ localStorage.setItem('nil0',0);
   </table>
   <button class="py-2 px-6 bg-sky-700 text-2xl  text-black rounded-2xl" onClick="calculate()">Refresh </button>
   
+  
+  
+  <div id="babana" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border border-black p-4 text-slate-700 bg-[#DCDCDC] ">
+ <h1 class="text-2xl font-bold tracking-tight text-sky-600 sm:text-4xl">PROGRESS </h1>
+  
+   <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" stroke="#ccc" stroke-width="10" fill="none" />
+        <circle class="progress-circle" cx="50" cy="50" r="45" stroke="#4caf50" stroke-width="10" fill="none" stroke-dasharray="283" stroke-dashoffset="283" />
+    </svg>
+
+<div id="progressRange" disabled  value="0" oninput="updateProgress(this.value)">penalaran MTK</div> 
+
+ </div>
   </header>  
+  
+  
 
   <div class="hidden h-full bg-green-100  p-2 grid grid-cols-2 gap-2 md:grid-cols-4">
   <div class="h-auto bg-green-600 aspect-[4/3] md:aspect-[3/4] xl:-[4/3] rounded-lg">
@@ -2917,7 +2944,9 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
 <h2 class="text-2xl" > Sistem Persamaan Linier
 Dua dan Tiga Variabel</h2 >
 
-
+<svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="50" font-family="Verdana" font-size="20" fill="black">SPLTV</text>
+</svg>
  <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
     <!-- Latar belakang putih -->
     <rect width="10" height="10" fill="red"/>
@@ -2936,6 +2965,8 @@ Dua dan Tiga Variabel</h2 >
     <text x="0.5" y="0.5" font-size="0.5" fill="black">B</text>
     <text x="0.1" y="7.5" font-size="0.5" fill="black">C</text>
     <text x="4.1" y="7.1" font-size="0.5" fill="black">A</text>
+    
+    
 </svg>
 
 <span id="dots2">...</span>
@@ -4204,6 +4235,13 @@ x> 0;y> 0\\
 
 <h2 >PROGRAM LINIER</h2>
 
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="45" stroke="#ccc" stroke-width="10" fill="none" />
+  <circle cx="50" cy="50" r="45" stroke="#4caf50" stroke-width="10" fill="none" stroke-dasharray="283" stroke-dashoffset="141.5" />
+</svg>
+<svg width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="50" font-family="Verdana" font-size="20" fill="black">Hello</text>
+</svg>
  <svg width="35" height="35" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
     <!-- Latar belakang putih -->
     <rect width="10" height="10" fill="red"/>
@@ -11311,6 +11349,9 @@ $g(x) = ...$</p>
 <!-- batas akhir 8 -->
 
 
+ 
+
+
 <div id="bab19" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-800 bg-[#BDAAFD]">
 
  
@@ -18379,6 +18420,31 @@ function toggleContent() {
         }
 
         document.getElementById("deviceInfo").innerText = "" + getDeviceInfo();
+    </script>
+    
+    
+    <script>
+        function updateProgress(value) {
+            const circle = document.querySelector('.progress-circle');
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (value / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+         //   localStorage.setItem('nilz', value);
+        }
+
+        function loadProgress() {
+            const storedValue = localStorage.getItem('nilz');
+            if (storedValue !== null) {
+                document.getElementById('progressRange').value = storedValue/5;
+                updateProgress(storedValue/5);
+            } else {
+                updateProgress(0);
+            }
+        }
+
+        // Load progress on page load
+        document.addEventListener('DOMContentLoaded', loadProgress);
     </script>
   </body>
   
