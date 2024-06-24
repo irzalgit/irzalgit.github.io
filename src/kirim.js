@@ -1,6 +1,4 @@
-
  
-
  function generateQuestionsA() {
     clearQuestions();
     var aValues = [2,3,4];
@@ -30,7 +28,7 @@
     var xxValues = [2,3,4];
     var yyValues = [4,5,6];
     
-    for (var i = 1; i <= 50; i++) {
+    for (var i = 1; i <= 51; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -225,9 +223,11 @@
       }else if (i === 50) {
       equation = "50.a= ("+b+" )*<mn>{("+a+")+("+c+" )}</mn><sup>3</sup>+("+(c-1)+" )*("+c+")"  ;
         correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
+      }else if (i === 51) {
+        equation = "51.Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
+        correctAnswer =(a+b)/2;
+      
       }
-      
-      
       
       
       
