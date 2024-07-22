@@ -1,7 +1,8 @@
 
 <!DOCTYPE html>
-<html lang="en" class=" h-full ">
+<html lang="en"  class=" h-full ">
 <head>
+ <script src="https://unpkg.com/feather-icons"></script>
 
 
 <meta charset="UTF-8">
@@ -10,6 +11,7 @@
 <link href="./css/styleaudio.css " rel="stylesheet">  
 <link href="./css/pas.css" rel="stylesheet">  
 <link href="./css/output.css" rel="stylesheet"> 
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <script src="https://unpkg.com/feather-icons"></script>
 
 <script src="./js/index.js"></script> 
@@ -256,25 +258,98 @@ localStorage.setItem('nil0',0);
         window.onload = loadName;
     </script>
     
- 
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    .scroll-container {
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: #1F2937; /* bg-gray-800 */
+      position: relative;
+      display: none; /* Initially hidden */
+    }
+    .scroll-content {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      transition: transform 0.3s;
+      transform-origin: top left; /* Ensure zooming starts from top left */
+    }
+    .icon-container {
+      position: absolute;
+      top: 0rem;
+     
+      display: flex;
+      gap: 1rem;
+     
+    }
+    .icon {
+      background-color: green;
+      color:black;
+      border: none;
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    .button-container {
+      position: relative;
+      top: 1rem;
+      left: 1rem;
+      margin-bottom:1rem;
+      display: flex-col;
+      gap: 2rem;
+    }
+    .button {
+      background-color: blue;
+      color:white;
+      border: none;
+      width:33vw;
+      border-radius: 0.375rem; /* rounded-md */
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+  </style>
 </head>
 <body onload="refresh()" >
+ 
+  
 
 <svg width="50px" height="50px" viewBox="-92.16 -92.16 1208.32 1208.32" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#00ffff" transform="matrix(1, 0, 0, -1, 0, 0)rotate(180)" stroke="#00ffff" stroke-width="8.192"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M432 768h208v32H432v104c0 9.6-6.4 16-16 16s-16-6.4-16-16V672c0-9.6 6.4-16 16-16s16 6.4 16 16v96z m96-416c9.6 0 16 6.4 16 16s-6.4 16-16 16H336c-9.6 0-16-6.4-16-16s6.4-16 16-16h192z m352 0c9.6 0 16 6.4 16 16s-6.4 16-16 16h-96c-9.6 0-16-6.4-16-16s6.4-16 16-16h96zM624 160c0-9.6 6.4-16 16-16s16 6.4 16 16v112c0 9.6-6.4 16-16 16s-16-6.4-16-16v-112z m-67.2 102.4c6.4 6.4 6.4 16 0 22.4-6.4 6.4-16 6.4-22.4 0l-67.2-67.2c-6.4-6.4-6.4-16 0-22.4 6.4-6.4 16-6.4 22.4 0l67.2 67.2z m24 182.4c6.4-6.4 16-4.8 22.4 1.6 6.4 6.4 4.8 16-1.6 22.4l-432 392c-6.4 6.4-16 4.8-22.4-1.6s-4.8-16 1.6-22.4l432-392z m-169.6 136l-22.4 22.4-96-96 22.4-22.4 96 96zM640 112c9.6 0 16 6.4 16 16s-6.4 16-16 16h-96c-9.6 0-16-6.4-16-16s6.4-16 16-16h96z" fill="#050D42"></path><path d="M640 528c-88 0-160-72-160-160s72-160 160-160 160 72 160 160-72 160-160 160zM160 880c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m400-64c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m80 0c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m-224 0c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m0 112c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m83.2-745.6c12.8 12.8 12.8 32 0 44.8-12.8 12.8-32 12.8-44.8 0-12.8-12.8-12.8-32 0-44.8 12.8-12.8 33.6-12.8 44.8 0zM416 704c-44.8 0-80-35.2-80-80s35.2-80 80-80 80 35.2 80 80-35.2 80-80 80z m224-544c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zM320 400c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m-16 128c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m-24 240c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z" fill="#2F4BFF"></path></g></svg>
    
 <audio controls id="backgroundMusic"></audio>
-<div class ="text-sm" >for smartphone, update 19/07/24  .Jumlah pengunjung:
+<div class ="text-sm" >for smartphone, update 22/07/24  .Jumlah pengunjung:
 
 <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/814511/t/5">
 </script>
 </div>
+
+
+ 
+
+
+ 
   <!--
 <iframe padding="20px" width=100% height="300"  src="https://docs.google.com/document/d/1DpmBChpUPtMC4eW0yN9iqmJler5ce84ETmTTsxlzPsk/edit?usp=dr23ivesdk"</iframe>
  -->
 
-<!-- This example requires Tailwind CSS v3.0+ -->
+<!-- This example requires Tailwind CSS v3.0+ 
 <div class="  relative isolate bg-black">
-  
+-->
+ <div class=" bg-black"> 
+ 
+ 
+ 
+ 
+ 
   <!-- <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
     <svg class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]" viewBox="0 0 1155 678" xmlns="http://www.w3.org/2000/svg">
       <path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z" />
@@ -356,7 +431,7 @@ localStorage.setItem('nil0',0);
   </div>
   -->
         
-    <div class="h-full z-10 bg-blue-100 relative px-6 lg:px-8">
+    <div class="h-full z-200 bg-blue-400 relative px-6 lg:px-8">
     
       <div class="mx-auto max-w-xl py-1 sm:py-48 lg:py-56">
         <div class="  sm:mb-8 sm:flex sm:justify-center">
@@ -585,7 +660,7 @@ localStorage.setItem('nil0',0);
     </div>
   </nav>
 
-  <header class=" z-50 relative  p-2 h-full flex flex-col bg-slate-500 shadow overflow-auto">
+  <header class=" z-500 relative  p-2 h-auto flex flex-col bg-slate-500 shadow ">
  
 
 <table class="table-auto font-bold">
@@ -845,10 +920,13 @@ localStorage.setItem('nil0',0);
 
 -->
 <br>
+
+
 <section style="background-color:blue;margin:2; padding:2"  class="  md:w-50% ">
 
-   
+ 
  <div id="babutama"  class="flex flex-col space-y-4 px-2 " >
+
 
   <div id="bab" class="hidden h-72 overflow-y-auto border-1 rounded-3xl box-border 
    border-black p-4  text-slate-700 bg-slate-100">
@@ -1089,7 +1167,11 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
 </div>
 Bilangan berpangkat (juga dikenal sebagai eksponen) adalah konsep matematika di mana suatu bilangan (disebut basis) dikalikan dengan dirinya sendiri sejumlah kali yang ditentukan oleh bilangan lain (disebut eksponen atau pangkat). Notasi untuk bilangan berpangkat yakni $$a^{n}$$  di mana (a) adalah basis dan (n) adalah eksponen.
 <span id="dots1">...</span>
+ <div class="button-container">
 
+  </div>
+  
+   
     <div id="more1">
 <p class="font-semibold">soal 1</p>
 <p>definisi bilangan berpangkat
@@ -2925,15 +3007,22 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
 </div>
 
 <div x-data="{open:false}">
+    
    <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' : 'buka mindmap'">buka</button>
+    
     <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction1()" id="myBtn1">buka</button>
 <div x-show='open'> 
 
-        <div class="bg-sky-400 w-full h-96 overflow-auto touch-auto object-center">
+        <div class=" hidden bg-sky-400 w-full h-96 overflow-auto touch-auto object-center">
          <img class="zoom2  w-[200%] max-w-none h-auto " src='gbr/map1.svg'>
          </div> 
+         
+        
         <hr>
         <div >
+            
+            
+       
   <iframe width="45%" src="https://www.youtube.com/embed/azB1pqlkXmY" title="Bilangan Berpangkat part#1/10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   <hr>
   <iframe width="45%" src="https://www.youtube.com/embed/rv5LV7Ad1P8" title="Bilangan Berpangkat part#3/10: sifat 1,2,3 logaritma" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -2970,6 +3059,10 @@ Dua dan Tiga Variabel</h2 >
 </svg>
 
 <span id="dots2">...</span>
+
+   <div class="button-container">
+    
+  </div>
 <div id="more2">
 
 <p>Soal 1. Beberapa persamaan linier dapat digabungkan kedalam satu sistem persamaan linier. Metoda untuk menentukan nilai variabel kecuali,adalah   
@@ -3413,6 +3506,8 @@ nilai z adalah
 </svg>
 
   <span id="dots3">...</span>
+  <div class="button-container">
+   </div>
     <div id="more3">
 <label for="">
   <p>  dari pertidaksamaan 1 variabel:<label>$$\mathbf{a\leq x\leq d}$$</label> adalah {a,b,c,d}</p> 
@@ -4267,6 +4362,8 @@ x> 0;y> 0\\
   <path d="M 30 70 Q 50 100 70 70" fill="none" stroke="#000" stroke-width="1"/>
 </svg>
 <span id="dots4">...</span>
+<div class="button-container">
+  </div>
     <div id="more4">
 <label for="">
   <p>Program linier adalah metoda untuk menentukan nilai optimum
@@ -4604,7 +4701,9 @@ jika z=2x+3y adalah
 
 <h2>Barisan & Deret</h2>
 <span id="dots5">...</span>
+<div class="button-container">
 
+  </div>
 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
   <!-- Kepala -->
   <circle cx="100" cy="100" r="80" fill="#8B4513" stroke="#000" stroke-width="2"/>
@@ -6197,9 +6296,9 @@ dimana H adalah besar pinjaman dan A adalah angsuran/cicilan atau<br> cicilan: A
     OTO Finansial dengan bunga 6% / tahun. 
     Siswa  ini mencicil 24 kali. Berapa besar cicilan?    
      </p> <br>
- <input type="radio" name="no2105" id="jno2105" style=" display:inline-flex"> 1.057.000<br>
+ <input type="radio" name="no2105" id="jno2105" style=" display:inline-flex"> 1.063.000<br>
  <input type="radio" name="no2105" style="display:inline-flex">1.100.000<br>
-<input type="radio" name="no2105" style="display:inline-flex">1.090.000<br>
+<input type="radio" name="no2105" style="display:inline-flex">1.200.000<br>
 <input type="radio" name="no2105" style=" display:inline" >1.150.000<br>
 <div id="rno2105"></div>    
 
@@ -17401,9 +17500,52 @@ maka nilai f(2) <br>
 </div> 
 
 <!-- akhir bab24-->
+<div id="bab25" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-800 bg-[#BDAAFD]">
+    <h1 class="text-3xl">POSTER MINDMAP</h1>
+ <div class="button-container">
+    <button class="button" id="btn1">Bilangan berpangkat</button>
+    <button class="button" id="btn2">Sistem Persamaan</button>
+    <button class="button" id="btn3">Sistem pertidaksamaan</button>
+    <button class="button" id="btn4">Persamaan eksponen</button>
+    <button class="button" id="btn5"> Trigonometri</button>
+     <button class="button" id="btn6">Barisan dan deret</button>
+    <button class="button" id="btn7">Peluang</button>
+    <button class="button" id="btn8">Statistik</button>
+    <button class="button" id="btn9">Persamaan kuadrat</button>
+    <button class="button" id="btn10">Aritmatika sosial</button>
+   <button class="button" id="btn11">MATRIK</button>
+    <button class="button" id="btn12">Transformasi geometri</button>
+    <button class="button" id="btn13">Fungsi komposisi</button>
+    <button class="button" id="btn14">Lingkaran</button>
+    <button class="button" id="btn15">LIMIT</button>
+   <button class="button" id="btn16">Deferensial</button>
+    <button class="button" id="btn17">Integral</button>
+    <button class="button" id="btn18">Vektor</button>
+    <button class="button" id="btn19">Logika matematika</button>
+    <button class="button" id="btn20">Program linier</button>
+    </div>
 
 
 </div>
+
+<div id="bab26" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-800 bg-[#BDAAFD]">
+    <div class="scroll-container" id="scrollContainer">
+    <div class="scroll-content" id="scrollContent">
+      <img src="./gbr/map1.svg" alt="Map" id="mapImage" class="max-w-none">
+    </div>
+    <div class="icon-container">
+      <button class="icon" id="zoomInBtn">+</button>
+      <button class="icon" id="zoomOutBtn">-</button>
+      <button class="icon" id="closeBtn">×</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
 
 </section>
 <br>
@@ -18760,11 +18902,51 @@ if (localStorage.getItem('nil23') === null) localStorage.setItem('nil23', 25);
 document.addEventListener('DOMContentLoaded', loadProgress);
 </script>
 
-    
-    
+    <script>
+    const scrollContainer = document.getElementById('scrollContainer');
+    const scrollContent = document.getElementById('scrollContent');
+    const mapImage = document.getElementById('mapImage');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const buttons = document.querySelectorAll('.button');
+    let scale = 1;
+    const zoomInFactor = 1.25;
+    const zoomOutFactor = 0.8;
+    const maxScale = 5;
+    const minScale = 1;
+
+    function updateImage(src) {
+      mapImage.src = src;
+      scale = 1; // Reset scale when changing images
+      scrollContent.style.transform = `scale(${scale})`;
+      scrollContainer.style.display = 'block'; // Show container when an image is loaded
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const imageName = button.id.replace('btn', 'map') + '.svg';
+        updateImage(`./gbr/${imageName}`);
+      });
+    });
+
+    zoomInBtn.addEventListener('click', () => {
+      scale = Math.min(scale * zoomInFactor, maxScale);
+      scrollContent.style.transform = `scale(${scale})`;
+    });
+
+    zoomOutBtn.addEventListener('click', () => {
+      scale = Math.max(scale * zoomOutFactor, minScale);
+      scrollContent.style.transform = `scale(${scale})`;
+    });
+
+    closeBtn.addEventListener('click', () => {
+      scrollContainer.style.display = 'none'; // Hide container when close button is clicked
+    });
+  </script>
   </body>
   
-
+ 
   
    <script type="text/jsx">
       const app = document.getElementById('app');
