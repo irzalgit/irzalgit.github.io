@@ -1,4 +1,7 @@
  
+    
+ 
+ 
  function generateQuestionsA() {
     clearQuestions();
     var aValues = [2,3,4];
@@ -27,8 +30,13 @@
     var svValues = [10,100,1000];
     var xxValues = [2,3,4];
     var yyValues = [4,5,6];
+     var hhValues = [200000000,500000000,100000000]; 
+     var rrValues = [6,8,10]; 
+     var ttValues = [5,10];
     
-    for (var i = 1; i <= 51; i++) {
+    
+    
+    for (var i = 1; i <= 55; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -56,29 +64,27 @@
         var sv = svValues[Math.floor(Math.random() * svValues.length)];
      var xx = xxValues[Math.floor(Math.random() * xxValues.length)];
       var yy = yyValues[Math.floor(Math.random() * yyValues.length)];
+      
+       var hh = hhValues[Math.floor(Math.random() * hhValues.length)];
+       var rr = rrValues[Math.floor(Math.random() * rrValues.length)];
+       var tt = ttValues[Math.floor(Math.random() * ttValues.length)];
+      
+      
+      
       var question= {};
       var equation, correctAnswer;
- 
+
+svg=``;
       if (i === 1) {
-         svg= `<svg xmlns="http://www.w3.org/2000/svg">
-                <line x1="0" y1="50" x2="100" y2="50" stroke="black" />
-                <line x1="50" y1="0" x2="50" y2="100" stroke="black" />
-                <circle cx="${50 + a * 10}" cy="${50 - b * 10}" r="3" fill="red" />
-                <text x="${50 + a * 10}" y="${50 - b * 10 - 5}" font-size="12" text-anchor="middle">P(${3},${4})</text>
-              </svg>`;
         equation = "1.Hitung nilai x dari <br>x = " + a + " + (" + b + ")  ";
         correctAnswer = a + b;
-      } else if (i === 2) {
-          
-        svg[2].svg= createSVG(yy, xx);     
+       } else if (i === 2) {
         equation = "2.Hitung nilai x dari <br>x = " + c + " - (" + d + ")";
         correctAnswer = c - d;
       } else if (i === 3) {
-       svg= createSVG(4, 2);     
         equation = "3.Hitung nilai x dari <br>x = -(" + a + ") + (" + c+")";
         correctAnswer = -a + c;
       } else if (i === 4) {
-          svg= createSVG(2, 2);     
         equation = "4.Hitung nilai a dari <br>a =("+b+")(" + d + ") - ("+c+")(" + b + ")";
         correctAnswer = b*d - c*b;
       } else if (i === 5) {
@@ -142,7 +148,6 @@
         equation = "24. Berapa besar "+k+"% dari "+e*100+"  " ;
         correctAnswer = k*e;
       }else if (i === 25) {
-        //  equation="25";
          equation = "25. Tentukan nilai a dari a= <math><mfrac><mi><mn>"+a+"<sup>2</sup></mn></mi><mi><mn>4</mn></mi></mfrac></math>+<math><mfrac><mi><mn>"+(a+tp)+"<sup>2</sup></mn></mi><mi><mn>4</mn></mi></mfrac></math> +"+a+"  ";
         correctAnswer = (a*a + Math.pow(a+tp,2) +4*a)/4;
       }else if (i === 26) {
@@ -221,17 +226,28 @@
         equation = "49.a= ("+b+" )*<mn>{("+a+")+("+c+" )}</mn><sup>3</sup>+("+c+" )*("+c+")"  ;
         correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
       }else if (i === 50) {
-      equation = "50.a= ("+b+" )*<mn>{("+a+")+("+c+" )}</mn><sup>3</sup>+("+(c-1)+" )*("+c+")"  ;
-        correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
-      }else if (i === 51) {
-        equation = "51.Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
-        correctAnswer =(a+b)/2;
-      
+equation = "50.Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
+            correctAnswer = (a+b)/2;
+} else if (i === 51) {
+equation = "51.Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
+            correctAnswer = (a+b)/2;
+      }else if (i === 52) {
+equation = "52.Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
+            correctAnswer = (a+b)/2;
+      } else if (i === 53) {
+equation = "53.Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
+            correctAnswer = (a+b)/2;
+      } else if (i === 54) {
+equation = "54. Seseorang meminjam uang sebesar Rp. "+hh+"  untuk membeli perabotan rumah dengan cicilan bulanan selama "+tt+" tahun dan bunga  "+rr+" % per tahun. Berapakah besar cicilan bulanannya ?";
+    correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(2);
+      }else if (i === 55) {
+equation = "55.Seorang pelanggan membeli sebuah motor seharga Rp 24.000.000 dengan cicilan bulanan selama 2 tahun dan bunga 6% per tahun. Berapakah besar cicilan bulanan yang harus dibayar?Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
+            correctAnswer = (123.456).toFixed(2);
       }
       
       
-      
  var options = generateOptions(correctAnswer);
+      question.svg = svg;
       question.equation = equation;
       question.options = options;
       question.correctAnswer = correctAnswer;
@@ -301,8 +317,10 @@ function displayQuestions() {
       var questionElement = document.createElement("div");
       questionElement.classList.add("question");
       questionElement.innerHTML = `
-      <div style=" background-color:wheat " class="text-black bg-green-400 border-1 rounded-3xl box-border  border-black p-2  ">
-<p >${question.equation}</p>
+      <div class="text-black bg-blue-400 border-1 rounded-3xl box-border  border-black p-2  "> 
+      
+<div class="h-10 w-10 bg-red-400 flex">${question.svg}</div>
+<p>${question.equation}</p>
 <form id="form${index}" style=" padding:5px" >
           ${question.options.map((option, i) => `
             <input type="radio" name="answer${index}" value="${i}">
