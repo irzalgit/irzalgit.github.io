@@ -1,4 +1,6 @@
  
+ 
+       
     
  
  
@@ -73,9 +75,27 @@
       
       var question= {};
       var equation, correctAnswer;
-
-svg=``;
+   svg=``;
       if (i === 1) {
+          svg=` <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Kepala -->
+  <path d="M 30 70 Q 50 30 70 70 Q 60 90 40 90 Z" fill="#FFD700" stroke="#000" stroke-width="1"/>
+
+  <!-- Paruh -->
+  <path d="M 50 70 Q 65 65 75 75 Q 65 80 50 75 Z" fill="#FFA500" stroke="#000" stroke-width="1"/>
+
+  <!-- Mata -->
+  <circle cx="50" cy="50" r="5" fill="#FFF" stroke="#000" stroke-width="1"/>
+  <circle cx="50" cy="50" r="2.5" fill="#000"/>
+
+  <!-- Garis wajah -->
+  <path d="M 40 60 Q 50 50 55 50" fill="none" stroke="#000" stroke-width="1"/>
+
+  <!-- Bulu khas di kepala -->
+  <path d="M 30 50 Q 35 30 40 50" fill="none" stroke="#000" stroke-width="1"/>
+  <path d="M 70 50 Q 65 30 60 50" fill="none" stroke="#000" stroke-width="1"/>
+</svg>
+`
         equation = "1.Hitung nilai x dari <br>x = " + a + " + (" + b + ")  ";
         correctAnswer = a + b;
        } else if (i === 2) {
@@ -133,7 +153,7 @@ svg=``;
         equation = "19.Tentukan x jika  log "+e+" + log "+a+"  = log x " ;
         correctAnswer =a*e;
       }else if (i === 20) {
-        equation = "20. Tentukan nilai x dari x= 10 log (<math><mfrac><mi><mn>10 <sup>"+f+"</sup></mn></mi><mi><mn>10<sup>"+b+"</sup></mn></mi></mfrac></math>)" ;
+        equation = "20. Tentukan nilai x dari x= 10 log <math><mfrac><mi><mn>10<sup>2</sup></mn></mi><mi><mn>10<sup>3</sup></mn></mi></mfrac></math>" ;
         correctAnswer =(f-b)*10;
       }else if (i === 21) {
         equation = "21.Jika x&#178 - y&#178  = "+d+"  dan x - y = 2 maka x + y adalah  " ;
@@ -148,7 +168,7 @@ svg=``;
         equation = "24. Berapa besar "+k+"% dari "+e*100+"  " ;
         correctAnswer = k*e;
       }else if (i === 25) {
-         equation = "25. Tentukan nilai a dari a= <math><mfrac><mi><mn>"+a+"<sup>2</sup></mn></mi><mi><mn>4</mn></mi></mfrac></math>+<math><mfrac><mi><mn>"+(a+tp)+"<sup>2</sup></mn></mi><mi><mn>4</mn></mi></mfrac></math> +"+a+"  ";
+         equation = "25. Tentukan nilai a dari a= <math><mfrac><mi><mn>"+a+"<sup>2</sup></mn></mi><mi><mn>4</mn></mi></mfrac></math>+<math><mfrac><mi><mn>"+(a+tp)+"<sup>2</sup></mn></mi><mi><mn>4</mn> </mi></mfrac></math> +"+a+"  ";
         correctAnswer = (a*a + Math.pow(a+tp,2) +4*a)/4;
       }else if (i === 26) {
         equation = "26.Tentukan x dari persamaan 8<sup>x</sup>=2<sup>2x-"+a+"</sup>";
@@ -229,20 +249,88 @@ svg=``;
 equation = "50.Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
             correctAnswer = (a+b)/2;
 } else if (i === 51) {
-equation = "51.Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
-            correctAnswer = (a+b)/2;
+    svg=`   <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Kepala -->
+  <path d="M 30 30 Q 50 10 70 30 Q 80 50 60 70 Q 40 80 30 60 Z" fill="#000" stroke="#000" stroke-width="2"/>
+
+  <!-- Paruh -->
+  <path d="M 60 45 Q 70 40 80 50 Q 70 55 60 50 Z" fill="#FFA500" stroke="#000" stroke-width="1"/>
+
+  <!-- Mata -->
+  <circle cx="55" cy="35" r="5" fill="#FFF" stroke="#000" stroke-width="1"/>
+  <circle cx="55" cy="35" r="2.5" fill="#000"/>
+
+  <!-- Garis wajah -->
+  <path d="M 45 40 Q 50 35 55 35" fill="none" stroke="#000" stroke-width="1"/>
+
+  <!-- Dada -->
+  <path d="M 40 70 Q 50 60 60 70 Q 50 80 40 70 Z" fill="#000" stroke="#000" stroke-width="2"/>
+</svg>`;
+equation = "51.Tentukan det A  dari <math xmlns=`http://www.w3.org/1998/Math/MathML`><mrow><mo>A=</mo><mo>[</mo><mtable><mtr><mtd><mn>"+a+"</mn></mtd><mtd><mn>"+b+"</mn></mtd></mtr><mtr><mtd><mn>"+c+"</mn></mtd><mtd><mn>"+d+"</mn></mtd></mtr></mtable><mo>]</mo></mrow></math>";
+            correctAnswer = (a*d)-(b*c);
       }else if (i === 52) {
-equation = "52.Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
-            correctAnswer = (a+b)/2;
+          svg=`   <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Kepala -->
+  <path d="M 30 30 Q 50 10 70 30 Q 80 50 60 70 Q 40 80 30 60 Z" fill="#000" stroke="#000" stroke-width="2"/>
+
+  <!-- Paruh -->
+  <path d="M 60 45 Q 70 40 80 50 Q 70 55 60 50 Z" fill="#FFA500" stroke="#000" stroke-width="1"/>
+
+  <!-- Mata -->
+  <circle cx="55" cy="35" r="5" fill="#FFF" stroke="#000" stroke-width="1"/>
+  <circle cx="55" cy="35" r="2.5" fill="#000"/>
+
+  <!-- Garis wajah -->
+  <path d="M 45 40 Q 50 35 55 35" fill="none" stroke="#000" stroke-width="1"/>
+
+  <!-- Dada -->
+  <path d="M 40 70 Q 50 60 60 70 Q 50 80 40 70 Z" fill="#000" stroke="#000" stroke-width="2"/>
+</svg>`;
+equation = "52.Tentukan nilai a dari persamaan ini <math><mrow><mo>[</mo><mtable><mtr><mtd><mn>a</mn></mtd><mtd><mn>"+b+"</mn></mtd></mtr><mtr><mtd><mn>"+c+"</mn></mtd><mtd><mn>"+d+"</mn></mtd></mtr></mtable><mo>]</mo></mrow></math>=2<math><mrow><mo>[</mo><mtable><mtr><mtd><mn>"+a+"</mn></mtd><mtd><mn>"+b+"</mn></mtd></mtr><mtr><mtd><mn>"+c+"</mn></mtd><mtd><mn>"+d+"</mn></mtd></mtr></mtable><mo>]</mo></mrow></math>";
+            correctAnswer = a/2;
       } else if (i === 53) {
-equation = "53.Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
+          svg=`   <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Kepala -->
+  <path d="M 30 30 Q 50 10 70 30 Q 80 50 60 70 Q 40 80 30 60 Z" fill="#000" stroke="#000" stroke-width="2"/>
+
+  <!-- Paruh -->
+  <path d="M 60 45 Q 70 40 80 50 Q 70 55 60 50 Z" fill="#FFA500" stroke="#000" stroke-width="1"/>
+
+  <!-- Mata -->
+  <circle cx="55" cy="35" r="5" fill="#FFF" stroke="#000" stroke-width="1"/>
+  <circle cx="55" cy="35" r="2.5" fill="#000"/>
+
+  <!-- Garis wajah -->
+  <path d="M 45 40 Q 50 35 55 35" fill="none" stroke="#000" stroke-width="1"/>
+
+  <!-- Dada -->
+  <path d="M 40 70 Q 50 60 60 70 Q 50 80 40 70 Z" fill="#000" stroke="#000" stroke-width="2"/>
+</svg>`;
+          equation = "53.Tentukan det A  dari perkalian matrik  <math xmlns=`http://www.w3.org/1998/Math/MathML`><mrow><mo>A=</mo><mo>[</mo><mtable><mtr><mtd><mn>"+a+"</mn></mtd><mtd><mn>"+b+"</mn></mtd></mtr><mtr><mtd><mn>"+c+"</mn></mtd><mtd><mn>"+d+"</mn></mtd></mtr></mtable><mo>]</mo></mrow></math><math xmlns=`http://www.w3.org/1998/Math/MathML`><mrow><mo>.</mo><mo>[</mo><mtable><mtr><mtd><mn>"+a+"</mn></mtd><mtd><mn>"+b+"</mn></mtd></mtr><mtr><mtd><mn>"+c+"</mn></mtd><mtd><mn>"+d+"</mn></mtd></mtr></mtable><mo>]</mo></mrow></math>";
             correctAnswer = (a+b)/2;
       } else if (i === 54) {
-equation = "54. Seseorang meminjam uang sebesar Rp. "+hh+"  untuk membeli perabotan rumah dengan cicilan bulanan selama "+tt+" tahun dan bunga  "+rr+" % per tahun. Berapakah besar cicilan bulanannya ?";
-    correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(2);
+          svg=`   <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Kepala -->
+  <path d="M 30 30 Q 50 10 70 30 Q 80 50 60 70 Q 40 80 30 60 Z" fill="#000" stroke="#000" stroke-width="2"/>
+
+  <!-- Paruh -->
+  <path d="M 60 45 Q 70 40 80 50 Q 70 55 60 50 Z" fill="#FFA500" stroke="#000" stroke-width="1"/>
+
+  <!-- Mata -->
+  <circle cx="55" cy="35" r="5" fill="#FFF" stroke="#000" stroke-width="1"/>
+  <circle cx="55" cy="35" r="2.5" fill="#000"/>
+
+  <!-- Garis wajah -->
+  <path d="M 45 40 Q 50 35 55 35" fill="none" stroke="#000" stroke-width="1"/>
+
+  <!-- Dada -->
+  <path d="M 40 70 Q 50 60 60 70 Q 50 80 40 70 Z" fill="#000" stroke="#000" stroke-width="2"/>
+</svg>`;
+equation = "54. <math xmlns=`http://www.w3.org/1998/Math/MathML`><mrow><mo>(</mo><mtable><mtr><mtd><mi>"+a+"</mi></mtd><mtd><mi>"+b+"</mi></mtd></mtr><mtr><mtd><mi>"+c+"</mi></mtd><mtd><mi>"+d+"</mi></mtd></mtr></mtable><mo>)</mo><mo></mo><mo>(</mo><mtable><mtr><mtd><mi>x</mi></mtd></mtr><mtr><mtd><mi>y</mi></mtd></mtr></mtable><mo>)</mo><mo>=</mo><mo>(</mo><mtable><mtr><mtd><mi>"+e+"</mi></mtd></mtr><mtr><mtd><mi>"+f+"</mi></mtd></mtr></mtable><mo>)</mo></mrow></math><br> Nilai x adalah ";
+    correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(0);
       }else if (i === 55) {
-equation = "55.Seorang pelanggan membeli sebuah motor seharga Rp 24.000.000 dengan cicilan bulanan selama 2 tahun dan bunga 6% per tahun. Berapakah besar cicilan bulanan yang harus dibayar?Perhatikan sistem persamaan dua variabel: x + y = "+a+" dan x - y = "+b+ " , maka nilai x adalah ...";
-            correctAnswer = (123.456).toFixed(2);
+equation = "55. Seseorang meminjam uang sebesar Rp. "+hh+"  untuk membeli perabotan rumah dengan cicilan bulanan selama "+tt+" tahun dan bunga  "+rr+" % per tahun. Berapakah besar cicilan bulanannya ?";
+    correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(0);
       }
       
       
@@ -310,6 +398,7 @@ equation = "55.Seorang pelanggan membeli sebuah motor seharga Rp 24.000.000 deng
     }
   }
 //<svg style="background-color:grey"> ${svg}</svg>
+<!--
 function displayQuestions() {
     var container = document.getElementById("questions-container");
     container.innerHTML = "";
@@ -317,9 +406,8 @@ function displayQuestions() {
       var questionElement = document.createElement("div");
       questionElement.classList.add("question");
       questionElement.innerHTML = `
-      <div class="text-black bg-blue-400 border-1 rounded-3xl box-border  border-black p-2  "> 
-      
-<div class="h-10 w-10 bg-red-400 flex">${question.svg}</div>
+      <div class="text-black bg-green-400 border-1 rounded-3xl box-border  border-black p-2  "> 
+<div class="bg-green-100 h-auto">${question.svg}</div>
 <p>${question.equation}</p>
 <form id="form${index}" style=" padding:5px" >
           ${question.options.map((option, i) => `
@@ -332,6 +420,39 @@ function displayQuestions() {
     });
     
   }
+
+-->
+function displayQuestions() {
+    var container = document.getElementById("questions-container");
+    container.innerHTML = "";
+    questions.forEach(function(question, index) {
+        var questionElement = document.createElement("div");
+        questionElement.classList.add("question");
+        questionElement.innerHTML = `
+        <div class="text-black bg-blue-400 border-1 rounded-3xl box-border border-black p-2">
+        <div style="width:auto; height: 50px; ">
+        <svg width="100" height="100" viewBox="0 0 100 100" style="width: auto;
+      height: auto;max-width: 100%;max-height: 100%;">${question.svg}</svg>
+      </div>
+      
+            <p>${question.equation}</p>
+            <form id="form${index}" style="padding:5px">
+                ${question.options.map((option, i) => `
+                    <input type="radio" name="answer${index}" value="${i}">
+                    <label>${option}</label><br>
+                `).join('')}
+            </form>
+        </div>`;
+        container.appendChild(questionElement);
+    });
+
+    // Tunggu hingga MathJax selesai dimuat, kemudian render semua formula
+    MathJax.typesetPromise().then(function() {
+        console.log('MathJax rendering completed.');
+    }).catch(function(err) {
+        console.error('MathJax rendering failed: ', err);
+    });
+}
 
   function clearQuestions() {
     questions = [];
@@ -4491,3 +4612,5 @@ const optionsno2101 = document.getElementsByName("no2101");
 
 
   }
+  
+  
