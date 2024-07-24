@@ -37,12 +37,27 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <!-- <link rel="stylesheet" href="pas.css"> -->
- 
+   
+  <!--  
   <script>
 MathJax = {
 tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
 }
 </script>
+-->
+
+
+ <script type="text/javascript">
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+
 
  <style>
         .progress-circle {
@@ -78,6 +93,7 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   #more21 {display: none;}
   #more23 {display: none;}
   #more24 {display: none;}
+  
   #bab2 {display: block;}
   #bab3 {display: block;}
   #bab4 {display: block;}
@@ -91,6 +107,8 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   #bab9 {display: block;}
   #eva {display:block;}
   #bab20 {display: block;}
+  #bab25 {display: none;}
+  
 </style>
 
  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> 
@@ -266,9 +284,11 @@ localStorage.setItem('nil0',0);
     .scroll-container {
       width: 100vw;
       height: 100vh;
+      max-width: 100%; 
+      max-width:100%;
       overflow: auto;
       background-color: #1F2937; /* bg-gray-800 */
-      position: relative;
+      position: absolute;
       display: none; /* Initially hidden */
     }
     .scroll-content {
@@ -279,7 +299,7 @@ localStorage.setItem('nil0',0);
       transform-origin: top left; /* Ensure zooming starts from top left */
     }
     .icon-container {
-      position: absolute;
+      position: fixed;
       top: 0rem;
      
       display: flex;
@@ -12522,6 +12542,7 @@ Cek Nilai Persamaan Lingkaran</button>
 <div id="bab13" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-700 bg-[#D8BFD8]">
 
 <h2>Logika Matematika</h2>
+
  <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
   <!-- Kepala -->
   <path d="M 30 70 Q 50 30 70 70 Q 60 90 40 90 Z" fill="#FFD700" stroke="#000" stroke-width="1"/>
@@ -12540,6 +12561,7 @@ Cek Nilai Persamaan Lingkaran</button>
   <path d="M 30 50 Q 35 30 40 50" fill="none" stroke="#000" stroke-width="1"/>
   <path d="M 70 50 Q 65 30 60 50" fill="none" stroke="#000" stroke-width="1"/>
 </svg>
+
 <span id="dots13">...</span>
     <div id="more13">
 
@@ -17500,35 +17522,15 @@ maka nilai f(2) <br>
 </div> 
 
 <!-- akhir bab24-->
-<div id="bab25" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-800 bg-[#BDAAFD]">
+<div id="bab26" class=" border-1 rounded-3xl box-border  border-black p-4  text-white bg-[#BDAAFD]">
     <h1 class="text-3xl">POSTER MINDMAP</h1>
  <div class="button-container">
-    <button class="button" id="btn1">Bilangan berpangkat</button>
-    <button class="button" id="btn2">Sistem Persamaan</button>
-    <button class="button" id="btn3">Sistem pertidaksamaan</button>
-    <button class="button" id="btn4">Persamaan eksponen</button>
-    <button class="button" id="btn5"> Trigonometri</button>
-     <button class="button" id="btn6">Barisan dan deret</button>
-    <button class="button" id="btn7">Peluang</button>
-    <button class="button" id="btn8">Statistik</button>
-    <button class="button" id="btn9">Persamaan kuadrat</button>
-    <button class="button" id="btn10">Aritmatika sosial</button>
-   <button class="button" id="btn11">MATRIK</button>
-    <button class="button" id="btn12">Transformasi geometri</button>
-    <button class="button" id="btn13">Fungsi komposisi</button>
-    <button class="button" id="btn14">Lingkaran</button>
-    <button class="button" id="btn15">LIMIT</button>
-   <button class="button" id="btn16">Deferensial</button>
-    <button class="button" id="btn17">Integral</button>
-    <button class="button" id="btn18">Vektor</button>
-    <button class="button" id="btn19">Logika matematika</button>
-    <button class="button" id="btn20">Program linier</button>
-    </div>
-
-
+    <button onclick="myBtn1()"class="button" id="btn11"> MATRIK</button>
+    
+</div>
 </div>
 
-<div id="bab26" class="dark:bg-slate-700 dark:text-slate-100 border-1 rounded-3xl box-border  border-black p-4  text-slate-800 bg-[#BDAAFD]">
+<div id="bab25" style="position:fixed; top: 0;left: 0;width: 100%;height: 100%; background-color: lightgray;z-index:1000;">
     <div class="scroll-container" id="scrollContainer">
     <div class="scroll-content" id="scrollContent">
       <img src="./gbr/map1.svg" alt="Map" id="mapImage" class="max-w-none">
@@ -18266,6 +18268,12 @@ function myFunction24() {
     }
   }
 
+function myBtn1() {
+
+    var bab25 = document.getElementById("bab25");
+  
+   bab25.style.display="block";
+  }
 
 
 </script>
@@ -18941,9 +18949,12 @@ document.addEventListener('DOMContentLoaded', loadProgress);
     });
 
     closeBtn.addEventListener('click', () => {
-      scrollContainer.style.display = 'none'; // Hide container when close button is clicked
+      scrollContainer.style.display = 'none';
+      bab25.style.display='none';
+      // Hide container when close button is clicked
     });
   </script>
+  
   </body>
   
  
