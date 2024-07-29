@@ -11,6 +11,15 @@
     var bValues = [-2, -4, -5];
     var cValues = [5,3,2,6,8];
     var dValues = [10, 12, 16];
+    var detaValues = [1, 2, 4];
+    var detbValues = [3, -2, 1];
+    var detcValues = [4, 1, 2];
+    var detdValues = [-3, -2, 1,0];
+    var deteValues = [1, 2, 4];
+    var detfValues = [3, -2, 1];
+    var detgValues = [-3, 1, 2];
+    var dethValues = [-3, -2,4,0];
+    var detiValues = [-3, -2, 1,5];
     var eValues = [5,6,8,7];
     var fValues = [8,12,10];
     var gValues = [24,25,30];
@@ -43,6 +52,19 @@
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
     var d = dValues[Math.floor(Math.random() * dValues.length)];
+    
+    var deta = detaValues[Math.floor(Math.random() * detaValues.length)];
+    var detb = detbValues[Math.floor(Math.random() * detbValues.length)];
+    var detc = detcValues[Math.floor(Math.random() * detcValues.length)];
+    var detd = detdValues[Math.floor(Math.random() * detdValues.length)];
+     var dete = deteValues[Math.floor(Math.random() * deteValues.length)];
+    var detf = detfValues[Math.floor(Math.random() * detfValues.length)];
+    var detg = detgValues[Math.floor(Math.random() * detgValues.length)];
+    var deth = dethValues[Math.floor(Math.random() * dethValues.length)];
+    var deti = detiValues[Math.floor(Math.random() * detiValues.length)];
+    
+    
+    
   var e = eValues[Math.floor(Math.random() * eValues.length)];
    var f = fValues[Math.floor(Math.random() * fValues.length)];
    var g = gValues[Math.floor(Math.random() * gValues.length)];
@@ -110,9 +132,9 @@
       } else if (i === 5) {
         equation = "5.Hitung nilai a dari a="+ds+"  +<math><mfrac><mi><mn>"+aa+"</mn></mi><mi><mn>"+rds+"</mn></mi></mfrac></math> +"+k+"%";
         correctAnswer = ds+(aa/rds)+k/100;
-      } else if (i === 6) {
-        equation = "6.Hitung nilai a dari <br>a= -((" + d + ") - (" + b + ")) x (" + a + ")    ";
-        correctAnswer = -(d - b)*a;
+     } else if (i === 6) {
+         equation = "6.Hitung nilai a dari <br>a =("+deta+")(" + detf + ")("+deti+") - ("+detc+")(" +dete+ ")  ("+detg+")";
+        correctAnswer = 100;
       }else if (i === 7) {
         equation = "7.Hitung nilai a dari <br>2a= -(-(" + d + ") - (" + b + ")) x (" + b + ")    ";
         correctAnswer = -(-d - b)*b/2;
