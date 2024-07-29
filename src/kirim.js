@@ -2328,7 +2328,7 @@ for (let i = 0; i < optionsno709.length; i++) {
   
     if (sno11.value == "1") {
       response = "";
-      poin7 = poin7 + 10;
+      poin7 = poin7 + 15;
     } else {
       response = "";
     }
@@ -2336,7 +2336,7 @@ for (let i = 0; i < optionsno709.length; i++) {
   
     if (sno12.value == "3") {
       response = "";
-      poin7 = poin7 + 10;
+      poin7 = poin7 + 15;
     } else {
       response = "";
     }
@@ -2344,13 +2344,13 @@ for (let i = 0; i < optionsno709.length; i++) {
   
     if (sno13.value == "1") {
       response = "";
-      poin7 = poin7 + 10;
+      poin7 = poin7 + 15;
     } else {
       response = "";
     }
     rsno13.innerHTML = response;
   
-    if (sno14.value == "10") {
+    if (sno14.value == "15") {
       response = "";
       poin7 = poin7 + 10;
     } else {
@@ -2360,7 +2360,7 @@ for (let i = 0; i < optionsno709.length; i++) {
   
     if (sno15.value == "4") {
       response = "";
-      poin7 = poin7 + 10;
+      poin7 = poin7 + 15;
     } else {
       response = "";
     }
@@ -2368,7 +2368,7 @@ for (let i = 0; i < optionsno709.length; i++) {
   
     if (sno16.value == "12") {
       response = "";
-      poin7 = poin7 + 10;
+      poin7 = poin7 + 15;
     } else {
       response = "";
     }
@@ -2376,7 +2376,7 @@ for (let i = 0; i < optionsno709.length; i++) {
   
     if (sno17.value == "50") {
       response = "";
-      poin7 = poin7 + 10;
+      poin7 = poin7 + 15;
     } else {
       response = "";
     }
@@ -2384,7 +2384,7 @@ for (let i = 0; i < optionsno709.length; i++) {
   
     if (sno18.value == "40") {
       response = "";
-      poin7 = poin7 + 10;
+      poin7 = poin7 + 15;
     } else {
       response = "";
     }
@@ -2392,7 +2392,7 @@ for (let i = 0; i < optionsno709.length; i++) {
   
     if (sno19.value == "1") {
       response = "";
-      poin7 = poin7 + 10;
+      poin7 = poin7 + 15;
     } else {
       response = "";
     }
@@ -2400,7 +2400,7 @@ for (let i = 0; i < optionsno709.length; i++) {
   
     if (sno1901.value == "10") {
       response = "";
-      poin7 = poin7 + 10;
+      poin7 = poin7 + 15;
     } else {
       response = "";
     }
