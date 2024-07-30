@@ -2398,7 +2398,7 @@ for (let i = 0; i < optionsno709.length; i++) {
     }
     rsno19.innerHTML = response;
   
-    if (sno1901.value == "10") {
+    if (sno1901.value == "1/10") {
       response = "";
       poin7 = poin7 + 15;
     } else {
