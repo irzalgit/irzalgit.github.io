@@ -1,0 +1,36 @@
+ 
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .tema-gelap {
+            background-color: black;
+            color: white;
+        }
+
+        .tema-terang {
+            color: black;
+            background-color: white;
+        }
+
+        .tema-sepia {
+            background-color: #f4ecd8;
+            color: #5b4636;
+        }
+
+        .tema-birumuda {
+            background-color: #e0f7fa;
+            color: #006064;
+        }
+
+        .pengalih-tema {
+            margin: 20px 0;
+        }
+
+        .artikel {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    
