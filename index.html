@@ -9,14 +9,17 @@
     rel="stylesheet">
 <link href="./css/elerning.css " rel="stylesheet">
 
+<link href="./css/tema.css " rel="stylesheet">
 <link href="./css/idea.css " rel="stylesheet">
+
 <script src="./js/script.js"></script>
+<script src="./js/tema.js"></script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hallo,sahabat</title>
 <link href="./css/styleaudio.css " rel="stylesheet">  
-<link href="./css/pas.css" rel="stylesheet">  
+<link href="./css/tema.css" rel="stylesheet">  
 <link href="./css/output.css" rel="stylesheet"> 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <script src="https://unpkg.com/feather-icons"></script>
@@ -1195,7 +1198,19 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
 
 
 <!-- batas aljabar -->
-  <div  id="bab1" class= "border-1 rounded-3xl box-border border-black p-4 text-black bg-white">
+  <div  id="bab1" class= "border-1 rounded-3xl box-border border-black p-4 ">
+         <article class="artikel">
+        <div class="pengalih-tema">
+            <label>
+                <input type="radio" name="tema1" value="gelap"> 
+            </label>
+            <label>
+                <input type="radio" name="tema1" value="terang"> 
+            </label>
+        
+        </div>
+    
+      
 <h1 class="text-2xl font-bold text-black ">Bilangan Berpangkat (X)</h1>
 
 <div class="progress-container">
@@ -3070,7 +3085,7 @@ Tentukan nilai logaritma berikut ini  <label>$$\log_55+2\log_55=...$$</label><br
   <a href="https://youtu.be/t-4wKwcVtw8?t=15">akar</a>
     </div>
 </div> 
-
+</article>
 </div>
 <!-- batas -->
 <!-- batas awal bab2 -->
@@ -3103,6 +3118,10 @@ Dua dan Tiga Variabel</h2 >
     
   </div>
 <div id="more2">
+    
+    
+    
+    
 
 <p>Soal 1. Beberapa persamaan linier dapat digabungkan kedalam satu sistem persamaan linier. Metoda untuk menentukan nilai variabel kecuali,adalah   
 </p> 
@@ -19127,7 +19146,16 @@ document.addEventListener('DOMContentLoaded', loadProgress);
       // Hide container when close button is clicked
     });
   </script>
-  
+    <script>
+        document.querySelectorAll('.pengalih-tema').forEach((pengalih, index) => {
+            pengalih.addEventListener('change', (event) => {
+                if (event.target.name === `tema${index + 1}`) {
+                    const artikel = pengalih.closest('.artikel');
+                    artikel.className = `artikel tema-${event.target.value}`;
+                }
+            });
+        });
+    </script>
   </body>
   
  
