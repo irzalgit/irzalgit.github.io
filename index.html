@@ -353,7 +353,7 @@ localStorage.setItem('nil0',0);
  
     <div class="container">
     <header>
-    <div class ="text-sm" >for smartphone, update 06/08/24 
+    <div class ="text-sm" >for smartphone, update 12/08/24 
 
 
 </div>
@@ -15951,6 +15951,58 @@ Dari histogram diatas jumlah siswa terbanyak untuk nilai mtk berada pada interva
              <input type="radio" name="no1811" style=" display:inline" >80-89<br>
              <div id="rno1811"></div>
        </label> 
+       
+       
+    
+
+    <h1>________</h1>
+    <form id="quizForm">
+        <!-- Soal 1 -->
+        <h3>1. r</h3>
+        <input type="checkbox" name="q1" value="A"> A. <br>
+        <input type="checkbox" name="q1" value="B"> B. <br>
+        <input type="checkbox" name="q1" value="C"> C. <br>
+        <input type="checkbox" name="q1" value="D"> D. <br>
+
+        <!-- Soal 2 -->
+        <h3>2. Soal </h3>
+        <input type="checkbox" name="q2" value="A"> A. <br>
+        <input type="checkbox" name="q2" value="B"> B. <br>
+        <input type="checkbox" name="q2" value="C"> C. <br>
+        <input type="checkbox" name="q2" value="D"> D. <br>
+
+        <!-- Soal 3 -->
+        <h3>3. Soal  3 </h3>
+        <input type="checkbox" name="q3" value="A"> A. <br>
+        <input type="checkbox" name="q3" value="B"> B. <br>
+        <input type="checkbox" name="q3" value="C"> C. <br>
+        <input type="checkbox" name="q3" value="D"> D. <br>
+
+        <!-- Soal 4 -->
+        <h3>4. Soal 4 </h3>
+        <input type="checkbox" name="q4" value="A"> A. <br>
+        <input type="checkbox" name="q4" value="B"> B. <br>
+        <input type="checkbox" name="q4" value="C"> C. <br>
+        <input type="checkbox" name="q4" value="D"> D. <br>
+
+        <!-- Soal 5 -->
+        <h3>5. Soal 5 </h3>
+        <input type="checkbox" name="q5" value="A"> A. <br>
+        <input type="checkbox" name="q5" value="B"> B. <br>
+        <input type="checkbox" name="q5" value="C"> C. <br>
+        <input type="checkbox" name="q5" value="D"> D. <br>
+
+        <br>
+        <button type="button" onclick="checkAnswers()">cek nilai</button>
+    </form>
+
+    <h2>Skor: <span id="score">0</span></h2>
+
+
+       
+       
+       
+       
   <h1 id="nilai18"></h1>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim18()" >Cek Nilai Statistik</button>
 
@@ -19156,6 +19208,32 @@ document.addEventListener('DOMContentLoaded', loadProgress);
                 }
             });
         });
+    </script>
+    
+    
+    
+      <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: ['A'],
+                q2: ['A', 'C'],
+                q3: ['A', 'B', 'D'],
+                q4: ['A', 'B', 'C', 'D'],
+                q5: ['B']
+            };
+
+            let score = 0;
+
+            for (const [question, correctOptions] of Object.entries(correctAnswers)) {
+                const userAnswers = Array.from(document.querySelectorAll(`input[name="${question}"]:checked`)).map(input => input.value);
+                
+                if (userAnswers.length === correctOptions.length && userAnswers.every(val => correctOptions.includes(val))) {
+                    score += 10;
+                }
+            }
+
+            document.getElementById('score').innerText = score;
+        }
     </script>
   </body>
   
