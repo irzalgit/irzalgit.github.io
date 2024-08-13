@@ -4788,6 +4788,17 @@ jika z=2x+3y adalah
   <path d="M 50 90 Q 100 130 150 90" fill="none" stroke="#000" stroke-width="2"/>
   <path d="M 50 110 Q 100 150 150 110" fill="none" stroke="#000" stroke-width="2"/>
 </svg>
+Barisan aritmatika adalah urutan angka yang memiliki pola tertentu. Pola ini terbentuk karena selisih antara setiap angka yang berurutan selalu sama. Selisih ini disebut beda (b).<br>
+Contoh:<br>
+ * Barisan naik: 2, 5, 8, 11, ... (bedanya adalah 3)<br>
+ * Barisan turun: 10, 7, 4, 1, ... (bedanya adalah -3)<br>
+Ciri-ciri barisan aritmatika:<br>
+ * Memiliki suku pertama (a)<br>
+ * Memiliki beda (b) yang tetap<br>
+ * Setiap suku dapat dicari menggunakan rumus: Un = a + (n-1)b
+
+
+
     <div id="more5">
 <article>
 <h1>Teori</h1>
@@ -15953,7 +15964,55 @@ Dari histogram diatas jumlah siswa terbanyak untuk nilai mtk berada pada interva
        </label> 
        
        
-    
+ 
+
+
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="75%" height="300px">
+  <!-- Lingkaran abu-abu sebagai dasar -->
+  <circle cx="16" cy="16" r="13" fill="none" stroke="blue" stroke-width="3.2"/>
+
+  <!-- Bagian 25% berwarna merah -->
+  <circle cx="16" cy="16" r="13" fill="none" stroke="red" stroke-width="3.2" 
+          stroke-dasharray="25 75" stroke-dashoffset="0"/>
+
+  <!-- Bagian 35% berwarna hijau -->
+  <circle cx="16" cy="16" r="13" fill="none" stroke="green" stroke-width="3.2" 
+          stroke-dasharray="35 65" stroke-dashoffset="-25"/>
+
+  <!-- Label 25% -->
+  <text x="21" y="6" font-size="2" fill="black">25%</text>
+
+  <!-- Label 35% -->
+  <text x="23" y="18" font-size="2" fill="black">35%</text>
+</svg>
+
+
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 100 100"
+    width="100"
+    height="100">
+  <defs>
+    <style>
+      /* Animasi rotasi kotak */
+      @keyframes rotasiKotak {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .berputar {
+        transform-origin: 50% 50%;
+        animation: rotasiKotak 4s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect x="25" y="25" width="50" height="50" fill="blue" class="berputar" />
+</svg>
 
     <h1>________</h1>
     <form id="quizForm">
