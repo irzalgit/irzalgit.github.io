@@ -348,6 +348,16 @@ localStorage.setItem('nil0',0);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
   </style>
+  
+    
+    <style>
+        .math-container {
+            display: inline-block;
+        }
+    </style>
+
+  
+  
 </head>
 <body onload="refresh()" >
  
@@ -4801,13 +4811,10 @@ Ciri-ciri barisan aritmatika:<br>
 
     <div id="more5">
 <article>
-<h1>Teori</h1>
-<p>Barisan adalah susunan angka angka berdasarkan pola bilangan.Barisan aritmatika
-jika selesih angka yang berurutan besarnya tetap, sedangkan
-barisan geometri jika perbandingan angka angka 
-yang berurutan besarnya tetap.
-Simbol selisih/beda : b sedangkan simbol perbandingan/rasio adalah r.</p> 
-<h3>Barisan</h3>
+
+<p> sedangkan
+barisan geometri jika perbandingan angka angka yang berurutan besarnya tetap, simbol perbandingan/rasio adalah r.</p> 
+
 <h4>Barisan aritmatika</h4>
 <p>Barisan aritmatika yang bedanya b adalah <label>$$U_n=a+(n-1).b$$</label></p>
 <h4>Barisan geometri</h4>
@@ -4829,7 +4836,8 @@ Simbol selisih/beda : b sedangkan simbol perbandingan/rasio adalah r.</p>
 
 <label for="">
 <p style="font-size:small">
-<h3>$$ 2 , 5 , 8 ,..., U_n$$</h3>
+    
+<h3>Soal 1 : $$ 2 , 5 , 8 ,..., U_n$$</h3>
 maka pola bilangan Un adalah<br>
 <input type="radio" name="no138" style=" display:inline-flex"> 
 <label>2n-1</label><br>
@@ -4849,7 +4857,7 @@ maka pola bilangan Un adalah<br>
 </p>
 </label>
 <br>
-<p>Jika Un=3n-1 maka suku ke 100 adalah</p>
+<p>Soal 2 : Jika Un=3n-1 maka suku ke 100 adalah</p>
 
 <label for="">
 
@@ -4870,7 +4878,7 @@ maka pola bilangan Un adalah<br>
 
 </p>
 </label>
-<p>Perhatikan deret berikut ini</p>
+<p>Soal 3 : Perhatikan deret berikut ini</p>
 <p> <label> $$2 + 5 + 8 + ...+U_{10}  $$</label></p>
 <p>maka jumlah 10 suku pertama   atau <label>$$ S_{10}$$</label> adalah</p>  
 <label for="">
@@ -4891,7 +4899,7 @@ maka pola bilangan Un adalah<br>
 </label>
 </p>
 </label>
-<p></p>Perhatikan deret geometri berikut ini</p>
+<p>Soal 4 ; Perhatikan deret geometri berikut ini</p>
 <p> $$ 2 + 4 + 8 + ...+U_5=S_5$$</p>
 <p>maka suku ke 5 yakni <label>$$U_5$$</label> dan jumlah 5 suku pertama
 <label>$$S_5$$</label> berturut turut adalah</p>  
@@ -4913,7 +4921,7 @@ maka pola bilangan Un adalah<br>
 
 </p>
 </label>
-<p>Perhatikan deret geometri berikut ini</p>
+<p>Soal 5 : Perhatikan deret geometri berikut ini</p>
 <p style="font-size:small"> 
 <label>$$\frac {1} {3}+\frac {1} {9}+\frac {1} {27}+...+U_4=S_4$$</label></p>
 <p>maka jumlah 4 suku pertama   atau <label>$$S_4$$</label> adalah</p>  
@@ -4940,12 +4948,12 @@ maka pola bilangan Un adalah<br>
 
 <h2>isilah dengan jawaban yang benar</h2>
 
-<label><h2><label>  $$2 + 5 + 8 + ...+U_{10}$$</label><br></h2></label>
+<label><h2><label> Esai 1 : $$2 + 5 + 8 + ...+U_{10}$$</label><br></h2></label>
 nilai<label>$$ S_{10}$$</label>  adalah
 <input style="background-color: #dedede" type="text" id="sno111"><div id="rsno111"></div>
 <hr>
 
-<h2>Jumlah 10 suku pertama dari deret :</h2>
+<h2>Esai 2 : Jumlah 10 suku pertama dari deret :</h2>
 
 
 <h2> <label>$$ 2 + 6 + 10 + ...+U_{10}$$</label></h2>
@@ -9558,6 +9566,26 @@ jika C=A-2B maka C adalah
 <hr>
 
 <br> 
+
+
+    
+
+    
+    <form id="quizForm">
+        <div id="questionContainer"></div>
+
+        <button type="button" onclick="checkScore()">Cek Nilai</button>
+    </form>
+
+    <p id="result"></p>
+
+
+
+
+
+
+
+
 
  <h1 class="text-3xl font-bold" id="nilai7"></h1>  
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim7()">Cek Nilai Matrik </button>
@@ -19294,6 +19322,112 @@ document.addEventListener('DOMContentLoaded', loadProgress);
             document.getElementById('score').innerText = score;
         }
     </script>
+    
+    
+    
+    <script>
+        // Array yang menyimpan nilai elemen matriks
+        const Am = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        // Fungsi untuk mengambil nilai acak dari array Am
+        function getRandomMatrix() {
+            return [
+                [Am[Math.floor(Math.random() * Am.length)], Am[Math.floor(Math.random() * Am.length)]],
+                [Am[Math.floor(Math.random() * Am.length)], Am[Math.floor(Math.random() * Am.length)]]
+            ];
+        }
+
+        // Fungsi untuk mengubah matriks menjadi string MathML
+        function matrixToMathML(matrix) {
+            return `<math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <mrow>
+                            <mo>[</mo>
+                            <mtable>
+                                <mtr><mtd>${matrix[0][0]}</mtd><mtd>${matrix[0][1]}</mtd></mtr>
+                                <mtr><mtd>${matrix[1][0]}</mtd><mtd>${matrix[1][1]}</mtd></mtr>
+                            </mtable>
+                            <mo>]</mo>
+                        </mrow>
+                    </math>`;
+        }
+
+        // Fungsi untuk men-generate soal acak
+        function generateQuestion() {
+            const matrixA = getRandomMatrix();
+            const matrixB = getRandomMatrix();
+
+            const correctAnswer = [
+                [matrixA[0][0] + matrixB[0][0], matrixA[0][1] + matrixB[0][1]],
+                [matrixA[1][0] + matrixB[1][0], matrixA[1][1] + matrixB[1][1]]
+            ];
+
+            return {
+                text: `Jika A = ${matrixToMathML(matrixA)} dan B = ${matrixToMathML(matrixB)}, hitunglah apakah pernyataan-pernyataan berikut benar atau salah.`,
+                options: [
+                    { statement: `A + B = ${matrixToMathML(correctAnswer)}`, correct: true },
+                    { statement: `A + B = ${matrixToMathML(getRandomMatrix())}`, correct: false },
+                    { statement: `Det(A) = Det(B)`, correct: false },
+                    { statement: `A = B`, correct: false }
+                ]
+            };
+        }
+
+        // Fungsi untuk memuat soal-soal baru
+        function loadNewQuestions() {
+            const questionContainer = document.getElementById('questionContainer');
+            questionContainer.innerHTML = '';
+
+            const question = generateQuestion();
+
+            const questionDiv = document.createElement('div');
+            const questionText = document.createElement('p');
+            questionText.innerHTML = question.text;
+            questionDiv.appendChild(questionText);
+
+            question.options.forEach((option, optionIndex) => {
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.name = 'q1';
+                checkbox.value = option.correct;
+
+                const label = document.createElement('label');
+                label.innerHTML = option.statement;
+
+                questionDiv.appendChild(checkbox);
+                questionDiv.appendChild(label);
+                questionDiv.appendChild(document.createElement('br'));
+            });
+
+            questionContainer.appendChild(questionDiv);
+        }
+
+        // Fungsi untuk mengecek nilai
+        function checkScore() {
+            let score = 0;
+
+            const selectedAnswers = [];
+            const checkboxes = document.getElementsByName('q1');
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked && checkbox.value === 'true') {
+                    score++;
+                }
+            });
+
+            document.getElementById("result").innerHTML = "Skor kamu: " + (score * 10);
+
+            // Setelah menampilkan skor, muat soal baru
+            loadNewQuestions();
+        }
+
+        // Muat soal pertama kali saat halaman dimuat
+        window.onload = loadNewQuestions;
+    </script>
+
+
+
+    
+    
   </body>
   
  
