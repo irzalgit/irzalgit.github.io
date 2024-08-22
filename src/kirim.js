@@ -1,8 +1,39 @@
  
  
-       
+         
+        function checkAners() {
+            const correctAnswers = {
+                q1: ['A'],
+                q2: ['A', 'C'],
+                q3: ['A', 'B', 'D'],
+                q4: ['A', 'B', 'C', 'D'],
+                q5: ['B']
+            };
+
+            let score = 0;
+
+            for (const [question, correctOptions] of Object.entries(correctAnswers)) {
+                const userAnswers = Array.from(document.querySelectorAll(`input[name="${question}"]:checked`)).map(input => input.value);
+                
+                if (userAnswers.length === correctOptions.length && userAnswers.every(val => correctOptions.includes(val))) {
+                    score += 10;
+                }
+            }
+
+            document.getElementById('score').innerText = score;
+        }
     
- 
+    
+
+        document.querySelectorAll('.pengalih-tema').forEach((pengalih, index) => {
+            pengalih.addEventListener('change', (event) => {
+                if (event.target.name === `tema${index + 1}`) {
+                    const artikel = pengalih.closest('.artikel');
+                    artikel.className = `artikel tema-${event.target.value}`;
+                }
+            });
+        });
+    
  
  function generateQuestionsA() {
     clearQuestions();
@@ -354,6 +385,9 @@ equation = "54. <math xmlns=`http://www.w3.org/1998/Math/MathML`><mrow><mo>(</mo
 equation = "55. Seseorang meminjam uang sebesar Rp. "+hh+"  untuk membeli perabotan rumah dengan cicilan bulanan selama "+tt+" tahun dan bunga  "+rr+" % per tahun. Berapakah besar cicilan bulanannya ?";
     correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(0);
       }
+      
+      
+      
       
       
  var options = generateOptions(correctAnswer);
@@ -1590,6 +1624,15 @@ let poin5 = 0;
     const jno141 = document.querySelector("#jno141");
     const jno142 = document.querySelector("#jno142");
     const nilai5=document.querySelector('#nilai5');
+    
+    
+    const sno1=document.querySelector('#sno1');
+    const sno2=document.querySelector('#sno2');
+ const rsno1=document.querySelector('#rsno1');
+  const rsno2=document.querySelector('#rsno2');
+
+
+
 
     if (jno138.checked) {
     response = "ok";
@@ -1632,7 +1675,25 @@ rno141.innerHTML = response;
   }
 rno142.innerHTML = response;
     
-    
+    if (sno111.value == "29") {
+  response = "";
+  poin5 = poin5 + 15;
+} else {
+  response = "";
+}
+rsno111.innerHTML = response;
+
+  
+
+if (sno112.value == "200") {
+  response = "";
+  poin5 = poin5 + 15;
+} else {
+  response = "";
+}
+rsno112.innerHTML = response;
+
+  
   
 
 nilai5.innerHTML=poin5;
