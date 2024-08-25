@@ -356,7 +356,7 @@ localStorage.setItem('nil0',0);
         }
     </style>
 
-  
+     
   
 </head>
 <body onload="refresh()" >
@@ -1062,11 +1062,13 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
 <div  id="bab00" class="border-1 rounded-3xl box-border border-black p-4  text-black bg-white">
   
   <div class="text-2xl">Penalaran Matematika   </div>
+  
 
+    
 <span id="dots00">...</span>
     <div id="more00">
 
-  <article class="hidden">
+  <article class="block">
   <p  class="font-bold">
  </p>
 
@@ -1122,6 +1124,17 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
   maka 2 = 5 - 3
   </article>
   <hr>
+  
+   <div class="bg-slate-200 h-48">
+        <h1 class="text-2xl">Latihan Aljabar </h1>
+        <input class="w-full bg-green-200" type="text" id="question" placeholder="Masukkan soal matematika, contoh: 5 + 7">
+        <div class="bg-green-200 " id="result"></div>
+        <input class="text-black bg-blue-700 w-auto" type="button" value="Jawab" onclick="solveMath()">
+        
+        
+        
+    </div>
+
   <!--
   <p class="font-bold">soal 1</p>
   Diberikan a+3=8 maka nilai a adalah<br>
@@ -1180,6 +1193,14 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
  <div style="display:flex">
  <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestionsA()">Soal baru</button>
   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" id="tombolcek" onclick="checkAnswers()">CEK Aljabar</button>
+  <br>
+  <hr>
+
+ 
+    
+    
+  
+  
  </div>
   
   
@@ -1205,6 +1226,10 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
          
     
       </div>
+      
+    
+
+    
   </div> 
   
   </div >
@@ -19472,7 +19497,25 @@ document.addEventListener('DOMContentLoaded', loadProgress);
         // Muat soal pertama kali saat halaman dimuat
         window.onload = loadNewQuestions;
     </script>
+      <script>
+        
+        function solveMath() {
+    // Ambil input dari pengguna
+    const question = document.getElementById('question').value;
+    const resultDiv = document.getElementById('result');
     
+    try {
+        // Evaluasi soal matematika
+        const result = eval(question);
+        // Tampilkan hasil
+        resultDiv.innerHTML = `<h2>Hasil: ${result}</h2>`;
+    } catch (error) {
+        // Tangani kesalahan jika soal tidak valid
+        resultDiv.innerHTML = '<h2>Terjadi kesalahan. Pastikan format soal benar.</h2>';
+    }
+}
+        
+    </script>
   </body>
   
  
