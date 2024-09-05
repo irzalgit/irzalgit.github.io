@@ -1626,7 +1626,7 @@ let poin5 = 0;
     const nilai5=document.querySelector('#nilai5');
        const jno143 = document.querySelector("#jno143");
     const jno144 = document.querySelector("#jno144");
-    const jno145 = document.querySelector("#jno146");
+    const jno145 = document.querySelector("#jno145");
     const jno146 = document.querySelector("#jno146");
     const jno147 = document.querySelector("#jno147");
 
