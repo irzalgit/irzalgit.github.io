@@ -1624,6 +1624,12 @@ let poin5 = 0;
     const jno141 = document.querySelector("#jno141");
     const jno142 = document.querySelector("#jno142");
     const nilai5=document.querySelector('#nilai5');
+       const jno143 = document.querySelector("#jno143");
+    const jno144 = document.querySelector("#jno144");
+    const jno145 = document.querySelector("#jno146");
+    const jno146 = document.querySelector("#jno146");
+    const jno147 = document.querySelector("#jno147");
+
     
     
     const sno1=document.querySelector('#sno1');
@@ -1674,6 +1680,53 @@ rno141.innerHTML = response;
     response = "x";
   }
 rno142.innerHTML = response;
+    
+    
+     if (jno143.checked) {
+    response = "ok";
+    poin5 = poin5 + 10;
+  } else {
+    response = "x";
+  }
+rno143.innerHTML = response;
+    
+    if (jno144.checked) {
+    response = "ok";
+    poin5 = poin5 + 10;
+  } else {
+    response = "x";
+  }
+rno144.innerHTML = response;
+   
+   
+    if (jno145.checked) {
+    response = "ok";
+    poin5 = poin5 + 10;
+  } else {
+    response = "x";
+  }
+rno145.innerHTML = response;
+    
+      if (jno146.checked) {
+    response = "ok";
+    poin5 = poin5 + 10;
+  } else {
+    response = "x";
+  }
+rno146.innerHTML = response;
+    
+     if (jno147.checked) {
+    response = "ok";
+    poin5 = poin5 + 10;
+  } else {
+    response = "x";
+  }
+rno147.innerHTML = response;
+    
+    
+    
+    
+    
     
     if (sno111.value == "29") {
   response = "";
