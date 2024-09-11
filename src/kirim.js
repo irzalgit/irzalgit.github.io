@@ -1,4 +1,4 @@
-77 
+ 
  
          
         function checkAners() {
@@ -78,7 +78,7 @@
     
     
     
-    for (var i = 1; i <= 55; i++) {
+    for (var i = 41; i <= 61; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -384,7 +384,27 @@ equation = "54. <math xmlns=`http://www.w3.org/1998/Math/MathML`><mrow><mo>(</mo
       }else if (i === 55) {
 equation = "55. Seseorang meminjam uang sebesar Rp. "+hh+"  untuk membeli perabotan rumah dengan cicilan bulanan selama "+tt+" tahun dan bunga  "+rr+" % per tahun. Berapakah besar cicilan bulanannya ?";
     correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(0);
+      }else if (i === 56) {
+equation = "56.Diketahui 2 fungsi yaitu f(x) dan g(x). Tentukan nilai fungsi  komposisi h(3) jika h=g$ \circ $ f ";
+    correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(0);
+      }else if (i === 57) {
+equation = "57.Jika f()=4x-3 maka f<sup>-1</sup>(3)=?" ;
+    correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(0);
+      }else if (i === 58) {
+equation = "58.lingkaran Seseorang meminjam uang sebesar Rp. "+hh+"  untuk membeli perabotan rumah dengan cicilan bulanan selama "+tt+" tahun dan bunga  "+rr+" % per tahun. Berapakah besar cicilan bulanannya ?";
+    correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(0);
+      }else if (i === 59) {
+equation = "59.lingkaran Seseorang meminjam uang sebesar Rp. "+hh+"  untuk membeli perabotan rumah dengan cicilan bulanan selama "+tt+" tahun dan bunga  "+rr+" % per tahun. Berapakah besar cicilan bulanannya ?";
+    correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(0);
+      }else if (i === 60) {
+equation = "60.matrik";
+    correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(0);
+      }else if (i === 61) {
+equation = "61.matrik";
+    correctAnswer =((hh*rr/1200)/(1- Math.pow((1+rr/1200),-tt*12))).toFixed(0);
       }
+      
+      
       
       
       
@@ -462,13 +482,13 @@ function displayQuestions() {
       var questionElement = document.createElement("div");
       questionElement.classList.add("question");
       questionElement.innerHTML = `
-      <div class="text-black bg-green-400 border-1 rounded-3xl box-border  border-black p-2  "> 
-<div class="bg-green-100 h-auto">${question.svg}</div>
+      <div class="border-1 rounded-3xl box-border  border-black p-2  "> 
+<div>${question.svg}</div>
 <p>${question.equation}</p>
 <form id="form${index}" style=" padding:5px" >
           ${question.options.map((option, i) => `
             <input type="radio" name="answer${index}" value="${i}">
-            <label>${option}</label><br>
+            <p>${option}</p><br>
           `).join('')}
         </form>
      </div> `;
