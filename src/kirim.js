@@ -3441,7 +3441,7 @@ rsno95.innerHTML = response;
 }
 rsno96.innerHTML = response;
 
- if (sno97.value == "16") {
+ if (sno97.value == "4") {
   response = "";
   poin = poin + 15;
 } else {
@@ -3449,7 +3449,7 @@ rsno96.innerHTML = response;
 }
 rsno97.innerHTML = response;
 
- if (sno98.value == "4") {
+ if (sno98.value == "9") {
   response = "";
   poin = poin + 15;
 } else {
