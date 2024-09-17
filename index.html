@@ -3,7 +3,7 @@
 <html lang="en"  class=" h-full ">
 <head>
  <script src="https://unpkg.com/feather-icons"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">0
   <link rel="preconnect" href="https://font.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
     rel="stylesheet">
@@ -209,7 +209,7 @@ height:0.8rem;
   <style>
       
         audio {
-            display: none;
+            display: block;
         }
          #backgroundMusic {
             display: none; /* Sembunyikan elemen audio */
@@ -338,7 +338,7 @@ localStorage.setItem('nil0',0);
       gap: 2rem;
     }
     .button {
-      background-color: blue;
+      background-color: yellow;
       color:white;
       border: none;
       width:33vw;
@@ -356,6 +356,73 @@ localStorage.setItem('nil0',0);
         }
     </style>
 
+<style>
+        
+        .containerqr {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 75%;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #094a87;
+        }
+        img.qr-code {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+
+
+
+    <style>m
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 10px;
+        }
+        #chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 400px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+        }
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #submit-btn {
+            padding: 10px 20px;
+        }
+    </style>
+
      
   
 </head>
@@ -364,7 +431,7 @@ localStorage.setItem('nil0',0);
 
     <div class="container">
     <header>
-    <div class ="text-sm" >for smartphone, update 13/09/24 
+    <div class ="text-sm" >for smartphone, update 17/09/24 17 wib
 
 
 </div>
@@ -990,13 +1057,6 @@ localStorage.setItem('nil0',0);
    <p> unduh aplikasi <br>for android 10 keatas</p>
    -->
   
-  
-  <!-- <figure>
-    <figcaption>Putri Ariani</figcaption>
-    <audio controls src="./vidio/lier.mp3">
-      <a href="./vidio/lier.mp3"> Download audio </a>
-    </audio>
-  </figure> -->
 
 <!--   
     <h3 class="font-tangerine"> Tentang Portal Peta Pikiran</h3>
@@ -1061,7 +1121,7 @@ localStorage.setItem('nil0',0);
  
  <div id="babutama"  class="flex flex-col space-y-4 px-2 " >
 
-
+ 
   <div id="bab" class="hidden h-72 overflow-y-auto border-1 rounded-3xl box-border 
    border-black p-4  text-slate-700 bg-slate-100">
   
@@ -1158,8 +1218,14 @@ Jika deskripsi ini akurat, matematika tidak dapat menarik orang yang cerdas. Ini
         
   
   <div class="text-2xl">Penalaran Matematika   </div>
-  
-
+  <br>
+ <figure>
+    <figcaption style="font-bold;color:green; font-size:20px">Apa itu literasi?</figcaption>
+    <audio controls src="./vidio/literasi.m4a"> 
+    
+<a href="./vidio/literasi.m4a"> Download  </a>
+    </audio>
+  </figure>
     
 <span id="dots00">...</span>
     <div id="more00">
@@ -23290,8 +23356,8 @@ maka nilai f(2) <br>
 <button onclick="myBtn1()"style="background-color:green"  class="button  text-slate-700" id="btn6"> Fungsi Kompososi</button>
 
 
-<button onclick="myBtn1()"style="background-color:red"  class="button  text-slate-700" id="btn5"> Barisan  & dan deret</button>
-<button onclick="myBtn1()"class="button text-slate-700" id="btn19"> Transformaai</button>
+<button onclick="myBtn1()" style="background-color:red"  class="button  text-slate-700" id="btn5"> Barisan  & dan deret</button>
+<button onclick="myBtn1()" style="background-color:blue" class="button text-slate-700" id="btn19"> Transformaai</button>
 
 
 <button onclick="myBtn1()"style="background-color:green"  class="button text-slate-700" id="btn12"> Lingkaran</button>
@@ -23574,7 +23640,7 @@ playRandomSong();
     <div class="credit">
       <h2 class="text-2xl" >Created by <a href="">irzalachmad</a>. | &copy; 2023.</h2>
     </div>
-          
+          <!--
     <div id="dona" class="container1">
    <h1>Galang Dana untuk Pendidikan Pelajar Indonesia </h1>
         <p>Jadikan ANDA sebagai DONATUR web ini.
@@ -23587,8 +23653,125 @@ playRandomSong();
        <button class="text-black bg-red-500 " onclick="toggleContent()">Belum Sekarang</button> 
 </div>
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0a73cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #094a87;
+        }
+        img.qr-code {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+-->
+    <div class="containerqr">
+        <h2>Tarik & Setor </h2>
+<p>member  yang menyetor sejumlah dana dapat menarik kembali dana + bonus jika nilai skore menuju angka minimal  10000</p>
+        <!-- Form Top-up -->
+        <form id="topup-form">
+            <label for="amount-topup">Jumlah Setoran (IDR):</label>
+            <input type="number" id="amount-topup" name="amount-topup" placeholder="Masukkan jumlah setoran" required>
 
- 
+            <label for="account-topup">Nama Pengguna:</label>
+            <input type="text" id="account-topup" name="account-topup" placeholder="Masukkan nama pengguna" required>
+
+            <button style=" background-color: #0a73cc" type="submit">Setoran</button>
+        </form>
+
+
+ <img class="items-center p-4" src="./gbr/dan100.jpg" alt="">
+        <hr>
+
+        <!-- Form Penarikan -->
+        <form id="withdraw-form">
+            <label for="amount-withdraw">Jumlah Penarikan (IDR):</label>
+            <input type="number" id="amount-withdraw" name="amount-withdraw" placeholder="Masukkan jumlah penarikan" required>
+
+            <label for="account-withdraw">Nama Pengguna:</label>
+            <input type="text" id="account-withdraw" name="account-withdraw" placeholder="Masukkan nama pengguna" required>
+
+            <button style=" background-color: #0a73cc" type="submit">Tarik</button>
+        </form>
+
+        <!-- Tempat untuk menampilkan kode QR -->
+        <div id="qr-code-container" style="display: none;">
+            <h3>Pindai QRIS:</h3>
+            <img id="qr-code" class="qr-code" src="./gbr/dan100.jpg" 
+            alt="QR Code untuk Pembayaran QRIS">
+            
+             <img class="items-center p-4" src="./gbr/dan100.jpg" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk menangani top-up
+        document.getElementById("topup-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const amountTopup = document.getElementById("amount-topup").value;
+            const accountTopup = document.getElementById("account-topup").value;
+
+            alert( Setoran sebesar IDR ${amountTopup} untuk pengguna ${accountTopup} diproses. Tunggu kode QR.`);
+            generateQrCode(amountTopup, accountTopup);
+        });
+
+        // Fungsi untuk menangani penarikan
+        document.getElementById("withdraw-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const amountWithdraw = document.getElementById("amount-withdraw").value;
+            const accountWithdraw = document.getElementById("account-withdraw").value;
+
+            alert(`Penarikan sebesar IDR ${amountWithdraw} untuk pengguna ${accountWithdraw} diproses.`);
+            // Lakukan penarikan melalui backend di sini
+        });
+
+        // Fungsi untuk mengirim permintaan dan menampilkan kode QR
+        function generateQrCode(amount, account) {
+            // Simulasi URL QR Code (diambil dari backend menggunakan API Payment Gateway QRIS)
+            const qrCodeUrl = `https://api.qrispayment.com/generate?amount=${amount}&user=${account}`;
+
+            // Tampilkan kode QR
+            document.getElementById("qr-code").src = qrCodeUrl;
+            document.getElementById("qr-code-container").style.display = "block";
+        }
+    </script>
+
   </footer>
 
 <!-- <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script> -->
@@ -24568,6 +24751,8 @@ function toggleContent() {
             './vidio/r2.mp3' , // Ganti dengan path lagu Anda
             './vidio/r3.mp3', // Ganti dengan path lagu Anda
             './vidio/r4.mp3', // Ganti dengan path lagu Anda
+            './vidio/fz528.m4a', // Ganti dengan path lagu Anda
+            './vidio/r6.m4a', // Ganti dengan path lagu Anda
             './vidio/lini.m4a', // Ganti dengan path lagu Anda
               './vidio/Tarumik.mp3', // Ganti dengan path lagu Anda
             './vidio/dimas.mp3', // Ganti dengan path lagu Anda
@@ -24994,6 +25179,66 @@ document.addEventListener('DOMContentLoaded', loadProgress);
 }
         
     </script>
+    
+    
+    <h1>Chat with GPT</h1>
+    <div id="chat-box">
+        <!-- Chat log will appear here -->
+    </div>
+    <textarea id="user-input" rows="4" placeholder="Type your prompt here..."></textarea>
+    <button id="submit-btn">Send</button>
+
+    
+    <br>
+    <br>
+    
+    <script>
+        const apiKey = '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';  // Replace with your OpenAI API key
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const submitBtn = document.getElementById('submit-btn');
+
+        submitBtn.addEventListener('click', async () => {
+            const userPrompt = userInput.value;
+
+            if (userPrompt.trim() === "") return;
+
+            appendToChatBox('You: ' + userPrompt, 'user');
+
+            const gptResponse = await fetchChatGPTResponse(userPrompt);
+            appendToChatBox('ChatGPT: ' + gptResponse, 'gpt');
+
+            userInput.value = '';
+        });
+
+        function appendToChatBox(message, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messageElement.classList.add(sender);
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        async function fetchChatGPTResponse(prompt) {
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`,
+                },
+                body: JSON.stringify({
+                    model: "gpt-4",
+                    messages: [{ role: "user", content: prompt }],
+                    max_tokens: 150,
+                }),
+            });
+            const data = await response.json();
+            return data.choices[0].message.content.trim();
+        }
+    </script>
+    
+</body>
+</html>
   </body>
   
  
