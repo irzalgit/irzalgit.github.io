@@ -3321,8 +3321,18 @@ function kirim12(){
     const jno96= document.querySelector("#jno96");
     const jno97= document.querySelector("#jno97");
     
-   
     
+const sno91=document.querySelector('#sno91');
+const sno92=document.querySelector('#sno92');
+const sno93=document.querySelector('#sno93');
+const sno94=document.querySelector('#sno94');
+const sno95=document.querySelector('#sno95');
+const sno96=document.querySelector('#sno96');
+const sno97=document.querySelector('#sno97');
+const sno98=document.querySelector('#sno98');
+const sno99=document.querySelector('#sno99');
+const sno910=document.querySelector('#sno910');
+        
 const rno91=document.querySelector("#rno91");
 const rno92=document.querySelector("#rno92");
 const rno93=document.querySelector("#rno93");
@@ -3330,6 +3340,11 @@ const rno94=document.querySelector("#rno94");
 const rno95=document.querySelector("#rno95");
 const rno96=document.querySelector("#rno96");
 const rno97=document.querySelector("#rno97");
+const rno98=document.querySelector("#rno98");
+const rno99=document.querySelector("#rno99");
+const rno910=document.querySelector("#rno910");
+
+
 
     const nilai12=document.querySelector("#nilai12");
     
@@ -3374,8 +3389,90 @@ response="ok";
     } else {response="x";}
     rno97.innerHTML=response;
     
-   
     
+      if (sno91.value == "132") {
+  response = "";
+  poin = poin + 15;
+} else {
+  response = "";
+}
+rsno91.innerHTML = response;
+
+  
+    if (sno92.value == "9") {
+  response = "";
+  poin = poin + 15;
+} else {
+  response = "";
+}
+rsno92.innerHTML = response;
+
+     if (sno93.value == "314") {
+  response = "";
+  poin = poin + 15;
+} else {
+  response = "";
+}
+rsno93.innerHTML = response;
+
+
+ if (sno94.value == "10") {
+  response = "";
+  poin = poin + 15;
+} else {
+  response = "";
+}
+rsno94.innerHTML = response;
+
+ if (sno95.value == "3") {
+  response = "";
+  poin = poin + 15;
+} else {
+  response = "";
+}
+rsno95.innerHTML = response;
+
+
+ if (sno96.value == "22") {
+  response = "";
+  poin = poin + 15;
+} else {
+  response = "";
+}
+rsno96.innerHTML = response;
+
+ if (sno97.value == "16") {
+  response = "";
+  poin = poin + 15;
+} else {
+  response = "";
+}
+rsno97.innerHTML = response;
+
+ if (sno98.value == "4") {
+  response = "";
+  poin = poin + 15;
+} else {
+  response = "";
+}
+rsno98.innerHTML = response;
+
+ if (sno99.value == "120") {
+  response = "";
+  poin = poin + 15;
+} else {
+  response = "";
+}
+rsno99.innerHTML = response;
+
+ if (sno910.value == "13,5") {
+  response = "";
+  poin = poin + 15;
+} else {
+  response = "";
+}
+rsno910.innerHTML = response;
+
     nilai12.innerHTML=poin;
     localStorage.setItem("nil12",poin);
     
