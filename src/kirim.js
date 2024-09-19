@@ -1169,6 +1169,7 @@ juduln1.innerHTML=localStorage.getItem("nil1");
 
 function kirim2() {
   let poin2 = 0;
+  const sno101=document.querySelector('#sno101');
   const jno101 = document.querySelector("#jno101");
   const jno102 = document.querySelector("#jno102");
   const jno103 = document.querySelector("#jno103");
@@ -1257,6 +1258,14 @@ response = "ok";
 }
 rno110.innerHTML = response;
 
+
+  if (sno101.value == "3") {
+  response = "ok";
+  poin2 = poin2 + 15;
+} else {
+  response = "";
+}
+rsno101.innerHTML = response;
 
 nilai2.innerHTML=poin2
 
