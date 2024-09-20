@@ -2,39 +2,169 @@
         body {
             transition: background-color 0.3s, color 0.3s;
         }
-
-        .tema-gelap {
-            background-color: blue;
-            color: white;
-            font-size: 16px;
-        }
-          .tema-gelap p{
-            color: black;
-        }
         
+        /* Tema Dark Mode Elegan */
 
-        .tema-hijau {
-            background-color: green;
-            color: yellow;
-        }
-  .tema-hijau p{
-            color: yellow;
-        }
- 
-        .tema-sepia {
-            background-color: grey;
-            color: black;
-        }
-  .tema-sepia p {
-            
-            color: black;
-        }
+        
+.tema-gelap {
+background-color: #1C1C1E;
+color: #FFFFFF;
+font-family: Arial, sans-serif }
+.tema-gelap p{color: white;}
+.tema-gelap input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+.tema-gelap input[type="radio"]:checked {
+  background-color: #FFFFFF;}
+.tema-gelap input[type="text"] {
+  background-color: #1C1C1E;
+  color: #FFFFFF;
+  border: 1px solid #888888;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tema-hijau {
+    background-color: #8B4513;
+    color: #FFFFFF;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+}
 
 
-        .tema-birumuda {
+.tema-hijau  input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #0D47A1;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+ .tema-hijau input[type="radio"]:checked {
+  background-color: #0D47A1;
+}
+ .tema-hijau input[type="text"] {
+  background-color: #E3F2FD;
+  color: #0D47A1;
+  border: 1px solid #90CAF9;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+  
+.tema-sepia {
+  color: #FFFFFF;
+    color: #F8F8F2;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+}
+
+  .tema-sepia input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00796B;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+  .tema-sepia input[type="radio"]:checked {
+  background-color: #00796B;
+}
+
+  .tema-sepia input[type="text"] {
+  background-color: #E0F7FA;
+  color: #00796B;
+  border: 1px solid #80DEEA;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+ .tema-birumuda {
             background-color: #e0f7fa;
             color: #006064;
         }
+        
+        
+       /* Tema Kontras Tinggi dan Berani */
+.tema-birumuda {
+  background-color: #FFD700;
+  color: #000000;
+  font-family: 'Tahoma', sans-serif;
+}
+
+.tema-birumuda  input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.tema-birumuda  input[type="radio"]:checked {
+  background-color: #0D47A1;
+}
+
+.tema-birumuda  input[type="text"] {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 2px solid #000000;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+} 
+        
+        
+/* Tema Minimalis Bersih */
+.tema-bersih {
+  background-color: #F5F5F5;
+  color: #000000;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.tema-bersih input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.tema-bersih input[type="radio"]:checked {
+  background-color: #000000;
+}
+
+.tema-bersih input[type="text"] {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 1px solid #CCCCCC;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+        
+        
+        
 
         .pengalih-tema {
             margin: 20px 0;
