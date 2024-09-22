@@ -427,11 +427,11 @@ localStorage.setItem('nil0',0);
   
 </head>
 <body onload="refresh()" >
- <!-- <button onclick="window.location.href='gbr.html'">Gbr</button>-->
+ <button onclick="window.location.href='gbr.html'">pnl</button>
 
     <div class="container">
     <header>
-    <div class ="text-sm" >for smartphone, update 18/09/24 
+    <div class ="text-sm" >for smartphone, update 22/09/24 
 
 
 </div>
@@ -12832,42 +12832,57 @@ Lingkaran memiliki beberapa sifat khas yang membuatnya unik dibandingkan dengan 
   <path d="
     M 100,100 
     L 190,100 
-    A 90,90 0 0,1 155,177 
+    A 90,90 0 0,1 145.45,177.94 
     Z" 
     fill="lightblue" stroke="black" stroke-width="2" />
 
   <!-- Talibusur (garis lurus dari titik A ke titik B) -->
-  <line x1="190" y1="100" x2="155" y2="177" stroke="red" stroke-width="2" />
+  <line x1="190" y1="100" x2="145.45" y2="177.94" stroke="red" stroke-width="2" />
 
   <!-- Tembereng (area antara talibusur dan busur lingkaran) -->
   <path d="
     M 190,100
-    A 90,90 0 0,1 155,177
+    A 90,90 0 0,1 145.45,177.94
     L 190,100
     Z" 
     fill="lightgreen" opacity="0.5" stroke="black" stroke-width="2" />
 
   <!-- Apotema (garis dari pusat ke talibusur) -->
-  <line x1="100" y1="100" x2="172.5" y2="138.5" stroke="blue" stroke-width="2" stroke-dasharray="4" />
+  <line x1="100" y1="100" x2="160" y2="138" stroke="blue" stroke-width="2" stroke-dasharray="4" />
 
   <!-- Teks nama komponen -->
   <!-- Juring label -->
-  <text x="120" y="130" fill="black" font-size="10">Juring</text>
+  <circle cx="100" cy="100" r="3" fill="black" />
+  <text x="95" y="95" fill="black" font-size="10">P</text>
+
+  <!-- Titik A (titik perpotongan lingkaran dengan talibusur) -->
+  <circle cx="190" cy="100" r="3" fill="black" />
+  <text x="192" y="105" fill="black" font-size="10">A</text>
+
+  <!-- Titik B (titik perpotongan lingkaran dengan talibusur) -->
+  <circle cx="145.45" cy="177.94" r="3" fill="black" />
+  <text x="140" y="190" fill="black" font-size="10">B</text>
+
+  <!-- Titik Q (titik perpotongan talibusur dengan apotema) -->
+  <circle cx="165" cy="140" r="3" fill="black" />
+  <text x="172" y="140" fill="black" font-size="10">Q</text>
+  
+  <text x="80" y="130" fill="black" font-size="10">Juring</text>
 
   <!-- Talibusur label -->
-  <text x="160" y="130" fill="black" font-size="10">Talibusur</text>
+  <text x="150" y="130" fill="black" font-size="8">Talibusur</text>
 
   <!-- Tembereng label -->
-  <text x="150" y="155" fill="black" font-size="10">Tembereng</text>
+  <text x="135" y="155" fill="black" font-size="10">Tembereng</text>
 
   <!-- Apotema label -->
-  <text x="140" y="110" fill="black" font-size="10">Apotema</text>
+  <text x="120" y="120" fill="black" font-size="10">Apotema</text>
 
   <!-- Label Lingkaran -->
   <text x="80" y="40" fill="black" font-size="10">Lingkaran</text>
 
-</svg>
 
+</svg>
 <br>
 Sifat-sifat ini digunakan dalam berbagai aplikasi matematis, fisika, dan teknik untuk memahami dan bekerja dengan lingkaran.
 <p>Lingkaran adalah tempat kedudukan titik - titik yang berjarak sama
@@ -13496,6 +13511,36 @@ tinggi dari apotema ...<label></label> adalah
 <input style="background-color: #dedede" type="text" id="sno910"><div id="rsno910"></div>
 <hr>
 
+
+
+
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Lingkaran dengan jari-jari 75 -->
+  <circle cx="150" cy="150" r="75" fill="none" stroke="black" stroke-width="2"/>
+
+  <!-- Juring merah dengan sudut 60 derajat -->
+  <path d="
+    M 150,150
+    L 150,75
+    A 75,75 0 0,1 213,112
+    Z
+  " fill="red" />
+</svg>
+
+
+
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Lingkaran dengan jari-jari 150 -->
+  <circle cx="150" cy="150" r="150" fill="none" stroke="black" stroke-width="2"/>
+
+  <!-- Tembereng hijau -->
+  <path d="
+    M 50,150
+    A 150,150 0 0,1 250,150
+    L 50,150
+    Z
+  " fill="green" />
+</svg>
 
 <h1 id="nilai12"></h1>
 
