@@ -427,11 +427,13 @@ localStorage.setItem('nil0',0);
   
 </head>
 <body onload="refresh()" >
+
  <button onclick="window.location.href='gbr.html'">a</button>
+ <div id="output"></div>
 
     <div class="container">
     <header>
-    <div class ="text-sm" >for smartphone, update 22/09/24 
+    <div class ="text-sm" >for smartphone, update 25/09/24 
 
 
 </div>
@@ -25433,9 +25435,24 @@ document.addEventListener('DOMContentLoaded', loadProgress);
         }
     </script>
     
+    
+ <script>
+        // URL API dari Vercel
+        const apiUrl = 'https://vercel.com/irzal-achmads-projects/my-vercel-app/EHXhaTP6oyx2Rfhkab44UNd67rHZ ';
+
+        // Menggunakan fetch untuk memanggil API
+        fetch(apiUrl)
+            .then(response => response.json()) // Mengubah response menjadi JSON
+            .then(data => {
+                // Menampilkan hasil API di HTML
+                document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error:', error));
+    </script>    
+    
 </body>
 </html>
-  </body>
+  
   
  
   
