@@ -103,6 +103,8 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
   #more21 {display: none;}
   #more23 {display: none;}
   #more24 {display: none;}
+  #more25 {display: none;} 
+  
   
   #bab2 {display: block;}
   #bab3 {display: block;}
@@ -433,7 +435,7 @@ localStorage.setItem('nil0',0);
 
     <div class="container">
     <header>
-    <div class ="text-sm" >for smartphone, update 21/10/24 
+    <div class ="text-sm" >for smartphone, update 22/10/24 
 
 
 </div>
@@ -1124,7 +1126,7 @@ localStorage.setItem('nil0',0);
  <div id="babutama"  class="flex flex-col space-y-4 px-2 " >
 
  
-  <div id="bab" class="hidden h-72 overflow-y-auto border-1 rounded-3xl box-border 
+  <div id="bab" class=" h-72 overflow-y-auto border-1 rounded-3xl box-border 
    border-black p-4  text-slate-700 bg-slate-100">
   
 <div class="text-2xl">Computational Thinking/CT</div>
@@ -1142,34 +1144,34 @@ Hanya fokus pada informasi penting saja<br>
 4.Algoritma yaitu susunan langkah penyelesaian
 
 Panduan umum tentang apa yang mungkin termasuk dalam modul ajar Kurikulum Merdeka Matematika untuk SMK. Berikut adalah contoh konten yang mungkin dimasukkan:
-
-1. **Pengenalan Konsep Dasar:**
-   - Bilangan dan Operasi: Penjumlahan, pengurangan, perkalian, dan pembagian bilangan bulat, pecahan, dan desimal.
-   - Aljabar: Persamaan linear, sistem persamaan, dan penggunaan rumus dalam konteks praktis.
+<br>
+1. **Pengenalan Konsep Dasar:**<br>
+   - Bilangan dan Operasi: Penjumlahan, pengurangan, perkalian, dan pembagian bilangan bulat, pecahan, dan desimal.<br>
+   - Aljabar: Persamaan linear, sistem persamaan, dan penggunaan rumus dalam konteks praktis.<br>
    - Geometri: Pengenalan bentuk, ukuran, dan sifat-sifat geometris, termasuk perhitungan luas, volume, dan sudut.
-
-2. **Penerapan Matematika dalam Konteks Nyata:**
-   - Studi Kasus Industri: Contoh penggunaan matematika dalam industri dan bisnis seperti manufaktur, konstruksi, atau keuangan.
+<br>
+2. **Penerapan Matematika dalam Konteks Nyata:**<br>
+   - Studi Kasus Industri: Contoh penggunaan matematika dalam industri dan bisnis seperti manufaktur, konstruksi, atau keuangan.<br>
    - Proyek-proyek Terapan: Mahasiswa mungkin diminta untuk menyelesaikan proyek-proyek yang melibatkan perhitungan matematika dalam konteks nyata, seperti perencanaan anggaran atau desain produk.
+<br>
+3. **Teknologi dan Matematika:**<br>
+   - Penggunaan Perangkat Lunak Matematika: Pengenalan dan penerapan perangkat lunak matematika seperti spreadsheet, software statistik, atau alat geometri dinamis.<br>
+   - Pemodelan Matematika: Penggunaan teknologi untuk memodelkan situasi dunia nyata dan menganalisis data.<br>
 
-3. **Teknologi dan Matematika:**
-   - Penggunaan Perangkat Lunak Matematika: Pengenalan dan penerapan perangkat lunak matematika seperti spreadsheet, software statistik, atau alat geometri dinamis.
-   - Pemodelan Matematika: Penggunaan teknologi untuk memodelkan situasi dunia nyata dan menganalisis data.
+4. **Pemecahan Masalah:**<br>
+   - Strategi Pemecahan Masalah: Pengembangan keterampilan pemecahan masalah melalui latihan dan studi kasus.<br>
+   - Penalaran Matematis: Penggunaan logika matematika dalam pemecahan masalah dan pembuktian.<br>
 
-4. **Pemecahan Masalah:**
-   - Strategi Pemecahan Masalah: Pengembangan keterampilan pemecahan masalah melalui latihan dan studi kasus.
-   - Penalaran Matematis: Penggunaan logika matematika dalam pemecahan masalah dan pembuktian.
+5. **Evaluasi dan Pemantauan:**<br>
+   - Ujian Tengah Semester dan Akhir Semester: Tes yang menguji pemahaman matematika siswa secara keseluruhan.<br>
+   - Penilaian Proyek: Penilaian terhadap proyek-proyek terapan yang telah diselesaikan oleh siswa.<br>
 
-5. **Evaluasi dan Pemantauan:**
-   - Ujian Tengah Semester dan Akhir Semester: Tes yang menguji pemahaman matematika siswa secara keseluruhan.
-   - Penilaian Proyek: Penilaian terhadap proyek-proyek terapan yang telah diselesaikan oleh siswa.
-
-6. **Pengembangan Keterampilan Lainnya:**
-   - Komunikasi Matematis: Latihan dalam menjelaskan dan mengkomunikasikan ide matematika dengan jelas dan tepat.
-   - Kolaborasi: Pekerjaan kelompok atau proyek-proyek tim yang melibatkan pemecahan masalah matematika.
+6. **Pengembangan Keterampilan Lainnya:**<br>
+   - Komunikasi Matematis: Latihan dalam menjelaskan dan mengkomunikasikan ide matematika dengan jelas dan tepat.<br>
+   - Kolaborasi: Pekerjaan kelompok atau proyek-proyek tim yang melibatkan pemecahan masalah matematika.<br>
 
 Harapannya, modul ajar Kurikulum Merdeka Matematika untuk SMK akan menekankan pada penerapan matematika dalam konteks dunia nyata, penggunaan teknologi, dan pengembangan keterampilan pemecahan masalah dan penalaran matematis.
-
+<br>
 <div x-data="{open:false}">
   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' : 'buka mindmap'">buka</button>
    <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction1()" id="myBtn1">buka</button>
@@ -18756,15 +18758,47 @@ maka nilai f(2) <br>
 </div> 
 
 </div> 
-<div class="h-48 border-1 rounded-3xl box-border overflow-auto  border-black p-4  text-slate-700 bg-[#98FB98]">
+<div id="kom25"  class="h-32 border-1 rounded-3xl box-border overflow-auto  border-black p-4  text-slate-700 bg-[#98FB98]">
     
     <div class="text-2xl">REGRESI dan Korelasi   </div>
-
+ <span id="dots25">...</span>
+  <div id="more25">
 
 <p>
-    
-    Regresi dalam statistik adalah teknik analisis yang digunakan untuk memahami hubungan antara variabel independen (prediktor) dan variabel dependen (respon). Tujuan utama regresi adalah untuk memprediksi nilai variabel dependen berdasarkan satu atau lebih variabel independen.
+    Regresi dan Korelasi adalah dua konsep dalam matematika yang sering digunakan dalam statistik dan analisis data untuk memahami hubungan antara dua variabel atau lebih.<br>
 
+1. Regresi
+<br>
+Regresi digunakan untuk memprediksi atau memodelkan hubungan antara variabel bebas (independen) dan variabel terikat (dependen). Secara umum, regresi digunakan untuk mengetahui bagaimana perubahan pada satu variabel dapat memengaruhi variabel lainnya.
+<br>
+Regresi Linear Sederhana: Ini adalah jenis regresi yang paling umum dan paling dasar. Model regresi linear sederhana ditulis dalam bentuk persamaan:
+
+<br>
+Y = a + bX
+<br>
+Di mana:
+<br>
+Y adalah variabel terikat (yang diprediksi),
+<br>
+X adalah variabel bebas,
+<br>
+a adalah intercept (titik potong sumbu Y),
+<br>
+b adalah kemiringan (slope) atau koefisien regresi.
+<br>
+
+Contoh: Jika kita ingin memprediksi tinggi badan seseorang berdasarkan usia, maka regresi linear sederhana bisa digunakan untuk melihat apakah ada hubungan antara usia (X) dan tinggi badan (Y).
+
+
+<br>
+Mula mula hitung b dengan menggunakan rumus:
+$$b = \frac{\sum(X - \bar{X})(Y - \bar{Y})}{\sum(X - \bar{X})^2}$$
+Kemudian hitung a memggunakan rumus:
+$$a = \bar{Y} - b\bar{X}$$
+Setelah itu tentukan garis regresi linier dengan rumus:
+<br>
+Y = a + bX
+<br>
 Jenis regresi yang paling umum adalah regresi linear, yang mencoba menemukan garis lurus terbaik (model linear) yang menggambarkan hubungan antara variabel-variabel tersebut. Ada juga regresi non-linear yang digunakan ketika hubungan antar variabel tidak linier.<br>
     Data bivariat adalah data yang melibatkan dua variabel yang berbeda. Dalam statistik, data bivariat digunakan untuk menganalisis hubungan antara dua faktor atau atribut. Metode umum untuk memvisualisasikan dan menganalisis data bivariat meliputi:
 <br>
@@ -18776,12 +18810,44 @@ Jenis regresi yang paling umum adalah regresi linear, yang mencoba menemukan gar
 <br>
 3. Tabulasi silang (cross-tabulation): Digunakan ketika kedua variabel berbentuk kategorikal. Ini menunjukkan distribusi frekuensi dari kedua variabel dalam bentuk matriks.
 <br>
-Korelasi r <br>
+2.Korelasi r <br>
+
+Analisis korelasi adalah metode statistik yang digunakan untuk mengukur dan menganalisis kekuatan serta arah hubungan antara dua variabel. Korelasi membantu menjawab pertanyaan seperti "Seberapa kuat dua variabel berhubungan?" dan "Apakah hubungan tersebut positif, negatif, atau tidak ada sama sekali?"
+<br>
+Jenis korelasi:
+<br>
+1. Korelasi positif: Ketika satu variabel meningkat, variabel lainnya juga meningkat. Misalnya, tinggi badan dan berat badan biasanya memiliki korelasi positif.
+
+<br>
+2. Korelasi negatif: Ketika satu variabel meningkat, variabel lainnya menurun. Contoh umum adalah korelasi antara harga barang dan permintaan: ketika harga naik, permintaan biasanya turun.
+
+<br>
+3. Korelasi nol: Tidak ada hubungan antara kedua variabel; perubahan satu variabel tidak mempengaruhi variabel lainnya.
+
+<br>
+
+Koefisien Korelasi (r): Nilai korelasi biasanya diukur dengan koefisien korelasi Pearson yang memiliki rentang nilai dari -1 hingga 1:
+<br>
+r=1 menunjukkan korelasi positif sempurna.
+<br>
+r=-1 menunjukkan korelasi negatif sempurna.
+<br>
+r-=0 menunjukkan tidak ada hubungan (korelasi nol).
+<br>
+
+Korelasi penting untuk memahami apakah ada hubungan antar variabel, tetapi penting diingat bahwa korelasi tidak menunjukkan sebab-akibat (causality). Hanya karena dua variabel berkorelasi, bukan berarti salah satu menyebabkan yang lainnya terjadi.
+<br>
+rumus relasi r adalah
 $$
 r = \frac{n(\sum xy) - (\sum x)(\sum y)}{\sqrt{[n \sum x^2 - (\sum x)^2][n \sum y^2 - (\sum y)^2]}}$$
+<br>
 
-    
+    contoh soal
 </p>
+</div>
+<div x-data="{open:false}">
+  <button class=" bg-slate-500 text-slate-200 rounded-2xl" onclick="myFunction25()" id="myBtn25">buka</button>
+</div>
 
 </div>
 <!-- akhir bab24-->
@@ -19580,6 +19646,31 @@ checkbo5.checked ? html5.classList.add('dark') : html5.classList.remove('dark');
       moreText24.style.display = "inline";
     }
   }
+   function myFunction25() {
+    var dots25 = document.getElementById("dots25");
+    var moreText25 = document.getElementById("more25");
+    var btnText25 = document.getElementById("myBtn25");
+  
+    if (dots25.style.display === "none") {
+      dots25.style.display = "inline";
+      btnText25.innerHTML = "buka";
+      moreText25.style.display = "none";
+      
+      if (kom25.classList.contains('h-screen')) 
+      {kom25.classList.remove('h-screen');
+        kom25.classList.add('h-32'); }
+      
+      
+      
+       } else {
+      dots25.style.display = "none";
+      btnText25.innerHTML = "tutup";
+      moreText25.style.display = "inline";
+      if (kom25.classList.contains('h-32')) 
+      {kom25.classList.remove('h-32');
+        kom25.classList.add('h-screen'); }
+  }
+   }
   
   function myFunction11() {
     var dots11 = document.getElementById("dots11");
