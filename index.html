@@ -430,12 +430,16 @@ localStorage.setItem('nil0',0);
 </head>
 <body onload="refresh()" >
 
- <button onclick="window.location.href='gbr.html'">a</button>
- <div id="output"></div>
+
+ 
 
     <div class="container">
+    
+    
+    
+    
     <header>
-    <div class ="text-sm" >for smartphone, update 25/10/24 
+    <div class ="text-sm" >for smartphone, update 27/10/24 
 
 
 </div>
@@ -455,8 +459,25 @@ localStorage.setItem('nil0',0);
    
   </div>
 
-
-   
+   <div class="h-48  bg-green-600 p-4 center"  id="login-container">
+        
+        <input type="text" id="username" placeholder="username">
+        <input type="password" id="password" placeholder="password">
+     <br>
+     <br>
+     
+    
+        
+           <button class="py-2 px-6 bg-blue-600 text-black rounded-3xl" onClick= "login()">login </button><br>
+        
+        <p id="message"></p>
+    
+        
+    </div>
+<!--awal konten-->
+    <div id="content" style="display: none;">
+        
+    
 <audio controls id="backgroundMusic"></audio>
 
 
@@ -583,7 +604,7 @@ localStorage.setItem('nil0',0);
         
         <div class="text-center">
 
-             <button class="py-2 px-6 bg-green-600 <text-blac></text-blac>k rounded-3xl" onClick= playRandomSong()>MUSIC </button><br>
+             <button class="py-2 px-6 bg-green-600 text-black rounded-3xl" onClick= playRandomSong()>MUSIC </button><br>
              
     <div id="donasi" class="container1">
    <h1>Galang Dana untuk Pendidikan Dasar</h1>
@@ -19291,7 +19312,8 @@ playRandomSong();
              <img class="items-center p-4" src="./gbr/dan100.jpg" alt="">
         </div>
     </div>
-
+</div>
+<!--batas konten-->
     <script>
         // Fungsi untuk menangani top-up
         document.getElementById("topup-form").addEventListener("submit", function(event) {
@@ -20828,6 +20850,30 @@ document.addEventListener('DOMContentLoaded', loadProgress);
             })
             .catch(error => console.error('Error:', error));
     </script>    
+    
+    <script>
+        // Array pengguna yang berisi username dan password
+        const pengguna = [
+            { username: "taruna", password: "123" },
+             { username: "", password: "" }
+        ];
+
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Cek apakah username dan password sesuai dengan data di array pengguna
+            const user = pengguna.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                document.getElementById("login-container").style.display = "none";
+                document.getElementById("content").style.display = "block";
+                document.getElementById("message").textContent = "";
+            } else {
+                document.getElementById("message").textContent = "Username : taruna , password 123";
+            }
+        }
+    </script>
     
 </body>
 </html>
