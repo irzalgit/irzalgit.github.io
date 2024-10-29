@@ -460,8 +460,11 @@ localStorage.setItem('nil0',0);
   </div>
 
    <div class="bg-blue-400 p-4"  id="login-container">
-        <input style="width:100px ;height:20px"  type="text" id="username" placeholder="username"><br>
-        <input style="width:100px; height:20px"  type="password" id="password" placeholder="password">
+      
+      <p>username : </p>
+      <input style="width:100px ;height:20px"  type="text" id="username" >
+      <p>password : </p>
+        <input style="width:100px; height:20px"  type="password" id="password" placeholder="">
   <button class="w-20 h-8 bg-blue-500 text-white rounded-lg relative top-15 left-10" onClick= "login()"  >
     login
   </button>
@@ -20920,7 +20923,7 @@ document.addEventListener('DOMContentLoaded', loadProgress);
     <script>
         // Array pengguna yang berisi username dan password
         const pengguna = [
-            { username: "taruna", password: "123" }
+            { username: "demo", password: "123" }
         ];
 
         function login() {
@@ -20935,7 +20938,7 @@ document.addEventListener('DOMContentLoaded', loadProgress);
                 document.getElementById("content").style.display = "block";
                 document.getElementById("message").textContent = "";
             } else {
-                document.getElementById("message").textContent = "Username : taruna , password 123";
+                document.getElementById("message").textContent = "Username : demo , password 123";
             }
         }
     </script>
