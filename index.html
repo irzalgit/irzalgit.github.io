@@ -439,7 +439,7 @@ localStorage.setItem('nil0',0);
     
     
     <header>
-    <div class ="text-sm" >for smartphone, update 27/10/24 
+    <div class ="text-sm" >for smartphone, update 29/10/24 
 
 
 </div>
@@ -459,21 +459,35 @@ localStorage.setItem('nil0',0);
    
   </div>
 
-   <div class="h-48  bg-green-600 p-4 center"  id="login-container">
-        
-        <input type="text" id="username" placeholder="username">
-        <input type="password" id="password" placeholder="password">
-     <br>
-     <br>
-     
-    
-        
-           <button class="py-2 px-6 bg-blue-600 text-black rounded-3xl" onClick= "login()">login </button><br>
-        
+   <div class="bg-blue-400 p-4"  id="login-container">
+        <input style="width:100px ;height:20px"  type="text" id="username" placeholder="username"><br>
+        <input style="width:100px; height:20px"  type="password" id="password" placeholder="password">
+  <button class="w-20 h-8 bg-blue-500 text-white rounded-lg relative top-15 left-10" onClick= "login()"  >
+    login
+  </button>
+
         <p id="message"></p>
     
-        
+      
+</div>
     </div>
+    
+    
+  
+   <!-- What -->
+
+<!-- Who -->
+
+
+<!-- Where -->
+
+<!-- When -->
+
+
+<!-- Why -->
+<!-- How -->
+
+
 <!--awal konten-->
     <div id="content" style="display: none;">
         
@@ -1149,8 +1163,60 @@ localStorage.setItem('nil0',0);
  
   <div id="bab" class=" h-72 overflow-y-auto border-1 rounded-3xl box-border 
    border-black p-4  text-slate-700 bg-slate-100">
-  
-<div class="text-2xl">Computational Thinking/CT</div>
+  <svg width="2970" height="4200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="2970" height="4200" fill="#f0f0f0"/>
+
+  <!-- What -->
+  <g transform="translate(300, 300) scale(0.14)">
+    <circle cx="0" cy="0" r="125" fill="#FFDD57"/>
+    <text x="0" y="10" font-size="30" font-family="Arial" fill="#333" text-anchor="middle">What</text>
+    <circle cx="50" cy="-50" r="20" fill="white"/>
+    <line x1="65" y1="-35" x2="90" y2="-10" stroke="#333" stroke-width="4"/>
+  </g>
+
+  <!-- Who -->
+  <g transform="translate(500, 300) scale(0.14)">
+    <circle cx="0" cy="0" r="125" fill="#FFA5A5"/>
+    <text x="0" y="10" font-size="30" font-family="Arial" fill="#333" text-anchor="middle">Who</text>
+    <circle cx="0" cy="-30" r="20" fill="white"/>
+    <circle cx="0" cy="30" r="35" fill="white"/>
+  </g>
+
+  <!-- Where -->
+  <g transform="translate(700, 300) scale(0.14)">
+    <circle cx="0" cy="0" r="125" fill="#8CC4FF"/>
+    <text x="0" y="10" font-size="30" font-family="Arial" fill="#333" text-anchor="middle">Where</text>
+    <circle cx="0" cy="-40" r="20" fill="white"/>
+    <path d="M0 -20 L15 40 L-15 40 Z" fill="white"/>
+  </g>
+
+  <!-- When -->
+  <g transform="translate(900, 300) scale(0.14)">
+    <circle cx="0" cy="0" r="125" fill="#FFD1DC"/>
+    <text x="0" y="10" font-size="30" font-family="Arial" fill="#333" text-anchor="middle">When</text>
+    <circle cx="0" cy="-50" r="15" fill="white"/>
+    <line x1="0" y1="-50" x2="0" y2="5" stroke="#333" stroke-width="4"/>
+    <line x1="0" y1="-25" x2="25" y2="-25" stroke="#333" stroke-width="4"/>
+  </g>
+
+  <!-- Why -->
+  <g transform="translate(1100, 300) scale(0.14)">
+    <circle cx="0" cy="0" r="125" fill="#A3D9FF"/>
+    <text x="0" y="10" font-size="30" font-family="Arial" fill="#333" text-anchor="middle">Why</text>
+    <text x="0" y="60" font-size="60" font-family="Arial" fill="white" text-anchor="middle">?</text>
+  </g>
+
+  <!-- How -->
+  <g transform="translate(1300, 300) scale(0.14)">
+    <circle cx="0" cy="0" r="125" fill="#C3FCA4"/>
+    <text x="0" y="10" font-size="30" font-family="Arial" fill="#333" text-anchor="middle">How</text>
+    <circle cx="0" cy="50" r="15" fill="white"/>
+    <circle cx="0" cy="50" r="30" stroke="#333" stroke-width="4" fill="none"/>
+  </g>
+</svg>
+
+<div class=" hidden=" "text-2xl">Computational Thinking/CT</div>
 <p>CT : proses berfikir saat memformulasikan persoalan dan berstrategi untuk memilih solusi yang efektif,efisien dan optimal</p>
 <p>CT : kemampuan untuk berfikir memanfaatkan komputer/teknologi sebagai alat bantu</p><br>
 Elemen dari CT adalah<br>
@@ -20854,8 +20920,7 @@ document.addEventListener('DOMContentLoaded', loadProgress);
     <script>
         // Array pengguna yang berisi username dan password
         const pengguna = [
-            { username: "taruna", password: "123" },
-             { username: "", password: "" }
+            { username: "taruna", password: "123" }
         ];
 
         function login() {
