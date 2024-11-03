@@ -74,6 +74,29 @@ tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
             transform: rotate(-90deg);
             transform-origin: 50% 50%;
         }
+        
+        
+         .btn1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn2 {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  } 
     </style>
   
 
@@ -439,7 +462,7 @@ localStorage.setItem('nil0',0);
     
     
     <header>
-    <div class ="text-sm" >for smartphone, update 29/10/24 
+    <div class ="text-sm" >for smartphone, update 3/11/24 
 
 
 </div>
@@ -1163,12 +1186,87 @@ localStorage.setItem('nil0',0);
  
  <div id="babutama"  class="flex flex-col space-y-4 px-2 " >
 
+    
+<div  id="zoom-controls">
+  <button class="w-10 h-8 bg-blue-500 text-white rounded-2xl relative top-15 left-10" onclick="zoomIn()" style="padding: 10px; font-size: 16px; cursor: pointer;">+</button>
+    
+  <button class="w-10 h-8 bg-blue-500 text-white rounded-2xl relative top-15 left-10" onclick="zoomOut()" style="padding: 10px; font-size: 16px; cursor: pointer;">-</button>
+</div>
  
-  <div id="bab" class=" h-72 overflow-y-auto border-1 rounded-3xl box-border 
+  <div id="bab" class=" h-full  overflow-auto border-1 rounded-3xl box-border 
    border-black p-4  text-slate-700 bg-slate-100">
-  <svg width="2970" height="4200" xmlns="http://www.w3.org/2000/svg">
+     
+   
+  <svg id="image"  width="5940" height="8400" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="2970" height="4200" fill="#f0f0f0"/>
+  <rect width="5930" height="8390" fill="#f0f0f0"/>
+  
+  <g transform="translate(120, 20) scale(1)">
+    
+    <text x="10" y="10" font-size="20" font-family="Arial" fill="#333" text-anchor="middle">MINDMAP MATEMATIKA</text>
+  </g>
+  
+   <g transform="translate(10, 20) scale(2)">
+      
+  
+    <image href="./gbr/map1.svg" x="0" y="0" width="800" height="600" />
+    
+    
+     </g>
+  
+    
+  <g transform="translate(2000, 20) scale(1.5)">
+      
+  
+    <image href="./gbr/mapkom.svg" x="0" y="0" width="800" height="600" />
+    
+    
+     </g>
+  
+  <g transform="translate(2000, 2200) scale(1.5)">
+      
+  
+    <image href="./gbr/mapkua.svg" x="0" y="0" width="800" height="600" />
+    
+    
+     </g>
+      
+  <g transform="translate(1400, 2200) scale(1.5)">
+      
+  
+    <image href="./gbr/mapexp.svg" x="0" y="0" width="800" height="600" />
+    
+    
+     </g>
+     
+       <g transform="translate(10, 2200) scale(1.5)">
+      
+  
+    <image href="./gbr/mapmat.svg" x="0" y="0" width="825" height="600" />
+    
+    
+     </g>
+     
+<g id="stickersGroup" transform="scale(1)" >
+<g transform="translate(100, 8400) scale(0.14)">
+    <circle cx="0" cy="0" r="125" fill="#FFDD57"/>
+    <text x="0" y="10" font-size="30" font-family="Arial" fill="#333" text-anchor="middle">What</text>
+    <circle cx="50" cy="-50" r="20" fill="white"/>
+    <line x1="65" y1="-35" x2="90" y2="-10" stroke="#333" stroke-width="4"/>
+  </g>
+<g transform="translate(100, 4000) scale(0.14)">
+    <circle cx="0" cy="0" r="125" fill="#FFDD57"/>
+    <text x="0" y="10" font-size="30" font-family="Arial" fill="#333" text-anchor="middle">What</text>
+    <circle cx="50" cy="-50" r="20" fill="white"/>
+    <line x1="65" y1="-35" x2="90" y2="-10" stroke="#333" stroke-width="4"/>
+  </g>
+
+<g transform="translate(100, 100) scale(0.14)">
+    <circle cx="0" cy="0" r="125" fill="#FFDD57"/>
+    <text x="0" y="10" font-size="30" font-family="Arial" fill="#333" text-anchor="middle">What</text>
+    <circle cx="50" cy="-50" r="20" fill="white"/>
+    <line x1="65" y1="-35" x2="90" y2="-10" stroke="#333" stroke-width="4"/>
+  </g>
 
   <!-- What -->
   <g transform="translate(300, 300) scale(0.14)">
@@ -1179,6 +1277,8 @@ localStorage.setItem('nil0',0);
   </g>
 
   <!-- Who -->
+  
+  
   <g transform="translate(500, 300) scale(0.14)">
     <circle cx="0" cy="0" r="125" fill="#FFA5A5"/>
     <text x="0" y="10" font-size="30" font-family="Arial" fill="#333" text-anchor="middle">Who</text>
@@ -1217,8 +1317,9 @@ localStorage.setItem('nil0',0);
     <circle cx="0" cy="50" r="15" fill="white"/>
     <circle cx="0" cy="50" r="30" stroke="#333" stroke-width="4" fill="none"/>
   </g>
+  </g>
 </svg>
-
+<!--
 <div class=" hidden=" "text-2xl">Computational Thinking/CT</div>
 <p>CT : proses berfikir saat memformulasikan persoalan dan berstrategi untuk memilih solusi yang efektif,efisien dan optimal</p>
 <p>CT : kemampuan untuk berfikir memanfaatkan komputer/teknologi sebagai alat bantu</p><br>
@@ -1271,7 +1372,7 @@ Harapannya, modul ajar Kurikulum Merdeka Matematika untuk SMK akan menekankan pa
        </div> 
        </div>
 </div>  
-
+-->
 </div>
 
 <div  id="bab0123" class="hidden h-[50%] overflow-y-auto bg-slate-700 text-slate-100 border-1 rounded-3xl box-border  border-black p-4 ">
@@ -18906,7 +19007,7 @@ maka nilai f(2) <br>
 <br>
 Regresi digunakan untuk memprediksi atau memodelkan hubungan antara variabel bebas (independen) dan variabel terikat (dependen). Secara umum, regresi digunakan untuk mengetahui bagaimana perubahan pada satu variabel dapat memengaruhi variabel lainnya.
 <br>
-Regresi Linear Sederhana: Ini adalah jenis regresi yang paling umum dan paling dasar. Model regresi linear sederhana ditulis dalam bentuk persamaan:
+Regresi Linear Sederhana:<br> Ini adalah jenis regresi yang paling umum dan paling dasar. Model regresi linear sederhana ditulis dalam bentuk persamaan:
 
 <br>
 Y = a + bX
@@ -18961,13 +19062,13 @@ Jenis korelasi:
 
 <br>
 
-Koefisien Korelasi (r): Nilai korelasi biasanya diukur dengan koefisien korelasi Pearson yang memiliki rentang nilai dari -1 hingga 1:
+Koefisien Korelasi (r): <br>Nilai korelasi biasanya diukur dengan koefisien korelasi Pearson yang memiliki rentang nilai dari -1 hingga 1:
 <br>
 r=1 menunjukkan korelasi positif sempurna.
 <br>
 r=-1 menunjukkan korelasi negatif sempurna.
 <br>
-r-=0 menunjukkan tidak ada hubungan (korelasi nol).
+r=0 menunjukkan tidak ada hubungan (korelasi nol).
 <br>
 
 Korelasi penting untuk memahami apakah ada hubungan antar variabel, tetapi penting diingat bahwa korelasi tidak menunjukkan sebab-akibat (causality). Hanya karena dua variabel berkorelasi, bukan berarti salah satu menyebabkan yang lainnya terjadi.
@@ -18977,7 +19078,7 @@ $$
 r = \frac{n(\sum xy) - (\sum x)(\sum y)}{\sqrt{[n \sum x^2 - (\sum x)^2][n \sum y^2 - (\sum y)^2]}}$$
 <br>
 
-    contoh soal
+    
 </p>
 </div>
 <div x-data="{open:false}">
@@ -20943,6 +21044,21 @@ document.addEventListener('DOMContentLoaded', loadProgress);
         }
     </script>
     
+
+<script>
+  function zoomIn() {
+    var svg = document.getElementById('image');
+    var currentScale = svg.currentScale || 1;
+    svg.currentScale = currentScale * 1.1; // Increase scale by 20%
+  }
+
+  function zoomOut() {
+    var svg = document.getElementById('image');
+    var currentScale = svg.currentScale || 1;
+    svg.currentScale = currentScale * 0.9; // Decrease scale by 20%
+  }
+</script>
+
 </body>
 </html>
   
