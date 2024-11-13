@@ -167,7 +167,7 @@
          equation = "6.Hitung nilai a dari <br>a =("+deta+")(" + detf + ")("+deti+") - ("+detc+")(" +dete+ ")  ("+detg+")";
         correctAnswer = 100;
       }else if (i === 7) {
-        equation = "7.Hitung nilai a dari <br>2a= -(-(" + d + ") - (" + b + ")) x (" + b + ")    ";
+        equation = "7.Hitung nilai a dari <br>2a= -(-(" ;
         correctAnswer = -(-d - b)*b/2;
        }else if (i === 8) {
         equation = "8.Hitung x jika <math><mfrac><mi><mn>X</mn></mi><mi><mn>3</mn></mi></mfrac></math> =<math><mfrac><mi><mn>X</mn></mi><mi><mn>"+l+"</mn></mi></mfrac><mi>+</mi><mn>1</mn></math>" ;
@@ -2493,9 +2493,9 @@ for (let i = 0; i < optionsno709.length; i++) {
     }
     rsno13.innerHTML = response;
   
-    if (sno14.value == "15") {
+    if (sno14.value == "10") {
       response = "";
-      poin7 = poin7 + 10;
+      poin7 = poin7 + 15;
     } else {
       response = "";
     }
