@@ -461,7 +461,7 @@
 
 
     <header>
-    <div class ="text-sm" >for smartphone, update 06/11/24
+    <div class ="text-sm" >for smartphone, update 13/11/24
 
 
     </div>
@@ -481,18 +481,39 @@
 
     </div>
 
+
+  
+  
+
+<!-- Elemen untuk menampilkan bagian SVG yang diinginkan -->
+<div>
+  <svg width="40" height="40" viewBox="10 10 40 40">
+    <use href="#image" />
+  </svg>
+</div>
+
+  
+  
+</div>
+
     <div class="bg-blue-400 p-4"  id="login-container">
 
     <p>username : </p>
     <input style="width:100px ;height:20px"  type="text" id="username" >
     <p>password : </p>
     <input style="width:100px; height:20px"  type="password" id="password" placeholder="">
+    <br>
+    
+    
+    
+    <br>
+
+    
     <button class="w-20 h-8 bg-blue-500 text-white rounded-lg relative top-15 left-10" onClick= "login()"  >
     login
     </button>
 
     <p id="message"></p>
-
 
     </div>
     </div>
@@ -1190,21 +1211,95 @@
     <button class="w-10 h-12 bg-blue-500 text-white rounded-5xl relative top-5 left-10" onclick="zoomIn()" style="padding: 10px; font-size: 16px; cursor: pointer;">+</button>
 
     <button class="w-10 h-12 bg-blue-500 text-white rounded-5xl relative top-5 left-10" onclick="zoomOut()" style="padding: 10px; font-size: 16px; cursor: pointer;">-</button>
+    
+    
+    
+    <button class=" hidden relative fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 py-2 bg-green-500 text-white rounded-lg">
+  Tombol Tengah
+</button>
     </div>
 
     <div id="bab" class="h-96 w-full overflow-auto border-1 rounded-3xl box-border
     border-black p-2 m-2 text-slate-700 bg-slate-100">
 
 
-    <svg id="image"  width="5940" height="8400" xmlns="http://www.w3.org/2000/svg">
-    <!-- Background -->
-    <rect width="5930" height="8390" fill="#f0f0f0"/>
+ 
 
+
+
+
+
+    <svg id="image"  width="5940" height="8400" xmlns="http://www.w3.org/2000/svg">
+    
+    
+    <style>
+    
+      .grid-line {
+      stroke: black;
+      stroke-width: 2;
+      z-index:9999;
+    }
+    </style>
+    
+    
+    <!-- Background -->
+    
+<line x1="10" y1="10" x2="10" y2="8300" />
+<line x1="100" y1="10" x2="100" y2="8300" />
+
+    <rect width="5930" height="8390" fill="#f0f0f0"/>
+   <g class="grid-line"> 
+
+  <!-- Garis Vertikal -->
+    <line x1="148.625" y1="0" x2="148.625" y2="841" class="grid-line" />
+    <line x1="297.25" y1="0" x2="297.25" y2="841" class="grid-line" />
+    <line x1="445.875" y1="0" x2="445.875" y2="841" class="grid-line" />
+    <line x1="594.5" y1="0" x2="594.5" y2="841" class="grid-line" />
+    <line x1="743.125" y1="0" x2="743.125" y2="841" class="grid-line" />
+    <line x1="891.75" y1="0" x2="891.75" y2="841" class="grid-line" />
+    <line x1="1040.375" y1="0" x2="1040.375" y2="841" class="grid-line" />
+    <line x1="1189" y1="0" x2="1189" y2="841" class="grid-line" />
+    
+    <!-- Garis Horizontal -->
+    <line x1="0" y1="105.125" x2="1189" y2="105.125" class="grid-line" />
+    <line x1="0" y1="210.25" x2="1189" y2="210.25" class="grid-line" />
+    <line x1="0" y1="315.375" x2="1189" y2="315.375" class="grid-line" />
+    <line x1="0" y1="420.5" x2="1189" y2="420.5" class="grid-line" />
+    <line x1="0" y1="525.625" x2="1189" y2="525.625" class="grid-line" />
+    <line x1="0" y1="630.75" x2="1189" y2="630.75" class="grid-line" />
+    <line x1="0" y1="735.875" x2="1189" y2="735.875" class="grid-line" />
+    <line x1="0" y1="841" x2="1189" y2="841" class="grid-line" />
+  </g>
+
+
+<line x1="10" y1="10" x2="10" y2="8300" class="kisi" />
+<line x1="2000" y1="10" x2="2000" y2="8300"  class="kisi"  />
+<line x1="1620" y1="10" x2="1620" y2="8300"  class="kisi"  />
+<line x1="2700" y1="10" x2="2700" y2="8300"  class="kisi"  />
+<g>
+ <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definisi panah -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black" />
+    </marker>
+  </defs>
+
+  <!-- Garis melengkung dengan panah -->
+  <path d="M10 10 Q 55 50, 100 100" stroke="black" 
+        stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+</svg>
+
+</g>
     <g transform="translate(120, 20) scale(1)">
 
     <text x="10" y="10" font-size="20" font-family="Arial" fill="#333" text-anchor="middle">MINDMAP MATEMATIKA</text>
     </g>
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f0f0f0" />
 
+</svg>
     <g transform="translate(10, 20) scale(2)">
 
 
@@ -1212,7 +1307,102 @@
 
 
     </g>
+      <g transform="translate(10, 1500) scale(1)">
+ <!-- grafik1-->
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- CSS Styling -->
+  <style>
+    .axis {
+      stroke: black;
+      stroke-width: 1;
+    }
+     .grid-line {
+      stroke: black;
+      stroke-width: 2;
+      z-index:1000;
+    }
+    
+    .curve {
+      fill: none;
+      stroke: blue;
+      stroke-width: 2;
+    }
+    .label {
+      font-size: 12px;
+      fill: black;
+    }
+    .input-label {
+      font-size: 14px;
+      font-weight: bold;
+      fill: darkblue;
+    }
+  </style>
 
+  <!-- JavaScript -->
+  <script type="text/javascript">
+    function drawQuadratic(a, b, c) {
+      const path = document.getElementById("curve");
+      let d = "";
+
+      for (let x = -250; x <= 250; x += 1) {
+        const y = a * (x / 25) ** 2 + b * (x / 25) + c; // scaling x by 25
+        const scaledX = x + 250;
+        const scaledY = 250 - y * 25; // scaling y by 25
+        d += (x === -250 ? "M" : "L") + scaledX + "," + scaledY + " ";
+      }
+
+      path.setAttribute("d", d);
+    }
+
+    function updateGraph() {
+      const a = parseFloat(document.getElementById("inputA").value) || 0;
+      const b = parseFloat(document.getElementById("inputB").value) || 0;
+      const c = parseFloat(document.getElementById("inputC").value) || 0;
+      drawQuadratic(a, b, c);
+    }
+  </script>
+
+
+
+  <!-- Grid and Axes -->
+  <line x1="250" y1="0" x2="250" y2="500" class="axis" />
+  <line x1="0" y1="250" x2="500" y2="250" class="axis" />
+
+  <!-- Vertical and Horizontal Grid Lines -->
+
+
+  <g class="grid">
+    <line x1="50" y1="0" x2="50" y2="500" />
+    <line x1="450" y1="0" x2="450" y2="500" />
+    <line x1="0" y1="50" x2="500" y2="50" />
+    <line x1="0" y1="450" x2="500" y2="450" />
+  </g>
+
+  <!-- Quadratic Curve Path -->
+  <path id="curve" class="curve" />
+
+  <!-- Input Labels and Fields -->
+  <text x="20" y="480" class="input-label">a:</text>
+  <foreignObject x="40" y="460" width="40" height="30">
+    <input type="number" id="inputA" value="1" oninput="updateGraph()" />
+  </foreignObject>
+  
+  <text x="100" y="480" class="input-label">b:</text>
+  <foreignObject x="120" y="460" width="40" height="30">
+    <input type="number" id="inputB" value="0" oninput="updateGraph()" />
+  </foreignObject>
+  
+  <text x="180" y="480" class="input-label">c:</text>
+  <foreignObject x="200" y="460" width="40" height="30">
+    <input type="number" id="inputC" value="0" oninput="updateGraph()" />
+  </foreignObject>
+
+  <!-- Call JavaScript to Draw Initial Graph -->
+  <script>
+    drawQuadratic(1, 0, 0);
+  </script>
+</svg>
+</g>
 
     <g transform="translate(2000, 20) scale(1.5)">
 
@@ -1318,6 +1508,7 @@
     </g>
     </g>
     </svg>
+    
     <!--
     <div class=" hidden=" "text-2xl">Computational Thinking/CT</div>
     <p>CT : proses berfikir saat memformulasikan persoalan dan berstrategi untuk memilih solusi yang efektif,efisien dan optimal</p>
@@ -1639,7 +1830,9 @@ Latihan Aljabar
 <label>
 <input type="radio" name="tema2" value="hijau">
 </label>
-
+<label>
+<input type="radio" name="tema2" value="bersih">
+</label>
 
 </div>
 
@@ -3544,6 +3737,10 @@ Bentuk sederhana dari
 </label>
 
 
+<input type="radio" name="tema3" value="bersih">
+</label>
+
+
 </div>
 
 
@@ -5357,6 +5554,10 @@ jika z=2x+3y adalah
 </label>
 <label>
 <input type="radio" name="tema6" value="sepia">
+</label>
+
+
+<input type="radio" name="tema6" value="bersih">
 </label>
 
 </div>
@@ -7354,7 +7555,7 @@ Siswa  ini mencicil 24 kali. Berapa besar cicilan?
 <input type="radio" name="tema10" value="gelap">
 </label>
 <label>
-<input type="radio" name="tema10" value="hijau">
+<input type="radio" name="tema10" value="bersih">
 </label>
 <label>
 <input type="radio" name="tema10" value="sepia">
@@ -12249,7 +12450,7 @@ terhadap sumbu y adalah
 <input type="radio" name="tema13" value="hijau">
 </label>
 <label>
-<input type="radio" name="tema13" value="sepia">
+<input type="radio" name="tema13" value="bersih">
 </label>
 
 </div>
