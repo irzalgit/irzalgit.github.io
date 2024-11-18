@@ -78,7 +78,7 @@
     
     
     
-    for (var i = 1; i <= 61; i++) {
+    for (var i = 1; i <= 24; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -221,7 +221,7 @@
         equation = "24. Berapa besar "+k+"% dari "+e*100+"  " ;
         correctAnswer = k*e;
       }else if (i === 25) {
-         equation = "25. Tentukan nilai a dari a= <math><mfrac><mi><mn>"+a+"<sup>2</sup></mn></mi><mi><mn>4</mn></mi></mfrac></math>+<math><mfrac><mi><mn>"+(a+tp)+"<sup>2</sup></mn></mi><mi><mn>4</mn> </mi></mfrac></math> +"+a+"  ";
+         equation = "25. Tentu nilai a dari a=<math><mfrac><mi><mn>10<sup>2</sup></mn></mi><mi><mn>10<sup>3</sup></mn></mi></mfrac></math>" ;;
         correctAnswer = (a*a + Math.pow(a+tp,2) +4*a)/4;
       }else if (i === 26) {
         equation = "26.Tentukan x dari persamaan 8<sup>x</sup>=2<sup>2x-"+a+"</sup>";
