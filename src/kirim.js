@@ -37,6 +37,7 @@
  
  function generateQuestionsA() {
     clearQuestions();
+    
     var aValues = [2,3,4];
     var aaValues = [2,-2,3,-3,4,-4];
     var bValues = [-2, -4, -5];
@@ -79,6 +80,7 @@
     
     
     for (var i = 1; i <= 40; i++) {
+    
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -149,7 +151,7 @@
   <path d="M 70 50 Q 65 30 60 50" fill="none" stroke="#000" stroke-width="1"/>
 </svg>
 `
-        equation = "1.Hitung nilai x dari <br>x = " + a + " + (" + b + ")  ";
+        equation = "1.Hitung nilai x dari <br>x = "+a+"  + (" + b + ")  ";
         correctAnswer = a + b;
        } else if (i === 2) {
         equation = "2.Hitung nilai x dari <br>x = " + c + " - (" + d + ")";
@@ -170,8 +172,8 @@
         equation = "7.Hitung nilai a dari <br>2a= -(-("+d+"))" ;
         correctAnswer = d/2;
        }else if (i === 8) {
-        equation = "8.Hitung x jika <math><mfrac><mi><mn>X</mn></mi><mi><mn>3</mn></mi></mfrac></math> =<math><mfrac><mi><mn>X</mn></mi><mi><mn>"+l+"</mn></mi></mfrac><mi>+</mi><mn>1</mn></math>" ;
-        correctAnswer = (3/(1-(3/l))).toFixed(1);
+        equation = "8.Hitung x jika x=<math><mfrac><mi><mn>"+a+"-("+b+")</mn></mi><mi><mn>"+l+"</mn></mi></mfrac><mi></math>" ;
+        correctAnswer = (a-b)/l;
        } else if (i === 9) {
         equation = "9.Hitung n jika 30 =2 +(n-1)("+n+")" ;
         correctAnswer = 1+(28/n);
@@ -179,7 +181,7 @@
         equation = "10.Perbandingan a:b:c=2:3:5. jika rata rata nya "+k+" maka nilai a  adalah " ;
         correctAnswer = 0.6*k;
       } else if (i === 18) {
-        equation = "18.Perhatikan persamaan linier yakni   <math><mfrac><mi><mn>"+a+"</mn></mi><mi><mn>"+c+"</mn></mi></mfrac></math>x=<math><mfrac><mi><mn>"+b+"</mn></mi><mi><mn>"+h+"</mn></mi></mfrac></math> maka nilai "+h+"x adalah "   ;
+        equation = "18.Perhatikan persamaan  <math><mfrac><mi><mn>"+a+"</mn></mi><mi><mn>"+c+"</mn></mi></mfrac></math>x=<math><mfrac><mi><mn>"+b+"</mn></mi><mi><mn>"+h+"</mn></mi></mfrac></math> maka nilai "+h+"x adalah "   ;
         correctAnswer = (b*c)/(a);
     }else if (i === 11) {
         equation = "11. Lima tahun yang  lalu perbandingan umur ayah  dan ibu adalah 3 :2 , jika jumlah umur keduanya sekarang "+m+" , umur ayah adalah " ;
@@ -248,14 +250,14 @@
         equation = "33.Diketahui f=2x+"+a+"  tentukan f("+b+")" ;
         correctAnswer =2*b+a;
       }else if (i === 34) {
-        equation = "34." ;
-        correctAnswer= 200*tp/20;
+        equation = "34.Fungsi komposisi h(x)=g(f(x)) , jika f=2x+1 dan g =x-3 maka h("+a+")=?" ;
+        correctAnswer= 2*a-2;
       }else if (i === 35) {
-        equation = "35. " ;
-        correctAnswer =a*100/sv;
+        equation = "35. Diketahui fungsi f=x+("+b+") , tentukan invers <math><mn>f</mn><sup>-1</sup></math> ("+a+") =?" ;
+        correctAnswer =a-b;
       }else if (i === 36) {
-     equation = "36. " ;
-        correctAnswer =faktorial(e)/faktorial(e-a);
+     equation = "36. "+a+"+("+b+")x("+c+"-"+d+") " ;
+        correctAnswer =a+((b)*(c-d)) ;
       }else if (i === 37) {
         equation = "37. " ;
         correctAnswer =((a+f+c+d+e)/5).toFixed(2);
