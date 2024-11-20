@@ -167,8 +167,8 @@
          equation = "6.Hitung nilai a dari <br>a =("+deta+")(" + detf + ")("+deti+") - ("+detc+")(" +dete+ ")  ("+detg+")";
         correctAnswer =(deta *detf*deti)-(detc*dete*detg) ;
       }else if (i === 7) {
-        equation = "7.Hitung nilai a dari <br>2a= -(-(+d+))" ;
-        correctAnswer = d;
+        equation = "7.Hitung nilai a dari <br>2a= -(-("+d+"))" ;
+        correctAnswer = d/2;
        }else if (i === 8) {
         equation = "8.Hitung x jika <math><mfrac><mi><mn>X</mn></mi><mi><mn>3</mn></mi></mfrac></math> =<math><mfrac><mi><mn>X</mn></mi><mi><mn>"+l+"</mn></mi></mfrac><mi>+</mi><mn>1</mn></math>" ;
         correctAnswer = (3/(1-(3/l))).toFixed(1);
