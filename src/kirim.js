@@ -36,6 +36,9 @@
     
  
  function generateQuestionsA() {
+    
+
+    
     clearQuestions();
     
     var aValues = [2,3,4];
@@ -259,13 +262,13 @@
      equation = "36. "+a+"+("+b+")x("+c+"-"+d+") " ;
         correctAnswer =a+((b)*(c-d)) ;
       }else if (i === 37) {
-        equation = "37. " ;
-        correctAnswer =((a+f+c+d+e)/5).toFixed(2);
+        equation = "37. Jika persamaan matrik adalah  <br> $  \\begin{bmatrix} 2x  & "+b+"  \\\\ "+c+"  & "+d+"  \\end{bmatrix} =  \\begin{bmatrix} "+a+"  & "+b+"  \\\\ "+c+"  & "+d+"  \\end{bmatrix} $    maka x = ?  " ;
+        correctAnswer =a/2;
       }else if (i === 38) {
-        equation = "38.";
-        correctAnswer =e;
+        equation = "38. Jika matrik  $ A = \\begin{bmatrix} "+a+"  & "+b+"  \\\\ "+c+"  & "+d+"  \\end{bmatrix} $ maka det A = ?  " ;
+        correctAnswer =a*d-b*c;
       }else if (i === 39) {
-        equation = "39.  " ;
+        equation = "39. ";
         correctAnswer =a;
       }else if (i === 40) {
         equation = "40.  " ;
