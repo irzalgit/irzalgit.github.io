@@ -78,7 +78,7 @@
     
     
     
-    for (var i = 1; i <= 24; i++) {
+    for (var i = 1; i <= 40; i++) {
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
       var c = cValues[Math.floor(Math.random() * cValues.length)];
@@ -158,7 +158,7 @@
         equation = "3.Hitung nilai x dari <br>x = -(" + a + ") + (" + c+")";
         correctAnswer = -a + c;
       } else if (i === 4) {
-        equation = "4.Hitung nilai a dari <br>a =("+b+")(" + d + ") - ("+c+")(" + b + ")";
+        equation = "4.Hitung nilai a dari <br>a =("+b+")(" + d + ") - ("+c+")(" + b + ")";1998
         correctAnswer = b*d - c*b;
       } else if (i === 5) {
         equation = "5.Hitung nilai a dari a="+ds+"  +<math><mfrac><mi><mn>"+aa+"</mn></mi><mi><mn>"+rds+"</mn></mi></mfrac></math> +"+k+"%";
@@ -206,8 +206,8 @@
         equation = "19.Tentukan x jika  log "+e+" + log "+a+"  = log x " ;
         correctAnswer =a*e;
       }else if (i === 20) {
-        equation = "20. Tentukan nilai x dari x= 10 log <math><mfrac><mi><mn>10<sup>2</sup></mn></mi><mi><mn>10<sup>3</sup></mn></mi></mfrac></math>" ;
-        correctAnswer =(f-b)*10;
+        equation = "20. Tentukan nilai x dari x= 3 log <math><mn>10</mn><sup>"+a+"</sup></math>" ;
+        correctAnswer =a*3;
       }else if (i === 21) {
         equation = "21.Jika x&#178 - y&#178  = "+d+"  dan x - y = 2 maka x + y adalah  " ;
         correctAnswer =d/2;
@@ -221,8 +221,8 @@
         equation = "24. Berapa besar "+k+"% dari "+e*100+"  " ;
         correctAnswer = k*e;
       }else if (i === 25) {
-         equation = "25. Tentu nilai a dari a=<math><mfrac><mi><mn>10<sup>2</sup></mn></mi><mi><mn>10<sup>3</sup></mn></mi></mfrac></math>" ;;
-        correctAnswer = (a*a + Math.pow(a+tp,2) +4*a)/4;
+         equation = "25. Tentu nilai a dari a=3 . log <math><mn>10</mn><sup>"+a+"</sup></math>" ;
+        correctAnswer = 3*a;
       }else if (i === 26) {
         equation = "26.Tentukan x dari persamaan 8<sup>x</sup>=2<sup>2x-"+a+"</sup>";
         correctAnswer =-a;
@@ -245,28 +245,28 @@
         equation = "32.Berapa besar "+k+"% x  "+e*100+" + <math><mfrac><mi><mn>"+a+"</mn></mi><mi><mn>"+c+"</mn></mi></mfrac></math> x "+e*15+"  " ;
         correctAnswer =a*e*15/c +k*e;
       }else if (i === 33) {
-        equation = "33.Didalam sebuah kotak ada "+a+" buah kelereng biru dan "+c+" buah kelereng merah. Berapa % peluang memperoleh kelereng merah adalah  " ;
-        correctAnswer =parseInt((c*100)/(a+c));
+        equation = "33.Diketahui f=2x+"+a+"  tentukan f("+b+")" ;
+        correctAnswer =2*b+a;
       }else if (i === 34) {
-        equation = "34.Bapak Budi memiliki  2 sepeda dan 3 motor. Jika bepergian ia memakai  salah satu topi dari 4 topi,  "+tp+"  diantaranya berwarna kuning. Berapa peluang bapak Budi pergi dengan  sepeda dan topi kuning ? (%)" ;
+        equation = "34." ;
         correctAnswer= 200*tp/20;
       }else if (i === 35) {
-        equation = "35.Jika dari survey "+a+" dari "+sv+"   orang menyukai warna merah maka peluang (%) berjumpa orang yang memakai baju merah adalah "  ;
+        equation = "35. " ;
         correctAnswer =a*100/sv;
       }else if (i === 36) {
-     equation = "36.Didalam kotak terdapat "+e+" buah angka . Jika diambil sebanyak "+a+" angka maka jumlah angka yang terbentuk adalah  " ;
+     equation = "36. " ;
         correctAnswer =faktorial(e)/faktorial(e-a);
       }else if (i === 37) {
-        equation = "37.Diberikan data x:  "+a+","+f+" ,"+c+" ,"+e+" ,"+d+"   maka x rata rata adalah " ;
+        equation = "37. " ;
         correctAnswer =((a+f+c+d+e)/5).toFixed(2);
       }else if (i === 38) {
-        equation = "38.Diberikan data x yaitu   "+(e-2)+","+(e)+" ,"+(e-3)+" ,"+(e+a)+" ,"+(e+a+1)+" median x adalah  ";
+        equation = "38.";
         correctAnswer =e;
       }else if (i === 39) {
-        equation = "39.Diberikan data x yaitu   "+a+","+(a-1)+" ,"+a+" ,"+a+" ,"+(a+1)+" maka modus x  adalah   " ;
+        equation = "39.  " ;
         correctAnswer =a;
       }else if (i === 40) {
-        equation = "40.Diberikan data x yaitu   "+a+","+f+" ,"+c+"  maka simpangan rata rata x adalah   " ;
+        equation = "40.  " ;
         correctAnswer = parseInt((
      Math.abs(parseFloat(f-(a+f+c)/3))
     +Math.abs(parseFloat(a-(f+f+c)/3))
