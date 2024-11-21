@@ -268,8 +268,8 @@
         equation = "38. Jika matrik  $ A = \\begin{bmatrix} "+a+"  & "+b+"  \\\\ "+c+"  & "+d+"  \\end{bmatrix} $ maka det A = ?  " ;
         correctAnswer =a*d-b*c;
       }else if (i === 39) {
-        equation = "39. ";
-        correctAnswer =a;
+        equation = "39. Deskriminan D dari persamaan "+a+"x<sup>2</sup>+1 ";
+        correctAnswer =-4*a/(2*a);
       }else if (i === 40) {
         equation = "40.  " ;
         correctAnswer = parseInt((
