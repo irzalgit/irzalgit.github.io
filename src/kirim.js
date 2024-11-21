@@ -223,8 +223,8 @@
         equation = "23.Hasil perkalian akar dari: (x"+v+")(x"+w+")=0 adalah";
         correctAnswer =w*v;
       }else if (i === 24) {
-        equation = "24. Berapa besar "+k+"% dari "+e*100+"  " ;
-        correctAnswer = k*e;
+        equation = "24.Jika fungsi kuadrat <br> f(x)=x<sup>2</sup>+2x +"+c+"     maka f("+a+") = ?" ;
+        correctAnswer = a*a +2*a +c;
       }else if (i === 25) {
          equation = "25. Tentu nilai a dari a= <math><sup>2</sup>log<mn>2</mn><sup>"+b+"</sup></math>" ;
         correctAnswer = b;
@@ -268,14 +268,11 @@
         equation = "38. Jika matrik  $ A = \\begin{bmatrix} "+a+"  & "+b+"  \\\\ "+c+"  & "+d+"  \\end{bmatrix} $ maka det A = ?  " ;
         correctAnswer =a*d-b*c;
       }else if (i === 39) {
-        equation = "39. Deskriminan D dari persamaan "+a+"x<sup>2</sup>+1 ";
-        correctAnswer =-4*a/(2*a);
+        equation = "39. Deskriminan D dari persamaan<br> "+a+"x<sup>2</sup>+("+b+" )x+("+c+")  ";
+        correctAnswer = (b*b-4*a*c)/(2*a);
       }else if (i === 40) {
-        equation = "40.  " ;
-        correctAnswer = parseInt((
-     Math.abs(parseFloat(f-(a+f+c)/3))
-    +Math.abs(parseFloat(a-(f+f+c)/3))
-    +Math.abs(parseFloat(c-(a+f+c)/3)))/3);
+        equation = "40. Hitung x jika  x=<mn>("+b+")</mn><sup>2</sup>-4<mi>.</mi><mn>("+a+").("+n+")</mn> " ;
+        correctAnswer = b*b-4*a*n;
       }else if (i === 41) {
         equation = "41.Dalan segitiga siku perbandingan sisi depan dengan sisi samping adalah 2 : 3. Dengan menggunakan sudut segitiga ini berapa tinggi pohon jika jarak pohon "+k+"   m.";
         correctAnswer =(2/3)*k;
@@ -487,7 +484,7 @@ function displayQuestions() {
       var questionElement = document.createElement("div");
       questionElement.classList.add("question");
       questionElement.innerHTML = `
-      <div class="border-1 rounded-3xl box-border  border-black p-2  "> 
+      <div class="border-1 rounded-3xl box-border bg-slate-200 border-black p-2  "> 
 <div>${question.svg}</div>
 <p>${question.equation}</p>
 <form id="form${index}" style=" padding:5px" >
@@ -510,7 +507,7 @@ function displayQuestions() {
         var questionElement = document.createElement("div");
         questionElement.classList.add("question");
         questionElement.innerHTML = `
-        <div class="text-black bg-blue-400 border-1 rounded-3xl box-border border-black p-2">
+        <div class="text-black bg-blue-300 border-1 rounded-3xl box-border border-black p-2 ">
         <div style="width:auto; height: 50px; ">
         <svg width="100" height="100" viewBox="0 0 100 100" style="width: auto;
       height: auto;max-width: 100%;max-height: 100%;">${question.svg}</svg>
