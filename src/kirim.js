@@ -74,7 +74,7 @@
     var dddValues = [1,2,3,4,5,6];
     var tpValues = [1,2,3];
     var svValues = [10,100,1000];
-    var xxValues = [2,3,4];
+    var xxValues = [2,3,4];8
     var yyValues = [4,5,6];
      var hhValues = [200000000,500000000,100000000]; 
      var rrValues = [6,8,10]; 
@@ -226,8 +226,8 @@
         equation = "24. Berapa besar "+k+"% dari "+e*100+"  " ;
         correctAnswer = k*e;
       }else if (i === 25) {
-         equation = "25. Tentu nilai a dari a=3 . log <math><mn>10</mn><sup>"+a+"</sup></math>" ;
-        correctAnswer = 3*a;
+         equation = "25. Tentu nilai a dari a= <math><sup>2</sup>log<mn>2</mn><sup>"+b+"</sup></math>" ;
+        correctAnswer = b;
       }else if (i === 26) {
         equation = "26.Tentukan x dari persamaan 8<sup>x</sup>=2<sup>2x-"+a+"</sup>";
         correctAnswer =-a;
@@ -238,8 +238,8 @@
         equation = "28.Hitung nilai x dari "+c+"(x-2)=(x+2) " ;
         correctAnswer =(+(2*c+2)/(c-1)).toFixed(1);
       }else if (i === 29) {
-        equation = "29. Hitung  <mn>16</mn><sup>0</sup>+<mn>"+q+"</mn><sup><math><mfrac><mi><mn>3</mn></mi><mi><mn>2</mn></mi></mfrac></math></sup>" ;
-        correctAnswer =Math.pow(q,1.5)+1;
+        equation = "29. Hitung  <mn>16</mn><sup>0</sup>+<mn>"+q+"</mn><sup><mn>2</mn></sup>" ;
+        correctAnswer =Math.pow(q,2)+1;
       }else if (i === 30) {
          equation = "30.Jika persamaan lingkaran adalah  x&#178 + y&#178  = "+q+"  , maka jari2 lingkarannya adalah  " ;
         correctAnswer = parseFloat(Math.sqrt(q));
