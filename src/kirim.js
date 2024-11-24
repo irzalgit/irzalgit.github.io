@@ -82,7 +82,7 @@
     
     
     
-    for (var i = 1; i <= 40; i++) {
+    for (var i = 1; i <= 42; i++) {
     
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
@@ -274,10 +274,16 @@
         equation = "40. Hitung x jika  x=<mn>("+b+")</mn><sup>2</sup>-4<mi>.</mi><mn>("+a+").("+n+")</mn> " ;
         correctAnswer = b*b-4*a*n;
       }else if (i === 41) {
-        equation = "41.Dalan segitiga siku perbandingan sisi depan dengan sisi samping adalah 2 : 3. Dengan menggunakan sudut segitiga ini berapa tinggi pohon jika jarak pohon "+k+"   m.";
+        equation = "41.Perkalian bilangan berpangkat : <br><mn>2</mn><sup>"+a+"</sup>.<mn>4</mn><sup>"+b+"</sup>=<mn>2</mn><sup>x</sup> <br>maka nilai x adalah ";
+        correctAnswer =a+2*b;
+          }else if (i === 42) {
+        equation = "42.Diberikan persamaan<br> <mn>2</mn><sup>(a+"+a+")</sup>=<math><mfrac><mi><mn>1</mn></mi><mi><mn>2</mn></mi></mfrac></math> <br>maka nilai a adalah ";
+        correctAnswer =-a-1;
+         }else if (i === 62) {
+        equation = "62.Dalan segitiga siku perbandingan sisi depan dengan sisi samping adalah 2 : 3. Dengan menggunakan sudut segitiga ini berapa tinggi pohon jika jarak pohon "+k+"   m.";
         correctAnswer =(2/3)*k;
-      }else if (i === 42) {
-        equation = "42.Diberikan data x yaitu   "+a+","+f+" ,"+c+"  maka simpangan rata rata x adalah   " ;
+      }else if (i === 63) {
+        equation = "63.Diberikan data x yaitu   "+a+","+f+" ,"+c+"  maka simpangan rata rata x adalah   " ;
         correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
       }else if (i === 43) {
         equation = "43.Tentukan nilai a pada persamaan<br> a=("+a+")*("+b+"):("+c+")  " ;
