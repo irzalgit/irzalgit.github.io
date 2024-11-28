@@ -64,7 +64,7 @@
     var mValues = [60,65,75,80,85];
     var nValues = [-2,2,4,7];
     var vValues = [-2,-3,-4];
-    var wValues = [-1,-5,-3];
+    var wValues = [-2,-5,-3];
     var qValues = [1,4,9,16,25];
     var sValues = [0,30,45,60,90,120,150,135];
     var dsValues = [0.5,0.5,0.75,1.25,1.50];
@@ -82,7 +82,7 @@
     
     
     
-    for (var i = 1; i <= 42; i++) {
+    for (var i = 1; i <= 44; i++) {
     
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
@@ -268,8 +268,8 @@
         equation = "38. Jika matrik  $ A = \\begin{bmatrix} "+a+"  & "+b+"  \\\\ "+c+"  & "+d+"  \\end{bmatrix} $ maka det A = ?  " ;
         correctAnswer =a*d-b*c;
       }else if (i === 39) {
-        equation = "39. Deskriminan D dari persamaan<br> "+a+"x<sup>2</sup>+("+b+" )x+("+c+")  ";
-        correctAnswer = (b*b-4*a*c)/(2*a);
+        equation = "39. Deskriminan D dari persamaan<br> "+a+"x<sup>2</sup>"+w+" x+("+c+")  ";
+        correctAnswer = (w*-4*a*c)/(2*a);
       }else if (i === 40) {
         equation = "40. Hitung x jika  x=<mn>("+b+")</mn><sup>2</sup>-4<mi>.</mi><mn>("+a+").("+n+")</mn> " ;
         correctAnswer = b*b-4*a*n;
@@ -286,11 +286,11 @@
         equation = "63.Diberikan data x yaitu   "+a+","+f+" ,"+c+"  maka simpangan rata rata x adalah   " ;
         correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
       }else if (i === 43) {
-        equation = "43.Tentukan nilai a pada persamaan<br> a=("+a+")*("+b+"):("+c+")  " ;
-        correctAnswer =((a*b)/c);
+        equation = "43.Tentukan nilai a pada persamaan: <br> 2a +1 = "+b+ " " ;
+        correctAnswer =(b-1)/2;
       }else if (i === 44) {
-        equation = "44.Tentukan nilai a pada persamaan<br> a=("+a+")/("+b+")x("+c+")  " ; ;
-        correctAnswer =a/b*c;
+         equation = "44.Diberikan persamaan<br> <mn>2</mn><sup>(a+"+a+")</sup>=<math><mfrac><mi><mn>1</mn></mi><mi><mn>16</mn></mi></mfrac></math> <br>maka nilai a adalah ";
+        correctAnswer =-a-4;
       }else if (i === 45) {
         equation = "45.a=("+a+")("+b+")("+c+")+("+d+")  " ;
         correctAnswer =a*b*c+d;
