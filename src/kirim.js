@@ -188,7 +188,7 @@
         correctAnswer = (b*c)/(a);
     }else if (i === 11) {
         equation = "11. Lima tahun yang  lalu perbandingan umur ayah  dan ibu adalah 3 :2 , jika jumlah umur keduanya sekarang "+m+" , umur ayah adalah " ;
-        correctAnswer =5+(3/5)*(m-10);
+        correctAnswer =(3/5)*(m-10);
       }else if (i === 12) {
         equation = "12.Suku ke " + a + " dari barisan aritmatika adalah  " + f + ", jika suku ke "+e+" adalah "+g+", maka suku ke 10  adalah " ;
         correctAnswer =parseInt( f-(a-1)*(g-f)/(e-a)+9*(g-f)/(e-a));
@@ -4883,4 +4883,4 @@ const optionsno2101 = document.getElementsByName("no2101");
 
   }
   
-  
+  N
