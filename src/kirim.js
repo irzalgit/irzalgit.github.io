@@ -63,6 +63,7 @@
     var lValues = [6,9,12,15,18];
     var mValues = [60,65,75,80,85];
     var nValues = [-2,2,4,7];
+    var pValues = [2,3,5,7];
     var vValues = [-2,-3,-4];
     var wValues = [-2,-5,-3];
     var qValues = [1,4,9,16,25];
@@ -82,7 +83,7 @@
     
     
     
-    for (var i = 1; i <= 44; i++) {
+    for (var i = 1; i <= 45; i++) {
     
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
@@ -109,6 +110,8 @@
    var l = lValues[Math.floor(Math.random() * lValues.length)];
   var m = mValues[Math.floor(Math.random() * mValues.length)];
     var n = nValues[Math.floor(Math.random() * nValues.length)];
+    
+     var p = pValues[Math.floor(Math.random() * pValues.length)];
    var v = vValues[Math.floor(Math.random() * vValues.length)];
     var w = wValues[Math.floor(Math.random() * wValues.length)];
     var s = sValues[Math.floor(Math.random() * sValues.length)];
@@ -292,8 +295,8 @@
          equation = "44.Diberikan persamaan<br> <mn>2</mn><sup>(a+"+a+")</sup>=<math><mfrac><mi><mn>1</mn></mi><mi><mn>16</mn></mi></mfrac></math> <br>maka nilai a adalah ";
         correctAnswer =-a-4;
       }else if (i === 45) {
-        equation = "45.a=("+a+")("+b+")("+c+")+("+d+")  " ;
-        correctAnswer =a*b*c+d;
+        equation = "45.Perhatikan persamaan  <br>x=<math><mfrac><mi><mn>"+p+"</mn></mi><mi><mn>&#8730;"+p+"  </mn></mi></mfrac></math> <br>maka nilai x<sup>2</sup> adalah  " ;
+        correctAnswer =p;
       }else if (i === 46) {
         equation = "46.a= <mn>("+a+")</mn><sup>2</sup>+("+b+")" ;
         correctAnswer =parseFloat(((a-((a+f+c)/3))+(f-((a+f+c)/3))+(c-((a+f+c)/3)))/3);
