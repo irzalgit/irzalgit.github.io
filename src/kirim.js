@@ -2999,8 +2999,19 @@ juduln10.innerHTML=nil10;
     const jno923 = document.querySelector("#jno923");
     const jno924 = document.querySelector("#jno924");
     const jno925 = document.querySelector("#jno925");
-    const nilai11=document.querySelector('#nilai11')
-  
+    const nilai11=document.querySelector('#nilai11');
+  const sno81=document.querySelector('#sno81');
+    const sno82=document.querySelector('#sno82');
+    const sno83=document.querySelector('#sno83');
+    const sno84=document.querySelector('#sno84');
+    const sno85=document.querySelector('#sno85');
+    const sno86=document.querySelector('#sno86');
+    const sno87=document.querySelector('#sno87');
+    const sno88=document.querySelector('#sno88');
+    const sno89=document.querySelector('#sno89');
+    const sno810=document.querySelector('#sno810');
+    
+   
   
     if (jno81.checked) {
       response = "";
@@ -3202,6 +3213,90 @@ juduln10.innerHTML=nil10;
       response = "";
     }
     rno925.innerHTML = response;
+  
+   if (sno81.value == "21") {
+      response = "";
+      poin11 = poin11 + 15;
+    } else {
+      response = "";
+    }
+    rsno81.innerHTML = response;
+  
+   if (sno82.value == "25") {
+      response = "";
+      poin11 = poin11 + 15;
+    } else {
+      response = "";
+    }
+    rsno82.innerHTML = response;
+  
+   if (sno83.value == "41") {
+      response = "";
+      poin11 = poin11 + 15;
+    } else {
+      response = "";
+    }
+    rsno83.innerHTML = response;
+  
+   if (sno84.value == "201") {
+      response = "";
+      poin11 = poin11 + 15;
+    } else {
+      response = "";
+    }
+    rsno84.innerHTML = response;
+  
+   if (sno85.value == "441") {
+      response = "";
+      poin11 = poin11 + 15;
+    } else {
+      response = "";
+    }
+    rsno85.innerHTML = response;
+  
+   if (sno86.value == "625") {
+      response = "";
+      poin11 = poin11 + 15;
+    } else {
+      response = "";
+    }
+    rsno86.innerHTML = response;
+  
+  
+   if (sno87.value == "45") {
+      response = "";
+      poin11 = poin11 + 15;
+    } else {
+      response = "";
+    }
+    rsno87.innerHTML = response;
+  
+   if (sno88.value == "125") {
+      response = "";
+      poin11 = poin11 + 15;
+    } else {
+      response = "";
+    }
+    rsno88.innerHTML = response;
+  
+  
+   if (sno89.value == "1/10") {
+      response = "";
+      poin11 = poin11 + 15;
+    } else {
+      response = "";
+    }
+    rsno89.innerHTML = response;
+  
+   if (sno810.value == "-1") {
+      response = "";
+      poin11 = poin11 + 15;
+    } else {
+      response = "";
+    }
+    rsno810.innerHTML = response;
+  
+  
   
   
   nilai11.innerHTML=poin11;
