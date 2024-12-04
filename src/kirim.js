@@ -175,8 +175,8 @@
          equation = "6.Hitung nilai a dari <br>a =("+deta+")(" + detf + ")("+deti+") - ("+detc+")(" +dete+ ")  ("+detg+")";
         correctAnswer =(deta *detf*deti)-(detc*dete*detg) ;
       }else if (i === 7) {
-        equation = "7.Hitung nilai a dari <br>2a= -(-("+d+"))" ;
-        correctAnswer = d/2;
+        equation = "7.Hitung nilai a dari <br>2a= -(2-("+d+"+"+e+"))" ;
+        correctAnswer = -(2-(d+e))/2;
        }else if (i === 8) {
         equation = "8.Hitung x jika x=<math><mfrac><mi><mn>"+a+"-("+b+")</mn></mi><mi><mn>"+l+"</mn></mi></mfrac><mi></math>" ;
         correctAnswer = (a-b)/l;
@@ -1132,6 +1132,11 @@ juduln1.innerHTML=localStorage.getItem("nil1");
   for (let i = 0; i < optionsno40.length; i++) {
       optionsno40[i].checked = false;
   }
+  
+  const optionsno50 = document.getElementsByName("no50");
+  for (let i = 0; i < optionsno50.length; i++) {
+      optionsno50[i].checked = false;
+  }
     const optionsno51 = document.getElementsByName("no51");
   for (let i = 0; i < optionsno51.length; i++) {
       optionsno51[i].checked = false;
@@ -1154,6 +1159,78 @@ juduln1.innerHTML=localStorage.getItem("nil1");
       optionsno55[i].checked = false;
   }
 
+  const optionsno56 = document.getElementsByName("no56");
+  for (let i = 0; i < optionsno56.length; i++) {
+      optionsno56[i].checked = false;
+  }
+
+  const optionsno57 = document.getElementsByName("no57");
+  for (let i = 0; i < optionsno57.length; i++) {
+      optionsno57[i].checked = false;
+  }
+
+  const optionsno58 = document.getElementsByName("no58");
+  for (let i = 0; i < optionsno58.length; i++) {
+      optionsno58[i].checked = false;
+  }
+
+  const optionsno59 = document.getElementsByName("no59");
+  for (let i = 0; i < optionsno59.length; i++) {
+      optionsno59[i].checked = false;
+  }
+
+  const optionsno60 = document.getElementsByName("no60");
+  for (let i = 0; i < optionsno60.length; i++) {
+      optionsno60[i].checked = false;
+  }
+  
+  
+   const optionsno411 = document.getElementsByName("no411");
+  for (let i = 0; i < optionsno411.length; i++) {
+      optionsno411[i].checked = false;
+  }
+  
+   const optionsno421 = document.getElementsByName("no421");
+  for (let i = 0; i < optionsno421.length; i++) {
+      optionsno421[i].checked = false;
+  }
+  
+   const optionsno431 = document.getElementsByName("no431");
+  for (let i = 0; i < optionsno431.length; i++) {
+      optionsno431[i].checked = false;
+  }
+  
+   const optionsno441 = document.getElementsByName("no441");
+  for (let i = 0; i < optionsno441.length; i++) {
+      optionsno441[i].checked = false;
+  }
+  
+   const optionsno451 = document.getElementsByName("no451");
+  for (let i = 0; i < optionsno451.length; i++) {
+      optionsno451[i].checked = false;
+  }
+  
+   const optionsno461 = document.getElementsByName("no461");
+  for (let i = 0; i < optionsno461.length; i++) {
+      optionsno461[i].checked = false;
+  }
+  
+   const optionsno471 = document.getElementsByName("no471");
+  for (let i = 0; i < optionsno471.length; i++) {
+      optionsno471[i].checked = false;
+  }
+  
+ const optionsno481 = document.getElementsByName("no481");
+  for (let i = 0; i < optionsno481.length; i++) {
+      optionsno481[i].checked = false;
+  }
+  
+ const optionsno491 = document.getElementsByName("no491");
+  for (let i = 0; i < optionsno491.length; i++) {
+      optionsno491[i].checked = false;
+  }
+  
+
   const optionsno611 = document.getElementsByName("no611");
   for (let i = 0; i < optionsno611.length; i++) {
       optionsno611[i].checked = false;
@@ -1175,6 +1252,35 @@ juduln1.innerHTML=localStorage.getItem("nil1");
   for (let i = 0; i < optionsno651.length; i++) {
       optionsno651[i].checked = false;
   }
+  
+  
+    const optionsno661 = document.getElementsByName("no661");
+  for (let i = 0; i < optionsno661.length; i++) {
+      optionsno661[i].checked = false;
+  }
+  
+    const optionsno671 = document.getElementsByName("no671");
+  for (let i = 0; i < optionsno671.length; i++) {
+      optionsno671[i].checked = false;
+  }
+  
+    const optionsno681 = document.getElementsByName("no681");
+  for (let i = 0; i < optionsno681.length; i++) {
+      optionsno681[i].checked = false;
+  }
+  
+    const optionsno691 = document.getElementsByName("no691");
+  for (let i = 0; i < optionsno691.length; i++) {
+      optionsno691[i].checked = false;
+  }
+  
+    const optionsno692 = document.getElementsByName("no692");
+  for (let i = 0; i < optionsno692.length; i++) {
+      optionsno692[i].checked = false;
+  }
+  
+  
+  
 }
 
 
@@ -1788,7 +1894,88 @@ rsno112.innerHTML = response;
 
   
   
+    
+    if (sno113.value == "2") {
+  response = "";
+  poin5 = poin5 + 15;
+} else {
+  response = "";
+}
+rsno113.innerHTML = response;
 
+  
+
+if (sno114.value == "3/2") {
+  response = "";
+  poin5 = poin5 + 15;
+} else {
+  response = "";
+}
+rsno114.innerHTML = response;
+
+  
+    
+    if (sno115.value == "50") {
+  response = "";
+  poin5 = poin5 + 15;
+} else {
+  response = "";
+}
+rsno115.innerHTML = response;
+
+  
+
+if (sno116.value == "2") {
+  response = "";
+  poin5 = poin5 + 15;
+} else {
+  response = "";
+}
+rsno116.innerHTML = response;
+
+  
+
+    
+    if (sno117.value == "2") {
+  response = "";
+  poin5 = poin5 + 15;
+} else {
+  response = "";
+}
+rsno117.innerHTML = response;
+
+  
+
+if (sno118.value == "2") {
+  response = "";
+  poin5 = poin5 + 15;
+} else {
+  response = "";
+}
+rsno118.innerHTML = response;
+
+
+    
+    if (sno119.value == "2") {
+  response = "";
+  poin5 = poin5 + 15;
+} else {
+  response = "";
+}
+rsno119.innerHTML = response;
+
+  
+
+if (sno1120.value == "2") {
+  response = "";
+  poin5 = poin5 + 15;
+} else {
+  response = "";
+}
+rsno1120.innerHTML = response;
+
+  
+  
 nilai5.innerHTML=poin5;
 localStorage.setItem("nil5",poin5);
 juduln5.innerHTML=nil5;
