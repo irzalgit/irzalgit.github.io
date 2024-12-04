@@ -1925,7 +1925,7 @@ rsno115.innerHTML = response;
 
   
 
-if (sno116.value == "2") {
+if (sno116.value == "46") {
   response = "";
   poin5 = poin5 + 15;
 } else {
@@ -1946,7 +1946,7 @@ rsno117.innerHTML = response;
 
   
 
-if (sno118.value == "2") {
+if (sno118.value == "155") {
   response = "";
   poin5 = poin5 + 15;
 } else {
@@ -1956,7 +1956,7 @@ rsno118.innerHTML = response;
 
 
     
-    if (sno119.value == "2") {
+    if (sno119.value == "3n-1") {
   response = "";
   poin5 = poin5 + 15;
 } else {
@@ -1966,7 +1966,7 @@ rsno119.innerHTML = response;
 
   
 
-if (sno1120.value == "2") {
+if (sno1120.value == "900") {
   response = "";
   poin5 = poin5 + 15;
 } else {
