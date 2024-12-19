@@ -500,7 +500,7 @@
 
 
     <header>
-    <div class ="text-sm" >for smartphone, update 04/12/24
+    <div class ="text-sm" >for smartphone, update 19/12/24
 
 
     </div>
@@ -550,14 +550,13 @@
     
     <button class="w-20 h-8 bg-blue-500 text-white rounded-lg relative top-15 left-10" onClick= "login()"  >
     login
-    </button>
-
+    </button><br><br>
+<button onclick="location.href='pro.html'">Pro</button>
     <p id="message"></p>
 
     </div>
-    </div>
-
-
+    
+</div>
 
     <!-- What -->
 
@@ -1689,7 +1688,7 @@ Penalaran Matematika
 <span id="dots00">...</span>
 <div id="more00">
 
-<article class="block">
+<article class="hidden">
 <p class="font-bold">
 </p>
 
@@ -1775,7 +1774,7 @@ maka 2 = 5 - 3
 <hr>
 
 
-<div class="bg-slate-200 h-48">
+<div class="hidden bg-slate-200 h-48">
 <p class="text-2xl">
 Latihan Aljabar
 </p>
@@ -1843,7 +1842,7 @@ Latihan Aljabar
 
 <div style="display:flex">
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestionsA()">Soal baru</button>
-<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" id="tombolcek" onclick="checkAnswers()">CEK Aljabar</button>
+<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" id="tombolcek" onclick="checkAnswers()">Cek NilaI</button>
 <br>
 <hr>
 
@@ -1864,13 +1863,13 @@ Latihan Aljabar
 
 
 <br>
-<button class=" hidden py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirimalj()">cek nilai Aljabar</button>
+<button class=" hidden py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirimalj()">cek nilai </button>
 
 </div>
 
 <div x-data="{open:false}">
-<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' : 'buka mindmap'">buka</button>
-<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction00()" id="myBtn00">buka</button>
+<button class="hidden py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' : 'buka mindmap'">buka</button>
+<button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="myFunction00()" id="myBtn00">buka soal</button>
 <div x-show='open'>
 
 
@@ -7606,6 +7605,7 @@ Siswa  ini mencicil 24 kali. Berapa besar cicilan?
 </div>
 <!-- batas 21 -->
 <!-- batas awal bab7 -->
+
 <div id="bab7" style="background-color:red;color:white" class="border-1 rounded-3xl box-border border-black ">
 
 
