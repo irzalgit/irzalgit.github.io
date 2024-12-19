@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grafik dengan D3.js</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <svg id="graph" width="500" height="500"></svg>
+  <script>
+    const svg = d3.select('#graph');
+    const width = +svg.attr('width');
+    const height = +svg.attr('height');
+
+    const xScale = d3.scaleLinear().domain([-10, 10]).range([0, width]);
+    const yScale = d3.scaleLinear().domain([-10, 100]).range([height, 0]);
+
+    // Fungsi persamaan y = x^2
+    const equation = x => x * x;
+
+    // Data untuk grafik
+    const data = d3.range(-10, 10.1, 0.1).map(x => ({ x: x, y: equation(x) }));
+
+    // Gambar garis grafik
+    const line = d3.line()
+      .x(d => xScale(d.x))
+      .y(d => yScale(d.y));
+
+    svg.append('path')
+      .datum(data)
+      .attr('fill', 'none')
+      .attr('stroke', 'blue')
+      .attr('d', line);
+
+    // Gambar sumbu
+    const axisX = d3.axisBottom(xScale).ticks(10);
+    const axisY = d3.axisLeft(yScale).ticks(10);
+
+    svg.append('g').attr('transform', `translate(0,${height / 2})`).call(axisX);
+    svg.append('g').attr('transform', `translate(${width / 2},0)`).call(axisY);
+  </script>
+</body>
+</html>
