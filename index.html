@@ -487,12 +487,46 @@
     </style>
 
 
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .icon-container {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: #007BFF;
+      color: white;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px 0 0 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .icon-container:hover {
+      background-color: #0056b3;
+    }
+    .icon {
+      font-size: 24px;
+    }
+  </style>
+  
 
     </head>
     <body onload="refresh()" >
 
 
-
+<a href="https://math314.vercel.app" target="_blank" class="icon-container" title="Menuju Math314">
+    <div class="icon">🔗</div>
+  </a>
 
     <div class="container">
 
@@ -500,8 +534,7 @@
 
 
     <header>
-    <div class ="text-sm" >for smartphone, update 19/12/24
-
+    <div class ="text-sm" >for smartphone, update 05/01/25
 
     </div>
     <h1>MATEMATIKA online </h1>
@@ -535,12 +568,30 @@
   
 </div>
 
-    <div class="bg-blue-400 p-4"  id="login-container">
+<form id="loginForm">
+    <label for="username">Username:</label>
+    <input style="width:170px ;height:28px"  type="text" id="username" ><br>
+    <label for="password">Password:</label>
+    <input style="width:170px ;height:28px" type="password" id="password" ><br><br>
+    <button style="width:100px ;height:24px" type="submit">Login</button>
+
+  </form>
+   <div id="message"></div>
+
+
+
+<hr>
+<br>
+
+
+
+    <div class="hidden bg-blue-400 p-4"  id="login-container">
 
     <p>username : </p>
     <input style="width:100px ;height:20px"  type="text" id="username" >
     <p>password : </p>
     <input style="width:100px; height:20px"  type="password" id="password" placeholder="">
+     <div id="name"></div>;
     <br>
     
     
@@ -556,13 +607,10 @@
 
 
 
-  <button onclick="window.location.href='https://math314.vercel.app';">
-    G o  t o  Bphy-AI
-  </button>
+  
+<br>
 
 
-
-    <p id="message"></p>
 
     </div>
     
@@ -1116,8 +1164,16 @@
     <td class="border px-4 py-2 bg-green-800 text-2xl font-bold text-black custom-col-width"  id="nama"></td>
 
     <td class="border text-2xl px-4 py-1 bg-green-800 custom-col-width2" id="resultt"></td>
+  </tr>
+    
+    
+    <tr>
+    <td class="border px-4 py-2 bg-green-800 text-xl font-bold text-black custom-col-width" id= "message2"></td>
+
+    <td class="border text-2xl px-4 py-1 bg-green-800 custom-col-width2" id="message3"> </td>
 
     </tr>
+    
     <tr>
     <td class="border px-4 py-2 bg-green-700 custom-col-width2 " id="datetime"></td>
     <td class="border px-4 py-2 bg-green-700 font-bold text-black custom-col-width"  id="deviceInfo"></td>
@@ -1639,11 +1695,22 @@ Pendidikan yang baik bukanlah apa yang mengisi kepala Anda dengan fakta tetapi a
 
 
 <div id="chatgpt" class="border-1 rounded-3xl box-border p-1 border-black text-black bg-white">
-     <div class="chat-container">
-    <h2>Bphy-ChatGPT </h2>
+
+     <h2>Bphy-ChatGPT </h2>
+      <br>
+    <hr>
+      <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl"  onclick="window.location.href='https://math314.vercel.app'">
+   Buka Bphy-AI
+  </button>
+     <div class="hidden chat-container">
+    
     <br>
     <hr>
-    <div class="chat-box" id="chatBox"></div>
+
+    <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl"  onclick="window.location.href='https://math314.vercel.app'">
+   Buka Bphy-AI
+  </button>
+    <div class=" chat-box" id="chatBox"></div>
     <select id="dropdown">
       <option value="">Pilih pertanyaan...</option>
       <option value="Halo, apa kabar?">Halo, apa kabar?</option>
@@ -22655,31 +22722,80 @@ document.getElementById('output').innerText = JSON.stringify(data, null, 2);
 })
 .catch(error => console.error('Error:', error));
 </script>
-
+<!-- 
 <script>
 // Array pengguna yang berisi username dan password
 const pengguna = [
-{ username: "demo", password: "123" }
+{ username: "demo", password: "123",name: "ari" },
+{ username: "abcd", password: "321",name:"kiki" }
 ];
 
 function login() {
 const username = document.getElementById("username").value;
 const password = document.getElementById("password").value;
+const name = document.getElementById("name").value;
 
 // Cek apakah username dan password sesuai dengan data di array pengguna
 const user = pengguna.find(u => u.username === username && u.password === password);
 
 if (user) {
-document.getElementById("login-container").style.display = "none";
+document.getElementById("login-container").style.display = "block";
 document.getElementById("content").style.display = "block";
-document.getElementById("message").textContent = "";
+document.getElementById("name").textContent = $"pengguna.username";
+document.getElementById("message2").textContent = $"pengguna.name";
 } else {
 document.getElementById("message").textContent = "Username : demo , password 123";
 }
 }
 </script>
 
+-->
 
+  <script>
+    // Fungsi untuk membaca data dari file JSON
+    async function fetchUserData() {
+      const response = await fetch('data.json');
+      return await response.json();
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault(); // Mencegah form submit default
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message');
+      // Ambil data dari data.json
+      const users = await fetchUserData();
+
+      // Cek kecocokan username dan password
+      const user = users.find(user => user.username === username && user.password === password);
+
+      if (user) {
+        // Periksa apakah akun sudah kadaluarsa
+        const createdAt = new Date(user.created_at);
+        const now = new Date();
+        const oneMonth = 30 * 24 * 60 * 60 * 1000; // 1 bulan dalam milidetik
+
+        if (now - createdAt > oneMonth) {
+          message.textContent = 'Akun Anda telah kadaluarsa. Silakan hubungi administrator.';
+          message.style.color = 'red';
+        } else {
+          message.textContent = ` ${user.name}`;
+          message.style.color = 'black';
+           document.getElementById("loginForm").style.display = "none";
+            document.getElementById("content").style.display = "block";
+       message2.textContent = ` ${user.name}`;
+       message3.textContent = ` ${user.created_at}`;
+       
+        }
+      } else {
+        message.textContent = 'Username demo  atau password 123';
+        message.style.color = 'red';
+      }
+    });
+  </script>
+ 
 <script>
 function zoomIn() {
 var svg = document.getElementById('image');
