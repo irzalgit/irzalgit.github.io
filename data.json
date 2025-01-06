@@ -24,19 +24,88 @@
     "name": "Raihan Pratama",
     "created_at": "2024-12-15"
   },
-  
+   {
+    "username": "stfn",
+    "password": "0905",
+    "name": "Stefanus",
+    "created_at": "2024-12-15"
+  },
+   {
+    "username": "MRAA",
+    "password": "1504",
+    "name": "Reza",
+    "created_at": "2024-12-15"
+  },
+   {
+    "username": "kesa",
+    "password": "0116",
+    "name": "Kelfin",
+    "created_at": "2024-12-15"
+  },
+   {
+    "username": "hanafi",
+    "password": "1201",
+    "name": "Imam",
+    "created_at": "2024-12-15"
+  },
+   {
+    "username": "arman",
+    "password": "1985",
+    "name": "Parel",
+    "created_at": "2024-12-15"
+  },
+   {
+    "username": "agil",
+    "password": "0606",
+    "name": "Agil",
+    "created_at": "2024-12-15"
+  },
    {
     "username": "defn",
     "password": "1125",
     "name": "Devan",
     "created_at": "2024-12-15"
+  }, 
+  {
+    "username": "defn",
+    "password": "1125",
+    "name": "Devan",
+    "created_at": "2024-12-15"
   },
-  
+   {
+    "username": "putra",
+    "password": "2006",
+    "name": "Anggian",
+    "created_at": "2024-12-15"
+  },
+   {
+    "username": "king",
+    "password": "1234",
+    "name": "Radja Duta",
+    "created_at": "2024-12-15"
+  },
+   {
+    "username": "slot",
+    "password": "1006",
+    "name": "Fadli",
+    "created_at": "2024-12-15"
+  },
+   {
+    "username": "daffa",
+    "password": "0123",
+    "name": "Daffa",
+    "created_at": "2024-12-15"
+  },
+   {
+    "username": "tompul",
+    "password": "0067",
+    "name": "Aprianto",
+    "created_at": "2024-12-15"
+  },
    {
     "username": "saddam",
     "password": "2906",
     "name": "Saddam M",
     "created_at": "2024-12-15"
   }
-  
 ]
