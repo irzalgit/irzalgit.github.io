@@ -531,7 +531,7 @@
 
 
     <header>
-    <div class ="text-sm" >for smartphone, update 05/01/25  20.45 WIB
+    <div class ="text-sm" >for smartphone, <br>update 06/01/25  22.00 WIB
 
     </div>
     <h1>MATEMATIKA online </h1>
@@ -1171,12 +1171,17 @@
     <tr>
     <td class="border px-4 py-2 bg-green-800 text-xl font-bold text-black custom-col-width" id= "message2"></td>
 
-    <td class="border text-2xl px-4 py-1 bg-green-800 custom-col-width2" id="message3"> </td>
+    <td class="border text-xl px-4 py-1 bg-green-800 custom-col-width2" id="datetime"> </td>
 
     </tr>
-    
     <tr>
-    <td class="border px-4 py-2 bg-green-700 custom-col-width2 " id="datetime"></td>
+    <td class="border px-4 py-2 bg-green-800 text-xl font-bold text-black custom-col-width" >Sisa waktu</td>
+
+    <td class="border text-2xl px-4 py-1 bg-green-800 custom-col-width2"  id="sisa"> </td>
+
+    </tr>
+    <tr>
+    <td class="border px-4 py-2 bg-green-700 custom-col-width2 " id="message3"></td>
     <td class="border px-4 py-2 bg-green-700 font-bold text-black custom-col-width"  id="deviceInfo"></td>
 
     </tr>
@@ -22779,9 +22784,15 @@ document.getElementById("message").textContent = "Username : demo , password 123
         const oneMonth = 30 * 24 * 60 * 60 * 1000; // 1 bulan dalam milidetik
 
         if (now - createdAt > oneMonth) {
-          message.textContent = 'Akun Anda telah kadaluarsa. Silakan hubungi administrator.';
+          message.textContent = 'Akun Anda telah kadaluarsa. Silakan hubungi admin .';
           message.style.color = 'red';
         } else {
+        
+        sisa=(now-createdAt)/(
+        24 * 60 * 60 * 1000);
+     document.getElementById("sisa").innerText = parseInt(30-sisa);
+    
+        
           message.textContent = ` ${user.name}`;
           message.style.color = 'black';
            document.getElementById("loginForm").style.display = "none";
@@ -22810,6 +22821,29 @@ var currentScale = svg.currentScale || 1;
 svg.currentScale = currentScale * 0.9; // Decrease scale by 20%
 }
 </script>
+  <script>
+    const countdownElement = document.getElementById('countdown');
+    const days = oneMonth ;
+    const targetDate = new Date().getTime() + days * 24 * 60 * 60 * 1000;
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
+      const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
+
+      if (daysLeft > 0) {
+        countdownElement.textContent = `${daysLeft} Hari`;
+      } else {
+        countdownElement.textContent = "Waktu Habis!";
+        clearInterval(countdownInterval);
+      }
+    }
+
+    // Perbarui setiap 1 detik
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
 
 </body>
 </html>
