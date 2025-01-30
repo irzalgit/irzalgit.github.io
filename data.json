@@ -137,13 +137,41 @@
     "name": "Raka",
     "created_at": "2024-12-22"
   },
-  
-  
+   {
+    "username": "Fitrah",
+    "password": "7777",
+    "name": "FITRA",
+    "created_at": "2025-01-11"
+  },
+   {
+    "username": "butz",
+    "password": "1234",
+    "name": "Cristian",
+    "created_at": "2025-01-11"
+  },
+   {
+    "username": "yere",
+    "password": "2008",
+    "name": "Yeremia",
+    "created_at": "2025-01-11"
+  },
+   {
+    "username": "butz",
+    "password": "1234",
+    "name": "Cristian",
+    "created_at": "2025-01-11"
+  },
+   {
+    "username": "marcel",
+    "password": "3030",
+    "name": "Marcelinus",
+    "created_at": "2025-01-11"
+  },
   {
-    "username": "zamm",
-    "password": "1204",
+    "username": "azam",
+    "password": "0116",
     "name": "Azzam",
-    "created_at": "2024-12-22"
+    "created_at": "2025-01-11"
   },
     {
     "username": "rezi",
@@ -297,13 +325,47 @@
     "username": "wafi",
     "password": "2424",
     "name": "Wafi",
-    "created_at": "2024-12-28"
+    "created_at": "2025-01-11"
   },
+   {
+    "username": "tunas",
+    "password": "0130",
+    "name": "Tunas",
+    "created_at": "2025-01-11"
+  },
+   {
+    "username": "gibra",
+    "password": "0444",
+    "name": "Gibran",
+    "created_at": "2025-01-11"
+  },
+   {
+    "username": "yosua",
+    "password": "2009",
+    "name": "YOSUANTA",
+    "created_at": "2025-01-11"
+  },
+  
+   {
+    "username": "arsyad",
+    "password": "2630",
+    "name": "ARSYAD",
+    "created_at": "2025-01-11"
+  },
+  
+   {
+    "username": "afwan",
+    "password": "2702",
+    "name": "RIFQI",
+    "created_at": "2025-01-11"
+  },
+  
+  
   {
     "username": "raka",
     "password": "0501",
     "name": "Raka",
-    "created_at": "2025-01-07"
+    "created_at": "2025-01-17"
   },
   
   {
@@ -534,6 +596,12 @@
     "password": "0906",
     "name": "Rista",
    "created_at": "2024-12-07"
+  },
+   {
+    "username": "gegana",
+    "password": "1721",
+    "name": "Satria Gegana",
+   "created_at": "2025-1-11"
   },
   {
     "username": "hakim",
