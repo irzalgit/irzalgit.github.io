@@ -365,8 +365,6 @@
     "name": "RIFQI",
     "created_at": "2025-01-11"
   },
-  
-  
   {
     "username": "raka",
     "password": "0501",
@@ -401,7 +399,7 @@
     {
     "username": "tama",
     "password": "0807",
-    "name": "DEVIZA"
+    "name": "DEVIZA",
     "created_at": "2025-01-21"
   },
    {
