@@ -398,6 +398,18 @@
     "name": "Gabriel",
     "created_at": "2024-12-28"
   },
+    {
+    "username": "tama",
+    "password": "0807",
+    "name": "DEVIZA"
+    "created_at": "2025-01-21"
+  },
+   {
+    "username": "mruli",
+    "password": "9496",
+    "name": "M.Ruli",
+    "created_at": "2025-01-21"
+  },
   {
     "username": "ayue",
     "password": "3333",
@@ -574,10 +586,22 @@
    "created_at": "2024-12-07"
   },
   {
+    "username": "rendi",
+    "password": "2009",
+    "name": "Rendi Saputra",
+   "created_at": "2025-01-11"
+  },
+  {
+    "username": "hara",
+    "password": "1966",
+    "name": "Habib J",
+   "created_at": "2025-01-21"
+  },
+  {
     "username": "habib",
-    "password": "2910",
-    "name": "Muhammad ADNAN ",
-   "created_at": "2024-12-07"
+    "password": "0822",
+    "name": "Habib J",
+   "created_at": "2025-01-30"
   },
   {
     "username": "fahry",
