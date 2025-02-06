@@ -461,8 +461,8 @@
     img.qr-code {
     display: block;
     margin: 20px auto;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     }
     </style>
 
@@ -533,7 +533,7 @@
 
 
     <header>
-    <div class ="text-sm" >for smartphone, <br>update 24/01/25 23.00 WIB 
+    <div class ="text-sm" >for smartphone, <br>update 06/02/25 
 
     </div>
     <h1>MATEMATIKA online </h1>
@@ -570,15 +570,20 @@
 </div>
 
 <form style="margin-left:20px" id="loginForm">
-    <label for="username">Username:</label>
+    <label for="username">UserName/no.phone:</label><br>
     <input style="width:170px ;height:28px"  type="text" id="username" ><br>
-    <label for="password">Password:</label>
+    <label for="password">Password:</label><br>
     <input style="width:170px ;height:28px" type="password" id="password" ><br><br>
     <button style="margin-left:20px;background-color:green ;color:white;width:150px ;height:48px" type="submit">Login</button>
 <div id="message"></div>
   </form>
    
+<div id="qr-code-container" style="display: block;">
+<img id="qr-code" class="items-center p-2 img-qr-code" src="./gbr/gopaybphy.jpg"
+alt="QR Code untuk Pembayaran QRIS">
 
+<img class="hidden items-center p-4" src="./gbr/gopaybphy.jpg" alt="">
+</div>
 
 
 <hr>
@@ -771,7 +776,7 @@
     <p>2.Membantu biaya pengembangan dan hosting aplikasi  ini </p>
     <a href="" class="donate-button">Transfer sekarang ke BSI no.rek:  7164332475 a/n:Irzal Achmad</a>
     <br>atau qris DANA a/n.Muhamad Dani Ardiansyah.
-    <img class="items-center p-4" src="./gbr/dan100.jpg" alt="">
+    <img class="items-center p-4" src="./gbr/gopaybphy.jpg" alt="">
 
     <button class="text-black bg-red-500 " onclick="toggleContent()">Belum Sekarang</button>
     </div>
@@ -21172,9 +21177,9 @@ background-color: #094a87;
 }
 img.qr-code {
 display: block;
-margin: 20px auto;
-width: 200px;
-height: 200px;
+margin: 10px auto;
+width: 300px;
+height: 300px;
 }
 </style>
 
@@ -22805,8 +22810,9 @@ document.getElementById("message").textContent = "Username : demo , password 123
         const oneMonth = 30 * 24 * 60 * 60 * 1000; // 1 bulan dalam milidetik
 
         if (now - createdAt > oneMonth) {
-          message.textContent = 'Akun Anda telah kadaluarsa. Silakan tambah kuota pemakaian melalui aplikasi dana no. 0821-7050-5306  dengan menulis pesan/catatan : username+password (masing masing 4 huruf . Promo rp.100/hari minimal 100hari ';
+          message.textContent = 'Akun Anda telah kadaluarsa. Silakan tambah kuota pemakaian melalui aplikasi dana no. 0821-7050-5306  dengan menulis pesan/catatan : username+password (atau  no. wa saja). Promo rp.100/hari minimal 100hari atau pake qris dibawah ini, aktif 1x24jam ';
           message.style.color = 'red';
+          
         } else {
         
         sisa=(now-createdAt)/(
