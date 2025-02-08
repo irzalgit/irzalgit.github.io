@@ -83,7 +83,7 @@
     
     
     
-    for (var i = 1; i <= 45; i++) {
+    for (var i = 1; i <=61; i++) {
     
       var a = aValues[Math.floor(Math.random() * aValues.length)];
       var b = bValues[Math.floor(Math.random() * bValues.length)];
