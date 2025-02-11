@@ -190,3 +190,21 @@ P(D|R) = P(R ∩ D) / P(R) = (0.2 × 0.5) / 0.2 = 0.5 atau 50%
 
 Itulah CP, ATP, dan asesmen untuk materi Peluang kelas XI SMK Kurikulum Merdeka. Semoga membantu!
 
+Jika ada 2 kejadian yaitu A dan B maka :
+- Dua kejadian saling lepas
+<span style="font-size: 12px;">
+$$P(A \cup B )=P(A)+P(B)-(A \cap B)$$
+saling lepas 
+     $$ A \cap B = 0 $$ 
+     saling tidak lepaa
+     $$ A \cap B =\not 0 $$
+    </span>
+    
+ - Dua kejadian saling bebas
+<span style="font-size: 12px;">
+    $$P(A \cap B)=P(A).P(B) $$
+    -bersyarat
+    - $$ P(A \cap B)=P(B).P(A|B) $$
+    - $$ P(A \cap B)=P(A).P(B|A) $$</span>
+
+
