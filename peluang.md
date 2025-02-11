@@ -1,7 +1,13 @@
 # Ini adalah File Markdown
 
 Markdown adalah format teks ringan yang digunakan untuk menulis dokumen sederhana dengan sintaks yang mudah dibaca.
+# Peluang
 
+Rumus peluang adalah:
+
+$$ P(A) = \frac{n(A)}{n(S)} $$
+
+Dan rumus inline adalah \( P(B) = \frac{n(B)}{n(S)} \).
 ## Daftar Kata:
 - Markdown
 - Format
