@@ -5,6 +5,7 @@
     "name": "demo",
     "created_at": "2025-01-14"
   },
+
   {
     "username": "nana",
     "password": "2202",
@@ -12,10 +13,10 @@
     "created_at": "2025-03-28"
   },
   {
-    "username": "abcd",
-    "password": "123",
-    "name": "demo",
-    "created_at": "2024-12-21"
+    "username": "nabila",
+    "password": "1234",
+    "name": "Nabila Fatharani",
+    "created_at": "2025-05-22"
   },
   
   {
