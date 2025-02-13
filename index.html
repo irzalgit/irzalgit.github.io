@@ -3,6 +3,8 @@
 <head>
     
     
+    
+    
      <style>
     
     .chat-container {
@@ -56,7 +58,7 @@
     <link href="./css/tema.css " rel="stylesheet">
     <link href="./css/idea.css " rel="stylesheet">
 
-    <script src="./js/script.js"></script>
+    
     <script src="./js/tema.js"></script>
 
     <meta charset="UTF-8">
@@ -520,7 +522,29 @@
     }
   </style>
   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    
+    <!-- JS untuk Marked (Markdown Parser) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
+    <!-- JS untuk KaTeX -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+    
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+            display: none;
+        }
+        #output {
+            border: 1px solid #ddd;
+            padding: 15px;
+            background: #f9f9f9;
+        }
+    </style>
     </head>
     <body onload="refresh()" >
 
@@ -533,7 +557,7 @@
 
 
     <header>
-    <div class ="text-sm" >for smartphone, <br>update 06/02/25 
+    <div class ="text-sm" >for smartphone, <br>update 14/02/25 
 
     </div>
     <h1>MATEMATIKA online </h1>
@@ -18092,8 +18116,17 @@ $$\lim\limits_{x \to \sim} \sqrt {x^3 + 3x - 1}  - \sqrt {x^3 -x + 1}=...$$
 
 
 <div class="text-3xl">
+    
+   
+    
+    
 Peluang
 </div>
+
+   <button id="peluangButton">Peluang</button>
+    <div id="contentm"></div>
+
+    
 Peluang adalah ukuran dari seberapa mungkin suatu kejadian akan terjadi, dinyatakan sebagai rasio antara jumlah kejadian yang diinginkan dengan jumlah total kemungkinan kejadian. Ini sering diukur sebagai pecahan antara 0 (tidak mungkin) dan 1 (pasti terjadi).
 <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
 <!-- Kepala -->
@@ -20842,6 +20875,8 @@ r = \frac{n(\sum xy) - (\sum x)(\sum y)}{\sqrt{[n \sum x^2 - (\sum x)^2][n \sum 
 
 <button onclick="myBtn1()" style="background-color:blue" class="button text-slate-700" id="btn9"> Pers.Kuadrat</button>
 
+<button onclick="myBtn1()" style="background-color:blue" class="button text-slate-700" id="btn10"> TRIGONOMETRI</button>
+
 
 
 <!-- Products Section end -->
@@ -22848,9 +22883,10 @@ var currentScale = svg.currentScale || 1;
 svg.currentScale = currentScale * 0.9; // Decrease scale by 20%
 }
 </script>
+<!--
   <script>
     const countdownElement = document.getElementById('countdown');
-    const days = oneMonth ;
+    const days = oneBulan ;
     const targetDate = new Date().getTime() + days * 24 * 60 * 60 * 1000;
 
     function updateCountdown() {
@@ -22871,9 +22907,118 @@ svg.currentScale = currentScale * 0.9; // Decrease scale by 20%
     updateCountdown();
   </script>
 
+-->
+  
 
+    <script>
+        function convertMarkdown() {
+            let inputText = document.getElementById("markdown-input").value;
+            
+            // Konversi Markdown ke HTML
+            let htmlContent = marked.parse(inputText);
+
+            // Menampilkan hasil Markdown
+            let outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = htmlContent;
+
+            // Render LaTeX dengan KaTeX
+            renderMathInElement(outputDiv, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false }
+                ]
+            });
+        }
+
+        // Render otomatis saat halaman dimuat
+        window.onload = convertMarkdown;
+    </script>
+
+
+    <script>
+        document.getElementById('peluangButton').addEventListener('click', function() {
+            const url = 'https://raw.githubusercontent.com/irzalgit/irzalgit.github.io/main/peluang.md';
+
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Render Markdown ke HTML
+                    const htmlContent = marked.parse(data);
+                    document.getElementById('content').innerHTML = htmlContent;
+
+                    // Render LaTeX menggunakan KaTeX
+                    renderMathInElement(document.getElementById('contentm'));
+                })
+                .catch(error => console.error('Error fetching the file:', error));
+        });
+
+        // Fungsi untuk merender LaTeX dalam elemen
+        function renderMathInElement(elem) {
+            if (!elem) return;
+
+            // Cari semua elemen yang mengandung delimiters LaTeX
+            const texNodes = elem.querySelectorAll('script[type^="math/tex"], .math, .inline-math');
+            Array.prototype.forEach.call(texNodes, function(node) {
+                const tex = node.textContent || node.innerText;
+                try {
+                    const displayMode = node.tagName === 'SCRIPT' || node.classList.contains('math');
+                    katex.render(tex, node, {
+                        throwOnError: false,
+                        displayMode: displayMode
+                    });
+                } catch (e) {
+                    console.error(e);
+                }
+            });
+
+            // Cari teks yang mengandung delimiters LaTeX
+            const walker = document.createTreeWalker(elem, NodeFilter.SHOW_TEXT, null, false);
+            while (walker.nextNode()) {
+                const node = walker.currentNode;
+                const text = node.nodeValue.trim();
+                if (text.startsWith('$$') && text.endsWith('$$')) {
+                    // Mode display ($$...$$)
+                    const span = document.createElement('span');
+                    try {
+                        katex.render(text.slice(2, -2), span, {
+                            throwOnError: false,
+                            displayMode: true
+                        });
+                        node.parentNode.replaceChild(span, node);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                } else if (text.startsWith('\\(') && text.endsWith('\\)')) {
+                    // Mode inline (\(...\))
+                    const span = document.createElement('span');
+                    try {
+                        katex.render(text.slice(2, -2), span, {
+                            throwOnError: false,
+                            displayMode: false
+                        });
+                        node.parentNode.replaceChild(span, node);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                } else if (text.startsWith('\\[') && text.endsWith('\\]')) {
+                    // Mode display (\[...\])
+                    const span = document.createElement('span');
+                    try {
+                        katex.render(text.slice(2, -2), span, {
+                            throwOnError: false,
+                            displayMode: true
+                        });
+                        node.parentNode.replaceChild(span, node);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                }
+            }
+        }
+    </script>
+    
 </body>
-</html>
+
 
 
 
