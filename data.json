@@ -17,14 +17,12 @@
     "name": "Nabila Fatharani",
     "created_at": "2025-04-22"
   },
-  
   {
     "username": "sandra",
     "password": "1943",
     "name": "AKMAL",
     "created_at": "2024-12-22"
   },
-  
   {
     "username": "rado",
     "password": "2007",
@@ -55,14 +53,12 @@
     "name": "Aditia",
     "created_at": "2024-12-22"
   },
-  
    {
     "username": "jibr",
     "password": "1205",
     "name": "JIBRIL",
     "created_at": "2024-12-22"
   },
-  
    {
     "username": "ekal",
     "password": "1986",
@@ -132,7 +128,7 @@
    {
     "username": "Fitrah",
     "password": "7777",
-    "name": "FITRA",
+    "name": "FITRAH",
     "created_at": "2025-01-21"
   },
    {
@@ -165,14 +161,12 @@
     "name": "Alfarezi",
     "created_at": "2025-01-12"
   },
-  
     {
     "username": "cunek",
     "password": "1701",
     "name": "Aulia",
     "created_at": "2024-12-22"
   },
-  
     {
     "username": "fahri",
     "password": "4321",
@@ -191,7 +185,6 @@
     "name": "Stepen",
     "created_at": "2025-01-12"
   },
-  
     {
     "username": "yuzz",
     "password": "2491",
@@ -210,7 +203,6 @@
     "name": "Jeremi",
     "created_at": "2024-12-22"
   },
-  
     {
     "username": "leon",
     "password": "1635",
@@ -325,14 +317,12 @@
     "name": "YOSUANTA",
     "created_at": "2025-01-11"
   },
-  
    {
     "username": "arsyad",
     "password": "2630",
     "name": "ARSYAD",
     "created_at": "2025-01-21"
   },
-  
    {
     "username": "afwan",
     "password": "2702",
@@ -403,7 +393,7 @@
     "username": "naumi",
     "password": "0904",
     "name": "NAUMI",
-    "created_at": "2025-02-13"
+    "created_at": "2025-02-23"
   },
     {
     "username": "lufi",
@@ -447,7 +437,6 @@
     "name": "M RIZKY",
     "created_at": "2025-01-22"
   },
-  
   {
     "username": "adli",
     "password": "1609",
@@ -652,12 +641,6 @@
     "name": "Zanfal Saipul",
    "created_at": "2024-12-07"
   },
-  {
-    "username": "",
-    "password": "",
-    "name": "",
-    "created_at": "2024-12-31"
-  },
    {
     "username": "rhnp",
     "password": "1125",
@@ -706,12 +689,6 @@
     "name": "Devan",
     "created_at": "2024-12-07"
   }, 
-  {
-    "username": "defn",
-    "password": "1125",
-    "name": "Devan",
-    "created_at": "2024-12-07"
-  },
    {
     "username": "putra",
     "password": "2006",
@@ -748,11 +725,10 @@
     "name": "Deslita",
     "created_at": "2025-04-01"
   },
-  
    {
     "username": "sadd",
     "password": "2906",
     "name": "Saddam M",
     "created_at": "2025-04-01"
-  }
+  },
 ]
