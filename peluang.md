@@ -14,6 +14,7 @@ Dan  $ P(B) = \frac{n(B)}{n(S)} $
 - saling bebas
 
 ---
+
 Berikut adalah perangkat ajar untuk materi Peluang pada kelas XI SMK sesuai Kurikulum Merdeka, termasuk Capaian Pembelajaran (CP), Alur Tujuan Pembelajaran (ATP), dan asesmen.
 
 
