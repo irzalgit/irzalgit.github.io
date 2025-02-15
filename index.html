@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class=" h-full ">
 <head>
-    
-    
-    
-    
-     <style>
+    <style>
     
     .chat-container {
       width: 100%;class="h-32 border-1 rounded-3xl box-border overflow-auto border-black p-4 text-slate-700 bg-[#98FB98]">
@@ -48,6 +44,17 @@
       background: #0056b3;
     }
   </style>
+      <style>
+      .container-p {
+  width: 90vw;  /* 90% dari lebar layar */
+  height: 60vh; /* 60% dari tinggi layar */
+  background-color: lightblue; /* Warna latar belakang biru muda */
+  color: black; /* Warna teks hitam */
+  overflow: auto; /* Mengaktifkan scroll jika konten lebih besar dari kotak */
+  padding: 10px; /* Ruang di dalam kontainer */
+  border: 1px solid black; /* Garis batas opsional */
+}
+    </style>
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://font.gstatic.com" crossorigin>
@@ -521,15 +528,6 @@
       font-size: 24px;
     }
   </style>
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-    
-    <!-- JS untuk Marked (Markdown Parser) -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-    <!-- JS untuk KaTeX -->
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
     <style>
     
@@ -545,6 +543,22 @@
             background: #f9f9f9;
         }
     </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+    <style>
+      .container-p {
+  width: 90vw;  /* 90% dari lebar layar */
+  height: 60vh; /* 60% dari tinggi layar */
+  background-color: lightblue; /* Warna latar belakang biru muda */
+  color: black; /* Warna teks hitam */
+  overflow: auto; /* Mengaktifkan scroll jika konten lebih besar dari kotak */
+  padding: 10px; /* Ruang di dalam kontainer */
+  border: 1px solid black; /* Garis batas opsional */
+}
+    </style>
+  
     </head>
     <body onload="refresh()" >
 
@@ -18122,10 +18136,10 @@ $$\lim\limits_{x \to \sim} \sqrt {x^3 + 3x - 1}  - \sqrt {x^3 -x + 1}=...$$
     
 Peluang
 </div>
-
-   <button id="peluangButton">Peluang</button>
-    <div id="contentm"></div>
-
+  
+  <div id="markdown-content">Memuat...</div>
+  
+  
     
 Peluang adalah ukuran dari seberapa mungkin suatu kejadian akan terjadi, dinyatakan sebagai rasio antara jumlah kejadian yang diinginkan dengan jumlah total kemungkinan kejadian. Ini sering diukur sebagai pecahan antara 0 (tidak mungkin) dan 1 (pasti terjadi).
 <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
@@ -21084,7 +21098,7 @@ playRandomSong();
 
 
 
-<div class="button button5" > <a href="#bab1">1</a></div>
+<div class="button button5 bg-white " > <a href="#bab1">1</a></div>
 <div class="button button5"> <a href="#bab2">2</a></div>
 <div class="button button5" > <a href="#bab3">3</a></div>
 <div class="button button5" > <a href="#bab4">4</a></div>
@@ -22859,6 +22873,11 @@ document.getElementById("message").textContent = "Username : demo , password 123
           message.style.color = 'black';
            document.getElementById("loginForm").style.display = "none";
             document.getElementById("content").style.display = "block";
+     document.getElementById("qr-code-container").style.display = "none";
+            
+     
+     
+     
        message2.textContent = ` ${user.name}`;
        message3.textContent = ` ${user.created_at}`;
        
@@ -22910,113 +22929,75 @@ svg.currentScale = currentScale * 0.9; // Decrease scale by 20%
 -->
   
 
-    <script>
-        function convertMarkdown() {
-            let inputText = document.getElementById("markdown-input").value;
+  
+
+
+
+          
             
-            // Konversi Markdown ke HTML
-            let htmlContent = marked.parse(inputText);
 
-            // Menampilkan hasil Markdown
-            let outputDiv = document.getElementById("output");
-            outputDiv.innerHTML = htmlContent;
 
-            // Render LaTeX dengan KaTeX
-            renderMathInElement(outputDiv, {
-                delimiters: [
-                    { left: "$$", right: "$$", display: true },
-                    { left: "$", right: "$", display: false }
-                ]
-            });
-        }
+                    
+                            
+                
 
-        // Render otomatis saat halaman dimuat
-        window.onload = convertMarkdown;
-    </script>
-
+>
 
     <script>
-        document.getElementById('peluangButton').addEventListener('click', function() {
-            const url = 'https://raw.githubusercontent.com/irzalgit/irzalgit.github.io/main/peluang.md';
+        fetch("https://irzalgit.github.io/peluang.md")
+            .then(response => response.text())
+            .then(markdown => {
+                let converter = new showdown.Converter();
+                let htmlContent = converter.makeHtml(markdown);
+                document.getElementById("markdown-content").innerHTML = htmlContent;
 
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    // Render Markdown ke HTML
-                    const htmlContent = marked.parse(data);
-                    document.getElementById('content').innerHTML = htmlContent;
-
-                    // Render LaTeX menggunakan KaTeX
-                    renderMathInElement(document.getElementById('contentm'));
-                })
-                .catch(error => console.error('Error fetching the file:', error));
-        });
-
-        // Fungsi untuk merender LaTeX dalam elemen
-        function renderMathInElement(elem) {
-            if (!elem) return;
-
-            // Cari semua elemen yang mengandung delimiters LaTeX
-            const texNodes = elem.querySelectorAll('script[type^="math/tex"], .math, .inline-math');
-            Array.prototype.forEach.call(texNodes, function(node) {
-                const tex = node.textContent || node.innerText;
-                try {
-                    const displayMode = node.tagName === 'SCRIPT' || node.classList.contains('math');
-                    katex.render(tex, node, {
-                        throwOnError: false,
-                        displayMode: displayMode
-                    });
-                } catch (e) {
-                    console.error(e);
-                }
-            });
-
-            // Cari teks yang mengandung delimiters LaTeX
-            const walker = document.createTreeWalker(elem, NodeFilter.SHOW_TEXT, null, false);
-            while (walker.nextNode()) {
-                const node = walker.currentNode;
-                const text = node.nodeValue.trim();
-                if (text.startsWith('$$') && text.endsWith('$$')) {
-                    // Mode display ($$...$$)
-                    const span = document.createElement('span');
-                    try {
-                        katex.render(text.slice(2, -2), span, {
-                            throwOnError: false,
-                            displayMode: true
-                        });
-                        node.parentNode.replaceChild(span, node);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                } else if (text.startsWith('\\(') && text.endsWith('\\)')) {
-                    // Mode inline (\(...\))
-                    const span = document.createElement('span');
-                    try {
-                        katex.render(text.slice(2, -2), span, {
-                            throwOnError: false,
-                            displayMode: false
-                        });
-                        node.parentNode.replaceChild(span, node);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                } else if (text.startsWith('\\[') && text.endsWith('\\]')) {
-                    // Mode display (\[...\])
-                    const span = document.createElement('span');
-                    try {
-                        katex.render(text.slice(2, -2), span, {
-                            throwOnError: false,
-                            displayMode: true
-                        });
-                        node.parentNode.replaceChild(span, node);
-                    } catch (e) {
-                        console.error(e);
-                    }
-                }
-            }
-        }
+                // Render KaTeX setelah HTML dimasukkan
+                renderMathInElement(document.getElementById("markdown-content"), {
+                    delimiters: [
+                        {left: "$$", right: "$$", display: true},  // Untuk rumus blok
+                        {left: "$", right: "$", display: false}   // Untuk rumus inline
+                    ]
+                });
+            })
+            .catch(error => console.error("Gagal memuat file:", error));
     </script>
     
+        <script>
+    
+    let isMateriVisible = true; // Status awal materi terlihat
+    
+        // Tombol untuk menampilkan atau menyembunyikan materi
+        document.getElementById("toggle-materi").addEventListener("click", function() {
+            let content = document.getElementById("markdown-content-p");
+            if (isMateriVisible) {
+                content.style.display = "none";
+                this.textContent = "Tampilkan Materi";
+            } else {
+                content.style.display = "block";
+                this.textContent = "Sembunyikan Materi";
+            }
+            isMateriVisible = !isMateriVisible;
+        });
+
+    
+    
+        fetch("https://irzalgit.github.io/peluang.md")
+            .then(response => response.text())
+            .then(markdown => {
+                let converter = new showdown.Converter();
+                let htmlContent = converter.makeHtml(markdown);
+                document.getElementById("markdown-content-p").innerHTML = htmlContent;
+
+                // Render KaTeX setelah HTML dimasukkan
+                renderMathInElement(document.getElementById("markdown-content-p"), {
+                    delimiters: [
+                        {left: "$$", right: "$$", display: true},  // Untuk rumus blok
+                        {left: "$", right: "$", display: false}   // Untuk rumus inline
+                    ]
+                });
+            })
+            .catch(error => console.error("Gagal memuat file:", error));
+    </script>
 </body>
 
 
