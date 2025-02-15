@@ -11,6 +11,14 @@
 Markdown adalah format teks ringan yang digunakan untuk menulis dokumen sederhana dengan sintaks yang mudah dibaca.
 # Peluang
 
+- Item 1
+- Item 2
+  - Subitem 2.1
+  - Subitem 2.2
+- Item 3
+
+
+
 Rumus peluang adalah:
 
 $$ P(A) = \frac{n(A)}{n(S)} $$
