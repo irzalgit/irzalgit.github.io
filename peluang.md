@@ -5,7 +5,9 @@
 ##### Heading 5
 ###### Heading 6
 # Ini adalah File Markdown
-
+1. Langkah 1
+  2. Langkah 2
+  3. Langkah 3
 Markdown adalah format teks ringan yang digunakan untuk menulis dokumen sederhana dengan sintaks yang mudah dibaca.
 # Peluang
 
