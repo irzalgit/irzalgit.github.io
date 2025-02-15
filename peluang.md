@@ -7,12 +7,13 @@ Rumus peluang adalah:
 
 $$ P(A) = \frac{n(A)}{n(S)} $$
 
-Dan rumus inline adalah $ P(B) = \frac{n(B)}{n(S)} $
+Dan  $ P(B) = \frac{n(B)}{n(S)} $
+
 ## Daftar Kata:
 - saling lepas
 - saling bebas
 
-- 
+
 Berikut adalah perangkat ajar untuk materi Peluang pada kelas XI SMK sesuai Kurikulum Merdeka, termasuk Capaian Pembelajaran (CP), Alur Tujuan Pembelajaran (ATP), dan asesmen.
 
 
