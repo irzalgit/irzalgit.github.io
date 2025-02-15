@@ -7,7 +7,7 @@ Rumus peluang adalah:
 
 $$ P(A) = \frac{n(A)}{n(S)} $$
 
-Dan rumus inline adalah \( P(B) = \frac{n(B)}{n(S)} \).
+Dan rumus inline adalah $ P(B) = \frac{n(B)}{n(S)} $
 ## Daftar Kata:
 - Markdown
 - Format
