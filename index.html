@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" class=" h-full ">
 <head>
+    
+    
+    
+    
+    
+     <style>
+        /* Style untuk tombol */
+        #markdown-content{
+          display: none;
+        }
+        .toggle-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin:30px;
+        }
+        
+        /* Style untuk container QR code */
+        #qr-code-container-p {
+            display: none; /* Awalnya tersembunyi */
+            text-align: center;
+        }
+        
+        /* Style gambar QR code */
+        #qr-code-container-p img {
+            width: 400px;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            
+        }
+    </style>
     <style>
     
     .chat-container {
@@ -558,6 +594,26 @@
   border: 1px solid black; /* Garis batas opsional */
 }
     </style>
+    <style>
+      .container-info{
+  width: 90vw;  /* 90% dari lebar layar */
+  height: 60vh; /* 60% dari tinggi layar */
+  margin:auto;
+  background-color: lightblue; /* Warna latar belakang biru muda */
+  color: black; /* Warna teks hitam */
+  overflow: auto; /* Mengaktifkan scroll jika konten lebih besar dari kotak */
+  padding: 10px; /* Ruang di dalam kontainer */
+  border: 1px solid black; /* Garis batas opsional */
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
+    </style>
+    
+    
+    
   
     </head>
     <body onload="refresh()" >
@@ -571,7 +627,7 @@
 
 
     <header>
-    <div class ="text-sm" >for smartphone, <br>update 14/02/25 22.30 WIB
+    <div class ="text-sm" >for smartphone, <br>update 16/02/25 
 
     </div>
     <h1>MATEMATIKA online </h1>
@@ -615,13 +671,21 @@
     <button style="margin-left:20px;background-color:green ;color:white;width:150px ;height:48px" type="submit">Login</button>
 <div id="message"></div>
   </form>
-   
-<div id="qr-code-container" style="display: block;">
-<img id="qr-code" class="items-center p-2 img-qr-code" src="./gbr/gopaybphy.jpg"
-alt="QR Code untuk Pembayaran QRIS">
+   <!-- 
+<button class="toggle-btn" onclick="toggleQR()">Buka QR Code</button>
 
-<img class="hidden items-center p-4" src="./gbr/gopaybphy.jpg" alt="">
+<div id="qr-code-container-p">
+    <img src="./gbr/gopaybphy.jpg" alt="GoPay QR Code">
 </div>
+-->
+
+ <button class="toggle-btn" id="toggle-materi">Qris Scan</button>
+  <div id="markdown-content">Memuat...</div>
+  
+  
+
+
+
 
 
 <hr>
@@ -18136,10 +18200,11 @@ $$\lim\limits_{x \to \sim} \sqrt {x^3 + 3x - 1}  - \sqrt {x^3 -x + 1}=...$$
     
 Peluang
 </div>
+    
   
-  <div id="markdown-content">Memuat...</div>
+
   
-  
+    
     
 Peluang adalah ukuran dari seberapa mungkin suatu kejadian akan terjadi, dinyatakan sebagai rasio antara jumlah kejadian yang diinginkan dengan jumlah total kemungkinan kejadian. Ini sering diukur sebagai pecahan antara 0 (tidak mungkin) dan 1 (pasti terjadi).
 <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
@@ -21092,13 +21157,7 @@ playRandomSong();
 
 
 <div class="ketengah " >
-
-
-
-
-
-
-<div class="button button5 bg-white " > <a href="#bab1">1</a></div>
+<div class="button button5" > <a href="#bab1">1</a></div>
 <div class="button button5"> <a href="#bab2">2</a></div>
 <div class="button button5" > <a href="#bab3">3</a></div>
 <div class="button button5" > <a href="#bab4">4</a></div>
@@ -22822,6 +22881,7 @@ const user = pengguna.find(u => u.username === username && u.password === passwo
 if (user) {
 document.getElementById("login-container").style.display = "block";
 document.getElementById("content").style.display = "block";
+document.getElementById("qr-code-container").style.display = "none";
 document.getElementById("name").textContent = $"pengguna.username";
 document.getElementById("message2").textContent = $"pengguna.name";
 } else {
@@ -22873,11 +22933,7 @@ document.getElementById("message").textContent = "Username : demo , password 123
           message.style.color = 'black';
            document.getElementById("loginForm").style.display = "none";
             document.getElementById("content").style.display = "block";
-     document.getElementById("qr-code-container").style.display = "none";
-            
-     
-     
-     
+        
        message2.textContent = ` ${user.name}`;
        message3.textContent = ` ${user.created_at}`;
        
@@ -22927,24 +22983,27 @@ svg.currentScale = currentScale * 0.9; // Decrease scale by 20%
   </script>
 
 -->
-  
+<script>
+let isMateriVisible = false; // Status awal materi terlihat
+    
+        // Tombol untuk menampilkan atau menyembunyikan materi
+        document.getElementById("toggle-materi").addEventListener("click", function() {
+            let content = document.getElementById("markdown-content");
+            if (isMateriVisible) {
+                content.style.display = "none";
+                this.textContent = "Tampilkan Qris";
+            } else {
+                content.style.display = "block";
+                this.textContent = "Sembunyikan ";
+            }
+            isMateriVisible = !isMateriVisible;
+        });
 
-  
-
-
-
-          
-            
-
-
-                    
-                            
-                
-
->
+    
+</script>
 
     <script>
-        fetch("https://irzalgit.github.io/peluang.md")
+        fetch("https://irzalgit.github.io/doc/info.md")
             .then(response => response.text())
             .then(markdown => {
                 let converter = new showdown.Converter();
@@ -22962,41 +23021,25 @@ svg.currentScale = currentScale * 0.9; // Decrease scale by 20%
             .catch(error => console.error("Gagal memuat file:", error));
     </script>
     
-        <script>
-    
-    let isMateriVisible = true; // Status awal materi terlihat
-    
-        // Tombol untuk menampilkan atau menyembunyikan materi
-        document.getElementById("toggle-materi").addEventListener("click", function() {
-            let content = document.getElementById("markdown-content-p");
-            if (isMateriVisible) {
-                content.style.display = "none";
-                this.textContent = "Tampilkan Materi";
-            } else {
-                content.style.display = "block";
-                this.textContent = "Sembunyikan Materi";
-            }
-            isMateriVisible = !isMateriVisible;
+ 
+<script>
+    function toggleQR() {
+        const qrContainer = document.getElementById('qr-code-container-p');
+        const button = document.querySelector('.toggle-btn');
+        
+        if (qrContainer.style.display === 'none') {
+            qrContainer.style.display = 'block';
+            button.textContent = 'Tutup QR Code';
+        } else {
+            qrContainer.style.display = 'none';
+            button.textContent = 'Buka QR Code';
+        }
+    }
+</script>
+<script>
+        window.addEventListener("load", function() {
+            document.getElementById("markdown-content").style.display = "block";
         });
-
-    
-    
-        fetch("https://irzalgit.github.io/peluang.md")
-            .then(response => response.text())
-            .then(markdown => {
-                let converter = new showdown.Converter();
-                let htmlContent = converter.makeHtml(markdown);
-                document.getElementById("markdown-content-p").innerHTML = htmlContent;
-
-                // Render KaTeX setelah HTML dimasukkan
-                renderMathInElement(document.getElementById("markdown-content-p"), {
-                    delimiters: [
-                        {left: "$$", right: "$$", display: true},  // Untuk rumus blok
-                        {left: "$", right: "$", display: false}   // Untuk rumus inline
-                    ]
-                });
-            })
-            .catch(error => console.error("Gagal memuat file:", error));
     </script>
 </body>
 
