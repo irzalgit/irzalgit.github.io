@@ -1,4 +1,4 @@
 
 ![qrl](./gbr/gopaybphy.jpg)
 
-<img src="./gbr/gopaybphy.jpg" alt="Deskripsi Gambar" width="300" height="300">
+<img src="./gbr/gopaybphy.jpg" alt="qris" width="300" height="300">
