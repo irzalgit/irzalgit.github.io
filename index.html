@@ -8,7 +8,7 @@
     
      <style>
         /* Style untuk tombol */
-        #markdown-content{
+        .markdown-content{
           display: none;
         }
         .toggle-btn {
@@ -680,7 +680,7 @@
 -->
 
  <button class="toggle-btn" id="toggle-materi">Qris Scan</button>
-  <div id="markdown-content">Memuat...</div>
+  <div class="markdown-content" id="markdown-content">Memuat...</div>
   
   
 
@@ -23038,7 +23038,7 @@ let isMateriVisible = false; // Status awal materi terlihat
 </script>
 <script>
         window.addEventListener("load", function() {
-            document.getElementById("markdown-content").style.display = "block";
+            document.getElementById("markdown-content").style.display = "none";
         });
     </script>
 </body>
