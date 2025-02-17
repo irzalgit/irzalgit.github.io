@@ -3,7 +3,7 @@ Dalam teori peluang, kaidah penjumlahan dan kaidah perkalian adalah aturan dasar
 1. Kaidah Penjumlahan (Addition Rule)
 
 Kaidah ini digunakan ketika kita ingin menghitung peluang dari dua atau lebih kejadian yang saling lepas (tidak bisa terjadi bersamaan). Rumusnya:
-
+$P(A \cup B) = P(A) + P(B)$
 P(A \cup B) = P(A) + P(B)
 
 Jika kejadian tidak saling lepas, kita harus mengurangi bagian yang dihitung dua kali:
