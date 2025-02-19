@@ -540,6 +540,18 @@
     "created_at": "2025-02-19"
   },
   {
+    "username": "berna",
+    "password": "2008",
+    "name": "Bernadeta",
+    "created_at": "2025-02-19"
+  },
+  {
+    "username": "fikri",
+    "password": "2007",
+    "name": "AHMAD FIKRI",
+    "created_at": "2025-02-19"
+  },
+  {
     "username": "zaki1",
     "password": "2604",
     "name": "Muhammad Zaki",
@@ -731,6 +743,7 @@
     "name": "Aprianto",
     "created_at": "2024-12-07"
   },
+  
   {
     "username": "lita",
     "password": "0512",
