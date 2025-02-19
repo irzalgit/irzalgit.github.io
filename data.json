@@ -510,16 +510,16 @@
     "created_at": "2025-02-07"
   },
   {
-    "username": "abcdecghij",
-    "password": "123",
-    "name": "Haykal",
-    "created_at": "2024-02-07"
+    "username": "fres",
+    "password": "1234",
+    "name": "Fresky",
+    "created_at": "2025-02-20"
   },
   {
-    "username": "abcse",
-    "password": "123",
-    "name": "Hendri Harahap",
-    "created_at": "2024-12-07"
+    "username": "bray",
+    "password": "1234",
+    "name": "Brayan",
+    "created_at": "2025-02-19"
   },
   {
     "username": "iqbal",
@@ -528,16 +528,28 @@
     "created_at": "2024-12-07"
   },
   {
-    "username": "abcdefghijkl",
-    "password": "123",
-    "name": "Ali",
-    "created_at": "2024-12-07"
+    "username": "horas",
+    "password": "2007",
+    "name": "HORAS",
+    "created_at": "2025-02-19"
+  },
+  {
+    "username": "febri",
+    "password": "2008",
+    "name": "Febri",
+    "created_at": "2025-02-19"
   },
   {
     "username": "zaki1",
     "password": "2604",
     "name": "Muhammad Zaki",
     "created_at": "2024-12-07"
+  },
+  {
+    "username": "lambok",
+    "password": "2008",
+    "name": "LAMBOK",
+    "created_at": "2025-02-09"
   },
   {
     "username": "rendi",
