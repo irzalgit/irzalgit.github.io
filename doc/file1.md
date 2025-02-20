@@ -297,3 +297,5 @@ h2>Integral dalam MathJax</h2>
     <p>
         \oint_C f(x,y) \, ds
    </p>
+
+$\int_{a}^{b} f(x) \,dx$
