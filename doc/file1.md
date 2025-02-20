@@ -299,3 +299,29 @@ h2>Integral dalam MathJax</h2>
    </p>
 
 $\int_{a}^{b} f(x) \,dx$
+# Integral dalam LaTeX
+
+## Integral Tak Tentu
+$$
+\int f(x) \,dx
+$$
+
+## Integral Tentu
+$$
+\int_{a}^{b} f(x) \,dx
+$$
+
+## Integral Lipat Dua
+$$
+\iint_D f(x,y) \,dx\,dy
+$$
+
+## Integral Lipat Tiga
+$$
+\iiint_V f(x,y,z) \,dx\,dy\,dz
+$$
+
+## Integral dengan Batasan
+$$
+\int_{0}^{\infty} e^{-x} \,dx
+$$
