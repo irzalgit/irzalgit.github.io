@@ -46,5 +46,29 @@ Jadi, peluang mendapatkan dua bola merah adalah 0.357 atau 35.7%.
 
 ---
 
+h2>Integral dalam MathJax</h2>
+    
+    <p>Integral tak tentu:</p>
+    <p>
+        \int f(x) \, dx
+   </p>
 
+    <p>Integral tentu:</p>
+    <p>
+        \int_{a}^{b} f(x) \, dx
+   </p>
 
+    <p>Integral ganda:</p>
+    <p>
+        \iint_D f(x,y) \, dA
+   </p>
+
+    <p>Integral rangkap tiga:</p>
+    <p>
+        \iiint_V f(x,y,z) \, dV
+   </p>
+
+    <p>Integral garis:</p>
+    <p>
+        \oint_C f(x,y) \, ds
+   </p>
