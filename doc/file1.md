@@ -156,59 +156,123 @@ Jumlah total siswa = (jumlah siswa dalam setiap baris) × (jumlah baris)
 
 Jadi, menggunakan kaidah perkalian, jumlah total siswa dalam kelas tersebut adalah 20.
 Kaidah pencacahan adalah aturan untuk menghitung banyaknya susunan objek, antara lain:
-<ul>
-<li>Aturan pengisian tempat
-<li>Aturan penjumlahan</li>
-<li>Aturan perkalian</li>
-</li>
-<li>Faktorial</li>
-<li>Permutasi</li>
-<li>Kombinasi</li>
-</ul>
+
+Aturan pengisian tempat
+Aturan penjumlahan
+Aturan perkalian
+
+-Faktorial
+-Permutasi
+-Kombinasi
+
 
 
 
 Guna kaidah pencacahan adalah menentukan banyaknya objek/kejadian tertentu yang muncul.
-Peluang suatu kejadian A ditentukan dengan rumus P(A)=n(A)/n(S) <br>dimana
-<br>P(A)=peluang kejadian A
-<br>n(A)=banyak anggota dalam kejadian A
-<br>n(S)=banyak sampel
+Peluang suatu kejadian A ditentukan dengan rumus P(A)=n(A)/n(S) 
+dimana
+P(A)=peluang kejadian A
+n(A)=banyak anggota dalam kejadian A
+n(S)=banyak sampel
 
-<h3>Aturan penjumlahan</h3>
+Aturan penjumlahan
 Kaidah penjumlahan digunakan pada suatu prosedur yang dapat dikerjakan dengan beberapa cara, tetapi cara-cara ini
 tidak dapat dikerjakan pada waktu bersamaan. Misalkan jika ada suatu prosedur/kegiatan  memiliki a cara atau b cara maka banyak cara adalah (a+b) .
-<p>
+
 Contoh:
-</p>
+
 Bapak Budi mempunyai 2 buah sepeda yakni sepeda A dan sepeda B.
 Dan mempunyai juga <span x-text="b"></span> motor yakni Beat, Revo dan Vesva.
-<p>
+
 Pertanyaannya:
-</p>
+
 Jika bapak Budi ke pasar, ada berapa pilihan kendaraan yang digunakan.
-<br>
-<p>
+
 Jawab:
-</p>
+
 Dari persoalan ini tidak mungkin bapak Budi sekaligus
 menggunakan sepeda  dan motor,
 jadi banyaknya cara pergi ke pasar  adalah 2+3 yakni 5 cara, yakni menggunakan
 sepeda A atau Beat atau sepeda B atau Revo atau Vespa.
-<hr>
+
 Berapa peluang melihat bapak Budi menggunakan sepeda kepasar?<br>
 Penjumlahan peluang terjadi pada kejadian saling lepas.Misalkan
 bila ada dua himpunan A dan B dengan anggota himpunannya a  dan b   dan
 kedua himpunan saling lepas maka banyaknya cara mengambil 1 pilihan dari kedua himpunan
 adalah menjumlahkan a + b.
-<br>
+
 Persamaan penjumlahan peluang pada dua kejadian A dan B yang saling lepas adalah
 $$P\left ( A\cup  B\right )=P(A)+P(B)$$
-Jadi peluang melihat bapak Budi menggunakan <br>
-<article class="bg-blue-300 text-blue-800 font-tangerine ">
-P(sepeda)=2/5<br>
-P(sepeda atau motor)=2/5 + 3/5 =1<br>
-P(sepeda A atau motor)=1/5 + 3/5 =4/5<br>
-P(sepeda A atau Beat)=1/5 + 1/5 =2/5<br>
-P(sepeda atau Beat)=2/5 + 1/5 =3/5<br>
-</article>
-<hr>
+Jadi peluang melihat bapak Budi menggunakan 
+
+P(sepeda)=2/5
+P(sepeda atau motor)=2/5 + 3/5 =1
+P(sepeda A atau motor)=1/5 + 3/5 =4/5
+P(sepeda A atau Beat)=1/5 + 1/5 =2/5
+P(sepeda atau Beat)=2/5 + 1/5 =3/5
+
+Aturan perkalian
+Kaidah perkalian digunakan pada suatu prosedur yang dapat dikerjakan dengan beberapa cara, tetapi cara-cara ini
+dikerjakan pada waktu bersamaan. Misalkan jika ada suatu prosedur/kegiatan  memiliki a cara dan b cara maka banyak cara adalah (a x b) .
+<p>
+Contoh:
+</p>
+Warung bapak Budi menyediakan 2 macam nasi yaitu nasi putih dan nasi uduk serta lauknya ada 3 macam yaitu ayam geprek,
+ayam bakar dan ikan bakar.
+Berapa banyaknya paket makanan warung bapak Budi ini.
+<p>
+Jawab:
+</p>
+Dari persoalan diatas setiap paket terdiri atas nasi dan lauk (bersama-sama),  masing-masing 2 pilihan nasi dan 3 pilihan lauk.
+Maka menurut kaidah perkalian maka ba
+<h1>Permutasi</h1>
+<p>
+Permutasi r dari n ditulis $ _nP_r$.
+Rumus permutasi : $ _nP_r=\frac{n!}{(n-r)!}$
+</p>
+<label>
+
+<h1>Kombinasi</h1><br>
+Kombinasi r dari n ditulis $ _nC_r$ <br>
+Rumus kombinasi : $ _nC_r=\frac{n!}{r!.(n-r)!}$<br>
+
+
+
+Faktorial<br>
+Berikut adalah 6 cara yang berbeda untuk mengatur 3 kelereng:<br>
+
+1. Kelereng pertama, kedua, dan ketiga.<br>
+2. Kelereng pertama, ketiga, dan kedua.<br>
+3. Kelereng kedua, pertama, dan ketiga.<br>
+4. Kelereng kedua, ketiga, dan pertama.<br>
+5. Kelereng ketiga, pertama, dan kedua.<br>
+6. Kelereng ketiga, kedua, dan pertama.<br>
+
+Jadi, itulah 6 cara yang berbeda untuk mengatur 3 kelereng.<br>
+Permutasi<br>
+Dalam matematika, faktorial adalah operasi yang mengalikan semua bilangan bulat positif yang lebih kecil atau sama dengan bilangan itu sendiri.<br> Misalnya, jika Anda memiliki 3 kelereng, dan ingin mengetahui jumlah kemungkinan urutan mereka, Anda dapat menggunakan faktorial.<br> Jumlah cara yang berbeda untuk mengatur 3 kelereng adalah 3! = 3 × 2 × 1 = 6. <br>Jadi, ada 6 cara yang berbeda untuk mengatur 3 kelereng.<br>
+Permutasi dalam matematika mengacu pada cara pengaturan objek atau elemen dalam suatu urutan tertentu. Misalnya, jika kita memiliki 3 kelereng yang berbeda warna, katakanlah merah, biru, dan hijau, maka beberapa permutasi yang mungkin adalah:<br>
+
+1. Merah, Biru, Hijau<br>
+2. Merah, Hijau, Biru<br>
+3. Biru, Merah, Hijau<br>
+4. Biru, Hijau, Merah<br>
+5. Hijau, Merah, Biru<br>
+6. Hijau, Biru, Merah<br>
+
+Jadi, ada 6 permutasi yang berbeda untuk 3 kelereng tersebut.<br>
+Kombinaai<br>
+Dalam matematika, kombinasi adalah cara untuk memilih sekelompok objek dari himpunan objek tanpa memperhatikan urutan atau susunan. Kombinasi sangat berguna dalam berbagai konteks, seperti statistik, probabilitas, dan pemrosesan data.
+<br>
+Secara formal, kombinasi \( C(n, k) \), diwakili dengan \( n \) atas \( k \), menunjukkan jumlah cara yang berbeda untuk memilih \( k \) objek dari total \( n \) objek, tanpa memperhatikan urutan. Rumus umum untuk kombinasi adalah:
+
+\[ C(n, k) = \frac{n!}{k!(n-k)!} \]
+<br>
+Di mana \( n! \) (dibaca sebagai "n faktorial") adalah hasil perkalian dari semua bilangan bulat positif dari 1 hingga \( n \). Misalnya, \( 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120 \).
+<br>
+Contoh penggunaan kombinasi:<br>
+Misalkan Anda memiliki 5 buah apel dan Anda ingin memilih 2 dari apel-apel tersebut. Jumlah kombinasi yang berbeda untuk memilih 2 apel dari total 5 apel adalah \( C(5, 2) \):
+
+\[ C(5, 2) = \frac{5!}{2!(5-2)!} = \frac{5 \times 4}{2 \times 1} = 10 \]
+<br>
+Jadi, ada 10 cara yang berbeda untuk memilih 2 apel dari 5 apel yang tersedia.
