@@ -1,0 +1,44 @@
+
+button {
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: green;
+}
+.container-file{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 10px;
+    overflow: auto;
+}
+.content-file {
+    width: 300px;
+    height: 350px;
+    padding: 10px;
+    border: 1px solid black;
+    text-align: left;
+    overflow: auto;
+    
+}
+#tampil1 {
+    background-color: yellow;
+    color: black;
+}
+#tampil2 {
+    background-color: lightgreen;
+}
+#tampil3 {
+  
+    color: black;
+}
+#tampil4 {
+    background-color: lightblue;
+}
+#tampil5 {
+    background-color: gray;
+    color: white;
+}
