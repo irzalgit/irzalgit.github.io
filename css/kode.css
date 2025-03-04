@@ -6,7 +6,7 @@ button {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: green;
+    background-color: red;
 }
 .container-file{
     display: flex;
@@ -32,7 +32,7 @@ button {
     background-color: lightgreen;
 }
 #tampil3 {
-  
+  background-color: lightgreen;
     color: black;
 }
 #tampil4 {
