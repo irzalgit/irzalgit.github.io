@@ -2,7 +2,7 @@ Teori Peluang – Kelas 11 SMK
 
 1. Pengertian Peluang
 
-Peluang (probabilitas) adalah ukuran kemungkinan terjadinya suatu peristiwa dalam suatu percobaan. Peluang dinyatakan dengan bilangan antara 0 dan 1, di mana:
+Peluang (disimbolkan dengan huruf P atau p) adalah ukuran kemungkinan terjadinya suatu peristiwa dalam suatu percobaan. Peluang dinyatakan dengan bilangan antara p = 0 sampai dengan p = 1, di mana:
 
 Peluang 0 berarti peristiwa tidak mungkin terjadi.
 
@@ -13,52 +13,41 @@ Secara matematis, peluang suatu peristiwa A ditulis sebagai:
 $
 P(A) = \frac{\text{Jumlah kejadian yang diinginkan}}{\text{Jumlah kejadian yang mungkin terjadi}}
 $
-2. Ruang Sampel dan Kejadian
 
-Ruang sampel () adalah himpunan semua kemungkinan hasil dari suatu percobaan.
+2. Ruang Sampel S dan Kejadian  A
 
-Kejadian () adalah himpunan bagian dari ruang sampel yang berisi satu atau lebih hasil yang diinginkan.
+Ruang sampel S adalah himpunan semua kemungkinan hasil dari suatu percobaan.
 
+Kejadian A adalah himpunan bagian dari ruang sampel yang berisi satu atau lebih hasil yang diinginkan.
 
-Contoh: Jika kita melempar sebuah dadu, ruang sampelnya adalah:
+Kasus 1.Kejadian tunggal
+Contoh 1: permainan sebuah DADU
+Jika kita melempar sebuah dadu, ruang sampelnya adalah:
 
 $S = \{1, 2, 3, 4, 5, 6\}$
+anggota himpunan S merupakan semua angka yang  mungkin terjadi.
 
-$A = \{2, 4, 6\}$
+Sekarang kalau ditetapkan kejadian A adalah muncul bilangan 1 maka anggota himpunan A adalah
 
+$A = \{1\}$
+
+anggota himpunan A adalah himpunan bagian dari  S .
 Maka, peluang kejadian A adalah:
 
-$P(A) = \frac{3}{6} = 0.5$
+$P(A) = \frac{n(A)}{n(S)}$
 
-3. Jenis-Jenis Peluang
+karena jumlah anggota himpunan S ada 6 buah angka  atau dinyatakan dengan n(S)=6 dan jumlah himpunan A ada 1 buah angka  dinyatakan dengan n(A)=1. 
+Maka peluang kejadian muncul angka 1 adalah
 
-1. Peluang Empiris (Frekuensi Relatif)
-
-Berdasarkan percobaan yang telah dilakukan.
-
-Rumusnya:
+$P(A) = \frac{1}{6}$
 
 
 
-
-$P(A) = \frac{\text{Frekuensi kejadian A}}{\text{Jumlah percobaan}}$
-
-2. Peluang Teoretis
-
-Berdasarkan perhitungan teori, tanpa melakukan percobaan.
-
-Menggunakan rumus dasar:
-
-
-
-
-$P(A) = \frac{|A|}{|S|}$
-
-3. Peluang Komplementer
+2.Peluang Komplementer
 
 Peluang suatu kejadian tidak terjadi.
 
-Jika  adalah peluang kejadian A, maka peluang komplementernya adalah:
+Jika P(A) adalah peluang kejadian A, maka peluang komplementernya adalah:
 
 
 
