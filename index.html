@@ -216,7 +216,7 @@
     #more23 {display: none;}
     #more24 {display: none;}
     #more25 {display: none;}
-
+    #more26 {display: none;}
 
     #bab2 {display: block;}
     #bab3 {display: block;}
@@ -612,8 +612,9 @@
 
     </style>
     
+             <link rel="stylesheet" href="./css/toge.css">
     
-    
+            <link rel="stylesheet" href="./css/kode.css">
   
     </head>
     <body onload="refresh()" >
@@ -627,7 +628,7 @@
 
 
     <header>
-    <div class ="text-sm" >for smartphone, <br>update 16/02/25 22.00 WIB
+    <div class ="text-sm" >for smartphone, <br>update 03/03/25 
 
     </div>
     <h1>MATEMATIKA online </h1>
@@ -18590,6 +18591,22 @@ Jadi, ada 10 cara yang berbeda untuk memilih 2 apel dari 5 apel yang tersedia.
 
 
 <hr>
+
+       <button id="tbtn3" onclick="toggleMarkdown(3, 'file3.md', 'tampil3')">Buka </button>
+  <div class="container-file">
+      <div id="tampil3" ></div>
+        </div>
+  <h1>Penalaran :  Peluang</h1>
+<br>
+  <div id="quiz-peluang"></div>
+    <button onclick="cekNilaiPeluang()">Cek Nilai Peluang</button>
+<p id="score-peluang"></p>
+<p id="highscore-peluang"></p>
+
+
+
+
+
 </div>
 
 
@@ -18985,11 +19002,7 @@ animation: rotasiKotak 4s linear infinite;
 
 </article>
 </div>
-<div class="h-48 border-1 rounded-3xl box-border overflow-auto border-black p-4 text-slate-700 bg-[#98FB98]">
 
-<h1>KISI KELAS XII</h1>
-    <embed src="SOAL US 2003.pdf" type="application/pdf" width="100%" height="900px">
-    </div>
 
 <!-- awal kisi -->
 <div id="bab20" class="bg-white h-96 w-full overflow-auto  border-1 rounded-3xl box-border  border-black   text-black ">
@@ -20798,11 +20811,12 @@ maka nilai f(2) <br>
 </div>
 
 </div>
-<div id="kom25"  class="h-32 border-1 rounded-3xl box-border overflow-auto border-black p-4 text-slate-700 bg-[#98FB98]">
+
+<div id="kom26"  class=" h-32 border-1 rounded-3xl box-border overflow-auto border-black p-4 text-slate-700 bg-[#98FAb8]">
 
 <div class="text-2xl">REGRESI dan Korelasi   </div>
-<span id="dots25">...</span>
-<div id="more25">
+<span id="dots26">...</span>
+<div id="more26">
 <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
 <defs>
 <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -20931,10 +20945,27 @@ r = \frac{n(\sum xy) - (\sum x)(\sum y)}{\sqrt{[n \sum x^2 - (\sum x)^2][n \sum 
 </p>
 </div>
 <div x-data="{open:false}">
-<button class=" bg-slate-500 text-slate-200 rounded-2xl" onclick="myFunction25()" id="myBtn25">buka</button>
+<button class=" bg-slate-500 text-slate-200 rounded-2xl" onclick="myFunction26()" id="myBtn26">buka</button>
+</div>
 </div>
 
+<div class="h-96 border-1 rounded-3xl box-border overflow-auto border-black p-4 text-slate-700 bg-[#98FB98]">
+
+<h1>Soal KISI KELAS XII</h1>
+<span id="dots25">...</span>
+
+    <button class="hidden toggle-btn" data-target="#elemen2">Buka Soal</button>
+   <div id="elemen2" class= " toggle-element overflow-auto"></div>
+   <div id="more25">
+
 </div>
+    
+<div x-data="{open:false}">
+<button class=" bg-slate-500 text-slate-200 rounded-2xl" onclick="myFunction25()" id="myBtn25">buka</button>
+</div>
+    
+     </div>
+
 <!-- akhir bab24-->
 <div id="bab26" class=" border-1 rounded-3xl box-border border-black p-4 text-white bg-blue-200">
 <h1 class="text-slate-700 text-3xl">POSTER MINDMAP</h1>
@@ -21759,6 +21790,34 @@ if (kom25.classList.contains('h-32'))
 kom25.classList.add('h-screen'); }
 }
 }
+
+function myFunction26() {
+var dots26 = document.getElementById("dots26");
+var moreText26 = document.getElementById("more26");
+var btnText26 = document.getElementById("myBtn26");
+
+if (dots26.style.display === "none") {
+dots26.style.display = "inline";
+btnText26.innerHTML = "buka";
+moreText26.style.display = "none";
+
+if (kom26.classList.contains('h-screen'))
+{kom26.classList.remove('h-screen');
+kom26.classList.add('h-32'); }
+
+
+
+} else {
+dots26.style.display = "none";
+btnText26.innerHTML = "tutup";
+moreText26.style.display = "inline";
+if (kom26.classList.contains('h-32'))
+{kom26.classList.remove('h-32');
+kom26.classList.add('h-screen'); }
+}
+}
+
+
 
 function myFunction11() {
 var dots11 = document.getElementById("dots11");
@@ -23043,6 +23102,13 @@ let isMateriVisible = false; // Status awal materi terlihat
             document.getElementById("markdown-content").style.display = "none";
         });
     </script>
+            <script src="./js/soalpeluang.js"></script>
+                   <script src="./js/kode.js"></script>   
+          <script src="./js/toge.js"></script>
+script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16p.8/dist/katex.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" defer></script>
+
 </body>
 
 
