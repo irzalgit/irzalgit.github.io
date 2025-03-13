@@ -1,8 +1,5 @@
 const soalPeluang = [
-    { soal: 'Dalam sebuah kotak ada 2 dadu.Kemudian kedua dadu diambil sekaligus, maka  ', pilihan: [' <mtext>Jika A adalah kejadian muncul dadu 1 dan 1 maka jumlah kejadian n(A)= </mtext><math><mn>2</mn></math>','<math><mtext>Jumlah ruang sampel n(S)=</mtext><mn>36</mn></math>',
-                '<math> <mtext>Jika B adalah muncul dadu dengan jumlah 7 maka banyaknya n(B)=</mtext><mn>5</mn></math>',
-                ' <mtext>Peluang muncul angka 2 atau jumlah 7 adalah</mtext><math><mfrac><mn>2</mn><mn>36</mn></mfrac></math>',
-                ' <mtext>Peluang muncul 1,1 adalah </mtext><math><mfrac><mn>1</mn><mn>36</mn></mfrac></math>'
+    { soal: 'Dalam sebuah kotak ada 2 dadu.Kemudian kedua dadu diambil sekaligus, maka  ', pilihan: ['<mtext>Jika A adalah kejadian muncul dadu 1 dan 1 maka jumlah kejadian n(A)= </mtext><math><mn>2</mn></math>','<math><mtext>Jumlah ruang sampel n(S)= </mtext><mn>36</mn></math>','<math> <mtext>Jika B adalah muncul dadu dengan jumlah 7 maka banyaknya n(B)= </mtext><mn>5</mn></math>','<mtext>Peluang muncul angka 2 atau jumlah 7 adalah</mtext><math><mfrac><mn>2</mn><mn>36</mn></mfrac></math>',' <mtext>Peluang muncul 1,1 adalah </mtext><math><mfrac><mn>1</mn><mn>36</mn></mfrac></math>'
             ],benar: [0,1,2,4] },
     { soal: 'Peluang muncul angka genap saat melempar dadu?', pilihan: ["1/2", "1/3", "1/6", "2/3", "5/6"], benar: [0, 3] },
     { soal: 'Dalam 1 kotak berisi 3 bola merah dan 2 bola biru, peluang mengambil bola merah?', pilihan: ["3/5", "2/5", "1/5", "4/5", "5/5"], benar: [0] },
