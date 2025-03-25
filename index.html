@@ -114,6 +114,8 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <script src="./js/index.js"></script>
+    
+    
     <script src="./src/kirim.js"></script>
 
 
@@ -616,24 +618,31 @@
     
             <link rel="stylesheet" href="./css/kode.css">
   
+     <script  src="./js/firea.js"></script>
+       
+     <script type="module" src="fireba.js" ></script>
+     <script type="module" src="./jsfireba.js" ></script>
+    
+
     </head>
     <body onload="refresh()" >
 
 
 
-    <div class="container">
+    <div class="container4">
 
+<h1>Soal Matematika</h1>
+    <div id="questions-container1"></div>
 
-
-
+ 
 
     <header>
-    <div class ="text-sm" >for smartphone, <br>update 03/03/25 
+    <div class ="text-sm" >for smartphone, <br>update 14/03/25 
 
     </div>
     <h1>MATEMATIKA online </h1>
     
-
+ 
     <nav>
     <ul>
     <li><a href="#" onclick="showPage('home')"> <svg width="50px" height="50px" viewBox="-92.16 -92.16 1208.32 1208.32" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#00ffff" transform="matrix(1, 0, 0, -1, 0, 0)rotate(180)" stroke="#00ffff" stroke-width="8.192"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M432 768h208v32H432v104c0 9.6-6.4 16-16 16s-16-6.4-16-16V672c0-9.6 6.4-16 16-16s16 6.4 16 16v96z m96-416c9.6 0 16 6.4 16 16s-6.4 16-16 16H336c-9.6 0-16-6.4-16-16s6.4-16 16-16h192z m352 0c9.6 0 16 6.4 16 16s-6.4 16-16 16h-96c-9.6 0-16-6.4-16-16s6.4-16 16-16h96zM624 160c0-9.6 6.4-16 16-16s16 6.4 16 16v112c0 9.6-6.4 16-16 16s-16-6.4-16-16v-112z m-67.2 102.4c6.4 6.4 6.4 16 0 22.4-6.4 6.4-16 6.4-22.4 0l-67.2-67.2c-6.4-6.4-6.4-16 0-22.4 6.4-6.4 16-6.4 22.4 0l67.2 67.2z m24 182.4c6.4-6.4 16-4.8 22.4 1.6 6.4 6.4 4.8 16-1.6 22.4l-432 392c-6.4 6.4-16 4.8-22.4-1.6s-4.8-16 1.6-22.4l432-392z m-169.6 136l-22.4 22.4-96-96 22.4-22.4 96 96zM640 112c9.6 0 16 6.4 16 16s-6.4 16-16 16h-96c-9.6 0-16-6.4-16-16s6.4-16 16-16h96z" fill="#050D42"></path><path d="M640 528c-88 0-160-72-160-160s72-160 160-160 160 72 160 160-72 160-160 160zM160 880c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m400-64c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m80 0c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m-224 0c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m0 112c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m83.2-745.6c12.8 12.8 12.8 32 0 44.8-12.8 12.8-32 12.8-44.8 0-12.8-12.8-12.8-32 0-44.8 12.8-12.8 33.6-12.8 44.8 0zM416 704c-44.8 0-80-35.2-80-80s35.2-80 80-80 80 35.2 80 80-35.2 80-80 80z m224-544c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32zM320 400c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m-16 128c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z m-24 240c-17.6 0-32-14.4-32-32s14.4-32 32-32 32 14.4 32 32-14.4 32-32 32z" fill="#2F4BFF"></path></g></svg></a></li>
@@ -663,7 +672,7 @@
   -->
   
 </div>
-
+ 
 <form style="margin-left:20px" id="loginForm">
     <label for="username">UserName/no.phone:</label><br>
     <input style="width:170px ;height:28px"  type="text" id="username" ><br>
@@ -6244,6 +6253,16 @@ Esai 10 :  Diberikan barisan aritmetika dengan suku pertama 7 dan beda 4. Tentuk
 
 
 <br>
+
+<hr>
+<div id="quiz-deret"></div>
+    <button onclick="cekNilaiDeret()">Cek Nilai</button>
+<p id="score-deret"></p>
+<p id="highscore-deret"></p>
+
+
+
+
 </div>
 <div x-data="{open:false}">
 <button style="display:none" class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl outline-offset-2 outline-1" @click='open=!open' x-text="open ? 'tutup mindmap' : 'buka mindmap'">buka</button>
@@ -7575,6 +7594,16 @@ jika sudut 90 derajat diubah ke radian menjadi</label><br>
 -->
 <p id="nilai6"></p>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim60()">Cek Nilai Trigonometri </button>
+
+
+<hr>
+
+<div id="quiz-tri"></div>
+    <button onclick="cekNilaiTri()">Cek Nilai </button>
+<p id="score-tri"></p>
+<p id="highscore-tri"></p>
+
+
 
 
 </div>
@@ -14117,13 +14146,13 @@ Jadi A'(0.58,4.94)
 <h1 id="nilai19"></h1>
 <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="kirim19()">Cek Nilai Transformasi Geometri</button>
 <!--
-  <div class="bg-slate-200" id="questions-container19"></div>
+  <div class="bg-slate-200" id="questions-container9"></div>
   <p>soal penalaran </p>
    <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="generateQuestions19()">transformasi</button>
   <br>
   <button class="py-2 px-6 bg-slate-500 text-slate-200 rounded-3xl" onclick="checkAnswers19()">cek nilai transformasi</button>
   -->
-<div id="questions-container19a"></div>
+<div id="questions-container"></div>
 <button onclick="randomizeVariables()">Soal Baru</button>
 <button onclick="checkAnswers19a()">Cek</button>
 <div id="score19a"></div>
@@ -19003,7 +19032,7 @@ animation: rotasiKotak 4s linear infinite;
 </article>
 </div>
 
-
+ 
 <!-- awal kisi -->
 <div id="bab20" class="bg-white h-96 w-full overflow-auto  border-1 rounded-3xl box-border  border-black   text-black ">
 <article class="artikel">
@@ -20817,6 +20846,76 @@ maka nilai f(2) <br>
 <div class="text-2xl">REGRESI dan Korelasi   </div>
 <span id="dots26">...</span>
 <div id="more26">
+
+  <h2>Kuis Matematika</h2>
+
+    <form id="quizForm">
+        <p>1. Berapa hasil dari <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mi>a</mi><msup><mi>x</mi><mn>2</mn></msup>
+    <mo>+</mo>
+    <mi>b</mi><mi>x</mi>
+    <mo>+</mo>
+    <mi>c</mi>
+    <mo>=</mo>
+    <mn>0</mn>
+</math></p>
+        <label><input type="checkbox" name="q1" value="a"> <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mi>a</mi><msup><mi>x</mi><mn>2</mn></msup>
+    <mo>+</mo>
+    <mi>b</mi><mi>x</mi>
+    <mo>+</mo>
+    <mi>c</mi>
+    <mo>=</mo>
+    <mn>0</mn>
+</math></label><br>
+        <label><input type="checkbox" name="q1" value="b"> 8</label><br>
+        <label><input type="checkbox" name="q1" value="c"> 10</label><br>
+        <label><input type="checkbox" name="q1" value="d"> 12</label><br>
+        <label><input type="checkbox" name="q1" value="e"> 15</label><br>
+
+        <p>2. Berapa hasil dari 7 × 2?</p>
+        <label><input type="checkbox" name="q2" value="a"> 14</label><br>
+        <label><input type="checkbox" name="q2" value="b"> 10</label><br>
+        <label><input type="checkbox" name="q2" value="c"> 12</label><br>
+        <label><input type="checkbox" name="q2" value="d"> 16</label><br>
+        <label><input type="checkbox" name="q2" value="e"> 20</label><br>
+
+        <p>3. Dalam kantong terdapat 6 keleteng merah dan 1 kelereng biru</p>
+        <label><input type="checkbox" name="q3" value="a"> peluang memperoleh kelereng biru adalah 1/7</label><br>
+        <label><input type="checkbox" name="q3" value="b">peluang kelereng merah 6/7</label><br>
+        <label><input type="checkbox" name="q3" value="c"> 6</label><br>
+        <label><input type="checkbox" name="q3" value="d"> 7</label><br>
+        <label><input type="checkbox" name="q3" value="e"> 8</label><br>
+
+        <p>4. Berapa hasil dari 12 ÷ 4?</p><br>
+        <label><input type="checkbox" name="q4" value="a"> 2</label><br>
+        <label><input type="checkbox" name="q4" value="b"> 3</label><br>
+        <label><input type="checkbox" name="q4" value="c"> 4</label><br>
+        <label><input type="checkbox" name="q4" value="d"> 3</label><br>
+        <label><input type="checkbox" name="q4" value="e"> 5</label><br>
+
+        <p>5. Berapa hasil dari 10 × 3?</p>
+        <label><input type="checkbox" name="q5" value="a"> 20</label><br>
+        <label><input type="checkbox" name="q5" value="b"> 25</label><br>
+        <label><input type="checkbox" name="q5" value="c"> 28</label><br>
+        <label><input type="checkbox" name="q5" value="d"> 30</label><br>
+        <label><input type="checkbox" name="q5" value="e"> 35</label><br>
+    </form>
+
+    <br>
+    <button onclick="cekNilai()">Cek Nilai</button>
+    <p id="hasilSkor"></p>
+
+    <h2>Update Nilai Siswa</h2>
+    <label for="idSiswa">ID Siswa:</label>
+    <input type="text" id="idSiswa" placeholder="Masukkan ID Siswa"><br><br>
+
+    <label for="nilaiBaru">Nilai:</label>
+    <input type="number" id="nilaiBaru" readonly><br><br>
+
+    <button id="sendButton" onclick="updateNilai()" style="display:none;">Send</button>
+ 
+
 <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
 <defs>
 <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -20952,6 +21051,8 @@ r = \frac{n(\sum xy) - (\sum x)(\sum y)}{\sqrt{[n \sum x^2 - (\sum x)^2][n \sum 
 <div class="h-96 border-1 rounded-3xl box-border overflow-auto border-black p-4 text-slate-700 bg-[#98FB98]">
 
 <h1>Soal KISI KELAS XII</h1>
+
+
 <span id="dots25">...</span>
 
     <button class="hidden toggle-btn" data-target="#elemen2">Buka Soal</button>
@@ -21109,9 +21210,7 @@ keseluruhan.</p>
 </aside>
 <div>
  <h1>Soal US 2023</h1>
-    <embed src="SOAL US 2003.pdf" type="application/pdf" width="100%" height="600px">
-    <!-- Fallback jika <embed> tidak didukung -->
-    <p>Browser Anda tidak mendukung tampilan PDF. <a href="SOAL US 2003.pdf">Unduh PDF</a></p>
+   
 </div>
 </div>
 
@@ -23108,6 +23207,9 @@ let isMateriVisible = false; // Status awal materi terlihat
 script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16p.8/dist/katex.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" defer></script>
+    
+ <script src="config.js"></script>
+ <script src="./js/config.js"></script>
 
 </body>
 
