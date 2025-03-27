@@ -1,0 +1,75 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Firebase</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\', '\\']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    #soalContainer { display: none; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <h2>Login</h2>
+  <label>Username:</label>
+  <input type="text" id="usernamefire" placeholder="Masukkan Username"><br><br>
+
+  <label>Password:</label>
+  <input type="password" id="passwordfire" placeholder="Masukkan Password"><br><br>
+
+  <button onclick="loginfire()">Login</button>
+  <p id="statusfire"></p>
+
+  <br>
+
+  <div id="examSection" class="hidden">
+    <label for="jenisSoal">Pilih Jenis Soal:</label>
+    <select id="jenisSoal">
+      <option value="peluang">Peluang</option>
+      <option value="integral">Integral</option>
+      <option value="kuadrat">Kuadrat</option>
+      <option value="lingkaran">Lingkaran</option>
+      <option value="berpangkat">Berpangkat</option>
+      <option value="spldv">SPLDV</option>
+      <option value="sptldv">SPTLDV</option>
+      <option value="barisanderet">Barisan dan Deret</option>
+      <option value="matrik">Matrik</option>
+      <option value="deferensial">Deferensial</option>
+      <option value="limit">Limit</option>
+      <option value="programlinier">Program Linier</option>
+      <option value="fungsiexponen">Fungsi Eksponen</option>
+      <option value="komposisi">Komposisi</option>
+      <option value="sistempersamaanlinier">Sistem Persamaan Linier</option>
+      <option value="regresi">Regresi</option>
+      <option value="trigonometri">Trigonometri</option>
+    </select>
+    <button id="btnBukaSoal">Buka Soal</button>
+  </div>
+
+  <div id="soalContainer">
+    <h2>Soal</h2>
+    <div id="soalList"></div>
+    <br>
+    <button onclick="cekNilai()">Cek Nilai Skor</button>
+    <p id="hasilSkor"></p>
+    <button onclick="kirimSkor()">Kirim</button>
+  </div>
+
+  <!-- Muat file JavaScript eksternal -->
+  <script src="./js/scriptfire.js"></script>
+</body>
+</html>
