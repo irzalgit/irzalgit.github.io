@@ -50,21 +50,31 @@ function loginfire() {
       status.style.color = "red";
     });
 }
-
 function bukaSoal() {
   let jenisSoal = document.getElementById("jenisSoal").value;
   let soalContainer = document.getElementById("soalContainer");
   let soalList = document.getElementById("soalList");
 
-  database.ref(`soal/${jenisSoal}`).once("value")
-    .then(snapshot => {
-      if (!snapshot.exists()) {
+  // 1. Cek nilai siswa terlebih dahulu
+  database.ref(`data_siswa/${currentUsername}/nilai`).once("value")
+    .then(nilaiSnapshot => {
+      let nilai = nilaiSnapshot.val();
+      let jumlahSoal = (nilai !== null && nilai >= 50) ? 10 : 5; // Tentukan jumlah soal
+
+      // 2. Ambil soal dari Firebase
+      return database.ref(`soal/${jenisSoal}`).once("value")
+        .then(soalSnapshot => {
+          return { jumlahSoal, soalSnapshot };
+        });
+    })
+    .then(({ jumlahSoal, soalSnapshot }) => {
+      if (!soalSnapshot.exists()) {
         alert("Soal tidak ditemukan di Firebase!");
         return;
       }
 
       let soalArray = [];
-      snapshot.forEach(childSnapshot => {
+      soalSnapshot.forEach(childSnapshot => {
         let soalData = childSnapshot.val();
         if (soalData.pertanyaan && Array.isArray(soalData.pilihan)) {
           soalArray.push(soalData);
@@ -73,14 +83,17 @@ function bukaSoal() {
         }
       });
 
-      if (soalArray.length < 5) {
-        alert("Jumlah soal tidak cukup!");
+      // 3. Validasi kecukupan soal
+      if (soalArray.length < jumlahSoal) {
+        alert(`Jumlah soal tidak cukup! Hanya ada ${soalArray.length} soal.`);
         return;
       }
 
-      let soalTerpilih = soalArray.sort(() => 0.5 - Math.random()).slice(0, 5);
+      // 4. Acak soal dan pilih sesuai jumlah
+      let soalTerpilih = soalArray.sort(() => 0.5 - Math.random()).slice(0, jumlahSoal);
+      
+      // 5. Tampilkan soal ke UI
       soalList.innerHTML = "";
-
       soalTerpilih.forEach((soal, index) => {
         let div = document.createElement("div");
         div.innerHTML = `
@@ -94,8 +107,6 @@ function bukaSoal() {
       });
 
       soalContainer.style.display = "block";
-
-      // Panggil MathJax untuk merender simbol matematika
       if (window.MathJax) {
         MathJax.typeset();
       }
@@ -105,7 +116,6 @@ function bukaSoal() {
       alert("Terjadi kesalahan saat mengambil soal!");
     });
 }
-
 function cekNilai() {
   let soalList = document.getElementById("soalList").children;
   let skor = 0;
