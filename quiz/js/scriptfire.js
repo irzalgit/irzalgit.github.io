@@ -1,5 +1,4 @@
-
-// Konfigurasi Firebase
+ // Konfigurasi Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
   authDomain: "math314-app.firebaseapp.com",
@@ -29,18 +28,27 @@ function loginfire() {
   database.ref("data_siswa").once("value")
     .then(snapshot => {
       let found = false;
+      let userKey = "";
+
       snapshot.forEach(childSnapshot => {
         let data = childSnapshot.val();
         if (data.username === username && data.password === password) {
           found = true;
-          currentUsername = childSnapshot.key;
-          status.innerText = "Login Berhasil!";
-          status.style.color = "green";
-          document.getElementById("examSection").classList.remove("hidden");
+          userKey = childSnapshot.key;
+          currentUsername = userKey; // Simpan username saat ini
         }
       });
 
-      if (!found) {
+      if (found) {
+        // Ambil nilai siswa dari database
+        return database.ref(`data_siswa/${userKey}/nilai`).once("value")
+          .then(nilaiSnapshot => {
+            let nilai = nilaiSnapshot.val() || 0;
+            status.innerText = `Login Berhasil atas nama ${username} dengan nilai: ${nilai}`;
+            status.style.color = "green";
+            document.getElementById("examSection").classList.remove("hidden");
+          });
+      } else {
         status.innerText = "Belum Terdaftar atau Password Salah!";
         status.style.color = "red";
       }
@@ -51,21 +59,31 @@ function loginfire() {
       status.style.color = "red";
     });
 }
-
 function bukaSoal() {
   let jenisSoal = document.getElementById("jenisSoal").value;
   let soalContainer = document.getElementById("soalContainer");
   let soalList = document.getElementById("soalList");
 
-  database.ref(`soal/${jenisSoal}`).once("value")
-    .then(snapshot => {
-      if (!snapshot.exists()) {
+  // 1. Cek nilai siswa terlebih dahulu
+  database.ref(`data_siswa/${currentUsername}/nilai`).once("value")
+    .then(nilaiSnapshot => {
+      let nilai = nilaiSnapshot.val();
+      let jumlahSoal = (nilai !== null && nilai >= 50) ? 10 : 5; // Tentukan jumlah soal
+
+      // 2. Ambil soal dari Firebase
+      return database.ref(`soal/${jenisSoal}`).once("value")
+        .then(soalSnapshot => {
+          return { jumlahSoal, soalSnapshot };
+        });
+    })
+    .then(({ jumlahSoal, soalSnapshot }) => {
+      if (!soalSnapshot.exists()) {
         alert("Soal tidak ditemukan di Firebase!");
         return;
       }
 
       let soalArray = [];
-      snapshot.forEach(childSnapshot => {
+      soalSnapshot.forEach(childSnapshot => {
         let soalData = childSnapshot.val();
         if (soalData.pertanyaan && Array.isArray(soalData.pilihan)) {
           soalArray.push(soalData);
@@ -74,14 +92,17 @@ function bukaSoal() {
         }
       });
 
-      if (soalArray.length < 5) {
-        alert("Jumlah soal tidak cukup!");
+      // 3. Validasi kecukupan soal
+      if (soalArray.length < jumlahSoal) {
+        alert(`Jumlah soal tidak cukup! Hanya ada ${soalArray.length} soal.`);
         return;
       }
 
-      let soalTerpilih = soalArray.sort(() => 0.5 - Math.random()).slice(0, 5);
+      // 4. Acak soal dan pilih sesuai jumlah
+      let soalTerpilih = soalArray.sort(() => 0.5 - Math.random()).slice(0, jumlahSoal);
+      
+      // 5. Tampilkan soal ke UI
       soalList.innerHTML = "";
-
       soalTerpilih.forEach((soal, index) => {
         let div = document.createElement("div");
         div.innerHTML = `
@@ -95,8 +116,6 @@ function bukaSoal() {
       });
 
       soalContainer.style.display = "block";
-
-      // Panggil MathJax untuk merender simbol matematika
       if (window.MathJax) {
         MathJax.typeset();
       }
@@ -106,7 +125,6 @@ function bukaSoal() {
       alert("Terjadi kesalahan saat mengambil soal!");
     });
 }
-
 function cekNilai() {
   let soalList = document.getElementById("soalList").children;
   let skor = 0;
