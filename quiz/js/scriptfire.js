@@ -174,7 +174,7 @@ function kirimSkor() {
 
       // Perbarui tampilan status dengan nilai terbaru
       let status = document.getElementById("statusfire");
-      let nilaiText = `Login Berhasil atas nama ${userData.username}\n`;
+      let nilaiText = `Nama: ${userData.username}\n`;
       Object.keys(userData).forEach(key => {
         if (key.startsWith("nilai_")) {
           nilaiText += `${key}: ${userData[key] || 0}\n`;
