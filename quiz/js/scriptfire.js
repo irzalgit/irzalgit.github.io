@@ -1,4 +1,4 @@
- // Konfigurasi Firebase
+// Konfigurasi Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
   authDomain: "math314-app.firebaseapp.com",
@@ -29,6 +29,7 @@ function loginfire() {
     .then(snapshot => {
       let found = false;
       let userKey = "";
+      let userData = null;
 
       snapshot.forEach(childSnapshot => {
         let data = childSnapshot.val();
@@ -36,18 +37,22 @@ function loginfire() {
           found = true;
           userKey = childSnapshot.key;
           currentUsername = userKey; // Simpan username saat ini
+          userData = data;
         }
       });
 
       if (found) {
-        // Ambil nilai siswa dari database
-        return database.ref(`data_siswa/${userKey}/nilai`).once("value")
-          .then(nilaiSnapshot => {
-            let nilai = nilaiSnapshot.val() || 0;
-            status.innerText = `Login Berhasil atas nama ${username} dengan nilai: ${nilai}`;
-            status.style.color = "green";
-            document.getElementById("examSection").classList.remove("hidden");
-          });
+        // Ambil semua nilai yang terkait dengan user ini
+        let nilaiText = `Nama : ${username}\n`;
+        Object.keys(userData).forEach(key => {
+          if (key.startsWith("nilai_")) {
+            nilaiText += `${key}: ${userData[key] || 0}\n`;
+          }
+        });
+
+        status.innerText = nilaiText;
+        status.style.color = "green";
+        document.getElementById("examSection").classList.remove("hidden");
       } else {
         status.innerText = "Belum Terdaftar atau Password Salah!";
         status.style.color = "red";
@@ -59,18 +64,18 @@ function loginfire() {
       status.style.color = "red";
     });
 }
+
 function bukaSoal() {
   let jenisSoal = document.getElementById("jenisSoal").value;
   let soalContainer = document.getElementById("soalContainer");
   let soalList = document.getElementById("soalList");
 
-  // 1. Cek nilai siswa terlebih dahulu
-  database.ref(`data_siswa/${currentUsername}/nilai`).once("value")
+  let nilaiField = `nilai_${jenisSoal}`;
+  database.ref(`data_siswa/${currentUsername}/${nilaiField}`).once("value")
     .then(nilaiSnapshot => {
-      let nilai = nilaiSnapshot.val();
-      let jumlahSoal = (nilai !== null && nilai >= 50) ? 10 : 5; // Tentukan jumlah soal
+      let nilai = nilaiSnapshot.val() || 0;
+      let jumlahSoal = (nilai >= 50) ? 10 : 5;
 
-      // 2. Ambil soal dari Firebase
       return database.ref(`soal/${jenisSoal}`).once("value")
         .then(soalSnapshot => {
           return { jumlahSoal, soalSnapshot };
@@ -92,16 +97,13 @@ function bukaSoal() {
         }
       });
 
-      // 3. Validasi kecukupan soal
       if (soalArray.length < jumlahSoal) {
         alert(`Jumlah soal tidak cukup! Hanya ada ${soalArray.length} soal.`);
         return;
       }
 
-      // 4. Acak soal dan pilih sesuai jumlah
       let soalTerpilih = soalArray.sort(() => 0.5 - Math.random()).slice(0, jumlahSoal);
-      
-      // 5. Tampilkan soal ke UI
+
       soalList.innerHTML = "";
       soalTerpilih.forEach((soal, index) => {
         let div = document.createElement("div");
@@ -125,6 +127,7 @@ function bukaSoal() {
       alert("Terjadi kesalahan saat mengambil soal!");
     });
 }
+
 function cekNilai() {
   let soalList = document.getElementById("soalList").children;
   let skor = 0;
@@ -144,11 +147,12 @@ function cekNilai() {
   let totalSkor = skor * 10;
   document.getElementById("hasilSkor").innerText = "Skor: " + totalSkor;
 
-  // Panggil ulang bukaSoal untuk mengganti soal secara acak
   bukaSoal();
 }
 
 function kirimSkor() {
+  let jenisSoal = document.getElementById("jenisSoal").value;
+  let nilaiField = `nilai_${jenisSoal}`;
   let skorText = document.getElementById("hasilSkor").innerText;
   let skor = skorText.split(": ")[1];
 
@@ -157,13 +161,33 @@ function kirimSkor() {
     return;
   }
 
-  database.ref(`data_siswa/${currentUsername}/nilai`).set(skor)
+  database.ref(`data_siswa/${currentUsername}/${nilaiField}`).set(skor)
     .then(() => {
-      alert("Nilai berhasil dikirim!");
+      alert(`Nilai berhasil dikirim ke ${nilaiField}!`);
+
+      // Ambil ulang data pengguna untuk update tampilan
+      return database.ref(`data_siswa/${currentUsername}`).once("value");
+    })
+    .then(snapshot => {
+      let userData = snapshot.val();
+      if (!userData) return;
+
+      // Perbarui tampilan status dengan nilai terbaru
+      let status = document.getElementById("statusfire");
+      let nilaiText = `Login Berhasil atas nama ${userData.username}\n`;
+      Object.keys(userData).forEach(key => {
+        if (key.startsWith("nilai_")) {
+          nilaiText += `${key}: ${userData[key] || 0}\n`;
+        }
+      });
+
+      status.innerText = nilaiText;
+      status.style.color = "green";
     })
     .catch(error => {
-      console.error("Error menyimpan nilai:", error);
+      console.error("Error menyimpan nilai atau memperbarui tampilan:", error);
     });
 }
 
 document.getElementById("btnBukaSoal").addEventListener("click", bukaSoal);
+document.getElementById("btnKirimSkor").addEventListener("click", kirimSkor);
