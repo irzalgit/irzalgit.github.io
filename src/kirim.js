@@ -4683,6 +4683,10 @@ const jno1701 = document.querySelector("#jno1701");
     const jno1714 = document.querySelector("#jno1714");
     const jno1715 = document.querySelector("#jno1715");
     const jno1716 = document.querySelector("#jno1716");
+    const jno1717 = document.querySelector("#jno1717");
+    const jno1718 = document.querySelector("#jno1718");
+    const jno1719 = document.querySelector("#jno1719");
+    const jno1720 = document.querySelector("#jno1720");
     
     
     
@@ -4813,6 +4817,42 @@ if (jno1716.checked) {
       response = "";
     }
     rno1716.innerHTML = response;
+  
+  if (jno1717.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1717.innerHTML = response;
+  
+  if (jno1718.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1718.innerHTML = response;
+  
+  if (jno1719.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1719.innerHTML = response;
+  
+  
+  if (jno1720.checked) {
+      response = "";
+      poin17 = poin17 + 10;
+    } else {
+      response = "";
+    }
+    rno1720.innerHTML = response;
+  
+  
+  
     
 nilai17.innerHTML=poin17;
 
