@@ -168,6 +168,7 @@ function login() {
         currentSkor = 0;
         output.innerText = "Anda telah logout.";
         document.getElementById("soalContainer").style.display = "none";
+        document.getElementById("formContainer").style.display = "block";
         document.getElementById("tampilkanSoal").innerHTML = "";
         document.getElementById("nilaiUser").style.display = "none";
         nilaiVisible = false;
@@ -219,7 +220,7 @@ function login() {
 
           data.reverse();
 
-          let html = "<h3>Leaderboard (Top 10)</h3><ol>";
+          let html = "<h3>Peringkat (Top 10)</h3><ol>";
           data.forEach(user => {
             html += `<li>${user.username} - ${user.total_nilai}</li>`;
           });
