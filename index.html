@@ -843,7 +843,7 @@ margin: 0;
  
 
     <header>
-    <div class ="text-sm" >for smartphone, <br>update 14/04/25 
+    <div class ="text-sm" >for smartphone, <br>update 15/04/25 
 
     </div>
     <h1>MATEMATIKA online </h1>
@@ -892,7 +892,11 @@ margin: 0;
     <a href="quiz/soal.html" style="margin-left:20px;background-color:green ;color:white;width:150px ;height:48px"  >
     PRO
 </a>
+
+
+
    <div class="form-wrapper " id="formContainer" style="display:block;">
+   
   <h2>Login</h2>
   <input type="text" id="loginUsername" placeholder="Username">
   <input type="password" id="loginPassword" placeholder="Password">
@@ -906,11 +910,12 @@ margin: 0;
 
 <p id="output" style="color: red;"></p>
 
-
 </div>
+<div id="leaderboardContainer" style="height:auto;background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);"></div>
 
-<div style="width: 100vw; height: 100vh; background: linear-gradient(to bottom right, #a2d4f4, #ffffff); display: flex;  font-family: Arial, sans-serif;">
-
+<!-- 
+<div style="width: 100vw; height: 100vh; background: linear-gradient(to bottom right, #a2d4f4, #ffffff); display: flex;  font-family: Arial, sans-serif;"></div>
+-->
 
   <div style="text-align: left;">
     <div id="soalContainer" style="display: none; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
@@ -929,7 +934,7 @@ margin: 0;
      
      
      
-      <div id="tampilkanSoal" style="
+<div id="tampilkanSoal" style="
   width: 100vw;
   height: 100vh;
   background-color: #007BFF; /* biru */
@@ -940,137 +945,13 @@ margin: 0;
   text-align: left;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.6;"></div>
   
-">
-  <label>
-  <label style="display: flex; align-items: center; cursor: pointer; font-family: sans-serif; font-size: 16px;">
-  <input type="checkbox" style="display: none;"
-    onchange="this.nextElementSibling.style.backgroundColor = this.checked ? 'white' : 'blue';
-               this.nextElementSibling.innerHTML = this.checked 
-                 ? '<div style=&quot;position:absolute;top:3px;left:6px;width:6px;height:12px;border:solid yellow;border-width:0 2px 2px 0;transform:rotate(45deg);&quot;></div>'
-                 : '';"
-  >
-  <span style="width: 20px; height: 20px; border: 2px solid:green; border-radius: 4px; margin-right: 10px; background-color: white; display: inline-block; position: relative;"></span>
-  Contoh opsi jawaban
-</label>
-    
-  </label>
-  <p>Soal akan ditampilkan di sini.</p>
-</div>
-
-
-
-
-   <!-- 
-    <a href="quiz/soal.html" class="margin-left:20px ;px-6 py-3 width:150px ;height:48px bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
-    PRO
-</a>
-  
-  <div class="form-wrapper " id="formContainer" style="display:block;">
-  <h2>Login</h2>
-  <input type="text" id="loginUsername" placeholder="Username">
-  <input type="password" id="loginPassword" placeholder="Password">
-  <button onclick="login()">Login</button>
-
-  <h2>Register</h2>
-  <input type="text" id="regUsername" placeholder="Username">
-  <input type="email" id="regEmail" placeholder="Email">
-  <input type="password" id="regPassword" placeholder="Password">
-  <button onclick="register()">Register</button>
-
-<p id="output" style="color: red;"></p>
-
-
-</div>
-
-
-<div id="soalContainer" style="display:none;">
-    <h3>Pilih Jenis Soal:</h3>
-    <select id="jenisSoal">
-      <option value="peluang">Peluang</option>
-      <option value="lingkaran">Lingkaran</option>
-      <option value="regresi">Regresi</option>
-    </select>
-    <br>
-    <button onclick="mulaiSoal()">Mulai</button>
-    <button onclick="logout()" class="logout">Logout</button>
-    <button onclick="toggleNilai()" id="nilaiToggleBtn">Tampilkan Nilai</button>
-  
-
-  <div id="tampilkanSoal"></div>
-
   <div id="nilaiUser" style="display:none; margin-top: 20px;"></div>
+
 </div>
-
-<div id="leaderboardContainer" style="margin-top: 30px;"></div>
-
 
    
-<button class="toggle-btn" onclick="toggleQR()">Buka QR Code</button>
-
-<div id="qr-code-container-p">
-    <img src="./gbr/gopaybphy.jpg" alt="GoPay QR Code">
-</div>
--->
-
- <button class="toggle-btn" id="toggle-materi">Qris Scan</button>
-  <div class="markdown-content" id="markdown-content">Memuat...</div>
-  
-  
-
-
-
-
-
-<hr>
-<br>
-
-
-
-    <div class="hidden bg-blue-400 p-4"  id="login-container">
-
-    <p>username : </p>
-    <input style="width:100px ;height:20px"  type="text" id="username" >
-    <p>password : </p>
-    <input style="width:100px; height:20px"  type="password" id="password" placeholder="">
-     <div id="name"></div>;
-    <br>
-    
-    
-    
-    <br>
-
-    
-    <button class="w-20 h-8 bg-blue-500 text-white rounded-lg relative top-15 left-10" onClick= "login()"  >
-    login
-    </button><br><br>
-
-
-
-
-
-  
-<br>
-
-
-
-    </div>
-    
-</div>
-
-    <!-- What -->
-
-    <!-- Who -->
-
-
-    <!-- Where -->
-
-    <!-- When -->
-
-
-    <!-- Why -->
-    <!-- How -->
 
 
     <!--awal konten-->
