@@ -843,7 +843,7 @@ margin: 0;
  
 
     <header>
-    <div class ="text-sm" >for smartphone, <br>update 15/04/25 
+    <div class ="text-sm" >for smartphone, <br>update 16/04/25 
 
     </div>
     <h1>MATEMATIKA online </h1>
@@ -878,35 +878,37 @@ margin: 0;
   -->
   
 </div>
- 
-<form style="margin-left:20px" id="loginForm">
-    <label for="username">UserName/no.phone:</label><br>
-    <input style="width:170px ;height:28px"  type="text" id="username" ><br>
-    <label for="password">Password:</label><br>
-    <input style="width:170px ;height:28px" type="password" id="password" ><br><br>
-    <button style="margin-left:20px;background-color:green ;color:white;width:150px ;height:48px" type="submit">Login</button>
+
+ <div style="background-color:blue ;color:white;">DEMO</div>
+
+
+<form   class="form-wrapper " id="loginForm">
+
+    <label for="username">UserName/no.phone:</label>
+    <input type="text" id="username" placeholder="Username">
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="password">
+    <button  type="submit">Login</button>
    
 <div id="message"></div>
   </form>
   
-    <a href="quiz/soal.html" style="margin-left:20px;background-color:green ;color:white;width:150px ;height:48px"  >
-    PRO
-</a>
+<div style="background-color:blue ;color:white;">PRO </div>
 
 
 
    <div class="form-wrapper " id="formContainer" style="display:block;">
    
-  <h2>Login</h2>
+  <h2></h2>
   <input type="text" id="loginUsername" placeholder="Username">
   <input type="password" id="loginPassword" placeholder="Password">
-  <button onclick="login()">Login</button>
+  <button onclick="login()">Log in</button>
 
-  <h2>Register</h2>
+  <h2></h2>
   <input type="text" id="regUsername" placeholder="Username">
   <input type="email" id="regEmail" placeholder="Email">
   <input type="password" id="regPassword" placeholder="Password">
-  <button onclick="register()">Register</button>
+  <button onclick="register()">Daftar</button>
 
 <p id="output" style="color: red;"></p>
 
