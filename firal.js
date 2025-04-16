@@ -95,38 +95,53 @@ function login() {
     });
 }
 
-    function mulaiSoal() {
-      const jenis = document.getElementById("jenisSoal").value;
-      currentJenis = jenis;
-      db.ref('/soal/' + jenis).once('value').then(snapshot => {
-        const data = snapshot.val();
-        const container = document.getElementById("tampilkanSoal");
-        container.innerHTML = `<h3>Soal ${jenis.toUpperCase()}</h3>`;
-        let index = 1;
-        currentSkor = 0;
+    
+function mulaiSoal() {
+  const jenis = document.getElementById("jenisSoal").value;
+  currentJenis = jenis;
+  currentSkor = 0;
 
-        for (let kunci in data) {
-          const soal = data[kunci];
-          container.innerHTML += `
-            <div id="soal${index}">
-              <p><strong>${soal.pertanyaan}</strong></p>
-              ${soal.pilihan.map((pil, i) => `
-                <label>
-                  <input type="checkbox" data-benar="${pil.benar}" onchange="cekJawaban(this)">
-                  ${pil.teks}
-                </label><br>`).join('')}
-            </div><hr>`;
-          index++;
-        }
+  // Ambil nilai skor terakhir dari user
+  db.ref('data_siswa/' + currentUID).once('value').then(snapshot => {
+    const userData = snapshot.val();
+    const skorSebelumnya = (userData.nilai && userData.nilai[jenis]) || 0;
+    const jumlahSoal = skorSebelumnya + 1;
 
+    // Ambil soal dari database
+    return db.ref('/soal/' + jenis).once('value').then(snapshot => {
+      const data = snapshot.val();
+      const soalArray = Object.values(data);
+
+      // Acak soal
+      const soalAcak = soalArray.sort(() => Math.random() - 0.5).slice(0, jumlahSoal);
+
+      const container = document.getElementById("tampilkanSoal");
+      container.innerHTML = `<h3>Soal ${jenis.toUpperCase()}</h3>`;
+      let index = 1;
+
+      for (let soal of soalAcak) {
         container.innerHTML += `
-          <button onclick="tampilkanSkor()">Skor</button>
-          <button onclick="simpanSkor()">Simpan</button>
-          <p id="skorOutput"></p>
-        `;
-      });
-    }
+          <div id="soal${index}">
+            <p><strong>${soal.pertanyaan}</strong></p>
+            ${soal.pilihan.map((pil, i) => `
+              <label>
+                <input type="checkbox" data-benar="${pil.benar}" onchange="cekJawaban(this)">
+                ${pil.teks}
+              </label><br>`).join('')}
+          </div><hr>`;
+        index++;
+      }
 
+      container.innerHTML += `
+        <button onclick="tampilkanSkor()">Skor</button>
+        <button onclick="simpanSkor()">Simpan</button>
+        <p id="skorOutput"></p>
+      `;
+    });
+  }).catch(err => {
+    output.innerText = "Gagal memuat soal: " + err.message;
+  });
+}
     function cekJawaban(checkbox) {
       if (checkbox.checked) {
         if (checkbox.getAttribute("data-benar") === "true") currentSkor++;
