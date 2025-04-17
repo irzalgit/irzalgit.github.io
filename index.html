@@ -14,7 +14,7 @@
   html, body {
     font-family: Arial, sans-serif;
 margin: 0;
-    padding: 0;
+    padding: 1;
     height: 100%;
     width: 100%;
   }
@@ -881,17 +881,50 @@ margin: 0;
 
  <div style="background-color:blue ;color:white;">DEMO</div>
 
+<button id="demoBtn" onclick="dempContent()">ON</button>
 
+  
 <form   class="form-wrapper " id="loginForm">
 
-    <label for="username">UserName/no.phone:</label>
-    <input type="text" id="username" placeholder="Username">
+<label for="username">UserName/no.phone:</label>
+    <input style="width:170px ;height:28px"  type="text" id="username" >
     <label for="password">Password:</label>
-    <input type="password" id="password" placeholder="password">
+    <input style="width:170px ;height:28px" type="password" id="password" >
+
+
+
+
+
+ 
     <button  type="submit">Login</button>
    
 <div id="message"></div>
   </form>
+  
+  
+  
+ 
+    
+
+  <script>
+    let isOn = false;
+
+    function dempContent() {
+      const content = document.getElementById('content');
+      const btn = document.getElementById('demoBtn');
+      
+      isOn = !isOn;
+
+      if (isOn) {
+        content.style.display = 'block';
+        btn.innerText = 'OFF';
+      } else {
+        content.style.display = 'none';
+        btn.innerText = 'ON';
+      }
+    }
+  </script>
+  
   
 <div style="background-color:blue ;color:white;">PRO </div>
 
@@ -954,11 +987,11 @@ margin: 0;
 </div>
 
    
+<p>ok</p>
 
 
     <!--awal konten-->
     <div id="content" style="display: none;">
-
 
     <audio controls id="backgroundMusic"></audio>
 
@@ -23363,7 +23396,7 @@ document.getElementById("message").textContent = "Username : demo , password 123
         
           message.textContent = ` ${user.name}`;
           message.style.color = 'black';
-           document.getElementById("loginForm").style.display = "none";
+           document.getElementById("loginForm").style.display = "block";
             document.getElementById("content").style.display = "block";
         
        message2.textContent = ` ${user.name}`;
