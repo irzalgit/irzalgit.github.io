@@ -843,7 +843,7 @@ margin: 0;
  
 
     <header>
-    <div class ="text-sm" >for smartphone, <br>update 16/04/25 
+    <div class ="text-sm" >for smartphone, <br>update 17/04/25 
 
     </div>
     <h1>MATEMATIKA online </h1>
@@ -23357,58 +23357,56 @@ document.getElementById("message").textContent = "Username : demo , password 123
 
 -->
 
-  <script>
-    // Fungsi untuk membaca data dari file JSON
-    async function fetchUserData() {
-      const response = await fetch('data.json');
-      return await response.json();
-    }
+ <script>
+  // Fungsi untuk membaca data dari file JSON  
+  async function fetchUserData() {
+    const response = await fetch('data.json');
+    return await response.json();
+  }
 
-    document.getElementById('loginForm').addEventListener('submit', async (e) => {
-      e.preventDefault(); // Mencegah form submit default
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault(); // Mencegah form submit default
 
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      const name = document.getElementById('name').value;
-      const message = document.getElementById('message');
-      // Ambil data dari data.json
-      const users = await fetchUserData();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const message = document.getElementById('message');
+    const message2 = document.getElementById('message2');
+    const message3 = document.getElementById('message3');
 
-      // Cek kecocokan username dan password
-      const user = users.find(user => user.username === username && user.password === password);
+    // Ambil data dari data.json
+    const users = await fetchUserData();
 
-      if (user) {
-        // Periksa apakah akun sudah kadaluarsa
-        const createdAt = new Date(user.created_at);
-        const now = new Date();
-        const oneMonth = 30 * 24 * 60 * 60 * 1000; // 1 bulan dalam milidetik
+    // Cek kecocokan username dan password
+    const user = users.find(user => user.username === username && user.password === password);
 
-        if (now - createdAt > oneMonth) {
-          message.textContent = 'Akun Anda telah kadaluarsa. Silakan tambah kuota pemakaian melalui aplikasi dana no. 0821-7050-5306  Pada saat mengirim tuliskan nama pengirim serta  username baru dan password baru. Promo rp.100/hari minimal 100hari atau jika pake qris  username dan password diambil dari 6 huruf terakhir dari no.transaksi , aktif 1x24jam ,jika ada pertanyaan hubungi wa nomor diatas';
-          message.style.color = 'red';
-          
-        } else {
-        
-        sisa=(now-createdAt)/(
-        24 * 60 * 60 * 1000);
-     document.getElementById("sisa").innerText = parseInt(30-sisa);
-    
-        
-          message.textContent = ` ${user.name}`;
-          message.style.color = 'black';
-           document.getElementById("loginForm").style.display = "block";
-            document.getElementById("content").style.display = "block";
-        
-       message2.textContent = ` ${user.name}`;
-       message3.textContent = ` ${user.created_at}`;
-       
-        }
-      } else {
-        message.textContent = 'Username demo  dan password 123';
+    if (user) {
+      // Periksa apakah akun sudah kadaluarsa
+      const createdAt = new Date(user.created_at);
+      const now = new Date();
+      const oneMonth = 30 * 24 * 60 * 60 * 1000; // 1 bulan dalam milidetik
+
+      if (now - createdAt > oneMonth) {
+        message.textContent = 'Akun Anda telah kadaluarsa. Silakan tambah kuota pemakaian melalui aplikasi dana no. 0821-7050-5306. Pada saat mengirim tuliskan nama pengirim serta username baru dan password baru. Promo rp.100/hari minimal 100 hari atau jika pake qris username dan password diambil dari 6 huruf terakhir dari no. transaksi, aktif 1x24 jam. Jika ada pertanyaan hubungi WA nomor di atas.';
         message.style.color = 'red';
+      } else {
+        let sisa = (now - createdAt) / (24 * 60 * 60 * 1000);
+        document.getElementById("sisa").innerText = parseInt(30 - sisa);
+
+        message.textContent = `${user.name}`;
+        message.style.color = 'black';
+
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("content").style.display = "block";
+
+        message2.textContent = `${user.name}`;
+        message3.textContent = `${user.created_at}`;
       }
-    });
-  </script>
+    } else {
+      message.textContent = 'Username demo dan password 123';
+      message.style.color = 'red';
+    }
+  });
+</script>
  
 <script>
 function zoomIn() {
