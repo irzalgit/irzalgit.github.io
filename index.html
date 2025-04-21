@@ -7,7 +7,7 @@
 
     
 
-  <script src="firal.js"></script>
+  <script src="firal1.js"></script>
   
     
     <style>
@@ -335,21 +335,15 @@ margin: 0;
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!--
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5bbi/startup.js"></script>  -->
+   
+   
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- <link rel="stylesheet" href="pas.css"> -->
 
-    <!--
-    <script>
-    MathJax = {
-    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    }
-    </script>
-    -->
+    
 
 
     <script type="text/javascript">
@@ -362,7 +356,20 @@ margin: 0;
     }
     };
     </script>
-
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+ 
+ <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\', '\\']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+ 
+ 
 
     <style>
     .progress-circle {
@@ -843,7 +850,7 @@ margin: 0;
  
 
     <header>
-    <div class ="text-sm" >for smartphone, <br>update 17/04/25 
+    <div class ="text-sm" >for smartphone, <br>update 22/04/25 
 
     </div>
     <h1>MATEMATIKA online </h1>
@@ -866,130 +873,288 @@ margin: 0;
 
 
   
-  
-
-<!-- Elemen untuk menampilkan bagian SVG yang diinginkan 
-<div>
-  <svg width="40" height="40" viewBox="10 10 40 40">
-    <use href="#image" />
-  </svg>
-</div>
-
-  -->
-  
-</div>
-
-
-  
+  <div style="background-color:blue ;color:white;">DEMO </div>
 <form   class="form-wrapper " id="loginForm">
-
-<div style="background-color:blue ;color:white;">DEMO</div>
-<button id="demoBtn" onclick="dempContent()">buka</button>
-
-
-
 <label for="username">UserName/no.phone:</label>
     <input   type="text" id="username"  placeholder="Username">
     <label for="password">Password:</label>
     <input  type="password" id="password"  placeholder="password">
 
-
-
-
-
- 
-    <button  type="submit">Login</button>
+ <button  type="submit">Login</button>
    
 <div id="message"></div>
   </form>
   
-  
-  
  
-    
 
-  <script>
-    let isOn = false;
-
-    function dempContent() {
-      const content = document.getElementById('content');
-      const btn = document.getElementById('demoBtn');
-      
-      isOn = !isOn;
-
-      if (isOn) {
-        content.style.display = 'block';
-        btn.innerText = 'tutup';
-      } else {
-        content.style.display = 'none';
-        btn.innerText = 'buka';
-      }
-    }
-  </script>
   
   
 <div style="background-color:blue ;color:white;">PRO </div>
 
 
 
-   <div class="form-wrapper " id="formContainer" style="display:block;">
-   
-  <h2></h2>
-  <input type="text" id="loginUsername" placeholder="Username">
-  <input type="password" id="loginPassword" placeholder="Password">
-  <button onclick="login()">Log in</button>
-
-  <h2></h2>
-  <input type="text" id="regUsername" placeholder="Username">
-  <input type="email" id="regEmail" placeholder="Email">
-  <input type="password" id="regPassword" placeholder="Password">
-  <button onclick="register()">Daftar</button>
-
-<p id="output" style="color: red;"></p>
-
-</div>
-<div id="leaderboardContainer" style="height:auto;background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);"></div>
-
-<!-- 
-<div style="width: 100vw; height: 100vh; background: linear-gradient(to bottom right, #a2d4f4, #ffffff); display: flex;  font-family: Arial, sans-serif;"></div>
--->
-
-  <div style="text-align: left;">
-    <div id="soalContainer" style="display: none; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
-      <h3 style="margin-bottom: 10px;">Pilih Jenis Soal:</h3>
-      
-      <select id="jenisSoal" style="padding: 8px 12px; margin-bottom: 15px; border-radius: 5px;">
-        <option value="peluang">Peluang</option>
-        <option value="lingkaran">Lingkaran</option>
-        <option value="regresi">Regresi</option>
-      </select>
-      <br>
-
-      <button onclick="mulaiSoal()" style="margin: 5px; padding: 8px 16px; border: none; border-radius: 5px; background-color: #4CAF50; color: white;">Mulai</button>
-      <button onclick="logout()" class="logout" style="margin: 5px; padding: 8px 16px; border: none; border-radius: 5px; background-color: #f44336; color: white;">Logout</button>
-      <button onclick="toggleNilai()" id="nilaiToggleBtn" style="margin: 5px; padding: 8px 16px; border: none; border-radius: 5px; background-color: #2196F3; color: white;">Tampilkan Nilai</button>
-     
-     
-     
-<div id="tampilkanSoal" style="
-  width: 100vw;
-  height: 100vh;
-  background-color: #007BFF; /* biru */
-  color: #A8FFC1; /* hijau terang */
-  overflow-y: auto;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: left;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;"></div>
   
-  <div id="nilaiUser" style="display:none; margin-top: 20px;"></div>
+    
 
-</div>
+  <!-- ===== LOGIN ===== -->
+  <div id="loginForm" class="bg-white p-6 rounded-lg shadow-md w-full max-w-md text-center">
+    <h2 class="text-2xl font-bold mb-4">Login</h2>
+    <input id="loginUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
+    <input id="loginPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+    <button onclick="login()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
+    <p class="mt-4 text-sm">Belum punya akun? <button onclick="showRegister()" class="text-blue-600 underline">Register</button></p>
+  </div>
 
-   
+  <!-- ===== REGISTER ===== -->
+  <div id="registerForm" class="hidden bg-white p-6 rounded-lg shadow-md w-full max-w-md text-center">
+    <h2 class="text-2xl font-bold mb-4">Register</h2>
+    <input id="regUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
+    <input id="regEmail" placeholder="Email" class="w-full mb-2 p-2 border rounded" />
+    <input id="regPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+    <button onclick="register()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Register</button>
+    <p class="mt-4 text-sm">Sudah punya akun? <button onclick="showLogin()" class="text-blue-600 underline">Kembali ke Login</button></p>
+  </div>
 
+  <!-- ===== DASHBOARD ===== -->
+  <div id="dashboard" class="hidden w-full max-w-2xl mx-auto pt-4 sticky top-0 bg-white z-10 shadow">
+    <div class="flex justify-between items-center mb-4">
+      <h2 id="welcome" class="text-xl font-semibold"></h2>
+      <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</button>
+    </div>
+    <div id="selectContainer">
+      <label class="block mb-2">Pilih kelas:</label>
+      <select id="kelas" onchange="updateJenisSoal()" class="w-full p-2 border rounded mb-4">
+        <option value="">-- Pilih Kelas --</option>
+        <option value="x">X</option>
+        <option value="xi">XI</option>
+        <option value="xii">XII</option>
+      </select>
+      <label class="block mb-2">Pilih jenis soal:</label>
+      <select id="jenisSoal" class="w-full p-2 border rounded mb-4">
+        <option value="">-- Pilih Jenis Soal --</option>
+      </select>
+      <button onclick="loadSoal()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full">Tampilkan Soal</button>
+    </div>
+    <div id="soalContainer"></div>
+  </div>
+
+  <script>
+    // ===== FIREBASE INIT =====
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
+      authDomain: "math314-app.firebaseapp.com",
+      databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
+      projectId: "math314-app",
+      storageBucket: "math314-app.appspot.com",
+      messagingSenderId: "9019551034",
+      appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
+      measurementId: "G-VWYDTY9LF6"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const auth = firebase.auth();
+
+    // ===== STATE GLOBAL =====
+    let currentUsername = "";
+    let currentUid = "";
+
+    const jenisSoalMap = {
+      x: ['kuadrat','barisan','trigonometri'],
+      xi: ['peluang','regresi'],
+      xii: ['integral','deferensial']
+    };
+
+    function showRegister() {
+      document.getElementById("loginForm").classList.add("hidden");
+      document.getElementById("registerForm").classList.remove("hidden");
+    }
+    function showLogin() {
+      document.getElementById("registerForm").classList.add("hidden");
+      document.getElementById("loginForm").classList.remove("hidden");
+    }
+
+    // ===== REGISTER =====
+    async function register() {
+      const username = regUsername.value.trim();
+      const email = regEmail.value.trim();
+      const password = regPassword.value;
+
+      if (!username || !email || !password) {
+        return alert("Semua field harus diisi.");
+      }
+
+      try {
+        const userCred = await auth.createUserWithEmailAndPassword(email, password);
+        const uid = userCred.user.uid;
+        // langsung approved agar bisa login
+        await db.ref("data_siswa/" + uid).set({
+          username, email,
+          tanggal: new Date().toISOString().slice(0,10),
+          nilai: {}, total_nilai: 0,
+          approved: true
+        });
+        await db.ref("username_map/" + username).set(email);
+        alert("Registrasi berhasil! Silakan login.");
+        showLogin();
+      } catch (err) {
+        alert("Gagal registrasi: " + err.message);
+      }
+    }
+
+    // ===== LOGIN =====
+    async function login() {
+      const username = loginUsername.value.trim();
+      const password = loginPassword.value;
+      if (!username || !password) {
+        return alert("Username & password harus diisi.");
+      }
+      try {
+        const snap = await db.ref("username_map/" + username).get();
+        if (!snap.exists()) throw new Error("Username tidak ditemukan");
+        const email = snap.val();
+        const userCred = await auth.signInWithEmailAndPassword(email, password);
+        const uid = userCred.user.uid;
+        // load data_siswa untuk memastikan ada
+        const userSnap = await db.ref("data_siswa/" + uid).get();
+        if (!userSnap.exists()) throw new Error("Data user tidak ditemukan");
+        // simpan state
+        currentUsername = username;
+        currentUid = uid;
+        // tampilkan dashboard
+        document.getElementById("welcome").innerText = `Halo, ${username}`;
+        document.getElementById("loginForm").classList.add("hidden");
+        document.getElementById("dashboard").classList.remove("hidden");
+      } catch (err) {
+        alert("Login gagal: " + err.message);
+      }
+    }
+
+    function logout() {
+      auth.signOut();
+      currentUsername = "";
+      currentUid = "";
+      document.getElementById("dashboard").classList.add("hidden");
+      document.getElementById("loginForm").classList.remove("hidden");
+      loginUsername.value = "";
+      loginPassword.value = "";
+    }
+
+    function updateJenisSoal() {
+      const kelas = document.getElementById("kelas").value;
+      const jenisSelect = document.getElementById("jenisSoal");
+      jenisSelect.innerHTML = '<option value="">-- Pilih Jenis Soal --</option>';
+      if (kelas && jenisSoalMap[kelas]) {
+        jenisSoalMap[kelas].forEach(jenis => {
+          const opt = document.createElement("option");
+          opt.value = jenis;
+          opt.textContent = jenis.charAt(0).toUpperCase() + jenis.slice(1);
+          jenisSelect.appendChild(opt);
+        });
+      }
+    }
+
+    // ===== LOAD SOAL & UI SKOR =====
+    async function loadSoal() {
+      const jenis = document.getElementById("jenisSoal").value;
+      if (!jenis) return alert("Silakan pilih jenis soal.");
+      const soalSnap = await db.ref("soal/" + jenis).get();
+      if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
+      const container = document.getElementById("soalContainer");
+      container.innerHTML = "";
+      const soalData = soalSnap.val();
+      for (let key in soalData) {
+        const soal = soalData[key];
+        const div = document.createElement("div");
+        div.innerHTML = `<h3 class="font-bold mb-2">${soal.pertanyaan}</h3>`;
+        soal.pilihan.forEach((pil,i) => {
+          div.innerHTML += `
+            <label class="block">
+              <input type="checkbox" name="${key}" value="${i}" class="mr-2">
+              ${pil.teks}
+            </label>`;
+        });
+        container.appendChild(div);
+      }
+      if (window.MathJax) MathJax.typesetPromise();
+     
+     
+      // tombol lihat & simpan skor
+      const skorDiv = document.createElement("div");
+      skorDiv.className = "mt-4 text-center";
+     skorDiv.innerHTML = `
+  <button id="tombolCek" onclick="cekSkor()" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded mb-2 flex items-center justify-center gap-2">
+    <span>&#10004;</span> Cek Skor
+  </button>
+  <p id="skorHasil" class="text-lg font-semibold mt-2" data-skor=""></p>
+  <button onclick="simpanSkor()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mt-2">Simpan Skor</button>
+`;
+      container.appendChild(skorDiv);
+    }
+
+    // ===== HITUNG SKOR =====
+  let isOn = false;
+
+function cekSkor() {
+  const tombol = document.getElementById("tombolCek");
+  const elm = document.getElementById("skorHasil");
+
+  if (!isOn) {
+    // Mode ON: Cek dan tampilkan skor
+    let benar = 0;
+    const jenis = document.getElementById("jenisSoal").value;
+    const checkboxes = document.querySelectorAll("#soalContainer input[type='checkbox']");
+    const jawabanUser = {};
+
+    checkboxes.forEach(cb => {
+      if (!jawabanUser[cb.name]) jawabanUser[cb.name] = [];
+      if (cb.checked) jawabanUser[cb.name].push(+cb.value);
+    });
+
+    db.ref("soal/" + jenis).get().then(snap => {
+      const data = snap.val();
+      for (let key in data) {
+        const kunci = data[key].pilihan
+          .map((p, i) => p.benar ? i : -1)
+          .filter(i => i !== -1).sort();
+        const user = (jawabanUser[key] || []).sort();
+        if (JSON.stringify(kunci) === JSON.stringify(user)) benar++;
+      }
+      elm.innerText = `Skor Anda: ${benar} benar`;
+      elm.setAttribute("data-skor", benar);
+
+      // Ubah tampilan tombol ke mode "Ganti Soal"
+      tombol.className = "bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mb-2 flex items-center justify-center gap-2";
+      tombol.innerHTML = `<span>&#x21bb;</span> Ganti Soal`;
+      isOn = true;
+    });
+  } else {
+    // Mode OFF: Ganti soal
+    elm.innerText = "";
+    tombol.className = "bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded mb-2 flex items-center justify-center gap-2";
+    tombol.innerHTML = `<span>&#10004;</span> Cek Skor`;
+    isOn = false;
+    loadSoal();
+  }
+}
+    // ===== SIMPAN SKOR =====
+    function simpanSkor() {
+      if (!currentUid) return alert("Anda belum login.");
+      const skorElm = document.getElementById("skorHasil");
+      const skor = parseInt(skorElm.getAttribute("data-skor"),10);
+      const jenis = document.getElementById("jenisSoal").value;
+      if (isNaN(skor)) return alert("Klik 'Lihat Skor' dulu.");
+      const path = jenis === "peluang" ? "nilai_peluang" : `nilai_${jenis}`;
+      db.ref(`data_siswa/${currentUid}/${path}`).set({ skor })
+        .then(() => alert("Skor berhasil disimpan!"))
+        .catch(err => alert("Gagal menyimpan skor: " + err.message));
+    }
+  </script>
+
+
+
+
+
+ 
 
 
     <!--awal konten-->
