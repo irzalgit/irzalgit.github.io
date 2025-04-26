@@ -33,13 +33,14 @@
   </section>
 
   <!-- FORM LOGIN -->
-  <div id="loginForm" class="bg-white p-6 rounded-lg shadow-md w-full max-w-md text-center mt-6">
-    <h2 class="text-2xl font-bold mb-4">Login</h2>
-    <input id="loginUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
-    <input id="loginPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
-    <button onclick="login()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
-    <p class="mt-4 text-sm">Belum punya akun? <button onclick="showRegister()" class="text-blue-600 underline">Register</button></p>
-  </div>
+ 
+  <div class="bg-blue-100 p-8 rounded-2xl shadow-lg text-center transform transition-transform hover:scale-105 border-t-4 border-blue-400">
+      <h2 class="text-3xl font-bold mb-6 text-blue-800">Login </h2>
+      <input placeholder="Username" class="w-full mb-3 p-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      <input type="password" placeholder="Password" class="w-full mb-5 p-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      <button onclick="login()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg w-full font-semibold">Login</button>
+      <p class="mt-4 text-sm text-blue-700">Belum punya akun? <button onclick="showRegister()" class="underline font-medium">Register</button></p>
+    </div>
 
   <!-- FORM REGISTER -->
   <div id="registerForm" class="hidden bg-white p-6 rounded-lg shadow-md w-full max-w-md text-center mt-6">
