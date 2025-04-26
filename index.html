@@ -3,49 +3,270 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portal Matematika</title>
+  <title>Hallo sahabat </title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\', '\']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body class="min-h-screen flex flex-col bg-gray-100">
+<body class="bg-blue-100 min-h-screen flex flex-col items-center justify-start">
 
   <!-- HERO SECTION -->
   <section class="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white py-8 px-4 shadow-md text-center">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
       <div class="flex flex-col items-center">
-        <img src="gbr/bp.jpeg" alt="Logo" class="w-20 h-20 sm:w-24 sm:h-24 mb-4 object-contain">
-        <p class="mt-2 text-base sm:text-lg">welcome</p>
-        <h1 class="text-2xl sm:text-3xl font-bold">Portal Matematika</h1>
-        <p class="mt-2 text-base sm:text-lg">uji kemampuanmu dengan soal-soal pilihan</p>
+     <img src="gbr/bp.jpeg" alt="Logo" class="w-24 h-24 mb-4 object-contain">
+       <p class="mt-2 text-lg">welcome</p>
+        <h1 class="text-3xl font-bold">Portal Matematika</h1>
+        <p class="mt-2 text-lg">uji kemampuanmu dengan soal-soal pilihan</p>
       </div>
     </div>
   </section>
 
   <!-- FORM LOGIN -->
-  <div id="loginForm" class="bg-white p-4 sm:p-6 rounded-lg shadow-md w-full max-w-xs sm:max-w-md md:max-w-lg text-center mt-6 mx-4 sm:mx-auto">
-    <h2 class="text-xl font-semibold mb-4">Login</h2>
-    <input type="text" placeholder="Nama Lengkap" class="w-full p-2 border rounded mb-4" />
-    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">Masuk</button>
-    <p class="mt-2 text-sm">Belum punya akun? <a href="#" class="text-blue-600 hover:underline">Daftar</a></p>
+  <div id="loginForm" class="bg-white p-6 rounded-lg shadow-md w-full max-w-md text-center mt-6">
+    <h2 class="text-2xl font-bold mb-4">Login</h2>
+    <input id="loginUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
+    <input id="loginPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+    <button onclick="login()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
+    <p class="mt-4 text-sm">Belum punya akun? <button onclick="showRegister()" class="text-blue-600 underline">Register</button></p>
   </div>
 
   <!-- FORM REGISTER -->
-  <div id="registerForm" class="hidden bg-white p-4 sm:p-6 rounded-lg shadow-md w-full max-w-xs sm:max-w-md md:max-w-lg text-center mt-6 mx-4 sm:mx-auto">
-    <h2 class="text-xl font-semibold mb-4">Daftar</h2>
-    <input type="text" placeholder="Nama Lengkap" class="w-full p-2 border rounded mb-4" />
-    <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">Daftar</button>
-    <p class="mt-2 text-sm">Sudah punya akun? <a href="#" class="text-blue-600 hover:underline">Login</a></p>
+  <div id="registerForm" class="hidden bg-white p-6 rounded-lg shadow-md w-full max-w-md text-center mt-6">
+    <h2 class="text-2xl font-bold mb-4">Register</h2>
+    <input id="regUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
+    <input id="regEmail" placeholder="Email" class="w-full mb-2 p-2 border rounded" />
+    <input id="regPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+    <button onclick="register()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Register</button>
+    <p class="mt-4 text-sm">Sudah punya akun? <button onclick="showLogin()" class="text-blue-600 underline">Kembali ke Login</button></p>
   </div>
 
   <!-- DASHBOARD -->
-  <div id="dashboard" class="hidden w-full max-w-screen-md mx-auto pt-4 sticky top-0 bg-white z-10 shadow mt-6 px-4 sm:px-6">
-    <h2 class="text-xl font-semibold">Dashboard</h2>
-    <!-- Konten dashboard lainnya di sini -->
-  </div>
+  <div id="dashboard" class="hidden w-full max-w-2xl mx-auto pt-4 sticky top-0 bg-white z-10 shadow mt-6">
+    <div class="flex justify-between items-center mb-4 px-4">
+      <h2 id="welcome" class="text-xl font-semibold"></h2>
+      <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</button>
+    </div>
 
+    <div id="selectContainer" class="px-4">
+      <label class="block mb-2">Pilih kelas:</label>
+      <select id="kelas" onchange="updateJenisSoal()" class="w-full p-2 border rounded mb-4">
+        <option value="">-- Pilih Kelas --</option>
+        <option value="x">X</option>
+        <option value="xi">XI</option>
+        <option value="xii">XII</option>
+      </select>
+
+      <label class="block mb-2">Pilih jenis soal:</label>
+      <select id="jenisSoal" class="w-full p-2 border rounded mb-4">
+        <option value="">-- Pilih Jenis Soal --</option>
+      </select>
+
+      <button onclick="loadSoal()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full">Tampilkan Soal</button>
+    </div>
+
+    <div id="soalContainer" class="px-4 mt-4"></div>
+  </div>
   <!-- FOOTER -->
-  <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4 px-2 text-sm sm:text-base">
-    <p>&copy; 2025 Irzal Achmad.</p>
+  <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4">
+    <p>&copy; 2025 Irzal Achmad .</p>
   </footer>
+
+
+  <!-- SCRIPT FIREBASE DAN LOGIKA -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
+      authDomain: "math314-app.firebaseapp.com",
+      databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
+      projectId: "math314-app",
+      storageBucket: "math314-app.appspot.com",
+      messagingSenderId: "9019551034",
+      appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
+      measurementId: "G-VWYDTY9LF6"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const auth = firebase.auth();
+
+    const jenisSoalMap = {
+      x: ['kuadrat', 'barisan', 'trigonometri'],
+      xi: ['peluang', 'regresi'],
+      xii: ['integral', 'deferensial']
+    };
+
+    function showRegister() {
+      document.getElementById("loginForm").classList.add("hidden");
+      document.getElementById("registerForm").classList.remove("hidden");
+    }
+
+    function showLogin() {
+      document.getElementById("registerForm").classList.add("hidden");
+      document.getElementById("loginForm").classList.remove("hidden");
+    }
+
+    async function register() {
+      const username = regUsername.value;
+      const email = regEmail.value;
+      const password = regPassword.value;
+
+      try {
+        const userCred = await auth.createUserWithEmailAndPassword(email, password);
+        const uid = userCred.user.uid;
+
+        await db.ref("data_siswa/" + uid).set({
+          username,
+          email,
+          tanggal: new Date().toISOString().slice(0, 10),
+          nilai: {},
+          total_nilai: 0,
+          approved: false
+        });
+
+        await db.ref("username_map/" + username).set(email);
+        alert("Registrasi berhasil!");
+        showLogin();
+      } catch (err) {
+        alert("Gagal registrasi: " + err.message);
+      }
+    }
+
+ async function login() {
+  const username = loginUsername.value;
+  const password = loginPassword.value;
+
+  try {
+    const snap = await db.ref("username_map/" + username).get();
+    if (!snap.exists()) throw new Error("Username tidak ditemukan");
+
+    const email = snap.val();
+    const userCred = await auth.signInWithEmailAndPassword(email, password);
+    const uid = userCred.user.uid;
+
+    const userSnap = await db.ref("data_siswa/" + uid).get();
+    const userData = userSnap.val();
+
+    if (!userData.approved) {
+      // Buat kontainer pesan dan tombol
+      const alertContainer = document.getElementById("alertContainer") || document.createElement("div");
+      alertContainer.id = "alertContainer";
+      alertContainer.style = "margin: 20px auto; padding: 20px; border: 1px solid #ccc; width: fit-content; text-align: center; background: #fff3cd; color: #856404; border-radius: 8px;";
+      alertContainer.innerHTML = `<p style="margin-bottom: 10px;">tambah quota pemakaian Rp.10.000/bulan.</p>`;
+
+      const bayarButton = document.createElement("button");
+      bayarButton.innerText = "Bayar via Faspay";
+      bayarButton.style = "padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;";
+      bayarButton.onclick = () => bayar(uid, username);
+
+      alertContainer.appendChild(bayarButton);
+      document.body.appendChild(alertContainer);
+
+      auth.signOut();
+      return;
+    }
+
+    document.getElementById("welcome").innerText = `Halo, ${username}`;
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+  } catch (err) {
+    alert("Login gagal: " + err.message);
+  }
+}
+
+// Fungsi bayar (placeholder)
+function bayar(uid, username) {
+  alert(`Memulai proses pembayaran untuk ${username} (${uid})`);
+  // Tambahkan integrasi Midtrans Snap di sini
+}
+
+// Fungsi bayar yang bisa Anda sesuaikan dengan Midtrans atau lainnya
+function bayar(uid, username) {
+  alert(`Memulai proses pembayaran untuk ${username} (${uid})`);
+  // Tambahkan logika Midtrans Snap atau lainnya di sini
+}
+    function logout() {
+      auth.signOut();
+      document.getElementById("dashboard").classList.add("hidden");
+      document.getElementById("loginForm").classList.remove("hidden");
+      document.getElementById("loginUsername").value = "";
+      document.getElementById("loginPassword").value = "";
+    }
+
+    function updateJenisSoal() {
+      const kelas = document.getElementById("kelas").value;
+      const jenisSelect = document.getElementById("jenisSoal");
+      jenisSelect.innerHTML = '<option value="">-- Pilih Jenis Soal --</option>';
+
+      if (kelas && jenisSoalMap[kelas]) {
+        jenisSoalMap[kelas].forEach(jenis => {
+          const opt = document.createElement("option");
+          opt.value = jenis;
+          opt.textContent = jenis.charAt(0).toUpperCase() + jenis.slice(1);
+          jenisSelect.appendChild(opt);
+        });
+      }
+    }
+
+async function loadSoal() {
+  const jenis = document.getElementById("jenisSoal").value;
+  if (!jenis) return alert("Silakan pilih jenis soal.");
+
+  const soalSnap = await db.ref("soal/" + jenis).get();
+  if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
+
+  const container = document.getElementById("soalContainer");
+  container.innerHTML = "";
+
+  const soalData = soalSnap.val();
+  for (let key in soalData) {
+    const soal = soalData[key];
+    const div = document.createElement("div");
+    div.innerHTML = `<h3 class="font-bold mb-2">${soal.pertanyaan}</h3>`;
+    soal.pilihan.forEach((pil, i) => {
+      div.innerHTML += `
+        <label class="block">
+          <input type="checkbox" name="${key}" value="${i}" class="mr-2">
+          ${pil.teks}
+        </label>`;
+    });
+    container.appendChild(div);
+  }
+
+  // Render MathJax setelah elemen dimasukkan ke DOM
+  if (window.MathJax) {
+    MathJax.typesetPromise()
+      .then(() => console.log("Soal berhasil dirender dengan MathJax."))
+      .catch((err) => console.error("Gagal render MathJax:", err));
+  }
+}
+
+
+
+
+  </script>
 
 </body>
 </html>
