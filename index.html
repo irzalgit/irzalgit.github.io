@@ -46,7 +46,7 @@
   
 
   <!-- FORM REGISTER -->
-  <div id="registerForm" class="hidden bg-blue-100 p-8 rounded-2xl shadow-lg text-center transform transition-transform hover:scale-105 border-t-4 border-blue-400">
+   <div id="registerForm" class="hidden bg-blue-100 p-8 rounded-2xl shadow-lg text-center transform transition-transform hover:scale-105 border-t-4 border-blue-400">
     <h2 class="text-2xl font-bold mb-4">Register</h2>
     <input id="regUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
     <input id="regEmail" placeholder="Email" class="w-full mb-2 p-2 border rounded" />
@@ -132,32 +132,46 @@
       document.getElementById("loginForm").classList.remove("hidden");
     }
 
-    async function register() {
-      const username = regUsername.value;
-      const email = regEmail.value;
-      const password = regPassword.value;
+   async function register() {
+  const username = regUsername.value;
+  const email = regEmail.value;
+  const password = regPassword.value;
 
-      try {
-        const userCred = await auth.createUserWithEmailAndPassword(email, password);
-        const uid = userCred.user.uid;
+  try {
+    const userCred = await auth.createUserWithEmailAndPassword(email, password);
+    const uid = userCred.user.uid;
 
-        await db.ref("data_siswa/" + uid).set({
-          username,
-          email,
-          tanggal: new Date().toISOString().slice(0, 10),
-          nilai: {},
-          total_nilai: 0,
-          approved: false
-        });
+    await db.ref("data_siswa/" + uid).set({
+      username,
+      email,
+      expired_at: new Date().toISOString().slice(0, 10),
+      nilai: {},
+      total_nilai: 0,
+      approved: false
+    });
 
-        await db.ref("username_map/" + username).set(email);
-        alert("Registrasi berhasil!");
-        showLogin();
-      } catch (err) {
-        alert("Gagal registrasi: " + err.message);
-      }
-    }
+    await db.ref("username_map/" + username).set(email);
+    alert("Registrasi berhasil!");
+    showLogin();
 
+    // Tampilkan tombol bayar
+    const bayarButton = document.createElement("button");
+    bayarButton.textContent = "Bayar via qris";
+    bayarButton.onclick = bayar;
+    bayarButton.style.marginTop = "10px";
+    bayarButton.style.padding = "10px 20px";
+    bayarButton.style.backgroundColor = "#4CAF50";
+    bayarButton.style.color = "white";
+    bayarButton.style.border = "none";
+    bayarButton.style.borderRadius = "5px";
+    bayarButton.style.cursor = "pointer";
+
+    document.body.appendChild(bayarButton); // Atau kamu bisa append ke div tertentu
+
+  } catch (err) {
+    alert("Gagal registrasi: " + err.message);
+  }
+}
  async function login() {
   const username = loginUsername.value;
   const password = loginPassword.value;
@@ -201,10 +215,6 @@
 }
 
 // Fungsi bayar (placeholder)
-function bayar(uid, username) {
-  alert(`Memulai proses pembayaran untuk ${username} (${uid})`);
-  // Tambahkan integrasi Midtrans Snap di sini
-}
 
 // Fungsi bayar yang bisa Anda sesuaikan dengan Midtrans atau lainnya
 function bayar(uid, username) {
