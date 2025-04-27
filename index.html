@@ -38,7 +38,12 @@
     <input id="loginUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
     <input id="loginPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
     <button onclick="login()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
-    <p class="mt-4 text-sm">Belum punya akun? <button onclick="showRegister()" class="text-blue-600 underline">Register</button></p>
+    <p class="mt-4 text-sm">
+  Belum punya akun? 
+  <button onclick="showRegister()" class="text-blue-600 underline">Register</button>
+  <button onclick="window.location.href='soal.html'" class="text-blue-800 underline ml-2">Demo</button>
+</p>
+    
   </div>
   
   
@@ -156,10 +161,7 @@
 
     // Tampilkan tombol bayar
     const bayarButton = document.createElement("button");
-bayarButton.textContent = "Demo";
-bayarButton.onclick = function() {
-  window.location.href = "./quiz/soal.html";
-};
+bayarButton.textContent = "scan qris";
 bayarButton.style.marginTop = "10px";
 bayarButton.style.padding = "10px 20px";
 bayarButton.style.backgroundColor = "#4CAF50";
