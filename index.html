@@ -156,17 +156,19 @@
 
     // Tampilkan tombol bayar
     const bayarButton = document.createElement("button");
-    bayarButton.textContent = "Bayar via qris";
-    bayarButton.onclick = bayar;
-    bayarButton.style.marginTop = "10px";
-    bayarButton.style.padding = "10px 20px";
-    bayarButton.style.backgroundColor = "#4CAF50";
-    bayarButton.style.color = "white";
-    bayarButton.style.border = "none";
-    bayarButton.style.borderRadius = "5px";
-    bayarButton.style.cursor = "pointer";
+bayarButton.textContent = "Demo";
+bayarButton.onclick = function() {
+  window.location.href = "./quiz/soal.html";
+};
+bayarButton.style.marginTop = "10px";
+bayarButton.style.padding = "10px 20px";
+bayarButton.style.backgroundColor = "#4CAF50";
+bayarButton.style.color = "white";
+bayarButton.style.border = "none";
+bayarButton.style.borderRadius = "5px";
+bayarButton.style.cursor = "pointer";
 
-    document.body.appendChild(bayarButton); // Atau kamu bisa append ke div tertentu
+document.body.appendChild(bayarButton); // Atau kamu bisa append ke div tertentuertentu
 
   } catch (err) {
     alert("Gagal registrasi: " + err.message);
