@@ -72,8 +72,10 @@
       <select id="kelas" onchange="updateJenisSoal()" class="w-full p-2 border rounded mb-4">
         <option value="">-- Pilih Kelas --</option>
         <option value="x">X</option>
-        <option value="xi">XI</option>
+       <option value="xi">XI</option>
         <option value="xii">XII</option>
+          <option value="all">ALL</option>
+        
       </select>
 
       <label class="block mb-2">Pilih jenis soal:</label>
@@ -84,9 +86,17 @@
       <button onclick="loadSoal()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full">Tampilkan Soal</button>
     </div>
 
+
+
+
+
     <div id="soalContainer" class="px-4 mt-4"></div>
   </div>
   <!-- FOOTER -->
+  
+  
+   <div id="topUpArea"></div>
+  
   <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4">
     <p>&copy; 2025 Irzal Achmad </p>
   </footer>
@@ -122,9 +132,28 @@
     const auth = firebase.auth();
 
     const jenisSoalMap = {
-      x: ['kuadrat', 'barisan', 'trigonometri'],
-      xi: ['peluang', 'regresi'],
-      xii: ['integral', 'deferensial']
+     x: ['trigonometri','statistik'],
+     xi: ['peluang', 'regresi'],
+    xii: ['integral', 'deferensial'],
+ all: ['bilangan berpangkat',
+     'pertidaksamaan',
+    'SPTLTV', 
+    'persamaan kuadrat',
+    'persamaan eksponen', 
+    'barisan dan deret',
+    'statistik',
+    'integral', 
+    'matrik', 
+    'fungsi komposisi dan invers',
+    'transformasi', 
+    'lingkaran',
+    'vektor', 
+    'logika matematika',
+    'aritmatika sosial', 
+    'program linier',
+      'limit', 
+      'deferensial',
+    'integral'],
     };
 
     function showRegister() {
@@ -176,8 +205,8 @@ document.body.appendChild(bayarButton); // Atau kamu bisa append ke div tertentu
     alert("Gagal registrasi: " + err.message);
   }
 }
- async function login() {
-  const username = loginUsername.value;
+async function login() {
+  const username = loginUsername.value.trim();
   const password = loginPassword.value;
 
   try {
@@ -191,33 +220,42 @@ document.body.appendChild(bayarButton); // Atau kamu bisa append ke div tertentu
     const userSnap = await db.ref("data_siswa/" + uid).get();
     const userData = userSnap.val();
 
+    if (!userData) throw new Error("Data pengguna tidak ditemukan");
+
     if (!userData.approved) {
-      // Buat kontainer pesan dan tombol
-      const alertContainer = document.getElementById("alertContainer") || document.createElement("div");
-      alertContainer.id = "alertContainer";
-      alertContainer.style = "margin: 20px auto; padding: 20px; border: 1px solid #ccc; width: fit-content; text-align: center; background: #fff3cd; color: #856404; border-radius: 8px;";
-      alertContainer.innerHTML = `<p style="margin-bottom: 10px;">tambah quota pemakaian Rp.10.000/bulan.</p>`;
+      // Taruh Top Up button di topUpArea (bukan body langsung)
+      const topUpArea = document.getElementById("topUpArea");
 
-      const bayarButton = document.createElement("button");
-      bayarButton.innerText = "Bayar via Faspay";
-      bayarButton.style = "padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;";
-      bayarButton.onclick = () => bayar(uid, username);
+      // Bersihkan isi area dulu
+      topUpArea.innerHTML = "";
 
-      alertContainer.appendChild(bayarButton);
-      document.body.appendChild(alertContainer);
+      const alertContainer = document.createElement("div");
+      alertContainer.className = "max-w-md mx-auto mt-6 p-4 border border-yellow-400 bg-yellow-100 text-yellow-800 rounded-lg text-center";
 
-      auth.signOut();
+      alertContainer.innerHTML = `
+        <p class="mb-4">Akun Anda belum diaktif. Silakan isi saldo  Rp 10.000/bulan untuk berlangganan.</p>
+        <button id="topUpButton" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded">
+          Top Up Sekarang
+        </button>
+      `;
+
+      topUpArea.appendChild(alertContainer);
+
+      document.getElementById("topUpButton").onclick = () => bayar(uid, username);
+
+      await auth.signOut();
       return;
     }
 
+    // Jika approved, masuk dashboard
     document.getElementById("welcome").innerText = `Halo, ${username}`;
     document.getElementById("loginForm").classList.add("hidden");
     document.getElementById("dashboard").classList.remove("hidden");
+
   } catch (err) {
     alert("Login gagal: " + err.message);
   }
 }
-
 // Fungsi bayar (placeholder)
 
 // Fungsi bayar yang bisa Anda sesuaikan dengan Midtrans atau lainnya
