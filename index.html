@@ -92,9 +92,25 @@
 
     <div id="soalContainer" class="px-4 mt-4"></div>
   </div>
+  
+  
+  
+ 
+<div id="skorUser" class="mt-6 p-4 bg-gray-100 rounded"></div>
+<div id="rekapPerUser" class="mt-6 p-4 bg-blue-100 rounded"></div>
+<div id="rekapNilaiTotal" class="mt-6 p-4 bg-green-100 rounded"></div>
   <!-- FOOTER -->
   
   
+  
+  
+  
+ 
+</div>
+<div id="topUpArea"></div>
+  
+  
+  .
    <div id="topUpArea"></div>
   
   <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4">
@@ -205,57 +221,7 @@ document.body.appendChild(bayarButton); // Atau kamu bisa append ke div tertentu
     alert("Gagal registrasi: " + err.message);
   }
 }
-async function login() {
-  const username = loginUsername.value.trim();
-  const password = loginPassword.value;
 
-  try {
-    const snap = await db.ref("username_map/" + username).get();
-    if (!snap.exists()) throw new Error("Username tidak ditemukan");
-
-    const email = snap.val();
-    const userCred = await auth.signInWithEmailAndPassword(email, password);
-    const uid = userCred.user.uid;
-
-    const userSnap = await db.ref("data_siswa/" + uid).get();
-    const userData = userSnap.val();
-
-    if (!userData) throw new Error("Data pengguna tidak ditemukan");
-
-    if (!userData.approved) {
-      // Taruh Top Up button di topUpArea (bukan body langsung)
-      const topUpArea = document.getElementById("topUpArea");
-
-      // Bersihkan isi area dulu
-      topUpArea.innerHTML = "";
-
-      const alertContainer = document.createElement("div");
-      alertContainer.className = "max-w-md mx-auto mt-6 p-4 border border-yellow-400 bg-yellow-100 text-yellow-800 rounded-lg text-center";
-
-      alertContainer.innerHTML = `
-        <p class="mb-4">Akun Anda belum diaktif. Silakan isi saldo  Rp 10.000/bulan untuk berlangganan.</p>
-        <button id="topUpButton" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded">
-          Top Up Sekarang
-        </button>
-      `;
-
-      topUpArea.appendChild(alertContainer);
-
-      document.getElementById("topUpButton").onclick = () => bayar(uid, username);
-
-      await auth.signOut();
-      return;
-    }
-
-    // Jika approved, masuk dashboard
-    document.getElementById("welcome").innerText = `Halo, ${username}`;
-    document.getElementById("loginForm").classList.add("hidden");
-    document.getElementById("dashboard").classList.remove("hidden");
-
-  } catch (err) {
-    alert("Login gagal: " + err.message);
-  }
-}
 // Fungsi bayar (placeholder)
 
 // Fungsi bayar yang bisa Anda sesuaikan dengan Midtrans atau lainnya
@@ -286,43 +252,209 @@ function bayar(uid, username) {
       }
     }
 
-async function loadSoal() {
-  const jenis = document.getElementById("jenisSoal").value;
-  if (!jenis) return alert("Silakan pilih jenis soal.");
-
-  const soalSnap = await db.ref("soal/" + jenis).get();
-  if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
-
-  const container = document.getElementById("soalContainer");
-  container.innerHTML = "";
-
-  const soalData = soalSnap.val();
-  for (let key in soalData) {
-    const soal = soalData[key];
-    const div = document.createElement("div");
-    div.innerHTML = `<h3 class="font-bold mb-2">${soal.pertanyaan}</h3>`;
-    soal.pilihan.forEach((pil, i) => {
-      div.innerHTML += `
-        <label class="block">
-          <input type="checkbox" name="${key}" value="${i}" class="mr-2">
-          ${pil.teks}
-        </label>`;
-    });
-    container.appendChild(div);
-  }
-
-  // Render MathJax setelah elemen dimasukkan ke DOM
-  if (window.MathJax) {
-    MathJax.typesetPromise()
-      .then(() => console.log("Soal berhasil dirender dengan MathJax."))
-      .catch((err) => console.error("Gagal render MathJax:", err));
-  }
-}
 
 
 
 
   </script>
+
+<script>
+  // Variabel global
+  let currentUid = "";
+  let currentUsername = "";
+
+  // LOGIN
+  async function login() {
+    const username = loginUsername.value.trim();
+    const password = loginPassword.value;
+
+    try {
+      const snap = await db.ref("username_map/" + username).get();
+      if (!snap.exists()) throw new Error("Username tidak ditemukan");
+
+      const email = snap.val();
+      const userCred = await auth.signInWithEmailAndPassword(email, password);
+      const uid = userCred.user.uid;
+
+      const userSnap = await db.ref("data_siswa/" + uid).get();
+      const userData = userSnap.val();
+
+      if (!userData) throw new Error("Data pengguna tidak ditemukan");
+
+      if (!userData.approved) {
+        const topUpArea = document.getElementById("topUpArea");
+        topUpArea.innerHTML = `
+          <div class="max-w-md mx-auto mt-6 p-4 border border-yellow-400 bg-yellow-100 text-yellow-800 rounded-lg text-center">
+            <p class="mb-4">Akun Anda belum diaktif. Silakan isi saldo Rp 10.000/bulan untuk berlangganan.</p>
+            <button id="topUpButton" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded">
+              Top Up Sekarang
+            </button>
+          </div>`;
+        document.getElementById("topUpButton").onclick = () => bayar(uid, username);
+        await auth.signOut();
+        return;
+      }
+
+      currentUid = uid;
+      currentUsername = username;
+
+      document.getElementById("welcome").innerText = `Halo, ${username}`;
+      document.getElementById("loginForm").classList.add("hidden");
+      document.getElementById("dashboard").classList.remove("hidden");
+
+    } catch (err) {
+      alert("Login gagal: " + err.message);
+    }
+  }
+
+  // LOAD SOAL
+  async function loadSoal() {
+    if (!currentUid) return alert("Anda harus login dulu.");
+
+    const jenis = document.getElementById("jenisSoal").value;
+    if (!jenis) return alert("Silakan pilih jenis soal.");
+
+    const soalSnap = await db.ref("soal/" + jenis).get();
+    if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
+
+    const container = document.getElementById("soalContainer");
+    container.innerHTML = "";
+
+    const soalData = soalSnap.val();
+    for (let key in soalData) {
+      const soal = soalData[key];
+      const div = document.createElement("div");
+      div.innerHTML = `<h3 class="font-bold mb-2">${soal.pertanyaan}</h3>`;
+      soal.pilihan.forEach((pil, i) => {
+        div.innerHTML += `
+          <label class="block">
+            <input type="checkbox" name="${key}" value="${i}" class="mr-2">
+            ${pil.teks}
+          </label>`;
+      });
+      container.appendChild(div);
+    }
+
+    const skorBtn = document.createElement("button");
+    skorBtn.textContent = "Cek & Simpan Skor";
+    skorBtn.className = "mt-4 px-4 py-2 bg-blue-500 text-white rounded";
+    container.appendChild(skorBtn);
+
+    const today = new Date().toISOString().split("T")[0];
+    const userRef = db.ref("data_siswa/" + currentUid);
+    const userSnap = await userRef.get();
+    const userData = userSnap.exists() ? userSnap.val() : {};
+    const lastKey = "last_" + jenis;
+
+    if (userData[lastKey] === today) {
+      skorBtn.disabled = true;
+      skorBtn.textContent = "Sudah dikerjakan hari ini";
+    }
+
+    skorBtn.onclick = async () => {
+      let benar = 0;
+      let total = Object.keys(soalData).length;
+
+      for (let key in soalData) {
+        const benarIndex = soalData[key].pilihan
+          .map((p, i) => p.benar ? i.toString() : null)
+          .filter(i => i !== null);
+        const dipilih = [...document.querySelectorAll(`input[name='${key}']:checked`)].map(i => i.value);
+        if (JSON.stringify(dipilih.sort()) === JSON.stringify(benarIndex.sort())) {
+          benar++;
+        }
+      }
+
+      const skor = benar / total;
+      const skorKey = "nilai_" + jenis;
+      const skorLama = userData[skorKey] ?? 0;
+
+      if (skor > skorLama) {
+        await userRef.update({
+          [skorKey]: skor,
+          [lastKey]: today
+        });
+        alert(`Skor ${skor} disimpan.`);
+      } else {
+        alert(`Skor ${skor} tidak disimpan karena lebih rendah atau sama.`);
+      }
+
+      skorBtn.disabled = true;
+    };
+
+    // Tampilkan skor user per jenis soal
+    const skorDiv = document.getElementById("skorUser");
+    if (userSnap.exists()) {
+      const data = userSnap.val();
+      const skorList = Object.keys(data)
+        .filter(k => k.startsWith("nilai_"))
+        .map(k => {
+          const j = k.replace("nilai_", "");
+          return `<li>${j}: ${data[k]}</li>`;
+        });
+        
+        
+        
+        
+        
+      skorDiv.innerHTML = `<h4 class="font-bold mb-2">Skor Kamu:</h4><ul class="list-disc pl-5">${skorList.join("")}</ul>`;
+    } else {
+      skorDiv.innerHTML = `<p>Kamu belum punya skor yang tersimpan.</p>`;
+    }
+
+
+
+
+
+    // Rekap semua user
+const semuaUser = await db.ref("data_siswa").get();
+const rekapNilaiTotalDiv = document.getElementById("rekapNilaiTotal");
+
+if (semuaUser.exists()) {
+  const semuaData = semuaUser.val();
+  const rekapTotal = [];
+
+  for (let uid in semuaData) {
+    const user = semuaData[uid];
+    let total = 0;
+
+    // Menjumlahkan semua nilai yang diawali dengan "nilai_"
+    for (let key in user) {
+      if (key.startsWith("nilai_") && typeof user[key] === "number") {
+        total += user[key];
+      }
+    }
+
+    if (user.username) {
+      rekapTotal.push({ username: user.username, total });
+    }
+  }
+
+  // Urutkan dari nilai tertinggi ke terendah
+  rekapTotal.sort((a, b) => b.total - a.total);
+
+  // Buat HTML-nya
+  const isi = rekapTotal
+    .map(u => `<li>${u.username}: ${u.total.toFixed(2)}</li>`)
+    .join("");
+
+  rekapNilaiTotalDiv.innerHTML = `
+    <h4 class="font-bold mb-2">Total Skor Semua Siswa:</h4>
+    <ul class="list-decimal pl-5">${isi}</ul>
+  `;
+} else {
+  rekapNilaiTotalDiv.innerHTML = "<p>Tidak ada skor total ditemukan.</p>";
+}
+    // Render MathJax
+    if (window.MathJax) {
+      MathJax.typesetPromise()
+        .then(() => console.log("Soal berhasil dirender dengan MathJax."))
+        .catch((err) => console.error("Gagal render MathJax:", err));
+    }
+  }
+</script>
+
+
 
 </body>
 </html>
