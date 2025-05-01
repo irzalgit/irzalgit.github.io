@@ -93,25 +93,17 @@
     <div id="soalContainer" class="px-4 mt-4"></div>
   </div>
   
-  
-  
- 
-<div id="skorUser" class="mt-6 p-4 bg-gray-100 rounded"></div>
+ <div id="skorUser" class="mt-6 p-4 bg-gray-100 rounded"></div>
 <div id="rekapPerUser" class="mt-6 p-4 bg-blue-100 rounded"></div>
 <div id="rekapNilaiTotal" class="mt-6 p-4 bg-green-100 rounded"></div>
   <!-- FOOTER -->
   
-  
-  
-  
-  
- 
 </div>
 <div id="topUpArea"></div>
   
   
-  .
-   <div id="topUpArea"></div>
+  
+
   
   <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4">
     <p>&copy; 2025 Irzal Achmad </p>
@@ -205,7 +197,7 @@
     showLogin();
 
     // Tampilkan tombol bayar
-    const bayarButton = document.createElement("button");
+   const bayarButton = document.createElement("button");
 bayarButton.textContent = "scan qris";
 bayarButton.style.marginTop = "10px";
 bayarButton.style.padding = "10px 20px";
@@ -215,8 +207,25 @@ bayarButton.style.border = "none";
 bayarButton.style.borderRadius = "5px";
 bayarButton.style.cursor = "pointer";
 
-document.body.appendChild(bayarButton); // Atau kamu bisa append ke div tertentuertentu
+// Tambahkan event listener
+bayarButton.addEventListener("click", () => {
+  // Cek apakah gambar sudah ada
+  let qrisImg = document.getElementById("qris-img");
+  if (!qrisImg) {
+    qrisImg = document.createElement("img");
+    qrisImg.id = "qris-img";
+    qrisImg.src = "bsiqris.png"; // pastikan file qris.png ada di folder yang sama
+    qrisImg.alt = "QRIS BSI";
+    qrisImg.style.marginTop = "15px";
+    qrisImg.style.maxWidth = "300px";
+    qrisImg.style.display = "block";
+    document.body.appendChild(qrisImg);
+  } else {
+    qrisImg.style.display = "block"; // kalau sudah ada, tampilkan
+  }
+});
 
+document.body.appendChild(bayarButton);
   } catch (err) {
     alert("Gagal registrasi: " + err.message);
   }
@@ -281,19 +290,34 @@ function bayar(uid, username) {
 
       if (!userData) throw new Error("Data pengguna tidak ditemukan");
 
-      if (!userData.approved) {
-        const topUpArea = document.getElementById("topUpArea");
-        topUpArea.innerHTML = `
-          <div class="max-w-md mx-auto mt-6 p-4 border border-yellow-400 bg-yellow-100 text-yellow-800 rounded-lg text-center">
-            <p class="mb-4">Akun Anda belum diaktif. Silakan isi saldo Rp 10.000/bulan untuk berlangganan.</p>
-            <button id="topUpButton" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded">
-              Top Up Sekarang
-            </button>
-          </div>`;
-        document.getElementById("topUpButton").onclick = () => bayar(uid, username);
-        await auth.signOut();
-        return;
-      }
+    if (!userData.approved) {
+  const topUpArea = document.getElementById("topUpArea");
+  topUpArea.innerHTML = `
+    <div class="max-w-md mx-auto mt-6 p-4 border border-yellow-400 bg-yellow-100 text-yellow-800 rounded-lg text-center">
+      <p class="mb-4">Akun Anda belum diaktifkan. Silakan isi saldo Rp 10.000  untuk berlangganan.</p>
+      <button id="topUpButton" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded mb-4">
+        Top Up Sekarang
+      </button>
+      <div class="mt-4">
+        <img src="gbr/bsiqris.png" alt="QRIS Image" class="mx-auto mb-2 w-40 h-auto" />
+        <button id="scanQrisButton" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded">
+          Scan QRIS
+        </button>
+        
+        <div id="scannerContainer" class="mt-4 hidden">
+  <div id="reader" class="mx-auto w-full max-w-xs"></div>
+</div>
+        
+        
+      </div>
+    </div>`;
+
+  document.getElementById("topUpButton").onclick = () => bayar(uid, username);
+  document.getElementById("scanQrisButton").onclick = () => alert("Fitur Scan QRIS belum tersedia."); // atau fungsi sesuai kebutuhan
+
+  await auth.signOut();
+  return;
+}
 
       currentUid = uid;
       currentUsername = username;
@@ -452,9 +476,39 @@ if (semuaUser.exists()) {
         .catch((err) => console.error("Gagal render MathJax:", err));
     }
   }
+  
+  document.getElementById("scanQrisButton").onclick = () => {
+  const scannerContainer = document.getElementById("scannerContainer");
+  scannerContainer.classList.remove("hidden");
+
+  // Inisialisasi QR scanner
+  const html5QrCode = new Html5Qrcode("reader");
+  Html5Qrcode.getCameras().then(cameras => {
+    if (cameras && cameras.length) {
+      html5QrCode.start(
+        cameras[0].id,
+        {
+          fps: 10,
+          qrbox: 200
+        },
+        qrCodeMessage => {
+          alert(`QR Code ditemukan: ${qrCodeMessage}`);
+          html5QrCode.stop();
+        },
+        errorMessage => {
+          // Bisa tampilkan error scanning jika ingin
+        }
+      );
+    }
+  }).catch(err => {
+    alert("Tidak dapat mengakses kamera: " + err);
+  });
+};
+  
+  
 </script>
 
 
-
+<script src="https://unpkg.com/html5-qrcode"></script>
 </body>
 </html>
