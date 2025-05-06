@@ -67,6 +67,13 @@
       <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</button>
     </div>
 
+<div>
+    
+  
+    
+</div>
+
+
     <div id="selectContainer" class="px-4">
       <label class="block mb-2">Pilih kelas:</label>
       <select id="kelas" onchange="updateJenisSoal()" class="w-full p-2 border rounded mb-4">
@@ -94,6 +101,9 @@
   </div>
   
  <div id="skorUser" class="mt-6 p-4 bg-gray-100 rounded"></div>
+
+
+
 <div id="rekapPerUser" class="mt-6 p-4 bg-blue-100 rounded"></div>
 <div id="rekapNilaiTotal" class="mt-6 p-4 bg-green-100 rounded"></div>
   <!-- FOOTER -->
@@ -102,7 +112,24 @@
 <div id="topUpArea"></div>
   
   
-  
+   <div class="font-sans p-4 m-0 bg-white">
+  <h2 class="text-center text-lg font-semibold mb-4">Peringkat</h2>
+  <div class="overflow-x-auto w-full">
+    <table class="w-full text-sm border border-gray-300 border-collapse">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border border-gray-300 px-2 py-1 text-center">#</th>
+          <th class="border border-gray-300 px-2 py-1 text-left">Username</th>
+          <th class="border border-gray-300 px-2 py-1 text-center w-16">Nilai</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboardTable" class="[&>tr:nth-child(even)]:bg-gray-50"></tbody>
+    </table>
+  </div>
+
+ 
+</div>
+    
 
   
   <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4">
@@ -120,221 +147,201 @@
   
   
   
-  
-  
-  
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
-      authDomain: "math314-app.firebaseapp.com",
-      databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
-      projectId: "math314-app",
-      storageBucket: "math314-app.appspot.com",
-      messagingSenderId: "9019551034",
-      appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
-      measurementId: "G-VWYDTY9LF6"
-    };
 
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-    const auth = firebase.auth();
+<script src="https://unpkg.com/html5-qrcode"></script>
+</body>
 
-    const jenisSoalMap = {
-     x: ['trigonometri','statistik'],
-     xi: ['peluang', 'regresi'],
-    xii: ['integral', 'deferensial'],
- all: ['bilangan berpangkat',
-     'pertidaksamaan',
-    'SPTLTV', 
-    'persamaan kuadrat',
-    'persamaan eksponen', 
-    'barisan dan deret',
-    'statistik',
-    'integral', 
-    'matrik', 
-    'fungsi komposisi dan invers',
-    'transformasi', 
-    'lingkaran',
-    'vektor', 
-    'logika matematika',
-    'aritmatika sosial', 
-    'program linier',
-      'limit', 
-      'deferensial',
-    'integral'],
-    };
+ <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
+    authDomain: "math314-app.firebaseapp.com",
+    databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
+    projectId: "math314-app",
+    storageBucket: "math314-app.appspot.com",
+    messagingSenderId: "9019551034",
+    appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
+    measurementId: "G-VWYDTY9LF6"
+  };
 
-    function showRegister() {
-      document.getElementById("loginForm").classList.add("hidden");
-      document.getElementById("registerForm").classList.remove("hidden");
-    }
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.database();
 
-    function showLogin() {
-      document.getElementById("registerForm").classList.add("hidden");
-      document.getElementById("loginForm").classList.remove("hidden");
-    }
-
-   async function register() {
-  const username = regUsername.value;
-  const email = regEmail.value;
-  const password = regPassword.value;
-
-  try {
-    const userCred = await auth.createUserWithEmailAndPassword(email, password);
-    const uid = userCred.user.uid;
-
-    await db.ref("data_siswa/" + uid).set({
-      username,
-      email,
-      expired_at: new Date().toISOString().slice(0, 10),
-      nilai: {},
-      total_nilai: 0,
-      approved: false
-    });
-
-    await db.ref("username_map/" + username).set(email);
-    alert("Registrasi berhasil!");
-    showLogin();
-
-    // Tampilkan tombol bayar
-   const bayarButton = document.createElement("button");
-bayarButton.textContent = "scan qris";
-bayarButton.style.marginTop = "10px";
-bayarButton.style.padding = "10px 20px";
-bayarButton.style.backgroundColor = "#4CAF50";
-bayarButton.style.color = "white";
-bayarButton.style.border = "none";
-bayarButton.style.borderRadius = "5px";
-bayarButton.style.cursor = "pointer";
-
-// Tambahkan event listener
-bayarButton.addEventListener("click", () => {
-  // Cek apakah gambar sudah ada
-  let qrisImg = document.getElementById("qris-img");
-  if (!qrisImg) {
-    qrisImg = document.createElement("img");
-    qrisImg.id = "qris-img";
-    qrisImg.src = "bsiqris.png"; // pastikan file qris.png ada di folder yang sama
-    qrisImg.alt = "QRIS BSI";
-    qrisImg.style.marginTop = "15px";
-    qrisImg.style.maxWidth = "300px";
-    qrisImg.style.display = "block";
-    document.body.appendChild(qrisImg);
-  } else {
-    qrisImg.style.display = "block"; // kalau sudah ada, tampilkan
-  }
-});
-
-document.body.appendChild(bayarButton);
-  } catch (err) {
-    alert("Gagal registrasi: " + err.message);
-  }
-}
-
-// Fungsi bayar (placeholder)
-
-// Fungsi bayar yang bisa Anda sesuaikan dengan Midtrans atau lainnya
-function bayar(uid, username) {
-  alert(`Memulai proses pembayaran untuk ${username} (${uid})`);
-  // Tambahkan logika Midtrans Snap atau lainnya di sini
-}
-    function logout() {
-      auth.signOut();
-      document.getElementById("dashboard").classList.add("hidden");
-      document.getElementById("loginForm").classList.remove("hidden");
-      document.getElementById("loginUsername").value = "";
-      document.getElementById("loginPassword").value = "";
-    }
-
-    function updateJenisSoal() {
-      const kelas = document.getElementById("kelas").value;
-      const jenisSelect = document.getElementById("jenisSoal");
-      jenisSelect.innerHTML = '<option value="">-- Pilih Jenis Soal --</option>';
-
-      if (kelas && jenisSoalMap[kelas]) {
-        jenisSoalMap[kelas].forEach(jenis => {
-          const opt = document.createElement("option");
-          opt.value = jenis;
-          opt.textContent = jenis.charAt(0).toUpperCase() + jenis.slice(1);
-          jenisSelect.appendChild(opt);
-        });
-      }
-    }
-
-
-
-
-
-  </script>
-
-<script>
-  // Variabel global
-  let currentUid = "";
+  let currentUid = null;
   let currentUsername = "";
 
-  // LOGIN
-  async function login() {
-    const username = loginUsername.value.trim();
-    const password = loginPassword.value;
+  const leaderboardRef = db.ref('data_siswa');
+
+  leaderboardRef.once('value').then(snapshot => {
+    const data = snapshot.val();
+    const leaderboardArray = [];
+
+    for (const uid in data) {
+      const siswa = data[uid];
+      let totalNilai = 0;
+
+      for (const key in siswa) {
+        if (key.startsWith('nilai_') && typeof siswa[key] === 'number') {
+          totalNilai += siswa[key];
+        }
+      }
+
+      leaderboardArray.push({
+        username: (siswa.username || uid).toUpperCase(),
+        total: totalNilai
+      });
+    }
+
+    leaderboardArray.sort((a, b) => b.total - a.total);
+
+    const tbody = document.getElementById('leaderboardTable');
+    leaderboardArray.forEach((entry, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="border border-gray-300 px-2 py-1 text-center">${index + 1}</td>
+        <td class="border border-gray-300 px-2 py-1 text-left">${entry.username}</td>
+        <td class="border border-gray-300 px-2 py-1 text-center">${entry.total}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  });
+
+  const jenisSoalMap = {
+    x: ['kuadrat', 'trigonometri', 'statistik'],
+    xi: ['lingkaran', 'peluang', 'regresi'],
+    xii: ['integral', 'deferensial'],
+    all: [
+      'bilangan berpangkat', 'pertidaksamaan', 'SPTLTV', 'kuadrat', 'eksponen',
+      'barisan dan deret', 'statistik', 'integral', 'matrik', 'fungsikomposisi',
+      'transformasi', 'lingkaran', 'vektor', 'logika matematika', 'aritmatika sosial',
+      'program linier', 'limit', 'deferensial', 'integral'
+    ]
+  };
+
+  function showRegister() {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("registerForm").classList.remove("hidden");
+  }
+
+  function showLogin() {
+    document.getElementById("registerForm").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
+  }
+
+  async function register() {
+    const username = regUsername.value;
+    const email = regEmail.value;
+    const password = regPassword.value;
 
     try {
-      const snap = await db.ref("username_map/" + username).get();
-      if (!snap.exists()) throw new Error("Username tidak ditemukan");
-
-      const email = snap.val();
-      const userCred = await auth.signInWithEmailAndPassword(email, password);
+      const userCred = await auth.createUserWithEmailAndPassword(email, password);
       const uid = userCred.user.uid;
 
-      const userSnap = await db.ref("data_siswa/" + uid).get();
-      const userData = userSnap.val();
+      await db.ref("data_siswa/" + uid).set({
+        username,
+        email,
+        expired_at: new Date().toISOString().slice(0, 10),
+        nilai: {},
+        total_nilai: 0,
+        approved: false
+      });
 
-      if (!userData) throw new Error("Data pengguna tidak ditemukan");
+      await db.ref("username_map/" + username).set(email);
+      alert("Registrasi berhasil!");
+      showLogin();
 
-    if (!userData.approved) {
-  const topUpArea = document.getElementById("topUpArea");
-  topUpArea.innerHTML = `
-    <div class="max-w-md mx-auto mt-6 p-4 border border-yellow-400 bg-yellow-100 text-yellow-800 rounded-lg text-center">
-      <p class="mb-4">Akun Anda belum diaktifkan. Silakan isi saldo Rp 10.000  untuk berlangganan.</p>
-      <button id="topUpButton" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded mb-4">
-        Top Up Sekarang
-      </button>
-      <div class="mt-4">
-        <img src="gbr/bsiqris.png" alt="QRIS Image" class="mx-auto mb-2 w-40 h-auto" />
-        <button id="scanQrisButton" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded">
-          Scan QRIS
-        </button>
-        
-        <div id="scannerContainer" class="mt-4 hidden">
-  <div id="reader" class="mx-auto w-full max-w-xs"></div>
-</div>
-        
-        
-      </div>
-    </div>`;
+      const bayarButton = document.createElement("button");
+      bayarButton.textContent = "scan qris";
+      Object.assign(bayarButton.style, {
+        marginTop: "10px",
+        padding: "10px 20px",
+        backgroundColor: "#4CAF50",
+        color: "white",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer"
+      });
 
-  document.getElementById("topUpButton").onclick = () => bayar(uid, username);
-  document.getElementById("scanQrisButton").onclick = () => alert("Fitur Scan QRIS belum tersedia."); // atau fungsi sesuai kebutuhan
+      bayarButton.addEventListener("click", () => {
+        let qrisImg = document.getElementById("qris-img");
+        if (!qrisImg) {
+          qrisImg = document.createElement("img");
+          qrisImg.id = "qris-img";
+          qrisImg.src = "bsiqris.png";
+          qrisImg.alt = "QRIS BSI";
+          Object.assign(qrisImg.style, {
+            marginTop: "15px",
+            maxWidth: "300px",
+            display: "block"
+          });
+          document.body.appendChild(qrisImg);
+        } else {
+          qrisImg.style.display = "block";
+        }
+      });
 
-  await auth.signOut();
-  return;
-}
+      document.body.appendChild(bayarButton);
+    } catch (err) {
+      alert("Gagal registrasi: " + err.message);
+    }
+  }
 
+  async function login() {
+    const emailOrUsername = document.getElementById("loginUsername").value;
+    const password = document.getElementById("loginPassword").value;
+
+    try {
+      let email = emailOrUsername;
+      if (!emailOrUsername.includes("@")) {
+        const snapshot = await db.ref("username_map/" + emailOrUsername).once("value");
+        if (!snapshot.exists()) throw new Error("Username tidak ditemukan");
+        email = snapshot.val();
+      }
+
+      const userCred = await auth.signInWithEmailAndPassword(email, password);
+      const uid = userCred.user.uid;
+      const siswaSnap = await db.ref("data_siswa/" + uid).once("value");
+
+      if (!siswaSnap.exists()) throw new Error("Data siswa tidak ditemukan");
+
+      const data = siswaSnap.val();
       currentUid = uid;
-      currentUsername = username;
+      currentUsername = data.username;
 
-      document.getElementById("welcome").innerText = `Halo, ${username}`;
       document.getElementById("loginForm").classList.add("hidden");
       document.getElementById("dashboard").classList.remove("hidden");
-
+      document.getElementById("welcome").innerText = `Selamat datang, ${data.username}`;
+     
     } catch (err) {
       alert("Login gagal: " + err.message);
     }
   }
 
-  // LOAD SOAL
+  function logout() {
+    auth.signOut();
+    document.getElementById("dashboard").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
+    document.getElementById("loginUsername").value = "";
+    document.getElementById("loginPassword").value = "";
+  }
+
+  function updateJenisSoal() {
+    const kelas = document.getElementById("kelas").value;
+    const jenisSelect = document.getElementById("jenisSoal");
+    jenisSelect.innerHTML = '<option value="">-- Pilih Jenis Soal --</option>';
+    if (kelas && jenisSoalMap[kelas]) {
+      jenisSoalMap[kelas].forEach(jenis => {
+        const opt = document.createElement("option");
+        opt.value = jenis;
+        opt.textContent = jenis.charAt(0).toUpperCase() + jenis.slice(1);
+        jenisSelect.appendChild(opt);
+      });
+    }
+  }
+
+ 
   async function loadSoal() {
     if (!currentUid) return alert("Anda harus login dulu.");
-
     const jenis = document.getElementById("jenisSoal").value;
     if (!jenis) return alert("Silakan pilih jenis soal.");
 
@@ -377,138 +384,35 @@ function bayar(uid, username) {
 
     skorBtn.onclick = async () => {
       let benar = 0;
-      let total = Object.keys(soalData).length;
+      const total = Object.keys(soalData).length;
 
       for (let key in soalData) {
         const benarIndex = soalData[key].pilihan
           .map((p, i) => p.benar ? i.toString() : null)
           .filter(i => i !== null);
+
         const dipilih = [...document.querySelectorAll(`input[name='${key}']:checked`)].map(i => i.value);
-        if (JSON.stringify(dipilih.sort()) === JSON.stringify(benarIndex.sort())) {
+
+        const semuaBenarDipilih = benarIndex.every(i => dipilih.includes(i));
+        const tidakAdaSalah = dipilih.every(i => benarIndex.includes(i));
+
+        if (semuaBenarDipilih && tidakAdaSalah) {
           benar++;
         }
       }
 
-      const skor = benar / total;
-      const skorKey = "nilai_" + jenis;
-      const skorLama = userData[skorKey] ?? 0;
+      const nilai = Math.round((benar / total) * 100);
+      await userRef.update({
+        ["nilai_" + jenis]: nilai,
+        ["last_" + jenis]: today
+      });
 
-      if (skor > skorLama) {
-        await userRef.update({
-          [skorKey]: skor,
-          [lastKey]: today
-        });
-        alert(`Skor ${skor} disimpan.`);
-      } else {
-        alert(`Skor ${skor} tidak disimpan karena lebih rendah atau sama.`);
-      }
-
+      alert(`Nilai kamu: ${nilai}`);
+  
       skorBtn.disabled = true;
+      skorBtn.textContent = "Sudah disimpan";
     };
-
-    // Tampilkan skor user per jenis soal
-    const skorDiv = document.getElementById("skorUser");
-    if (userSnap.exists()) {
-      const data = userSnap.val();
-      const skorList = Object.keys(data)
-        .filter(k => k.startsWith("nilai_"))
-        .map(k => {
-          const j = k.replace("nilai_", "");
-          return `<li>${j}: ${data[k]}</li>`;
-        });
-        
-        
-        
-        
-        
-      skorDiv.innerHTML = `<h4 class="font-bold mb-2">Skor Kamu:</h4><ul class="list-disc pl-5">${skorList.join("")}</ul>`;
-    } else {
-      skorDiv.innerHTML = `<p>Kamu belum punya skor yang tersimpan.</p>`;
-    }
-
-
-
-
-
-    // Rekap semua user
-const semuaUser = await db.ref("data_siswa").get();
-const rekapNilaiTotalDiv = document.getElementById("rekapNilaiTotal");
-
-if (semuaUser.exists()) {
-  const semuaData = semuaUser.val();
-  const rekapTotal = [];
-
-  for (let uid in semuaData) {
-    const user = semuaData[uid];
-    let total = 0;
-
-    // Menjumlahkan semua nilai yang diawali dengan "nilai_"
-    for (let key in user) {
-      if (key.startsWith("nilai_") && typeof user[key] === "number") {
-        total += user[key];
-      }
-    }
-
-    if (user.username) {
-      rekapTotal.push({ username: user.username, total });
-    }
   }
-
-  // Urutkan dari nilai tertinggi ke terendah
-  rekapTotal.sort((a, b) => b.total - a.total);
-
-  // Buat HTML-nya
-  const isi = rekapTotal
-    .map(u => `<li>${u.username}: ${u.total.toFixed(2)}</li>`)
-    .join("");
-
-  rekapNilaiTotalDiv.innerHTML = `
-    <h4 class="font-bold mb-2">Total Skor Semua Siswa:</h4>
-    <ul class="list-decimal pl-5">${isi}</ul>
-  `;
-} else {
-  rekapNilaiTotalDiv.innerHTML = "<p>Tidak ada skor total ditemukan.</p>";
-}
-    // Render MathJax
-    if (window.MathJax) {
-      MathJax.typesetPromise()
-        .then(() => console.log("Soal berhasil dirender dengan MathJax."))
-        .catch((err) => console.error("Gagal render MathJax:", err));
-    }
-  }
-  
-  document.getElementById("scanQrisButton").onclick = () => {
-  const scannerContainer = document.getElementById("scannerContainer");
-  scannerContainer.classList.remove("hidden");
-
-  // Inisialisasi QR scanner
-  const html5QrCode = new Html5Qrcode("reader");
-  Html5Qrcode.getCameras().then(cameras => {
-    if (cameras && cameras.length) {
-      html5QrCode.start(
-        cameras[0].id,
-        {
-          fps: 10,
-          qrbox: 200
-        },
-        qrCodeMessage => {
-          alert(`QR Code ditemukan: ${qrCodeMessage}`);
-          html5QrCode.stop();
-        },
-        errorMessage => {
-          // Bisa tampilkan error scanning jika ingin
-        }
-      );
-    }
-  }).catch(err => {
-    alert("Tidak dapat mengakses kamera: " + err);
-  });
-};
-  
-  
 </script>
 
-
-<script src="https://unpkg.com/html5-qrcode"></script>
-</body>
 </html>
