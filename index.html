@@ -66,15 +66,8 @@
       <h2 id="welcome" class="text-xl font-semibold"></h2>
       <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</button>
     </div>
-
-<div>
     
-  
-    
-</div>
-
-
-    <div id="selectContainer" class="px-4">
+     <div id="selectContainer" class="px-4">
       <label class="block mb-2">Pilih kelas:</label>
       <select id="kelas" onchange="updateJenisSoal()" class="w-full p-2 border rounded mb-4">
         <option value="">-- Pilih Kelas --</option>
@@ -93,24 +86,26 @@
       <button onclick="loadSoal()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full">Tampilkan Soal</button>
     </div>
 
-
-
-
-
     <div id="soalContainer" class="px-4 mt-4"></div>
+    
+<div>
+
+
+</div>
+   
   </div>
   
+  <!--
  <div id="skorUser" class="mt-6 p-4 bg-gray-100 rounded"></div>
-
-
-
 <div id="rekapPerUser" class="mt-6 p-4 bg-blue-100 rounded"></div>
 <div id="rekapNilaiTotal" class="mt-6 p-4 bg-green-100 rounded"></div>
-  <!-- FOOTER -->
+ 
+ 
   
 </div>
 <div id="topUpArea"></div>
   
+  -->
   
    <div class="font-sans p-4 m-0 bg-white">
   <h2 class="text-center text-lg font-semibold mb-4">Peringkat</h2>
@@ -248,7 +243,7 @@
 
       await db.ref("username_map/" + username).set(email);
       alert("Registrasi berhasil!");
-      showLogin();
+            showLogin();
 
       const bayarButton = document.createElement("button");
       bayarButton.textContent = "scan qris";
@@ -286,12 +281,14 @@
     }
   }
 
+ 
   async function login() {
     const emailOrUsername = document.getElementById("loginUsername").value;
     const password = document.getElementById("loginPassword").value;
 
     try {
       let email = emailOrUsername;
+
       if (!emailOrUsername.includes("@")) {
         const snapshot = await db.ref("username_map/" + emailOrUsername).once("value");
         if (!snapshot.exists()) throw new Error("Username tidak ditemukan");
@@ -308,15 +305,81 @@
       currentUid = uid;
       currentUsername = data.username;
 
-      document.getElementById("loginForm").classList.add("hidden");
-      document.getElementById("dashboard").classList.remove("hidden");
-      document.getElementById("welcome").innerText = `Selamat datang, ${data.username}`;
-     
+      const today = new Date();
+      const expiredAt = new Date(data.expired_at);
+      const approved = data.approved;
+
+      if (approved && expiredAt >= today) {
+        lanjutkan(data.username);
+      } else {
+        bayardulu(data.username);
+      }
+
     } catch (err) {
       alert("Login gagal: " + err.message);
     }
   }
 
+  
+  function lanjutkan(username) {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+    document.getElementById("welcome").innerText = `Selamat datang, ${username}`;
+  }
+
+ function bayardulu(username) {
+  document.getElementById("loginForm").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+
+  document.getElementById("welcome").innerHTML = `
+    <p>Hai <strong>${username}</strong>, akunmu belum aktif atau sudah kedaluwarsa.</p>
+    <p><strong>Silakan bayar dengan QRIS berikut:</strong></p>
+    <img src="./gbr/bsiqris.png" alt="QRIS Pembayaran BSI" style="max-width: 300px; margin: 10px 0;">
+    
+    <p>Upload bukti pembayaran:</p>
+    <input type="file" id="buktiPembayaran" accept="image/*"><br><br>
+    <button onclick="konfirmasiPembayaran()">Saya sudah bayar</button>
+    <div id="uploadStatus" style="margin-top:10px;"></div>
+  `;
+
+  // Sembunyikan elemen soal dan pilihan
+  document.getElementById("selectContainer")?.classList.add("hidden");
+  document.getElementById("soalContainer")?.classList.add("hidden");
+}
+ 
+function konfirmasiPembayaran() {
+  const fileInput = document.getElementById("buktiPembayaran");
+  const statusDiv = document.getElementById("uploadStatus");
+
+  if (fileInput.files.length === 0) {
+    statusDiv.innerHTML = "<span style='color:red;'>Silakan pilih file bukti pembayaran terlebih dahulu.</span>";
+    return;
+  }
+
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+
+  reader.onload = async function () {
+    const base64Data = reader.result;
+    const uid = currentUid; // pastikan ini sudah terisi saat login
+
+    try {
+      await db.ref("data_siswa/" + uid + "/bukti_pembayaran").set({
+        nama_file: file.name,
+        base64: base64Data,
+        timestamp: new Date().toISOString()
+      });
+
+      statusDiv.innerHTML = "<span style='color:green;'>Bukti pembayaran berhasil disimpan. Admin akan memverifikasi.</span>";
+    } catch (err) {
+      console.error("Gagal menyimpan ke database:", err);
+      statusDiv.innerHTML = "<span style='color:red;'>Gagal menyimpan bukti pembayaran.</span>";
+    }
+  };
+
+  reader.readAsDataURL(file);
+}
+ 
   function logout() {
     auth.signOut();
     document.getElementById("dashboard").classList.add("hidden");
