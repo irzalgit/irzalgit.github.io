@@ -309,7 +309,7 @@
       const expiredAt = new Date(data.expired_at);
       const approved = data.approved;
 
-      if (approved && expiredAt >= today) {
+      if (approved || expiredAt >= today) {
         lanjutkan(data.username);
       } else {
         bayardulu(data.username);
