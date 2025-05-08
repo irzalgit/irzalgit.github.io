@@ -1,481 +1,1696 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hallo sahabat </title>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\', '\']]
-      }
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body class="bg-blue-100 min-h-screen flex flex-col items-center justify-start">
-
-  <!-- HERO SECTION -->
-  <section class="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white py-8 px-4 shadow-md text-center">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex flex-col items-center">
-     <img src="gbr/bp.jpeg" alt="Logo" class="w-24 h-24 mb-4 object-contain">
-       <p class="mt-2 text-lg">welcome</p>
-        <h1 class="text-3xl font-bold">Portal Matematika</h1>
-        <p class="mt-2 text-lg">uji kemampuanmu dengan soal-soal pilihan</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORM LOGIN -->
-  <div id="loginForm" class="bg-blue-100 p-8 rounded-2xl shadow-lg text-center transform transition-transform hover:scale-105 border-t-4 border-blue-400">
-      <h2 class="text-3xl font-bold mb-6 text-blue-800">Login</h2>
-    <input id="loginUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
-    <input id="loginPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
-    <button onclick="login()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
-    <p class="mt-4 text-sm">
-  Belum punya akun? 
-  <button onclick="showRegister()" class="text-blue-600 underline">Register</button>
-  <button onclick="window.location.href='soal.html'" class="text-blue-800 underline ml-2">Demo</button>
-</p>
-    
-  </div>
-  
-  
-  
-  
-
-  <!-- FORM REGISTER -->
-   <div id="registerForm" class="hidden bg-blue-100 p-8 rounded-2xl shadow-lg text-center transform transition-transform hover:scale-105 border-t-4 border-blue-400">
-    <h2 class="text-2xl font-bold mb-4">Register</h2>
-    <input id="regUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
-    <input id="regEmail" placeholder="Email" class="w-full mb-2 p-2 border rounded" />
-    <input id="regPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
-    <button onclick="register()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Register</button>
-    <p class="mt-4 text-sm">Sudah punya akun? <button onclick="showLogin()" class="text-blue-600 underline">Kembali ke Login</button></p>
-  </div>
-
-  <!-- DASHBOARD -->
-  <div id="dashboard" class="hidden w-full max-w-2xl mx-auto pt-4 sticky top-0 bg-white z-10 shadow mt-6">
-    <div class="flex justify-between items-center mb-4 px-4">
-      <h2 id="welcome" class="text-xl font-semibold"></h2>
-      <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</button>
-    </div>
-    
-     <div id="selectContainer" class="px-4">
-      <label class="block mb-2">Pilih kelas:</label>
-      <select id="kelas" onchange="updateJenisSoal()" class="w-full p-2 border rounded mb-4">
-        <option value="">-- Pilih Kelas --</option>
-        <option value="x">X</option>
-       <option value="xi">XI</option>
-        <option value="xii">XII</option>
-          <option value="all">ALL</option>
-        
-      </select>
-
-      <label class="block mb-2">Pilih jenis soal:</label>
-      <select id="jenisSoal" class="w-full p-2 border rounded mb-4">
-        <option value="">-- Pilih Jenis Soal --</option>
-      </select>
-
-      <button onclick="loadSoal()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full">Tampilkan Soal</button>
-    </div>
-
-    <div id="soalContainer" class="px-4 mt-4"></div>
-    
-<div>
-
-
-</div>
-   
-  </div>
-  
-  <!--
- <div id="skorUser" class="mt-6 p-4 bg-gray-100 rounded"></div>
-<div id="rekapPerUser" class="mt-6 p-4 bg-blue-100 rounded"></div>
-<div id="rekapNilaiTotal" class="mt-6 p-4 bg-green-100 rounded"></div>
- 
- 
-  
-</div>
-<div id="topUpArea"></div>
-  
-  -->
-  
-   <div class="font-sans p-4 m-0 bg-white">
-  <h2 class="text-center text-lg font-semibold mb-4">Peringkat</h2>
-  <div class="overflow-x-auto w-full">
-    <table class="w-full text-sm border border-gray-300 border-collapse">
-      <thead>
-        <tr class="bg-gray-100">
-          <th class="border border-gray-300 px-2 py-1 text-center">#</th>
-          <th class="border border-gray-300 px-2 py-1 text-left">Username</th>
-          <th class="border border-gray-300 px-2 py-1 text-center w-16">Nilai</th>
-        </tr>
-      </thead>
-      <tbody id="leaderboardTable" class="[&>tr:nth-child(even)]:bg-gray-50"></tbody>
-    </table>
-  </div>
-
- 
-</div>
-    
-
-  
-  <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4">
-    <p>&copy; 2025 Irzal Achmad </p>
-  </footer>
-
-
-  <!-- SCRIPT FIREBASE DAN LOGIKA -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-<script src="https://unpkg.com/html5-qrcode"></script>
-</body>
-
- <script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
-    authDomain: "math314-app.firebaseapp.com",
-    databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
-    projectId: "math314-app",
-    storageBucket: "math314-app.appspot.com",
-    messagingSenderId: "9019551034",
-    appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
-    measurementId: "G-VWYDTY9LF6"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.database();
-
-  let currentUid = null;
-  let currentUsername = "";
-
-  const leaderboardRef = db.ref('data_siswa');
-
-  leaderboardRef.once('value').then(snapshot => {
-    const data = snapshot.val();
-    const leaderboardArray = [];
-
-    for (const uid in data) {
-      const siswa = data[uid];
-      let totalNilai = 0;
-
-      for (const key in siswa) {
-        if (key.startsWith('nilai_') && typeof siswa[key] === 'number') {
-          totalNilai += siswa[key];
-        }
-      }
-
-      leaderboardArray.push({
-        username: (siswa.username || uid).toUpperCase(),
-        total: totalNilai
-      });
+{
+  "peluang": {
+   "soal1": {
+      "pertanyaan": "soal peluang bersyarat berdasarkan kotak yang berisi 6 kelereng merah dan 4 kelereng biru",
+      "pilihan": [
+        { "teks": "Dua kelereng diambil satu per satu tanpa pengembalian. Berapa peluang kedua kelereng yang diambil berwarna merah adalah 1/3 ", "benar": true },
+       { "teks": "peluang Budi mendapat kedua kelereng  berselisih 5 adalah 1/6 ", "benar": true },
+        { "teks": "banyaknya kelereng berselisih 5 adalah 10", "benar": false },
+        { "teks": "peluang mendapat jumlah kelereng adalah  bilangan prima  adalah 1/2 ", "benar": false },
+        { "teks": "peluang mendapatkan jumlah kelereng habis dibagi 3 adalah 1/5", "benar": false }
+      ]
+    },
+     "soal2": {
+      "pertanyaan": "soal peluang bersyarat berdasarkan kotak yang berisi 6 kelereng merah dan 4 kelereng birui",
+      "pilihan": [
+        { "teks": "Dua kelereng diambil tanpa pengembalian. Berapa peluang mengambil kelereng biru pada pengambilan kedua jika yang pertama merah adalah  4/15", "benar": true },
+       { "teks": "jika Toni mendapat kelereng merah maka peluang Budi mendapat kelereng biru  adalah 1/2 ", "benar": true },
+        { "teks": "jumlah peluang berbeda warna adalah 20", "benar": false },
+        { "teks": "jika percobaan diulang lagi ,  Ani mengambil 3 kelerwng sekaligus , peluang   mendapat semua berwarna biru adalah 3", "benar": false },
+        { "teks": "jika diamnil 3 kelereng satu persatu  tanpa pengembalian maka peluang urutan merah biru biru adalah 1/3 ", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "soal peluang bersyarat berdasarkan kotak yang berisi 6 kelereng merah dan 4 kelereng biru",
+      "pilihan": [
+        { "teks": "Dua kelereng diambil tanpa pengembalian. Berapa peluang mengambil kelereng merah pada pengambilan kedua jika yang pertama biru adalah 4/15", "benar": true },
+        { "teks": "peluang merah adalah 1/2", "benar": true },
+        { "teks": "  peluang merah adalah 2/3", "benar": false },
+        { "teks": "peluang merah adalah 1/4", "benar": false },
+        { "teks": "peluang merah adalah 1/3", "benar": false }
+      ]
+    },
+    "soal4": {
+      "pertanyaan": "soal peluang bersyarat berdasarkan kotak yang berisi 6 kelereng merah dan 4 kelereng biru",
+      "pilihan": [
+        { "teks": "Dua kelereng diambil tanpa pengembalian. Berapa peluang kedua kelereng yang diambil berwarna biru adalah 2/15", "benar": true },
+        { "teks": "peluang merah adalah 1/2", "benar": true },
+        { "teks": "  peluang merah adalah 2/3", "benar": false },
+        { "teks": "peluang merah adalah 1/4", "benar": false },
+        { "teks": "peluang merah adalah 1/3", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "soal peluang bersyarat berdasarkan kotak yang berisi 6 kelereng merah dan 4 kelereng biru",
+     "pilihan": [
+        { "teks": "Dua kelereng diambil tanpa pengembalian. Berapa peluang kelereng kedua berwarna merah, tanpa memedulikan warna pertama? adalah 3/5", "benar": true },
+        { "teks": "peluang merah adalah 1/2", "benar": false },
+        { "teks": "  peluang merah adalah 2/3", "benar": false },
+        { "teks": "peluang merah adalah 1/4", "benar": false },
+        { "teks": "peluang merah adalah 1/3", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Sebuah dadu enam sisi dilempar sekali. Berapa peluang muncul angka ganjil?",
+   "pilihan": [
+        { "teks": "peluang ganjil adalah 1/2", "benar": true },
+        { "teks": "peluang merah adalah 1/2", "benar": false },
+        { "teks": "  peluang merah adalah 2/3", "benar": false },
+        { "teks": "peluang merah adalah 1/4", "benar": false },
+        { "teks": "peluang merah adalah 1/3", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Dua dadu dilempar bersamaan. Berapa peluang muncul jumlah angka 9?",
+    "pilihan": [
+        { "teks": "1/9", "benar": true },
+        { "teks": "peluang merah adalah 1/2", "benar": false },
+        { "teks": "  peluang merah adalah 2/3", "benar": false },
+        { "teks": "peluang merah adalah 1/4", "benar": false },
+        { "teks": "peluang merah adalah 1/3", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Sebuah dadu enam sisi dilempar sekali. Berapa peluang muncul angka 2 atau 5?",
+    "pilihan": [
+        { "teks": "1/3", "benar": true },
+        { "teks": "peluang merah adalah 1/2", "benar": false },
+        { "teks": "  peluang merah adalah 2/3", "benar": false },
+        { "teks": "peluang merah adalah 1/4", "benar": false },
+        { "teks": "peluang merah adalah 1/3", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Dua dadu dilempar bersamaan. Berapa peluang setidaknya salah satu dadu menunjukkan angka 4?",
+    "pilihan": [
+        { "teks": "11/36", "benar": true },
+        { "teks": "peluang merah adalah 1/2", "benar": false },
+        { "teks": "  peluang merah adalah 2/3", "benar": false },
+        { "teks": "peluang merah adalah 1/4", "benar": false },
+        { "teks": "peluang merah adalah 1/3", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dua dadu dilempar bersamaan. Berapa peluang kedua dadu menunjukkan angka yang sama?",
+      "pilihan": [
+        { "teks": "$\\frac{1}{6}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    },
+      "soal11": {
+      "pertanyaan": "Sebuah dadu enam sisi dilempar sekali. Berapa peluang munculnya angka genap?",
+      "pilihan": [
+        { "teks": "1/2", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal12": {
+      "pertanyaan": "Sebuah koin dilempar dua kali.Tentukan ruang sampelnya!",
+      "pilihan": [
+        { "teks": "HH HT TH TT", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+      "soal13": {
+      "pertanyaan": "Sebuah dadu enam sisi dilempar sekali. Berapa peluang munculnya angka genap?",
+      "pilihan": [
+        { "teks": "3/10", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal14": {
+      "pertanyaan": "Peluang siswa A lulus ujian adalah 0,8. Berapa peluang siswa A tidak lulus?",
+      "pilihan": [
+        { "teks": "\\frac{1}{5}\\", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+      "soal15": {
+      "pertanyaan": "Dua dadu dilempar sekaligus. Berapa peluang muncul jumlah mata dadu ",
+      "pilihan": [
+        { "teks": "1/6", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal16": {
+      "pertanyaan": "Dari sekumpulan 5 kartu merah dan 4 kartu hitam, satu kartu diambil. Berapa peluang kartu yang diambil berwarna merah atau hitam?",
+      "pilihan": [
+        { "teks": "1", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+      "soal17": {
+      "pertanyaan": "Dari sekumpulan 5 bola merah dan 3 bola biru, diambil satu bola lalu tanpa dikembalikan diambil lagi satu bola. Berapa peluang kedua bola berwarna merah?",
+      "pilihan": [
+        { "teks": "5/14", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal18": {
+      "pertanyaan": "Berapa banyak cara menyusun 4 orang dalam satu baris?",
+      "pilihan": [
+        { "teks": "24", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+      "soal19": {
+      "pertanyaan": "Berapa banyak cara menyusun kata MATEMATIKA dengan huruf yang berbeda?",
+      "pilihan": [
+        { "teks": "151200", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal20": {
+      "pertanyaan": "Dari 10 siswa, dipilih 3 untuk menjadi pengurus kelas. Berapa cara pemilihannya?",
+      "pilihan": [
+        { "teks": "120", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+     "soal21": {
+      "pertanyaan": "Dalam sebuah kotak terdapat 6 bola merah dan 4 bola biru. Jika diambil 2 bola sekaligus, berapa peluang mendapatkan dua bola merah?",
+      "pilihan": [
+        { "teks": "1/3", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal22": {
+      "pertanyaan": "Jika peluang hujan hari ini adalah 0,7, berapa peluang tidak hujan selama tiga hari berturut-turut?",
+      "pilihan": [
+        { "teks": "0,027", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+      "soal23": {
+      "pertanyaan": "Dalam sebuah kotak terdapat 2 bola merah dan 3 bola biru. Jika diambil satu bola, dikembalikan, lalu diambil lagi, berapa peluang mendapatkan dua bola biru?",
+      "pilihan": [
+        { "teks": "9/25", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal24": {
+  "pertanyaan": "Jika peluang seorang siswa belajar adalah 0,6 dan peluang siswa yang belajar lulus ujian adalah 0,9, berapa peluang seorang siswa yang dipilih secara acak lulus ujian?",
+  "pilihan": [
+    { "teks": "0,54", "benar": true },
+    { "teks": "$0{,}6 \\times 0{,}9 = 0{,}54$", "benar": true },
+    { "teks": "$\\frac{1}{2}$", "benar": false },
+    { "teks": "1", "benar": false },
+    { "teks": "0", "benar": false }
+  ]
+},
+      "soal25": {
+  "pertanyaan": "Diberikan format  nomor plat kendaraan bermotor aebagai berikut D X X X X X X dimana D adalah huruf  K, P, R sedangkan X adalah angka  2 , 3 , 4 , 5,  7, 8 ",
+  "pilihan": [
+    { "teks": "banyaknya kombinasi angka adalah 720", "benar": true },
+    { "teks": "banyaknya plat nomor adalah 2160", "benar": true},
+    { "teks": "6P6 = 360  ", "benar": false },
+    { "teks": "0! = 1", "benar": true },
+    { "teks": "0! = 0", "benar": false }
+  ]
+}
+  }  ,
+  "regresi" : {
+   "soal1": {
+      "pertanyaan": "Pasangan variabel berikut yang saling berhubungan/berkorelasi",
+      "pilihan": [
+        { "teks": "tinggi badan dengan berat badan", "benar": true },
+        { "teks": "tinggi badan dengan warna rambut", "benar": false },
+        { "teks": "ukuran baju dengan jenis kelamin", "benar": false },
+        { "teks": "lama belajar dengan nilai ujian", "benar": true },
+        { "teks": "tinggi badan dengan hobi", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Ada 3 interval menentukan nilai korelasi",
+      "pilihan": [
+        { "teks": "0,8 - 1 disebut korelaai positif  kuat", "benar": true },
+        { "teks": "0 -0,49 disebut korelasi negatif lemah", "benar": false },
+        { "teks": "0 tidak ada hubungan korelasi", "benar": false },
+        { "teks": "0,5 - 0,79 disebut karelasi positif  moderat", "benar": true },
+        { "teks": "jika 0,9 korelasi negatif kuat", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Nilai korelasi Pearson r pada regresi linier ",
+      "pilihan": [
+        { "teks": "r merupakan koedisien arah dari garis regresi linier ", "benar": true },
+        { "teks": "jika r=0,95 maka disebut korelasi positif kuat", "benar": true },
+        { "teks": "nilai r tidak dapat ditentukan melalui rumus", "benar": false },
+        { "teks": "garis yang terbaik melalui titik data adalah regresi linier Pearson", "benar": true },
+        { "teks": "nilai r tidak bergantung jumlah percobaan", "benar": false }
+      ]
+    },
+     "soal4": {
+      "pertanyaan": "Jika persamaan regresi diketahui y=0,8x +2",
+      "pilihan": [
+        { "teks": "nilai prediksi y pada x=5 adalah 6", "benar": true },
+        { "teks": "nilai prediksi y pada x=9 adalah 10", "benar": false },
+        { "teks": "tidak dapat memprediksi", "benar": false },
+        { "teks": "persamaan garis linier diatas berkorelasi negatif", "benar": false },
+        { "teks": "nilai koefisien arah persamaan diatas adalah 0,8", "benar": true }
+      ]
+    },
+      "soal5": {
+      "pertanyaan": "Koefisien korelasi Pearson dan koefisien regresi memang sering dipakai barengan dalam analisis statistik, tapi mereka tidak sama",
+      "pilihan": [
+        { "teks": "Korelasi itu seperti apakah mereka saling terkait dan searah?","benar": true},
+        { "teks": "Regresi itu seperti : seberapa besar pengaruh X terhadap Y ?"
+, "benar": true },
+        { "teks": "sama saja", "benar": false },
+        { "teks": "nilai koefisien korelasi antara -1 sampai 1", "benar": true },
+        { "teks": "nilai koefisien regresi antara -1 sampai 1", "benar": false}
+      ]
+    },
+     "soal6": {
+      "pertanyaan": "Seorang guru melakukan penelitian untuk mengetahui hubungan antara tinggi badan dan berat badan siswa. Dari hasil analisis data, diperoleh model regresi:Berat (kg) = -60 + 0,75 × Tinggi (cm). Jika seorang siswa memiliki tinggi badan 165 cm, maka berat badannya diperkirakan sebesar ",
+      "pilihan": [
+{ "teks":"61,25 kg","benar": false},
+{ "teks":"63,75 kg","benar": true },
+{ "teks":"65,00 kg","benar": false},
+{ "teks":"66,25 kg","benar": false},
+{ "teks":"68,25 kg","benar": false}
+      ]
+    },
+     "soal7": {
+      "pertanyaan": "Dalam sebuah studi diperoleh model regresi:Tinggi (cm) = 95 + 1,1 × Berat (kg).Jika berat badan seorang siswa adalah 50 kg, berapa tinggi badan siswa tersebut menurut model?",
+      "pilihan": [
+{ "teks": "145 cm","benar": false},
+{ "teks": "150 cm","benar": true },
+{ "teks": "152 cm","benar":false },
+{ "teks": "155 cm","benar": false },
+{ "teks": "160 cm","benar": false}
+      ]
+    },
+     "soal8": {
+      "pertanyaan": "Diketahui persamaan regresi: Berat (kg) = -70 + 0,8 × Tinggi (cm).Apa arti dari angka 0,8 dalam persamaan tersebut?",
+      "pilihan": [
+{ "teks": "Berat badan bertambah 0,8 kg jika tinggi badan bertambah 10 cm", "benar": false},
+{ "teks": "Berat badan bertambah 0,8 kg jika tinggi badan bertambah 1 cm", "benar": true },
+{ "teks": "Berat badan bertambah 1 kg jika tinggi badan bertambah 0,8 cm", "benar": false },
+{ "teks": "Berat badan bertambah 70 kg jika tinggi badan bertambah 1 cm", "benar": false },
+{ "teks": "Berat badan bertambah 1 kg jika tinggi badan bertambah 10 cm", "benar": false}
+      ]
     }
-
-    leaderboardArray.sort((a, b) => b.total - a.total);
-
-    const tbody = document.getElementById('leaderboardTable');
-    leaderboardArray.forEach((entry, index) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td class="border border-gray-300 px-2 py-1 text-center">${index + 1}</td>
-        <td class="border border-gray-300 px-2 py-1 text-left">${entry.username}</td>
-        <td class="border border-gray-300 px-2 py-1 text-center">${entry.total}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-  });
-
-  const jenisSoalMap = {
-    x: ['kuadrat', 'trigonometri', 'statistik'],
-    xi: ['lingkaran', 'peluang', 'regresi'],
-    xii: ['integral', 'deferensial'],
-    all: [
-      'bilangan berpangkat', 'pertidaksamaan', 'SPTLTV', 'kuadrat', 'eksponen',
-      'barisan dan deret', 'statistik', 'integral', 'matrik', 'fungsikomposisi',
-      'transformasi', 'lingkaran', 'vektor', 'logika matematika', 'aritmatika sosial',
-      'program linier', 'limit', 'deferensial', 'integral'
+    },
+"integral": {
+   "soal1": {
+     "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1} x^2 \\, dx$.12",
+        "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{1}^{3} x^3 \\, dx$.134",
+       "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{3}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal3": {
+       "pertanyaan": "Berapakah nilai integral berikut? $\\int_{1}^{2} 2x^2 \\, dx$.",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal4": {
+     "pertanyaan": "Berapakah nilai integral berikut? $\\int_{-1}^{1} x^2 \\, dx$.",
+       "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal5": {
+     "pertanyaan": "Berapakah nilai integral berikut? $\\int_{4}^{1} x^2 \\, dx$.2",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{13}{52}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+        "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1}(x^2+x) \\, dx$.",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{-2}^{1}(x^2+x) \\, dx$.",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+     "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{3}(x^3+x^2) \\, dx$.",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{3}(x^3+x^2+x) \\, dx$.",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+        "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{4}(x^2-x+3) \\, dx$.",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  } ,
+  "kuadrat": {
+   "soal1": {
+      "pertanyaan": "Jika a dan b adalah akar persamaan kuadrat x^2 +x-3=0, m a k a  ",
+      "pilihan": [
+        { "teks": "a-b=-1", "benar": true },
+        { "teks": "a+b=1", "benar": false },
+        { "teks": "2a^2 +b^2 + a =10", "benar": true },
+        { "teks": "a.b=3", "benar": false },
+        { "teks": "a.b=-3", "benar": true }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Dikatakan persamaan kuadrat ax^2 +bx+c=0  ",
+      "pilihan": [
+        { "teks": "jika a bukan angka 0", "benar": true },
+        { "teks": "nilai a,  b dan c bilangan real", "benar": true },
+        { "teks": "mempunyai akar yang sama jika D=0", "benar": true },
+        { "teks": "tidak punya akar jika D bernilai negatif", "benar": true },
+        { "teks": "jumlah akarnya b/a", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Diberikan persamaan kuadrat x^2 -4=0",
+      "pilihan": [
+        { "teks": "grafik nya akan menyinggung sumbu x", "benar": false },
+        { "teks": "grafik akan memotong sumbu x pada x=2 dan x=-2", "benar": true },
+        { "teks": "grafik tidak memotong sumbu x", "benar": false },
+        { "teks": "grafik terbuka kebawah", "benar": false },
+        { "teks": "grafik simetrik terhadap sumbu y", "benar": true }
+      ]
+    }
+  } ,
+ "lingkaran": {
+  "soal1": {
+    "pertanyaan": "Diberikan persamaan lingkaran $ \\x^2 + y^2 = 25$",
+    "pilihan": [
+      { "teks": "maka jari jarinya r=5", "benar": true },
+      { "teks": "titik pusat lingkaran O(0,0)", "benar": true },
+      { "teks": "lingkaran ini memotong sumbu x pada x=5 dan x=-5", "benar": true },
+      { "teks": "lingkaran berada diatas sumbu x", "benar": false },
+      { "teks": "titik P(3,4) berada pada lingkaran", "benar": true }
     ]
-  };
-
-  function showRegister() {
-    document.getElementById("loginForm").classList.add("hidden");
-    document.getElementById("registerForm").classList.remove("hidden");
+  },
+  "soal2": {
+    "pertanyaan": "Persamaan garis yang menyinggung lingkaran dititik P(3,4) pada lingkaran $\\ x^2 + y^2 = 25$",
+    "pilihan": [
+      { "teks": "persamaan garis singgungnya adalah 3x+4y=25", "benar": true },
+      { "teks": "peesamaan garis singgungnya adalah 4x+3y=25", "benar": false },
+      { "teks": "garis singgung tersebut memotong sumbu x pada titik A(25/3,0)", "benar": true },
+      { "teks": "garis singgung tersebut memotong sumbu x pada titik A(25/4,0)", "benar": false },
+      { "teks": "garis singgung tersebut memotong sumbu x pada titik A(5,0)", "benar": false }
+    ]
+  },
+  "soal3": {
+    "pertanyaan": "Bentuk persamaan lingkaran $\\(x-3)^2 +(y+4)^2=25$",
+    "pilihan": [
+      { "teks": "lingkaran tersebut jari jarinya r=5", "benar": true },
+      { "teks": "pusat lingkaran P(3,4)", "benar": false },
+      { "teks": "pusat lingkaran P(3,-4)", "benar": true },
+      { "teks": "titik B(3,4) berada didalam lingkaran", "benar": false },
+      { "teks": "lingkaran melalui titik 0(0,0)", "benar": false }
+    ]
   }
-
-  function showLogin() {
-    document.getElementById("registerForm").classList.add("hidden");
-    document.getElementById("loginForm").classList.remove("hidden");
-  }
-
-  async function register() {
-    const username = regUsername.value;
-    const email = regEmail.value;
-    const password = regPassword.value;
-
-    try {
-      const userCred = await auth.createUserWithEmailAndPassword(email, password);
-      const uid = userCred.user.uid;
-
-      await db.ref("data_siswa/" + uid).set({
-        username,
-        email,
-        expired_at: new Date().toISOString().slice(0, 10),
-        nilai: {},
-        total_nilai: 0,
-        approved: false
-      });
-
-      await db.ref("username_map/" + username).set(email);
-      alert("Registrasi berhasil!");
-            showLogin();
-
-      const bayarButton = document.createElement("button");
-      bayarButton.textContent = "scan qris";
-      Object.assign(bayarButton.style, {
-        marginTop: "10px",
-        padding: "10px 20px",
-        backgroundColor: "#4CAF50",
-        color: "white",
-        border: "none",
-        borderRadius: "5px",
-        cursor: "pointer"
-      });
-
-      bayarButton.addEventListener("click", () => {
-        let qrisImg = document.getElementById("qris-img");
-        if (!qrisImg) {
-          qrisImg = document.createElement("img");
-          qrisImg.id = "qris-img";
-          qrisImg.src = "bsiqris.png";
-          qrisImg.alt = "QRIS BSI";
-          Object.assign(qrisImg.style, {
-            marginTop: "15px",
-            maxWidth: "300px",
-            display: "block"
-          });
-          document.body.appendChild(qrisImg);
-        } else {
-          qrisImg.style.display = "block";
-        }
-      });
-
-      document.body.appendChild(bayarButton);
-    } catch (err) {
-      alert("Gagal registrasi: " + err.message);
-    }
-  }
-
+},
  
-  async function login() {
-    const emailOrUsername = document.getElementById("loginUsername").value;
-    const password = document.getElementById("loginPassword").value;
-
-    try {
-      let email = emailOrUsername;
-
-      if (!emailOrUsername.includes("@")) {
-        const snapshot = await db.ref("username_map/" + emailOrUsername).once("value");
-        if (!snapshot.exists()) throw new Error("Username tidak ditemukan");
-        email = snapshot.val();
-      }
-
-      const userCred = await auth.signInWithEmailAndPassword(email, password);
-      const uid = userCred.user.uid;
-      const siswaSnap = await db.ref("data_siswa/" + uid).once("value");
-
-      if (!siswaSnap.exists()) throw new Error("Data siswa tidak ditemukan");
-
-      const data = siswaSnap.val();
-      currentUid = uid;
-      currentUsername = data.username;
-
-      const today = new Date();
-      const expiredAt = new Date(data.expired_at);
-      const approved = data.approved;
-
-      if (approved || expiredAt >= today) {
-        lanjutkan(data.username);
-      } else {
-        bayardulu(data.username);
-      }
-
-    } catch (err) {
-      alert("Login gagal: " + err.message);
+  "bilanganberpangkat": {
+    "soal1": {
+      "pertanyaan": "$a^m \\cdot a^n = a^{m+n}$",
+      "pilihan": [
+        { "teks": "maka $2^5 \\cdot 2^7 = 2^{12}$", "benar": true },
+        { "teks": "maka $4^5 \\cdot 2^7 = 2^{17}$", "benar": true },
+        { "teks": "maka $2^5 \\cdot 2^{-7} = 2^2$", "benar": false },
+        { "teks": "maka $2^5 \\cdot 3^7 = 6^{12}$", "benar": false },
+        { "teks": "maka $(2^5)^2 \\cdot 2^7 = 2^{17}$", "benar": true }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "bentuk sederhana dari $\\frac{a\\cdot b^5\\cdot c^3}{a^2\\cdot b^3\\cdot c}$",
+      "pilihan": [
+        { "teks": "$\\frac{ab^2c^2}{bc}$", "benar": false },
+        { "teks": "$\\frac{b^2c^2}{bc}$", "benar": false },
+        { "teks": "$\\frac{b^2c^2}{bc}$", "benar": false },
+        { "teks": "$\\frac{b^2c^2}{a}$", "benar": true },
+        { "teks": "$\\frac{b^2c^2}{c}$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "$(3\\cdot 10^{-10})^2$",
+      "pilihan": [
+        { "teks": "$3\\cdot 10^{20}$", "benar": false },
+        { "teks": "$9\\cdot 10^{20}$", "benar": false },
+        { "teks": "$9\\cdot 10^{-20}$", "benar": true },
+        { "teks": "$3^2\\cdot 10^{-20}$", "benar": true },
+        { "teks": "$6\\cdot 10^{-20}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "$\\frac{4\\cdot a^5}{b^6} \\times \\frac{a}{2\\cdot b}$",
+      "pilihan": [
+        { "teks": "$\\frac{a^4}{b^5}$", "benar": true },
+        { "teks": "$\\frac{2^2\\cdot a}{b^6}$", "benar": true },
+        { "teks": "$\\frac{a^7}{b^7}$", "benar": false },
+        { "teks": "$\\frac{2a^7}{b^7}$", "benar": true },
+        { "teks": "$\\frac{2a^7}{b^8}$", "benar": false }
+      ]
     }
-  }
-
-  
-  function lanjutkan(username) {
-    document.getElementById("loginForm").classList.add("hidden");
-    document.getElementById("dashboard").classList.remove("hidden");
-    document.getElementById("welcome").innerText = `Selamat datang, ${username}`;
-  }
-
- function bayardulu(username) {
-  document.getElementById("loginForm").classList.add("hidden");
-  document.getElementById("dashboard").classList.remove("hidden");
-
-  document.getElementById("welcome").innerHTML = `
-    <p>Hai <strong>${username}</strong>, akunmu belum aktif atau sudah kedaluwarsa.</p>
-    <p><strong>Silakan bayar dengan QRIS berikut:</strong></p>
-    <img src="./gbr/bsiqris.png" alt="QRIS Pembayaran BSI" style="max-width: 300px; margin: 10px 0;">
+  },
+  "spldv": {
+   "soal1": {
+      "pertanyaan": "$ \\lim\\limits_{x \\to 2} (x + 3) $",
+      "pilihan": [
+        { "teks": "\\(0\\)", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1} x^2 \\, dx$.",
+      "pilihan": [
+        { "teks": "\\frac{1}{3}\\", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan himpunan \\(A = \\{1, 2, 3\\}\\) dan \\(B = \\{2, 3, 4\\}\\). Berapakah irisan dari A dan B?",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\(\\{1, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{1, 2, 3, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{\\}\\)", "benar": false },
+        { "teks": "\\(\\{1\\}\\)", "benar": false }
+      ]
+    },
     
-    <p>Upload bukti pembayaran:</p>
-    <input type="file" id="buktiPembayaran" accept="image/*"><br><br>
-    <button onclick="konfirmasiPembayaran()">Saya sudah bayar</button>
-    <div id="uploadStatus" style="margin-top:10px;"></div>
-  `;
-
-  // Sembunyikan elemen soal dan pilihan
-  document.getElementById("selectContainer")?.classList.add("hidden");
-  document.getElementById("soalContainer")?.classList.add("hidden");
+    
+    
+    
+    "soal4": {
+      "pertanyaan": "4Tentukan nilai dari limit berikut:$ \\(\\lim_{x \\to 0} \\frac{\\sin x}{x}\\$).",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\({0}\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu hati? $P(H) = \\frac{13}{52} = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Jika sebuah kantong berisi 4 bola merah dan 6 bola biru, berapa peluang mengambil bola merah? $P(M) = \\frac{4}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Jika sebuah koin dilempar dua kali, berapa peluang muncul dua angka? $P(AA) = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Jika dua dadu dilempar, berapa peluang mendapatkan jumlah mata dadu lebih dari 8? $P(T > 8) = \\frac{10}{36}$",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Jika satu bola diambil dari kantong berisi 3 merah dan 7 biru, berapa peluang mendapatkan biru? $P(B) = \\frac{7}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu berwarna hitam? $P(H) = \\frac{26}{52} = \\frac{1}{2}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  } ,
+  "sptldv" : {
+   "soal1": {
+      "pertanyaan": "$ \\lim\\limits_{x \\to 2} (x + 3) $",
+      "pilihan": [
+        { "teks": "\\(0\\)", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1} x^2 \\, dx$.",
+      "pilihan": [
+        { "teks": "\\frac{1}{3}\\", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan himpunan \\(A = \\{1, 2, 3\\}\\) dan \\(B = \\{2, 3, 4\\}\\). Berapakah irisan dari A dan B?",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\(\\{1, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{1, 2, 3, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{\\}\\)", "benar": false },
+        { "teks": "\\(\\{1\\}\\)", "benar": false }
+      ]
+    },
+    
+    
+    
+    
+    "soal4": {
+      "pertanyaan": "4Tentukan nilai dari limit berikut:$ \\(\\lim_{x \\to 0} \\frac{\\sin x}{x}\\$).",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\({0}\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu hati? $P(H) = \\frac{13}{52} = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Jika sebuah kantong berisi 4 bola merah dan 6 bola biru, berapa peluang mengambil bola merah? $P(M) = \\frac{4}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Jika sebuah koin dilempar dua kali, berapa peluang muncul dua angka? $P(AA) = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Jika dua dadu dilempar, berapa peluang mendapatkan jumlah mata dadu lebih dari 8? $P(T > 8) = \\frac{10}{36}$",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Jika satu bola diambil dari kantong berisi 3 merah dan 7 biru, berapa peluang mendapatkan biru? $P(B) = \\frac{7}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu berwarna hitam? $P(H) = \\frac{26}{52} = \\frac{1}{2}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  }, 
+   "trigonometri" : {
+   "soal1": {
+      "pertanyaan": "Perbandingan sisi depan dengan sisi miring dalam segitiga siku disebut",
+      "pilihan": [
+        { "teks": "sinus", "benar": true },
+        { "teks": "cosinus", "benar": false },
+        { "teks": "tangen", "benar": false },
+        { "teks": "cotangen", "benar": false },
+        { "teks": "secant", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Jika sin 40 = a ",
+      "pilihan": [
+        { "teks": "sin 140 = a", "benar": true },
+       { "teks": "sin 220 = a", "benar": false },
+      { "teks": "sin (-40) = -a", "benar": true },
+     { "teks": "sin 320 = -a", "benar": true },
+       { "teks": "sin 40 = cos 50", "benar": true }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan nilai a=3 , b=4 dan c=5 sisi segitiga siku, maka",
+      "pilihan": [
+        { "teks": "sin A =3/5", "benar": true },
+        { "teks": "cos A =4/5", "benar": true },
+       { "teks": "tan A =3/4", "benar": true },
+        { "teks": "sec A =5/4", "benar": true },
+        { "teks": "ctan A =5/4", "benar": false }
+      ]
+    },
+     "soal4": {
+      "pertanyaan": "sudut mempunyai satuan ",
+      "pilihan": [
+        { "teks": "1 putaran 360 derajat ", "benar": true },
+      { "teks": "1 putaran 60 detik ", "benar": true },
+       { "teks": "sudut 30 derajat sama dengan 5 detik", "benar": true },
+        { "teks": "sudut 30,25 sama dengan 30 derajat 15 menit", "benar": true },
+        { "teks": "0,26 sama sengan 15 menit 36 detik", "benar": true }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Satuan radian$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  }, 
+   "statistik" : {
+   "soal1": {
+      "pertanyaan": "Diberikan data x : 1 , 2, 3 , 4 ,5 ,4,3,5,1,2",
+      "pilihan": [
+        { "teks": "rata rata x adalah 3", "benar": true },
+        { "teks": "modus x adalah Mo= 5", "benar": true },
+        { "teks": "median x adalah Me=4", "benar": false },
+        { "teks": "jumlah data x adalah n=10", "benar": true },
+        { "teks": "simpangan rata rata adalah Sr=0,5", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Yang termasuk pemusatan data adalah",
+      "pilihan": [
+        { "teks": "rerata", "benar": true },
+        { "teks": "median", "benar": true },
+        { "teks": "simpangan rata  rata", "benar": false },
+        { "teks": "simpangan baku", "benar": false },
+        { "teks": "kuartil", "benar": true }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Penyajian data antara lain",
+      "pilihan": [
+        { "teks": "tabel", "benar": true },
+        { "teks": "diagram pencar", "benar": true },
+        { "teks": "instagram", "benar": false },
+        { "teks": "diagram lingkaran", "benar": true },
+        { "teks": "matrik", "benar": false }
+      ]
+    },
+    "soal4": {
+      "pertanyaan": "Statistika mempelajari",
+      "pilihan": [
+        { "teks": "analisa data", "benar": true },
+        { "teks": "penyajian data", "benar": true },
+        { "teks": "jangkauan data", "benar": true },
+        { "teks": "pemusatan data", "benar": true },
+        { "teks": "keamanan data", "benar": false }
+      ]
+    }
+  }, 
+  "barisan dan deret" : {
+   "soal1": {
+      "pertanyaan": "$ \\lim\\limits_{x \\to 2} (x + 3) $",
+      "pilihan": [
+        { "teks": "\\(0\\)", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1} x^2 \\, dx$.",
+      "pilihan": [
+        { "teks": "\\frac{1}{3}\\", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan himpunan \\(A = \\{1, 2, 3\\}\\) dan \\(B = \\{2, 3, 4\\}\\). Berapakah irisan dari A dan B?",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\(\\{1, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{1, 2, 3, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{\\}\\)", "benar": false },
+        { "teks": "\\(\\{1\\}\\)", "benar": false }
+      ]
+    },
+    
+    
+    
+    
+    "soal4": {
+      "pertanyaan": "4Tentukan nilai dari limit berikut:$ \\(\\lim_{x \\to 0} \\frac{\\sin x}{x}\\$).",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\({0}\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu hati? $P(H) = \\frac{13}{52} = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Jika sebuah kantong berisi 4 bola merah dan 6 bola biru, berapa peluang mengambil bola merah? $P(M) = \\frac{4}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Jika sebuah koin dilempar dua kali, berapa peluang muncul dua angka? $P(AA) = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Jika dua dadu dilempar, berapa peluang mendapatkan jumlah mata dadu lebih dari 8? $P(T > 8) = \\frac{10}{36}$",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Jika satu bola diambil dari kantong berisi 3 merah dan 7 biru, berapa peluang mendapatkan biru? $P(B) = \\frac{7}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu berwarna hitam? $P(H) = \\frac{26}{52} = \\frac{1}{2}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  },
+  "matrik": {
+   "soal1": {
+      "pertanyaan": "$ \\lim\\limits_{x \\to 2} (x + 3) $",
+      "pilihan": [
+        { "teks": "\\(0\\)", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1} x^2 \\, dx$.",
+      "pilihan": [
+        { "teks": "\\frac{1}{3}\\", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan himpunan \\(A = \\{1, 2, 3\\}\\) dan \\(B = \\{2, 3, 4\\}\\). Berapakah irisan dari A dan B?",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\(\\{1, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{1, 2, 3, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{\\}\\)", "benar": false },
+        { "teks": "\\(\\{1\\}\\)", "benar": false }
+      ]
+    },
+    
+    
+    
+    
+    "soal4": {
+      "pertanyaan": "4Tentukan nilai dari limit berikut:$ \\(\\lim_{x \\to 0} \\frac{\\sin x}{x}\\$).",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\({0}\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu hati? $P(H) = \\frac{13}{52} = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Jika sebuah kantong berisi 4 bola merah dan 6 bola biru, berapa peluang mengambil bola merah? $P(M) = \\frac{4}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Jika sebuah koin dilempar dua kali, berapa peluang muncul dua angka? $P(AA) = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Jika dua dadu dilempar, berapa peluang mendapatkan jumlah mata dadu lebih dari 8? $P(T > 8) = \\frac{10}{36}$",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Jika satu bola diambil dari kantong berisi 3 merah dan 7 biru, berapa peluang mendapatkan biru? $P(B) = \\frac{7}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu berwarna hitam? $P(H) = \\frac{26}{52} = \\frac{1}{2}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  } ,
+  "deferensial": {
+   "soal1": {
+      "pertanyaan": "Diberikan $f(x) = 3x^2 + 5x - 7$",
+      "pilihan": [
+        { "teks": "turunan pertama adalah f'(x) = 6x + 5", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Diberikan f(x) = $\\frac{5}{x}$",
+      "pilihan": [
+        { "teks": " turunan pertama adalah f'(x) = $\\frac{5}{x^2}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\1$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan himpunan \\(A = \\{1, 2, 3\\}\\) dan \\(B = \\{2, 3, 4\\}\\). Berapakah irisan dari A dan B?",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\(\\{1, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{1, 2, 3, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{\\}\\)", "benar": false },
+        { "teks": "\\(\\{1\\}\\)", "benar": false }
+      ]
+    },
+    "soal4": {
+      "pertanyaan": "Diberikan turunan pertama $f'(x) = 3x^2 - 4$",
+      "pilihan": [
+        { "teks": "turunan kedua adalah  $f'(2) = 8$ ", "benar": true },
+        { "teks": "\\({0}\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "Diberikan turunan pertama $f'(x) = 4x^3$",
+      "pilihan": [
+        { "teks": "turunan kedua adalah $f''(x) = 12x^2$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Jika sebuah kantong berisi 4 bola merah dan 6 bola biru, berapa peluang mengambil bola merah? $P(M) = \\frac{4}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Jika sebuah koin dilempar dua kali, berapa peluang muncul dua angka? $P(AA) = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Jika dua dadu dilempar, berapa peluang mendapatkan jumlah mata dadu lebih dari 8? $P(T > 8) = \\frac{10}{36}$",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Jika satu bola diambil dari kantong berisi 3 merah dan 7 biru, berapa peluang mendapatkan biru? $P(B) = \\frac{7}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu berwarna hitam? $P(H) = \\frac{26}{52} = \\frac{1}{2}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  } ,
+  "limit": {
+   "soal1": {
+      "pertanyaan": "$ \\lim\\limits_{x \\to 2} (x + 3) $",
+      "pilihan": [
+        { "teks": "\\(0\\)", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1} x^2 \\, dx$.",
+      "pilihan": [
+        { "teks": "\\frac{1}{3}\\", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan himpunan \\(A = \\{1, 2, 3\\}\\) dan \\(B = \\{2, 3, 4\\}\\). Berapakah irisan dari A dan B?",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\(\\{1, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{1, 2, 3, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{\\}\\)", "benar": false },
+        { "teks": "\\(\\{1\\}\\)", "benar": false }
+      ]
+    },
+    
+    
+    
+    
+    "soal4": {
+      "pertanyaan": "4Tentukan nilai dari limit berikut:$ \\(\\lim_{x \\to 0} \\frac{\\sin x}{x}\\$).",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\({0}\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu hati? $P(H) = \\frac{13}{52} = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Jika sebuah kantong berisi 4 bola merah dan 6 bola biru, berapa peluang mengambil bola merah? $P(M) = \\frac{4}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Jika sebuah koin dilempar dua kali, berapa peluang muncul dua angka? $P(AA) = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Jika dua dadu dilempar, berapa peluang mendapatkan jumlah mata dadu lebih dari 8? $P(T > 8) = \\frac{10}{36}$",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Jika satu bola diambil dari kantong berisi 3 merah dan 7 biru, berapa peluang mendapatkan biru? $P(B) = \\frac{7}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu berwarna hitam? $P(H) = \\frac{26}{52} = \\frac{1}{2}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  } ,
+  "programlinier": {
+   "soal1": {
+      "pertanyaan": "$ \\lim\\limits_{x \\to 2} (x + 3) $",
+      "pilihan": [
+        { "teks": "\\(0\\)", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1} x^2 \\, dx$.",
+      "pilihan": [
+        { "teks": "\\frac{1}{3}\\", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan himpunan \\(A = \\{1, 2, 3\\}\\) dan \\(B = \\{2, 3, 4\\}\\). Berapakah irisan dari A dan B?",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\(\\{1, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{1, 2, 3, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{\\}\\)", "benar": false },
+        { "teks": "\\(\\{1\\}\\)", "benar": false }
+      ]
+    },
+    
+    
+    
+    
+    "soal4": {
+      "pertanyaan": "4Tentukan nilai dari limit berikut:$ \\(\\lim_{x \\to 0} \\frac{\\sin x}{x}\\$).",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\({0}\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu hati? $P(H) = \\frac{13}{52} = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Jika sebuah kantong berisi 4 bola merah dan 6 bola biru, berapa peluang mengambil bola merah? $P(M) = \\frac{4}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Jika sebuah koin dilempar dua kali, berapa peluang muncul dua angka? $P(AA) = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Jika dua dadu dilempar, berapa peluang mendapatkan jumlah mata dadu lebih dari 8? $P(T > 8) = \\frac{10}{36}$",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Jika satu bola diambil dari kantong berisi 3 merah dan 7 biru, berapa peluang mendapatkan biru? $P(B) = \\frac{7}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu berwarna hitam? $P(H) = \\frac{26}{52} = \\frac{1}{2}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  } ,
+  "fungsiexponen": {
+   "soal1": {
+      "pertanyaan": "$ \\lim\\limits_{x \\to 2} (x + 3) $",
+      "pilihan": [
+        { "teks": "\\(0\\)", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1} x^2 \\, dx$.",
+      "pilihan": [
+        { "teks": "\\frac{1}{3}\\", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan himpunan \\(A = \\{1, 2, 3\\}\\) dan \\(B = \\{2, 3, 4\\}\\). Berapakah irisan dari A dan B?",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\(\\{1, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{1, 2, 3, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{\\}\\)", "benar": false },
+        { "teks": "\\(\\{1\\}\\)", "benar": false }
+      ]
+    },
+    
+    
+    
+    
+    "soal4": {
+      "pertanyaan": "4Tentukan nilai dari limit berikut:$ \\(\\lim_{x \\to 0} \\frac{\\sin x}{x}\\$).",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\({0}\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu hati? $P(H) = \\frac{13}{52} = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Jika sebuah kantong berisi 4 bola merah dan 6 bola biru, berapa peluang mengambil bola merah? $P(M) = \\frac{4}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Jika sebuah koin dilempar dua kali, berapa peluang muncul dua angka? $P(AA) = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Jika dua dadu dilempar, berapa peluang mendapatkan jumlah mata dadu lebih dari 8? $P(T > 8) = \\frac{10}{36}$",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Jika satu bola diambil dari kantong berisi 3 merah dan 7 biru, berapa peluang mendapatkan biru? $P(B) = \\frac{7}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu berwarna hitam? $P(H) = \\frac{26}{52} = \\frac{1}{2}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  } ,
+  "komposisi" : {
+   "soal1": {
+      "pertanyaan": "$ \\lim\\limits_{x \\to 2} (x + 3) $",
+      "pilihan": [
+        { "teks": "\\(0\\)", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1} x^2 \\, dx$.",
+      "pilihan": [
+        { "teks": "\\frac{1}{3}\\", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan himpunan \\(A = \\{1, 2, 3\\}\\) dan \\(B = \\{2, 3, 4\\}\\). Berapakah irisan dari A dan B?",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\(\\{1, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{1, 2, 3, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{\\}\\)", "benar": false },
+        { "teks": "\\(\\{1\\}\\)", "benar": false }
+      ]
+    },
+    
+    
+    
+    
+    "soal4": {
+      "pertanyaan": "4Tentukan nilai dari limit berikut:$ \\(\\lim_{x \\to 0} \\frac{\\sin x}{x}\\$).",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\({0}\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu hati? $P(H) = \\frac{13}{52} = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Jika sebuah kantong berisi 4 bola merah dan 6 bola biru, berapa peluang mengambil bola merah? $P(M) = \\frac{4}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Jika sebuah koin dilempar dua kali, berapa peluang muncul dua angka? $P(AA) = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Jika dua dadu dilempar, berapa peluang mendapatkan jumlah mata dadu lebih dari 8? $P(T > 8) = \\frac{10}{36}$",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Jika satu bola diambil dari kantong berisi 3 merah dan 7 biru, berapa peluang mendapatkan biru? $P(B) = \\frac{7}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu berwarna hitam? $P(H) = \\frac{26}{52} = \\frac{1}{2}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  },
+  "sistempersamaanlinier": {
+   "soal1": {
+      "pertanyaan": "$ \\lim\\limits_{x \\to 2} (x + 3) $",
+      "pilihan": [
+        { "teks": "\\(0\\)", "benar": true },
+        { "teks": "\\(1\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal2": {
+      "pertanyaan": "Berapakah nilai integral berikut? $\\int_{0}^{1} x^2 \\, dx$.",
+      "pilihan": [
+        { "teks": "\\frac{1}{3}\\", "benar": true },
+        { "teks": "$\\frac{1}{2}\\$", "benar": false },
+        { "teks": "$\\1\\$", "benar": false },
+        { "teks": "$\\0\\$", "benar": false },
+        { "teks": "$\\2\\$", "benar": false }
+      ]
+    },
+    "soal3": {
+      "pertanyaan": "Diberikan himpunan \\(A = \\{1, 2, 3\\}\\) dan \\(B = \\{2, 3, 4\\}\\). Berapakah irisan dari A dan B?",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\(\\{1, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{1, 2, 3, 4\\}\\)", "benar": false },
+        { "teks": "\\(\\{\\}\\)", "benar": false },
+        { "teks": "\\(\\{1\\}\\)", "benar": false }
+      ]
+    },
+    
+    
+    
+    
+    "soal4": {
+      "pertanyaan": "4Tentukan nilai dari limit berikut:$ \\(\\lim_{x \\to 0} \\frac{\\sin x}{x}\\$).",
+      "pilihan": [
+        { "teks": "\\(\\{2, 3\\}\\)", "benar": true },
+        { "teks": "\\({0}\\)", "benar": false },
+        { "teks": "\\(\\infty\\)", "benar": false },
+        { "teks": "\\(-1\\)", "benar": false },
+        { "teks": "\\(\\text{Tidak terdefinisi}\\)", "benar": false }
+      ]
+    },
+    "soal5": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu hati? $P(H) = \\frac{13}{52} = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{13}{52}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false }
+      ]
+    },
+    "soal6": {
+      "pertanyaan": "Jika sebuah kantong berisi 4 bola merah dan 6 bola biru, berapa peluang mengambil bola merah? $P(M) = \\frac{4}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{4}{10}$", "benar": true },
+        { "teks": "$\\frac{6}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal7": {
+      "pertanyaan": "Jika sebuah koin dilempar dua kali, berapa peluang muncul dua angka? $P(AA) = \\frac{1}{4}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{4}$", "benar": true },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{2}{4}$", "benar": false }
+      ]
+    },
+    "soal8": {
+      "pertanyaan": "Jika dua dadu dilempar, berapa peluang mendapatkan jumlah mata dadu lebih dari 8? $P(T > 8) = \\frac{10}{36}$",
+      "pilihan": [
+        { "teks": "$\\frac{10}{36}$", "benar": true },
+        { "teks": "$\\frac{12}{36}$", "benar": false },
+        { "teks": "$\\frac{8}{36}$", "benar": false },
+        { "teks": "$\\frac{6}{36}$", "benar": false },
+        { "teks": "$\\frac{4}{36}$", "benar": false }
+      ]
+    },
+    "soal9": {
+      "pertanyaan": "Jika satu bola diambil dari kantong berisi 3 merah dan 7 biru, berapa peluang mendapatkan biru? $P(B) = \\frac{7}{10}$",
+      "pilihan": [
+        { "teks": "$\\frac{7}{10}$", "benar": true },
+        { "teks": "$\\frac{3}{10}$", "benar": false },
+        { "teks": "$\\frac{1}{2}$", "benar": false },
+        { "teks": "$\\frac{2}{5}$", "benar": false },
+        { "teks": "$\\frac{3}{5}$", "benar": false }
+      ]
+    },
+    "soal10": {
+      "pertanyaan": "Dalam satu dek kartu, berapa peluang mengambil kartu berwarna hitam? $P(H) = \\frac{26}{52} = \\frac{1}{2}$",
+      "pilihan": [
+        { "teks": "$\\frac{1}{2}$", "benar": true },
+        { "teks": "$\\frac{1}{4}$", "benar": false },
+        { "teks": "$\\frac{3}{4}$", "benar": false },
+        { "teks": "$\\frac{1}{3}$", "benar": false },
+        { "teks": "$\\frac{2}{3}$", "benar": false }
+      ]
+    }
+  }
 }
- 
-function konfirmasiPembayaran() {
-  const fileInput = document.getElementById("buktiPembayaran");
-  const statusDiv = document.getElementById("uploadStatus");
-
-  if (fileInput.files.length === 0) {
-    statusDiv.innerHTML = "<span style='color:red;'>Silakan pilih file bukti pembayaran terlebih dahulu.</span>";
-    return;
-  }
-
-  const file = fileInput.files[0];
-  const reader = new FileReader();
-
-  reader.onload = async function () {
-    const base64Data = reader.result;
-    const uid = currentUid; // pastikan ini sudah terisi saat login
-
-    try {
-      await db.ref("data_siswa/" + uid + "/bukti_pembayaran").set({
-        nama_file: file.name,
-        base64: base64Data,
-        timestamp: new Date().toISOString()
-      });
-
-      statusDiv.innerHTML = "<span style='color:green;'>Bukti pembayaran berhasil disimpan. Admin akan memverifikasi.</span>";
-    } catch (err) {
-      console.error("Gagal menyimpan ke database:", err);
-      statusDiv.innerHTML = "<span style='color:red;'>Gagal menyimpan bukti pembayaran.</span>";
-    }
-  };
-
-  reader.readAsDataURL(file);
-}
- 
-  function logout() {
-    auth.signOut();
-    document.getElementById("dashboard").classList.add("hidden");
-    document.getElementById("loginForm").classList.remove("hidden");
-    document.getElementById("loginUsername").value = "";
-    document.getElementById("loginPassword").value = "";
-  }
-
-  function updateJenisSoal() {
-    const kelas = document.getElementById("kelas").value;
-    const jenisSelect = document.getElementById("jenisSoal");
-    jenisSelect.innerHTML = '<option value="">-- Pilih Jenis Soal --</option>';
-    if (kelas && jenisSoalMap[kelas]) {
-      jenisSoalMap[kelas].forEach(jenis => {
-        const opt = document.createElement("option");
-        opt.value = jenis;
-        opt.textContent = jenis.charAt(0).toUpperCase() + jenis.slice(1);
-        jenisSelect.appendChild(opt);
-      });
-    }
-  }
-
- 
-  async function loadSoal() {
-    if (!currentUid) return alert("Anda harus login dulu.");
-    const jenis = document.getElementById("jenisSoal").value;
-    if (!jenis) return alert("Silakan pilih jenis soal.");
-
-    const soalSnap = await db.ref("soal/" + jenis).get();
-    if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
-
-    const container = document.getElementById("soalContainer");
-    container.innerHTML = "";
-
-    const soalData = soalSnap.val();
-    for (let key in soalData) {
-      const soal = soalData[key];
-      const div = document.createElement("div");
-      div.innerHTML = `<h3 class="font-bold mb-2">${soal.pertanyaan}</h3>`;
-      soal.pilihan.forEach((pil, i) => {
-        div.innerHTML += `
-          <label class="block">
-            <input type="checkbox" name="${key}" value="${i}" class="mr-2">
-            ${pil.teks}
-          </label>`;
-      });
-      container.appendChild(div);
-    }
-
-    const skorBtn = document.createElement("button");
-    skorBtn.textContent = "Cek & Simpan Skor";
-    skorBtn.className = "mt-4 px-4 py-2 bg-blue-500 text-white rounded";
-    container.appendChild(skorBtn);
-
-    const today = new Date().toISOString().split("T")[0];
-    const userRef = db.ref("data_siswa/" + currentUid);
-    const userSnap = await userRef.get();
-    const userData = userSnap.exists() ? userSnap.val() : {};
-    const lastKey = "last_" + jenis;
-
-    if (userData[lastKey] === today) {
-      skorBtn.disabled = true;
-      skorBtn.textContent = "Sudah dikerjakan hari ini";
-    }
-
-    skorBtn.onclick = async () => {
-      let benar = 0;
-      const total = Object.keys(soalData).length;
-
-      for (let key in soalData) {
-        const benarIndex = soalData[key].pilihan
-          .map((p, i) => p.benar ? i.toString() : null)
-          .filter(i => i !== null);
-
-        const dipilih = [...document.querySelectorAll(`input[name='${key}']:checked`)].map(i => i.value);
-
-        const semuaBenarDipilih = benarIndex.every(i => dipilih.includes(i));
-        const tidakAdaSalah = dipilih.every(i => benarIndex.includes(i));
-
-        if (semuaBenarDipilih && tidakAdaSalah) {
-          benar++;
-        }
-      }
-
-      const nilai = Math.round((benar / total) * 100);
-      await userRef.update({
-        ["nilai_" + jenis]: nilai,
-        ["last_" + jenis]: today
-      });
-
-      alert(`Nilai kamu: ${nilai}`);
-  
-      skorBtn.disabled = true;
-      skorBtn.textContent = "Sudah disimpan";
-    };
-  }
-</script>
-
-</html>
