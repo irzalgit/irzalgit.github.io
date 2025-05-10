@@ -465,7 +465,7 @@ function konfirmasiPembayaran() {
       }
     }
 
-    const nilai = Math.round((benar / total) * 100);
+    const nilai = Math.round(benar  * 10);
     await userRef.update({
       ["nilai_" + jenis]: nilai,
       ["last_" + jenis]: today
