@@ -403,7 +403,7 @@ function konfirmasiPembayaran() {
   }
 
  
-  async function loadSoal() {
+ async function loadSoal() {
   if (!currentUid) return alert("Anda harus login dulu.");
   const jenis = document.getElementById("jenisSoal").value;
   if (!jenis) return alert("Silakan pilih jenis soal.");
@@ -415,72 +415,71 @@ function konfirmasiPembayaran() {
   container.innerHTML = "";
 
   const soalData = soalSnap.val();
+  soalVars = {}; // reset variabel setiap kali soal di-load
+
   for (let key in soalData) {
     const soal = soalData[key];
+    const isTemplate = !!soal.template;
+
+    const vars = generateVariables(soal.variables || {});
+    soalVars[key] = vars;
+
     const div = document.createElement("div");
-    div.className = "p-4 mb-4 bg-white shadow rounded";
-    div.innerHTML = `<h3 class="font-bold mb-2">${soal.pertanyaan}</h3>`;
+    div.className = "soal";
+
+    // Tentukan teks soal dari template atau pertanyaan
+    const teksSoal = isTemplate ? renderTemplate(soal.template, vars) : soal.pertanyaan;
+    div.innerHTML = `<strong>${teksSoal}</strong><br><br>`;
+
+    // Render semua pilihan
     soal.pilihan.forEach((pil, i) => {
+      const teks = isTemplate ? renderTemplate(pil.teks, vars) : pil.teks;
       div.innerHTML += `
-        <label class="block mb-1">
-          <input type="checkbox" name="${key}" value="${i}" class="mr-2">
-          ${pil.teks}
-        </label>`;
+        <label>
+          <input type="checkbox" name="${key}" value="${i}"> ${teks}
+        </label><br>`;
     });
+
     container.appendChild(div);
   }
 
-  const skorBtn = document.createElement("button");
-  skorBtn.textContent = "Cek & Simpan Skor";
-  skorBtn.className = "mt-4 px-4 py-2 bg-blue-500 text-white rounded";
-  container.appendChild(skorBtn);
-
-  const today = new Date().toISOString().split("T")[0];
+  // Cek apakah sudah dikerjakan hari ini
   const userRef = db.ref("data_siswa/" + currentUid);
   const userSnap = await userRef.get();
-  const userData = userSnap.exists() ? userSnap.val() : {};
+  const today = new Date().toISOString().split("T")[0];
   const lastKey = "last_" + jenis;
+  const sudahDikerjakan = userSnap.exists() && userSnap.val()[lastKey] === today;
 
-  if (userData[lastKey] === today) {
-    skorBtn.disabled = true;
-    skorBtn.textContent = "Sudah dikerjakan hari ini";
+  // Tombol submit jawaban
+  const btn = document.createElement("button");
+  btn.textContent = sudahDikerjakan ? "Sudah Dikerjakan Hari Ini" : "Cek & Simpan Skor";
+  btn.disabled = sudahDikerjakan;
+  btn.style.marginTop = "16px";
+  btn.onclick = () => cekJawaban(jenis, soalData);
+  container.appendChild(btn);
+}
+
+function generateVariables(varsObj) {
+  const vars = {};
+  for (let key in varsObj) {
+    const arr = varsObj[key];
+    vars[key] = arr[Math.floor(Math.random() * arr.length)];
   }
+  return vars;
+}
 
-  skorBtn.onclick = async () => {
-    let benar = 0;
-    const total = Object.keys(soalData).length;
-
-    for (let key in soalData) {
-      const benarIndex = soalData[key].pilihan
-        .map((p, i) => p.benar ? i.toString() : null)
-        .filter(i => i !== null);
-
-      const dipilih = [...document.querySelectorAll(`input[name='${key}']:checked`)].map(i => i.value);
-
-      const semuaBenarDipilih = benarIndex.every(i => dipilih.includes(i));
-      const tidakAdaSalah = dipilih.every(i => benarIndex.includes(i));
-
-      if (semuaBenarDipilih && tidakAdaSalah) {
-        benar++;
-      }
+function renderTemplate(template, vars) {
+  return template.replace(/{{\s*([^}]+)\s*}}/g, (_, expr) => {
+    try {
+      return new Function(...Object.keys(vars), `return ${expr}`)(...Object.values(vars));
+    } catch (e) {
+      return `{{${expr}}}`; // fallback jika ekspresi gagal
     }
-
-    const nilai = Math.round(benar  * 10);
-    await userRef.update({
-      ["nilai_" + jenis]: nilai,
-      ["last_" + jenis]: today
-    });
-
-    alert(`Nilai kamu: ${nilai}`);
-    skorBtn.disabled = true;
-    skorBtn.textContent = "Sudah disimpan";
-  };
-
-  // RENDER MATHJAX setelah elemen soal ditambahkan
-  if (window.MathJax && MathJax.typesetPromise) {
-    MathJax.typesetPromise([container]);
-  }
+  });
 }
 </script>
+
+
+
 
 </html>
