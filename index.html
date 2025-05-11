@@ -1,545 +1,486 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hallo sahabat </title>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$',
-                    '$'],
-                    ['\',
-                        '\']]
-            }
-        };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hallo sahabat </title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\', '\']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="bg-blue-100 min-h-screen flex flex-col items-center justify-start">
 
-    <!-- HERO SECTION -->
-    <section class="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white py-8 px-4 shadow-md text-center">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex flex-col items-center">
-                <img src="gbr/bp.jpeg" alt="Logo" class="w-24 h-24 mb-4 object-contain">
-                <p class="mt-2 text-lg">
-                    welcome
-                </p>
-                <h1 class="text-3xl font-bold">Portal Matematika</h1>
-                <p class="mt-2 text-lg">
-                    uji kemampuanmu dengan soal-soal pilihan
-                </p>
-            </div>
-        </div>
-    </section>
+  <!-- HERO SECTION -->
+  <section class="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white py-8 px-4 shadow-md text-center">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col items-center">
+     <img src="gbr/bp.jpeg" alt="Logo" class="w-24 h-24 mb-4 object-contain">
+       <p class="mt-2 text-lg">welcome</p>
+        <h1 class="text-3xl font-bold">Portal Matematika</h1>
+        <p class="mt-2 text-lg">uji kemampuanmu dengan soal-soal pilihan</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- FORM LOGIN -->
-    <div id="loginForm" class="bg-blue-100 p-8 rounded-2xl shadow-lg text-center transform transition-transform hover:scale-105 border-t-4 border-blue-400">
-        <h2 class="text-3xl font-bold mb-6 text-blue-800">Login</h2>
-        <input id="loginUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
-        <input id="loginPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
-        <button onclick="login()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
-        <p class="mt-4 text-sm">
-            Belum punya akun?
-            <button onclick="showRegister()" class="text-blue-600 underline">Register</button>
-            <button onclick="window.location.href='soal.html'" class="text-blue-800 underline ml-2">Demo</button>
-        </p>
+  <!-- FORM LOGIN -->
+  <div id="loginForm" class="bg-blue-100 p-8 rounded-2xl shadow-lg text-center transform transition-transform hover:scale-105 border-t-4 border-blue-400">
+      <h2 class="text-3xl font-bold mb-6 text-blue-800">Login</h2>
+    <input id="loginUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
+    <input id="loginPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+    <button onclick="login()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
+    <p class="mt-4 text-sm">
+  Belum punya akun? 
+  <button onclick="showRegister()" class="text-blue-600 underline">Register</button>
+  <button onclick="window.location.href='soal.html'" class="text-blue-800 underline ml-2">Demo</button>
+</p>
+    
+  </div>
+  
+  
+  
+  
 
+  <!-- FORM REGISTER -->
+   <div id="registerForm" class="hidden bg-blue-100 p-8 rounded-2xl shadow-lg text-center transform transition-transform hover:scale-105 border-t-4 border-blue-400">
+    <h2 class="text-2xl font-bold mb-4">Register</h2>
+    <input id="regUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
+    <input id="regEmail" placeholder="Email" class="w-full mb-2 p-2 border rounded" />
+    <input id="regPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+    <button onclick="register()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Register</button>
+    <p class="mt-4 text-sm">Sudah punya akun? <button onclick="showLogin()" class="text-blue-600 underline">Kembali ke Login</button></p>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="hidden w-full max-w-2xl mx-auto pt-4 sticky top-0 bg-white z-10 shadow mt-6">
+    <div class="flex justify-between items-center mb-4 px-4">
+      <h2 id="welcome" class="text-xl font-semibold"></h2>
+      <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</button>
+    </div>
+    
+     <div id="selectContainer" class="px-4">
+      <label class="block mb-2">Pilih kelas:</label>
+      <select id="kelas" onchange="updateJenisSoal()" class="w-full p-2 border rounded mb-4">
+        <option value="">-- Pilih Kelas --</option>
+        <option value="x">X</option>
+       <option value="xi">XI</option>
+        <option value="xii">XII</option>
+          <option value="all">ALL</option>
+        
+      </select>
+
+      <label class="block mb-2">Pilih jenis soal:</label>
+      <select id="jenisSoal" class="w-full p-2 border rounded mb-4">
+        <option value="">-- Pilih Jenis Soal --</option>
+      </select>
+
+      <button onclick="loadSoal()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full">Tampilkan Soal</button>
     </div>
 
+    <div id="soalContainer" class="px-4 mt-4"></div>
+    
+<div>
 
 
+</div>
+   
+  </div>
+  
+  <!--
+ <div id="skorUser" class="mt-6 p-4 bg-gray-100 rounded"></div>
+<div id="rekapPerUser" class="mt-6 p-4 bg-blue-100 rounded"></div>
+<div id="rekapNilaiTotal" class="mt-6 p-4 bg-green-100 rounded"></div>
+ 
+ 
+  
+</div>
+<div id="topUpArea"></div>
+  
+  -->
+  
+   <div class="font-sans p-4 m-0 bg-white">
+  <h2 class="text-center text-lg font-semibold mb-4">Peringkat</h2>
+  <div class="overflow-x-auto w-full">
+    <table class="w-full text-sm border border-gray-300 border-collapse">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border border-gray-300 px-2 py-1 text-center">#</th>
+          <th class="border border-gray-300 px-2 py-1 text-left">Username</th>
+          <th class="border border-gray-300 px-2 py-1 text-center w-16">Nilai</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboardTable" class="[&>tr:nth-child(even)]:bg-gray-50"></tbody>
+    </table>
+  </div>
+
+ 
+</div>
+    
+
+  
+  <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4">
+    <p>&copy; 2025 Irzal Achmad </p>
+  </footer>
 
 
-    <!-- FORM REGISTER -->
-    <div id="registerForm" class="hidden bg-blue-100 p-8 rounded-2xl shadow-lg text-center transform transition-transform hover:scale-105 border-t-4 border-blue-400">
-        <h2 class="text-2xl font-bold mb-4">Register</h2>
-        <input id="regUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
-        <input id="regEmail" placeholder="Email" class="w-full mb-2 p-2 border rounded" />
-        <input id="regPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
-        <button onclick="register()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Register</button>
-        <p class="mt-4 text-sm">
-            Sudah punya akun? <button onclick="showLogin()" class="text-blue-600 underline">Kembali ke Login</button>
-        </p>
-    </div>
+  <!-- SCRIPT FIREBASE DAN LOGIKA -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-    <!-- DASHBOARD -->
-    <div id="dashboard" class="hidden w-full max-w-2xl mx-auto pt-4 sticky top-0 bg-white z-10 shadow mt-6">
-        <div class="flex justify-between items-center mb-4 px-4">
-            <h2 id="welcome" class="text-xl font-semibold"></h2>
-            <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</button>
-        </div>
-
-        <div id="selectContainer" class="px-4">
-            <label class="block mb-2">Pilih kelas:</label>
-            <select id="kelas" onchange="updateJenisSoal()" class="w-full p-2 border rounded mb-4">
-                <option value="">-- Pilih Kelas --</option>
-                <option value="x">X</option>
-                <option value="xi">XI</option>
-                <option value="xii">XII</option>
-                <option value="all">ALL</option>
-
-            </select>
-
-            <label class="block mb-2">Pilih jenis soal:</label>
-            <select id="jenisSoal" class="w-full p-2 border rounded mb-4">
-                <option value="">-- Pilih Jenis Soal --</option>
-            </select>
-
-            <button onclick="loadSoal()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full">Tampilkan Soal</button>
-        </div>
-
-        <div id="soalContainer" class="px-4 mt-4"></div>
-
-        <div>
-
-
-        </div>
-
-    </div>
-
-    <!--
-     <div id="skorUser" class="mt-6 p-4 bg-gray-100 rounded"></div>
-    <div id="rekapPerUser" class="mt-6 p-4 bg-blue-100 rounded"></div>
-    <div id="rekapNilaiTotal" class="mt-6 p-4 bg-green-100 rounded"></div>
-    </div>
-    <div id="topUpArea"></div>
-      -->
-
-    <div class="font-sans p-4 m-0 bg-white">
-        <h2 class="text-center text-lg font-semibold mb-4">Peringkat</h2>
-        <div class="overflow-x-auto w-full">
-            <table class="w-full text-sm border border-gray-300 border-collapse">
-                <thead>
-                    <tr class="bg-gray-100">
-                        <th class="border border-gray-300 px-2 py-1 text-center">#</th>
-                        <th class="border border-gray-300 px-2 py-1 text-left">Username</th>
-                        <th class="border border-gray-300 px-2 py-1 text-center w-16">Nilai</th>
-                    </tr>
-                </thead>
-                <tbody id="leaderboardTable" class="[&>tr:nth-child(even)]:bg-gray-50"></tbody>
-            </table>
-        </div>
-
-
-    </div>
-
-
-
-    <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4">
-        <p>
-            &copy; 2025 Irzal Achmad
-        </p>
-    </footer>
-
-
-    <!-- SCRIPT FIREBASE DAN LOGIKA -->
-
-
-
-
-
-
-
-
-
-
-    <script src="https://unpkg.com/html5-qrcode"></script>
+<script src="https://unpkg.com/html5-qrcode"></script>
 </body>
 
-<script>
-    const firebaseConfig = {
-        apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
-        authDomain: "math314-app.firebaseapp.com",
-        databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
-        projectId: "math314-app",
-        storageBucket: "math314-app.appspot.com",
-        messagingSenderId: "9019551034",
-        appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
-        measurementId: "G-VWYDTY9LF6"
-    };
+ <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
+    authDomain: "math314-app.firebaseapp.com",
+    databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
+    projectId: "math314-app",
+    storageBucket: "math314-app.appspot.com",
+    messagingSenderId: "9019551034",
+    appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
+    measurementId: "G-VWYDTY9LF6"
+  };
 
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.database();
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.database();
 
-    let currentUid = null;
-    let currentUsername = "";
+  let currentUid = null;
+  let currentUsername = "";
 
-    const leaderboardRef = db.ref('data_siswa');
+  const leaderboardRef = db.ref('data_siswa');
 
-    leaderboardRef.once('value').then(snapshot => {
-        const data = snapshot.val();
-        const leaderboardArray = [];
+  leaderboardRef.once('value').then(snapshot => {
+    const data = snapshot.val();
+    const leaderboardArray = [];
 
-        for (const uid in data) {
-            const siswa = data[uid];
-            let totalNilai = 0;
+    for (const uid in data) {
+      const siswa = data[uid];
+      let totalNilai = 0;
 
-            for (const key in siswa) {
-                if (key.startsWith('nilai_') && typeof siswa[key] === 'number') {
-                    totalNilai += siswa[key];
-                }
-            }
-
-            leaderboardArray.push({
-                username: (siswa.username || uid).toUpperCase(),
-                total: totalNilai
-            });
+      for (const key in siswa) {
+        if (key.startsWith('nilai_') && typeof siswa[key] === 'number') {
+          totalNilai += siswa[key];
         }
+      }
 
-        leaderboardArray.sort((a, b) => b.total - a.total);
+      leaderboardArray.push({
+        username: (siswa.username || uid).toUpperCase(),
+        total: totalNilai
+      });
+    }
 
-        const tbody = document.getElementById('leaderboardTable');
-        leaderboardArray.forEach((entry, index) => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-            <td class="border border-gray-300 px-2 py-1 text-center">${index + 1}</td>
-            <td class="border border-gray-300 px-2 py-1 text-left">${entry.username}</td>
-            <td class="border border-gray-300 px-2 py-1 text-center">${entry.total}</td>
-            `;
-            tbody.appendChild(tr);
-        });
+    leaderboardArray.sort((a, b) => b.total - a.total);
+
+    const tbody = document.getElementById('leaderboardTable');
+    leaderboardArray.forEach((entry, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="border border-gray-300 px-2 py-1 text-center">${index + 1}</td>
+        <td class="border border-gray-300 px-2 py-1 text-left">${entry.username}</td>
+        <td class="border border-gray-300 px-2 py-1 text-center">${entry.total}</td>
+      `;
+      tbody.appendChild(tr);
     });
+  });
 
-    const jenisSoalMap = {
-        x: ['kuadrat', 'trigonometri', 'statistik'],
-        xi: ['lingkaran', 'peluang', 'regresi'],
-        xii: ['integral', 'deferensial'],
-        all: [
-            'bilanganberpangkat', 'pertidaksamaan', 'SPTLTV', 'kuadrat', 'eksponen',
-            'barisan dan deret', 'statistik', 'integral', 'matrik', 'fungsikomposisi',
-            'transformasi', 'lingkaran', 'vektor', 'logika matematika', 'aritmatika sosial',
-            'program linier', 'limit', 'deferensial', 'integral'
-        ]
-    };
+  const jenisSoalMap = {
+    x: ['kuadrat', 'trigonometri', 'statistik'],
+    xi: ['lingkaran', 'peluang', 'regresi'],
+    xii: ['integral', 'deferensial'],
+    all: [
+      'bilanganberpangkat', 'pertidaksamaan', 'SPTLTV', 'kuadrat', 'eksponen',
+      'barisan dan deret', 'statistik', 'integral', 'matrik', 'fungsikomposisi',
+      'transformasi', 'lingkaran', 'vektor', 'logika matematika', 'aritmatika sosial',
+      'program linier', 'limit', 'deferensial', 'integral'
+    ]
+  };
 
-    function showRegister() {
-        document.getElementById("loginForm").classList.add("hidden");
-        document.getElementById("registerForm").classList.remove("hidden");
-    }
+  function showRegister() {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("registerForm").classList.remove("hidden");
+  }
 
-    function showLogin() {
-        document.getElementById("registerForm").classList.add("hidden");
-        document.getElementById("loginForm").classList.remove("hidden");
-    }
+  function showLogin() {
+    document.getElementById("registerForm").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
+  }
 
-    async function register() {
-        const username = regUsername.value;
-        const email = regEmail.value;
-        const password = regPassword.value;
+  async function register() {
+    const username = regUsername.value;
+    const email = regEmail.value;
+    const password = regPassword.value;
 
-        try {
-            const userCred = await auth.createUserWithEmailAndPassword(email,
-                password);
-            const uid = userCred.user.uid;
+    try {
+      const userCred = await auth.createUserWithEmailAndPassword(email, password);
+      const uid = userCred.user.uid;
 
-            await db.ref("data_siswa/" + uid).set({
-                username,
-                email,
-                expired_at: new Date().toISOString().slice(0, 10),
-                nilai: {},
-                total_nilai: 0,
-                approved: false
-            });
+      await db.ref("data_siswa/" + uid).set({
+        username,
+        email,
+        expired_at: new Date().toISOString().slice(0, 10),
+        nilai: {},
+        total_nilai: 0,
+        approved: false
+      });
 
-            await db.ref("username_map/" + username).set(email);
-            alert("Registrasi berhasil!");
+      await db.ref("username_map/" + username).set(email);
+      alert("Registrasi berhasil!");
             showLogin();
 
-            const bayarButton = document.createElement("button");
-            bayarButton.textContent = "scan qris";
-            Object.assign(bayarButton.style,
-                {
-                    marginTop: "10px",
-                    padding: "10px 20px",
-                    backgroundColor: "#4CAF50",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "5px",
-                    cursor: "pointer"
-                });
+      const bayarButton = document.createElement("button");
+      bayarButton.textContent = "scan qris";
+      Object.assign(bayarButton.style, {
+        marginTop: "10px",
+        padding: "10px 20px",
+        backgroundColor: "#4CAF50",
+        color: "white",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer"
+      });
 
-            bayarButton.addEventListener("click",
-                () => {
-                    let qrisImg = document.getElementById("qris-img");
-                    if (!qrisImg) {
-                        qrisImg = document.createElement("img");
-                        qrisImg.id = "qris-img";
-                        qrisImg.src = "bsiqris.png";
-                        qrisImg.alt = "QRIS BSI";
-                        Object.assign(qrisImg.style, {
-                            marginTop: "15px",
-                            maxWidth: "300px",
-                            display: "block"
-                        });
-                        document.body.appendChild(qrisImg);
-                    } else {
-                        qrisImg.style.display = "block";
-                    }
-                });
-
-            document.body.appendChild(bayarButton);
-        } catch (err) {
-            alert("Gagal registrasi: " + err.message);
+      bayarButton.addEventListener("click", () => {
+        let qrisImg = document.getElementById("qris-img");
+        if (!qrisImg) {
+          qrisImg = document.createElement("img");
+          qrisImg.id = "qris-img";
+          qrisImg.src = "bsiqris.png";
+          qrisImg.alt = "QRIS BSI";
+          Object.assign(qrisImg.style, {
+            marginTop: "15px",
+            maxWidth: "300px",
+            display: "block"
+          });
+          document.body.appendChild(qrisImg);
+        } else {
+          qrisImg.style.display = "block";
         }
+      });
+
+      document.body.appendChild(bayarButton);
+    } catch (err) {
+      alert("Gagal registrasi: " + err.message);
     }
+  }
 
+ 
+  async function login() {
+    const emailOrUsername = document.getElementById("loginUsername").value;
+    const password = document.getElementById("loginPassword").value;
 
-    async function login() {
-        const emailOrUsername = document.getElementById("loginUsername").value;
-        const password = document.getElementById("loginPassword").value;
+    try {
+      let email = emailOrUsername;
 
-        try {
-            let email = emailOrUsername;
+      if (!emailOrUsername.includes("@")) {
+        const snapshot = await db.ref("username_map/" + emailOrUsername).once("value");
+        if (!snapshot.exists()) throw new Error("Username tidak ditemukan");
+        email = snapshot.val();
+      }
 
-            if (!emailOrUsername.includes("@")) {
-                const snapshot = await db.ref("username_map/" + emailOrUsername).once("value");
-                if (!snapshot.exists()) throw new Error("Username tidak ditemukan");
-                email = snapshot.val();
-            }
+      const userCred = await auth.signInWithEmailAndPassword(email, password);
+      const uid = userCred.user.uid;
+      const siswaSnap = await db.ref("data_siswa/" + uid).once("value");
 
-            const userCred = await auth.signInWithEmailAndPassword(email, password);
-            const uid = userCred.user.uid;
-            const siswaSnap = await db.ref("data_siswa/" + uid).once("value");
+      if (!siswaSnap.exists()) throw new Error("Data siswa tidak ditemukan");
 
-            if (!siswaSnap.exists()) throw new Error("Data siswa tidak ditemukan");
+      const data = siswaSnap.val();
+      currentUid = uid;
+      currentUsername = data.username;
 
-            const data = siswaSnap.val();
-            currentUid = uid;
-            currentUsername = data.username;
+      const today = new Date();
+      const expiredAt = new Date(data.expired_at);
+      const approved = data.approved;
 
-            const today = new Date();
-            const expiredAt = new Date(data.expired_at);
-            const approved = data.approved;
+      if (approved || expiredAt >= today) {
+        lanjutkan(data.username);
+      } else {
+        bayardulu(data.username);
+      }
 
-            if (approved || expiredAt >= today) {
-                lanjutkan(data.username);
-            } else {
-                bayardulu(data.username);
-            }
-
-        } catch (err) {
-            alert("Login gagal: " + err.message);
-        }
+    } catch (err) {
+      alert("Login gagal: " + err.message);
     }
+  }
 
+  
+  function lanjutkan(username) {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+    document.getElementById("welcome").innerText = `Selamat datang, ${username}`;
+  }
 
-    function lanjutkan(username) {
-        document.getElementById("loginForm").classList.add("hidden");
-        document.getElementById("dashboard").classList.remove("hidden");
-        document.getElementById("welcome").innerText = `Selamat datang, ${username}`;
-    }
+ function bayardulu(username) {
+  document.getElementById("loginForm").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
 
-    function bayardulu(username) {
-        document.getElementById("loginForm").classList.add("hidden");
-        document.getElementById("dashboard").classList.remove("hidden");
-
-        document.getElementById("welcome").innerHTML = `
-        <p>Hai <strong>${username}</strong>, akunmu belum aktif atau sudah kedaluwarsa.</p>
-        <p><strong>Silakan bayar dengan QRIS berikut:</strong></p>
-        <img src="./gbr/bsiqris.png" alt="QRIS Pembayaran BSI" style="max-width: 300px; margin: 10px 0;">
-
-        <p>Upload bukti pembayaran:</p>
-        <input type="file" id="buktiPembayaran" accept="image/*"><br><br>
-        <button onclick="konfirmasiPembayaran()">Saya sudah bayar</button>
-        <div id="uploadStatus" style="margin-top:10px;"></div>
-        `;
-
-        // Sembunyikan elemen soal dan pilihan
-        document.getElementById("selectContainer")?.classList.add("hidden");
-        document.getElementById("soalContainer")?.classList.add("hidden");
-    }
-
-    function konfirmasiPembayaran() {
-        const fileInput = document.getElementById("buktiPembayaran");
-        const statusDiv = document.getElementById("uploadStatus");
-
-        if (fileInput.files.length === 0) {
-            statusDiv.innerHTML = "<span style='color:red;'>Silakan pilih file bukti pembayaran terlebih dahulu.</span>";
-            return;
-        }
-
-        const file = fileInput.files[0];
-        const reader = new FileReader();
-
-        reader.onload = async function () {
-            const base64Data = reader.result;
-            const uid = currentUid; // pastikan ini sudah terisi saat login
-
-            try {
-                await db.ref("data_siswa/" + uid + "/bukti_pembayaran").set({
-                    nama_file: file.name,
-                    base64: base64Data,
-                    timestamp: new Date().toISOString()
-                });
-
-                statusDiv.innerHTML = "<span style='color:green;'>Bukti pembayaran berhasil disimpan. Admin akan memverifikasi.</span>";
-            } catch (err) {
-                console.error("Gagal menyimpan ke database:", err);
-                statusDiv.innerHTML = "<span style='color:red;'>Gagal menyimpan bukti pembayaran.</span>";
-            }
-        };
-
-        reader.readAsDataURL(file);
-    }
-
-    function logout() {
-        auth.signOut();
-        document.getElementById("dashboard").classList.add("hidden");
-        document.getElementById("loginForm").classList.remove("hidden");
-        document.getElementById("loginUsername").value = "";
-        document.getElementById("loginPassword").value = "";
-    }
-
-    function updateJenisSoal() {
-        const kelas = document.getElementById("kelas").value;
-        const jenisSelect = document.getElementById("jenisSoal");
-        jenisSelect.innerHTML = '<option value="">-- Pilih Jenis Soal --</option>';
-        if (kelas && jenisSoalMap[kelas]) {
-            jenisSoalMap[kelas].forEach(jenis => {
-                const opt = document.createElement("option");
-                opt.value = jenis;
-                opt.textContent = jenis.charAt(0).toUpperCase() + jenis.slice(1);
-                jenisSelect.appendChild(opt);
-            });
-        }
-    }
-
-
-    async function loadSoal() {
-        if (!currentUid) return alert("Anda harus login dulu.");
-        const jenis = document.getElementById("jenisSoal").value;
-        if (!jenis) return alert("Silakan pilih jenis soal.");
-
-        const soalSnap = await db.ref("soal/" + jenis).get();
-        if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
-
-        const container = document.getElementById("soalContainer");
-        container.innerHTML = "";
-
-        const soalData = soalSnap.val();
-        soalVars = {}; // reset variabel setiap kali soal di-load
-
-        for (let key in soalData) {
-            const soal = soalData[key];
-            const isTemplate = !!soal.template;
-
-            const vars = generateVariables(soal.variables || {});
-            soalVars[key] = vars;
-
-            const div = document.createElement("div");
-            div.className = "soal";
-
-            // Tentukan teks soal dari template atau pertanyaan
-            const teksSoal = isTemplate ? renderTemplate(soal.template, vars): soal.pertanyaan;
-            div.innerHTML = `<strong>${teksSoal}</strong><br><br>`;
-
-            // Render semua pilihan
-            soal.pilihan.forEach((pil, i) => {
-                const teks = isTemplate ? renderTemplate(pil.teks, vars): pil.teks;
-                div.innerHTML += `
-                <label>
-                <input type="checkbox" name="${key}" value="${i}"> ${teks}
-                </label><br>`;
-            });
-
-            container.appendChild(div);
-        }
-
-        // Cek apakah sudah dikerjakan hari ini
-        const userRef = db.ref("data_siswa/" + currentUid);
-        const userSnap = await userRef.get();
-        const today = new Date().toISOString().split("T")[0];
-        const lastKey = "last_" + jenis;
-        const sudahDikerjakan = userSnap.exists() && userSnap.val()[lastKey] === today;
-
-        // Tombol submit jawaban
-        const btn = document.createElement("button");
-        btn.textContent = sudahDikerjakan ? "Sudah Dikerjakan Hari Ini": "Cek & Simpan Skor";
-         skorBtn.className = "mt-4 px-4 py-2 bg-blue-500 text-white rounded";
-        btn.disabled = sudahDikerjakan;
-        btn.style.marginTop = "16px";
-        btn.onclick = () => cekJawaban(jenis, soalData);
-        container.appendChild(btn);
-    }
-
-    function generateVariables(varsObj) {
-        const vars = {};
-        for (let key in varsObj) {
-            const arr = varsObj[key];
-            vars[key] = arr[Math.floor(Math.random() * arr.length)];
-        }
-        return vars;
-    }
-
-    function renderTemplate(template, vars) {
-        return template.replace(/{{\s*([^}]+)\s*}}/g, (_, expr) => {
-            try {
-                return new Function(...Object.keys(vars), `return ${expr}`)(...Object.values(vars));
-            } catch (e) {
-                return `{{${expr}}}`; // fallback jika ekspresi gagal
-            }
-        });
-    }
+  document.getElementById("welcome").innerHTML = `
+    <p>Hai <strong>${username}</strong>, akunmu belum aktif atau sudah kedaluwarsa.</p>
+    <p><strong>Silakan bayar dengan QRIS berikut:</strong></p>
+    <img src="./gbr/bsiqris.png" alt="QRIS Pembayaran BSI" style="max-width: 300px; margin: 10px 0;">
     
-    
-    
-    
-    async function cekJawaban(jenis, soalData) {
-  let skor = 0;
-  let total = 0;
+    <p>Upload bukti pembayaran:</p>
+    <input type="file" id="buktiPembayaran" accept="image/*"><br><br>
+    <button onclick="konfirmasiPembayaran()">Saya sudah bayar</button>
+    <div id="uploadStatus" style="margin-top:10px;"></div>
+  `;
 
+  // Sembunyikan elemen soal dan pilihan
+  document.getElementById("selectContainer")?.classList.add("hidden");
+  document.getElementById("soalContainer")?.classList.add("hidden");
+}
+ 
+function konfirmasiPembayaran() {
+  const fileInput = document.getElementById("buktiPembayaran");
+  const statusDiv = document.getElementById("uploadStatus");
+
+  if (fileInput.files.length === 0) {
+    statusDiv.innerHTML = "<span style='color:red;'>Silakan pilih file bukti pembayaran terlebih dahulu.</span>";
+    return;
+  }
+
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+
+  reader.onload = async function () {
+    const base64Data = reader.result;
+    const uid = currentUid; // pastikan ini sudah terisi saat login
+
+    try {
+      await db.ref("data_siswa/" + uid + "/bukti_pembayaran").set({
+        nama_file: file.name,
+        base64: base64Data,
+        timestamp: new Date().toISOString()
+      });
+
+      statusDiv.innerHTML = "<span style='color:green;'>Bukti pembayaran berhasil disimpan. Admin akan memverifikasi.</span>";
+    } catch (err) {
+      console.error("Gagal menyimpan ke database:", err);
+      statusDiv.innerHTML = "<span style='color:red;'>Gagal menyimpan bukti pembayaran.</span>";
+    }
+  };
+
+  reader.readAsDataURL(file);
+}
+ 
+  function logout() {
+    auth.signOut();
+    document.getElementById("dashboard").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
+    document.getElementById("loginUsername").value = "";
+    document.getElementById("loginPassword").value = "";
+  }
+
+  function updateJenisSoal() {
+    const kelas = document.getElementById("kelas").value;
+    const jenisSelect = document.getElementById("jenisSoal");
+    jenisSelect.innerHTML = '<option value="">-- Pilih Jenis Soal --</option>';
+    if (kelas && jenisSoalMap[kelas]) {
+      jenisSoalMap[kelas].forEach(jenis => {
+        const opt = document.createElement("option");
+        opt.value = jenis;
+        opt.textContent = jenis.charAt(0).toUpperCase() + jenis.slice(1);
+        jenisSelect.appendChild(opt);
+      });
+    }
+  }
+
+ 
+  async function loadSoal() {
+  if (!currentUid) return alert("Anda harus login dulu.");
+  const jenis = document.getElementById("jenisSoal").value;
+  if (!jenis) return alert("Silakan pilih jenis soal.");
+
+  const soalSnap = await db.ref("soal/" + jenis).get();
+  if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
+
+  const container = document.getElementById("soalContainer");
+  container.innerHTML = "";
+
+  const soalData = soalSnap.val();
   for (let key in soalData) {
     const soal = soalData[key];
-    const checkboxes = document.querySelectorAll(`input[name="${key}"]`);
-    const jawaban = Array.from(checkboxes).map(cb => cb.checked);
-    const kunci = soal.pilihan.map(p => p.benar);
-
-    // Bandingkan jawaban siswa dengan kunci
-    const benar = jawaban.length === kunci.length && jawaban.every((v, i) => v === kunci[i]);
-    if (benar) skor++;
-    total++;
-
-    // Disable semua checkbox
-    checkboxes.forEach(cb => cb.disabled = true);
-  }
-
-  const nilai = Math.round(skor * 10);
-  alert(`Skor Anda: ${nilai}`);
-
-  // Simpan ke Firebase
-  const ref = db.ref("data_siswa/" + currentUid);
-  const today = new Date().toISOString().split("T")[0];
-  const lastKey = "last_" + jenis;
-  const skorKey = "skor_" + jenis;
-
-  const userSnap = await ref.get();
-  const prevSkor = userSnap.exists() ? (userSnap.val()[skorKey] || 0) : 0;
-
-  // Simpan jika nilai baru lebih tinggi
-  if (nilai > prevSkor) {
-    await ref.update({
-      [skorKey]: nilai,
-      [lastKey]: today
+    const div = document.createElement("div");
+    div.className = "p-4 mb-4 bg-white shadow rounded";
+    div.innerHTML = `<h3 class="font-bold mb-2">${soal.pertanyaan}</h3>`;
+    soal.pilihan.forEach((pil, i) => {
+      div.innerHTML += `
+        <label class="block mb-1">
+          <input type="checkbox" name="${key}" value="${i}" class="mr-2">
+          ${pil.teks}
+        </label>`;
     });
+    container.appendChild(div);
   }
 
-  // Tampilkan di halaman (opsional)
-  const skorDiv = document.createElement("div");
-  skorDiv.innerHTML = `<strong>Skor Akhir: ${nilai}</strong>`;
-  skorDiv.style.marginTop = "12px";
-  document.getElementById("soalContainer").appendChild(skorDiv);
+  const skorBtn = document.createElement("button");
+  skorBtn.textContent = "Cek & Simpan Skor";
+  skorBtn.className = "mt-4 px-4 py-2 bg-blue-500 text-white rounded";
+  container.appendChild(skorBtn);
+
+  const today = new Date().toISOString().split("T")[0];
+  const userRef = db.ref("data_siswa/" + currentUid);
+  const userSnap = await userRef.get();
+  const userData = userSnap.exists() ? userSnap.val() : {};
+  const lastKey = "last_" + jenis;
+
+  if (userData[lastKey] === today) {
+    skorBtn.disabled = true;
+    skorBtn.textContent = "Sudah dikerjakan hari ini";
+  }
+
+  skorBtn.onclick = async () => {
+    let benar = 0;
+    const total = Object.keys(soalData).length;
+
+    for (let key in soalData) {
+      const benarIndex = soalData[key].pilihan
+        .map((p, i) => p.benar ? i.toString() : null)
+        .filter(i => i !== null);
+
+      const dipilih = [...document.querySelectorAll(`input[name='${key}']:checked`)].map(i => i.value);
+
+      const semuaBenarDipilih = benarIndex.every(i => dipilih.includes(i));
+      const tidakAdaSalah = dipilih.every(i => benarIndex.includes(i));
+
+      if (semuaBenarDipilih && tidakAdaSalah) {
+        benar++;
+      }
+    }
+
+    const nilai = Math.round(benar  * 10);
+    await userRef.update({
+      ["nilai_" + jenis]: nilai,
+      ["last_" + jenis]: today
+    });
+
+    alert(`Nilai kamu: ${nilai}`);
+    skorBtn.disabled = true;
+    skorBtn.textContent = "Sudah disimpan";
+  };
+
+  // RENDER MATHJAX setelah elemen soal ditambahkan
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise([container]);
+  }
 }
 </script>
-
-
-
 
 </html>
