@@ -413,66 +413,69 @@
     }
 
 
- async function loadSoal() {
-    if (!currentUid) return alert("Anda harus login dulu.");
-    const jenis = document.getElementById("jenisSoal").value;
-    if (!jenis) return alert("Silakan pilih jenis soal.");
+async function loadSoal() {
+  if (!currentUid) return alert("Anda harus login dulu.");
+  const jenis = document.getElementById("jenisSoal").value;
+  if (!jenis) return alert("Silakan pilih jenis soal.");
 
-    const soalSnap = await db.ref("soal/" + jenis).get();
-    if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
+  const soalSnap = await db.ref("soal/" + jenis).get();
+  if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
 
-    const container = document.getElementById("soalContainer");
-    container.innerHTML = "";
+  const container = document.getElementById("soalContainer");
+  container.innerHTML = "";
 
-    const soalData = soalSnap.val();
-    soalVars = {}; // reset variabel setiap kali soal di-load
+  const soalData = soalSnap.val();
+  soalVars = {}; // reset variabel setiap kali soal di-load
 
-    for (let key in soalData) {
-        const soal = soalData[key];
-        const isTemplate = !!soal.template;
+  for (let key in soalData) {
+    const soal = soalData[key];
+    const isTemplate = !!soal.template;
+    const vars = generateVariables(soal.variables || {});
+    soalVars[key] = vars;
 
-        const vars = generateVariables(soal.variables || {});
-        soalVars[key] = vars;
+    const div = document.createElement("div");
+    div.className = "soal";
 
-        const div = document.createElement("div");
-        div.className = "soal";
+    const teksSoal = isTemplate ? renderTemplate(soal.template, vars) : soal.pertanyaan;
+    div.innerHTML = `<strong>${teksSoal}</strong><br><br>`;
 
-        // Tentukan teks soal dari template atau pertanyaan
-        const teksSoal = isTemplate ? renderTemplate(soal.template, vars) : soal.pertanyaan;
-        div.innerHTML = `<strong>${teksSoal}</strong><br><br>`;
-
-        // Render semua pilihan
-        soal.pilihan.forEach((pil, i) => {
-            const teks = isTemplate ? renderTemplate(pil.teks, vars) : pil.teks;
-            div.innerHTML += `
-            <label>
-                <input type="checkbox" name="${key}" value="${i}"> ${teks}
-            </label><br>`;
-        });
-
-        container.appendChild(div);
+    // Tambahkan SVG jika tersedia
+    if (soal.svg) {
+      const svgDiv = document.createElement("div");
+      svgDiv.innerHTML = soal.svg;
+      div.appendChild(svgDiv);
     }
 
-    // Cek apakah sudah dikerjakan hari ini
-    const userRef = db.ref("data_siswa/" + currentUid);
-    const userSnap = await userRef.get();
-    const today = new Date().toISOString().split("T")[0];
-    const lastKey = "last_" + jenis;
-    const sudahDikerjakan = userSnap.exists() && userSnap.val()[lastKey] === today;
+    // Render semua pilihan
+    soal.pilihan.forEach((pil, i) => {
+      const teks = isTemplate ? renderTemplate(pil.teks, vars) : pil.teks;
+      div.innerHTML += `
+        <label>
+          <input type="checkbox" name="${key}" value="${i}"> ${teks}
+        </label><br>`;
+    });
 
-    // Tombol submit jawaban
-    const btn = document.createElement("button");
-    btn.className = "mt-4 px-4 py-2 bg-blue-500 text-white rounded";
-    btn.textContent = sudahDikerjakan ? "Sudah Dikerjakan Hari Ini" : "Cek & Simpan Skor";
-    btn.disabled = sudahDikerjakan;
-    btn.style.marginTop = "16px";
-    btn.onclick = () => cekJawaban(jenis, soalData);
-    container.appendChild(btn);
+    container.appendChild(div);
+  }
 
-    // Render ulang simbol matematika dengan MathJax
-    if (typeof MathJax !== 'undefined') {
-        MathJax.typeset();
-    }
+  // Cek apakah sudah dikerjakan hari ini
+  const userRef = db.ref("data_siswa/" + currentUid);
+  const userSnap = await userRef.get();
+  const today = new Date().toISOString().split("T")[0];
+  const lastKey = "last_" + jenis;
+  const sudahDikerjakan = userSnap.exists() && userSnap.val()[lastKey] === today;
+
+  const btn = document.createElement("button");
+  btn.className = "mt-4 px-4 py-2 bg-blue-500 text-white rounded";
+  btn.textContent = sudahDikerjakan ? "Sudah Dikerjakan Hari Ini" : "Cek & Simpan Skor";
+  btn.disabled = sudahDikerjakan;
+  btn.style.marginTop = "16px";
+  btn.onclick = () => cekJawaban(jenis, soalData);
+  container.appendChild(btn);
+
+  if (typeof MathJax !== 'undefined') {
+    MathJax.typeset();
+  }
 }
     function generateVariables(varsObj) {
         const vars = {};
