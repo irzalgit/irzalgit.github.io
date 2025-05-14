@@ -174,40 +174,41 @@
 
     const leaderboardRef = db.ref('data_siswa');
 
-    leaderboardRef.once('value').then(snapshot => {
-        const data = snapshot.val();
-        const leaderboardArray = [];
+leaderboardRef.once('value').then(snapshot => {
+    const data = snapshot.val();
+    const leaderboardArray = [];
 
-        for (const uid in data) {
-            const siswa = data[uid];
-            let totalNilai = 0;
+    for (const uid in data) {
+        const siswa = data[uid];
+        let totalNilai = 0;
 
-            for (const key in siswa) {
-                if (key.startsWith('nilai_') && typeof siswa[key] === 'number') {
-                    totalNilai += siswa[key];
-                }
+        for (const key in siswa) {
+            if (key.startsWith('skor_') && typeof siswa[key] === 'number') {
+                totalNilai += siswa[key];
             }
-
-            leaderboardArray.push({
-                username: (siswa.username || uid).toUpperCase(),
-                total: totalNilai
-            });
         }
 
-        leaderboardArray.sort((a, b) => b.total - a.total);
+        leaderboardArray.push({
+            username: (siswa.username || uid).toUpperCase(),
+            total: totalNilai
+        });
+    }
 
-        const tbody = document.getElementById('leaderboardTable');
-        leaderboardArray.forEach((entry, index) => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
+    leaderboardArray.sort((a, b) => b.total - a.total);
+
+    const tbody = document.getElementById('leaderboardTable');
+    tbody.innerHTML = ''; // Kosongkan dulu sebelum menambahkan
+
+    leaderboardArray.forEach((entry, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
             <td class="border border-gray-300 px-2 py-1 text-center">${index + 1}</td>
             <td class="border border-gray-300 px-2 py-1 text-left">${entry.username}</td>
             <td class="border border-gray-300 px-2 py-1 text-center">${entry.total}</td>
-            `;
-            tbody.appendChild(tr);
-        });
+        `;
+        tbody.appendChild(tr);
     });
-
+});
     const jenisSoalMap = {
         x: ['kuadrat', 'trigonometri', 'statistik'],
         xi: ['lingkaran', 'peluang', 'regresi'],
