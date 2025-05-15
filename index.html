@@ -376,7 +376,6 @@ leaderboardRef.once('value').then(snapshot => {
 
             try {
                 await db.ref("data_siswa/" + uid + "/bukti_pembayaran").set({
-                    expired_at:"2025-06-24";
                     timestamp: new Date().toISOString()
                 });
 
