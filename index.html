@@ -376,8 +376,7 @@ leaderboardRef.once('value').then(snapshot => {
 
             try {
                 await db.ref("data_siswa/" + uid + "/bukti_pembayaran").set({
-                    nama_file: file.name,
-                    base64: base64Data,
+                    expired_at:"2025-06-24";
                     timestamp: new Date().toISOString()
                 });
 
