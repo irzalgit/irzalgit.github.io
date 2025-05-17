@@ -420,43 +420,51 @@ async function loadSoal() {
   const soalSnap = await db.ref("soal/" + jenis).get();
   if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
 
-  const container = document.getElementById("soalContainer");
-  container.innerHTML = "";
+ const container = document.getElementById("soalContainer");
+container.innerHTML = "pilih jawaban yang benar dengan mencek list, jawaban yang benar tidak selalu 1";
 
-  const soalData = soalSnap.val();
-  soalVars = {}; // reset variabel setiap kali soal di-load
+const soalData = soalSnap.val();
+soalVars = {}; // reset variabel setiap kali soal di-load
 
-  for (let key in soalData) {
-    const soal = soalData[key];
-    const isTemplate = !!soal.template;
-    const vars = generateVariables(soal.variables || {});
-    soalVars[key] = vars;
+// Daftar kelas latar belakang Tailwind
+const bgClasses = [
+  "bg-red-500", "bg-blue-500", "bg-green-500", "bg-yellow-500",
+  "bg-purple-500", "bg-pink-500", "bg-indigo-500", "bg-teal-500"
+];
 
-    const div = document.createElement("div");
-    div.className = "soal";
+let index = 0;
 
-    const teksSoal = isTemplate ? renderTemplate(soal.template, vars) : soal.pertanyaan;
-    div.innerHTML = `<strong>${teksSoal}</strong><br><br>`;
+for (let key in soalData) {
+  const soal = soalData[key];
+  const isTemplate = !!soal.template;
+  const vars = generateVariables(soal.variables || {});
+  soalVars[key] = vars;
 
-    // Tambahkan SVG jika tersedia
-    if (soal.svg) {
-      const svgDiv = document.createElement("div");
-      svgDiv.innerHTML = soal.svg;
-      div.appendChild(svgDiv);
-    }
+  const div = document.createElement("div");
+  div.className = `soal p-4 mb-4 rounded ${bgClasses[index % bgClasses.length]}`;
 
-    // Render semua pilihan
-    soal.pilihan.forEach((pil, i) => {
-      const teks = isTemplate ? renderTemplate(pil.teks, vars) : pil.teks;
-      div.innerHTML += `
-        <label>
-          <input type="checkbox" name="${key}" value="${i}"> ${teks}
-        </label><br>`;
-    });
+  const teksSoal = isTemplate ? renderTemplate(soal.template, vars) : soal.pertanyaan;
+  div.innerHTML = `<strong>${teksSoal}</strong><br>`;
 
-    container.appendChild(div);
+  // Tambahkan SVG jika tersedia
+  if (soal.svg) {
+    const svgDiv = document.createElement("div");
+    svgDiv.innerHTML = soal.svg;
+    div.appendChild(svgDiv);
   }
 
+  // Render semua pilihan
+  soal.pilihan.forEach((pil, i) => {
+    const teks = isTemplate ? renderTemplate(pil.teks, vars) : pil.teks;
+    div.innerHTML += `
+      <label class="block">
+        <input type="checkbox" class="mr-2" name="${key}" value="${i}"> ${teks}
+      </label>`;
+  });
+
+  container.appendChild(div);
+  index++;
+}
   // Cek apakah sudah dikerjakan hari ini
   const userRef = db.ref("data_siswa/" + currentUid);
   const userSnap = await userRef.get();
