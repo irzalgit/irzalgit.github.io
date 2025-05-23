@@ -495,7 +495,7 @@ for (let key in soalData) {
 
   const btn = document.createElement("button");
   btn.className = "mt-4 px-4 py-2 bg-blue-500 text-white rounded";
-  btn.textContent = sudahDikerjakan ? "Sudah Dikerjakan Hari Ini" : "Cek & Simpan Skor";
+  btn.textContent = sudahDikerjakan ? "Sudah Dikerjakan Hari Ini, besok lagi" : "Cek Skor (jika kurang tidak ditambah)";
   btn.disabled = sudahDikerjakan;
   btn.style.marginTop = "16px";
   btn.onclick = () => cekJawaban(jenis, soalData);
