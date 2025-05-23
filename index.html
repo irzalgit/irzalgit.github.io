@@ -102,6 +102,13 @@
 
         </div>
 
+    
+    
+    <div id="userScores" class="bg-yellow-100 p-4 rounded shadow mt-4 hidden">
+    <h3 class="text-lg font-semibold mb-2">Skor Anda:</h3>
+    <ul id="userScoreList" class="list-disc pl-5"></ul>
+</div>
+    
     </div>
 
     <!--
@@ -293,43 +300,57 @@ leaderboardRef.once('value').then(snapshot => {
     }
 
 
-    async function login() {
-        const emailOrUsername = document.getElementById("loginUsername").value;
-        const password = document.getElementById("loginPassword").value;
+   async function login() {
+    const username = document.getElementById("loginUsername").value.trim();
+    const password = document.getElementById("loginPassword").value;
 
-        try {
-            let email = emailOrUsername;
+    try {
+        // Autentikasi dengan email dan password
+        const snapshot = await db.ref("data_siswa").once("value");
+        const users = snapshot.val();
 
-            if (!emailOrUsername.includes("@")) {
-                const snapshot = await db.ref("username_map/" + emailOrUsername).once("value");
-                if (!snapshot.exists()) throw new Error("Username tidak ditemukan");
-                email = snapshot.val();
+        let emailFound = null;
+        let uidFound = null;
+
+        for (const uid in users) {
+            if (users[uid].username === username) {
+                emailFound = users[uid].email;
+                uidFound = uid;
+                break;
             }
-
-            const userCred = await auth.signInWithEmailAndPassword(email, password);
-            const uid = userCred.user.uid;
-            const siswaSnap = await db.ref("data_siswa/" + uid).once("value");
-
-            if (!siswaSnap.exists()) throw new Error("Data siswa tidak ditemukan");
-
-            const data = siswaSnap.val();
-            currentUid = uid;
-            currentUsername = data.username;
-
-            const today = new Date();
-            const expiredAt = new Date(data.expired_at);
-            const approved = data.approved;
-
-            if (approved || expiredAt >= today) {
-                lanjutkan(data.username);
-            } else {
-                bayardulu(data.username);
-            }
-
-        } catch (err) {
-            alert("Login gagal: " + err.message);
         }
+
+        if (!emailFound) {
+            alert("Username tidak ditemukan");
+            return;
+        }
+
+        const userCredential = await auth.signInWithEmailAndPassword(emailFound, password);
+        currentUid = userCredential.user.uid;
+        currentUsername = username;
+
+        // Sembunyikan form login dan tampilkan dashboard
+        document.getElementById("loginForm").classList.add("hidden");
+        document.getElementById("dashboard").classList.remove("hidden");
+        document.getElementById("welcome").innerText = `Hai, ${currentUsername.toUpperCase()}`;
+
+        // Tampilkan semua skor user setelah login
+        const userData = users[uidFound];
+        let skorListHTML = "<div class='p-4 bg-yellow-100 rounded-lg mt-4'><h3 class='font-bold mb-2'>Daftar Skor:</h3><ul class='list-disc pl-5'>";
+        for (const key in userData) {
+            if (key.startsWith("skor_")) {
+                skorListHTML += `<li>${key.replace("skor_", "")}: ${userData[key]}</li>`;
+            }
+        }
+        skorListHTML += "</ul></div>";
+        document.getElementById("dashboard").insertAdjacentHTML("beforeend", skorListHTML);
+
+    } catch (error) {
+        console.error("Login error:", error.message);
+        alert("Login gagal: " + error.message);
     }
+}
+
 
 
     function lanjutkan(username) {
@@ -551,6 +572,38 @@ for (let key in soalData) {
   skorDiv.style.marginTop = "12px";
   document.getElementById("soalContainer").appendChild(skorDiv);
 }
+
+
+function showUserScores(uid) {
+    const userRef = db.ref(`data_siswa/${uid}`);
+    const scoreList = document.getElementById("userScoreList");
+    const scoreSection = document.getElementById("userScores");
+
+    userRef.once("value").then(snapshot => {
+        const data = snapshot.val();
+        scoreList.innerHTML = "";
+        let found = false;
+
+        for (const key in data) {
+            if (key.startsWith("skor_")) {
+                const li = document.createElement("li");
+                li.textContent = `${key.replace("skor_", "").toUpperCase()}: ${data[key]}`;
+                scoreList.appendChild(li);
+                found = true;
+            }
+        }
+
+        if (found) {
+            scoreSection.classList.remove("hidden");
+        }
+    });
+}
+
+
+
+
+
+
 </script>
 
 
