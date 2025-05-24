@@ -179,9 +179,13 @@
     let currentUid = null;
     let currentUsername = "";
 
+
+
+
+
     const leaderboardRef = db.ref('data_siswa');
 
-leaderboardRef.once('value').then(snapshot => {
+leaderboardRef.on('value',snapshot => {
     const data = snapshot.val();
     const leaderboardArray = [];
 
@@ -579,7 +583,8 @@ function showUserScores(uid) {
     const scoreList = document.getElementById("userScoreList");
     const scoreSection = document.getElementById("userScores");
 
-    userRef.once("value").then(snapshot => {
+
+    userRef.on("value",snapshot => {
         const data = snapshot.val();
         scoreList.innerHTML = "";
         let found = false;
