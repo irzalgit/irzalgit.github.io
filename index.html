@@ -263,7 +263,7 @@ leaderboardRef.on('value',snapshot => {
 
             await db.ref("username_map/" + username).set(email);
             alert("Registrasi berhasil!");
-            showLogin();
+        
 
             const bayarButton = document.createElement("button");
             bayarButton.textContent = "scan qris";
@@ -304,22 +304,20 @@ leaderboardRef.on('value',snapshot => {
     }
 
 
-   async function login() {
+async function login() {
     const username = document.getElementById("loginUsername").value.trim();
     const password = document.getElementById("loginPassword").value;
 
     try {
-        // Autentikasi dengan email dan password
+        // Ambil semua user untuk mencocokkan username dengan email
         const snapshot = await db.ref("data_siswa").once("value");
         const users = snapshot.val();
 
         let emailFound = null;
-        let uidFound = null;
 
         for (const uid in users) {
             if (users[uid].username === username) {
                 emailFound = users[uid].email;
-                uidFound = uid;
                 break;
             }
         }
@@ -329,18 +327,47 @@ leaderboardRef.on('value',snapshot => {
             return;
         }
 
+        // Login pakai email hasil pencarian
         const userCredential = await auth.signInWithEmailAndPassword(emailFound, password);
-        currentUid = userCredential.user.uid;
-        currentUsername = username;
+        const uid = userCredential.user.uid;
 
-        // Sembunyikan form login dan tampilkan dashboard
+        // Ambil data siswa dari UID hasil login (bukan hasil loop)
+        const snapshotUser = await db.ref("data_siswa/" + uid).once("value");
+        const userData = snapshotUser.val();
+
+        // Cek status approved
+        if (userData.approved !== true) {
+            alert("Akun Anda belum aktif. Silakan scan QRIS untuk aktivasi.");
+
+            // Tampilkan QRIS
+            let qrisImg = document.getElementById("qris-img");
+            if (!qrisImg) {
+                qrisImg = document.createElement("img");
+                qrisImg.id = "qris-img";
+                qrisImg.src = "bsiqris.png";
+                qrisImg.alt = "QRIS BSI";
+                Object.assign(qrisImg.style, {
+                    marginTop: "15px",
+                    maxWidth: "300px",
+                    display: "block"
+                });
+                document.body.appendChild(qrisImg);
+            } else {
+                qrisImg.style.display = "block";
+            }
+
+            return;
+        }
+
+        // Jika approved: true lanjutkan ke dashboard
+        currentUid = uid;
+        currentUsername = username;
         document.getElementById("loginForm").classList.add("hidden");
         document.getElementById("dashboard").classList.remove("hidden");
         document.getElementById("welcome").innerText = `Hai, ${currentUsername.toUpperCase()}`;
 
-        // Tampilkan semua skor user setelah login
-        const userData = users[uidFound];
-        let skorListHTML = "<div class='p-4 bg-yellow-100 rounded-lg mt-4'><h3 class='font-bold mb-2'>Daftar Skor:</h3><ul class='list-disc pl-5'>";
+        // Tampilkan semua skor user
+        let skorListHTML = "<div class='p-4 bg-yellow-100 rounded-lg mt-4'><h3 class='font-bold mb-2'>Skor:</h3><ul class='list-disc pl-5'>";
         for (const key in userData) {
             if (key.startsWith("skor_")) {
                 skorListHTML += `<li>${key.replace("skor_", "")}: ${userData[key]}</li>`;
@@ -354,7 +381,9 @@ leaderboardRef.on('value',snapshot => {
         alert("Login gagal: " + error.message);
     }
 }
-
+function bayardulu() {
+    alert("Akun Anda belum di-approve. Silakan lakukan pembayaran atau hubungi admin.");
+}
 
 
     function lanjutkan(username) {
@@ -435,80 +464,88 @@ leaderboardRef.on('value',snapshot => {
             });
         }
     }
-
-
 async function loadSoal() {
-  if (!currentUid) return alert("Anda harus login dulu.");
   const jenis = document.getElementById("jenisSoal").value;
   if (!jenis) return alert("Silakan pilih jenis soal.");
 
-  const soalSnap = await db.ref("soal/" + jenis).get();
-  if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
+  const container = document.getElementById("soalContainer");
+  container.innerHTML = "<p class='text-center text-red-600'>Loading soal...</p>";
 
- const container = document.getElementById("soalContainer");
-container.innerHTML = "pilih jawaban yang benar dengan mencek list, jawaban yang benar tidak selalu 1";
+  const cacheKey = "soalCache_" + jenis;
+  let soalData;
 
-const soalData = soalSnap.val();
-soalVars = {}; // reset variabel setiap kali soal di-load
-
-// Daftar kelas latar belakang Tailwind
-const bgClasses = [
-  "bg-red-500", "bg-blue-500", "bg-green-500", "bg-yellow-500",
-  "bg-purple-500", "bg-pink-500", "bg-indigo-500", "bg-teal-500"
-];
-
-let index = 0;
-
-for (let key in soalData) {
-  const soal = soalData[key];
-  const isTemplate = !!soal.template;
-  const vars = generateVariables(soal.variables || {});
-  soalVars[key] = vars;
-
-  const div = document.createElement("div");
-  div.className = `soal p-4 mb-4 rounded ${bgClasses[index % bgClasses.length]}`;
-
-  const teksSoal = isTemplate ? renderTemplate(soal.template, vars) : soal.pertanyaan;
-  div.innerHTML = `<strong>${teksSoal}</strong><br>`;
-
-  // Tambahkan SVG jika tersedia
-  if (soal.svg) {
-    const svgDiv = document.createElement("div");
-    svgDiv.innerHTML = soal.svg;
-    div.appendChild(svgDiv);
+  // Ambil soal dari localStorage jika ada, jika tidak ambil dari Firebase
+  if (localStorage.getItem(cacheKey)) {
+    soalData = JSON.parse(localStorage.getItem(cacheKey));
+  } else {
+    const soalSnap = await db.ref("soal/" + jenis).get();
+    if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
+    soalData = soalSnap.val();
+    localStorage.setItem(cacheKey, JSON.stringify(soalData));
   }
 
-  // Render semua pilihan
-  soal.pilihan.forEach((pil, i) => {
-    const teks = isTemplate ? renderTemplate(pil.teks, vars) : pil.teks;
-    div.innerHTML += `
-      <label class="block">
-        <input type="checkbox" class="mr-2" name="${key}" value="${i}"> ${teks}
-      </label>`;
-  });
-
-  container.appendChild(div);
-  index++;
+  renderSoal(soalData, jenis);
 }
-  // Cek apakah sudah dikerjakan hari ini
-  const userRef = db.ref("data_siswa/" + currentUid);
-  const userSnap = await userRef.get();
-  const today = new Date().toISOString().split("T")[0];
-  const lastKey = "last_" + jenis;
-  const sudahDikerjakan = userSnap.exists() && userSnap.val()[lastKey] === today;
 
+
+function renderSoal(soalData, jenis) {
+  const container = document.getElementById("soalContainer");
+  container.innerHTML = "pilih jawaban yang benar dengan mencek list.";
+  const fragment = document.createDocumentFragment();
+  soalVars = {};
+
+  const bgClasses = [
+    "bg-red-500", "bg-blue-500", "bg-green-500", "bg-yellow-500",
+    "bg-purple-500", "bg-pink-500", "bg-indigo-500", "bg-teal-500"
+  ];
+
+  let index = 0;
+  for (let key in soalData) {
+    const soal = soalData[key];
+    const isTemplate = !!soal.template;
+    const vars = generateVariables(soal.variables || {});
+    soalVars[key] = vars;
+
+    const div = document.createElement("div");
+    div.className = `soal p-4 mb-4 rounded ${bgClasses[index % bgClasses.length]}`;
+
+    const teksSoal = isTemplate ? renderTemplate(soal.template, vars) : soal.pertanyaan;
+    div.innerHTML = `<strong>${teksSoal}</strong><br>`;
+
+    if (soal.svg) {
+      const svgDiv = document.createElement("div");
+      svgDiv.innerHTML = soal.svg;
+      div.appendChild(svgDiv);
+    }
+
+    soal.pilihan.forEach((pil, i) => {
+      const teks = isTemplate ? renderTemplate(pil.teks, vars) : pil.teks;
+      const label = document.createElement("label");
+      label.className = "block";
+      label.innerHTML = `
+        <input type="checkbox" class="mr-2" name="${key}" value="${i}"> ${teks}`;
+      div.appendChild(label);
+    });
+
+    fragment.appendChild(div);
+    index++;
+  }
+
+  // Tombol Cek Skor
   const btn = document.createElement("button");
   btn.className = "mt-4 px-4 py-2 bg-blue-500 text-white rounded";
-  btn.textContent = sudahDikerjakan ? "Sudah Dikerjakan Hari Ini, besok lagi" : "Cek Skor (jika kurang tidak ditambah)";
-  btn.disabled = sudahDikerjakan;
-  btn.style.marginTop = "16px";
+  btn.textContent = "Cek Skor";
   btn.onclick = () => cekJawaban(jenis, soalData);
-  container.appendChild(btn);
+  fragment.appendChild(btn);
 
+  container.appendChild(fragment);
+
+  // Render MathJax jika tersedia
   if (typeof MathJax !== 'undefined') {
-    MathJax.typeset();
+    MathJax.typesetPromise([container]);
   }
 }
+
     function generateVariables(varsObj) {
         const vars = {};
         for (let key in varsObj) {
