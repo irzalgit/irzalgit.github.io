@@ -42,7 +42,7 @@
     <!-- FORM LOGIN -->
     <div id="loginForm" class="bg-blue-100 p-8 rounded-2xl shadow-lg text-center transform transition-transform hover:scale-105 border-t-4 border-blue-400">
         <h2 class="text-3xl font-bold mb-6 text-blue-800">Login</h2>
-        <input id="loginUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
+        <input id="loginUsername" placeholder="Username atau Email" class="w-full mb-2 p-2 border rounded" />
         <input id="loginPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
         <button onclick="login()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
         <p class="mt-4 text-sm">
@@ -317,70 +317,82 @@ leaderboardRef.on('value',snapshot => {
         }
     }
 
-
 async function login() {
-    const username = document.getElementById("loginUsername").value.trim();
+    const loginInput = document.getElementById("loginUsername").value.trim();
     const password = document.getElementById("loginPassword").value;
 
     try {
-        // Ambil semua user untuk mencocokkan username dengan email
         const snapshot = await db.ref("data_siswa").once("value");
         const users = snapshot.val();
 
-        let emailFound = null;
+        let matchedUser = null;
+        let matchedUid = null;
 
+        // Cek loginInput cocok dengan username ATAU email
         for (const uid in users) {
-            if (users[uid].username === username) {
-                emailFound = users[uid].email;
+            const user = users[uid];
+            if (user.username === loginInput || user.email === loginInput) {
+                matchedUser = user;
+                matchedUid = uid;
                 break;
             }
         }
 
-        if (!emailFound) {
-            alert("Username tidak ditemukan");
+        if (!matchedUser) {
+            alert("Username atau email tidak ditemukan");
             return;
         }
 
-        // Login pakai email hasil pencarian
-        const userCredential = await auth.signInWithEmailAndPassword(emailFound, password);
+        // Login dengan email dan password
+        const userCredential = await auth.signInWithEmailAndPassword(matchedUser.email, password);
         const uid = userCredential.user.uid;
 
-        // Ambil data siswa dari UID hasil login (bukan hasil loop)
-        const snapshotUser = await db.ref("data_siswa/" + uid).once("value");
+        const snapshotUser = await db.ref("data_siswa/" + matchedUid).once("value");
         const userData = snapshotUser.val();
 
-        // Cek status approved
+        const dashboard = document.getElementById("dashboard");
+        dashboard.classList.remove("hidden");
+
         if (userData.approved !== true) {
             alert("Akun Anda belum aktif. Silakan scan QRIS untuk aktivasi.");
 
-            // Tampilkan QRIS
             let qrisImg = document.getElementById("qris-img");
             if (!qrisImg) {
                 qrisImg = document.createElement("img");
                 qrisImg.id = "qris-img";
-                qrisImg.src = "bsiqris.png";
-                qrisImg.alt = "QRIS BSI";
+                qrisImg.src = "/gbr/bsiqris.png";
+                qrisImg.alt = "QRIS";
                 Object.assign(qrisImg.style, {
                     marginTop: "15px",
                     maxWidth: "300px",
-                    display: "block"
+                    display: "block",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    border: "1px solid red"
                 });
-                document.body.appendChild(qrisImg);
             } else {
                 qrisImg.style.display = "block";
+            }
+
+            if (dashboard) {
+                dashboard.insertBefore(qrisImg, dashboard.firstChild);
             }
 
             return;
         }
 
-        // Jika approved: true lanjutkan ke dashboard
+        // Login sukses
         currentUid = uid;
-        currentUsername = username;
+        currentUsername = matchedUser.username;
+
         document.getElementById("loginForm").classList.add("hidden");
-        document.getElementById("dashboard").classList.remove("hidden");
+        dashboard.classList.remove("hidden");
         document.getElementById("welcome").innerText = `Hai, ${currentUsername.toUpperCase()}`;
 
-        // Tampilkan semua skor user
+        const qrisImg = document.getElementById("qris-img");
+        if (qrisImg) qrisImg.style.display = "none";
+
+        // Tampilkan skor
         let skorListHTML = "<div class='p-4 bg-yellow-100 rounded-lg mt-4'><h3 class='font-bold mb-2'>Skor:</h3><ul class='list-disc pl-5'>";
         for (const key in userData) {
             if (key.startsWith("skor_")) {
@@ -388,7 +400,7 @@ async function login() {
             }
         }
         skorListHTML += "</ul></div>";
-        document.getElementById("dashboard").insertAdjacentHTML("beforeend", skorListHTML);
+        dashboard.insertAdjacentHTML("beforeend", skorListHTML);
 
     } catch (error) {
         console.error("Login error:", error.message);
