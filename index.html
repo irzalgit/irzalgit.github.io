@@ -269,9 +269,7 @@ leaderboardRef.on('value',snapshot => {
             await db.ref("data_siswa/" + uid).set({
                 username,
                 email,
-                expired_at: new Date().toISOString().slice(0, 10),
                 nilai: {},
-                total_nilai: 0,
                 approved: false
             });
 
@@ -516,7 +514,7 @@ async function loadSoal() {
 
 function renderSoal(soalData, jenis) {
   const container = document.getElementById("soalContainer");
-  container.innerHTML = "pilih jawaban yang benar dengan mencek list.";
+  container.innerHTML = "Pilih jawaban yang benar, setiap soal tidak selalu 1 jawaban benar ";
   const fragment = document.createDocumentFragment();
   soalVars = {};
 
