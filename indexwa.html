@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>cek soal baru</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    .hidden { display: none; }
+    .notif { background-color: #fff3cd; padding: 15px; border-left: 5px solid #ffa500; margin-bottom: 15px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    details summary { cursor: pointer; font-weight: bold; margin-top: 10px; }
+  </style>
+  <script>
+    // Konfigurasi Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
+      authDomain: "math314-app.firebaseapp.com",
+      databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
+      projectId: "math314-app",
+      storageBucket: "math314-app.appspot.com",
+      messagingSenderId: "9019551034",
+      appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
+      measurementId: "G-VWYDTY9LF6"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+  </script>
+</head>
+<body>
+
+  <h2></h2>
+
+  <!-- Notifikasi soal baru -->
+  <div id="infoSoalBaru" class="notif hidden"></div>
+
+  <!-- Daftar total soal -->
+  <h3>Jumlah Soal per Jenis</h3>
+  <ul id="totalSoalList"></ul>
+
+  <!-- Daftar soal baru -->
+  <div id="daftarSoalBaruContainer"></div>
+
+  <script>
+    async function cekPenambahanSoal() {
+      const soalSnap = await db.ref("soal").get();
+      if (!soalSnap.exists()) return;
+
+      const semuaSoal = soalSnap.val();
+      const totalList = document.getElementById("totalSoalList");
+      const infoEl = document.getElementById("infoSoalBaru");
+      const daftarSoalBaruContainer = document.getElementById("daftarSoalBaruContainer");
+
+      let notif = "";
+      let totalHTML = "";
+      let daftarSoalBaruHTML = "";
+      let jumlahSoalBaruTotal = 0;
+
+      for (const jenis in semuaSoal) {
+        const freshSoal = semuaSoal[jenis];
+        const freshKeys = Object.keys(freshSoal);
+        const freshCount = freshKeys.length;
+
+        const cacheKey = "soalCache_" + jenis;
+        const cachedCount = parseInt(localStorage.getItem(cacheKey)) || 0;
+
+        const baru = freshCount - cachedCount;
+        jumlahSoalBaruTotal += baru > 0 ? baru : 0;
+
+        totalHTML += `<li><strong>${jenis}</strong>: ${freshCount} soal</li>`;
+
+        // Simpan jumlah soal saja ke localStorage
+        localStorage.setItem(cacheKey, freshCount.toString());
+
+        if (baru > 0) {
+          notif += `🔔 <strong>${jenis}</strong>: ${baru} soal baru ditambahkan!<br>`;
+
+          const soalBaruKeys = freshKeys.slice(-baru);
+          let soalBaruList = soalBaruKeys.map(key => {
+            const pertanyaan = freshSoal[key]?.pertanyaan || "[Pertanyaan tidak ditemukan]";
+            return `<li>${pertanyaan}</li>`;
+          }).join("");
+
+          daftarSoalBaruHTML += `
+            <details open>
+              <summary>Soal Baru (${jenis})</summary>
+              <ul>${soalBaruList}</ul>
+            </details>
+          `;
+        }
+      }
+
+      // Tampilkan info jumlah total soal dan soal baru
+      totalList.innerHTML = totalHTML;
+      infoEl.classList.remove("hidden");
+
+      if (notif) {
+        infoEl.innerHTML = `📌 <strong>Total soal baru: ${jumlahSoalBaruTotal}</strong><br>` + notif;
+        daftarSoalBaruContainer.innerHTML = `<h3>Daftar Soal Baru</h3>` + daftarSoalBaruHTML;
+      } else {
+        infoEl.innerHTML = `✅ Tidak ada soal baru saat ini.`;
+        daftarSoalBaruContainer.innerHTML = "";
+      }
+    }
+
+    window.onload = cekPenambahanSoal;
+  </script>
+</body>
+</html>
