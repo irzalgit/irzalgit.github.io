@@ -126,6 +126,27 @@
 />
 <p>info WA 082170505306 </p>
   
+   <button onclick="document.getElementById('tampilanSoal').classList.remove('hidden')"
+          class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700">
+    CEK SOAL
+  </button>
+
+  <!-- Kontainer tampilan soal -->
+  <div id="tampilanSoal" class="hidden mt-6 bg-white border rounded-lg shadow-lg overflow-hidden">
+    
+    <!-- Tampilan indexwa.html menggunakan iframe -->
+    <iframe src="indexwa.html" class="w-full h-[500px] border-b"></iframe>
+
+    <!-- Tombol Close di bawah tampilan -->
+    <div class="flex justify-end p-4 bg-gray-50">
+      <button onclick="document.getElementById('tampilanSoal').classList.add('hidden')"
+              class="text-red-600 font-bold hover:text-red-800">
+        × Tutup Tampilan
+      </button>
+    </div>
+  </div>
+
+  
     <div class="font-sans p-4 m-0 bg-white">
         <h2 class="text-center text-lg font-semibold mb-4">Peringkat</h2>
         <div class="overflow-x-auto w-full">
@@ -488,6 +509,7 @@ function bayardulu() {
             });
         }
     }
+    
 async function loadSoal() {
   const jenis = document.getElementById("jenisSoal").value;
   if (!jenis) return alert("Silakan pilih jenis soal.");
@@ -496,19 +518,31 @@ async function loadSoal() {
   container.innerHTML = "<p class='text-center text-red-600'>Loading soal...</p>";
 
   const cacheKey = "soalCache_" + jenis;
-  let soalData;
+  const cacheMetaKey = "soalMeta_" + jenis;
 
-  // Ambil soal dari localStorage jika ada, jika tidak ambil dari Firebase
-  if (localStorage.getItem(cacheKey)) {
-    soalData = JSON.parse(localStorage.getItem(cacheKey));
-  } else {
-    const soalSnap = await db.ref("soal/" + jenis).get();
-    if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
-    soalData = soalSnap.val();
-    localStorage.setItem(cacheKey, JSON.stringify(soalData));
+  // Ambil cache lama
+  let cachedSoal = JSON.parse(localStorage.getItem(cacheKey)) || {};
+  let cachedCount = Object.keys(cachedSoal).length;
+
+  // Ambil soal terbaru dari Firebase
+  const soalSnap = await db.ref("soal/" + jenis).get();
+  if (!soalSnap.exists()) return alert("Soal tidak ditemukan.");
+  const freshSoal = soalSnap.val();
+  const freshCount = Object.keys(freshSoal).length;
+
+  // Cek apakah ada penambahan soal
+  if (freshCount > cachedCount) {
+    alert(`Ada penambahan soal baru: ${freshCount - cachedCount} soal`);
+    // Update cache
+    localStorage.setItem(cacheKey, JSON.stringify(freshSoal));
+    cachedSoal = freshSoal;
+  } else if (!localStorage.getItem(cacheKey)) {
+    // Jika tidak ada cache sebelumnya
+    localStorage.setItem(cacheKey, JSON.stringify(freshSoal));
+    cachedSoal = freshSoal;
   }
 
-  renderSoal(soalData, jenis);
+  renderSoal(cachedSoal, jenis);
 }
 
 
@@ -666,7 +700,24 @@ function showUserScores(uid) {
 }
 
 
+async function cekPenambahanSoal(jenis) {
+  const cacheKey = "soalCache_" + jenis;
+  const cachedSoal = JSON.parse(localStorage.getItem(cacheKey)) || {};
+  const cachedCount = Object.keys(cachedSoal).length;
 
+  const soalSnap = await db.ref("soal/" + jenis).get();
+  if (!soalSnap.exists()) return;
+
+  const freshSoal = soalSnap.val();
+  const freshCount = Object.keys(freshSoal).length;
+
+  if (freshCount > cachedCount) {
+    // Tampilkan info bahwa ada soal baru
+    const infoEl = document.getElementById("infoSoalBaru");
+    infoEl.innerText = `🔔 Ada ${freshCount - cachedCount} soal baru tersedia!`;
+    infoEl.classList.remove("hidden"); // pastikan elemen ini awalnya disembunyikan
+  }
+}
 
 
 
