@@ -124,7 +124,7 @@
   height="200" 
   style="display: block; margin: 8px auto; border: 1px solid red;" 
 />
-<p>info konfirmasi WA 082170505306 </p>
+<p>info WA 082170505306 </p>
   
    <button onclick="document.getElementById('tampilanSoal').classList.remove('hidden')"
           class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700">
@@ -160,7 +160,51 @@
                 </thead>
                 <tbody id="leaderboardTable" class="[&>tr:nth-child(even)]:bg-gray-50"></tbody>
             </table>
-        </div>
+       
+
+  <div id="aboutBox" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white text-black rounded-2xl p-6 w-80 text-center relative">
+      <button onclick="toggleAbout()" class="absolute top-2 right-2 text-gray-600 hover:text-red-600 font-bold text-xl">&times;</button>
+      <h2 class="text-xl font-bold mb-4">Selamat Datang</h2>
+      <p id="aboutText">Terima kasih telah mengunjungi halaman ini.</p>
+    </div>
+  </div>
+
+  <!-- Grid Paket -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+
+    <!-- Card UTBK -->
+    <div class="bg-blue-800 rounded-2xl p-6 shadow-xl text-center">
+      <h2 class="text-2xl font-bold mb-2">Paket UTBK</h2>
+      <p class="text-lg mb-4">Latihan soal dan materi UTBK</p>
+      <p class="text-3xl font-extrabold mb-6">Rp 150.000 / tahun</p>
+      <button onclick="showAbout('Paket UTBK: Latihan soal dan materi terbaik untuk persiapan UTBK.Terdiri atas subtes:1. Penalaran Umum;2. Pemahaman Bacaan dan Menulis; 3. Pengetahuan dan Pemahaman Umum; 4. Pengetahuan Kuantitatif; 5. Literasi Bahasa Indonesia;6. Literasi Bahasa Inggris ;7. Penalaran Matematika;Setiap soal bertambah 1 setiap minggu dan disertai pembahasan.Peserta sebaiknya kelas xii atau lulusan tahun 24 atau 23 ;Target nilai utbk 700;pendaftaran dibuka 1 Juli 25')" class="bg-yellow-400 text-blue-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-300 transition">
+        About
+      </button>
+    </div>
+
+    <!-- Card Kedinasan -->
+    <div class="bg-blue-800 rounded-2xl p-6 shadow-xl text-center">
+      <h2 class="text-2xl font-bold mb-2">Paket Kedinasan</h2>
+      <p class="text-lg mb-4">Persiapan seleksi sekolah kedinasan</p>
+      <p class="text-3xl font-extrabold mb-6">Rp 200.000 / tahun</p>
+      <button onclick="showAbout('Paket Kedinasan: Persiapan matang untuk seleksi sekolah kedinasan.')" class="bg-yellow-400 text-blue-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-300 transition">
+        About
+      </button>
+    </div>
+
+    <!-- Card Politeknik -->
+    <div class="bg-blue-800 rounded-2xl p-6 shadow-xl text-center">
+      <h2 class="text-2xl font-bold mb-2">Paket Politeknik</h2>
+      <p class="text-lg mb-4">Materi dan soal masuk politeknik</p>
+      <p class="text-3xl font-extrabold mb-6">Rp 300.000 / tahun</p>
+      <button onclick="showAbout('Paket Politeknik: Didesain khusus untuk masuk politeknik dengan percaya diri.')" class="bg-yellow-400 text-blue-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-300 transition">
+        About
+      </button>
+    </div>
+
+  </div>
+
 
 
     </div>
@@ -723,6 +767,16 @@ async function cekPenambahanSoal(jenis) {
 
 </script>
 
+ <script>
+    function showAbout(message) {
+      document.getElementById('aboutText').textContent = message;
+      document.getElementById('aboutBox').classList.remove('hidden');
+    }
+
+    function toggleAbout() {
+      document.getElementById('aboutBox').classList.add('hidden');
+    }
+  </script>
 
 
 
