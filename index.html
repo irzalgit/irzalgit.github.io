@@ -4,108 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pembelian Kuota Internet</title>
-  <!-- Snap.js dari Midtrans Sandbox -->
   <script src="https://app.sandbox.midtrans.com/snap/snap.js"
           data-client-key="SB-Mid-client-3P0gJYk_9J8zv2W1"></script>
   <style>
     body { font-family: Arial, sans-serif; background-color: #f9fafb; margin: 0; padding: 20px; }
     h2 { text-align: center; margin-bottom: 20px; }
-    .carousel-container {
-      overflow-x: auto;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
+    .carousel-container { overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .carousel-container::-webkit-scrollbar { display: none; }
-    .card {
-      display: inline-block;
-      width: 220px;
-      margin-right: 16px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      vertical-align: top;
-    }
-    .card-header {
-      background: #4f46e5;
-      color: white;
-      padding: 12px;
-      font-size: 18px;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-      text-align: center;
-    }
-    .card-body {
-      padding: 16px;
-      text-align: center;
-    }
-    .card-body p {
-      margin: 8px 0;
-      color: #374151;
-    }
-    .btn-beli {
-      margin-top: 10px;
-      background: #10b981;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 14px;
-      cursor: pointer;
-      border: none;
-    }
-    .btn-beli:hover {
-      background: #059669;
-    }
+    .card { display: inline-block; width: 220px; margin-right: 16px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); vertical-align: top; }
+    .card-header { background: #4f46e5; color: white; padding: 12px; font-size: 18px; border-top-left-radius: 12px; border-top-right-radius: 12px; text-align: center; }
+    .card-body { padding: 16px; text-align: center; }
+    .card-body p { margin: 8px 0; color: #374151; }
+    .btn-beli { margin-top: 10px; background: #10b981; color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; cursor: pointer; border: none; }
+    .btn-beli:hover { background: #059669; }
   </style>
 </head>
 <body>
   <h2>Pilih Paket Kuota Internet</h2>
   <div class="carousel-container">
-    <div class="card">
-      <div class="card-header">Kuota 5GB</div>
-      <div class="card-body">
-        <p>Masa aktif: 5 hari</p>
-        <p>Rp 18.000</p>
-        <button class="btn-beli" onclick="bayar('quota5gb', 'Kuota 5GB', 18000)">Beli Sekarang</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">Kuota 10GB</div>
-      <div class="card-body">
-        <p>Masa aktif: 7 hari</p>
-        <p>Rp 25.000</p>
-        <button class="btn-beli" onclick="bayar('quota10gb', 'Kuota 10GB', 25000)">Beli Sekarang</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">Kuota 20GB</div>
-      <div class="card-body">
-        <p>Masa aktif: 15 hari</p>
-        <p>Rp 40.000</p>
-        <button class="btn-beli" onclick="bayar('quota20gb', 'Kuota 20GB', 40000)">Beli Sekarang</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">Kuota 50GB</div>
-      <div class="card-body">
-        <p>Masa aktif: 30 hari</p>
-        <p>Rp 75.000</p>
-        <button class="btn-beli" onclick="bayar('quota50gb', 'Kuota 50GB', 75000)">Beli Sekarang</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">Kuota Unlimited</div>
-      <div class="card-body">
-        <p>Masa aktif: 30 hari</p>
-        <p>Rp 100.000</p>
-        <button class="btn-beli" onclick="bayar('quotaUnlimited', 'Kuota Unlimited', 100000)">Beli Sekarang</button>
-      </div>
-    </div>
+    <div class="card"><div class="card-header">Kuota 5GB</div><div class="card-body"><p>Masa aktif: 5 hari</p><p>Rp 18.000</p><button class="btn-beli" onclick="bayar('quota5gb', 'Kuota 5GB', 18000)">Beli Sekarang</button></div></div>
+    <div class="card"><div class="card-header">Kuota 10GB</div><div class="card-body"><p>Masa aktif: 7 hari</p><p>Rp 25.000</p><button class="btn-beli" onclick="bayar('quota10gb', 'Kuota 10GB', 25000)">Beli Sekarang</button></div></div>
+    <div class="card"><div class="card-header">Kuota 20GB</div><div class="card-body"><p>Masa aktif: 15 hari</p><p>Rp 40.000</p><button class="btn-beli" onclick="bayar('quota20gb', 'Kuota 20GB', 40000)">Beli Sekarang</button></div></div>
+    <div class="card"><div class="card-header">Kuota 50GB</div><div class="card-body"><p>Masa aktif: 30 hari</p><p>Rp 75.000</p><button class="btn-beli" onclick="bayar('quota50gb', 'Kuota 50GB', 75000)">Beli Sekarang</button></div></div>
+    <div class="card"><div class="card-header">Kuota Unlimited</div><div class="card-body"><p>Masa aktif: 30 hari</p><p>Rp 100.000</p><button class="btn-beli" onclick="bayar('quotaUnlimited', 'Kuota Unlimited', 100000)">Beli Sekarang</button></div></div>
   </div>
-
+  
   <script>
     function bayar(product_id, product_name, price) {
-      fetch('https://math314.vercel.app/api/snap', {
+      fetch('https://math314.vercel .app/api/snap',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ product_id, product_name, price })
