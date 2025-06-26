@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pembelian Kuota Internet</title>
-  <script src="https://app.sandbox.midtrans.com/snap/snap.js"
-          data-client-key="SB-Mid-client-3P0gJYk_9J8zv2W1"></script>
+  <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-3P0gJYk_9J8zv2W1"></script>
   <style>
     body { font-family: Arial, sans-serif; background-color: #f9fafb; margin: 0; padding: 20px; }
     h2 { text-align: center; margin-bottom: 20px; }
@@ -31,7 +30,7 @@
   
   <script>
     function bayar(product_id, product_name, price) {
-      fetch('https://math314.vercel .app/api/snap',{
+      fetch('https://math314.vercel.app/api/snap',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ product_id, product_name, price })
