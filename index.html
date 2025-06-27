@@ -229,13 +229,13 @@
 
   <hr>
   <img src="gbr/Poster1.png" alt="poster" style="display: block; width: 100vw; height: auto; margin: 5px auto; border: 1px solid red;" />
-<footer class="bg-gray-100 p-6 text-center text-sm">
+  <footer class="bg-gray-100 p-6 text-center text-sm">
   <p>
     <a href="#" onclick="document.getElementById('modalSyarat').classList.remove('hidden')" class="text-blue-600 underline">Syarat & Ketentuan</a> |
     <a href="#" onclick="document.getElementById('modalPrivasi').classList.remove('hidden')" class="text-blue-600 underline">Kebijakan Privasi</a>
   </p>
   <hr class="my-4 w-1/2 mx-auto">
-  <p><strong>Alamat:</strong> Toko Poster , Bukitraya, Pekanbaru, Riau</p>
+  <p><strong>Alamat:</strong> Toko Poster, Bukitraya, Pekanbaru, Riau</p>
   <p><strong>Email:</strong> irzalpa20@gmail.com</p>
   <p><strong>WhatsApp:</strong> 0821-7050-5306</p>
   <p><strong>Media Sosial:</strong></p>
@@ -245,12 +245,12 @@
   <p class="mt-4 text-xl text-gray-800">© 2025 Irzal Achmad. All rights reserved.</p>
 </footer>
 
-<!-- Modal Template (Syarat & Ketentuan) -->
-<div id="modalSyarat" onclick="this.classList.add('hidden')" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center">
-  <div onclick="event.stopPropagation()" class="bg-gray-900 text-white w-11/12 max-w-lg p-6 rounded-lg relative shadow-lg">
-    <button onclick="document.getElementById('modalSyarat').classList.add('hidden')" class="absolute top-2 right-3 text-red-400 text-2xl font-bold">&times;</button>
-    <h2 class="text-xl font-semibold mb-4">Syarat & Ketentuan</h2>
-    <ul class="list-disc pl-5 space-y-2">
+<!-- Modal Syarat -->
+<div id="modalSyarat" onclick="this.classList.add('hidden')" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+  <div onclick="event.stopPropagation()" class="bg-gray-950 text-white w-11/12 max-w-lg p-6 rounded-lg relative shadow-2xl">
+    <button onclick="document.getElementById('modalSyarat').classList.add('hidden')" class="absolute top-2 right-3 text-red-400 text-2xl font-bold hover:text-red-300">&times;</button>
+    <h2 class="text-2xl font-bold mb-4">Syarat & Ketentuan</h2>
+    <ul class="list-disc pl-5 space-y-2 text-base leading-relaxed">
       <li>Layanan hanya untuk pembelajaran pribadi.</li>
       <li>Pembayaran bersifat final kecuali kesalahan sistem.</li>
       <li>Konten bisa berubah tanpa pemberitahuan.</li>
@@ -258,12 +258,12 @@
   </div>
 </div>
 
-<!-- Modal Template (Kebijakan Privasi) -->
-<div id="modalPrivasi" onclick="this.classList.add('hidden')" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center">
-  <div onclick="event.stopPropagation()" class="bg-gray-900 text-white w-11/12 max-w-lg p-6 rounded-lg relative shadow-lg">
-    <button onclick="document.getElementById('modalPrivasi').classList.add('hidden')" class="absolute top-2 right-3 text-red-400 text-2xl font-bold">&times;</button>
-    <h2 class="text-xl font-semibold mb-4">Kebijakan Privasi</h2>
-    <ul class="list-disc pl-5 space-y-2">
+<!-- Modal Privasi -->
+<div id="modalPrivasi" onclick="this.classList.add('hidden')" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+  <div onclick="event.stopPropagation()" class="bg-gray-950 text-white w-11/12 max-w-lg p-6 rounded-lg relative shadow-2xl">
+    <button onclick="document.getElementById('modalPrivasi').classList.add('hidden')" class="absolute top-2 right-3 text-red-400 text-2xl font-bold hover:text-red-300">&times;</button>
+    <h2 class="text-2xl font-bold mb-4">Kebijakan Privasi</h2>
+    <ul class="list-disc pl-5 space-y-2 text-base leading-relaxed">
       <li>Data Anda hanya digunakan untuk keperluan transaksi dan pembelajaran.</li>
       <li>Kami tidak membagikan data pribadi ke pihak ketiga tanpa izin.</li>
       <li>Anda dapat meminta penghapusan data dengan menghubungi kami.</li>
