@@ -230,10 +230,42 @@
   <hr>
   <img src="gbr/Poster1.png" alt="poster" style="display: block; width: 100vw; height: auto; margin: 5px auto; border: 1px solid red;" />
 
-  <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4">
-    <p>&copy; 2025 Irzal Achmad</p>
-  </footer>
+ <footer class="bg-gray-100 p-6 text-center text-sm">
+  <p>
+    <a href="#" onclick="document.getElementById('modalSyarat').style.display='block'" style="color:blue;">Syarat & Ketentuan</a> |
+    <a href="#" onclick="document.getElementById('modalPrivasi').style.display='block'" style="color:blue;">Kebijakan Privasi</a>
+  </p>
+  <hr style="margin: 1rem auto; width: 50%;">
+  <p><strong>Alamat:</strong> Toko Poster , Bukitraya, Pekanbaru, Riau </p>
+  <p><strong>Email:</strong> irzalpa20@gmail.com</p>
+  <p><strong>WhatsApp:</strong> 0821-7050-5306</p>
+  <p><strong>Media Sosial:</strong></p>
+  <p style="font-size: 1.2rem;">
+    <a href="https://portalmatematikaqu.blogspot.com" target="_blank">📝 Blog</a>
+  </p>
+  <p class="mt-4 text-xl text-gray-800">© 2025 Irzal Achmad. All rights reserved.</p>
+</footer>
 
+<!-- Modal Syarat -->
+<div id="modalSyarat" style="display:none; position:fixed; inset:0; background:#0009; z-index:50;">
+  <div style="background:white; max-width:600px; margin:10% auto; padding:1.5rem; border-radius:10px; position:relative;">
+    <a href="#" onclick="document.getElementById('modalSyarat').style.display='none'" style="position:absolute; top:10px; right:15px; font-size:20px; color:red;">&times;</a>
+    <h2>Syarat & Ketentuan</h2>
+    <ul>
+      <li>Layanan hanya untuk pembelajaran pribadi.</li>
+      <li>Pembayaran bersifat final kecuali kesalahan sistem.</li>
+      <li>Konten bisa berubah tanpa pemberitahuan.</li>
+    </ul>
+  </div>
+</div>
+<!-- Modal Privasi -->
+<div id="modalPrivasi" style="display:none; position:fixed; inset:0; background:#0009; z-index:50;">
+  <div style="background:white; max-width:600px; margin:10% auto; padding:1.5rem; border-radius:10px; position:relative;">
+    <a href="#" onclick="document.getElementById('modalPrivasi').style.display='none'" style="position:absolute; top:10px; right:15px; font-size:20px; color:red;">&times;</a>
+    <h2>Kebijakan Privasi</h2>
+    <p>Kami menghormati privasi Anda. Data digunakan hanya untuk keperluan internal dan tidak akan dibagikan ke pihak lain tanpa izin.</p>
+  </div>
+</div>
   <!-- Script Pembayaran Diperbaiki -->
   <script>
     function bayar(product_id, product_name, price) {
