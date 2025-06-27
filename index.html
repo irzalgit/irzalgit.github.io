@@ -2,43 +2,227 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pembelian Kuota Internet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hallo, sahabat</title>
+
+  <!-- Midtrans Snap -->
   <script src="https://app.sandbox.midtrans.com/snap/snap.js"
           data-client-key="SB-Mid-client-3P0gJYk_9J8zv2W1"></script>
-  <style>
-    body { font-family: Arial, sans-serif; background-color: #f9fafb; margin: 0; padding: 20px; }
-    h2 { text-align: center; margin-bottom: 20px; }
-    .carousel-container { overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-    .carousel-container::-webkit-scrollbar { display: none; }
-    .card { display: inline-block; width: 220px; margin-right: 16px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); vertical-align: top; }
-    .card-header { background: #4f46e5; color: white; padding: 12px; font-size: 18px; border-top-left-radius: 12px; border-top-right-radius: 12px; text-align: center; }
-    .card-body { padding: 16px; text-align: center; }
-    .card-body p { margin: 8px 0; color: #374151; }
-    .btn-beli { margin-top: 10px; background: #10b981; color: white; padding: 10px 20px; border-radius: 8px; font-size: 14px; cursor: pointer; border: none; }
-    .btn-beli:hover { background: #059669; }
-  </style>
+  <!-- Firebase, Tailwind, polyfill, MathJax, dst -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body>
-  <h2>Pilih Paket Kuota Internet</h2>
-  <div class="carousel-container">
-    <div class="card"><div class="card-header">Kuota 5GB</div><div class="card-body"><p>Masa aktif: 5 hari</p><p>Rp 18.000</p><button class="btn-beli" onclick="bayar('quota5gb', 'Kuota 5GB', 18000)">Beli Sekarang</button></div></div>
-    <div class="card"><div class="card-header">Kuota 10GB</div><div class="card-body"><p>Masa aktif: 7 hari</p><p>Rp 25.000</p><button class="btn-beli" onclick="bayar('quota10gb', 'Kuota 10GB', 25000)">Beli Sekarang</button></div></div>
-    <div class="card"><div class="card-header">Kuota 20GB</div><div class="card-body"><p>Masa aktif: 15 hari</p><p>Rp 40.000</p><button class="btn-beli" onclick="bayar('quota20gb', 'Kuota 20GB', 40000)">Beli Sekarang</button></div></div>
-    <div class="card"><div class="card-header">Kuota 50GB</div><div class="card-body"><p>Masa aktif: 30 hari</p><p>Rp 75.000</p><button class="btn-beli" onclick="bayar('quota50gb', 'Kuota 50GB', 75000)">Beli Sekarang</button></div></div>
-    <div class="card"><div class="card-header">Kuota Unlimited</div><div class="card-body"><p>Masa aktif: 30 hari</p><p>Rp 100.000</p><button class="btn-beli" onclick="bayar('quotaUnlimited', 'Kuota Unlimited', 100000)">Beli Sekarang</button></div></div>
+<body class="bg-blue-100 min-h-screen flex flex-col items-center justify-start">
+
+  <!-- HERO SECTION -->
+  <section class="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white py-8 px-4 shadow-md text-center">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col items-center">
+        <img src="gbr/bp.jpeg" alt="Logo" class="w-24 h-24 mb-4 object-contain">
+        <p class="mt-2 text-lg">welcome</p>
+        <h1 class="text-3xl font-bold">Portal Matematika</h1>
+        <p class="mt-2 text-lg">uji kemampuanmu dengan soal-soal pilihan</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM LOGIN -->
+  <div id="loginForm" class="bg-blue-100 p-8 rounded-2xl shadow-lg text-center transition-transform hover:scale-105 border-t-4 border-blue-400">
+    <h2 class="text-3xl font-bold mb-6 text-blue-800">Login</h2>
+    <input id="loginUsername" placeholder="Username atau Email" class="w-full mb-2 p-2 border rounded" />
+    <input id="loginPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+    <button onclick="login()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
+    <p class="mt-4 text-sm">
+      Belum punya akun?
+      <button onclick="showRegister()" class="text-blue-600 underline">Register/daftar baru</button>
+    </p>
   </div>
+
+  <!-- FORM REGISTER -->
+  <div id="registerForm" class="hidden bg-blue-100 p-8 rounded-2xl shadow-lg text-center transition-transform hover:scale-105 border-t-4 border-blue-400">
+    <h2 class="text-2xl font-bold mb-4">Register</h2>
+    <input id="regUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
+    <input id="regEmail" placeholder="Email" class="w-full mb-2 p-2 border rounded" />
+    <input id="regPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+    <button onclick="register()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Register</button>
+    <p class="mt-4 text-sm">
+      Sudah punya akun? <button onclick="showLogin()" class="text-blue-600 underline">Kembali ke Login</button>
+    </p>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="hidden w-full max-w-2xl mx-auto pt-4 sticky top-0 bg-white z-10 shadow mt-6">
+    <div class="flex justify-between items-center mb-4 px-4">
+      <h2 id="welcome" class="text-xl font-semibold"></h2>
+      <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</button>
+    </div>
+    <div id="selectContainer" class="px-4">
+      <label class="block mb-2">Pilih kelas:</label>
+      <select id="kelas" onchange="updateJenisSoal()" class="w-full p-2 border rounded mb-4">
+        <option value="">-- Pilih Kelas --</option>
+        <option value="x">X</option>
+        <option value="xi">XI</option>
+        <option value="xii">XII</option>
+        <option value="all">ALL</option>
+      </select>
+      <label class="block mb-2">Pilih jenis soal:</label>
+      <select id="jenisSoal" class="w-full p-2 border rounded mb-4">
+        <option value="">-- Pilih Jenis Soal --</option>
+      </select>
+      <button onclick="loadSoal()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full">Tampilkan Soal</button>
+    </div>
+    <div id="soalContainer" class="px-4 mt-4"></div>
+    <div id="userScores" class="bg-yellow-100 p-4 rounded shadow mt-4 hidden">
+      <h3 class="text-lg font-semibold mb-2">Skor Anda:</h3>
+      <ul id="userScoreList" class="list-disc pl-5"></ul>
+    </div>
+  </div>
+
+  <img src="gbr/bsiqris.png" alt="BSI QRIS" width="200" height="200" style="display: block; margin: 8px auto; border: 1px solid red;" />
+  <p>info / konfirmasi WA 082170505306 </p>
   
+  <button onclick="document.getElementById('tampilanSoal').classList.remove('hidden')"
+          class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700">
+    CEK SOAL
+  </button>
+
+  <!-- Kontainer tampilan soal -->
+  <div id="tampilanSoal" class="hidden mt-6 bg-white border rounded-lg shadow-lg overflow-hidden">
+    <iframe src="indexwa.html" class="w-full h-[500px] border-b"></iframe>
+    <div class="flex justify-end p-4 bg-gray-50">
+      <button onclick="document.getElementById('tampilanSoal').classList.add('hidden')"
+              class="text-red-600 font-bold hover:text-red-800">
+        × Tutup Tampilan
+      </button>
+    </div>
+  </div>
+
+  <div class="font-sans p-4 m-0 bg-white">
+    <h2 class="text-center text-lg font-semibold mb-4">Peringkat Semester Ganjil ( Juli 25 -  Desember 25)</h2>
+    <div class="overflow-x-auto w-full">
+      <table class="w-full text-sm border border-gray-300 border-collapse">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="border border-gray-300 px-2 py-1 text-center">#</th>
+            <th class="border border-gray-300 px-2 py-1 text-left">Username</th>
+            <th class="border border-gray-300 px-2 py-1 text-center w-16">Nilai</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardTable" class="[&>tr:nth-child(even)]:bg-gray-50"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="aboutBox" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white text-black rounded-2xl p-6 w-80 text-center relative">
+      <button onclick="toggleAbout()" class="absolute top-2 right-2 text-gray-600 hover:text-red-600 font-bold text-xl">&times;</button>
+      <h2 class="text-xl font-bold mb-4">Selamat Datang</h2>
+      <p id="aboutText">Terima kasih telah mengunjungi halaman ini.</p>
+    </div>
+  </div>
+
+  <!-- ===== Carousel Start ===== -->
+  <div class="relative w-full max-w-2xl mx-auto mt-6">
+    <div id="carousel" class="flex overflow-x-auto space-x-4 snap-x snap-mandatory pb-4 scroll-smooth">
+      <!-- Card Kuota 5GB -->
+      <div class="flex-shrink-0 w-56 snap-start bg-white rounded-xl shadow-md">
+        <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Kuota 5GB</div>
+        <div class="p-4 text-center">
+          <p class="text-gray-700">Masa aktif: 5 hari</p>
+          <p class="text-gray-700 mb-3">Rp 18.000</p>
+          <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
+                  onclick="bayar('quota5gb', 'Kuota 5GB', 18000)">
+            Beli Sekarang
+          </button>
+        </div>
+      </div>
+      <!-- Card Kuota 10GB -->
+      <div class="flex-shrink-0 w-56 snap-start bg-white rounded-xl shadow-md">
+        <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Kuota 10GB</div>
+        <div class="p-4 text-center">
+          <p class="text-gray-700">Masa aktif: 7 hari</p>
+          <p class="text-gray-700 mb-3">Rp 25.000</p>
+          <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
+                  onclick="bayar('quota10gb', 'Kuota 10GB', 25000)">
+            Beli Sekarang
+          </button>
+        </div>
+      </div>
+      <!-- Card Kuota 20GB -->
+      <div class="flex-shrink-0 w-56 snap-start bg-white rounded-xl shadow-md">
+        <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Kuota 20GB</div>
+        <div class="p-4 text-center">
+          <p class="text-gray-700">Masa aktif: 15 hari</p>
+          <p class="text-gray-700 mb-3">Rp 40.000</p>
+          <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
+                  onclick="bayar('quota20gb', 'Kuota 20GB', 40000)">
+            Beli Sekarang
+          </button>
+        </div>
+      </div>
+      <!-- Card Kuota 50GB -->
+      <div class="flex-shrink-0 w-56 snap-start bg-white rounded-xl shadow-md">
+        <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Kuota 50GB</div>
+        <div class="p-4 text-center">
+          <p class="text-gray-700">Masa aktif: 30 hari</p>
+          <p class="text-gray-700 mb-3">Rp 75.000</p>
+          <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
+                  onclick="bayar('quota50gb', 'Kuota 50GB', 75000)">
+            Beli Sekarang
+          </button>
+        </div>
+      </div>
+      <!-- Card Kuota Unlimited -->
+      <div class="flex-shrink-0 w-56 snap-start bg-white rounded-xl shadow-md">
+        <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Kuota Unlimited</div>
+        <div class="p-4 text-center">
+          <p class="text-gray-700">Masa aktif: 30 hari</p>
+          <p class="text-gray-700 mb-3">Rp 100.000</p>
+          <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
+                  onclick="bayar('quotaUnlimited', 'Kuota Unlimited', 100000)">
+            Beli Sekarang
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Tombol Navigasi Carousel -->
+    <button id="prevBtn" type="button" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&lt;</button>
+    <button id="nextBtn" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&gt;</button>
+  </div>
+  <!-- ===== Carousel End ===== -->
+
+  <hr>
+  <img src="gbr/Poster1.png" alt="poster" style="display: block; width: 100vw; height: auto; margin: 5px auto; border: 1px solid red;" />
+
+  <footer class="mt-auto w-full bg-blue-600 text-white text-center py-4">
+    <p>&copy; 2025 Irzal Achmad</p>
+  </footer>
+
+  <!-- Script Pembayaran Diperbaiki -->
   <script>
     function bayar(product_id, product_name, price) {
-      fetch('https://math314.vercel.app/api/snap',{
+      fetch('https://math314.vercel.app/api/snap', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ product_id, product_name, price })
       })
-      .then(response => response.json())
-      .then(data => {
-        if (data.token) {
+      .then(async response => {
+        let data;
+        try {
+          data = await response.json();
+        } catch(e) {
+          throw new Error("Respon bukan JSON: " + response.status + " " + response.statusText);
+        }
+        if (response.ok && data.token) {
           snap.pay(data.token, {
             onSuccess: result => alert("✅ Pembayaran sukses!\n" + JSON.stringify(result)),
             onPending: result => alert("⏳ Pembayaran pending.\n" + JSON.stringify(result)),
@@ -46,14 +230,34 @@
             onClose: () => alert("Popup ditutup tanpa menyelesaikan pembayaran.")
           });
         } else {
-          alert("❌ Gagal mendapatkan token pembayaran.");
+          throw new Error("Gagal mendapatkan token pembayaran: " + (data.error || JSON.stringify(data)));
         }
       })
       .catch((err) => {
         console.error(err);
-        alert("❌ Gagal menghubungi server.");
+        alert("❌ Error: " + err.message);
       });
     }
   </script>
+
+  <!-- Script Carousel Navigation -->
+  <script>
+    // Carousel Navigation
+    const carousel = document.getElementById("carousel");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const cardWidth = 224 + 16; // w-56 = 224px, gap-4 = 16px
+
+    prevBtn.onclick = () => {
+      carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    };
+    nextBtn.onclick = () => {
+      carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    };
+  </script>
+
+  <!-- Script lain (Firebase, soal, dsb) tetap seperti sebelumnya -->
+  <!-- ... seluruh script kamu yang lain (login, register, soal, dsb) ... -->
+
 </body>
 </html>
