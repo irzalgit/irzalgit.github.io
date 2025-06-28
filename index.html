@@ -415,84 +415,94 @@ document.getElementById('nextBtn').addEventListener('click', () => {
   <!-- Script lain (Firebase, soal, dsb) tetap seperti sebelumnya -->
   <!-- ... seluruh script kamu yang lain (login, register, soal, dsb) ... -->
 
+  <script>
+    const keranjang = {};
 
-<script>
-  const keranjang = {};
-
-  function ubahJumlah(id, delta) {
-    const el = document.getElementById('jumlah-' + id);
-    let jumlah = parseInt(el.textContent);
-    jumlah = Math.max(1, jumlah + delta);
-    el.textContent = jumlah;
-  }
-
-  function tambahKeKeranjang(id, nama, harga) {
-    const jumlah = parseInt(document.getElementById('jumlah-' + id).textContent);
-    if (keranjang[id]) {
-      keranjang[id].jumlah += jumlah;
-    } else {
-      keranjang[id] = { nama: nama, jumlah: jumlah, harga: harga };
-    }
-    updateKeranjang();
-  }
-
-  function updateKeranjang() {
-    const list = document.getElementById('keranjang-list');
-    list.innerHTML = '';
-    let total = 0;
-    for (const id in keranjang) {
-      const item = keranjang[id];
-      const subtotal = item.jumlah * item.harga;
-      total += subtotal;
-      const li = document.createElement('li');
-      li.textContent = `${item.nama} - ${item.jumlah} x Rp ${item.harga.toLocaleString()} = Rp ${subtotal.toLocaleString()}`;
-      list.appendChild(li);
-    }
-    document.getElementById('total-harga').textContent = total.toLocaleString();
-  }
-
-  function checkout() {
-    if (Object.keys(keranjang).length === 0) {
-      alert("Keranjang kosong. Silakan tambahkan produk terlebih dahulu.");
-      return;
+    function ubahJumlah(id, delta) {
+      const el = document.getElementById('jumlah-' + id);
+      let jumlah = parseInt(el.textContent);
+      jumlah = Math.max(1, jumlah + delta);
+      el.textContent = jumlah;
     }
 
-    let pesan = "Detail Pesanan:\n\n";
-    let total = 0;
-    for (const id in keranjang) {
-      const item = keranjang[id];
-      const subtotal = item.jumlah * item.harga;
-      total += subtotal;
-      pesan += `${item.nama} - ${item.jumlah} x Rp ${item.harga.toLocaleString()} = Rp ${subtotal.toLocaleString()}\n`;
+    function tambahKeKeranjang(id, nama, harga) {
+      const jumlah = parseInt(document.getElementById('jumlah-' + id).textContent);
+      if (keranjang[id]) {
+        keranjang[id].jumlah += jumlah;
+      } else {
+        keranjang[id] = { nama: nama, jumlah: jumlah, harga: harga };
+      }
+      updateKeranjang();
     }
-    pesan += `\nTotal: Rp ${total.toLocaleString()}`;
 
-    alert(pesan);
+    function updateKeranjang() {
+      const list = document.getElementById('keranjang-list');
+      list.innerHTML = '';
+      let total = 0;
+      for (const id in keranjang) {
+        const item = keranjang[id];
+        const subtotal = item.jumlah * item.harga;
+        total += subtotal;
+        const li = document.createElement('li');
+        li.textContent = `${item.nama} - ${item.jumlah} x Rp ${item.harga.toLocaleString()} = Rp ${subtotal.toLocaleString()}`;
+        list.appendChild(li);
+      }
+      document.getElementById('total-harga').textContent = total.toLocaleString();
+    }
 
-    // Kirim ke backend Midtrans jika tersedia (contoh)
-    /*
-    fetch('https://domainmu.com/api/snap', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ keranjang, total })
-    })
-    .then(res => res.json())
-    .then(data => {
-      window.snap.pay(data.token); // Snap Midtrans
-    });
-    */
-  }
+    function checkout() {
+      if (Object.keys(keranjang).length === 0) {
+        alert("Keranjang kosong.");
+        return;
+      }
 
-  // Carousel Scroll Buttons
-  document.getElementById('prevBtn').addEventListener('click', () => {
-    document.getElementById('carousel').scrollBy({ left: -300, behavior: 'smooth' });
-  });
+      let total = 0;
+      const itemDetails = [];
 
-  document.getElementById('nextBtn').addEventListener('click', () => {
-    document.getElementById('carousel').scrollBy({ left: 300, behavior: 'smooth' });
-  });
-</script>
+      for (const id in keranjang) {
+        const item = keranjang[id];
+        const subtotal = item.jumlah * item.harga;
+        total += subtotal;
+        itemDetails.push({
+          id: id,
+          name: item.nama,
+          price: item.harga,
+          quantity: item.jumlah
+        });
+      }
 
-
+      fetch('https://math314.vercel.app/api/snapmulti', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: itemDetails, gross_amount: total })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.token) {
+          snap.pay(data.token, {
+            onSuccess: function(result) {
+              document.getElementById('pesan').innerText = "✅ Pembayaran berhasil!";
+              console.log("Success:", result);
+            },
+            onPending: function(result) {
+              alert("⏳ Menunggu pembayaran...");
+            },
+            onError: function(result) {
+              alert("❌ Gagal: " + JSON.stringify(result));
+            },
+            onClose: function() {
+              alert("❌ Dibatalkan.");
+            }
+          });
+        } else {
+          alert("Gagal mendapatkan token");
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Terjadi kesalahan: " + err.message);
+      });
+    }
+  </script>
 </body>
 </html>
