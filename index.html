@@ -22,7 +22,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="bg-blue-100 min-h-screen flex flex-col items-center justify-start">
-
+<div id="pesan"><div>
   <!-- HERO SECTION -->
   <section class="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white py-8 px-4 shadow-md text-center">
     <div class="max-w-4xl mx-auto">
@@ -285,7 +285,9 @@
         }
         if (response.ok && data.token) {
           snap.pay(data.token, {
-            onSuccess: result => alert("✅ Pembayaran sukses!\n" + JSON.stringify(result)),
+             onSuccess: function(result) {
+        document.getElementById('pesan').innerText = "🎉 Selamat, kamu berhasil melakukan pembayaran!";
+        console.log("Sukses:", result)),
             onPending: result => alert("⏳ Pembayaran pending.\n" + JSON.stringify(result)),
             onError: result => alert("❌ Pembayaran gagal.\n" + JSON.stringify(result)),
             onClose: () => alert("Popup ditutup tanpa menyelesaikan pembayaran.")
