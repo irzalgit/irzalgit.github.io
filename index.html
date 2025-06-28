@@ -9,7 +9,7 @@
   <script src="https://app.sandbox.midtrans.com/snap/snap.js"
           data-client-key="SB-Mid-client-3P0gJYk_9J8zv2W1"></script>
   <!-- Firebase, Tailwind, polyfill, MathJax, dst -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.7js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,7 +22,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="bg-blue-100 min-h-screen flex flex-col items-center justify-start">
-<div id="pesan"><div>
+
   <!-- HERO SECTION -->
   <section class="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white py-8 px-4 shadow-md text-center">
     <div class="max-w-4xl mx-auto">
@@ -46,6 +46,7 @@
       <button onclick="showRegister()" class="text-blue-600 underline">Register/daftar baru</button>
     </p>
   </div>
+<div id="pesan">status</div>
 
   <!-- FORM REGISTER -->
   <div id="registerForm" class="hidden bg-blue-100 p-8 rounded-2xl shadow-lg text-center transition-transform hover:scale-105 border-t-4 border-blue-400">
@@ -206,7 +207,7 @@
     </button>
   </div>
 </div>
-
+<div id="pesan">
 <div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md">
   <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">
     Kuota soal kedinasan
@@ -226,7 +227,55 @@
     <button id="nextBtn" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&gt;</button>
   </div>
   <!-- ===== Carousel End ===== -->
+<!-- ===== Carousel Poster Start ===== -->
+<div class="relative w-full max-w-4xl mx-auto mt-6">
+  <h2 class="text-xl font-bold  mb-4">Poster/Mindmap  Pilihan</h2>
 
+  <div id="carousel" class="flex overflow-x-auto space-x-4 snap-x snap-mandatory pb-4 scroll-smooth px-4">
+    
+    <!-- Poster 1 -->
+    <div class="flex-shrink-0 w-60 snap-start bg-white rounded-xl shadow-md">
+      <img src="https://via.placeholder.com/200x250?text=Poster+1" class="rounded-t-xl w-full">
+      <div class="p-4 text-center">
+        <h2 class="text-lg font-semibold mb-1">Poster Matrik</h2>
+        <p class="text-sm text-gray-600">Rp 8.000</p>
+        <div class="flex justify-center items-center my-2 space-x-2">
+          <button onclick="ubahJumlah('1', -1)" class="px-3 py-1 bg-gray-300 rounded">-</button>
+          <span id="jumlah-1">1</span>
+          <button onclick="ubahJumlah('1', 1)" class="px-3 py-1 bg-gray-300 rounded">+</button>
+        </div>
+        <button onclick="tambahKeKeranjang('1', 'Poster Matrik', 8000)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+          Tambah ke Keranjang
+        </button>
+      </div>
+    </div>
+
+    <!-- Poster 2 -->
+    <div class="flex-shrink-0 w-60 snap-start bg-white rounded-xl shadow-md">
+      <img src="https://via.placeholder.com/200x250?text=Poster+2" class="rounded-t-xl w-full">
+      <div class="p-4 text-center">
+        <h2 class="text-lg font-semibold mb-1">Poster Kuadrat</h2>
+        <p class="text-sm text-gray-600">Rp 8.000</p>
+        <div class="flex justify-center items-center my-2 space-x-2">
+          <button onclick="ubahJumlah('2', -1)" class="px-3 py-1 bg-gray-300 rounded">-</button>
+          <span id="jumlah-2">1</span>
+          <button onclick="ubahJumlah('2', 1)" class="px-3 py-1 bg-gray-300 rounded">+</button>
+        </div>
+        <button onclick="tambahKeKeranjang('2', 'Poster Kuadrat', 8000)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+          Tambah ke Keranjang
+        </button>
+      </div>
+    </div>
+
+    <!-- Tambahkan poster lain sesuai kebutuhan -->
+
+  </div>
+
+  <!-- Tombol Navigasi -->
+  <button id="prevBtn" type="button" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&lt;</button>
+  <button id="nextBtn" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&gt;</button>
+</div>
+<!-- ===== Carousel Poster End ===== -->
   <hr>
   <img src="gbr/Poster1.png" alt="poster" style="display: block; width: 100vw; height: auto; margin: 5px auto; border: 1px solid red;" />
  <footer class="bg-black text-white p-6 text-center text-sm">
@@ -268,41 +317,49 @@
       <li>Anda dapat meminta penghapusan data dengan menghubungi kami.</li>
     </ul>
   </div>
+  
 </div>
-  <script>
-    function bayar(product_id, product_name, price) {
-      fetch('https://math314.vercel.app/api/snap', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ product_id, product_name, price })
-      })
-      .then(async response => {
-        let data;
-        try {
-          data = await response.json();
-        } catch(e) {
-          throw new Error("Respon bukan JSON: " + response.status + " " + response.statusText);
-        }
-        if (response.ok && data.token) {
-          snap.pay(data.token, {
-             onSuccess: function(result) {
-        document.getElementById('pesan').innerText = "🎉 Selamat, kamu berhasil melakukan pembayaran!";
-        console.log("Sukses:", result)),
-            onPending: result => alert("⏳ Pembayaran pending.\n" + JSON.stringify(result)),
-            onError: result => alert("❌ Pembayaran gagal.\n" + JSON.stringify(result)),
-            onClose: () => alert("Popup ditutup tanpa menyelesaikan pembayaran.")
-          });
-        } else {
-          throw new Error("Gagal mendapatkan token pembayaran: " + (data.error || JSON.stringify(data)));
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        alert("❌ Error: " + err.message);
-      });
-    }
-  </script>
+ <script>
+  function bayar(product_id, product_name, price) {
+    fetch('https://math314.vercel.app/api/snap', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ product_id, product_name, price })
+    })
+    .then(async response => {
+      let data;
+      try {
+        data = await response.json();
+      } catch(e) {
+        throw new Error("Respon bukan JSON: " + response.status + " " + response.statusText);
+      }
 
+      if (response.ok && data.token) {
+        snap.pay(data.token, {
+          onSuccess: function(result) {
+            document.getElementById('pesan').innerText = "🎉 Selamat, kamu berhasil melakukan pembayaran!";
+            console.log("Pembayaran sukses:", result);
+          },
+          onPending: function(result) {
+            alert("⏳ Pembayaran pending.\n" + JSON.stringify(result));
+          },
+          onError: function(result) {
+            alert("❌ Pembayaran gagal.\n" + JSON.stringify(result));
+          },
+          onClose: function() {
+            alert("Popup ditutup tanpa menyelesaikan pembayaran.");
+          }
+        });
+      } else {
+        throw new Error("Gagal mendapatkan token pembayaran: " + (data.error || JSON.stringify(data)));
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("❌ Error: " + err.message);
+    });
+  }
+</script>
   <!-- Script Carousel Navigation -->
   <script>
     // Carousel Navigation
@@ -318,9 +375,34 @@
       carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
     };
   </script>
+  
+  <script>
+      
+      function ubahJumlah(id, delta) {
+  const el = document.getElementById('jumlah-' + id);
+  let jumlah = parseInt(el.textContent);
+  jumlah = Math.max(1, jumlah + delta);
+  el.textContent = jumlah;
+}
+
+function tambahKeKeranjang(id, nama, harga) {
+  alert(`${nama} (${document.getElementById('jumlah-' + id).textContent}x) ditambahkan ke keranjang.`);
+}
+
+// Navigasi scroll carousel
+document.getElementById('prevBtn').addEventListener('click', () => {
+  document.getElementById('carousel').scrollBy({ left: -300, behavior: 'smooth' });
+});
+document.getElementById('nextBtn').addEventListener('click', () => {
+  document.getElementById('carousel').scrollBy({ left: 300, behavior: 'smooth' });
+});
+  </script>
 
   <!-- Script lain (Firebase, soal, dsb) tetap seperti sebelumnya -->
   <!-- ... seluruh script kamu yang lain (login, register, soal, dsb) ... -->
+
+
+
 
 </body>
 </html>
