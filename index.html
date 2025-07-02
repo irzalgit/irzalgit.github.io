@@ -4,23 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hallo, sahabat</title>
-
-  <!-- Midtrans Snap -->
-  <script src="https://app.sandbox.midtrans.com/snap/snap.js"
-          data-client-key="SB-Mid-client-3P0gJYk_9J8zv2W1"></script>
-  <!-- Firebase, Tailwind, polyfill, MathJax, dst -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.7js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+  <!-- Tailwind (boleh tetap di head karena styling lebih awal) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+
 </head>
+
+
 <body class="bg-blue-100 min-h-screen flex flex-col items-center justify-start">
 
   <!-- HERO SECTION -->
@@ -138,11 +132,11 @@
       <div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md">
         <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Aktivasi 1 </div>
         <div class="p-4 text-center">
-         <p class="text-gray-700 text-xs">1 Semester (sampai 24 Desember 25)</p>
+         <p class="text-gray-700 text-xs">1 Semester (aktif sampai 24 Desember 25)</p>
           <p class="text-gray-700 mb-3">Rp 18.000</p>
           <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
                   onclick="bayar('quota6bl', 'Aktivasi6bl', 18000)">
-            Beli Sekarang
+            Beli
           </button>
         </div>
       </div>
@@ -150,11 +144,11 @@
       <div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md">
         <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Aktivasi 2</div>
         <div class="p-4 text-center">
-          <p class="text-gray-700 text-xs">1 Tahun (sampai 24 Juli 26)</p>
+          <p class="text-gray-700 text-xs">1 Tahun (aktif sampai 24 Juli 26)</p>
           <p class="text-gray-700 mb-3">Rp 25.000</p>
           <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
                   onclick="bayar('quota1th', 'Aktivasi1th', 25000)">
-            Beli Sekarang
+            Beli
           </button>
         </div>
       </div>
@@ -166,113 +160,69 @@
           <p class="text-gray-700 mb-3">Rp 1.000</p>
           <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
                   onclick="bayar('quota10h', 'Harian', 1000)">
-            Beli Sekarang
+            Beli
           </button>
         </div>
       </div>
       <!-- Card Kuota 50GB -->
-      <div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md">
-        <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Kuota soal SMA/K </div>
-        <div class="p-4 text-center">
-          <p class="text-gray-700 text-xs">Jumlah soal 100</p>
-          <p class="text-gray-700 mb-3">Rp 10.000</p>
-          <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
-                  onclick="bayar('Kuota soal 100', 'Kuota 100', 10000)">
-            Beli Sekarang
-          </button>
-        </div>
-      </div>
+     
       <!-- Card Kuota U0nlimited -->
-      <div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md">
-        <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Kuota soal UTBK</div>
-        <div class="p-4 text-center">
-        <p class="text-gray-700 text-xs">Jumlah soal 300</p>
-          <p class="text-gray-700 mb-3">Rp 60.000</p>
-          <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
-                  onclick="bayar('quotautbk', 'Kuota 300', 60000)">
-            Beli Sekarang
-          </button>
-        </div>
-      </div>
-      <div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md">
-  <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">
-    Kuota soal IQ
-  </div>
-  <div class="p-4 text-center">
-    <p class="text-gray-700 text-xs">Jumlah soal 100</p>
-    <p class="text-gray-700 mb-3">Rp 40.000</p>
-    <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
-            onclick="bayar('Kuota soal IQ', 'Kuota IQ', 40000)">
-      Beli Sekarang
-    </button>
-  </div>
-</div>
-<div id="pesan">
-<div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md">
-  <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">
-    Kuota soal kedinasan
-  </div>
-  <div class="p-4 text-center bg-black text-white">
-    <p class="text-sm">Jumlah soal 100</p>
-    <p class="text-sm mb-3">Rp 50.000</p>
-    <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
-            onclick="bayar('Kuota soal dinas', 'Kuota dinas 100', 50000)">
-      Beli Sekarang
-    </button>
-  </div>
-</div>
+     
+     
+
+
     </div>
-    <!-- Tombol Navigasi Carousel -->
+ 
+
     <button id="prevBtn" type="button" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&lt;</button>
     <button id="nextBtn" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&gt;</button>
   </div>
-  <!-- ===== Carousel End ===== -->
-<!-- ===== Carousel Poster Start ===== -->
-<div class="relative w-full max-w-4xl mx-auto mt-6">
-  <h2 class="text-xl font-bold  mb-4">Poster/Mindmap  Pilihan</h2>
+  <div class="relative w-full max-w-4xl mx-auto mt-6">
+  <h2 class="text-xl font-bold mb-4">Kumpulan soal  pilihan</h2>
 
+  <!-- Carousel Container -->
   <div id="carousel" class="flex overflow-x-auto space-x-4 snap-x snap-mandatory pb-4 scroll-smooth px-4">
     
-    <!-- Poster 1 -->
-    <div class="flex-shrink-0 w-60 snap-start bg-white rounded-xl shadow-md">
-      <img src="https://via.placeholder.com/200x250?text=Poster+1" class="rounded-t-xl w-full">
+    <!-- Item 1 -->
+    <div class="flex-shrink-0 w-30 snap-start bg-white rounded-xl shadow-md">
       <div class="p-4 text-center">
-        <h2 class="text-lg font-semibold mb-1">Poster Matrik</h2>
-        <p class="text-sm text-gray-600">Rp 8.000</p>
+        <h2 class="text-sm font-semibold mb-1">Soal UTBK</h2>
+        <p class="text-sm text-gray-600">Rp 300/soal</p>
         <div class="flex justify-center items-center my-2 space-x-2">
           <button onclick="ubahJumlah('1', -1)" class="px-3 py-1 bg-gray-300 rounded">-</button>
           <span id="jumlah-1">1</span>
           <button onclick="ubahJumlah('1', 1)" class="px-3 py-1 bg-gray-300 rounded">+</button>
         </div>
-        <button onclick="tambahKeKeranjang('1', 'Poster Matrik', 8000)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
-          Tambah ke Keranjang
+        <button onclick="tambahKeKeranjang('1', 'Soal UTBK', 300)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+          Tambah
         </button>
       </div>
     </div>
 
-    <!-- Poster 2 -->
-    <div class="flex-shrink-0 w-60 snap-start bg-white rounded-xl shadow-md">
-      <img src="https://via.placeholder.com/200x250?text=Poster+2" class="rounded-t-xl w-full">
+    <!-- Item 2 -->
+    <div class="flex-shrink-0 w-30 snap-start bg-white rounded-xl shadow-md">
       <div class="p-4 text-center">
-        <h2 class="text-lg font-semibold mb-1">Poster Kuadrat</h2>
-        <p class="text-sm text-gray-600">Rp 8.000</p>
+        <h2 class="text-sm font-semibold mb-1">UN/TKA</h2>
+        <p class="text-sm text-gray-600">Rp 200/soal</p>
         <div class="flex justify-center items-center my-2 space-x-2">
           <button onclick="ubahJumlah('2', -1)" class="px-3 py-1 bg-gray-300 rounded">-</button>
           <span id="jumlah-2">1</span>
           <button onclick="ubahJumlah('2', 1)" class="px-3 py-1 bg-gray-300 rounded">+</button>
         </div>
-        <button onclick="tambahKeKeranjang('2', 'Poster Kuadrat', 8000)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
-          Tambah ke Keranjang
+        <button onclick="tambahKeKeranjang('2', 'UN/TKA', 200)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+          Tambah
         </button>
       </div>
     </div>
-    
-    
-
-    <!-- Tambahkan poster lain sesuai kebutuhan -->
 
   </div>
-  
+
+  <!-- Carousel Navigation Buttons -->
+  <button id="prevBtn" type="button" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&lt;</button>
+  <button id="nextBtn" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&gt;</button>
+</div>
+
+<!-- Keranjang Belanja -->
 <div class="max-w-4xl mx-auto mt-8 p-6 bg-white rounded-xl shadow">
   <h2 class="text-xl font-bold mb-4">Keranjang Belanja</h2>
   <ul id="keranjang-list" class="space-y-2 text-sm"></ul>
@@ -281,16 +231,7 @@
     Checkout Sekarang
   </button>
 </div>
-
-  <!-- Tombol Navigasi -->
-  <button id="prevBtn" type="button" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&lt;</button>
-  <button id="nextBtn" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&gt;</button>
-</div>
-
-
-
-<!-- ===== Carousel Poster End ===== -->
-  <hr>
+  
   <img src="gbr/Poster1.png" alt="poster" style="display: block; width: 100vw; height: auto; margin: 5px auto; border: 1px solid red;" />
  <footer class="bg-black text-white p-6 text-center text-sm">
   <p>
@@ -320,6 +261,7 @@
   </div>
 </div>
 
+
 <!-- Modal Privasi -->
 <div id="modalPrivasi" onclick="this.classList.add('hidden')" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
   <div onclick="event.stopPropagation()" class="bg-gray-950 text-white w-11/12 max-w-lg p-6 rounded-lg relative shadow-2xl">
@@ -333,49 +275,332 @@
   </div>
   
 </div>
+
+
  <script>
-  function bayar(product_id, product_name, price) {
-    fetch('https://math314.vercel.app/api/snap', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ product_id, product_name, price })
-    })
+     
+    
+  // Pindahkan deklarasi variabel db ke level paling atas
+   // Deklar let db; // Dasikan di sini agar bisa diakses global
+
+   const firebaseConfig = {
+        apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
+        authDomain: "math314-app.firebaseapp.com",
+        databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
+        projectId: "math314-app",
+        storageBucket: "math314-app.appspot.com",
+        messagingSenderId: "9019551034",
+        appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
+        measurementId: "G-VWYDTY9LF6"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.database();
+
+    let currentUid = null;
+    let currentUsername = "";
+
+
+ const leaderboardRef = db.ref('data_siswa');
+
+leaderboardRef.on('value',snapshot => {
+    const data = snapshot.val();
+    const leaderboardArray = [];
+
+    for (const uid in data) {
+        const siswa = data[uid];
+        let totalNilai = 0;
+
+        for (const key in siswa) {
+            if (key.startsWith('skor_') && typeof siswa[key] === 'number') {
+                totalNilai += siswa[key];
+            }
+        }
+
+        leaderboardArray.push({
+            username: (siswa.username || uid).toUpperCase(),
+            total: totalNilai
+        });
+    }
+
+    leaderboardArray.sort((a, b) => b.total - a.total);
+
+    const tbody = document.getElementById('leaderboardTable');
+    tbody.innerHTML = ''; // Kosongkan dulu sebelum menambahkan
+
+    leaderboardArray.forEach((entry, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td class="border border-gray-300 px-2 py-1 text-center">${index + 1}</td>
+            <td class="border border-gray-300 px-2 py-1 text-left">${entry.username}</td>
+            <td class="border border-gray-300 px-2 py-1 text-center">${entry.total}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+});
+    const jenisSoalMap = {
+        x: ['kuadrat', 'trigonometri', 'statistik'],
+        xi: ['lingkaran', 'peluang', 'regresi'],
+        xii: ['integral', 'deferensial'],
+        all: [
+            'bilanganberpangkat', 'pertidaksamaan', 'SPTLTV', 'kuadrat', 'eksponen',
+            'barisan dan deret', 'statistik', 'integral', 'matrik', 'fungsikomposisi',
+            'transformasi', 'lingkaran', 'vektor', 'logika matematika', 'aritmatika sosial',
+            'program linier', 'limit', 'deferensial', 'integral'
+        ]
+    };
+
+
+   function showRegister() {
+        document.getElementById("loginForm").classList.add("hidden");
+        document.getElementById("registerForm").classList.remove("hidden");
+    }
+
+    function showLogin() {
+        document.getElementById("registerForm").classList.add("hidden");
+        document.getElementById("loginForm").classList.remove("hidden");
+    }
+
+  // ... semua fungsi lainnya tetap di bawah inisialisasi ini ...
+
+  async function register() {
+  const username = regUsername.value;
+  const email = regEmail.value;
+  const password = regPassword.value;
+
+  try {
+    const userCred = await auth.createUserWithEmailAndPassword(email, password);
+    const uid = userCred.user.uid;
+
+    await db.ref("data_siswa/" + uid).set({
+      username,
+      email,
+      nilai: {},
+      approved: false
+    });
+
+    await db.ref("username_map/" + username).set(email);
+    alert("Registrasi berhasil!");
+
+    // Tampilkan container keranjang dan QRIS
+    const bayarContainer = document.getElementById("bayar-container");
+    bayarContainer.style.display = "flex";
+    bayarContainer.style.gap = "20px";
+
+    // Tambahkan event ke tombol bayar
+    const bayarBtn = document.getElementById("bayar-btn");
+    bayarBtn.addEventListener("click", () => {
+      const qrisImg = document.getElementById("qris-img");
+      qrisImg.style.display = "block";
+    });
+
+  } catch (err) {
+    alert("Gagal registrasi: " + err.message);
+  }
+}
+  async function login() {
+  const loginInput = document.getElementById("loginUsername").value.trim();
+  const password = document.getElementById("loginPassword").value;
+
+  try {
+    const snapshot = await db.ref("data_siswa").once("value");
+    const users = snapshot.val();
+
+    let matchedUser = null;
+    let matchedUid = null;
+
+    for (const uid in users) {
+      const user = users[uid];
+      if ((user.username === loginInput || user.email === loginInput) && user.password === password) {
+        matchedUser = user;
+        matchedUid = uid;
+        break;
+      }
+    }
+
+    if (!matchedUser) {
+      alert("Username/email atau password salah.");
+      return;
+    }
+
+    currentUid = matchedUid; // Simpan uid global
+    const userData = matchedUser;
+
+    // ✅ CEK STATUS APPROVED & EXPIRED
+    if (userData.approved === true && userData.expired_at === "2025-12-24") {
+      // Bersihkan layar
+      document.body.innerHTML = "";
+
+      // Tampilkan pesan dan tombol lanjut
+      const welcomeBox = `
+        <div class="flex flex-col items-center justify-center min-h-screen bg-blue-100 text-center p-6">
+          <h1 class="text-2xl font-bold text-blue-800 mb-6">🎉 Selamat datang kembali!</h1>
+          <button onclick="lanjutkan()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded text-lg">
+            Lanjut
+          </button>
+        </div>
+      `;
+
+      document.body.innerHTML = welcomeBox;
+      return;
+    }
+
+    // Jika belum approve
+    if (userData.approved !== true) {
+      alert("Akun Anda belum aktif. Silakan scan QRIS untuk aktivasi.");
+      const dashboard = document.getElementById("dashboard");
+      currentUid = matchedUid;
+
+      const qrisBox = `
+        <div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md" id="qrisBox">
+          <div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Aktivasi 1</div>
+          <div class="p-4 text-center">
+            <p class="text-gray-700 text-xs">1 Semester (sampai 24 Desember 2025)</p>
+            <p class="text-gray-700 mb-3">Rp 18.000</p>
+            <button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
+              onclick="bayar('quota6bl', 'Aktivasi6bl', 18000)">
+              Bayar Sekarang
+            </button>
+          </div>
+        </div>
+      `;
+
+      if (dashboard && !document.getElementById("qrisBox")) {
+        dashboard.insertAdjacentHTML("afterbegin", qrisBox);
+      }
+
+      return;
+    }
+
+  } catch (err) {
+    console.error("Gagal login:", err);
+    alert("Terjadi kesalahan saat login.");
+  }
+}
+
+  function logout() {
+    auth.signOut().then(() => {
+      document.getElementById("dashboard").classList.add("hidden");
+      document.getElementById("loginForm").classList.remove("hidden");
+    });
+  }
+
+  function loginWithGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider).then(async ({ user }) => {
+      const uid = user.uid;
+      const ref = db.ref("data_siswa/" + uid);
+      const snapshot = await ref.once("value");
+
+      if (!snapshot.exists()) {
+        await ref.set({
+          username: user.displayName || "google_user",
+          email: user.email,
+          approved: false,
+          expired_at: "",
+          nilai: {}
+        });
+      }
+
+      document.getElementById("loginForm").classList.add("hidden");
+      document.getElementById("dashboard").classList.remove("hidden");
+      document.getElementById("welcome").innerText = "Halo, " + (user.displayName || user.email);
+    }).catch(err => alert("Google login gagal: " + err.message));
+  }
+
+  function resetPassword() {
+    const email = prompt("Masukkan email untuk reset password:");
+    if (!email) return;
+    auth.sendPasswordResetEmail(email)
+      .then(() => alert("Link reset password telah dikirim ke email Anda."))
+      .catch(err => alert("Gagal kirim email: " + err.message));
+  }
+
+
+  function toggleForm(showRegisterForm) {
+    document.getElementById("loginForm").classList.toggle("hidden", showRegisterForm);
+    document.getElementById("registerForm").classList.toggle("hidden", !showRegisterForm);
+  }
+
+    function updateJenisSoal() {
+    const kelas = document.getElementById("kelas").value;
+    const jenisSelect = document.getElementById("jenisSoal");
+    jenisSelect.innerHTML = "";
+
+    const jenisMap = {
+      x: ["Peluang", "Fungsi Kuadrat", "Matriks"],
+      xi: ["Barisan", "Statistika", "Integral"],
+      xii: ["Turunan", "Program Linear", "Limit"],
+      all: ["Peluang", "Fungsi Kuadrat", "Matriks", "Barisan", "Statistika", "Integral", "Turunan", "Program Linear", "Limit"]
+    };
+
+    if (kelas && jenisMap[kelas]) {
+      jenisSelect.innerHTML = '<option value="">-- Pilih Jenis Soal --</option>';
+      jenisMap[kelas].forEach(jenis => {
+        const opt = document.createElement("option");
+        opt.value = jenis.toLowerCase().replace(/ /g, "_");
+        opt.textContent = jenis;
+        jenisSelect.appendChild(opt);
+      });
+    }
+  }
+
+  
+</script>
+
+
+  <!-- Script Carousel Navigation -->
+  <script>
+      
+ function bayar(product_id, product_name, price) {
+  fetch('https://math314.vercel.app/api/snap', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ product_id, product_name, price })
+  })
     .then(async response => {
       let data;
       try {
         data = await response.json();
-      } catch(e) {
+      } catch (e) {
         throw new Error("Respon bukan JSON: " + response.status + " " + response.statusText);
       }
 
       if (response.ok && data.token) {
         snap.pay(data.token, {
-          onSuccess: function(result) {
+          onSuccess: result => {
             document.getElementById('pesan').innerText = "🎉 Selamat, kamu berhasil melakukan pembayaran!";
             console.log("Pembayaran sukses:", result);
+
+            // Update status approve dan expired_at ke Firebase
+            if (currentUid) {
+              const expiredDate = "2025-12-24"; // Format bisa disesuaikan
+              db.ref("data_siswa/" + currentUid).update({
+                approved: true,
+                expired_at: expiredDate
+              }).then(() => {
+                console.log("✅ Status akun diperbarui setelah pembayaran.");
+              }).catch(err => {
+                console.error("❌ Gagal memperbarui status:", err);
+              });
+            } else {
+              console.error("❌ UID tidak ditemukan. Tidak dapat update status.");
+            }
           },
-          onPending: function(result) {
-            alert("⏳ Pembayaran pending.\n" + JSON.stringify(result));
-          },
-          onError: function(result) {
-            alert("❌ Pembayaran gagal.\n" + JSON.stringify(result));
-          },
-          onClose: function() {
-            alert("Popup ditutup tanpa menyelesaikan pembayaran.");
-          }
+          onPending: result => alert("⏳ Pembayaran pending.\n" + JSON.stringify(result)),
+          onError: result => alert("❌ Pembayaran gagal.\n" + JSON.stringify(result)),
+          onClose: () => alert("Popup ditutup tanpa menyelesaikan pembayaran.")
         });
       } else {
         throw new Error("Gagal mendapatkan token pembayaran: " + (data.error || JSON.stringify(data)));
       }
     })
-    .catch((err) => {
+    .catch(err => {
       console.error(err);
       alert("❌ Error: " + err.message);
     });
-  }
-</script>
-  <!-- Script Carousel Navigation -->
-  <script>
+}
     // Carousel Navigation
     const carousel = document.getElementById("carousel");
     const prevBtn = document.getElementById("prevBtn");
@@ -503,6 +728,46 @@ document.getElementById('nextBtn').addEventListener('click', () => {
         alert("Terjadi kesalahan: " + err.message);
       });
     }
+    
+    
+
+
+
+    
+    
+    
   </script>
+  
+ <script>
+  function lanjutkan() {
+    alert("🔵 Aplikasi dimulai...");
+    // Arahkan ke dashboard atau halaman soal
+    // window.location.href = "soal.html"; // Jika punya halaman lanjut
+  }
+</script>
+
+
+  <!-- Konten HTML kamu di sini -->
+
+  <!-- Script dipindahkan ke akhir body -->
+  <!-- Firebase SDK v9 compat -->
+ 
+
+
+
+  <script src="https://app.sandbox.midtrans.com/snap/snap.js"
+          data-client-key="SB-Mid-client-3P0gJYk_9J8zv2W1"></script>
+
+  <!-- Polyfill ES6 support -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+  <!-- MathJax Configuration & Library -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
 </body>
 </html>
