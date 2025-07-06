@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MathMaster - Portal</title>
-
+  <title>Hello Sahabat</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -101,9 +101,7 @@
     </ul>
   </div>
 
-  <footer class="mt-10 text-xs text-gray-400 text-center">
-    © 2025 Irzal Achmad. Semua Hak Dilindungi.
-  </footer>
+ 
 </div>
 
 <!-- ================= HALAMAN PREMIUM ================= -->
@@ -112,7 +110,83 @@
   <div id="daftarSoal" class="space-y-4 mb-4"></div>
   <button onclick="kembali()" class="bg-gray-300 px-4 py-2 rounded">⬅️ Kembali</button>
 </div>
+<section id="privasi" class="py-16 px-6 bg-white text-gray-800">
+  <h2 class="text-xl font-bold mb-4">Kebijakan Privasi</h2>
+  <p class="mb-4">
+    Kami menghargai privasi pengguna dan berkomitmen melindungi data pribadi Anda. Informasi yang dikumpulkan hanya digunakan untuk keperluan layanan dan tidak dibagikan tanpa izin. 
+    Data seperti nama, email, dan skor hanya disimpan di sistem kami secara aman. Kami menggunakan Firebase untuk menyimpan dan mengelola data secara terenkripsi. 
+    Dengan menggunakan platform ini, Anda setuju dengan kebijakan privasi yang berlaku.
+  </p>
+</section>
+<hr>
+<section id="syarat" class="py-16 px-6 bg-gray-100 text-gray-800">
+  <h2 class="text-xl font-bold mb-4">Syarat & Ketentuan</h2>
+  <p class="mb-4">
+    Dengan menggunakan layanan Portal Matematika, pengguna dianggap telah membaca dan menyetujui syarat yang berlaku. 
+    Pengguna wajib menggunakan data yang benar saat login dan dilarang menyalahgunakan sistem. 
+    Seluruh materi dalam platform hanya boleh digunakan untuk tujuan edukasi pribadi. 
+    Kami berhak menghentikan akses jika terdeteksi adanya pelanggaran aturan. 
+    Perubahan syarat akan diumumkan melalui platform dan berlaku segera setelah diperbarui.
+  </p>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white px-6 py-10">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
 
+    <!-- Kontak -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4">Hubungi Kami</h2>
+      <p class="mb-2">
+        <i class="fab fa-whatsapp text-green-400 mr-2"></i>
+        <a href="https://wa.me/6282170505306" target="_blank" class="hover:underline text-green-400">0821-7050-5306</a>
+      </p>
+      <p class="mb-2">
+        <i class="fas fa-envelope text-blue-400 mr-2"></i>
+        <a href="mailto:irzalpa20@gmail.com" class="hover:underline text-blue-400">mail</a>
+      </p>
+    </div>
+
+    <!-- Tautan -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4">Tautan Penting</h2>
+      <ul class="space-y-2">
+        <li>
+          <i class="fas fa-lock text-gray-400 mr-2"></i>
+          <a href="#privasi" class="hover:underline text-gray-300">Kebijakan Privasi</a>
+        </li>
+        <li>
+          <i class="fas fa-file-contract text-gray-400 mr-2"></i>
+          <a href="#syarat" class="hover:underline text-gray-300">Syarat & Ketentuan</a>
+        </li>
+        <li>
+          <i class="fas fa-address-card text-gray-400 mr-2"></i>
+          <a href="#kontak" class="hover:underline text-gray-300">Kontak</a>
+        </li>
+        <li>
+          <i class="fas fa-blog text-gray-400 mr-2"></i>
+          <a href="https://portalmatematikaqu.blogspot.com" class="hover:underline text-gray-300">Blog Kami</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tentang -->
+    <div>
+      <h2 class="text-lg font-semibold mb-4">Tentang Portal Matematika</h2>
+      <p class="text-gray-400 mb-2">Platform belajar Matematika interaktif untuk siswa Indonesia dari SD hingga SMA.</p>
+      <p class="text-xl text-gray-500 mt-4">
+        <i class="far fa-copyright mr-1"></i>
+         2025 B'PHY . All rights reserved.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Credit -->
+  <div class="mt-10 text-center text-sm text-gray-500">
+    Dibuat dengan <i class="fas fa-heart text-red-500 mx-1"></i> oleh 
+    <a href="https://github.com/irzalgit" target="_blank" class="text-blue-400 hover:underline">Irzal Achmad</a>
+  </div>
+</footer>
 <!-- ================= SCRIPT UTAMA ================= -->
 <script>
   document.getElementById("loginBtn").onclick = () => {
