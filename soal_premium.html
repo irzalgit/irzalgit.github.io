@@ -5,61 +5,130 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Soal Premium - MathMaster</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body class="bg-gray-100 min-h-screen p-6">
 
-  <!-- Tombol Kembali -->
-  <div class="mb-6">
-    <button onclick="window.location.href='index.html'" 
+  <!-- Header: Logout & Kembali -->
+  <div class="flex justify-between items-center mb-4">
+    <button onclick="window.location.href='index.html'"
             class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded shadow">
       ⬅️ Kembali ke Beranda
     </button>
+    <div>
+      <p id="user-info" class="text-sm text-gray-700 mb-1 text-right"></p>
+      <button onclick="logout()"
+              class="text-sm text-red-600 underline hover:text-red-800">
+        Logout
+      </button>
+    </div>
   </div>
 
   <!-- Judul Halaman -->
-  <h1 class="text-2xl font-bold text-blue-800 mb-4">🎓 Soal Premium Matematika</h1>
+  <h1 class="text-2xl font-bold text-blue-800 mb-6">🎓 Soal Premium Matematika</h1>
 
-  <!-- Soal 1 -->
-  <div class="bg-white p-4 rounded shadow mb-6">
-    <p class="font-semibold mb-2">1. Hasil dari 2x² + 3x - 5 = 0 untuk x = 2 adalah?</p>
-    <label><input type="checkbox" name="q1" value="a"> A. 5</label><br>
-    <label><input type="checkbox" name="q1" value="b"> B. 7</label><br>
-    <label><input type="checkbox" name="q1" value="c"> C. 9</label><br>
-    <label><input type="checkbox" name="q1" value="d"> D. 11</label><br>
-    <label><input type="checkbox" name="q1" value="e"> E. 15</label>
-  </div>
-
-  <!-- Soal 2 -->
-  <div class="bg-white p-4 rounded shadow mb-6">
-    <p class="font-semibold mb-2">2. Jika sin(x) = 0.5, maka x bisa bernilai...</p>
-    <label><input type="checkbox" name="q2" value="a"> A. 30°</label><br>
-    <label><input type="checkbox" name="q2" value="b"> B. 60°</label><br>
-    <label><input type="checkbox" name="q2" value="c"> C. 90°</label><br>
-    <label><input type="checkbox" name="q2" value="d"> D. 120°</label><br>
-    <label><input type="checkbox" name="q2" value="e"> E. 150°</label>
-  </div>
+  <!-- Container Soal -->
+  <div id="container-soal" class="space-y-6"></div>
 
   <!-- Tombol Cek Nilai -->
-  <div class="text-center">
-    <button onclick="cekNilai()" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded shadow">
+  <div class="text-center mt-8">
+    <button onclick="cekNilai()"
+            class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded shadow">
       ✅ Cek Nilai
     </button>
     <p id="hasil" class="mt-4 text-lg font-bold text-blue-700"></p>
   </div>
 
   <script>
+    // Konfigurasi Firebase (ganti sesuai project kamu)
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "math314.firebaseapp.com",
+      databaseURL: "https://math314-default-rtdb.firebaseio.com",
+      projectId: "math314"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    let dataSoalGlobal = {};
+
+    // Cek status login
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        document.getElementById("user-info").textContent = "👋 Halo, " + user.displayName;
+
+        firebase.database().ref("/peluang").once("value")
+          .then(snapshot => {
+            const semuaSoal = snapshot.val();
+            tampilkanSemuaSoal(semuaSoal);
+          })
+          .catch(error => {
+            console.error("❌ Gagal ambil soal:", error.message);
+          });
+
+      } else {
+        alert("🚫 Kamu belum login. Arahkan ke halaman login.");
+        window.location.href = "index.html";
+      }
+    });
+
+    function tampilkanSemuaSoal(semuaSoal) {
+      const container = document.getElementById("container-soal");
+      let nomor = 1;
+
+      Object.entries(semuaSoal).forEach(([key, soal]) => {
+        dataSoalGlobal[key] = soal;
+
+        const div = document.createElement("div");
+        div.className = "bg-white p-4 rounded shadow";
+
+        const p = document.createElement("p");
+        p.className = "font-semibold mb-2";
+        p.textContent = nomor + ". " + soal.pertanyaan;
+        div.appendChild(p);
+
+        soal.pilihan.forEach((item, index) => {
+          const label = document.createElement("label");
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.name = key;
+          checkbox.value = index;
+          label.appendChild(checkbox);
+          label.innerHTML += " " + item.teks;
+          div.appendChild(label);
+          div.appendChild(document.createElement("br"));
+        });
+
+        container.appendChild(div);
+        nomor++;
+      });
+    }
+
     function cekNilai() {
       let skor = 0;
+      let totalSoal = Object.keys(dataSoalGlobal).length;
 
-      // Soal 1: Jawaban benar adalah C (2x² + 3x - 5 = 2*4 + 6 - 5 = 9)
-      const jawaban1 = [...document.querySelectorAll('input[name="q1"]:checked')].map(cb => cb.value);
-      if (jawaban1.length === 1 && jawaban1.includes("c")) skor++;
+      Object.entries(dataSoalGlobal).forEach(([key, soal]) => {
+        const jawabanBenar = soal.pilihan.map((p, i) => p.benar ? i.toString() : null).filter(i => i !== null);
+        const jawabanUser = [...document.querySelectorAll('input[name="' + key + '"]:checked')].map(cb => cb.value);
 
-      // Soal 2: sin(x) = 0.5 → x = 30° atau 150°
-      const jawaban2 = [...document.querySelectorAll('input[name="q2"]:checked')].map(cb => cb.value);
-      if (jawaban2.includes("a") && jawaban2.includes("e") && jawaban2.length === 2) skor++;
+        const benar = jawabanUser.length === jawabanBenar.length &&
+                      jawabanUser.every(v => jawabanBenar.includes(v));
 
-      document.getElementById("hasil").innerText = `Nilai kamu: ${skor} dari 2 soal`;
+        if (benar) skor++;
+      });
+
+      document.getElementById("hasil").innerText = `✅ Skor kamu: ${skor} dari ${totalSoal} soal`;
+    }
+
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        alert("Logout berhasil.");
+        window.location.href = "index.html";
+      });
     }
   </script>
 
