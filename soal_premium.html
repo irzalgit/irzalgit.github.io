@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soal Premium - MathMaster</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+
+  <!-- Tombol Kembali -->
+  <div class="mb-6">
+    <button onclick="window.location.href='index.html'" 
+            class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded shadow">
+      ⬅️ Kembali ke Beranda
+    </button>
+  </div>
+
+  <!-- Judul Halaman -->
+  <h1 class="text-2xl font-bold text-blue-800 mb-4">🎓 Soal Premium Matematika</h1>
+
+  <!-- Soal 1 -->
+  <div class="bg-white p-4 rounded shadow mb-6">
+    <p class="font-semibold mb-2">1. Hasil dari 2x² + 3x - 5 = 0 untuk x = 2 adalah?</p>
+    <label><input type="checkbox" name="q1" value="a"> A. 5</label><br>
+    <label><input type="checkbox" name="q1" value="b"> B. 7</label><br>
+    <label><input type="checkbox" name="q1" value="c"> C. 9</label><br>
+    <label><input type="checkbox" name="q1" value="d"> D. 11</label><br>
+    <label><input type="checkbox" name="q1" value="e"> E. 15</label>
+  </div>
+
+  <!-- Soal 2 -->
+  <div class="bg-white p-4 rounded shadow mb-6">
+    <p class="font-semibold mb-2">2. Jika sin(x) = 0.5, maka x bisa bernilai...</p>
+    <label><input type="checkbox" name="q2" value="a"> A. 30°</label><br>
+    <label><input type="checkbox" name="q2" value="b"> B. 60°</label><br>
+    <label><input type="checkbox" name="q2" value="c"> C. 90°</label><br>
+    <label><input type="checkbox" name="q2" value="d"> D. 120°</label><br>
+    <label><input type="checkbox" name="q2" value="e"> E. 150°</label>
+  </div>
+
+  <!-- Tombol Cek Nilai -->
+  <div class="text-center">
+    <button onclick="cekNilai()" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded shadow">
+      ✅ Cek Nilai
+    </button>
+    <p id="hasil" class="mt-4 text-lg font-bold text-blue-700"></p>
+  </div>
+
+  <script>
+    function cekNilai() {
+      let skor = 0;
+
+      // Soal 1: Jawaban benar adalah C (2x² + 3x - 5 = 2*4 + 6 - 5 = 9)
+      const jawaban1 = [...document.querySelectorAll('input[name="q1"]:checked')].map(cb => cb.value);
+      if (jawaban1.length === 1 && jawaban1.includes("c")) skor++;
+
+      // Soal 2: sin(x) = 0.5 → x = 30° atau 150°
+      const jawaban2 = [...document.querySelectorAll('input[name="q2"]:checked')].map(cb => cb.value);
+      if (jawaban2.includes("a") && jawaban2.includes("e") && jawaban2.length === 2) skor++;
+
+      document.getElementById("hasil").innerText = `Nilai kamu: ${skor} dari 2 soal`;
+    }
+  </script>
+
+</body>
+</html>
