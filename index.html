@@ -93,13 +93,6 @@
   <p class="text-sm text-gray-500 mb-8">🔒 Akses premium hanya Rp10.000/bulan</p>
 
 
-<!-- ================= HALAMAN PREMIUM ================= -->
-<div id="halamanPremium" class="hidden">
-  <h2 class="text-lg font-bold mb-2">📘 Soal Premium</h2>
-  <div id="daftarSoal" class="space-y-4 mb-4"></div>
-  <button onclick="kembali()" class="bg-gray-300 px-4 py-2 rounded">⬅️ Kembali</button>
-</div>
-
 
 
   <!-- Fitur -->
@@ -114,6 +107,13 @@
   </div>
 
  
+</div>
+
+<!-- ================= HALAMAN PREMIUM ================= -->
+<div id="halamanPremium" class="hidden">
+  <h2 class="text-lg font-bold mb-2">📘 Soal Premium</h2>
+  <div id="daftarSoal" class="space-y-4 mb-4"></div>
+  <button onclick="kembali()" class="bg-gray-300 px-4 py-2 rounded">⬅️ Kembali</button>
 </div>
 
 
@@ -276,16 +276,18 @@ function loadSoalPremium() {
 
   db.ref("/soal").once("value").then(snapshot => {
     const data = snapshot.val();
-    container.innerHTML = "";
 
-    if (!data) {
-      container.innerHTML = "<p>❌ Tidak ada soal ditemukan.</p>";
+    // Pastikan data dan data.soal tersedia
+    if (!data || !data.soal) {
+      container.innerHTML = "<p>❌ Soal tidak ditemukan.</p>";
       return;
     }
 
-    // Iterasi setiap kunci di objek data
-    Object.keys(data).forEach(key => {
-      const soal = data[key];
+    const soalList = data.soal;
+    container.innerHTML = "";
+
+    for (let key in soalList) {
+      const soal = soalList[key];
       const div = document.createElement("div");
       div.className = "p-4 border rounded bg-white shadow mb-4";
       div.innerHTML = `
@@ -296,7 +298,7 @@ function loadSoalPremium() {
         <p class="text-sm mt-2 text-gray-500">Kategori: ${soal.kategori} | Tingkat: ${soal.tingkat_kesulitan} | Maks: ${soal.maks_waktu} detik</p>
       `;
       container.appendChild(div);
-    });
+    }
   }).catch(error => {
     container.innerHTML = `<p>❌ Gagal memuat soal: ${error.message}</p>`;
   });
