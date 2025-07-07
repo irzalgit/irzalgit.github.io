@@ -276,18 +276,16 @@ function loadSoalPremium() {
 
   db.ref("/soal").once("value").then(snapshot => {
     const data = snapshot.val();
+    container.innerHTML = "";
 
-    // Pastikan data dan data.soal tersedia
-    if (!data || !data.soal) {
-      container.innerHTML = "<p>❌ Soal tidak ditemukan.</p>";
+    if (!data) {
+      container.innerHTML = "<p>❌ Tidak ada soal ditemukan.</p>";
       return;
     }
 
-    const soalList = data.soal;
-    container.innerHTML = "";
-
-    for (let key in soalList) {
-      const soal = soalList[key];
+    // Iterasi setiap kunci di objek data
+    Object.keys(data).forEach(key => {
+      const soal = data[key];
       const div = document.createElement("div");
       div.className = "p-4 border rounded bg-white shadow mb-4";
       div.innerHTML = `
@@ -298,7 +296,7 @@ function loadSoalPremium() {
         <p class="text-sm mt-2 text-gray-500">Kategori: ${soal.kategori} | Tingkat: ${soal.tingkat_kesulitan} | Maks: ${soal.maks_waktu} detik</p>
       `;
       container.appendChild(div);
-    }
+    });
   }).catch(error => {
     container.innerHTML = `<p>❌ Gagal memuat soal: ${error.message}</p>`;
   });
