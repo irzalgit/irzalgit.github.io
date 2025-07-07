@@ -112,7 +112,11 @@
 <!-- ================= HALAMAN PREMIUM ================= -->
 <div id="halamanPremium" class="hidden">
   <h2 class="text-lg font-bold mb-2">📘 Soal Premium</h2>
-  <div id="daftarSoal" class="space-y-4 mb-4"></div>
+  <p id="timer" class="text-lg font-bold text-blue-700 mb-4">Waktu: 02:00</p>
+ <div id="daftarSoal"></div>
+<button onclick="cekSemuaJawaban()" class="mt-4 px-4 py-2 bg-green-600 text-white rounded">Cek Nilai</button>
+<p id="skorAkhir" class="mt-4 font-bold"></p>
+
   <button onclick="kembali()" class="bg-gray-300 px-4 py-2 rounded">⬅️ Kembali</button>
 </div>
 
@@ -277,7 +281,6 @@ function loadSoalPremium() {
   db.ref("/soal").once("value").then(snapshot => {
     const data = snapshot.val();
 
-    // Pastikan data dan data.soal tersedia
     if (!data || !data.soal) {
       container.innerHTML = "<p>❌ Soal tidak ditemukan.</p>";
       return;
@@ -286,22 +289,66 @@ function loadSoalPremium() {
     const soalList = data.soal;
     container.innerHTML = "";
 
+    let index = 0;
     for (let key in soalList) {
       const soal = soalList[key];
+      const soalId = `soal_${index}`;
+      const hasilId = `hasil_${index}`;
+
+      const pilihanHTML = soal.pilihan.map((p, i) => `
+        <label class="block">
+          <input type="checkbox" name="${soalId}" data-benar="${p.benar}" class="mr-2" />
+          ${p.teks}
+        </label>
+      `).join("");
+
       const div = document.createElement("div");
       div.className = "p-4 border rounded bg-white shadow mb-4";
       div.innerHTML = `
         <p class="font-semibold">${soal.pertanyaan}</p>
-        <ul class="list-disc pl-5 mt-2 space-y-1">
-          ${soal.pilihan.map(p => `<li>${p.teks}</li>`).join("")}
-        </ul>
-        <p class="text-sm mt-2 text-gray-500">Kategori: ${soal.kategori} | Tingkat: ${soal.tingkat_kesulitan} | Maks: ${soal.maks_waktu} detik</p>
+        <div>${pilihanHTML}</div>
+        <p id="${hasilId}" class="mt-2 font-bold"></p>
+        <p class="text-sm mt-2 text-gray-500">Kategori: ${soal.kategori} | Tingkat: ${soal.tingkat_kesulitan}</p>
       `;
+
       container.appendChild(div);
+      index++;
     }
-  }).catch(error => {
-    container.innerHTML = `<p>❌ Gagal memuat soal: ${error.message}</p>`;
   });
+  mulaiTimer();
+}
+
+function cekSemuaJawaban() {
+  const allSoal = document.querySelectorAll("#daftarSoal > div");
+  let benarTotal = 0;
+
+  allSoal.forEach((soalDiv, index) => {
+    const checkboxes = soalDiv.querySelectorAll(`input[type=checkbox]`);
+    let benar = 0;
+    let salah = 0;
+
+    checkboxes.forEach(cb => {
+      const isChecked = cb.checked;
+      const isBenar = cb.dataset.benar === "true";
+
+      if (isChecked && isBenar) benar++;
+      else if (isChecked && !isBenar) salah++;
+      else if (!isChecked && isBenar) salah++; // harusnya dipilih tapi tidak
+
+    });
+
+    const hasil = soalDiv.querySelector(`#hasil_${index}`);
+    if (salah === 0 && benar > 0) {
+      hasil.textContent = "✅ Benar";
+      hasil.className = "mt-2 text-green-600 font-bold";
+      benarTotal++;
+    } else {
+      hasil.textContent = "❌ Salah";
+      hasil.className = "mt-2 text-red-600 font-bold";
+    }
+  });
+
+  document.getElementById("skorAkhir").textContent = `Skor Anda: ${benarTotal} / ${allSoal.length}`;
 }
 /*
 function loadSoalPremium() {
@@ -364,6 +411,71 @@ function loadSoalPremium() {
   }
  
   */
+</script>
+
+<script>
+    
+    function cekSemuaJawaban(timeoutMode = false) {
+  const allSoal = document.querySelectorAll("#daftarSoal > div");
+  let benarTotal = 0;
+
+  allSoal.forEach((soalDiv, index) => {
+    const checkboxes = soalDiv.querySelectorAll(`input[type=checkbox]`);
+    let benar = 0;
+    let salah = 0;
+
+    checkboxes.forEach(cb => {
+      const isChecked = cb.checked;
+      const isBenar = cb.dataset.benar === "true";
+
+      if (isChecked && isBenar) benar++;
+      else if (isChecked && !isBenar) salah++;
+      else if (!isChecked && isBenar) salah++;
+
+      if (timeoutMode) cb.disabled = true; // disable saat waktu habis
+    });
+
+    const hasil = soalDiv.querySelector(`#hasil_${index}`);
+    if (salah === 0 && benar > 0) {
+      hasil.textContent = "✅ Benar";
+      hasil.className = "mt-2 text-green-600 font-bold";
+      benarTotal++;
+    } else {
+      hasil.textContent = "❌ Salah";
+      hasil.className = "mt-2 text-red-600 font-bold";
+    }
+  });
+
+  document.getElementById("skorAkhir").textContent = `Skor Anda: ${benarTotal} / ${allSoal.length}`;
+  
+  // Nonaktifkan tombol cek jika dari timer
+  if (timeoutMode) {
+    document.querySelector("button[onclick='cekSemuaJawaban()']").disabled = true;
+  }
+}
+</script>
+
+<script>
+    
+    let waktuMundur = 120; // detik
+let timerInterval;
+
+function mulaiTimer() {
+  const timerEl = document.getElementById("timer");
+  timerInterval = setInterval(() => {
+    const menit = Math.floor(waktuMundur / 60);
+    const detik = waktuMundur % 60;
+    timerEl.textContent = `Waktu: ${String(menit).padStart(2, '0')}:${String(detik).padStart(2, '0')}`;
+    
+    if (waktuMundur <= 0) {
+      clearInterval(timerInterval);
+      timerEl.textContent = "⏰ Waktu Habis!";
+      cekSemuaJawaban(true); // true artinya karena timeout
+    }
+
+    waktuMundur--;
+  }, 1000);
+}
 </script>
 </body>
 </html>
