@@ -83,12 +83,24 @@
       🎓 Akses Soal Premium
     </button>
 
+
+
     <button id="btnBayar" class="hidden bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded shadow w-full">
       💳 Bayar untuk Aktivasi Premium
     </button>
   </div>
 
   <p class="text-sm text-gray-500 mb-8">🔒 Akses premium hanya Rp10.000/bulan</p>
+
+
+<!-- ================= HALAMAN PREMIUM ================= -->
+<div id="halamanPremium" class="hidden">
+  <h2 class="text-lg font-bold mb-2">📘 Soal Premium</h2>
+  <div id="daftarSoal" class="space-y-4 mb-4"></div>
+  <button onclick="kembali()" class="bg-gray-300 px-4 py-2 rounded">⬅️ Kembali</button>
+</div>
+
+
 
   <!-- Fitur -->
   <div class="bg-white rounded-xl shadow-lg p-4 w-full max-w-sm">
@@ -104,12 +116,7 @@
  
 </div>
 
-<!-- ================= HALAMAN PREMIUM ================= -->
-<div id="halamanPremium" class="hidden">
-  <h2 class="text-lg font-bold mb-2">📘 Soal Premium</h2>
-  <div id="daftarSoal" class="space-y-4 mb-4"></div>
-  <button onclick="kembali()" class="bg-gray-300 px-4 py-2 rounded">⬅️ Kembali</button>
-</div>
+
 <section id="privasi" class="py-16 px-6 bg-white text-gray-800">
   <h2 class="text-xl font-bold mb-4">Kebijakan Privasi</h2>
   <p class="mb-4">
@@ -256,11 +263,46 @@
         };
       } else {
         document.getElementById("btnBayar").classList.remove("hidden");
-        document.getElementById("btnBayar").onclick = () => location.href = "midtrans.html";
+        document.getElementById("btnBayar").onclick = () => location.href = "https://irzalgit.github.io/midtrans.html";
       }
     });
   }
 
+function loadSoalPremium() {
+  const container = document.getElementById("daftarSoal");
+  container.innerHTML = "<p>🔄 Memuat soal...</p>";
+
+  db.ref("/soal").once("value").then(snapshot => {
+    const data = snapshot.val();
+    container.innerHTML = "";
+
+    // Periksa apakah data memiliki properti 'soal'
+    if (data && data.soal) {
+      const daftarSoal = data.soal;
+
+      for (let key in daftarSoal) {
+        const soal = daftarSoal[key];
+        const div = document.createElement("div");
+        div.className = "p-4 mb-4 border rounded bg-white shadow";
+
+        div.innerHTML = `
+          <p class="font-semibold mb-2">Soal ${key}: ${soal.pertanyaan}</p>
+          <ul class="list-disc pl-5 mb-2">
+            ${soal.pilihan.map(p => `<li>${p.teks}${p.benar ? " ✅" : ""}</li>`).join("")}
+          </ul>
+          <p class="text-sm text-gray-600">Kategori: ${soal.kategori} | Kesulitan: ${soal.tingkat_kesulitan} | Waktu Maks: ${soal.maks_waktu} detik</p>
+        `;
+
+        container.appendChild(div);
+      }
+    } else {
+      container.innerHTML = "<p>❌ Tidak ada soal ditemukan.</p>";
+    }
+  }).catch(error => {
+    container.innerHTML = `<p>❌ Gagal memuat soal: ${error.message}</p>`;
+  });
+}
+/*
   function loadSoalPremium() {
     const container = document.getElementById("daftarSoal");
     container.innerHTML = "<p>🔄 Memuat soal...</p>";
@@ -283,6 +325,8 @@
       }
     });
   }
+ 
+  */
 </script>
 </body>
 </html>
