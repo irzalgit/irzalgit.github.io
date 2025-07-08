@@ -3,24 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hello Sahabat</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<!-- MathJax untuk LaTeX -->
-<script>
-  window.MathJax = {
-    tex: { inlineMath: [['$', '$'], ['\', '\']] },
-    svg: { fontCache: 'global' }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  <title>Portal Matematika Premium</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
+  
+  <!-- Konfigurasi Tailwind -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4f46e5',
+            secondary: '#10b981',
+            dark: '#1e293b',
+            light: '#f8fafc'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- MathJax untuk LaTeX -->
+  <script>
+    window.MathJax = {
+      tex: { 
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {load: ['[tex]/noerrors']},
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  
   <!-- Firebase SDK v8 -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
+  
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
@@ -37,486 +59,807 @@
     const db = firebase.database();
     const provider = new firebase.auth.GoogleAuthProvider();
   </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+    }
+    
+    .modal-content {
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .soal-container {
+      transition: all 0.3s ease;
+    }
+    
+    .soal-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .timer-box {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      padding: 10px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .disqus-container {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 40px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn:after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 20px;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(25deg);
+      transition: all 0.5s;
+    }
+    
+    .btn:hover:after {
+      left: 120%;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    }
+    
+    .feature-card {
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+  </style>
 </head>
-<body class="bg-white min-h-screen p-6">
-
-<!-- ================= HALAMAN UTAMA ================= -->
-<div id="halamanUtama" class="flex flex-col items-center">
-
-  <!-- Header -->
-  <section class="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white py-8 px-4 shadow-md text-center">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex flex-col items-center">
-        <img src="gbr/bp.jpeg" alt="Logo" class="w-24 h-24 mb-4 object-contain">
-        <p class="mt-2 text-lg">welcome</p>
-        <h1 class="text-3xl font-bold">Portal Matematika</h1>
-        <p class="mt-2 text-lg">uji kemampuanmu dengan soal-soal pilihan</p>
+<body class="bg-gradient-to-br from-indigo-50 to-purple-100 min-h-screen">
+  
+  <!-- ================= HALAMAN UTAMA ================= -->
+  <div id="halamanUtama" class="flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 px-4 shadow-xl">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="flex items-center mb-4 md:mb-0">
+            <div class="bg-white p-2 rounded-full mr-4">
+              <i class="fas fa-calculator text-indigo-600 text-2xl"></i>
+            </div>
+            <div>
+              <h1 class="text-2xl font-bold">Portal Matematika</h1>
+              <p class="text-indigo-200">Belajar matematika dengan cara menyenangkan</p>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <div id="userStatus" class="text-sm text-indigo-100 hidden md:block"></div>
+            <button id="loginBtn" class="bg-white text-indigo-600 px-4 py-2 rounded-full font-medium shadow-lg btn">
+              <i class="fab fa-google mr-2"></i>Login Google
+            </button>
+            <button id="logoutBtn" onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded-full font-medium shadow-lg btn hidden">
+              <i class="fas fa-sign-out-alt mr-2"></i>Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <div class="flex-grow">
+      <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="text-center py-12 mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Tingkatkan Kemampuan Matematikamu</h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            Akses ribuan soal matematika berkualitas dengan pembahasan lengkap untuk siswa SD, SMP, dan SMA
+          </p>
+          
+          <div class="flex justify-center space-x-4">
+            <button id="btnGratis" class="bg-primary text-white px-6 py-3 rounded-full font-medium shadow-lg btn hidden">
+              <i class="fas fa-book-open mr-2"></i>Akses Soal Gratis
+            </button>
+            <button id="btnPremium" class="bg-secondary text-white px-6 py-3 rounded-full font-medium shadow-lg btn hidden">
+              <i class="fas fa-crown mr-2"></i>Soal Premium
+            </button>
+          </div>
+          
+          <p id="error-message" class="text-red-600 mt-4 text-sm font-medium text-center"></p>
+        </section>
+        
+        <!-- Fitur Unggulan -->
+        <section class="mb-16">
+          <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Kenapa Memilih Portal Kami?</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-2xl shadow-xl feature-card">
+              <div class="text-center mb-4">
+                <div class="bg-indigo-100 text-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
+                  <i class="fas fa-shield-alt text-2xl"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-center mb-3">Konten Berkualitas</h3>
+              <p class="text-gray-600 text-center">
+                Soal-soal disusun oleh tim ahli matematika dengan tingkat kesulitan berjenjang
+              </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-2xl shadow-xl feature-card">
+              <div class="text-center mb-4">
+                <div class="bg-green-100 text-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
+                  <i class="fas fa-bolt text-2xl"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-center mb-3">Pembahasan Lengkap</h3>
+              <p class="text-gray-600 text-center">
+                Setiap soal dilengkapi pembahasan detail dengan metode penyelesaian yang mudah dipahami
+              </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-2xl shadow-xl feature-card">
+              <div class="text-center mb-4">
+                <div class="bg-purple-100 text-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto">
+                  <i class="fas fa-chart-line text-2xl"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-center mb-3">Progress Tracking</h3>
+              <p class="text-gray-600 text-center">
+                Pantau perkembangan belajarmu dengan laporan kemajuan yang komprehensif
+              </p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Langkah-langkah -->
+        <section class="mb-16">
+          <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Mulai Belajar dalam 3 Langkah</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <div class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mr-3">1</div>
+                <h3 class="text-xl font-bold">Masuk/Daftar</h3>
+              </div>
+              <p class="text-gray-600">
+                Login menggunakan akun Google untuk mengakses semua fitur platform
+              </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <div class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mr-3">2</div>
+                <h3 class="text-xl font-bold">Aktivasi Premium</h3>
+              </div>
+              <p class="text-gray-600">
+                Akses semua soal premium dengan berlangganan hanya Rp10,000/bulan
+              </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <div class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl mr-3">3</div>
+                <h3 class="text-xl font-bold">Belajar & Ukur Kemampuan</h3>
+              </div>
+              <p class="text-gray-600">
+                Kerjakan soal dan pantau perkembangan kemampuan matematikamu
+              </p>
+            </div>
+          </div>
+          
+          <div class="text-center mt-8">
+            <button id="btnBayar" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-3 rounded-full font-medium shadow-lg btn hidden">
+              <i class="fas fa-gem mr-2"></i>Aktivasi Akun Premium
+            </button>
+            <p class="text-sm text-gray-500 mt-4">🔒 Akses premium hanya Rp10.000/bulan</p>
+          </div>
+        </section>
+        
+        <!-- Disqus Section -->
+        <section class="disqus-container">
+          <h2 class="text-2xl font-bold mb-4 text-center">Diskusi & Pertanyaan</h2>
+          <div id="disqus_thread"></div>
+        </section>
       </div>
     </div>
-  </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-10 pb-6">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Portal Matematika</h3>
+            <p class="text-gray-400">
+              Platform belajar matematika interaktif untuk siswa Indonesia dari SD hingga SMA.
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Tautan</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition flex items-center">
+                  <i class="fas fa-home mr-2"></i> Beranda
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition flex items-center">
+                  <i class="fas fa-book mr-2"></i> Soal Gratis
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition flex items-center">
+                  <i class="fas fa-crown mr-2"></i> Soal Premium
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Legal</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" id="privacy-link" class="text-gray-400 hover:text-white transition flex items-center">
+                  <i class="fas fa-lock mr-2"></i> Kebijakan Privasi
+                </a>
+              </li>
+              <li>
+                <a href="#" id="terms-link" class="text-gray-400 hover:text-white transition flex items-center">
+                  <i class="fas fa-file-contract mr-2"></i> Syarat & Ketentuan
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Kontak</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fab fa-whatsapp text-green-400 mr-2"></i>
+                <a href="https://wa.me/6282170505306" target="_blank" class="text-gray-400 hover:text-white transition">
+                  0821-7050-5306
+                </a>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope text-blue-400 mr-2"></i>
+                <a href="mailto:irzalpa20@gmail.com" class="text-gray-400 hover:text-white transition">
+                  irzalpa20@gmail.com
+                </a>
+              </li>
+              <li class="flex items-center">
+                <i class="fab fa-blogger text-orange-400 mr-2"></i>
+                <a href="https://portalmatematikaqu.blogspot.com" target="_blank" class="text-gray-400 hover:text-white transition">
+                  Blog Kami
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-6 text-center">
+          <p class="text-gray-400">
+            &copy; 2025 Portal Matematika. Hak Cipta Dilindungi. 
+            <span class="block mt-1">Dibuat dengan <i class="fas fa-heart text-red-500 mx-1"></i> oleh Irzal Achmad</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
 
-  <p id="userStatus" class="text-sm text-blue-700 mt-4 mb-2"></p>
-  <button id="loginBtn" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded shadow mb-2">
-    🔐 Login dengan Google
-  </button>
-  <p id="error-message" class="text-red-600 mt-2 text-sm font-semibold text-center"></p>
-  <button id="logoutBtn" onclick="logout()" class="hidden text-red-600 text-sm underline mb-6">🔒 Logout</button>
-
-  <!-- Langkah -->
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mb-8 text-center">
-    <div class="bg-white p-4 rounded-xl shadow border border-blue-100">
-      <div class="text-blue-600 text-4xl mb-2">🔐</div>
-      <h3 class="font-bold text-lg mb-1">1. Masuk</h3>
-      <p class="text-sm text-gray-600">Login untuk mulai belajar</p>
-    </div>
-    <div class="bg-white p-4 rounded-xl shadow border border-green-100">
-      <div class="text-green-600 text-4xl mb-2">💳</div>
-      <h3 class="font-bold text-lg mb-1">2. Bayar</h3>
-      <p class="text-sm text-gray-600">Aktivasi soal premium</p>
-    </div>
-    <div class="bg-white p-4 rounded-xl shadow border border-purple-100">
-      <div class="text-purple-600 text-4xl mb-2">🎯</div>
-      <h3 class="font-bold text-lg mb-1">3. Akses Soal</h3>
-      <p class="text-sm text-gray-600">Soal gratis & premium siap</p>
+  <!-- ================= HALAMAN PREMIUM ================= -->
+  <div id="halamanPremium" class="hidden min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+      <div class="flex justify-between items-center mb-8">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-800 flex items-center">
+            <i class="fas fa-crown text-yellow-500 mr-3"></i>
+            Soal Premium Matematika
+          </h1>
+          <p class="text-gray-600">Kerjakan soal berikut dengan teliti dan perhatikan waktu!</p>
+        </div>
+        
+        <div class="timer-box flex items-center">
+          <i class="fas fa-clock text-white text-xl mr-2"></i>
+          <span id="timer" class="text-white font-bold text-xl">60:00</span>
+        </div>
+      </div>
+      
+      <div id="daftarSoal" class="space-y-6"></div>
+      
+      <div class="flex justify-center mt-10 space-x-4">
+        <button onclick="cekSemuaJawaban()" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-medium shadow-lg btn">
+          <i class="fas fa-check-circle mr-2"></i>Cek Jawaban
+        </button>
+        <button onclick="kembali()" class="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 rounded-full font-medium shadow-lg btn">
+          <i class="fas fa-arrow-left mr-2"></i>Kembali
+        </button>
+      </div>
+      
+      <div id="skorAkhir" class="mt-6 text-center text-xl font-bold bg-white p-4 rounded-xl shadow-lg"></div>
     </div>
   </div>
 
-  <!-- Tombol -->
-  <div class="flex flex-col gap-4 items-center w-full max-w-xs">
-    <button id="btnGratis" class="hidden bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded shadow w-full">
-      📘 Akses Soal Gratis
-    </button>
-
-    <button id="btnPremium" class="hidden bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded shadow w-full">
-      🎓 Akses Soal Premium
-    </button>
-
-
-
-    <button id="btnBayar" class="hidden bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded shadow w-full">
-      💳 Bayar untuk Aktivasi Premium
-    </button>
-  </div>
-
-  <p class="text-sm text-gray-500 mb-8">🔒 Akses premium hanya Rp10.000/bulan</p>
-
-
-
-
-  <!-- Fitur -->
-  <div class="bg-white rounded-xl shadow-lg p-4 w-full max-w-sm">
-    <h2 class="text-lg font-semibold text-blue-700 mb-3">✨ Fitur Unggulan</h2>
-    <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm">
-      <li>1000+ soal latihan interaktif</li>
-      <li>Nilai & pembahasan otomatis</li>
-      <li>Leaderboard & sertifikat</li>
-      <li>Forum diskusi dengan teman</li>
-    </ul>
-  </div>
-
- 
-</div>
-
-<!-- ================= HALAMAN PREMIUM ================= -->
-<div id="halamanPremium" class="hidden">
-  <h2 class="text-lg font-bold mb-2">📘 Soal Premium</h2>
-  <p id="timer" class="text-lg font-bold text-blue-700 mb-4">Waktu: 02:00</p>
- <div id="daftarSoal"></div>
-<button onclick="cekSemuaJawaban()" class="mt-4 px-4 py-2 bg-green-600 text-white rounded">Cek Nilai</button>
-<p id="skorAkhir" class="mt-4 font-bold"></p>
-
-  <button onclick="kembali()" class="bg-gray-300 px-4 py-2 rounded">⬅️ Kembali</button>
-</div>
-
-
-<section id="privasi" class="py-16 px-6 bg-white text-gray-800">
-  <h2 class="text-xl font-bold mb-4">Kebijakan Privasi</h2>
-  <p class="mb-4">
-    Kami menghargai privasi pengguna dan berkomitmen melindungi data pribadi Anda. Informasi yang dikumpulkan hanya digunakan untuk keperluan layanan dan tidak dibagikan tanpa izin. 
-    Data seperti nama, email, dan skor hanya disimpan di sistem kami secara aman. Kami menggunakan Firebase untuk menyimpan dan mengelola data secara terenkripsi. 
-    Dengan menggunakan platform ini, Anda setuju dengan kebijakan privasi yang berlaku.
-  </p>
-</section>
-<hr>
-<section id="syarat" class="py-16 px-6 bg-gray-100 text-gray-800">
-  <h2 class="text-xl font-bold mb-4">Syarat & Ketentuan</h2>
-  <p class="mb-4">
-    Dengan menggunakan layanan Portal Matematika, pengguna dianggap telah membaca dan menyetujui syarat yang berlaku. 
-    Pengguna wajib menggunakan data yang benar saat login dan dilarang menyalahgunakan sistem. 
-    Seluruh materi dalam platform hanya boleh digunakan untuk tujuan edukasi pribadi. 
-    Kami berhak menghentikan akses jika terdeteksi adanya pelanggaran aturan. 
-    Perubahan syarat akan diumumkan melalui platform dan berlaku segera setelah diperbarui.
-  </p>
-</section>
-<!-- Footer -->
-<footer class="bg-gray-900 text-white px-6 py-10">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-
-    <!-- Kontak -->
-    <div>
-      <h2 class="text-lg font-semibold mb-4">Hubungi Kami</h2>
-      <p class="mb-2">
-        <i class="fab fa-whatsapp text-green-400 mr-2"></i>
-        <a href="https://wa.me/6282170505306" target="_blank" class="hover:underline text-green-400">0821-7050-5306</a>
-      </p>
-      <p class="mb-2">
-        <i class="fas fa-envelope text-blue-400 mr-2"></i>
-        <a href="mailto:irzalpa20@gmail.com" class="hover:underline text-blue-400">mail</a>
-      </p>
+  <!-- Modal Privasi -->
+  <div id="privacy-modal" class="modal-overlay">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-6 relative">
+      <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+      
+      <div class="modal-content">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-700 flex items-center">
+          <i class="fas fa-lock mr-3"></i>
+          Kebijakan Privasi
+        </h2>
+        
+        <div class="space-y-4 text-gray-700">
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-indigo-700 mb-2">Pengumpulan Informasi</h3>
+            <p>
+              Kami mengumpulkan informasi pribadi saat Anda mendaftar di situs kami, melakukan pemesanan, 
+              berlangganan buletin, atau mengisi formulir. Informasi yang dikumpulkan mungkin termasuk 
+              nama, alamat email, nomor telepon, atau informasi demografis lainnya.
+            </p>
+          </div>
+          
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-indigo-700 mb-2">Penggunaan Informasi</h3>
+            <p>Informasi yang kami kumpulkan dari Anda dapat digunakan untuk:</p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Memproses transaksi dan menyediakan layanan</li>
+              <li>Memperbarui Anda tentang produk dan layanan baru</li>
+              <li>Meningkatkan pengalaman pengguna di situs kami</li>
+              <li>Meningkatkan layanan pelanggan</li>
+              <li>Mengelola kontes, promosi, atau survei</li>
+            </ul>
+          </div>
+          
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-indigo-700 mb-2">Perlindungan Informasi</h3>
+            <p>
+              Kami menerapkan berbagai langkah keamanan untuk menjaga keamanan informasi pribadi Anda. 
+              Kami menggunakan enkripsi canggih untuk melindungi data sensitif yang dikirimkan secara online. 
+              Kami juga melindungi informasi Anda secara offline.
+            </p>
+          </div>
+          
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-indigo-700 mb-2">Penggunaan Cookie</h3>
+            <p>
+              Situs kami menggunakan "cookie" untuk meningkatkan akses ke situs kami dan mengidentifikasi 
+              pengunjung berulang. Penggunaan cookie kami tidak terkait dengan informasi pribadi apa pun di situs kami.
+            </p>
+          </div>
+          
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-indigo-700 mb-2">Perubahan Kebijakan</h3>
+            <p>
+              Kebijakan privasi kami dapat diperbarui dari waktu ke waktu. Semua perubahan akan diposting di halaman ini.
+            </p>
+          </div>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <button class="bg-indigo-600 text-white px-6 py-2 rounded-full font-medium btn">
+            Saya Mengerti
+          </button>
+        </div>
+      </div>
     </div>
-
-    <!-- Tautan -->
-    <div>
-      <h2 class="text-lg font-semibold mb-4">Tautan Penting</h2>
-      <ul class="space-y-2">
-        <li>
-          <i class="fas fa-lock text-gray-400 mr-2"></i>
-          <a href="#privasi" class="hover:underline text-gray-300">Kebijakan Privasi</a>
-        </li>
-        <li>
-          <i class="fas fa-file-contract text-gray-400 mr-2"></i>
-          <a href="#syarat" class="hover:underline text-gray-300">Syarat & Ketentuan</a>
-        </li>
-        <li>
-          <i class="fas fa-address-card text-gray-400 mr-2"></i>
-          <a href="#kontak" class="hover:underline text-gray-300">Kontak</a>
-        </li>
-        <li>
-          <i class="fas fa-blog text-gray-400 mr-2"></i>
-          <a href="https://portalmatematikaqu.blogspot.com" class="hover:underline text-gray-300">Blog Kami</a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Tentang -->
-    <div>
-      <h2 class="text-lg font-semibold mb-4">Tentang Portal Matematika</h2>
-      <p class="text-gray-400 mb-2">Platform belajar Matematika interaktif untuk siswa Indonesia dari SD hingga SMA.</p>
-      <p class="text-xl text-gray-500 mt-4">
-        <i class="far fa-copyright mr-1"></i>
-         2025 B'PHY . All rights reserved.
-      </p>
-    </div>
-
   </div>
 
-  <!-- Credit -->
-  <div class="mt-10 text-center text-sm text-gray-500">
-    Dibuat dengan <i class="fas fa-heart text-red-500 mx-1"></i> oleh 
-    <a href="https://github.com/irzalgit" target="_blank" class="text-blue-400 hover:underline">Irzal Achmad</a>
+  <!-- Modal Syarat & Ketentuan -->
+  <div id="terms-modal" class="modal-overlay">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-6 relative">
+      <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+      
+      <div class="modal-content">
+        <h2 class="text-2xl font-bold mb-6 text-indigo-700 flex items-center">
+          <i class="fas fa-file-contract mr-3"></i>
+          Syarat & Ketentuan
+        </h2>
+        
+        <div class="space-y-4 text-gray-700">
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-indigo-700 mb-2">Penerimaan Syarat</h3>
+            <p>
+              Dengan mengakses dan menggunakan situs web ini, Anda menerima dan setuju untuk terikat oleh 
+              syarat dan ketentuan ini. Jika Anda tidak setuju dengan bagian mana pun dari syarat ini, 
+              Anda tidak boleh menggunakan situs web kami.
+            </p>
+          </div>
+          
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-indigo-700 mb-2">Penggunaan Situs</h3>
+            <p>
+              Anda setuju untuk tidak menggunakan situs ini untuk tujuan apa pun yang melanggar hukum atau 
+              dilarang oleh syarat ini. Anda tidak boleh menggunakan situs ini dengan cara apa pun yang 
+              dapat merusak, menonaktifkan, membebani, atau mengganggu situs ini.
+            </p>
+          </div>
+          
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-indigo-700 mb-2">Hak Kekayaan Intelektual</h3>
+            <p>
+              Konten, tata letak, desain, data, database, dan grafik di situs web ini dilindungi oleh 
+              undang-undang kekayaan intelektual. Tidak ada bagian dari situs web ini yang boleh direproduksi, 
+              disimpan, atau ditransmisikan dalam bentuk apa pun tanpa izin tertulis sebelumnya.
+            </p>
+          </div>
+          
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-indigo-700 mb-2">Akun Pengguna</h3>
+            <p>
+              Jika Anda membuat akun di situs kami, Anda bertanggung jawab untuk menjaga kerahasiaan akun 
+              dan kata sandi Anda dan untuk membatasi akses ke komputer Anda. Anda setuju untuk bertanggung 
+              jawab atas semua aktivitas yang terjadi di bawah akun atau kata sandi Anda.
+            </p>
+          </div>
+          
+          <div class="bg-indigo-50 p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-indigo-700 mb-2">Pembatasan Tanggung Jawab</h3>
+            <p>
+              Dalam batas maksimal yang diizinkan oleh hukum, kami tidak akan bertanggung jawab atas kerugian 
+              atau kerusakan apa pun, termasuk tanpa batasan, kerugian tidak langsung atau konsekuensial, 
+              atau kerugian atau kerusakan apa pun yang timbul dari hilangnya data atau keuntungan yang 
+              timbul dari, atau sehubungan dengan, penggunaan situs web ini.
+            </p>
+          </div>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <button class="bg-indigo-600 text-white px-6 py-2 rounded-full font-medium btn">
+            Saya Setuju
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-</footer>
-<!-- ================= SCRIPT UTAMA ================= -->
-<script>
-  document.getElementById("loginBtn").onclick = () => {
-    auth.signInWithPopup(provider)
-      .then((result) => {
-        const user = result.user;
-        db.ref("data_siswa/" + user.uid).once("value").then(snapshot => {
-          if (!snapshot.exists()) {
-            db.ref("data_siswa/" + user.uid).set({
-              username: user.displayName,
-              email: user.email,
-              approved: true,
-              siap_bayar: false,
-              nilai: {}
-            });
-          }
-          updateUI(user);
-        });
-      })
-      .catch((error) => {
-        const msg = error.message.includes("popup")
-          ? "❗ Login dibatalkan. Jangan tutup jendela login sebelum selesai."
-          : "Login gagal: " + error.message;
-        document.getElementById("error-message").innerText = msg;
+
+  <!-- ================= SCRIPT UTAMA ================= -->
+  <script>
+    // Modal functionality
+    const privacyLink = document.getElementById('privacy-link');
+    const termsLink = document.getElementById('terms-link');
+    const privacyModal = document.getElementById('privacy-modal');
+    const termsModal = document.getElementById('terms-modal');
+    const closeButtons = document.querySelectorAll('.modal-overlay .fa-times');
+    
+    // Show Privacy Modal
+    privacyLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      privacyModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Show Terms Modal
+    termsLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      termsModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Close modals
+    closeButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        privacyModal.classList.remove('active');
+        termsModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
       });
-  };
-
-  function logout() {
-    auth.signOut().then(() => {
-      localStorage.clear();
-      sessionStorage.clear();
-      location.reload();
     });
-  }
-
-  function kembali() {
-    document.getElementById("halamanPremium").classList.add("hidden");
-    document.getElementById("halamanUtama").classList.remove("hidden");
-  }
-
-  auth.onAuthStateChanged(user => {
-    if (user) updateUI(user);
-  });
-
-
-
-  function updateUI(user) {
-    const uid = user.uid;
-    document.getElementById("loginBtn").classList.add("hidden");
-    document.getElementById("logoutBtn").classList.remove("hidden");
-    document.getElementById("userStatus").innerText = `Login sebagai: ${user.displayName}`;
-
-    db.ref("data_siswa/" + uid).once("value").then(snapshot => {
-      const data = snapshot.val();
-
-      if (!data) return;
-
-      if (data.approved) {
-        document.getElementById("btnGratis").classList.remove("hidden");
-        document.getElementById("btnGratis").onclick = () => location.href = "soal.html";
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+      if (e.target === privacyModal) {
+        privacyModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
       }
-
-      if (data.siap_bayar) {
-        document.getElementById("btnPremium").classList.remove("hidden");
-        document.getElementById("btnPremium").onclick = () => {
-          document.getElementById("halamanUtama").classList.add("hidden");
-          document.getElementById("halamanPremium").classList.remove("hidden");
-          loadSoalPremium();
-        };
-      } else {
-        document.getElementById("btnBayar").classList.remove("hidden");
-        document.getElementById("btnBayar").onclick = () => location.href = "https://irzalgit.github.io/midtrans.html";
+      if (e.target === termsModal) {
+        termsModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
       }
     });
-  }
-
-function loadSoalPremium() {
-  const container = document.getElementById("daftarSoal");
-  container.innerHTML = "<p>🔄 Memuat soal...</p>";
-
-  db.ref("/soal").once("value").then(snapshot => {
-    const data = snapshot.val();
-
-    if (!data || !data.soal) {
-      container.innerHTML = "<p>❌ Soal tidak ditemukan.</p>";
-      return;
-    }
-
-    const soalList = data.soal;
-    container.innerHTML = "";
-
-    let index = 0;
-    for (let key in soalList) {
-      const soal = soalList[key];
-      const soalId = `soal_${index}`;
-      const hasilId = `hasil_${index}`;
-
-      const pilihanHTML = soal.pilihan.map((p, i) => `
-        <label class="block">
-          <input type="checkbox" name="${soalId}" data-benar="${p.benar}" class="mr-2" />
-          ${p.teks}
-        </label>
-      `).join("");
-
-      const div = document.createElement("div");
-      div.className = "p-4 border rounded bg-white shadow mb-4";
-      div.innerHTML = `
-        <p class="font-semibold">${soal.pertanyaan}</p>
-        <div>${pilihanHTML}</div>
-        <p id="${hasilId}" class="mt-2 font-bold"></p>
-        <p class="text-sm mt-2 text-gray-500">Kategori: ${soal.kategori} | Tingkat: ${soal.tingkat_kesulitan}</p>
-      `;
-
-      container.appendChild(div);
-      index++;
-    }
     
-    // Render ulang MathJax
-    if (window.MathJax) MathJax.typeset();
-  });
-    
-    
- 
-  mulaiTimer();
-}
-
-function cekSemuaJawaban() {
-  const allSoal = document.querySelectorAll("#daftarSoal > div");
-  let benarTotal = 0;
-
-  allSoal.forEach((soalDiv, index) => {
-    const checkboxes = soalDiv.querySelectorAll(`input[type=checkbox]`);
-    let benar = 0;
-    let salah = 0;
-
-    checkboxes.forEach(cb => {
-      const isChecked = cb.checked;
-      const isBenar = cb.dataset.benar === "true";
-
-      if (isChecked && isBenar) benar++;
-      else if (isChecked && !isBenar) salah++;
-      else if (!isChecked && isBenar) salah++; // harusnya dipilih tapi tidak
-
-    });
-
-    const hasil = soalDiv.querySelector(`#hasil_${index}`);
-    if (salah === 0 && benar > 0) {
-      hasil.textContent = "✅ Benar";
-      hasil.className = "mt-2 text-green-600 font-bold";
-      benarTotal++;
-    } else {
-      hasil.textContent = "❌ Salah";
-      hasil.className = "mt-2 text-red-600 font-bold";
-    }
-  });
-
-  document.getElementById("skorAkhir").textContent = `Skor Anda: ${benarTotal} / ${allSoal.length}`;
-}
-/*
-function loadSoalPremium() {
-  const container = document.getElementById("daftarSoal");
-  container.innerHTML = "<p>🔄 Memuat soal...</p>";
-
-  db.ref("/soal").once("value").then(snapshot => {
-    const data = snapshot.val();
-    container.innerHTML = "";
-
-    // Periksa apakah data memiliki properti 'soal'
-    if (data && data.soal) {
-      const daftarSoal = data.soal;
-
-      for (let key in daftarSoal) {
-        const soal = daftarSoal[key];
-        const div = document.createElement("div");
-        div.className = "p-4 mb-4 border rounded bg-white shadow";
-
-        div.innerHTML = `
-          <p class="font-semibold mb-2">Soal ${key}: ${soal.pertanyaan}</p>
-          <ul class="list-disc pl-5 mb-2">
-            ${soal.pilihan.map(p => `<li>${p.teks}${p.benar ? " ✅" : ""}</li>`).join("")}
-          </ul>
-          <p class="text-sm text-gray-600">Kategori: ${soal.kategori} | Kesulitan: ${soal.tingkat_kesulitan} | Waktu Maks: ${soal.maks_waktu} detik</p>
-        `;
-
-        container.appendChild(div);
-      }
-    } else {
-      container.innerHTML = "<p>❌ Tidak ada soal ditemukan.</p>";
-    }
-  }).catch(error => {
-    container.innerHTML = `<p>❌ Gagal memuat soal: ${error.message}</p>`;
-  });
-
-*/
-/*
-  function loadSoalPremium() {
-    const container = document.getElementById("daftarSoal");
-    container.innerHTML = "<p>🔄 Memuat soal...</p>";
-
-    db.ref("/soal").once("value").then(snapshot => {
-      const data = snapshot.val();
-      container.innerHTML = "";
-
-      for (let key in data) {
-        const soal = data[key];
-        const div = document.createElement("div");
-        div.className = "p-4 border rounded bg-white shadow";
-        div.innerHTML = `
-          <p class="font-semibold">${soal.pertanyaan}</p>
-          <ul class="list-disc pl-5 mt-2 space-y-1">
-            ${soal.pilihan.map(p => `<li>${p.teks}</li>`).join("")}
-          </ul>
-        `;
-        container.appendChild(div);
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        privacyModal.classList.remove('active');
+        termsModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
       }
     });
-  }
- 
-  */
-</script>
-
-<script>
     
-    function cekSemuaJawaban(timeoutMode = false) {
-  const allSoal = document.querySelectorAll("#daftarSoal > div");
-  let benarTotal = 0;
+    // Firebase functions
+    document.getElementById("loginBtn").onclick = () => {
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user;
+          db.ref("data_siswa/" + user.uid).once("value").then(snapshot => {
+            if (!snapshot.exists()) {
+              db.ref("data_siswa/" + user.uid).set({
+                username: user.displayName,
+                email: user.email,
+                approved: true,
+                siap_bayar: false,
+                nilai: {}
+              });
+            }
+            updateUI(user);
+          });
+        })
+        .catch((error) => {
+          const msg = error.message.includes("popup")
+            ? "❗ Login dibatalkan. Jangan tutup jendela login sebelum selesai."
+            : "Login gagal: " + error.message;
+          document.getElementById("error-message").innerText = msg;
+        });
+    };
 
-  allSoal.forEach((soalDiv, index) => {
-    const checkboxes = soalDiv.querySelectorAll(`input[type=checkbox]`);
-    let benar = 0;
-    let salah = 0;
-
-    checkboxes.forEach(cb => {
-      const isChecked = cb.checked;
-      const isBenar = cb.dataset.benar === "true";
-
-      if (isChecked && isBenar) benar++;
-      else if (isChecked && !isBenar) salah++;
-      else if (!isChecked && isBenar) salah++;
-
-      if (timeoutMode) cb.disabled = true; // disable saat waktu habis
-    });
-
-    const hasil = soalDiv.querySelector(`#hasil_${index}`);
-    if (salah === 0 && benar > 0) {
-      hasil.textContent = "✅ Benar";
-      hasil.className = "mt-2 text-green-600 font-bold";
-      benarTotal++;
-    } else {
-      hasil.textContent = "❌ Salah";
-      hasil.className = "mt-2 text-red-600 font-bold";
+    function logout() {
+      auth.signOut().then(() => {
+        localStorage.clear();
+        sessionStorage.clear();
+        location.reload();
+      });
     }
-  });
 
-  document.getElementById("skorAkhir").textContent = `Skor Anda: ${benarTotal} / ${allSoal.length}`;
-  
-  // Nonaktifkan tombol cek jika dari timer
-  if (timeoutMode) {
-    document.querySelector("button[onclick='cekSemuaJawaban()']").disabled = true;
-  }
-}
-</script>
-
-<script>
-    
-
-    
-    let waktuMundur = 60 * 60; // 60 menit = 3600 detik// detik
-let timerInterval;
-
-function mulaiTimer() {
-  const timerEl = document.getElementById("timer");
-  timerInterval = setInterval(() => {
-    const menit = Math.floor(waktuMundur / 60);
-    const detik = waktuMundur % 60;
-    timerEl.textContent = `Waktu: ${String(menit).padStart(2, '0')}:${String(detik).padStart(2, '0')}`;
-    
-    if (waktuMundur <= 0) {
+    function kembali() {
+      document.getElementById("halamanPremium").classList.add("hidden");
+      document.getElementById("halamanUtama").classList.remove("hidden");
       clearInterval(timerInterval);
-      timerEl.textContent = "⏰ Waktu Habis!";
-      cekSemuaJawaban(true); // true artinya karena timeout
     }
 
-    waktuMundur--;
-  }, 1000);
-}
-</script>
+    auth.onAuthStateChanged(user => {
+      if (user) updateUI(user);
+    });
+
+    function updateUI(user) {
+      const uid = user.uid;
+      document.getElementById("loginBtn").classList.add("hidden");
+      document.getElementById("logoutBtn").classList.remove("hidden");
+      document.getElementById("userStatus").innerText = `Login sebagai: ${user.displayName}`;
+      document.getElementById("userStatus").classList.remove("hidden");
+
+      db.ref("data_siswa/" + uid).once("value").then(snapshot => {
+        const data = snapshot.val();
+
+        if (!data) return;
+
+        if (data.approved) {
+          document.getElementById("btnGratis").classList.remove("hidden");
+          document.getElementById("btnGratis").onclick = () => location.href = "soal.html";
+        }
+
+        if (data.siap_bayar) {
+          document.getElementById("btnPremium").classList.remove("hidden");
+          document.getElementById("btnPremium").onclick = () => {
+            document.getElementById("halamanUtama").classList.add("hidden");
+            document.getElementById("halamanPremium").classList.remove("hidden");
+            loadSoalPremium();
+          };
+        } else {
+          document.getElementById("btnBayar").classList.remove("hidden");
+          document.getElementById("btnBayar").onclick = () => location.href = "https://irzalgit.github.io/midtrans.html";
+        }
+      });
+    }
+
+    function loadSoalPremium() {
+      const container = document.getElementById("daftarSoal");
+      container.innerHTML = "<div class='text-center py-10'><div class='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600 mx-auto'></div><p class='mt-4 text-gray-600'>Memuat soal...</p></div>";
+
+      // Contoh soal dengan LaTeX
+      setTimeout(() => {
+        container.innerHTML = `
+          <div class="soal-container bg-white p-6 rounded-2xl shadow-lg">
+            <p class="font-bold text-lg mb-4">Soal 1: Persamaan Kuadrat</p>
+            <p class="mb-4">Selesaikan persamaan kuadrat berikut:</p>
+            <p class="text-center text-xl mb-4">$x^2 - 5x + 6 = 0$</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_1" data-benar="true" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$x = 2$ atau $x = 3$</span>
+              </label>
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_1" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$x = 1$ atau $x = 6$</span>
+              </label>
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_1" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$x = -2$ atau $x = -3$</span>
+              </label>
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_1" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$x = 4$ atau $x = 1.5$</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="soal-container bg-white p-6 rounded-2xl shadow-lg">
+            <p class="font-bold text-lg mb-4">Soal 2: Trigonometri</p>
+            <p class="mb-4">Hitung nilai dari:</p>
+            <p class="text-center text-xl mb-4">$\sin\left(\frac{\pi}{3}\right) \cdot \cos\left(\frac{\pi}{4}\right)$</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_2" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$\frac{\sqrt{2}}{4}$</span>
+              </label>
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_2" data-benar="true" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$\frac{\sqrt{6}}{4}$</span>
+              </label>
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_2" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$\frac{1}{2}$</span>
+              </label>
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_2" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$\frac{\sqrt{3}}{4}$</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="soal-container bg-white p-6 rounded-2xl shadow-lg">
+            <p class="font-bold text-lg mb-4">Soal 3: Integral</p>
+            <p class="mb-4">Hitung integral berikut:</p>
+            <p class="text-center text-xl mb-4">$\int (3x^2 + 2x - 5)  dx$</p>
+            <div class="space-y-2">
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_3" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$x^3 + x^2 - 5x + C$</span>
+              </label>
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_3" data-benar="true" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$x^3 + x^2 - 5x + C$</span>
+              </label>
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_3" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$6x + 2 + C$</span>
+              </label>
+              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <input type="checkbox" name="soal_3" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
+                <span>$3x^3 + 2x^2 - 5x + C$</span>
+              </label>
+            </div>
+          </div>
+        `;
+        
+        // Render ulang MathJax
+        if (window.MathJax) MathJax.typeset();
+        mulaiTimer();
+      }, 1500);
+    }
+
+    function cekSemuaJawaban(timeoutMode = false) {
+      const allSoal = document.querySelectorAll(".soal-container");
+      let benarTotal = 0;
+
+      allSoal.forEach((soalDiv, index) => {
+        const checkboxes = soalDiv.querySelectorAll(`input[type=checkbox]`);
+        let benar = 0;
+        let salah = 0;
+
+        checkboxes.forEach(cb => {
+          const isChecked = cb.checked;
+          const isBenar = cb.dataset.benar === "true";
+
+          if (isChecked && isBenar) benar++;
+          else if (isChecked && !isBenar) salah++;
+          else if (!isChecked && isBenar) salah++;
+
+          if (timeoutMode) cb.disabled = true;
+        });
+
+        const hasil = document.createElement('div');
+        hasil.className = "mt-4 p-3 rounded-lg font-bold";
+        
+        if (salah === 0 && benar > 0) {
+          hasil.textContent = "✅ Jawaban Benar";
+          hasil.classList.add("bg-green-100", "text-green-700");
+          benarTotal++;
+        } else {
+          hasil.textContent = "❌ Jawaban Salah";
+          hasil.classList.add("bg-red-100", "text-red-700");
+        }
+        
+        soalDiv.appendChild(hasil);
+      });
+
+      const skorText = `Skor Anda: ${benarTotal} dari ${allSoal.length} soal`;
+      document.getElementById("skorAkhir").innerHTML = `
+        <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-4 px-6 rounded-xl">
+          <p class="text-2xl">${skorText}</p>
+          <p class="mt-2">${benarTotal >= allSoal.length * 0.8 ? "🎉 Kerja bagus! Pertahankan!" : "💪 Tetap semangat belajar!"}</p>
+        </div>
+      `;
+      
+      if (timeoutMode) {
+        document.querySelector("button[onclick='cekSemuaJawaban()']").disabled = true;
+      }
+      
+      // Scroll ke hasil
+      document.getElementById("skorAkhir").scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    let waktuMundur = 60 * 60; // 60 menit = 3600 detik
+    let timerInterval;
+
+    function mulaiTimer() {
+      const timerEl = document.getElementById("timer");
+      timerInterval = setInterval(() => {
+        const menit = Math.floor(waktuMundur / 60);
+        const detik = waktuMundur % 60;
+        timerEl.textContent = `${String(menit).padStart(2, '0')}:${String(detik).padStart(2, '0')}`;
+        
+        // Ubah warna saat waktu hampir habis
+        if (waktuMundur < 300) { // < 5 menit
+          timerEl.parentElement.style.background = "linear-gradient(135deg, #ef4444, #dc2626)";
+        }
+        
+        if (waktuMundur <= 0) {
+          clearInterval(timerInterval);
+          timerEl.textContent = "⏰ Waktu Habis!";
+          timerEl.parentElement.style.background = "linear-gradient(135deg, #b91c1c, #7f1d1d)";
+          cekSemuaJawaban(true);
+        }
+
+        waktuMundur--;
+      }, 1000);
+    }
+    
+    // Inisialisasi Disqus
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://irzalgit-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
 </body>
-
-<div class="" id="disqus_thread"></div>
-<script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://irzalgit-github-io.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<script>
-feather.replace()
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
 </html>
