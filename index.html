@@ -4,22 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hello Sahabat</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- MathJax untuk LaTeX -->
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\', '\']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#2563eb',
-            secondary: '#7e22ce',
-            accent: '#16a34a'
-          }
-        }
-      }
-    }
-  </script>
 
   <!-- Firebase SDK v8 -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
@@ -43,236 +38,129 @@
     const provider = new firebase.auth.GoogleAuthProvider();
   </script>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
+<body class="bg-white min-h-screen p-6">
 
 <!-- ================= HALAMAN UTAMA ================= -->
-<div id="halamanUtama" class="flex flex-col items-center flex-grow">
+<div id="halamanUtama" class="flex flex-col items-center">
 
   <!-- Header -->
-  <section class="w-full bg-gradient-to-r from-primary to-blue-500 text-white py-12 px-4 shadow-lg">
+  <section class="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white py-8 px-4 shadow-md text-center">
     <div class="max-w-4xl mx-auto">
       <div class="flex flex-col items-center">
-        <div class="bg-white rounded-full p-2 shadow-xl mb-4">
-          <img src="gbr/bp.jpeg" alt="Logo" class="w-20 h-20 object-contain">
-        </div>
-        <h1 class="text-3xl md:text-4xl font-bold mb-2">Portal Matematika</h1>
-        <p class="text-lg opacity-90">Uji kemampuanmu dengan soal-soal pilihan</p>
+        <img src="gbr/bp.jpeg" alt="Logo" class="w-24 h-24 mb-4 object-contain">
+        <p class="mt-2 text-lg">welcome</p>
+        <h1 class="text-3xl font-bold">Portal Matematika</h1>
+        <p class="mt-2 text-lg">uji kemampuanmu dengan soal-soal pilihan</p>
       </div>
     </div>
   </section>
 
-  <div class="w-full max-w-2xl px-4 py-6">
-    <div class="bg-white rounded-xl shadow p-6 mb-8">
-      <p id="userStatus" class="text-center text-blue-700 mb-4"></p>
-      
-      <div class="flex flex-col items-center gap-4">
-        <button id="loginBtn" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg shadow-md transition transform hover:-translate-y-0.5 w-full max-w-xs flex items-center justify-center gap-2">
-          <i class="fab fa-google"></i> Login dengan Google
-        </button>
-        
-        <p id="error-message" class="text-red-600 text-sm font-semibold text-center"></p>
-        
-        <button id="logoutBtn" onclick="logout()" class="hidden text-red-600 text-sm underline mb-2">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </button>
-      </div>
+  <p id="userStatus" class="text-sm text-blue-700 mt-4 mb-2"></p>
+  <button id="loginBtn" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded shadow mb-2">
+    🔐 Login dengan Google
+  </button>
+  <p id="error-message" class="text-red-600 mt-2 text-sm font-semibold text-center"></p>
+  <button id="logoutBtn" onclick="logout()" class="hidden text-red-600 text-sm underline mb-6">🔒 Logout</button>
+
+  <!-- Langkah -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mb-8 text-center">
+    <div class="bg-white p-4 rounded-xl shadow border border-blue-100">
+      <div class="text-blue-600 text-4xl mb-2">🔐</div>
+      <h3 class="font-bold text-lg mb-1">1. Masuk</h3>
+      <p class="text-sm text-gray-600">Login untuk mulai belajar</p>
     </div>
-
-    <!-- Langkah -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-      <div class="bg-white p-5 rounded-xl shadow border border-blue-100 transition hover:shadow-md">
-        <div class="text-primary text-4xl mb-3 text-center">🔐</div>
-        <h3 class="font-bold text-lg mb-2 text-center">1. Masuk</h3>
-        <p class="text-sm text-gray-600 text-center">Login untuk mulai belajar</p>
-      </div>
-      
-      <div class="bg-white p-5 rounded-xl shadow border border-green-100 transition hover:shadow-md">
-        <div class="text-accent text-4xl mb-3 text-center">💳</div>
-        <h3 class="font-bold text-lg mb-2 text-center">2. Bayar</h3>
-        <p class="text-sm text-gray-600 text-center">Aktivasi soal premium</p>
-      </div>
-      
-      <div class="bg-white p-5 rounded-xl shadow border border-purple-100 transition hover:shadow-md">
-        <div class="text-secondary text-4xl mb-3 text-center">🎯</div>
-        <h3 class="font-bold text-lg mb-2 text-center">3. Akses Soal</h3>
-        <p class="text-sm text-gray-600 text-center">Soal gratis & premium siap</p>
-      </div>
+    <div class="bg-white p-4 rounded-xl shadow border border-green-100">
+      <div class="text-green-600 text-4xl mb-2">💳</div>
+      <h3 class="font-bold text-lg mb-1">2. Bayar</h3>
+      <p class="text-sm text-gray-600">Aktivasi soal premium</p>
     </div>
-
-    <!-- Tombol -->
-    <div class="flex flex-col gap-4 items-center w-full max-w-xs mx-auto mb-8">
-      <button id="btnGratis" class="hidden bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md transition transform hover:-translate-y-0.5 w-full flex items-center justify-center gap-2">
-        <i class="fas fa-book-open"></i> Akses Soal Gratis
-      </button>
-
-      <button id="btnPremium" class="hidden bg-secondary hover:bg-purple-700 text-white px-6 py-3 rounded-lg shadow-md transition transform hover:-translate-y-0.5 w-full flex items-center justify-center gap-2">
-        <i class="fas fa-graduation-cap"></i> Akses Soal Premium
-      </button>
-
-      <button id="btnBayar" class="hidden bg-accent hover:bg-green-600 text-white px-6 py-3 rounded-lg shadow-md transition transform hover:-translate-y-0.5 w-full flex items-center justify-center gap-2">
-        <i class="fas fa-credit-card"></i> Aktivasi Premium
-      </button>
-    </div>
-
-    <p class="text-sm text-gray-600 text-center mb-8">
-      <i class="fas fa-lock mr-1"></i> Akses premium hanya Rp10.000/bulan
-    </p>
-
-    <!-- Fitur -->
-    <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border border-blue-50">
-      <h2 class="text-xl font-semibold text-primary mb-4 flex items-center gap-2">
-        <i class="fas fa-star text-yellow-400"></i> Fitur Unggulan
-      </h2>
-      <ul class="space-y-3">
-        <li class="flex items-start gap-2">
-          <i class="fas fa-check-circle text-green-500 mt-1"></i>
-          <span>1000+ soal latihan interaktif</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <i class="fas fa-check-circle text-green-500 mt-1"></i>
-          <span>Nilai & pembahasan otomatis</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <i class="fas fa-check-circle text-green-500 mt-1"></i>
-          <span>Leaderboard & sertifikat</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <i class="fas fa-check-circle text-green-500 mt-1"></i>
-          <span>Forum diskusi dengan teman</span>
-        </li>
-      </ul>
+    <div class="bg-white p-4 rounded-xl shadow border border-purple-100">
+      <div class="text-purple-600 text-4xl mb-2">🎯</div>
+      <h3 class="font-bold text-lg mb-1">3. Akses Soal</h3>
+      <p class="text-sm text-gray-600">Soal gratis & premium siap</p>
     </div>
   </div>
+
+  <!-- Tombol -->
+  <div class="flex flex-col gap-4 items-center w-full max-w-xs">
+    <button id="btnGratis" class="hidden bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded shadow w-full">
+      📘 Akses Soal Gratis
+    </button>
+
+    <button id="btnPremium" class="hidden bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded shadow w-full">
+      🎓 Akses Soal Premium
+    </button>
+
+
+
+    <button id="btnBayar" class="hidden bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded shadow w-full">
+      💳 Bayar untuk Aktivasi Premium
+    </button>
+  </div>
+
+  <p class="text-sm text-gray-500 mb-8">🔒 Akses premium hanya Rp10.000/bulan</p>
+
+
+
+
+  <!-- Fitur -->
+  <div class="bg-white rounded-xl shadow-lg p-4 w-full max-w-sm">
+    <h2 class="text-lg font-semibold text-blue-700 mb-3">✨ Fitur Unggulan</h2>
+    <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm">
+      <li>1000+ soal latihan interaktif</li>
+      <li>Nilai & pembahasan otomatis</li>
+      <li>Leaderboard & sertifikat</li>
+      <li>Forum diskusi dengan teman</li>
+    </ul>
+  </div>
+
+ 
 </div>
 
 <!-- ================= HALAMAN PREMIUM ================= -->
-<div id="halamanPremium" class="hidden p-4 max-w-3xl mx-auto w-full">
-  <div class="bg-white rounded-xl shadow-lg p-6">
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-xl font-bold text-secondary flex items-center gap-2">
-        <i class="fas fa-crown text-yellow-400"></i> Soal Premium
-      </h2>
-      <p id="timer" class="text-lg font-bold text-primary bg-blue-50 px-3 py-1 rounded">02:00</p>
-    </div>
-    
-    <div id="daftarSoal" class="space-y-6"></div>
-    
-    <div class="mt-8 flex flex-col sm:flex-row justify-between gap-4">
-      <button onclick="cekSemuaJawaban()" class="bg-accent hover:bg-green-600 text-white px-6 py-3 rounded-lg shadow-md">
-        <i class="fas fa-check-circle mr-2"></i>Cek Nilai
-      </button>
-      <button onclick="kembali()" class="bg-gray-300 hover:bg-gray-400 px-6 py-3 rounded-lg shadow-md">
-        <i class="fas fa-arrow-left mr-2"></i>Kembali
-      </button>
-    </div>
-    
-    <p id="skorAkhir" class="mt-6 font-bold text-center text-xl"></p>
-  </div>
+<div id="halamanPremium" class="hidden">
+  <h2 class="text-lg font-bold mb-2">📘 Soal Premium</h2>
+  <p id="timer" class="text-lg font-bold text-blue-700 mb-4">Waktu: 02:00</p>
+ <div id="daftarSoal"></div>
+<button onclick="cekSemuaJawaban()" class="mt-4 px-4 py-2 bg-green-600 text-white rounded">Cek Nilai</button>
+<p id="skorAkhir" class="mt-4 font-bold"></p>
+
+  <button onclick="kembali()" class="bg-gray-300 px-4 py-2 rounded">⬅️ Kembali</button>
 </div>
 
-<!-- ================= HALAMAN KEBIJAKAN ================= -->
-<div id="halamanKebijakan" class="hidden py-12 px-4 max-w-4xl mx-auto w-full">
-  <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-    <!-- Tab Navigasi -->
-    <div class="flex border-b">
-      <button id="tabPrivasi" class="tab-kebijakan active py-4 px-6 font-semibold text-primary border-b-2 border-primary">Kebijakan Privasi</button>
-      <button id="tabSyarat" class="tab-kebijakan py-4 px-6 font-semibold text-gray-500">Syarat & Ketentuan</button>
-    </div>
-    
-    <!-- Konten Kebijakan Privasi -->
-    <div id="kontenPrivasi" class="p-6">
-      <h2 class="text-2xl font-bold mb-6 text-primary">Kebijakan Privasi</h2>
-      <div class="prose max-w-none">
-        <p class="mb-4">
-          Kami menghargai privasi pengguna dan berkomitmen melindungi data pribadi Anda. 
-          Informasi yang dikumpulkan hanya digunakan untuk keperluan layanan dan tidak dibagikan tanpa izin.
-        </p>
-        
-        <h3 class="font-semibold text-lg mt-6 mb-3">Data yang Kami Kumpulkan</h3>
-        <ul class="list-disc pl-5 mb-4 space-y-2">
-          <li>Nama dan informasi profil dasar</li>
-          <li>Alamat email</li>
-          <li>Riwayat belajar dan skor</li>
-          <li>Data penggunaan platform</li>
-        </ul>
-        
-        <h3 class="font-semibold text-lg mt-6 mb-3">Penggunaan Data</h3>
-        <p class="mb-4">
-          Data seperti nama, email, dan skor hanya disimpan di sistem kami secara aman. 
-          Kami menggunakan Firebase untuk menyimpan dan mengelola data secara terenkripsi.
-        </p>
-        
-        <h3 class="font-semibold text-lg mt-6 mb-3">Keamanan Data</h3>
-        <p class="mb-4">
-          Kami menerapkan langkah-langkah keamanan teknis dan organisasi yang sesuai untuk melindungi 
-          data pribadi Anda dari akses, penggunaan, atau pengungkapan yang tidak sah.
-        </p>
-        
-        <p class="mt-6 pt-4 border-t">
-          Dengan menggunakan platform ini, Anda setuju dengan kebijakan privasi yang berlaku.
-        </p>
-      </div>
-    </div>
-    
-    <!-- Konten Syarat & Ketentuan -->
-    <div id="kontenSyarat" class="p-6 hidden">
-      <h2 class="text-2xl font-bold mb-6 text-primary">Syarat & Ketentuan</h2>
-      <div class="prose max-w-none">
-        <p class="mb-4">
-          Dengan menggunakan layanan Portal Matematika, pengguna dianggap telah membaca dan menyetujui 
-          syarat yang berlaku.
-        </p>
-        
-        <h3 class="font-semibold text-lg mt-6 mb-3">Penggunaan Layanan</h3>
-        <ul class="list-disc pl-5 mb-4 space-y-2">
-          <li>Pengguna wajib menggunakan data yang benar saat login</li>
-          <li>Dilarang menyalahgunakan sistem atau melakukan aktivitas ilegal</li>
-          <li>Akun bersifat pribadi dan tidak boleh dibagikan</li>
-        </ul>
-        
-        <h3 class="font-semibold text-lg mt-6 mb-3">Hak Kekayaan Intelektual</h3>
-        <p class="mb-4">
-          Seluruh materi dalam platform hanya boleh digunakan untuk tujuan edukasi pribadi. 
-          Dilarang memperbanyak, mendistribusikan, atau menggunakan konten untuk kepentingan komersial 
-          tanpa izin tertulis.
-        </p>
-        
-        <h3 class="font-semibold text-lg mt-6 mb-3">Pembayaran dan Langganan</h3>
-        <ul class="list-disc pl-5 mb-4 space-y-2">
-          <li>Pembayaran bersifat non-refundable</li>
-          <li>Langganan diperbarui otomatis setiap bulan</li>
-          <li>Dapat membatalkan langganan kapan saja</li>
-        </ul>
-        
-        <h3 class="font-semibold text-lg mt-6 mb-3">Perubahan Ketentuan</h3>
-        <p class="mb-4">
-          Kami berhak mengubah syarat dan ketentuan kapan saja. Perubahan akan diumumkan melalui platform 
-          dan berlaku segera setelah diperbarui. Kami juga berhak menghentikan akses jika terdeteksi 
-          adanya pelanggaran aturan.
-        </p>
-      </div>
-    </div>
-    
-    <div class="p-6 border-t">
-      <button onclick="kembaliDariKebijakan()" class="bg-primary hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
-        <i class="fas fa-arrow-left mr-2"></i>Kembali ke Beranda
-      </button>
-    </div>
-  </div>
-</div>
 
+<section id="privasi" class="py-16 px-6 bg-white text-gray-800">
+  <h2 class="text-xl font-bold mb-4">Kebijakan Privasi</h2>
+  <p class="mb-4">
+    Kami menghargai privasi pengguna dan berkomitmen melindungi data pribadi Anda. Informasi yang dikumpulkan hanya digunakan untuk keperluan layanan dan tidak dibagikan tanpa izin. 
+    Data seperti nama, email, dan skor hanya disimpan di sistem kami secara aman. Kami menggunakan Firebase untuk menyimpan dan mengelola data secara terenkripsi. 
+    Dengan menggunakan platform ini, Anda setuju dengan kebijakan privasi yang berlaku.
+  </p>
+</section>
+<hr>
+<section id="syarat" class="py-16 px-6 bg-gray-100 text-gray-800">
+  <h2 class="text-xl font-bold mb-4">Syarat & Ketentuan</h2>
+  <p class="mb-4">
+    Dengan menggunakan layanan Portal Matematika, pengguna dianggap telah membaca dan menyetujui syarat yang berlaku. 
+    Pengguna wajib menggunakan data yang benar saat login dan dilarang menyalahgunakan sistem. 
+    Seluruh materi dalam platform hanya boleh digunakan untuk tujuan edukasi pribadi. 
+    Kami berhak menghentikan akses jika terdeteksi adanya pelanggaran aturan. 
+    Perubahan syarat akan diumumkan melalui platform dan berlaku segera setelah diperbarui.
+  </p>
+</section>
 <!-- Footer -->
-<footer class="bg-gray-900 text-white px-4 py-10">
+<footer class="bg-gray-900 text-white px-6 py-10">
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+
     <!-- Kontak -->
     <div>
       <h2 class="text-lg font-semibold mb-4">Hubungi Kami</h2>
-      <p class="mb-2 flex items-center">
-        <i class="fab fa-whatsapp text-green-400 mr-2 w-5"></i>
+      <p class="mb-2">
+        <i class="fab fa-whatsapp text-green-400 mr-2"></i>
         <a href="https://wa.me/6282170505306" target="_blank" class="hover:underline text-green-400">0821-7050-5306</a>
       </p>
-      <p class="mb-2 flex items-center">
-        <i class="fas fa-envelope text-blue-400 mr-2 w-5"></i>
+      <p class="mb-2">
+        <i class="fas fa-envelope text-blue-400 mr-2"></i>
         <a href="mailto:irzalpa20@gmail.com" class="hover:underline text-blue-400">mail</a>
       </p>
     </div>
@@ -280,26 +168,22 @@
     <!-- Tautan -->
     <div>
       <h2 class="text-lg font-semibold mb-4">Tautan Penting</h2>
-      <ul class="space-y-3">
+      <ul class="space-y-2">
         <li>
-          <a href="#" onclick="tampilkanKebijakan('privasi')" class="hover:underline text-gray-300 flex items-center">
-            <i class="fas fa-lock text-gray-400 mr-2 w-5"></i>Kebijakan Privasi
-          </a>
+          <i class="fas fa-lock text-gray-400 mr-2"></i>
+          <a href="#privasi" class="hover:underline text-gray-300">Kebijakan Privasi</a>
         </li>
         <li>
-          <a href="#" onclick="tampilkanKebijakan('syarat')" class="hover:underline text-gray-300 flex items-center">
-            <i class="fas fa-file-contract text-gray-400 mr-2 w-5"></i>Syarat & Ketentuan
-          </a>
+          <i class="fas fa-file-contract text-gray-400 mr-2"></i>
+          <a href="#syarat" class="hover:underline text-gray-300">Syarat & Ketentuan</a>
         </li>
         <li>
-          <a href="#kontak" class="hover:underline text-gray-300 flex items-center">
-            <i class="fas fa-address-card text-gray-400 mr-2 w-5"></i>Kontak
-          </a>
+          <i class="fas fa-address-card text-gray-400 mr-2"></i>
+          <a href="#kontak" class="hover:underline text-gray-300">Kontak</a>
         </li>
         <li>
-          <a href="https://portalmatematikaqu.blogspot.com" target="_blank" class="hover:underline text-gray-300 flex items-center">
-            <i class="fas fa-blog text-gray-400 mr-2 w-5"></i>Blog Kami
-          </a>
+          <i class="fas fa-blog text-gray-400 mr-2"></i>
+          <a href="https://portalmatematikaqu.blogspot.com" class="hover:underline text-gray-300">Blog Kami</a>
         </li>
       </ul>
     </div>
@@ -307,11 +191,13 @@
     <!-- Tentang -->
     <div>
       <h2 class="text-lg font-semibold mb-4">Tentang Portal Matematika</h2>
-      <p class="text-gray-400 mb-4">Platform belajar Matematika interaktif untuk siswa Indonesia dari SD hingga SMA.</p>
-      <p class="text-gray-500">
-        <i class="far fa-copyright mr-1"></i>2025 B'PHY. All rights reserved.
+      <p class="text-gray-400 mb-2">Platform belajar Matematika interaktif untuk siswa Indonesia dari SD hingga SMA.</p>
+      <p class="text-xl text-gray-500 mt-4">
+        <i class="far fa-copyright mr-1"></i>
+         2025 B'PHY . All rights reserved.
       </p>
     </div>
+
   </div>
 
   <!-- Credit -->
@@ -320,62 +206,8 @@
     <a href="https://github.com/irzalgit" target="_blank" class="text-blue-400 hover:underline">Irzal Achmad</a>
   </div>
 </footer>
-
 <!-- ================= SCRIPT UTAMA ================= -->
 <script>
-  // Fungsi untuk menampilkan kebijakan
-  function tampilkanKebijakan(tab) {
-    document.getElementById("halamanUtama").classList.add("hidden");
-    document.getElementById("halamanPremium").classList.add("hidden");
-    document.getElementById("halamanKebijakan").classList.remove("hidden");
-    
-    const tabs = document.querySelectorAll(".tab-kebijakan");
-    tabs.forEach(tabEl => tabEl.classList.remove("active", "text-primary", "border-primary"));
-    
-    const konten = document.querySelectorAll("#kontenPrivasi, #kontenSyarat");
-    konten.forEach(el => el.classList.add("hidden"));
-    
-    if(tab === 'privasi') {
-      document.getElementById("tabPrivasi").classList.add("active", "text-primary", "border-primary");
-      document.getElementById("kontenPrivasi").classList.remove("hidden");
-    } else {
-      document.getElementById("tabSyarat").classList.add("active", "text-primary", "border-primary");
-      document.getElementById("kontenSyarat").classList.remove("hidden");
-    }
-  }
-  
-  // Fungsi kembali dari halaman kebijakan
-  function kembaliDariKebijakan() {
-    document.getElementById("halamanKebijakan").classList.add("hidden");
-    document.getElementById("halamanUtama").classList.remove("hidden");
-  }
-
-  // Event listener untuk tab kebijakan
-  document.getElementById("tabPrivasi").addEventListener("click", () => tampilkanKebijakan('privasi'));
-  document.getElementById("tabSyarat").addEventListener("click", () => tampilkanKebijakan('syarat'));
-
-  // Fungsi logout
-  function logout() {
-    auth.signOut().then(() => {
-      localStorage.clear();
-      sessionStorage.clear();
-      location.reload();
-    });
-  }
-
-  // Fungsi kembali dari halaman premium
-  function kembali() {
-    document.getElementById("halamanPremium").classList.add("hidden");
-    document.getElementById("halamanUtama").classList.remove("hidden");
-    clearInterval(timerInterval);
-  }
-
-  // Firebase auth state change
-  auth.onAuthStateChanged(user => {
-    if (user) updateUI(user);
-  });
-
-  // Login handler
   document.getElementById("loginBtn").onclick = () => {
     auth.signInWithPopup(provider)
       .then((result) => {
@@ -401,12 +233,30 @@
       });
   };
 
-  // Update UI setelah login
+  function logout() {
+    auth.signOut().then(() => {
+      localStorage.clear();
+      sessionStorage.clear();
+      location.reload();
+    });
+  }
+
+  function kembali() {
+    document.getElementById("halamanPremium").classList.add("hidden");
+    document.getElementById("halamanUtama").classList.remove("hidden");
+  }
+
+  auth.onAuthStateChanged(user => {
+    if (user) updateUI(user);
+  });
+
+
+
   function updateUI(user) {
     const uid = user.uid;
     document.getElementById("loginBtn").classList.add("hidden");
     document.getElementById("logoutBtn").classList.remove("hidden");
-    document.getElementById("userStatus").innerText = `Halo, ${user.displayName}!`;
+    document.getElementById("userStatus").innerText = `Login sebagai: ${user.displayName}`;
 
     db.ref("data_siswa/" + uid).once("value").then(snapshot => {
       const data = snapshot.val();
@@ -432,125 +282,241 @@
     });
   }
 
-  // Load soal premium
-  function loadSoalPremium() {
-    const container = document.getElementById("daftarSoal");
-    container.innerHTML = "<div class='text-center py-10'><i class='fas fa-spinner fa-spin text-3xl text-primary mb-4'></i><p>Memuat soal...</p></div>";
+function loadSoalPremium() {
+  const container = document.getElementById("daftarSoal");
+  container.innerHTML = "<p>🔄 Memuat soal...</p>";
 
-    db.ref("/soal").once("value").then(snapshot => {
-      const data = snapshot.val();
+  db.ref("/soal").once("value").then(snapshot => {
+    const data = snapshot.val();
 
-      if (!data || !data.soal) {
-        container.innerHTML = "<div class='text-center py-10 text-red-500'><i class='fas fa-exclamation-triangle text-3xl mb-4'></i><p>Soal tidak ditemukan.</p></div>";
-        return;
-      }
+    if (!data || !data.soal) {
+      container.innerHTML = "<p>❌ Soal tidak ditemukan.</p>";
+      return;
+    }
 
-      const soalList = data.soal;
-      container.innerHTML = "";
+    const soalList = data.soal;
+    container.innerHTML = "";
 
-      let index = 0;
-      for (let key in soalList) {
-        const soal = soalList[key];
-        const soalId = `soal_${index}`;
-        const hasilId = `hasil_${index}`;
+    let index = 0;
+    for (let key in soalList) {
+      const soal = soalList[key];
+      const soalId = `soal_${index}`;
+      const hasilId = `hasil_${index}`;
 
-        const pilihanHTML = soal.pilihan.map((p, i) => `
-          <label class="flex items-start p-3 rounded-lg border border-gray-200 hover:border-blue-300 mb-2 cursor-pointer">
-            <input type="checkbox" name="${soalId}" data-benar="${p.benar}" class="mt-1 mr-3" />
-            <span>${p.teks}</span>
-          </label>
-        `).join("");
+      const pilihanHTML = soal.pilihan.map((p, i) => `
+        <label class="block">
+          <input type="checkbox" name="${soalId}" data-benar="${p.benar}" class="mr-2" />
+          ${p.teks}
+        </label>
+      `).join("");
 
+      const div = document.createElement("div");
+      div.className = "p-4 border rounded bg-white shadow mb-4";
+      div.innerHTML = `
+        <p class="font-semibold">${soal.pertanyaan}</p>
+        <div>${pilihanHTML}</div>
+        <p id="${hasilId}" class="mt-2 font-bold"></p>
+        <p class="text-sm mt-2 text-gray-500">Kategori: ${soal.kategori} | Tingkat: ${soal.tingkat_kesulitan}</p>
+      `;
+
+      container.appendChild(div);
+      index++;
+    }
+    
+    // Render ulang MathJax
+    if (window.MathJax) MathJax.typeset();
+  });
+    
+    
+ 
+  mulaiTimer();
+}
+
+function cekSemuaJawaban() {
+  const allSoal = document.querySelectorAll("#daftarSoal > div");
+  let benarTotal = 0;
+
+  allSoal.forEach((soalDiv, index) => {
+    const checkboxes = soalDiv.querySelectorAll(`input[type=checkbox]`);
+    let benar = 0;
+    let salah = 0;
+
+    checkboxes.forEach(cb => {
+      const isChecked = cb.checked;
+      const isBenar = cb.dataset.benar === "true";
+
+      if (isChecked && isBenar) benar++;
+      else if (isChecked && !isBenar) salah++;
+      else if (!isChecked && isBenar) salah++; // harusnya dipilih tapi tidak
+
+    });
+
+    const hasil = soalDiv.querySelector(`#hasil_${index}`);
+    if (salah === 0 && benar > 0) {
+      hasil.textContent = "✅ Benar";
+      hasil.className = "mt-2 text-green-600 font-bold";
+      benarTotal++;
+    } else {
+      hasil.textContent = "❌ Salah";
+      hasil.className = "mt-2 text-red-600 font-bold";
+    }
+  });
+
+  document.getElementById("skorAkhir").textContent = `Skor Anda: ${benarTotal} / ${allSoal.length}`;
+}
+/*
+function loadSoalPremium() {
+  const container = document.getElementById("daftarSoal");
+  container.innerHTML = "<p>🔄 Memuat soal...</p>";
+
+  db.ref("/soal").once("value").then(snapshot => {
+    const data = snapshot.val();
+    container.innerHTML = "";
+
+    // Periksa apakah data memiliki properti 'soal'
+    if (data && data.soal) {
+      const daftarSoal = data.soal;
+
+      for (let key in daftarSoal) {
+        const soal = daftarSoal[key];
         const div = document.createElement("div");
-        div.className = "p-5 border rounded-xl bg-white shadow-sm";
+        div.className = "p-4 mb-4 border rounded bg-white shadow";
+
         div.innerHTML = `
-          <p class="font-semibold text-lg mb-3">${index + 1}. ${soal.pertanyaan}</p>
-          <div class="space-y-2">${pilihanHTML}</div>
-          <p id="${hasilId}" class="mt-3 font-bold"></p>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">${soal.kategori}</span>
-            <span class="bg-purple-100 text-purple-800 text-xs px-2.5 py-0.5 rounded">${soal.tingkat_kesulitan}</span>
-          </div>
+          <p class="font-semibold mb-2">Soal ${key}: ${soal.pertanyaan}</p>
+          <ul class="list-disc pl-5 mb-2">
+            ${soal.pilihan.map(p => `<li>${p.teks}${p.benar ? " ✅" : ""}</li>`).join("")}
+          </ul>
+          <p class="text-sm text-gray-600">Kategori: ${soal.kategori} | Kesulitan: ${soal.tingkat_kesulitan} | Waktu Maks: ${soal.maks_waktu} detik</p>
         `;
 
         container.appendChild(div);
-        index++;
       }
-    });
-    mulaiTimer();
-  }
-
-  // Cek jawaban
-  function cekSemuaJawaban(timeoutMode = false) {
-    const allSoal = document.querySelectorAll("#daftarSoal > div");
-    let benarTotal = 0;
-
-    allSoal.forEach((soalDiv, index) => {
-      const checkboxes = soalDiv.querySelectorAll(`input[type=checkbox]`);
-      let benar = 0;
-      let salah = 0;
-
-      checkboxes.forEach(cb => {
-        const isChecked = cb.checked;
-        const isBenar = cb.dataset.benar === "true";
-
-        if (isChecked && isBenar) benar++;
-        else if (isChecked && !isBenar) salah++;
-        else if (!isChecked && isBenar) salah++;
-      });
-
-      const hasil = soalDiv.querySelector(`#hasil_${index}`);
-      if (salah === 0 && benar > 0) {
-        hasil.textContent = "✅ Jawaban Benar";
-        hasil.className = "mt-3 font-bold text-green-600";
-        benarTotal++;
-      } else {
-        hasil.textContent = "❌ Jawaban Salah";
-        hasil.className = "mt-3 font-bold text-red-600";
-      }
-    });
-
-    const persentase = Math.round((benarTotal / allSoal.length) * 100);
-    document.getElementById("skorAkhir").innerHTML = `
-      <div class="bg-blue-50 p-4 rounded-lg">
-        <p class="text-xl font-bold">Skor Akhir: ${benarTotal}/${allSoal.length}</p>
-        <p class="text-lg mt-2">Persentase: ${persentase}%</p>
-        <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
-          <div class="bg-blue-600 h-2.5 rounded-full" style="width: ${persentase}%"></div>
-        </div>
-      </div>
-    `;
-    
-    if (timeoutMode) {
-      document.querySelector("button[onclick='cekSemuaJawaban()']").disabled = true;
+    } else {
+      container.innerHTML = "<p>❌ Tidak ada soal ditemukan.</p>";
     }
-  }
+  }).catch(error => {
+    container.innerHTML = `<p>❌ Gagal memuat soal: ${error.message}</p>`;
+  });
 
-  // Timer
-  let waktuMundur = 120;
-  let timerInterval;
+*/
+/*
+  function loadSoalPremium() {
+    const container = document.getElementById("daftarSoal");
+    container.innerHTML = "<p>🔄 Memuat soal...</p>";
 
-  function mulaiTimer() {
-    const timerEl = document.getElementById("timer");
-    timerInterval = setInterval(() => {
-      const menit = Math.floor(waktuMundur / 60);
-      const detik = waktuMundur % 60;
-      timerEl.textContent = `${String(menit).padStart(2, '0')}:${String(detik).padStart(2, '0')}`;
-      
-      if (waktuMundur <= 10) {
-        timerEl.classList.add("text-red-500", "animate-pulse");
+    db.ref("/soal").once("value").then(snapshot => {
+      const data = snapshot.val();
+      container.innerHTML = "";
+
+      for (let key in data) {
+        const soal = data[key];
+        const div = document.createElement("div");
+        div.className = "p-4 border rounded bg-white shadow";
+        div.innerHTML = `
+          <p class="font-semibold">${soal.pertanyaan}</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            ${soal.pilihan.map(p => `<li>${p.teks}</li>`).join("")}
+          </ul>
+        `;
+        container.appendChild(div);
       }
-      
-      if (waktuMundur <= 0) {
-        clearInterval(timerInterval);
-        timerEl.textContent = "⏰ Waktu Habis!";
-        timerEl.classList.add("bg-red-100", "text-red-700");
-        cekSemuaJawaban(true);
-      }
-
-      waktuMundur--;
-    }, 1000);
+    });
   }
+ 
+  */
+</script>
+
+<script>
+    
+    function cekSemuaJawaban(timeoutMode = false) {
+  const allSoal = document.querySelectorAll("#daftarSoal > div");
+  let benarTotal = 0;
+
+  allSoal.forEach((soalDiv, index) => {
+    const checkboxes = soalDiv.querySelectorAll(`input[type=checkbox]`);
+    let benar = 0;
+    let salah = 0;
+
+    checkboxes.forEach(cb => {
+      const isChecked = cb.checked;
+      const isBenar = cb.dataset.benar === "true";
+
+      if (isChecked && isBenar) benar++;
+      else if (isChecked && !isBenar) salah++;
+      else if (!isChecked && isBenar) salah++;
+
+      if (timeoutMode) cb.disabled = true; // disable saat waktu habis
+    });
+
+    const hasil = soalDiv.querySelector(`#hasil_${index}`);
+    if (salah === 0 && benar > 0) {
+      hasil.textContent = "✅ Benar";
+      hasil.className = "mt-2 text-green-600 font-bold";
+      benarTotal++;
+    } else {
+      hasil.textContent = "❌ Salah";
+      hasil.className = "mt-2 text-red-600 font-bold";
+    }
+  });
+
+  document.getElementById("skorAkhir").textContent = `Skor Anda: ${benarTotal} / ${allSoal.length}`;
+  
+  // Nonaktifkan tombol cek jika dari timer
+  if (timeoutMode) {
+    document.querySelector("button[onclick='cekSemuaJawaban()']").disabled = true;
+  }
+}
+</script>
+
+<script>
+    
+
+    
+    let waktuMundur = 60 * 60; // 60 menit = 3600 detik// detik
+let timerInterval;
+
+function mulaiTimer() {
+  const timerEl = document.getElementById("timer");
+  timerInterval = setInterval(() => {
+    const menit = Math.floor(waktuMundur / 60);
+    const detik = waktuMundur % 60;
+    timerEl.textContent = `Waktu: ${String(menit).padStart(2, '0')}:${String(detik).padStart(2, '0')}`;
+    
+    if (waktuMundur <= 0) {
+      clearInterval(timerInterval);
+      timerEl.textContent = "⏰ Waktu Habis!";
+      cekSemuaJawaban(true); // true artinya karena timeout
+    }
+
+    waktuMundur--;
+  }, 1000);
+}
 </script>
 </body>
+
+<div class="" id="disqus_thread"></div>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://irzalgit-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<script>
+feather.replace()
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
 </html>
