@@ -690,91 +690,55 @@
       });
     }
 
-    function loadSoalPremium() {
-      const container = document.getElementById("daftarSoal");
-      container.innerHTML = "<div class='text-center py-10'><div class='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600 mx-auto'></div><p class='mt-4 text-gray-600'>Memuat soal...</p></div>";
+   function loadSoalPremium() {
+  const container = document.getElementById("daftarSoal");
+  container.innerHTML = "<p>🔄 Memuat soal...</p>";
 
-      // Contoh soal dengan LaTeX
-      setTimeout(() => {
-        container.innerHTML = `
-          <div class="soal-container bg-white p-6 rounded-2xl shadow-lg">
-            <p class="font-bold text-lg mb-4">Soal 1: Persamaan Kuadrat</p>
-            <p class="mb-4">Selesaikan persamaan kuadrat berikut:</p>
-            <p class="text-center text-xl mb-4">$x^2 - 5x + 6 = 0$</p>
-            <div class="space-y-2">
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_1" data-benar="true" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$x = 2$ atau $x = 3$</span>
-              </label>
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_1" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$x = 1$ atau $x = 6$</span>
-              </label>
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_1" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$x = -2$ atau $x = -3$</span>
-              </label>
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_1" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$x = 4$ atau $x = 1.5$</span>
-              </label>
-            </div>
-          </div>
-          
-          <div class="soal-container bg-white p-6 rounded-2xl shadow-lg">
-            <p class="font-bold text-lg mb-4">Soal 2: Trigonometri</p>
-            <p class="mb-4">Hitung nilai dari:</p>
-            <p class="text-center text-xl mb-4">$\sin\left(\frac{\pi}{3}\right) \cdot \cos\left(\frac{\pi}{4}\right)$</p>
-            <div class="space-y-2">
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_2" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$\frac{\sqrt{2}}{4}$</span>
-              </label>
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_2" data-benar="true" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$\frac{\sqrt{6}}{4}$</span>
-              </label>
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_2" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$\frac{1}{2}$</span>
-              </label>
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_2" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$\frac{\sqrt{3}}{4}$</span>
-              </label>
-            </div>
-          </div>
-          
-          <div class="soal-container bg-white p-6 rounded-2xl shadow-lg">
-            <p class="font-bold text-lg mb-4">Soal 3: Integral</p>
-            <p class="mb-4">Hitung integral berikut:</p>
-            <p class="text-center text-xl mb-4">$\int (3x^2 + 2x - 5)  dx$</p>
-            <div class="space-y-2">
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_3" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$x^3 + x^2 - 5x + C$</span>
-              </label>
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_3" data-benar="true" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$x^3 + x^2 - 5x + C$</span>
-              </label>
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_3" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$6x + 2 + C$</span>
-              </label>
-              <label class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-200">
-                <input type="checkbox" name="soal_3" data-benar="false" class="mr-3 h-5 w-5 text-indigo-600">
-                <span>$3x^3 + 2x^2 - 5x + C$</span>
-              </label>
-            </div>
-          </div>
-        `;
-        
-        // Render ulang MathJax
-        if (window.MathJax) MathJax.typeset();
-        mulaiTimer();
-      }, 1500);
+  db.ref("/soal").once("value").then(snapshot => {
+    const data = snapshot.val();
+
+    if (!data || !data.soal) {
+      container.innerHTML = "<p>❌ Soal tidak ditemukan.</p>";
+      return;
     }
+
+    const soalList = data.soal;
+    container.innerHTML = "";
+
+    let index = 0;
+    for (let key in soalList) {
+      const soal = soalList[key];
+      const soalId = `soal_${index}`;
+      const hasilId = `hasil_${index}`;
+
+      const pilihanHTML = soal.pilihan.map((p, i) => `
+        <label class="block">
+          <input type="checkbox" name="${soalId}" data-benar="${p.benar}" class="mr-2" />
+          ${p.teks}
+        </label>
+      `).join("");
+
+      const div = document.createElement("div");
+      div.className = "p-4 border rounded bg-white shadow mb-4";
+      div.innerHTML = `
+        <p class="font-semibold">${soal.pertanyaan}</p>
+        <div>${pilihanHTML}</div>
+        <p id="${hasilId}" class="mt-2 font-bold"></p>
+        <p class="text-sm mt-2 text-gray-500">Kategori: ${soal.kategori} | Tingkat: ${soal.tingkat_kesulitan}</p>
+      `;
+
+      container.appendChild(div);
+      index++;
+    }
+    
+    // Render ulang MathJax
+    if (window.MathJax) MathJax.typeset();
+  });
+    
+    
+ 
+  mulaiTimer();
+}
 
     function cekSemuaJawaban(timeoutMode = false) {
       const allSoal = document.querySelectorAll(".soal-container");
