@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hallo, sahabat</title>
+<!-- Tailwind (boleh tetap di head karena styling lebih awal) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+
+</head>
+
+
+<body class="bg-blue-100 min-h-screen flex flex-col items-center justify-start">
+
+<!-- HERO SECTION -->
+<section class="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white py-8 px-4 shadow-md text-center">
+<div class="max-w-4xl mx-auto">
+<div class="flex flex-col items-center">
+<img src="gbr/bp.jpeg" alt="Logo" class="w-24 h-24 mb-4 object-contain">
+<p class="mt-2 text-lg">
+welcome
+</p>
+<h1 class="text-3xl font-bold">Portal Matematika</h1>
+<p class="mt-2 text-lg">
+uji kemampuanmu dengan soal-soal pilihan
+</p>
+</div>
+</div>
+</section>
+
+<!-- FORM LOGIN -->
+<div id="loginForm" class="bg-blue-100 p-8 rounded-2xl shadow-lg text-center transition-transform hover:scale-105 border-t-4 border-blue-400">
+<h2 class="text-3xl font-bold mb-6 text-blue-800">Login</h2>
+<input id="loginUsername" placeholder="Username atau Email" class="w-full mb-2 p-2 border rounded" />
+<input id="loginPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+<button onclick="login()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Login</button>
+<p class="mt-4 text-sm">
+Belum punya akun?
+<button onclick="showRegister()" class="text-blue-600 underline">Register/daftar baru</button>
+</p>
+</div>
+<div id="pesan">
+status
+</div>
+
+<!-- FORM REGISTER -->
+<div id="registerForm" class="hidden bg-blue-100 p-8 rounded-2xl shadow-lg text-center transition-transform hover:scale-105 border-t-4 border-blue-400">
+<h2 class="text-2xl font-bold mb-4">Register</h2>
+<input id="regUsername" placeholder="Username" class="w-full mb-2 p-2 border rounded" />
+<input id="regEmail" placeholder="Email" class="w-full mb-2 p-2 border rounded" />
+<input id="regPassword" type="password" placeholder="Password" class="w-full mb-4 p-2 border rounded" />
+<button onclick="register()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Register</button>
+<p class="mt-4 text-sm">
+Sudah punya akun? <button onclick="showLogin()" class="text-blue-600 underline">Kembali ke Login</button>
+</p>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden w-full max-w-2xl mx-auto pt-4 sticky top-0 bg-white z-10 shadow mt-6">
+<div class="flex justify-between items-center mb-4 px-4">
+<h2 id="welcome" class="text-xl font-semibold"></h2>
+<button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</button>
+</div>
+<div id="selectContainer" class="px-4">
+<label class="block mb-2">Pilih kelas:</label>
+<select id="kelas" onchange="updateJenisSoal()" class="w-full p-2 border rounded mb-4">
+<option value="">-- Pilih Kelas --</option>
+<option value="x">X</option>
+<option value="xi">XI</option>
+<option value="xii">XII</option>
+<option value="all">ALL</option>
+</select>
+<label class="block mb-2">Pilih jenis soal:</label>
+<select id="jenisSoal" class="w-full p-2 border rounded mb-4">
+<option value="">-- Pilih Jenis Soal --</option>
+</select>
+<button onclick="loadSoal()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full">Tampilkan Soal</button>
+</div>
+<div id="soalContainer" class="px-4 mt-4"></div>
+<div id="userScores" class="bg-yellow-100 p-4 rounded shadow mt-4 hidden">
+<h3 class="text-lg font-semibold mb-2">Skor Anda:</h3>
+<ul id="userScoreList" class="list-disc pl-5"></ul>
+</div>
+</div>
+
+
+<button onclick="document.getElementById('tampilanSoal').classList.remove('hidden')"
+class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700">
+CEK SOAL
+</button>
+
+<!-- Kontainer tampilan soal -->
+<div id="tampilanSoal" class="hidden mt-6 bg-white border rounded-lg shadow-lg overflow-hidden">
+<iframe src="indexwa.html" class="w-full h-[500px] border-b"></iframe>
+<div class="flex justify-end p-4 bg-gray-50">
+<button onclick="document.getElementById('tampilanSoal').classList.add('hidden')"
+class="text-red-600 font-bold hover:text-red-800">
+× Tutup Tampilan
+</button>
+</div>
+</div>
+
+<div class="font-sans p-4 m-0 bg-white">
+<h2 class="text-center text-lg font-semibold mb-4">Peringkat Semester Ganjil ( Juli 25 -  Desember 25)</h2>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-sm border border-gray-300 border-collapse">
+<thead>
+<tr class="bg-gray-100">
+<th class="border border-gray-300 px-2 py-1 text-center">#</th>
+<th class="border border-gray-300 px-2 py-1 text-left">Username</th>
+<th class="border border-gray-300 px-2 py-1 text-center w-16">Nilai</th>
+</tr>
+</thead>
+<tbody id="leaderboardTable" class="[&>tr:nth-child(even)]:bg-gray-50"></tbody>
+</table>
+</div>
+</div>
+
+<div id="aboutBox" class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+<div class="bg-white text-black rounded-2xl p-6 w-80 text-center relative">
+<button onclick="toggleAbout()" class="absolute top-2 right-2 text-gray-600 hover:text-red-600 font-bold text-xl">&times;</button>
+<h2 class="text-xl font-bold mb-4">Selamat Datang</h2>
+<p id="aboutText">
+Terima kasih telah mengunjungi halaman ini.
+</p>
+</div>
+</div>
+
+<!-- ===== Carousel Start ===== -->
+<div class="relative w-full max-w-2xl mx-auto mt-6">
+<div id="carousel" class="flex overflow-x-auto space-x-4 snap-x snap-mandatory pb-4 scroll-smooth">
+<!-- Card Kuota 5GB -->
+<div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md">
+<div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">
+Aktivasi 1
+</div>
+<div class="p-4 text-center">
+<p class="text-gray-700 text-xs">
+1 Semester (aktif sampai 24 Desember 25)
+</p>
+<p class="text-gray-700 mb-3">
+Rp 18.000
+</p>
+<button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
+onclick="bayar('quota6bl', 'Aktivasi6bl', 18000)">
+Beli
+</button>
+</div>
+</div>
+<!-- Card Kuota 10GB -->
+<div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md">
+<div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">
+Aktivasi 2
+</div>
+<div class="p-4 text-center">
+<p class="text-gray-700 text-xs">
+1 Tahun (aktif sampai 24 Juli 26)
+</p>
+<p class="text-gray-700 mb-3">
+Rp 25.000
+</p>
+<button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
+onclick="bayar('quota1th', 'Aktivasi1th', 25000)">
+Beli
+</button>
+</div>
+</div>
+<!-- Card Kuota 20GB -->
+<div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md">
+<div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">
+Aktivasi harian
+</div>
+<div class="p-4 text-center">
+<p class="text-gray-700 text-xs">
+tambah 10 hari
+</p>
+<p class="text-gray-700 mb-3">
+Rp 1.000
+</p>
+<button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
+onclick="bayar('quota10h', 'Harian', 1000)">
+Beli
+</button>
+</div>
+</div>
+<!-- Card Kuota 50GB -->
+
+<!-- Card Kuota U0nlimited -->
+
+
+
+
+</div>
+
+
+<button id="prevBtn" type="button" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&lt;</button>
+<button id="nextBtn" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&gt;</button>
+</div>
+<div class="relative w-full max-w-4xl mx-auto mt-6">
+<h2 class="text-xl font-bold mb-4">Kumpulan soal  pilihan</h2>
+
+<!-- Carousel Container -->
+<div id="carousel" class="flex overflow-x-auto space-x-4 snap-x snap-mandatory pb-4 scroll-smooth px-4">
+
+<!-- Item 1 -->
+<div class="flex-shrink-0 w-30 snap-start bg-white rounded-xl shadow-md">
+<div class="p-4 text-center">
+<h2 class="text-sm font-semibold mb-1">Soal UTBK</h2>
+<p class="text-sm text-gray-600">
+Rp 300/soal
+</p>
+<div class="flex justify-center items-center my-2 space-x-2">
+<button onclick="ubahJumlah('1', -1)" class="px-3 py-1 bg-gray-300 rounded">-</button>
+<span id="jumlah-1">1</span>
+<button onclick="ubahJumlah('1', 1)" class="px-3 py-1 bg-gray-300 rounded">+</button>
+</div>
+<button onclick="tambahKeKeranjang('1', 'Soal UTBK', 300)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+Tambah
+</button>
+</div>
+</div>
+
+<!-- Item 2 -->
+<div class="flex-shrink-0 w-30 snap-start bg-white rounded-xl shadow-md">
+<div class="p-4 text-center">
+<h2 class="text-sm font-semibold mb-1">UN/TKA</h2>
+<p class="text-sm text-gray-600">
+Rp 200/soal
+</p>
+<div class="flex justify-center items-center my-2 space-x-2">
+<button onclick="ubahJumlah('2', -1)" class="px-3 py-1 bg-gray-300 rounded">-</button>
+<span id="jumlah-2">1</span>
+<button onclick="ubahJumlah('2', 1)" class="px-3 py-1 bg-gray-300 rounded">+</button>
+</div>
+<button onclick="tambahKeKeranjang('2', 'UN/TKA', 200)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+Tambah
+</button>
+</div>
+</div>
+
+<div class="flex-shrink-0 w-30 snap-start bg-white rounded-xl shadow-md">
+<div class="p-4 text-center">
+<h2 class="text-sm font-semibold mb-1">Poster /MindMap Matrik</h2>
+<p class="text-sm text-gray-600">
+Rp 10000
+</p>
+<div class="flex justify-center items-center my-2 space-x-2">
+<button onclick="ubahJumlah('2', -1)" class="px-3 py-1 bg-gray-300 rounded">-</button>
+<span id="jumlah-2">1</span>
+<button onclick="ubahJumlah('2', 1)" class="px-3 py-1 bg-gray-300 rounded">+</button>
+</div>
+<button onclick="tambahKeKeranjang('2', 'Matrik', 10000)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+Tambah
+</button>
+</div>
+</div>
+
+
+
+
+</div>
+
+<!-- Carousel Navigation Buttons -->
+<button id="prevBtn" type="button" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&lt;</button>
+<button id="nextBtn" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full px-3 py-1 shadow-md z-10">&gt;</button>
+</div>
+
+<!-- Keranjang Belanja -->
+<div class="max-w-4xl mx-auto mt-8 p-6 bg-white rounded-xl shadow">
+<h2 class="text-xl font-bold mb-4">Keranjang Belanja</h2>
+<ul id="keranjang-list" class="space-y-2 text-sm"></ul>
+<p class="mt-4 font-semibold">
+Total: Rp <span id="total-harga">0</span>
+</p>
+<button onclick="checkout()" class="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">
+Checkout Sekarang
+</button>
+</div>
+
+<img src="gbr/Poster1.png" alt="poster" style="display: block; width: 100vw; height: auto; margin: 5px auto; border: 1px solid red;" />
+<footer class="bg-black text-white p-6 text-center text-sm">
+<p>
+<a href="#" onclick="document.getElementById('modalSyarat').classList.remove('hidden')" class="text-blue-400 underline">Syarat & Ketentuan</a> |
+<a href="#" onclick="document.getElementById('modalPrivasi').classList.remove('hidden')" class="text-blue-400 underline">Kebijakan Privasi</a>
+</p>
+<hr class="my-4 w-1/2 mx-auto border-gray-600">
+<p>
+<strong>Alamat:</strong> Toko Poster, Bukitraya, Pekanbaru, Riau
+</p>
+<p>
+<strong>Email:</strong> irzalpa20@gmail.com
+</p>
+<p>
+<strong>WhatsApp:</strong> 0821-7050-5306
+</p>
+<p>
+<strong>Media Sosial:</strong>
+</p>
+<p class="text-lg">
+<a href="https://portalmatematikaqu.blogspot.com" target="_blank" class="hover:underline text-blue-400">📝 Blog</a>
+</p>
+<p class="mt-4 text-xl text-gray-300">
+© 2025 Irzal Achmad. All rights reserved.
+</p>
+</footer>
+<!-- Modal Syarat -->
+<div id="modalSyarat" onclick="this.classList.add('hidden')" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+<div onclick="event.stopPropagation()" class="bg-gray-950 text-white w-11/12 max-w-lg p-6 rounded-lg relative shadow-2xl">
+<button onclick="document.getElementById('modalSyarat').classList.add('hidden')" class="absolute top-2 right-3 text-red-400 text-2xl font-bold hover:text-red-300">&times;</button>
+<h2 class="text-2xl font-bold mb-4">Syarat & Ketentuan</h2>
+<ul class="list-disc pl-5 space-y-2 text-base leading-relaxed">
+<li>Layanan hanya untuk pembelajaran pribadi.</li>
+<li>Pembayaran bersifat final kecuali kesalahan sistem.</li>
+<li>Konten bisa berubah tanpa pemberitahuan.</li>
+</ul>
+</div>
+</div>
+
+
+<!-- Modal Privasi -->
+<div id="modalPrivasi" onclick="this.classList.add('hidden')" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+<div onclick="event.stopPropagation()" class="bg-gray-950 text-white w-11/12 max-w-lg p-6 rounded-lg relative shadow-2xl">
+<button onclick="document.getElementById('modalPrivasi').classList.add('hidden')" class="absolute top-2 right-3 text-red-400 text-2xl font-bold hover:text-red-300">&times;</button>
+<h2 class="text-2xl font-bold mb-4">Kebijakan Privasi</h2>
+<ul class="list-disc pl-5 space-y-2 text-base leading-relaxed">
+<li>Data Anda hanya digunakan untuk keperluan transaksi dan pembelajaran.</li>
+<li>Kami tidak membagikan data pribadi ke pihak ketiga tanpa izin.</li>
+<li>Anda dapat meminta penghapusan data dengan menghubungi kami.</li>
+</ul>
+</div>
+
+</div>
+
+
+<script>
+
+
+// Pindahkan deklarasi variabel db ke level paling atas
+// Deklar let db; // Dasikan di sini agar bisa diakses global
+
+const firebaseConfig = {
+apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
+authDomain: "math314-app.firebaseapp.com",
+databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
+projectId: "math314-app",
+storageBucket: "math314-app.appspot.com",
+messagingSenderId: "9019551034",
+appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
+measurementId: "G-VWYDTY9LF6"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.database();
+
+let currentUid = null;
+let currentUsername = "";
+
+
+const leaderboardRef = db.ref('data_siswa');
+
+leaderboardRef.on('value', snapshot => {
+const data = snapshot.val();
+const leaderboardArray = [];
+
+for (const uid in data) {
+const siswa = data[uid];
+let totalNilai = 0;
+
+for (const key in siswa) {
+if (key.startsWith('skor_') && typeof siswa[key] === 'number') {
+totalNilai += siswa[key];
+}
+}
+
+leaderboardArray.push({
+username: (siswa.username || uid).toUpperCase(),
+total: totalNilai
+});
+}
+
+leaderboardArray.sort((a, b) => b.total - a.total);
+
+const tbody = document.getElementById('leaderboardTable');
+tbody.innerHTML = ''; // Kosongkan dulu sebelum menambahkan
+
+leaderboardArray.forEach((entry, index) => {
+const tr = document.createElement('tr');
+tr.innerHTML = `
+<td class="border border-gray-300 px-2 py-1 text-center">${index + 1}</td>
+<td class="border border-gray-300 px-2 py-1 text-left">${entry.username}</td>
+<td class="border border-gray-300 px-2 py-1 text-center">${entry.total}</td>
+`;
+tbody.appendChild(tr);
+});
+});
+const jenisSoalMap = {
+x: ['kuadrat', 'trigonometri', 'statistik'],
+xi: ['lingkaran', 'peluang', 'regresi'],
+xii: ['integral', 'deferensial'],
+all: [
+'bilanganberpangkat', 'pertidaksamaan', 'SPTLTV', 'kuadrat', 'eksponen',
+'barisan dan deret', 'statistik', 'integral', 'matrik', 'fungsikomposisi',
+'transformasi', 'lingkaran', 'vektor', 'logika matematika', 'aritmatika sosial',
+'program linier', 'limit', 'deferensial', 'integral'
+]
+};
+
+
+function showRegister() {
+document.getElementById("loginForm").classList.add("hidden");
+document.getElementById("registerForm").classList.remove("hidden");
+}
+
+function showLogin() {
+document.getElementById("registerForm").classList.add("hidden");
+document.getElementById("loginForm").classList.remove("hidden");
+}
+
+// ... semua fungsi lainnya tetap di bawah inisialisasi ini ...
+
+async function register() {
+  const regUsername = document.getElementById("regUsername");
+  const regEmail = document.getElementById("regEmail");
+  const regPassword = document.getElementById("regPassword");
+
+  const username = regUsername.value.trim();
+  const email = regEmail.value.trim();
+  const password = regPassword.value;
+
+  if (!username || !email || !password) {
+    alert("Semua kolom harus diisi!");
+    return;
+  }
+
+  try {
+    // Registrasi akun Firebase Auth
+    const userCred = await auth.createUserWithEmailAndPassword(email, password);
+    const uid = userCred.user.uid;
+
+    // Simpan data user di Realtime Database
+    await db.ref("data_siswa/" + uid).set({
+      username,
+      email,
+      nilai: {},
+      approved: false
+    });
+
+    // Pemetaan username ke email
+    await db.ref("username_map/" + username).set(email);
+
+    alert("Registrasi berhasil! Silakan lanjut ke pembayaran.");
+
+    // Tampilkan container pembayaran
+    const bayarContainer = document.getElementById("bayar-container");
+    if (bayarContainer) {
+      bayarContainer.style.display = "flex";
+      bayarContainer.style.gap = "20px";
+    }
+
+    // Tambahkan event untuk tombol bayar
+    const bayarBtn = document.getElementById("bayar-btn");
+    const qrisImg = document.getElementById("qris-img");
+
+    if (bayarBtn && qrisImg) {
+      bayarBtn.onclick = () => {
+        qrisImg.style.display = "block";
+      };
+    }
+
+  } catch (err) {
+    alert("Gagal registrasi: " + err.message);
+  }
+}
+async function login() {
+const loginInput = document.getElementById("loginUsername").value.trim();
+const password = document.getElementById("loginPassword").value;
+
+try {
+const snapshot = await db.ref("data_siswa").once("value");
+const users = snapshot.val() || {};
+
+let matchedUser = null;
+let matchedUid = null;
+
+for (const uid in users) {
+const user = users[uid];
+if ((user.username === loginInput || user.email === loginInput) && user.password === password) {
+matchedUser = user;
+matchedUid = uid;
+break;
+}
+}
+
+// 🔰 JIKA USER TIDAK DITEMUKAN: DAFTARKAN OTOMATIS
+if (!matchedUser) {
+const newUid = db.ref("data_siswa").push().key;
+const isEmail = loginInput.includes("@");
+
+const newUser = {
+username: isEmail ? "": loginInput,
+email: isEmail ? loginInput: "",
+password: password,
+approved: false,
+expired_at: "",
+skor: 0
+};
+
+await db.ref(`data_siswa/${newUid}`).set(newUser);
+currentUid = newUid;
+
+alert("✅ Berhasil daftar. Silakan lanjutkan pembayaran untuk aktivasi.");
+tampilkanPembayaran(); // Langsung tampilkan pembayaran
+return;
+}
+
+// 🔰 USER DITEMUKAN
+currentUid = matchedUid;
+const userData = matchedUser;
+
+// 🔰 JIKA SUDAH APPROVED & EXPIRED SESUAI
+if (userData.approved === true && userData.expired_at === "2025-12-24") {
+document.body.innerHTML = "";
+const welcomeBox = `
+<div class="flex flex-col items-center justify-center min-h-screen bg-blue-100 text-center p-6">
+<h1 class="text-2xl font-bold text-blue-800 mb-6">🎉 Selamat datang kembali!</h1>
+<button onclick="lanjutkan()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded text-lg">
+Lanjut
+</button>
+</div>
+`;
+document.body.innerHTML = welcomeBox;
+return;
+}
+
+// 🔰 JIKA BELUM APPROVED
+if (userData.approved !== true) {
+alert("⚠️ Akun belum aktif. Silakan lanjutkan pembayaran.");
+tampilkanPembayaran();
+return;
+}
+
+} catch (err) {
+console.error("Gagal login:", err);
+alert("❌ Terjadi kesalahan saat login.");
+}
+}
+
+// 🔰 Fungsi Tampilkan QRIS
+function tampilkanPembayaran() {
+const dashboard = document.getElementById("dashboard") || document.body;
+
+if (!document.getElementById("qrisBox")) {
+const qrisBox = `
+<div class="flex-shrink-0 w-40 snap-start bg-white rounded-xl shadow-md" id="qrisBox">
+<div class="bg-indigo-600 text-white text-center py-3 rounded-t-xl text-lg font-semibold">Aktiv1</div>
+<div class="p-4 text-center">
+<p class="text-gray-700 text-xs">1 Semester (sampai 24 Desember 2025)</p>
+<p class="text-gray-700 mb-3">Rp 18.000</p>
+<button class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm"
+onclick="bayar('quota6bl', 'Aktivasi6bl', 18000)">
+Bayar Sekarang
+</button>
+</div>
+</div>
+`;
+dashboard.insertAdjacentHTML("afterbegin", qrisBox);
+}
+}
+
+function logout() {
+auth.signOut().then(() => {
+document.getElementById("dashboard").classList.add("hidden");
+document.getElementById("loginForm").classList.remove("hidden");
+});
+}
+
+function loginWithGoogle() {
+const provider = new firebase.auth.GoogleAuthProvider();
+auth.signInWithPopup(provider).then(async ({
+user
+}) => {
+const uid = user.uid;
+const ref = db.ref("data_siswa/" + uid);
+const snapshot = await ref.once("value");
+
+if (!snapshot.exists()) {
+await ref.set({
+username: user.displayName || "google_user",
+email: user.email,
+approved: false,
+expired_at: "",
+nilai: {}
+});
+}
+
+document.getElementById("loginForm").classList.add("hidden");
+document.getElementById("dashboard").classList.remove("hidden");
+document.getElementById("welcome").innerText = "Halo, " + (user.displayName || user.email);
+}).catch(err => alert("Google login gagal: " + err.message));
+}
+
+function resetPassword() {
+const email = prompt("Masukkan email untuk reset password:");
+if (!email) return;
+auth.sendPasswordResetEmail(email)
+.then(() => alert("Link reset password telah dikirim ke email Anda."))
+.catch(err => alert("Gagal kirim email: " + err.message));
+}
+
+
+function toggleForm(showRegisterForm) {
+document.getElementById("loginForm").classList.toggle("hidden", showRegisterForm);
+document.getElementById("registerForm").classList.toggle("hidden", !showRegisterForm);
+}
+
+function updateJenisSoal() {
+const kelas = document.getElementById("kelas").value;
+const jenisSelect = document.getElementById("jenisSoal");
+jenisSelect.innerHTML = "";
+
+const jenisMap = {
+x: ["Peluang",
+"Fungsi Kuadrat",
+"Matriks"],
+xi: ["Barisan",
+"Statistika",
+"Integral"],
+xii: ["Turunan",
+"Program Linear",
+"Limit"],
+all: ["Peluang",
+"Fungsi Kuadrat",
+"Matriks",
+"Barisan",
+"Statistika",
+"Integral",
+"Turunan",
+"Program Linear",
+"Limit"]
+};
+
+if (kelas && jenisMap[kelas]) {
+jenisSelect.innerHTML = '<option value="">-- Pilih Jenis Soal --</option>';
+jenisMap[kelas].forEach(jenis => {
+const opt = document.createElement("option");
+opt.value = jenis.toLowerCase().replace(/ /g, "_");
+opt.textContent = jenis;
+jenisSelect.appendChild(opt);
+});
+}
+}
+
+
+</script>
+
+
+<!-- Script Carousel Navigation -->
+<script>
+
+function bayar(product_id, product_name, price) {
+fetch('https://math314.vercel.app/api/snap', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+product_id, product_name, price
+})
+})
+.then(async response => {
+let data;
+try {
+data = await response.json();
+} catch (e) {
+throw new Error("Respon bukan JSON: " + response.status + " " + response.statusText);
+}
+
+if (response.ok && data.token) {
+snap.pay(data.token, {
+onSuccess: result => {
+document.getElementById('pesan').innerText = "🎉 Selamat, kamu berhasil melakukan pembayaran!";
+console.log("Pembayaran sukses:", result);
+
+// Update status approve dan expired_at ke Firebase
+if (currentUid) {
+const expiredDate = "2025-12-24"; // Format bisa disesuaikan
+db.ref("data_siswa/" + currentUid).update({
+approved: true,
+expired_at: expiredDate
+}).then(() => {
+console.log("✅ Status akun diperbarui setelah pembayaran.");
+}).catch(err => {
+console.error("❌ Gagal memperbarui status:", err);
+});
+} else {
+console.error("❌ UID tidak ditemukan. Tidak dapat update status.");
+}
+},
+onPending: result => alert("⏳ Pembayaran pending.\n" + JSON.stringify(result)),
+onError: result => alert("❌ Pembayaran gagal.\n" + JSON.stringify(result)),
+onClose: () => alert("Popup ditutup tanpa menyelesaikan pembayaran.")
+});
+} else {
+throw new Error("Gagal mendapatkan token pembayaran: " + (data.error || JSON.stringify(data)));
+}
+})
+.catch(err => {
+console.error(err);
+alert("❌ Error: " + err.message);
+});
+}
+// Carousel Navigation
+const carousel = document.getElementById("carousel");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const cardWidth = 224 + 16; // w-56 = 224px, gap-4 = 16px
+
+prevBtn.onclick = () => {
+carousel.scrollBy({
+left: -cardWidth,
+behavior: 'smooth'
+});
+};
+nextBtn.onclick = () => {
+carousel.scrollBy({
+left: cardWidth,
+behavior: 'smooth'
+});
+};
+</script>
+
+<script>
+
+function ubahJumlah(id, delta) {
+const el = document.getElementById('jumlah-' + id);
+let jumlah = parseInt(el.textContent);
+jumlah = Math.max(1,
+jumlah + delta);
+el.textContent = jumlah;
+}
+
+function tambahKeKeranjang(id, nama, harga) {
+alert(`${nama} (${document.getElementById('jumlah-' + id).textContent}x) ditambahkan ke keranjang.`);
+}
+
+// Navigasi scroll carousel
+document.getElementById('prevBtn').addEventListener('click', () => {
+document.getElementById('carousel').scrollBy({
+left: -300, behavior: 'smooth'
+});
+});
+document.getElementById('nextBtn').addEventListener('click', () => {
+document.getElementById('carousel').scrollBy({
+left: 300, behavior: 'smooth'
+});
+});
+</script>
+
+<!-- Script lain (Firebase, soal, dsb) tetap seperti sebelumnya -->
+<!-- ... seluruh script kamu yang lain (login, register, soal, dsb) ... -->
+
+<script>
+const keranjang = {};
+
+function ubahJumlah(id, delta) {
+const el = document.getElementById('jumlah-' + id);
+let jumlah = parseInt(el.textContent);
+jumlah = Math.max(1,
+jumlah + delta);
+el.textContent = jumlah;
+}
+
+function tambahKeKeranjang(id, nama, harga) {
+const jumlah = parseInt(document.getElementById('jumlah-' + id).textContent);
+if (keranjang[id]) {
+keranjang[id].jumlah += jumlah;
+} else {
+keranjang[id] = {
+nama: nama,
+jumlah: jumlah,
+harga: harga
+};
+}
+updateKeranjang();
+}
+
+function updateKeranjang() {
+const list = document.getElementById('keranjang-list');
+list.innerHTML = '';
+let total = 0;
+for (const id in keranjang) {
+const item = keranjang[id];
+const subtotal = item.jumlah * item.harga;
+total += subtotal;
+const li = document.createElement('li');
+li.textContent = `${item.nama} - ${item.jumlah} x Rp ${item.harga.toLocaleString()} = Rp ${subtotal.toLocaleString()}`;
+list.appendChild(li);
+}
+document.getElementById('total-harga').textContent = total.toLocaleString();
+}
+
+function checkout() {
+if (Object.keys(keranjang).length === 0) {
+alert("Keranjang kosong.");
+return;
+}
+
+let total = 0;
+const itemDetails = [];
+
+for (const id in keranjang) {
+const item = keranjang[id];
+const subtotal = item.jumlah * item.harga;
+total += subtotal;
+itemDetails.push({
+id: id,
+name: item.nama,
+price: item.harga,
+quantity: item.jumlah
+});
+}
+
+fetch('https://math314.vercel.app/api/snapmulti', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+items: itemDetails, gross_amount: total
+})
+})
+.then(res => res.json())
+.then(data => {
+if (data.token) {
+snap.pay(data.token, {
+onSuccess: function(result) {
+document.getElementById('pesan').innerText = "✅ Pembayaran berhasil!";
+console.log("Success:", result);
+},
+onPending: function(result) {
+alert("⏳ Menunggu pembayaran...");
+},
+onError: function(result) {
+alert("❌ Gagal: " + JSON.stringify(result));
+},
+onClose: function() {
+alert("❌ Dibatalkan.");
+}
+});
+} else {
+alert("Gagal mendapatkan token");
+}
+})
+.catch(err => {
+console.error(err);
+alert("Terjadi kesalahan: " + err.message);
+});
+}
+
+
+
+
+
+
+
+
+</script>
+
+<script>
+function lanjutkan() {
+alert("🔵 Aplikasi dimulai...");
+// Arahkan ke dashboard atau halaman soal
+// window.location.href = "soal.html"; // Jika punya halaman lanjut
+}
+</script>
+
+
+<!-- Konten HTML kamu di sini -->
+
+<!-- Script dipindahkan ke akhir body -->
+<!-- Firebase SDK v9 compat -->
+
+
+
+
+<script src="https://app.sandbox.midtrans.com/snap/snap.js"
+data-client-key="SB-Mid-client-3P0gJYk_9J8zv2W1"></script>
+
+<!-- Polyfill ES6 support -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<!-- MathJax Configuration & Library -->
+<script>
+window.MathJax = {
+tex: {
+inlineMath: [['$', '$'], ['\\(', '\\)']]
+}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</body>
+</html>
