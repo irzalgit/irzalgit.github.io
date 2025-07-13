@@ -295,6 +295,12 @@
             <button id="btnBayar" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-3 rounded-full font-medium shadow-lg btn hidden">
               <i class="fas fa-gem mr-2"></i>Aktivasi Akun Premium
             </button>
+            
+            <!-- Tombol Beli Poster -->
+            <button id="btnBeliPoster" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-3 rounded-full font-medium shadow-lg btn hidden mt-4">
+              <i class="fas fa-shopping-cart mr-2"></i>Beli Poster
+            </button>
+            
             <p class="text-sm text-gray-500 mt-4">🔒 Akses premium hanya Rp10.000/bulan</p>
           </div>
         </section>
@@ -628,9 +634,12 @@
                 approved: true,
                 siap_bayar: false,
                 nilai: {}
+              }).then(() => {
+                updateUI(user);
               });
+            } else {
+              updateUI(user);
             }
-            updateUI(user);
           });
         })
         .catch((error) => {
@@ -683,6 +692,12 @@
             document.getElementById("halamanPremium").classList.remove("hidden");
             loadSoalPremium();
           };
+          
+          // Tampilkan tombol Beli Poster jika siap_bayar true
+          document.getElementById("btnBeliPoster").classList.remove("hidden");
+          document.getElementById("btnBeliPoster").onclick = () => {
+            window.location.href = "poster.html";
+          };
         } else {
           document.getElementById("btnBayar").classList.remove("hidden");
           document.getElementById("btnBayar").onclick = () => location.href = "https://irzalgit.github.io/midtrans.html";
@@ -691,54 +706,52 @@
     }
 
    function loadSoalPremium() {
-  const container = document.getElementById("daftarSoal");
-  container.innerHTML = "<p>🔄 Memuat soal...</p>";
+      const container = document.getElementById("daftarSoal");
+      container.innerHTML = "<p>🔄 Memuat soal...</p>";
 
-  db.ref("/soal").once("value").then(snapshot => {
-    const data = snapshot.val();
+      db.ref("/soal").once("value").then(snapshot => {
+        const data = snapshot.val();
 
-    if (!data || !data.soal) {
-      container.innerHTML = "<p>❌ Soal tidak ditemukan.</p>";
-      return;
+        if (!data || !data.soal) {
+          container.innerHTML = "<p>❌ Soal tidak ditemukan.</p>";
+          return;
+        }
+
+        const soalList = data.soal;
+        container.innerHTML = "";
+
+        let index = 0;
+        for (let key in soalList) {
+          const soal = soalList[key];
+          const soalId = `soal_${index}`;
+          const hasilId = `hasil_${index}`;
+
+          const pilihanHTML = soal.pilihan.map((p, i) => `
+            <label class="block">
+              <input type="checkbox" name="${soalId}" data-benar="${p.benar}" class="mr-2" />
+              ${p.teks}
+            </label>
+          `).join("");
+
+          const div = document.createElement("div");
+          div.className = "p-4 border rounded bg-white shadow mb-4 soal-container";
+          div.innerHTML = `
+            <p class="font-semibold">${soal.pertanyaan}</p>
+            <div>${pilihanHTML}</div>
+            <p id="${hasilId}" class="mt-2 font-bold"></p>
+            <p class="text-sm mt-2 text-gray-500">Kategori: ${soal.kategori} | Tingkat: ${soal.tingkat_kesulitan}</p>
+          `;
+
+          container.appendChild(div);
+          index++;
+        }
+        
+        // Render ulang MathJax
+        if (window.MathJax) MathJax.typeset();
+      });
+      
+      mulaiTimer();
     }
-
-    const soalList = data.soal;
-    container.innerHTML = "";
-
-    let index = 0;
-    for (let key in soalList) {
-      const soal = soalList[key];
-      const soalId = `soal_${index}`;
-      const hasilId = `hasil_${index}`;
-
-      const pilihanHTML = soal.pilihan.map((p, i) => `
-        <label class="block">
-          <input type="checkbox" name="${soalId}" data-benar="${p.benar}" class="mr-2" />
-          ${p.teks}
-        </label>
-      `).join("");
-
-      const div = document.createElement("div");
-      div.className = "p-4 border rounded bg-white shadow mb-4";
-      div.innerHTML = `
-        <p class="font-semibold">${soal.pertanyaan}</p>
-        <div>${pilihanHTML}</div>
-        <p id="${hasilId}" class="mt-2 font-bold"></p>
-        <p class="text-sm mt-2 text-gray-500">Kategori: ${soal.kategori} | Tingkat: ${soal.tingkat_kesulitan}</p>
-      `;
-
-      container.appendChild(div);
-      index++;
-    }
-    
-    // Render ulang MathJax
-    if (window.MathJax) MathJax.typeset();
-  });
-    
-    
- 
-  mulaiTimer();
-}
 
     function cekSemuaJawaban(timeoutMode = false) {
       const allSoal = document.querySelectorAll(".soal-container");
