@@ -1,598 +1,167 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generator Soal Matematika</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .card {
-            border-radius: 15px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .header {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-            border-radius: 0 0 20px 20px;
-        }
-        .btn-primary {
-            background: linear-gradient(to right, #2575fc, #6a11cb);
-            border: none;
-        }
-        .option-btn {
-            text-align: left;
-            margin-bottom: 8px;
-            transition: all 0.2s;
-        }
-        .option-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .correct {
-            background-color: #d4edda !important;
-            border-color: #c3e6cb !important;
-        }
-        .incorrect {
-            background-color: #f8d7da !important;
-            border-color: #f5c6cb !important;
-        }
-        .stats-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-        .footer {
-            background-color: #343a40;
-            color: #f8f9fa;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Soal Gratis dengan Dropdown</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tambahkan MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body>
-    <!-- Header -->
-    <div class="header text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Generator Soal Matematika</h1>
-            <p class="lead">Peluang dan Probabilitas dengan Variabel Dinamis</p>
-        </div>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-6">
+    <h1 class="text-2xl font-bold mb-6 text-center">Portal Matematika</h1>
+
+    <!-- Dropdown kategori -->
+    <div class="mb-6 text-center">
+      <label for="kategoriSelect" class="mr-2 font-semibold">Pilih Kategori:</label>
+      <select id="kategoriSelect" class="border px-3 py-2 rounded-lg">
+        <option value="">-- Pilih Kategori --</option>
+      </select>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <!-- Panel Kontrol -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="card-title mb-0">Kontrol Generator</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label class="form-label">Nilai a:</label>
-                            <select id="a-value" class="form-select">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Nilai b:</label>
-                            <select id="b-value" class="form-select">
-                                <option value="3">3</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
-                        </div>
-                        <button id="generate-btn" class="btn btn-primary w-100 mb-3">
-                            Generate Soal Baru
-                        </button>
-                        <button id="save-btn" class="btn btn-outline-primary w-100">
-                            Simpan ke Database
-                        </button>
-                        <button id="load-btn" class="btn btn-outline-success w-100 mt-2">
-                            Muat dari Database
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Statistik -->
-                <div class="card mt-4 stats-card">
-                    <div class="card-header bg-info text-white">
-                        <h5 class="card-title mb-0">Statistik</h5>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="stats-chart" height="250"></canvas>
-                        <div class="mt-3">
-                            <p class="mb-1">Total Soal: <span id="total-questions">0</span></p>
-                            <p class="mb-1">Soal Tersimpan: <span id="saved-questions">0</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Area Soal -->
-            <div class="col-md-8">
-                <div class="card mb-4">
-                    <div class="card-header bg-success text-white">
-                        <h5 class="card-title mb-0">Soal Matematika</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="badge bg-primary" id="question-id">ID: -</span>
-                            <span class="badge bg-warning text-dark" id="difficulty">Tingkat Kesulitan: -</span>
-                            <span class="badge bg-info" id="timer">Waktu: 30 detik</span>
-                        </div>
-                        
-                        <h4 id="question-text" class="mb-4">
-                            Memuat soal...
-                        </h4>
-                        
-                        <div id="options-container" class="mb-4">
-                            <!-- Opsi akan diisi oleh JavaScript -->
-                        </div>
-                        
-                        <div class="alert alert-success d-none" id="result-alert">
-                            <strong>Jawaban Benar!</strong> Pilihan Anda tepat.
-                        </div>
-                        
-                        <div class="d-flex justify-content-between mt-4">
-                            <button id="prev-btn" class="btn btn-secondary">
-                                &larr; Sebelumnya
-                            </button>
-                            <button id="submit-btn" class="btn btn-primary">
-                                Periksa Jawaban
-                            </button>
-                            <button id="next-btn" class="btn btn-secondary">
-                                Selanjutnya &rarr;
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Daftar Soal -->
-                <div class="card">
-                    <div class="card-header bg-secondary text-white">
-                        <h5 class="card-title mb-0">Daftar Soal</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Variabel</th>
-                                        <th>Pertanyaan</th>
-                                        <th>Status</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="questions-table">
-                                    <!-- Data akan diisi oleh JavaScript -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer -->
-    <div class="footer text-center mt-5">
-        <div class="container">
-            <p class="mb-0">Generator Soal Matematika &copy; 2023 | Peluang dan Probabilitas</p>
-            <p class="mb-0">Menggunakan Firebase Realtime Database</p>
-        </div>
+    <div id="quiz-container"></div>
+
+    <div class="mt-6 text-center">
+      <button id="submitBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+        Periksa Jawaban
+      </button>
     </div>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
-    
-    <script>
-        // Konfigurasi Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyDzr3TdY0QZzZ0QZzZ0QZzZ0QZzZ0QZzZ0",
-            authDomain: "soal-generator-12345.firebaseapp.com",
-            databaseURL: "https://soal-generator-12345-default-rtdb.firebaseio.com",
-            projectId: "soal-generator-12345",
-            storageBucket: "soal-generator-12345.appspot.com",
-            messagingSenderId: "123456789012",
-            appId: "1:123456789012:web:abcdef1234567890abcdef"
-        };
+    <div id="result" class="mt-4 text-lg font-semibold text-center"></div>
+  </div>
 
-        // Inisialisasi Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-        
-        // Data soal
-        let questions = {};
-        let currentQuestionId = 1;
-        let userAnswers = {};
-        let timerInterval;
-        
-        // Elemen DOM
-        const questionText = document.getElementById('question-text');
-        const optionsContainer = document.getElementById('options-container');
-        const questionIdElement = document.getElementById('question-id');
-        const difficultyElement = document.getElementById('difficulty');
-        const timerElement = document.getElementById('timer');
-        const submitBtn = document.getElementById('submit-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const prevBtn = document.getElementById('prev-btn');
-        const generateBtn = document.getElementById('generate-btn');
-        const saveBtn = document.getElementById('save-btn');
-        const loadBtn = document.getElementById('load-btn');
-        const resultAlert = document.getElementById('result-alert');
-        const questionsTable = document.getElementById('questions-table');
-        const totalQuestionsElement = document.getElementById('total-questions');
-        const savedQuestionsElement = document.getElementById('saved-questions');
-        const aValueSelect = document.getElementById('a-value');
-        const bValueSelect = document.getElementById('b-value');
-        
-        // Inisialisasi aplikasi
-        document.addEventListener('DOMContentLoaded', () => {
-            generateQuestion();
-            loadQuestionsFromFirebase();
-            setupEventListeners();
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
+      authDomain: "math314-app.firebaseapp.com",
+      databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
+      projectId: "math314-app",
+      storageBucket: "math314-app.appspot.com",
+      messagingSenderId: "9019551034",
+      appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
+      measurementId: "G-VWYDTY9LF6"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const quizContainer = document.getElementById("quiz-container");
+    const submitBtn = document.getElementById("submitBtn");
+    const resultDiv = document.getElementById("result");
+    const kategoriSelect = document.getElementById("kategoriSelect");
+
+    let soalData = {};
+
+    // Ambil data soal gratis
+    const soalRef = ref(db, "soal_gratis");
+    onValue(soalRef, (snapshot) => {
+      soalData = snapshot.val() || {};
+      isiDropdown(soalData);
+    });
+
+    // Isi dropdown kategori
+    function isiDropdown(data) {
+      kategoriSelect.innerHTML = `<option value="">-- Pilih Kategori --</option>`;
+      Object.keys(data).forEach((kategori) => {
+        const opt = document.createElement("option");
+        opt.value = kategori;
+        opt.textContent = kategori.toUpperCase();
+        kategoriSelect.appendChild(opt);
+      });
+    }
+
+    // Render soal berdasarkan kategori terpilih
+    function renderQuiz(kategori) {
+      quizContainer.innerHTML = "";
+      resultDiv.innerHTML = "";
+
+      if (!kategori || !soalData[kategori]) return;
+
+      Object.keys(soalData[kategori]).forEach((key, index) => {
+        const soal = soalData[kategori][key];
+        const div = document.createElement("div");
+        div.className = "mb-6 p-4 border rounded-lg";
+
+        let html = `<p class="font-semibold mb-2">${index + 1}. ${soal.pertanyaan}</p>`;
+
+        soal.pilihan.forEach((pil, i) => {
+          html += `
+            <label class="block cursor-pointer">
+              <input type="checkbox" 
+                     name="soal-${kategori}-${key}" 
+                     value="${i}" 
+                     class="mr-2">
+              ${pil.teks}
+            </label>
+          `;
         });
+
+        div.innerHTML = html;
+        quizContainer.appendChild(div);
+      });
+
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    }
+
+    // Event ganti kategori
+    kategoriSelect.addEventListener("change", (e) => {
+      renderQuiz(e.target.value);
+      submitBtn.disabled = false;
+    });
+
+    // Event submit
+    submitBtn.addEventListener("click", () => {
+      let score = 0;
+      let totalBenar = 0;
+      const kategori = kategoriSelect.value;
+
+      if (!kategori || !soalData[kategori]) return;
+
+      Object.keys(soalData[kategori]).forEach((key) => {
+        const soal = soalData[kategori][key];
+        const checkboxes = document.querySelectorAll(`input[name="soal-${kategori}-${key}"]`);
         
-        function setupEventListeners() {
-            generateBtn.addEventListener('click', generateQuestion);
-            saveBtn.addEventListener('click', saveToFirebase);
-            loadBtn.addEventListener('click', loadQuestionsFromFirebase);
-            submitBtn.addEventListener('click', checkAnswer);
-            nextBtn.addEventListener('click', showNextQuestion);
-            prevBtn.addEventListener('click', showPrevQuestion);
-        }
-        
-        // Fungsi untuk menghasilkan soal baru
-        function generateQuestion() {
-            const a = parseInt(aValueSelect.value);
-            const b = parseInt(bValueSelect.value);
-            const questionId = `soal_${a}_${b}`;
-            
-            // Hasilkan pertanyaan
-            const question = {
-                pertanyaan: `Dalam sebuah kotak terdapat ${a} kelereng merah dan ${b} kelereng biru. Diambil dua kelereng secara berurutan tanpa dikembalikan.`,
-                pilihan: [
-                    { 
-                        teks: `Peluang kelereng kedua berwarna biru jika kelereng pertama yang diambil adalah biru adalah ${b-1}/${a+b-1}`, 
-                        benar: true 
-                    },
-                    { 
-                        teks: `Peluang kelereng kedua berwarna biru jika kelereng pertama yang diambil adalah merah adalah ${b}/${a+b-1}`, 
-                        benar: true 
-                    },
-                    { 
-                        teks: `Peluang kelereng kedua berwarna biru jika kelereng pertama yang diambil adalah biru adalah ${b-1}/${a+b}`, 
-                        benar: false 
-                    },
-                    { 
-                        teks: `Peluang kelereng kedua berwarna biru jika kelereng pertama yang diambil adalah merah adalah ${b}/${a+b}`, 
-                        benar: false 
-                    },
-                    { 
-                        teks: `Jumlah ruang sampel setelah kelereng pertama diambil tanpa pengembalian adalah ${a+b-1}`, 
-                        benar: true 
-                    }
-                ],
-                kategori: "Matematika Dasar",
-                tingkat_kesulitan: "Mudah",
-                maks_waktu: 30,
-                variabel: { a, b }
-            };
-            
-            questions[questionId] = question;
-            currentQuestionId = questionId;
-            displayQuestion(questionId);
-        }
-        
-        // Tampilkan soal di UI
-        function displayQuestion(questionId) {
-            const question = questions[questionId];
-            if (!question) return;
-            
-            questionText.textContent = question.pertanyaan;
-            questionIdElement.textContent = `ID: ${questionId}`;
-            difficultyElement.textContent = `Tingkat Kesulitan: ${question.tingkat_kesulitan}`;
-            
-            // Kosongkan container opsi
-            optionsContainer.innerHTML = '';
-            
-            // Tambahkan opsi
-            question.pilihan.forEach((option, index) => {
-                const optionDiv = document.createElement('div');
-                optionDiv.className = 'd-grid';
-                
-                const btn = document.createElement('button');
-                btn.className = 'btn btn-light option-btn';
-                btn.innerHTML = `
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="option${index}" name="option" value="${index}">
-                        <label class="form-check-label" for="option${index}">
-                            ${option.teks}
-                        </label>
-                    </div>
-                `;
-                
-                btn.addEventListener('click', () => {
-                    const checkbox = btn.querySelector('input');
-                    checkbox.checked = !checkbox.checked;
-                    
-                    // Simpan jawaban pengguna
-                    if (!userAnswers[questionId]) userAnswers[questionId] = [];
-                    const answerIndex = userAnswers[questionId].indexOf(index);
-                    
-                    if (checkbox.checked && answerIndex === -1) {
-                        userAnswers[questionId].push(index);
-                    } else if (!checkbox.checked && answerIndex !== -1) {
-                        userAnswers[questionId].splice(answerIndex, 1);
-                    }
-                });
-                
-                optionDiv.appendChild(btn);
-                optionsContainer.appendChild(optionDiv);
-            });
-            
-            // Reset timer
-            resetTimer(question.maks_waktu);
-            
-            // Update tabel daftar soal
-            updateQuestionsTable();
-        }
-        
-        // Timer untuk soal
-        function resetTimer(seconds) {
-            clearInterval(timerInterval);
-            
-            let timeLeft = seconds;
-            timerElement.textContent = `Waktu: ${timeLeft} detik`;
-            
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                timerElement.textContent = `Waktu: ${timeLeft} detik`;
-                
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    checkAnswer();
-                }
-            }, 1000);
-        }
-        
-        // Periksa jawaban
-        function checkAnswer() {
-            clearInterval(timerInterval);
-            
-            const question = questions[currentQuestionId];
-            const userAnswer = userAnswers[currentQuestionId] || [];
-            
-            // Tentukan jawaban yang benar
-            const correctAnswers = [];
-            question.pilihan.forEach((option, index) => {
-                if (option.benar) correctAnswers.push(index);
-            });
-            
-            // Tampilkan hasil
-            const isCorrect = arraysEqual(userAnswer.sort(), correctAnswers.sort());
-            
-            resultAlert.className = isCorrect ? 
-                'alert alert-success' : 'alert alert-danger';
-                
-            resultAlert.innerHTML = isCorrect ?
-                '<strong>Jawaban Benar!</strong> Pilihan Anda tepat.' :
-                '<strong>Jawaban Salah!</strong> Silakan periksa kembali.';
-                
-            resultAlert.classList.remove('d-none');
-            
-            // Tandai opsi yang benar/salah
-            const optionButtons = document.querySelectorAll('.option-btn');
-            optionButtons.forEach((btn, index) => {
-                const isUserSelected = userAnswer.includes(index);
-                const isCorrectAnswer = correctAnswers.includes(index);
-                
-                if (isUserSelected && isCorrectAnswer) {
-                    btn.classList.add('correct');
-                } else if (isUserSelected && !isCorrectAnswer) {
-                    btn.classList.add('incorrect');
-                } else if (!isUserSelected && isCorrectAnswer) {
-                    btn.classList.add('correct');
-                    btn.innerHTML += ' <span class="badge bg-success">Jawaban benar</span>';
-                }
-            });
-        }
-        
-        // Fungsi pembantu untuk membandingkan array
-        function arraysEqual(a, b) {
-            if (a.length !== b.length) return false;
-            for (let i = 0; i < a.length; i++) {
-                if (a[i] !== b[i]) return false;
-            }
-            return true;
-        }
-        
-        // Navigasi soal
-        function showNextQuestion() {
-            const questionIds = Object.keys(questions);
-            const currentIndex = questionIds.indexOf(currentQuestionId);
-            
-            if (currentIndex < questionIds.length - 1) {
-                currentQuestionId = questionIds[currentIndex + 1];
-                displayQuestion(currentQuestionId);
-            }
-        }
-        
-        function showPrevQuestion() {
-            const questionIds = Object.keys(questions);
-            const currentIndex = questionIds.indexOf(currentQuestionId);
-            
-            if (currentIndex > 0) {
-                currentQuestionId = questionIds[currentIndex - 1];
-                displayQuestion(currentQuestionId);
-            }
-        }
-        
-        // Simpan ke Firebase
-        function saveToFirebase() {
-            const questionId = currentQuestionId;
-            const question = questions[questionId];
-            
-            database.ref('soal/' + questionId).set(question)
-                .then(() => {
-                    alert('Soal berhasil disimpan ke database!');
-                    updateStats();
-                })
-                .catch(error => {
-                    console.error('Error saving question:', error);
-                    alert('Terjadi kesalahan saat menyimpan soal.');
-                });
-        }
-        
-        // Muat soal dari Firebase
-        function loadQuestionsFromFirebase() {
-            database.ref('soal').once('value')
-                .then(snapshot => {
-                    const data = snapshot.val();
-                    if (data) {
-                        questions = data;
-                        currentQuestionId = Object.keys(questions)[0];
-                        displayQuestion(currentQuestionId);
-                        updateStats();
-                        alert('Soal berhasil dimuat dari database!');
-                    } else {
-                        alert('Belum ada soal di database.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading questions:', error);
-                    alert('Terjadi kesalahan saat memuat soal.');
-                });
-        }
-        
-        // Update tabel daftar soal
-        function updateQuestionsTable() {
-            questionsTable.innerHTML = '';
-            
-            Object.keys(questions).forEach(id => {
-                const question = questions[id];
-                const row = document.createElement('tr');
-                
-                row.innerHTML = `
-                    <td>${id}</td>
-                    <td>a=${question.variabel.a}, b=${question.variabel.b}</td>
-                    <td>${question.pertanyaan.substring(0, 60)}...</td>
-                    <td>${id === currentQuestionId ? 
-                        '<span class="badge bg-primary">Aktif</span>' : 
-                        '<span class="badge bg-secondary">Tersedia</span>'}</td>
-                    <td>
-                        <button class="btn btn-sm btn-outline-primary load-question-btn" data-id="${id}">
-                            Muat
-                        </button>
-                    </td>
-                `;
-                
-                questionsTable.appendChild(row);
-            });
-            
-            // Tambahkan event listener untuk tombol muat
-            document.querySelectorAll('.load-question-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    currentQuestionId = btn.dataset.id;
-                    displayQuestion(currentQuestionId);
-                });
-            });
-        }
-        
-        // Update statistik
-        function updateStats() {
-            totalQuestionsElement.textContent = Object.keys(questions).length;
-            
-            // Untuk demo, kita asumsikan semua soal tersimpan
-            savedQuestionsElement.textContent = Object.keys(questions).length;
-            
-            // Update chart
-            updateChart();
-        }
-        
-        // Update chart statistik
-        function updateChart() {
-            const ctx = document.getElementById('stats-chart').getContext('2d');
-            
-            // Hitung distribusi nilai a dan b
-            const aValues = {1: 0, 2: 0, 3: 0};
-            const bValues = {3: 0, 5: 0, 6: 0};
-            
-            Object.values(questions).forEach(question => {
-                aValues[question.variabel.a]++;
-                bValues[question.variabel.b]++;
-            });
-            
-            // Hancurkan chart sebelumnya jika ada
-            if (window.statsChart) {
-                window.statsChart.destroy();
-            }
-            
-            // Buat chart baru
-            window.statsChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['a=1', 'a=2', 'a=3', 'b=3', 'b=5', 'b=6'],
-                    datasets: [{
-                        label: 'Distribusi Variabel',
-                        data: [
-                            aValues[1], aValues[2], aValues[3],
-                            bValues[3], bValues[5], bValues[6]
-                        ],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.7)',
-                            'rgba(255, 159, 64, 0.7)',
-                            'rgba(255, 205, 86, 0.7)',
-                            'rgba(75, 192, 192, 0.7)',
-                            'rgba(54, 162, 235, 0.7)',
-                            'rgba(153, 102, 255, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgb(255, 99, 132)',
-                            'rgb(255, 159, 64)',
-                            'rgb(255, 205, 86)',
-                            'rgb(75, 192, 192)',
-                            'rgb(54, 162, 235)',
-                            'rgb(153, 102, 255)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        title: {
-                            display: true,
-                            text: 'Distribusi Variabel dalam Soal'
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                stepSize: 1
-                            }
-                        }
-                    }
-                }
-            });
-        }
-    </script>
+        soal.pilihan.forEach((pil, i) => {
+          const checkbox = checkboxes[i];
+
+          if (pil.benar) totalBenar++;
+
+          if (pil.benar && checkbox.checked) {
+            score++;
+            checkbox.parentElement.classList.add("text-green-600", "font-semibold");
+          }
+
+          if (!pil.benar && checkbox.checked) {
+            checkbox.parentElement.classList.add("text-red-600", "line-through");
+          }
+
+          if (pil.benar) {
+            checkbox.parentElement.classList.add("bg-green-100");
+          }
+        });
+      });
+
+      resultDiv.innerText = `Skor Anda: ${score} dari ${totalBenar}`;
+      submitBtn.disabled = true;
+
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    });
+  </script>
 </body>
 </html>
