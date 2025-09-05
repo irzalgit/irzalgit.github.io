@@ -1,136 +1,296 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Soal Premium - MathMaster</title>
+  <meta charset="UTF-8">
+  <title>Soal Premium - Google Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body class="bg-gray-100 min-h-screen p-6">
+<body class="bg-gray-100 p-6">
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-6">
+    <h1 class="text-2xl font-bold mb-6 text-center">Portal Matematika - Premium</h1>
 
-  <!-- Header: Logout & Kembali -->
-  <div class="flex justify-between items-center mb-4">
-    <button onclick="window.location.href='index.html'"
-            class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded shadow">
-      ⬅️ Kembali ke Beranda
-    </button>
-    <div>
-      <p id="user-info" class="text-sm text-gray-700 mb-1 text-right"></p>
-      <button onclick="logout()"
-              class="text-sm text-red-600 underline hover:text-red-800">
-        Logout
+    <div id="loginDiv" class="text-center mb-6">
+      <button id="loginBtn" class="bg-green-500 text-white px-4 py-2 rounded-lg">
+        Login dengan Google
       </button>
+    </div>
+
+    <!-- Dropdown kategori -->
+    <div class="mb-6 text-center" id="kategoriDiv" style="display:none;">
+      <label for="kategoriSelect" class="mr-2 font-semibold">Pilih Kategori:</label>
+      <select id="kategoriSelect" class="border px-3 py-2 rounded-lg">
+        <option value="">-- Pilih Kategori --</option>
+      </select>
+    </div>
+
+    <div id="quiz-container"></div>
+
+    <div class="mt-6 text-center">
+      <button id="submitBtn" class="bg-blue-500 text-white px-4 py-2 rounded-lg" disabled>
+        Periksa Jawaban
+      </button>
+    </div>
+
+    <div id="result" class="mt-4 text-lg font-semibold text-center"></div>
+    <div id="notif" class="mt-2 text-sm text-center text-gray-700"></div>
+    
+    <!-- Bagian baru untuk menampilkan skor dan total nilai -->
+    <div id="scoreSummary" class="mt-8 p-4 bg-blue-50 rounded-lg" style="display:none;">
+      <h2 class="text-xl font-bold mb-4 text-center">Ringkasan Nilai</h2>
+      <div id="scoreDetails" class="mb-4"></div>
+      <div id="totalScore" class="text-xl font-bold text-center"></div>
     </div>
   </div>
 
-  <!-- Judul Halaman -->
-  <h1 class="text-2xl font-bold text-blue-800 mb-6">🎓 Soal Premium Matematika</h1>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, onValue, set, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-  <!-- Container Soal -->
-  <div id="container-soal" class="space-y-6"></div>
-
-  <!-- Tombol Cek Nilai -->
-  <div class="text-center mt-8">
-    <button onclick="cekNilai()"
-            class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded shadow">
-      ✅ Cek Nilai
-    </button>
-    <p id="hasil" class="mt-4 text-lg font-bold text-blue-700"></p>
-  </div>
-
-  <script>
-    // Konfigurasi Firebase (ganti sesuai project kamu)
+    // Firebase config
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "math314.firebaseapp.com",
-      databaseURL: "https://math314-default-rtdb.firebaseio.com",
-      projectId: "math314"
+      apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
+      authDomain: "math314-app.firebaseapp.com",
+      databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
+      projectId: "math314-app",
+      storageBucket: "math314-app.appspot.com",
+      messagingSenderId: "9019551034",
+      appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
+      measurementId: "G-VWYDTY9LF6"
     };
-    firebase.initializeApp(firebaseConfig);
 
-    let dataSoalGlobal = {};
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const auth = getAuth(app);
 
-    // Cek status login
-    firebase.auth().onAuthStateChanged(function(user) {
+    const loginBtn = document.getElementById("loginBtn");
+    const loginDiv = document.getElementById("loginDiv");
+    const kategoriDiv = document.getElementById("kategoriDiv");
+    const quizContainer = document.getElementById("quiz-container");
+    const submitBtn = document.getElementById("submitBtn");
+    const resultDiv = document.getElementById("result");
+    const notifDiv = document.getElementById("notif");
+    const kategoriSelect = document.getElementById("kategoriSelect");
+    const scoreSummary = document.getElementById("scoreSummary");
+    const scoreDetails = document.getElementById("scoreDetails");
+    const totalScore = document.getElementById("totalScore");
+
+    let soalData = {};
+    let siswaId = null;
+    let userName = null;
+    let userScores = {}; // Menyimpan skor per kategori
+
+    const provider = new GoogleAuthProvider();
+
+    // Login button
+    loginBtn.addEventListener("click", () => {
+      signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        siswaId = user.uid;
+        userName = user.displayName;
+        loginDiv.style.display = "none";
+        kategoriDiv.style.display = "block";
+        loadSoal();
+        loadUserScores(); // Memuat skor yang sudah ada
+      })
+      .catch((error) => {
+        console.error("Login gagal:", error);
+        alert("Login gagal: " + error.message);
+      });
+    });
+
+    // Cek jika sudah login sebelumnya
+    onAuthStateChanged(auth, (user) => {
       if (user) {
-        document.getElementById("user-info").textContent = "👋 Halo, " + user.displayName;
-
-        firebase.database().ref("/peluang").once("value")
-          .then(snapshot => {
-            const semuaSoal = snapshot.val();
-            tampilkanSemuaSoal(semuaSoal);
-          })
-          .catch(error => {
-            console.error("❌ Gagal ambil soal:", error.message);
-          });
-
-      } else {
-        alert("🚫 Kamu belum login. Arahkan ke halaman login.");
-        window.location.href = "index.html";
+        siswaId = user.uid;
+        userName = user.displayName;
+        loginDiv.style.display = "none";
+        kategoriDiv.style.display = "block";
+        loadSoal();
+        loadUserScores(); // Memuat skor yang sudah ada
       }
     });
 
-    function tampilkanSemuaSoal(semuaSoal) {
-      const container = document.getElementById("container-soal");
-      let nomor = 1;
+    function loadSoal() {
+      // Ambil data soal
+      const soalRef = ref(db, "soal_premium");
+      onValue(soalRef, (snapshot) => {
+        soalData = snapshot.val() || {};
+        isiDropdown(soalData);
+      });
+    }
 
-      Object.entries(semuaSoal).forEach(([key, soal]) => {
-        dataSoalGlobal[key] = soal;
+    // Fungsi untuk memuat skor pengguna
+    function loadUserScores() {
+      if (!siswaId) return;
+      
+      const scoresRef = ref(db, `data_siswa/${siswaId}/skore`);
+      onValue(scoresRef, (snapshot) => {
+        userScores = snapshot.val() || {};
+        updateScoreSummary();
+      });
+    }
 
+    function isiDropdown(data) {
+      kategoriSelect.innerHTML = `<option value="">-- Pilih Kategori --</option>`;
+      Object.keys(data).forEach((kategori) => {
+        const opt = document.createElement("option");
+        opt.value = kategori;
+        opt.textContent = kategori.toUpperCase();
+        kategoriSelect.appendChild(opt);
+      });
+    }
+
+    kategoriSelect.addEventListener("change", (e) => {
+      const kategori = e.target.value;
+      if (!kategori) return;
+      renderQuiz(kategori);
+      submitBtn.disabled = false;
+    });
+
+    function renderQuiz(kategori) {
+      quizContainer.innerHTML = "";
+      resultDiv.innerHTML = "";
+      notifDiv.innerText = "";
+
+      if (!kategori || !soalData[kategori]) return;
+
+      Object.keys(soalData[kategori]).forEach((key, index) => {
+        const soal = soalData[kategori][key];
         const div = document.createElement("div");
-        div.className = "bg-white p-4 rounded shadow";
+        div.className = "mb-6 p-4 border rounded-lg";
 
-        const p = document.createElement("p");
-        p.className = "font-semibold mb-2";
-        p.textContent = nomor + ". " + soal.pertanyaan;
-        div.appendChild(p);
-
-        soal.pilihan.forEach((item, index) => {
-          const label = document.createElement("label");
-          const checkbox = document.createElement("input");
-          checkbox.type = "checkbox";
-          checkbox.name = key;
-          checkbox.value = index;
-          label.appendChild(checkbox);
-          label.innerHTML += " " + item.teks;
-          div.appendChild(label);
-          div.appendChild(document.createElement("br"));
+        let html = `<p class="font-semibold mb-2">${index + 1}. ${soal.pertanyaan}</p>`;
+        soal.pilihan.forEach((pil, i) => {
+          html += `
+            <label class="block cursor-pointer">
+              <input type="checkbox" 
+                     name="soal-${kategori}-${key}" 
+                     value="${i}" 
+                     class="mr-2">
+              ${pil.teks}
+            </label>
+          `;
         });
 
-        container.appendChild(div);
-        nomor++;
+        div.innerHTML = html;
+        quizContainer.appendChild(div);
       });
+
+      if (window.MathJax) MathJax.typesetPromise();
     }
 
-    function cekNilai() {
-      let skor = 0;
-      let totalSoal = Object.keys(dataSoalGlobal).length;
+    submitBtn.addEventListener("click", () => {
+      const kategori = kategoriSelect.value;
+      if (!kategori) return alert("Pilih kategori terlebih dahulu!");
 
-      Object.entries(dataSoalGlobal).forEach(([key, soal]) => {
-        const jawabanBenar = soal.pilihan.map((p, i) => p.benar ? i.toString() : null).filter(i => i !== null);
-        const jawabanUser = [...document.querySelectorAll('input[name="' + key + '"]:checked')].map(cb => cb.value);
+      let score = 0;
+      let totalBenar = 0;
+      let allCorrect = true; // Untuk mengecek apakah semua jawaban benar
 
-        const benar = jawabanUser.length === jawabanBenar.length &&
-                      jawabanUser.every(v => jawabanBenar.includes(v));
-
-        if (benar) skor++;
+      Object.keys(soalData[kategori]).forEach((key) => {
+        const soal = soalData[kategori][key];
+        const checkboxes = document.querySelectorAll(`input[name="soal-${kategori}-${key}"]`);
+        
+        // Reset status untuk soal ini
+        let soalCorrect = true;
+        
+        soal.pilihan.forEach((pil, i) => {
+          const checkbox = checkboxes[i];
+          if (pil.benar) totalBenar++;
+          
+          // Cek apakah jawaban benar sesuai dengan pilihan yang benar
+          if (pil.benar !== checkbox.checked) {
+            soalCorrect = false;
+          }
+          
+          if (pil.benar && checkbox.checked) checkbox.parentElement.classList.add("text-green-600","font-semibold");
+          if (!pil.benar && checkbox.checked) checkbox.parentElement.classList.add("text-red-600","line-through");
+          if (pil.benar) checkbox.parentElement.classList.add("bg-green-100");
+        });
+        
+        // Jika semua jawaban untuk soal ini benar, tambahkan skor
+        if (soalCorrect) {
+          score += 4;
+        } else {
+          allCorrect = false;
+        }
       });
 
-      document.getElementById("hasil").innerText = `✅ Skor kamu: ${skor} dari ${totalSoal} soal`;
-    }
+      // Hitung nilai akhir berdasarkan sistem baru
+      const nilaiAkhir = score;
+      
+      resultDiv.innerHTML = `
+        <div class="mb-2">Jawaban benar semua: ${score / 4} dari ${Object.keys(soalData[kategori]).length} soal</div>
+        <div>Nilai: ${nilaiAkhir}</div>
+      `;
+      
+      submitBtn.disabled = true;
 
-    function logout() {
-      firebase.auth().signOut().then(() => {
-        alert("Logout berhasil.");
-        window.location.href = "index.html";
+      // Simpan skor ke Firebase di /data_siswa/uid/skore/kategori
+      const skorRef = ref(db, `data_siswa/${siswaId}/skore/${kategori}`);
+      set(skorRef, {
+        nilai: nilaiAkhir,
+        soal_benar: score / 4,
+        total_soal: Object.keys(soalData[kategori]).length,
+        timestamp: Date.now()
+      })
+      .then(() => {
+        notifDiv.innerText = `✅ Skor berhasil disimpan di: /data_siswa/${siswaId}/skore/${kategori}`;
+        
+        // Update skor pengguna
+        userScores[kategori] = {
+          nilai: nilaiAkhir,
+          soal_benar: score / 4,
+          total_soal: Object.keys(soalData[kategori]).length,
+          timestamp: Date.now()
+        };
+        
+        updateScoreSummary();
+      })
+      .catch(err => {
+        notifDiv.innerText = `⚠️ Gagal menyimpan skor: ${err.message}`;
       });
+    });
+
+    // Fungsi untuk memperbarui ringkasan skor
+    function updateScoreSummary() {
+      if (Object.keys(userScores).length === 0) {
+        scoreSummary.style.display = "none";
+        return;
+      }
+      
+      scoreSummary.style.display = "block";
+      scoreDetails.innerHTML = "";
+      
+      let totalNilai = 0;
+      
+      Object.keys(userScores).forEach(kategori => {
+        const skor = userScores[kategori];
+        const div = document.createElement("div");
+        div.className = "flex justify-between mb-2";
+        div.innerHTML = `
+          <span>${kategori.toUpperCase()}:</span>
+          <span>${skor.nilai} (${skor.soal_benar}/${skor.total_soal} soal benar)</span>
+        `;
+        scoreDetails.appendChild(div);
+        
+        totalNilai += skor.nilai;
+      });
+      
+      totalScore.textContent = `Total Nilai: ${totalNilai}`;
     }
   </script>
-
 </body>
 </html>
