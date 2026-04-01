@@ -1,71 +1,215 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transaksi Sedang Diproses</title>
-<style>
-body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
-#status { font-size: 18px; margin-top: 20px; font-weight: bold; }
-a { display: block; margin-top: 15px; font-size: 16px; color: blue; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menunggu Pembayaran…</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+      animation: fadeUp 0.5s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 0;
+      opacity: 0.4;
+    }
+
+    .step.active {
+      opacity: 1;
+      font-weight: 700;
+    }
+
+    .step .icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: #d1d5db;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      color: white;
+    }
+
+    .step.active .icon {
+      background: #4f46e5;
+    }
+
+    .status-box {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #eef2ff;
+      color: #4338ca;
+      font-weight: bold;
+      display: none;
+    }
+
+    .input-box {
+      margin-top: 20px;
+    }
+
+    input {
+      width: 80%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+
+    .back-btn {
+      margin-top: 15px;
+      display: inline-block;
+      color: #4f46e5;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-<h2>Transaksi Anda Sedang Diproses</h2>
-<p>Jangan tutup halaman ini.</p>
+  <div class="container">
 
-<div id="status">Menunggu konfirmasi pembayaran...</div>
-<div id="payLink"></div>
+    <h2>Menunggu Pembayaran...</h2>
+    <p id="billText">Bill No: -</p>
+
+    <!-- Progress -->
+    <div class="step" id="step1">
+      <div class="icon">1</div>
+      <div>Transaksi Dibuat</div>
+    </div>
+
+    <div class="step" id="step2">
+      <div class="icon">2</div>
+      <div>Menunggu Pembayaran</div>
+    </div>
+
+    <div class="step" id="step3">
+      <div class="icon">3</div>
+      <div>Pembayaran Berhasil</div>
+    </div>
+
+    <div class="status-box" id="statusBox"></div>
+
+    <!-- Input manual jika tidak ada bill_no -->
+    <div class="input-box" id="inputBox" style="display:none;">
+      <p>Masukkan Bill No Anda:</p>
+      <input id="manualBill" placeholder="contoh: INV123456" />
+      <button onclick="manualSubmit()">Cek Status</button>
+      <div class="back-btn" onclick="window.location.href='/'">Kembali ke Halaman Utama</div>
+    </div>
+
+  </div>
 
 <script>
-const urlParams = new URLSearchParams(window.location.search);
-const billNo = urlParams.get('billNo');
-const msisdn = urlParams.get('msisdn');
+  const apiURL = "https://math315.vercel.app/api/payment-status";
 
-const statusDiv = document.getElementById('status');
-const payLinkDiv = document.getElementById('payLink');
+  function getBillNo() {
+    const url = new URL(window.location.href);
+    return url.searchParams.get("bill_no");
+  }
 
-if (!billNo || !msisdn) {
-  statusDiv.textContent = "Parameter billNo dan msisdn tidak ditemukan!";
-} else {
-  const checkPayment = async () => {
+  let billNo = getBillNo();
+
+  // Jika halaman dibuka tanpa bill_no → tampilkan input manual
+  if (!billNo) {
+    document.getElementById("billText").innerText = "Bill No: (kosong)";
+    document.getElementById("inputBox").style.display = "block";
+  } else {
+    document.getElementById("billText").innerText = "Bill No: " + billNo;
+    checkStatus(); // mulai cek otomatis
+    setInterval(checkStatus, 5000); // realtime
+  }
+
+  function manualSubmit() {
+    const val = document.getElementById("manualBill").value.trim();
+    if (!val) return alert("Bill_no tidak boleh kosong.");
+
+    window.location.href = "waiting.html?bill_no=" + val;
+  }
+
+  async function checkStatus() {
     try {
-      const res = await fetch(`/api/cek-status?billNo=${billNo}&msisdn=${msisdn}`);
-      const data = await res.json();
+      const res = await fetch(apiURL + "?bill_no=" + billNo);
+      const text = await res.text();
 
-      if (!data.success) {
-        statusDiv.textContent = "Gagal cek status pembayaran. Menunggu...";
+      if (res.status !== 200) {
+        document.getElementById("statusBox").style.display = "block";
+        document.getElementById("statusBox").innerText = "Bill tidak ditemukan!";
+        document.getElementById("inputBox").style.display = "block";
         return;
       }
 
-      if (data.paid) {
-        statusDiv.textContent = "✅ Pembayaran berhasil!";
-        payLinkDiv.innerHTML = `Tanggal Bayar: ${data.paymentDate || '-'}<br>Invoice ID: ${billNo}`;
-      } else {
-        statusDiv.textContent = "💳 Belum dibayar. Silakan klik link berikut untuk bayar:";
-        payLinkDiv.innerHTML = `<a href="${data.redirectUrl}" target="_blank">Bayar Sekarang</a>`;
+      // match status langsung dari HTML backend
+      if (text.includes("Pembayaran Lunas") || text.includes("Success") || text.includes("00")) {
+        activateStep(3);
+        showStatus("Pembayaran Berhasil ✔", "#16a34a");
+      } 
+      else if (text.includes("02") || text.includes("Cancel") || text.includes("Gagal")) {
+        activateStep(2);
+        showStatus("Pembayaran Dibatalkan ✖", "#dc2626");
       }
+      else {
+        activateStep(2);
+        showStatus("Menunggu Pembayaran…", "#4338ca");
+      }
+
     } catch (err) {
-      statusDiv.textContent = "Error cek status: " + err.message;
+      console.log(err);
+      showStatus("Kesalahan jaringan.", "#dc2626");
     }
-  };
+  }
 
-  // Pertama kali cek status
-  checkPayment();
+  function activateStep(step) {
+    document.querySelectorAll(".step").forEach(el => el.classList.remove("active"));
+    document.getElementById("step" + step).classList.add("active");
+  }
 
-  // Cek setiap 5 detik sampai pembayaran berhasil
-  const intervalId = setInterval(async () => {
-    const res = await fetch(`/api/cek-status?billNo=${billNo}&msisdn=${msisdn}`);
-    const data = await res.json();
-
-    if (data.success && data.paid) {
-      statusDiv.textContent = "✅ Pembayaran berhasil!";
-      payLinkDiv.innerHTML = `Tanggal Bayar: ${data.paymentDate || '-'}<br>Invoice ID: ${billNo}`;
-      clearInterval(intervalId); // berhenti cek otomatis
-    }
-  }, 5000);
-}
+  function showStatus(text, color) {
+    const box = document.getElementById("statusBox");
+    box.style.display = "block";
+    box.style.background = color + "22";
+    box.style.color = color;
+    box.innerText = text;
+  }
 </script>
 
 </body>
