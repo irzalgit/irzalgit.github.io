@@ -1,232 +1,96 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Status Pembayaran</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f9fc;
-      padding: 20px;
-      text-align: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status Pembayaran</title>
+<style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 40px; }
+    h2 { margin-bottom: 10px; }
+    #statusBox {
+        margin-top: 20px; padding: 20px;
+        border-radius: 10px; font-size: 18px;
+        font-weight: bold;
     }
-
-    .card {
-      background: white;
-      max-width: 450px;
-      margin: auto;
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .steps {
-      display: flex;
-      justify-content: space-between;
-      margin: 30px 0;
-    }
-
-    .step {
-      text-align: center;
-      width: 30%;
-    }
-
-    .circle {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
-      background: #b5b5b5;
-      transition: 0.3s;
-    }
-
-    .active {
-      background: #007bff !important;
-      box-shadow: 0 0 12px rgba(0, 123, 255, 0.55);
-      transform: scale(1.1);
-    }
-
-    .success {
-      background: #28a745 !important;
-    }
-
-    .failed {
-      background: #dc3545 !important;
-    }
-
-    .status-text {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 15px;
-    }
-
-    .bill-input {
-      margin-top: 20px;
-    }
-
-    input {
-      padding: 10px;
-      width: 80%;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
+    .pending { background: #fff3cd; color: #856404; }
+    .paid { background: #d4edda; color: #155724; }
+    .expired { background: #f8d7da; color: #721c24; }
     button {
-      padding: 12px 25px;
-      border: none;
-      background: #007bff;
-      color: white;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 10px;
-      font-size: 16px;
+        margin-top: 25px; padding: 12px 20px;
+        border: none; border-radius: 8px;
+        background: #007bff; color: white; font-size: 16px;
+        cursor: pointer;
     }
-
-    button:hover {
-      background: #0056b3;
-    }
-
-    .home-btn {
-      background: #6c757d;
-      margin-top: 20px;
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
+</style>
 </head>
-
 <body>
 
-  <div class="card">
-    <div class="title">Status Pembayaran</div>
+<h2>Memeriksa Status Pembayaran...</h2>
+<div id="statusBox" class="pending">Menunggu pembayaran...</div>
+<button id="backBtn" style="display:none;" onclick="window.location.href='index.html'">
+    Kembali ke Beranda
+</button>
 
-    <!-- STEP ICONS -->
-    <div class="steps">
-      <div class="step">
-        <div id="step1" class="circle active">1</div>
-        <div>Transaksi Dibuat</div>
-      </div>
-      <div class="step">
-        <div id="step2" class="circle">2</div>
-        <div>Menunggu Pembayaran</div>
-      </div>
-      <div class="step">
-        <div id="step3" class="circle">3</div>
-        <div>Selesai</div>
-      </div>
-    </div>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const bill_no = urlParams.get("bill_no");
 
-    <div id="statusText" class="status-text">Mengambil status...</div>
+const statusBox = document.getElementById("statusBox");
+const backBtn = document.getElementById("backBtn");
 
-    <!-- Input Bill No jika kosong -->
-    <div id="inputSection" class="bill-input hidden">
-      <p>Masukkan Nomor Tagihan (bill_no):</p>
-      <input type="text" id="billInput" placeholder="Masukkan bill_no..." />
-      <br />
-      <button onclick="loadManual()">Periksa Status</button>
-      <button class="home-btn" onclick="goHome()">Kembali ke Beranda</button>
-    </div>
+if (!bill_no) {
+    statusBox.textContent = "bill_no tidak ditemukan!";
+    statusBox.className = "expired";
+    backBtn.style.display = "block";
+} else {
+    async function checkStatus() {
+        try {
+            const response = await fetch(
+                `https://math315.vercel.app/api/payment-status?bill_no=${bill_no}`
+            );
 
-    <!-- Tombol kembali jika invalid -->
-    <button id="backBtn" class="home-btn hidden" onclick="goHome()">Kembali ke Beranda</button>
+            const data = await response.json();
 
-  </div>
+            if (!data.success) {
+                statusBox.textContent = "Gagal mengambil status...";
+                statusBox.className = "expired";
+                backBtn.style.display = "block";
+                return;
+            }
 
-  <script>
-    const apiURL = "https://math315.vercel.app/api/payment-status";
+            // STATUS
+            if (data.status === "pending") {
+                statusBox.textContent = "Menunggu pembayaran...";
+                statusBox.className = "pending";
+            }
 
-    function goHome() {
-      window.location.href = "/";
+            if (data.status === "paid") {
+                statusBox.textContent = "✓ Pembayaran Berhasil!";
+                statusBox.className = "paid";
+                clearInterval(statusLoop);
+            }
+
+            if (data.status === "expired") {
+                statusBox.textContent = "❌ Pembayaran Expired / Dibatalkan";
+                statusBox.className = "expired";
+                backBtn.style.display = "block";
+                clearInterval(statusLoop);
+            }
+
+        } catch (err) {
+            statusBox.textContent = "Error: " + err.message;
+            statusBox.className = "expired";
+            backBtn.style.display = "block";
+        }
     }
 
-    function getBillNo() {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get("bill_no");
-    }
+    // Jalankan pertama kali
+    checkStatus();
 
-    async function checkStatus(bill_no) {
-      try {
-        const res = await fetch(`${apiURL}?bill_no=${bill_no}`);
-        const data = await res.json();
-
-        updateUI(data);
-      } catch (e) {
-        document.getElementById("statusText").innerText = "Gagal mengambil status!";
-        document.getElementById("backBtn").classList.remove("hidden");
-      }
-    }
-
-    function updateUI(data) {
-      const step1 = document.getElementById("step1");
-      const step2 = document.getElementById("step2");
-      const step3 = document.getElementById("step3");
-      const statusText = document.getElementById("statusText");
-
-      if (!data || !data.bill_no) {
-        statusText.innerText = "Nomor tagihan tidak valid!";
-        document.getElementById("backBtn").classList.remove("hidden");
-        return;
-      }
-
-      if (data.status === "pending") {
-        step2.classList.add("active");
-        statusText.innerText = "Menunggu pembayaran...";
-      }
-
-      if (data.status === "paid") {
-        step2.classList.add("active");
-        step3.classList.add("success");
-        statusText.innerText = "Pembayaran berhasil!";
-      }
-
-      if (data.status === "failed" || data.status === "expired" || data.status === "cancel") {
-        step2.classList.add("active");
-        step3.classList.add("failed");
-        statusText.innerText = "Pembayaran gagal atau kadaluarsa.";
-      }
-
-      // Auto-refresh setiap 10 detik
-      if (data.status === "pending") {
-        setTimeout(() => checkStatus(data.bill_no), 10000);
-      }
-    }
-
-    function loadManual() {
-      const val = document.getElementById("billInput").value.trim();
-      if (val === "") return alert("Isi bill_no dulu!");
-      checkStatus(val);
-    }
-
-    // START
-    const bill_no = getBillNo();
-
-    if (!bill_no) {
-      document.getElementById("inputSection").classList.remove("hidden");
-      document.getElementById("statusText").innerText = "Silakan isi bill_no";
-    } else {
-      checkStatus(bill_no);
-    }
-
-  </script>
+    // Polling setiap 5 detik
+    const statusLoop = setInterval(checkStatus, 5000);
+}
+</script>
 
 </body>
 </html>
