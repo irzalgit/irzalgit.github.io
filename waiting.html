@@ -4,13 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Status Pembayaran</title>
+
 <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 40px; }
+    body { 
+        font-family: Arial, sans-serif; 
+        text-align: center; 
+        padding: 40px;
+        background: #f3f4f6;
+    }
     h2 { margin-bottom: 10px; }
     #statusBox {
-        margin-top: 20px; padding: 20px;
-        border-radius: 10px; font-size: 18px;
-        font-weight: bold;
+        margin-top: 20px; padding: 20px; 
+        border-radius: 10px; font-size: 18px; font-weight: bold;
     }
     .pending { background: #fff3cd; color: #856404; }
     .paid { background: #d4edda; color: #155724; }
@@ -18,23 +23,24 @@
     button {
         margin-top: 25px; padding: 12px 20px;
         border: none; border-radius: 8px;
-        background: #007bff; color: white; font-size: 16px;
-        cursor: pointer;
+        background: #007bff; color: white;
+        font-size: 16px; cursor: pointer;
     }
 </style>
 </head>
+
 <body>
 
 <h2>Memeriksa Status Pembayaran...</h2>
 <div id="statusBox" class="pending">Menunggu pembayaran...</div>
+
 <button id="backBtn" style="display:none;" onclick="window.location.href='index.html'">
     Kembali ke Beranda
 </button>
 
 <script>
-// --- Ambil bill_no dari URL ---
-const urlParams = new URLSearchParams(window.location.search);
-const bill_no = urlParams.get("bill_no");
+// Ambil bill_no dari URL
+const bill_no = new URLSearchParams(window.location.search).get("bill_no");
 
 const statusBox = document.getElementById("statusBox");
 const backBtn = document.getElementById("backBtn");
@@ -44,31 +50,18 @@ if (!bill_no) {
     statusBox.className = "expired";
     backBtn.style.display = "block";
 } else {
-
     async function checkStatus() {
         try {
-            const response = await fetch(
-                `https://math315.vercel.app/api/payment-status?bill_no=${bill_no}`
-            );
-
-            // Jika API tidak merespon (server error)
-            if (!response.ok) {
-                statusBox.textContent = "Gagal mengambil status dari server.";
-                statusBox.className = "expired";
-                backBtn.style.display = "block";
-                return;
-            }
-
+            const response = await fetch(`/api/payment-status?bill_no=${bill_no}`);
             const data = await response.json();
 
             if (!data.success) {
-                statusBox.textContent = "Gagal mengambil status transaksi.";
+                statusBox.textContent = "Gagal mengambil status...";
                 statusBox.className = "expired";
                 backBtn.style.display = "block";
                 return;
             }
 
-            // --- STATUS HANDLING ---
             if (data.status === "pending") {
                 statusBox.textContent = "Menunggu pembayaran...";
                 statusBox.className = "pending";
@@ -77,15 +70,14 @@ if (!bill_no) {
             if (data.status === "paid") {
                 statusBox.textContent = "✓ Pembayaran Berhasil!";
                 statusBox.className = "paid";
-                clearInterval(statusLoop);
-                backBtn.style.display = "block";
+                clearInterval(statusInterval);
             }
 
             if (data.status === "expired") {
                 statusBox.textContent = "❌ Pembayaran Expired / Dibatalkan";
                 statusBox.className = "expired";
-                clearInterval(statusLoop);
                 backBtn.style.display = "block";
+                clearInterval(statusInterval);
             }
 
         } catch (err) {
@@ -95,11 +87,11 @@ if (!bill_no) {
         }
     }
 
-    // Eksekusi pertama kali
+    // Jalankan pertama kali
     checkStatus();
 
-    // Polling setiap 5 detik
-    const statusLoop = setInterval(checkStatus, 5000);
+    // Repeat setiap 5 detik
+    const statusInterval = setInterval(checkStatus, 5000);
 }
 </script>
 
