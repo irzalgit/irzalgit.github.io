@@ -1,11 +1,1565 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Beranda</title>
-</head>
-<body>
-  <h1>Website aktif!</h1>
-  <a href="waiting.html">Buka Waiting Page</a>
-</body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MathBPHY • Portal Matematika Interaktif</title>    
+  
+  <!-- Tailwind CSS -->    
+  <script src="https://cdn.tailwindcss.com"></script>    
+  
+  <!-- Font Awesome 6 -->    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />    
+  
+  <!-- Google Fonts: Inter -->    
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Firebase SDK v9 -->    
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>    
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>    
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>    
+  
+  <style>
+    /* ===== SEMUA CSS SAMA ===== */
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --glass: rgba(255, 255, 255, 0.25);
+      --glass-border: rgba(255, 255, 255, 0.18);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      width: 200vmax;
+      height: 200vmax;
+      top: -50vmax;
+      left: -50vmax;
+      background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 60% 60%, rgba(255,255,255,0.1) 0%, transparent 50%);
+      animation: rotate 30s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .glass-modern {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
+    }
+
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .btn-modern {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+
+    .btn-modern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+      z-index: -1;
+    }
+
+    .btn-modern:hover::before {
+      left: 100%;
+    }
+
+    .btn-modern:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.5);
+    }
+
+    /* ===== PREMIUM BUTTON STYLE ===== */
+    .btn-premium {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      animation: premiumGlow 2s ease-in-out infinite;
+    }
+
+    .btn-premium::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700, #ffed4e);
+      background-size: 400% 400%;
+      border-radius: 12px;
+      z-index: -1;
+      animation: gradientShift 3s ease infinite;
+    }
+
+    .btn-premium::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-premium:hover::after {
+      left: 100%;
+    }
+
+    @keyframes premiumGlow {
+      0%, 100% {
+        box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 15px #ffed4e;
+      }
+      50% {
+        box-shadow: 0 0 15px #ffd700, 0 0 25px #ffed4e, 0 0 35px #ffd700;
+      }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* ===== PREMIUM BADGE GLOW ===== */
+    .premium-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      animation: badgeGlow 2s ease-in-out infinite;
+      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+    }
+
+    @keyframes badgeGlow {
+      0%, 100% {
+        box-shadow: 0 0 5px #fbbf24, 0 0 10px #f59e0b;
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 15px #fbbf24, 0 0 25px #f59e0b;
+        transform: scale(1.05);
+      }
+    }
+
+    .hover-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hover-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.3);
+    }
+
+    .neon-border {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .neon-border::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+      background-size: 400% 400%;
+      border-radius: 1rem;
+      z-index: -1;
+      animation: gradientShift 10s ease infinite;
+    }
+
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      animation: particleFloat 20s infinite linear;
+    }
+
+    @keyframes particleFloat {
+      from { transform: translateY(100vh) rotate(0deg); }
+      to { transform: translateY(-100vh) rotate(360deg); }
+    }
+
+    .loader {
+      width: 48px;
+      height: 48px;
+      border: 5px solid #fff;
+      border-bottom-color: #6366f1;
+      border-radius: 50%;
+      display: inline-block;
+      animation: rotation 1s linear infinite;
+    }
+
+    .loader-small {
+      width: 20px;
+      height: 20px;
+      border: 3px solid #e5e7eb;
+      border-bottom-color: #6366f1;
+      border-radius: 50%;
+      display: inline-block;
+      animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 5px;
+    }
+
+    .bphy-logo {
+      background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+      background-size: 300% 300%;
+      animation: gradientBG 8s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .click-effect:active {
+      transform: scale(0.95);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .status-paid {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .status-pending {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .status-expired {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .status-failed {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 1rem;
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: modalSlide 0.3s ease;
+    }
+
+    @keyframes modalSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .copy-btn {
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .copy-btn:hover {
+      background: #e5e7eb;
+    }
+
+    .debug-panel {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      background: rgba(0,0,0,0.8);
+      color: #0f0;
+      font-family: monospace;
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      z-index: 1000;
+      max-width: 300px;
+      backdrop-filter: blur(4px);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .debug-panel:hover {
+      background: rgba(0,0,0,0.95);
+      transform: scale(1.02);
+    }
+    .debug-panel pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .debug-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+  </style>
+</head>  
+<body class="relative">  
+
+  <!-- Particle Background -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Modern Navbar -->
+  <nav class="glass-modern fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bphy-logo rounded-xl flex items-center justify-center shadow-lg float-animation">
+          <span class="text-white font-bold text-xl">BPHY</span>
+        </div>
+        <a href="#" class="text-white font-bold text-2xl tracking-tight hover:text-indigo-200 transition">Math<span class="text-indigo-200">BPHY</span></a>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="#features" class="text-white/80 hover:text-white transition">Fitur</a>
+        <a href="#pricing" class="text-white/80 hover:text-white transition">Harga</a>
+        <a href="#testimonials" class="text-white/80 hover:text-white transition">Testimoni</a>
+        <a href="#" class="text-white/80 hover:text-white transition">Soal</a>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <img id="userPhoto" src="" alt="Profile" class="w-10 h-10 rounded-full border-2 border-white hidden object-cover cursor-pointer hover:scale-110 transition" onclick="cekStatusPembayaran()">
+        <span id="userDisplayName" class="text-white font-medium hidden cursor-pointer hover:text-indigo-200 transition" onclick="cekStatusPembayaran()"></span>
+        <span id="userBadge" style="display: none;"></span>
+        <button id="loginBtn" class="bg-white text-indigo-600 px-6 py-2 rounded-full font-semibold hover:shadow-xl transition-all duration-300 btn-modern flex items-center space-x-2">
+          <i class="fab fa-google"></i>
+          <span>Masuk</span>
+        </button>
+        <button id="logoutBtn" class="hidden bg-white/20 text-white px-6 py-2 rounded-full font-semibold hover:bg-white/30 transition-all duration-300">
+          <i class="fas fa-sign-out-alt mr-2"></i>Keluar
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="pt-24 pb-12 px-4 max-w-7xl mx-auto">
+    
+    <!-- Hero Section -->
+    <section class="relative mb-20">
+      <div class="glass-modern rounded-3xl p-8 md:p-12 text-white overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 float-animation"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-16 -mb-16 float-animation" style="animation-delay: 2s;"></div>
+        
+        <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+          <div class="flex-1 text-center md:text-left">
+            <div class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold mb-6">
+              🚀 BPHY Education
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-200">
+                Kuasai Matematika
+              </span>
+              <br>
+              <span class="text-white/90">Bersama</span>
+              <br>
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-pink-300">
+                MathBPHY
+              </span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-white/80 mb-8 max-w-2xl">
+              Platform belajar matematika interaktif dari BPHY dengan AI-powered learning path, ribuan soal, dan analisis real-time.
+            </p>
+            
+            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+              <button id="btnPremium" class="bg-gray-300 text-gray-500 cursor-not-allowed w-full py-3 rounded-xl font-semibold transition duration-300">
+                🔒 Mulai Premium (Terkunci)
+              </button>
+              <a href="/soal.html" class="glass-modern text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all duration-300">
+                <i class="fas fa-play-circle mr-2"></i>Coba Gratis
+              </a>
+            </div>
+
+            <div class="flex items-center gap-4 mt-8">
+              <div class="flex -space-x-2">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-8 h-8 rounded-full border-2 border-white">
+                <img src="https://randomuser.me/api/portraits/men/46.jpg" class="w-8 h-8 rounded-full border-2 border-white">
+                <img src="https://randomuser.me/api/portraits/women/63.jpg" class="w-8 h-8 rounded-full border-2 border-white">
+              </div>
+              <span class="text-sm text-white/70">+10,000 siswa aktif dari seluruh Indonesia</span>
+            </div>
+          </div>
+          
+          <div class="flex-1 float-animation">
+            <img src="https://illustrations.popsy.co/white/online-learning.svg" alt="Learning Illustration" class="w-full max-w-md mx-auto">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+      <div class="glass-card rounded-2xl p-6 text-center hover-card">
+        <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-users text-indigo-600 text-2xl"></i>
+        </div>
+        <div class="text-3xl font-bold text-gray-800">25K+</div>
+        <div class="text-gray-600">Siswa Aktif</div>
+      </div>
+      <div class="glass-card rounded-2xl p-6 text-center hover-card">
+        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-book-open text-green-600 text-2xl"></i>
+        </div>
+        <div class="text-3xl font-bold text-gray-800">10K+</div>
+        <div class="text-gray-600">Soal Premium</div>
+      </div>
+      <div class="glass-card rounded-2xl p-6 text-center hover-card">
+        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-trophy text-purple-600 text-2xl"></i>
+        </div>
+        <div class="text-3xl font-bold text-gray-800">95%</div>
+        <div class="text-gray-600">Tingkat Kelulusan</div>
+      </div>
+      <div class="glass-card rounded-2xl p-6 text-center hover-card">
+        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-clock text-blue-600 text-2xl"></i>
+        </div>
+        <div class="text-3xl font-bold text-gray-800">24/7</div>
+        <div class="text-gray-600">Dukungan</div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="mb-20">
+      <div class="text-center mb-12">
+        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">✨ FITUR EKSKLUSIF MathBPHY</span>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Fitur Premium BPHY</h2>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">Dapatkan akses ke semua fitur eksklusif dari BPHY untuk memaksimalkan potensi belajar Anda</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="neon-border"><div class="glass-card rounded-xl p-8 h-full"><div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-robot text-white text-3xl"></i></div><h3 class="text-2xl font-bold mb-3 text-gray-800">AI BPHY Assistant</h3><p class="text-gray-600 mb-4">Asisten AI eksklusif dari BPHY yang siap membantu menjawab pertanyaan 24/7.</p><a href="#" class="flex items-center text-indigo-600 hover:text-indigo-800 transition"><span class="text-sm font-semibold">Coba gratis</span><i class="fas fa-arrow-right ml-2"></i></a></div></div>
+        <div class="neon-border"><div class="glass-card rounded-xl p-8 h-full"><div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-chart-line text-white text-3xl"></i></div><h3 class="text-2xl font-bold mb-3 text-gray-800">BPHY Analitik</h3><p class="text-gray-600 mb-4">Pantau perkembangan belajar dengan grafik interaktif dan rekomendasi personalized.</p><a href="#" class="flex items-center text-indigo-600 hover:text-indigo-800 transition"><span class="text-sm font-semibold">Lihat demo</span><i class="fas fa-arrow-right ml-2"></i></a></div></div>
+        <div class="neon-border"><div class="glass-card rounded-xl p-8 h-full"><div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-gamepad text-white text-3xl"></i></div><h3 class="text-2xl font-bold mb-3 text-gray-800">BPHY Quest</h3><p class="text-gray-600 mb-4">Belajar sambil bermain dengan sistem poin, badge, dan leaderboard kompetitif.</p><a href="#" class="flex items-center text-indigo-600 hover:text-indigo-800 transition"><span class="text-sm font-semibold">Mainkan</span><i class="fas fa-arrow-right ml-2"></i></a></div></div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="mb-20">
+      <div class="glass-modern rounded-3xl p-8 md:p-12">
+        <div class="text-center mb-10">
+          <span class="bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">🎯 PROMO SPESIAL BPHY</span>
+          <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Harga Terjangkau untuk Masa Depan Cerah</h3>
+          <p class="text-white/80 text-lg">Pilih paket yang sesuai dengan kebutuhan belajar Anda bersama MathBPHY</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="glass-card rounded-2xl p-8 hover-card">
+            <div class="mb-6"><h4 class="text-2xl font-bold text-gray-800 mb-2">BPHY Basic</h4><p class="text-gray-600">Untuk memulai perjalanan belajar</p></div>
+            <div class="text-4xl font-bold text-gray-800 mb-6">Rp0<span class="text-lg font-normal text-gray-500">/selamanya</span></div>
+            <ul class="space-y-3 mb-8"><li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-3"></i>100 soal dasar</li><li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-3"></i>Pembahasan terbatas</li><li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-3"></i>Statistik dasar</li></ul>
+         <button onclick="window.location.href='soal.html'" 
+class="w-full bg-gray-100 text-gray-800 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-300 click-effect">
+    <i class="fas fa-rocket mr-2"></i>Mulai Gratis
+</button>
+          </div>
+          
+          <div class="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-8 hover-card relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-8 -mt-8"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-8 -mb-8"></div>
+            <div class="relative z-10">
+              <div class="mb-6"><div class="flex justify-between items-center mb-2"><h4 class="text-2xl font-bold text-white">BPHY Premium</h4><span class="bg-yellow-300 text-indigo-900 px-3 py-1 rounded-full text-xs font-bold">TERLARIS</span></div><p class="text-white/80">Akses ke semua fitur eksklusif BPHY</p></div>
+              <div class="text-4xl font-bold text-white mb-6">Rp50K<span class="text-lg font-normal text-white/70">/bulan</span></div>
+              <ul class="space-y-3 mb-8 text-white"><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>Semua soal & pembahasan</li><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>AI BPHY Assistant</li><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>Analitik lengkap</li><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>Simulasi UTBK</li><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>Sertifikat kelulusan</li><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>Akses grup exclusive BPHY</li></ul>
+              <a href="checkout.html" class="w-full bg-white text-indigo-700 py-3 rounded-xl font-bold hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern click-effect block text-center"><i class="fas fa-crown mr-2"></i>Ambil Premium BPHY</a>
+              <button onclick="cekStatusPembayaran()" class="w-full mt-3 glass-modern text-white py-3 rounded-xl font-semibold hover:bg-white/20 transition block text-center"><i class="fas fa-receipt mr-2"></i>Cek Status Pembayaran</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment Status Panel (hidden by default) -->
+    <section id="paymentStatus" class="mb-20 hidden">
+      <div class="glass-modern rounded-3xl p-6 md:p-8">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-2xl font-bold text-white">Status Pembayaran Premium</h3>
+          <button onclick="closePaymentStatus()" class="text-white/60 hover:text-white">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <div id="statusList" class="space-y-4">
+          <!-- transactions will be rendered here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="mb-20">
+      <h3 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">Apa Kata Mereka Tentang MathBPHY?</h3>
+      <p class="text-white/80 text-center mb-12 max-w-2xl mx-auto">Testimoni dari siswa-siswi yang telah merasakan manfaat belajar bersama BPHY</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass-card rounded-xl p-6"><div class="flex items-center mb-4"><div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">A</div><div class="ml-3"><h4 class="font-bold text-gray-800">Ahmad Fauzi</h4><p class="text-sm text-gray-600">Siswa Kelas 12</p></div></div><p class="text-gray-600 italic mb-3">"Nilai matematika saya naik dari 65 jadi 92 dalam 3 bulan. Fitur AI BPHY sangat membantu!"</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+        <div class="glass-card rounded-xl p-6"><div class="flex items-center mb-4"><div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl">S</div><div class="ml-3"><h4 class="font-bold text-gray-800">Siti Nurhaliza</h4><p class="text-sm text-gray-600">Mahasiswa UI</p></div></div><p class="text-gray-600 italic mb-3">"MathBPHY yang membuat saya lolos SBMPTN. Soal-soalnya mirip banget dengan aslinya!"</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+        <div class="glass-card rounded-xl p-6"><div class="flex items-center mb-4"><div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold text-xl">B</div><div class="ml-3"><h4 class="font-bold text-gray-800">Budi Santoso</h4><p class="text-sm text-gray-600">Guru Matematika</p></div></div><p class="text-gray-600 italic mb-3">"Saya rekomendasikan MathBPHY ke semua siswa saya. Metode belajarnya efektif dan menyenangkan."</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+      </div>
+    </section>
+
+    <section class="neon-border">
+      <div class="glass-modern rounded-2xl p-12 text-center"><h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Siap Menjadi Master Matematika Bersama BPHY?</h3><p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">Bergabung dengan ribuan siswa lainnya yang telah merasakan manfaat belajar bersama MathBPHY</p><div class="flex flex-wrap gap-4 justify-center"><a href="#" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 btn-modern inline-flex items-center click-effect"><i class="fas fa-rocket mr-3"></i>Mulai Belajar Gratis</a><a href="#pricing" class="glass-modern text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all duration-300 inline-flex items-center"><i class="fas fa-crown mr-3"></i>Lihat Paket Premium</a></div></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="glass-modern mt-20 py-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div><div class="flex items-center space-x-2 mb-4"><div class="w-8 h-8 bphy-logo rounded-lg flex items-center justify-center"><span class="text-white font-bold">BPHY</span></div><span class="text-white font-bold text-xl">MathBPHY</span></div><p class="text-white/70 text-sm">Platform belajar matematika #1 dari BPHY Education dengan teknologi AI terkini.</p><div class="flex mt-4 space-x-2"><span class="px-2 py-1 bg-white/10 rounded text-xs text-white">#BPHYEducation</span><span class="px-2 py-1 bg-white/10 rounded text-xs text-white">#MathBPHY</span></div></div>
+        <div><h5 class="text-white font-bold mb-4">Produk BPHY</h5><ul class="space-y-2"><li><a href="#features" class="text-white/70 hover:text-white transition">Fitur MathBPHY</a></li><li><a href="#pricing" class="text-white/70 hover:text-white transition">Harga Premium</a></li><li><a href="#" class="text-white/70 hover:text-white transition">FAQ BPHY</a></li><li><a href="#" class="text-white/70 hover:text-white transition">Bank Soal</a></li></ul></div>
+        <div><h5 class="text-white font-bold mb-4">BPHY Company</h5><ul class="space-y-2"><li><a href="#" class="text-white/70 hover:text-white transition">Tentang BPHY</a></li><li><a href="#" class="text-white/70 hover:text-white transition">Karir di BPHY</a></li><li><a href="#" class="text-white/70 hover:text-white transition">BPHY untuk Sekolah</a></li><li><a href="#" class="text-white/70 hover:text-white transition">Hubungi Kami</a></li></ul></div>
+        <div><h5 class="text-white font-bold mb-4">Ikuti BPHY</h5><div class="flex space-x-4"><a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition"><i class="fab fa-instagram text-white"></i></a><a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition"><i class="fab fa-tiktok text-white"></i></a><a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition"><i class="fab fa-youtube text-white"></i></a><a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition"><i class="fab fa-linkedin-in text-white"></i></a></div><div class="mt-4"><p class="text-white/50 text-xs">Join BPHY Community:</p><p class="text-white text-sm font-semibold">community@bphyeducation.com</p></div></div>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center"><p class="text-white/60 text-sm">© 2024 MathBPHY by BPHY Education. Dibuat dengan <i class="fas fa-heart text-red-400 mx-1"></i> untuk pendidikan Indonesia</p><p class="text-white/40 text-xs mt-2">Powered by BPHY • Version 2.0.0</p></div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="fixed top-4 right-4 z-50"></div>
+
+  <!-- Online Widget -->
+  <div class="fixed bottom-4 right-4 glass-modern px-4 py-2 rounded-full flex items-center space-x-2 text-white z-40"><div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div><span class="text-sm" id="onlineCount">1.2K</span><span class="text-sm">BPHY online</span></div>
+
+  <!-- Payment Modal -->
+  <div id="paymentModal" class="modal-overlay"><div class="modal-content p-6"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold text-gray-800">Detail Pembayaran</h3><button onclick="closeModal()" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button></div><div id="modalBody"></div></div></div>
+  
+  <!-- Admin Panel -->
+  <button id="adminBtn" style="position:fixed;bottom:20px;left:20px;background:#fff;color:#333;padding:8px 16px;border-radius:20px;z-index:1000;font-weight:bold;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.2);display:none;"><i class="fas fa-cog mr-2"></i>Admin Panel</button>
+  <div id="adminOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:999;overflow-y:auto;"><div style="background:#fff;max-width:800px;margin:30px auto;padding:30px;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.3);"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;"><h2 style="font-size:24px;font-weight:bold;color:#333;"><i class="fas fa-user-shield mr-2 text-indigo-600"></i>Admin Panel - Manajemen Siswa</h2><button onclick="closeAdminOverlay()" style="background:#f3f4f6;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:18px;color:#666;"><i class="fas fa-times"></i></button></div><div id="adminLoginSection" style="background:#f9fafb;padding:20px;border-radius:8px;margin-bottom:20px;"><h3 style="font-size:16px;font-weight:600;margin-bottom:15px;color:#374151;">Verifikasi Admin</h3><div style="display:flex;gap:10px;flex-wrap:wrap;"><input type="password" id="adminPassword" placeholder="Masukkan password admin" style="flex:1;min-width:200px;border:1px solid #d1d5db;padding:10px 15px;border-radius:6px;font-size:14px;" /><button id="loginAdmin" style="background:#6366f1;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:all 0.3s;"><i class="fas fa-sign-in-alt mr-2"></i>Login Admin</button></div><p id="adminLoginError" style="color:#ef4444;font-size:12px;margin-top:8px;display:none;">Password salah atau Anda tidak memiliki akses admin</p></div><div id="crudPanel" style="display:none;"><div style="background:#f0fdf4;padding:20px;border-radius:8px;margin-bottom:20px;border:1px solid #bbf7d0;"><h3 style="font-size:16px;font-weight:600;margin-bottom:15px;color:#166534;"><i class="fas fa-user-plus mr-2"></i><span id="formTitle">Tambah Siswa Baru</span></h3><input type="hidden" id="siswaId" /><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px;"><div><label style="display:block;font-size:12px;font-weight:600;color:#374151;margin-bottom:5px;">Nama Siswa *</label><input type="text" id="siswaNama" placeholder="Masukkan nama lengkap" style="width:100%;border:1px solid #d1d5db;padding:10px 15px;border-radius:6px;font-size:14px;" /></div><div><label style="display:block;font-size:12px;font-weight:600;color:#374151;margin-bottom:5px;">Email *</label><input type="email" id="siswaEmail" placeholder="email@example.com" style="width:100%;border:1px solid #d1d5db;padding:10px 15px;border-radius:6px;font-size:14px;" /></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;"><input type="checkbox" id="siswaSiapBayar" style="width:18px;height:18px;cursor:pointer;" /><label for="siswaSiapBayar" style="font-size:14px;color:#374151;cursor:pointer;">Siswa ini sudah siap membayar (Siap Bayar)</label></div><div style="display:flex;gap:10px;"><button id="saveSiswa" style="background:#10b981;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:all 0.3s;"><i class="fas fa-save mr-2"></i>Simpan Data</button><button onclick="resetForm()" style="background:#6b7280;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:all 0.3s;"><i class="fas fa-undo mr-2"></i>Reset Form</button></div></div><div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;"><h3 style="font-size:16px;font-weight:600;color:#374151;"><i class="fas fa-list mr-2 text-indigo-600"></i>Daftar Siswa</h3><div style="display:flex;gap:10px;"><input type="text" id="searchSiswa" placeholder="Cari siswa..." onkeyup="searchSiswa()" style="border:1px solid #d1d5db;padding:8px 12px;border-radius:6px;font-size:13px;width:200px;" /><button onclick="loadSiswa()" style="background:#3b82f6;color:#fff;border:none;padding:8px 15px;border-radius:6px;cursor:pointer;font-size:13px;"><i class="fas fa-sync-alt mr-1"></i>Refresh</button></div></div><div id="siswaList" style="border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;"><div style="padding:20px;text-align:center;color:#6b7280;"><i class="fas fa-spinner fa-spin mr-2"></i>Memuat data siswa...</div></div></div></div></div></div>
+
+  <!-- Debug Panel -->
+  <button id="debugToggleBtn" class="debug-toggle">🐞 Debug</button>
+  <div id="debugPanel" class="debug-panel" style="display: none;">
+    <pre id="debugContent">Debug info will appear here...</pre>
+  </div>
+ 
+  <script>
+    // ==========================
+    // FIREBASE CONFIG
+    // ==========================
+    const firebaseConfig = {
+      apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
+      authDomain: "math314-app.firebaseapp.com",
+      databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
+      projectId: "math314-app",
+      storageBucket: "math314-app.appspot.com",
+      messagingSenderId: "9019551034",
+      appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
+      measurementId: "G-VWYDTY9LF6"
+    };
+    
+    // Inisialisasi Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.database();
+
+    // Set persistence ke SESSION
+    auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .catch(err => console.warn("Gagal set persistence:", err));
+
+    // ==========================
+    // DEBUG LOGGING
+    // ==========================
+    let debugLogs = [];
+    function addDebugLog(msg, obj = null) {
+      const timestamp = new Date().toLocaleTimeString();
+      let logMsg = `[${timestamp}] ${msg}`;
+      if (obj) {
+        try { logMsg += ` ${JSON.stringify(obj)}`; } catch(e) { logMsg += ` [Object]`; }
+      }
+      debugLogs.unshift(logMsg);
+      if (debugLogs.length > 20) debugLogs.pop();
+      const debugContent = document.getElementById("debugContent");
+      if (debugContent) debugContent.innerText = debugLogs.join('\n');
+      console.log(logMsg);
+    }
+
+    // Debug panel toggle
+    const debugToggle = document.getElementById("debugToggleBtn");
+    const debugPanel = document.getElementById("debugPanel");
+    if (debugToggle && debugPanel) {
+      debugToggle.addEventListener('click', () => {
+        if (debugPanel.style.display === 'none') {
+          debugPanel.style.display = 'block';
+          debugToggle.textContent = '🔒 Tutup Debug';
+        } else {
+          debugPanel.style.display = 'none';
+          debugToggle.textContent = '🐞 Debug';
+        }
+      });
+    }
+
+    // ==========================
+    // ELEMENTS
+    // ==========================
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const userPhoto = document.getElementById("userPhoto");
+    const userDisplayName = document.getElementById("userDisplayName");
+    const adminBtnEl = document.getElementById("adminBtn");
+    const adminOverlay = document.getElementById("adminOverlay");
+    const crudPanel = document.getElementById("crudPanel");
+    const siswaListDiv = document.getElementById("siswaList");
+    const adminLoginSection = document.getElementById("adminLoginSection");
+
+    // ==========================
+    // UPDATE UI
+    // ==========================
+    function updateUI(user) {
+      addDebugLog("updateUI dipanggil, user:", user ? user.email : "null");
+      if (user) {
+        loginBtn.classList.add("hidden");
+        logoutBtn.classList.remove("hidden");
+        if (user.photoURL) {
+          userPhoto.src = user.photoURL;
+          userPhoto.classList.remove("hidden");
+        } else userPhoto.classList.add("hidden");
+        if (user.displayName) {
+          userDisplayName.textContent = user.displayName;
+          userDisplayName.classList.remove("hidden");
+        } else if (user.email) {
+          userDisplayName.textContent = user.email.split('@')[0];
+          userDisplayName.classList.remove("hidden");
+        } else userDisplayName.classList.add("hidden");
+        adminBtnEl.style.display = "inline-block";
+      } else {
+        loginBtn.classList.remove("hidden");
+        logoutBtn.classList.add("hidden");
+        userPhoto.classList.add("hidden");
+        userDisplayName.classList.add("hidden");
+        adminBtnEl.style.display = "none";
+        closeAdminOverlay();
+      }
+    }
+
+    // ===============================
+    // PREMIUM CHECKER FINAL (NO COUNTDOWN, WITH BADGE GLOW)
+    // ===============================
+    async function checkPremiumStatus() {
+      const user = auth.currentUser;
+      if (!user) return;
+
+      const userRef = db.ref("users/" + user.uid);
+      const snapshot = await userRef.once("value");
+      const data = snapshot.val();
+
+      const btnPremium = document.getElementById("btnPremium");
+      const badgeEl = document.getElementById("userBadge");
+
+      if (!btnPremium) return;
+
+      const now = Date.now();
+      const expired = data?.premiumExpired ? new Date(data.premiumExpired).getTime() : 0;
+      const isPremium = data?.isPremium === true && expired > now;
+
+      if (isPremium) {
+        // ===========================
+        // BADGE PREMIUM GLOW
+        // ===========================
+        if (badgeEl) {
+          badgeEl.style.display = "inline-block";
+          badgeEl.className = "premium-badge";
+          badgeEl.innerHTML = `<i class="fas fa-crown"></i> PREMIUM`;
+        }
+
+        // ===========================
+        // TOMBOL PREMIUM AKTIF (HIJAU + ANIMASI)
+        // ===========================
+        btnPremium.innerHTML = `<i class="fas fa-crown mr-2"></i>Akses Premium — Top Up`;
+        btnPremium.classList.remove("bg-gray-300", "cursor-not-allowed");
+        btnPremium.classList.add("bg-green-600", "hover:bg-green-700", "text-white", "btn-premium");
+        btnPremium.disabled = false;
+
+        btnPremium.onclick = () => {
+          window.location.href = "soal_premium.html"; 
+        };
+
+        addDebugLog("Premium ACTIVE - Badge dan tombol hijau dengan efek glow ditampilkan");
+
+      } else {
+        // ===========================
+        // NON-PREMIUM (TOMBOL TERKUNCI)
+        // ===========================
+        if (badgeEl) {
+          badgeEl.style.display = "none";
+          badgeEl.className = "";
+          badgeEl.innerHTML = "";
+        }
+
+        btnPremium.innerHTML = `<i class="fas fa-lock mr-2"></i>Mulai Premium`;
+        btnPremium.classList.remove("bg-green-600", "hover:bg-green-700", "text-white", "btn-premium");
+        btnPremium.classList.add("bg-gray-300", "cursor-not-allowed");
+        btnPremium.disabled = false;
+
+        btnPremium.onclick = () => {
+          window.location.href = "#pricing";
+        };
+        
+        addDebugLog("Premium INACTIVE - Tombol terkunci, badge disembunyikan");
+      }
+    }
+
+    // ==========================
+    // SAVE ID TOKEN
+    // ==========================
+    async function saveIdToken(user) {
+      try {
+        const token = await user.getIdToken(true);
+        localStorage.setItem("id_token", token);
+        addDebugLog("ID Token saved");
+        return token;
+      } catch (err) {
+        console.error("Gagal menyimpan token:", err);
+      }
+    }
+
+    // ==========================
+    // LOGIN GOOGLE
+    // ==========================
+    loginBtn.addEventListener('click', async () => {
+      addDebugLog("Tombol login diklik");
+      if (auth.currentUser) {
+        addDebugLog("User sudah login, tidak membuka popup");
+        showToast("Anda sudah login sebagai " + auth.currentUser.displayName, "info");
+        return;
+      }
+
+      try {
+        loginBtn.disabled = true;
+        loginBtn.innerHTML = '<div class="loader-small"></div> Memproses...';
+        addDebugLog("Membuat provider Google dengan prompt=select_account");
+
+        const provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('email');
+        provider.addScope('profile');
+        provider.setCustomParameters({ prompt: 'select_account' });
+
+        addDebugLog("Memanggil signInWithPopup...");
+        const result = await auth.signInWithPopup(provider);
+        addDebugLog("signInWithPopup berhasil, user:", result.user.email);
+
+        const user = result.user;
+        const userRef = db.ref('users/' + user.uid);
+        const snapshot = await userRef.once('value');
+
+        if (!snapshot.exists()) {
+          addDebugLog("User baru, menyimpan ke database");
+          await userRef.set({
+            email: user.email,
+            name: user.displayName,
+            photoURL: user.photoURL,
+            createdAt: firebase.database.ServerValue.TIMESTAMP,
+            isPremium: false
+          });
+        } else {
+          addDebugLog("User sudah ada di database");
+        }
+
+        const userData = (await userRef.once('value')).val();
+        const isPremium = userData?.isPremium === true;
+        
+        if (isPremium) {
+          showToast(`Berhasil login sebagai ${user.displayName} (Premium)`, "success");
+        } else {
+          showToast(`Berhasil login sebagai ${user.displayName}`, "success");
+        }
+
+        updateUI({ ...user, isPremium });
+
+      } catch (error) {
+        addDebugLog("Login error:", { code: error.code, message: error.message });
+
+        let errorMessage = "Login gagal. ";
+        switch (error.code) {
+          case 'auth/popup-blocked':
+            errorMessage += "Popup diblokir browser. Izinkan popup untuk situs ini.";
+            break;
+          case 'auth/popup-closed-by-user':
+            errorMessage += "Popup login ditutup sebelum selesai. Coba lagi.";
+            break;
+          case 'auth/network-request-failed':
+            errorMessage += "Koneksi internet bermasalah. Periksa koneksi Anda.";
+            break;
+          case 'auth/unauthorized-domain':
+            errorMessage += "Domain tidak diizinkan. Hubungi pengembang.";
+            break;
+          default:
+            errorMessage += "Silakan coba lagi. (" + error.code + ")";
+        }
+
+        showToast(errorMessage, "error");
+
+        if (error.code === 'auth/popup-blocked') {
+          setTimeout(() => {
+            showToast("Klik ikon popup di address bar dan pilih 'Always allow'", "warning");
+          }, 3000);
+        }
+      } finally {
+        loginBtn.disabled = false;
+        loginBtn.innerHTML = '<i class="fab fa-google"></i><span>Masuk</span>';
+      }
+    });
+
+    // ==========================
+    // LOGOUT
+    // ==========================
+    logoutBtn.addEventListener('click', async () => {
+      addDebugLog("Tombol logout diklik");
+      try {
+        logoutBtn.disabled = true;
+        logoutBtn.innerHTML = '<div class="loader-small"></div> Keluar...';
+        await auth.signOut();
+        addDebugLog("Logout berhasil");
+        showToast("Berhasil keluar", "info");
+        updateUI(null);
+      } catch (error) {
+        addDebugLog("Logout error:", error);
+        showToast("Gagal keluar. Coba refresh halaman.", "error");
+      } finally {
+        logoutBtn.disabled = false;
+        logoutBtn.innerHTML = '<i class="fas fa-sign-out-alt mr-2"></i>Keluar';
+      }
+    });
+
+    // ==========================
+    // TOAST NOTIFICATION
+    // ==========================
+    function showToast(message, type = "info") {
+      const container = document.getElementById("toastContainer");
+      if (!container) return;
+      const toast = document.createElement("div");
+      let bgColor = "bg-blue-500";
+      let icon = "fa-info-circle";
+      if (type === "success") { bgColor = "bg-green-500"; icon = "fa-check-circle"; }
+      if (type === "error")   { bgColor = "bg-red-500";   icon = "fa-exclamation-circle"; }
+      if (type === "warning") { bgColor = "bg-yellow-500"; icon = "fa-exclamation-triangle"; }
+      toast.className = `${bgColor} text-white px-4 py-2 rounded-lg shadow-lg mb-2 transform transition-all duration-300 translate-x-full flex items-center gap-2`;
+      toast.innerHTML = `<i class="fas ${icon}"></i><span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => { toast.classList.remove("translate-x-full"); }, 100);
+      setTimeout(() => { toast.classList.add("translate-x-full"); setTimeout(() => toast.remove(), 300); }, 3000);
+    }
+
+    // ==========================
+    // AUTH STATE LISTENER
+    // ==========================
+    auth.onAuthStateChanged(async (user) => {
+      addDebugLog("Auth state changed:", user ? user.email : "null");
+      
+      if (user) {
+        await saveIdToken(user);
+        updateUI(user);
+        await checkPremiumStatus();
+      } else {
+        updateUI(null);
+        // Reset tombol premium ke tampilan default saat logout
+        const btnPremium = document.getElementById("btnPremium");
+        const badgeEl = document.getElementById("userBadge");
+        
+        if (btnPremium) {
+          btnPremium.innerHTML = `<i class="fas fa-lock mr-2"></i>Mulai Premium`;
+          btnPremium.classList.remove("bg-green-600", "hover:bg-green-700", "text-white", "btn-premium");
+          btnPremium.classList.add("bg-gray-300", "cursor-not-allowed");
+          btnPremium.disabled = false;
+          btnPremium.onclick = () => {
+            window.location.href = "#pricing";
+          };
+        }
+        
+        if (badgeEl) {
+          badgeEl.style.display = "none";
+          badgeEl.className = "";
+          badgeEl.innerHTML = "";
+        }
+      }
+    });
+
+    // ==========================
+    // FUNGSI PEMBANTU (format Rupiah & tanggal)
+    // ==========================
+    function formatRupiah(amount) {
+      return 'Rp ' + parseInt(amount || 0).toLocaleString('id-ID');
+    }
+
+    function formatDate(timestamp) {
+      if (!timestamp) return '-';
+      const date = new Date(timestamp);
+      return date.toLocaleDateString('id-ID', { 
+        day: 'numeric', 
+        month: 'short', 
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    // ==========================
+    // FUNGSI CEK STATUS PEMBAYARAN
+    // ==========================
+    window.cekStatusPembayaran = async function() {
+      const user = auth.currentUser;
+      if (!user) {
+        showToast("Silakan login terlebih dahulu", "warning");
+        return;
+      }
+
+      const section = document.getElementById("paymentStatus");
+      const container = document.getElementById("statusList");
+      
+      if (!section || !container) {
+        console.error("Elemen paymentStatus atau statusList tidak ditemukan");
+        return;
+      }
+      
+      section.classList.remove("hidden");
+      container.innerHTML = `
+        <div class="flex flex-col items-center justify-center py-12">
+          <div class="loader mb-4"></div>
+          <span class="text-gray-600 font-medium">Mengecek status pembayaran...</span>
+          <span class="text-gray-400 text-sm mt-2">Menghubungkan ke Faspay</span>
+        </div>
+      `;
+
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      try {
+        const token = localStorage.getItem("id_token");
+        if (!token) throw new Error("Token tidak ditemukan, silakan login ulang");
+
+        const res = await fetch("/api/cek-status", {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+          }
+        });
+
+        if (!res.ok) {
+          const errorData = await res.json().catch(() => ({}));
+          throw new Error(errorData.message || `HTTP ${res.status}`);
+        }
+
+        const result = await res.json();
+
+        if (!result.success) {
+          throw new Error(result.message || "Gagal memuat data");
+        }
+
+        renderTransactions(result.data, result.auto_updated);
+
+      } catch (err) {
+        console.error("Cek status error:", err);
+        container.innerHTML = `
+          <div class="text-center py-12">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-exclamation-circle text-red-500 text-2xl"></i>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Gagal Memuat Data</h4>
+            <p class="text-gray-500 mb-4">${err.message}</p>
+            <button onclick="cekStatusPembayaran()" class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+              <i class="fas fa-redo mr-2"></i>Coba Lagi
+            </button>
+          </div>
+        `;
+        showToast("Gagal cek status: " + err.message, "error");
+      }
+    };
+
+    function renderTransactions(transactions, autoUpdated) {
+      const container = document.getElementById("statusList");
+      if (!container) return;
+      
+      if (!transactions || transactions.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12">
+            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-receipt text-gray-400 text-3xl"></i>
+            </div>
+            <h4 class="text-lg font-semibold text-gray-800 mb-2">Belum Ada Transaksi</h4>
+            <p class="text-gray-500 mb-6">Anda belum melakukan pembayaran premium</p>
+            <a href="#pricing" onclick="closePaymentStatus()" class="inline-block px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+              <i class="fas fa-crown mr-2"></i>Ambil Premium Sekarang
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      let html = '';
+      
+      if (autoUpdated) {
+        html += `
+          <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-4 flex items-center text-green-700 text-sm">
+            <i class="fas fa-sync-alt mr-2"></i>
+            Status pembayaran telah diperbarui otomatis
+          </div>
+        `;
+      }
+
+      transactions.forEach(trx => {
+        const status = (trx.status || 'unknown').toLowerCase();
+        const isPending = ['pending', 'waiting_payment', 'processing', 'waiting'].includes(status);
+        const isPaid = status === 'paid' || status === 'success';
+        const isExpired = ['expired', 'cancelled', 'failed', 'timeout'].includes(status);
+        
+        let badgeClass = 'status-pending';
+        let badgeText = 'Pending';
+        let badgeIcon = 'fa-hourglass-half';
+        
+        if (isPaid) {
+          badgeClass = 'status-paid';
+          badgeText = 'Berhasil';
+          badgeIcon = 'fa-check-circle';
+        } else if (isExpired) {
+          badgeClass = 'status-expired';
+          badgeText = status === 'cancelled' ? 'Dibatalkan' : 'Kadaluarsa';
+          badgeIcon = 'fa-times-circle';
+        }
+
+        const cardBorder = isPending ? 'border-yellow-300 bg-yellow-50/30' : 'border-gray-200';
+        
+        html += `
+          <div class="border ${cardBorder} rounded-xl p-5 transition-all hover:shadow-md" id="trx-${trx.bill_no || trx.id}">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="font-bold text-gray-800 text-lg">${trx.bill_no || trx.invoice_no || trx.id}</span>
+                  ${trx.inquiry_result?.auto_updated ? '<span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full animate-pulse">Updated</span>' : ''}
+                </div>
+                <div class="text-sm text-gray-500 flex items-center gap-2">
+                  <i class="far fa-calendar-alt"></i>
+                  ${formatDate(trx.created_at)}
+                </div>
+              </div>
+              <span class="status-badge ${badgeClass}">
+                <i class="fas ${badgeIcon}"></i>
+                ${badgeText}
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+              <div class="bg-gray-50 rounded-lg p-3">
+                <span class="text-gray-500 block text-xs mb-1">Total Pembayaran</span>
+                <div class="font-bold text-gray-800 text-lg">${formatRupiah(trx.amount)}</div>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3">
+                <span class="text-gray-500 block text-xs mb-1">Metode</span>
+                <div class="font-semibold text-gray-800">${trx.payment_channel || trx.payment_method || '-'}</div>
+              </div>
+            </div>
+
+            ${trx.payment_date ? `
+              <div class="text-sm text-green-600 mb-4 flex items-center bg-green-50 rounded-lg p-3">
+                <i class="fas fa-check-circle mr-2"></i>
+                <span>Dibayar pada ${formatDate(trx.payment_date)}</span>
+              </div>
+            ` : ''}
+
+            ${trx.expiry_date && isPending ? `
+              <div class="text-sm text-orange-600 mb-4 flex items-center bg-orange-50 rounded-lg p-3">
+                <i class="fas fa-clock mr-2"></i>
+                <span>Berlaku sampai ${formatDate(trx.expiry_date)}</span>
+              </div>
+            ` : ''}
+
+            <div class="flex gap-2">
+              ${isPending ? `
+                <button onclick="refreshStatus('${trx.bill_no}')" 
+                  class="flex-1 bg-indigo-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2 btn-modern">
+                  <i class="fas fa-sync-alt"></i> Refresh Status
+                </button>
+                <button onclick="bayarInvoice('${trx.bill_no}')" 
+                  class="flex-1 bg-yellow-500 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-yellow-600 transition flex items-center justify-center gap-2 btn-modern">
+                  <i class="fas fa-credit-card"></i> Bayar
+                </button>
+              ` : `
+                <button onclick="lihatDetail('${trx.bill_no || trx.id}')" 
+                  class="w-full bg-gray-100 text-gray-700 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-200 transition flex items-center justify-center gap-2">
+                  <i class="fas fa-eye"></i> Lihat Detail
+                </button>
+              `}
+            </div>
+
+            ${trx.inquiry_result?.success === false ? `
+              <div class="mt-3 text-xs text-red-500 flex items-center bg-red-50 rounded-lg p-2">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                Gagal mengupdate status otomatis: ${trx.inquiry_result.error || 'Unknown error'}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+
+      if (autoUpdated) {
+        showToast("Status pembayaran telah diperbarui", "success");
+      }
+    }
+
+    window.refreshStatus = async function(billNo) {
+      const btn = event?.target?.closest('button');
+      if (btn) {
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memeriksa...';
+        btn.disabled = true;
+      }
+
+      try {
+        const token = localStorage.getItem("id_token");
+        if (!token) throw new Error("Token tidak ditemukan");
+        
+        const res = await fetch("/api/cek-status", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({ bill_no: billNo })
+        });
+
+        if (!res.ok) {
+          const errorData = await res.json().catch(() => ({}));
+          throw new Error(errorData.message || `HTTP ${res.status}`);
+        }
+
+        const result = await res.json();
+
+        if (!result.success) {
+          throw new Error(result.message);
+        }
+
+        const statusMap = {
+          'paid': { text: 'Berhasil', class: 'status-paid', icon: 'fa-check-circle' },
+          'success': { text: 'Berhasil', class: 'status-paid', icon: 'fa-check-circle' },
+          'pending': { text: 'Pending', class: 'status-pending', icon: 'fa-hourglass-half' },
+          'expired': { text: 'Kadaluarsa', class: 'status-expired', icon: 'fa-times-circle' },
+          'cancelled': { text: 'Dibatalkan', class: 'status-expired', icon: 'fa-times-circle' },
+          'failed': { text: 'Gagal', class: 'status-expired', icon: 'fa-times-circle' }
+        };
+
+        const mapped = statusMap[result.status] || statusMap['pending'];
+        showToast(`Status diperbarui: ${mapped.text}`, result.status === 'paid' ? 'success' : 'info');
+        
+        cekStatusPembayaran();
+
+      } catch (err) {
+        console.error("Refresh error:", err);
+        showToast("Gagal refresh: " + err.message, "error");
+        if (btn) {
+          btn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh Status';
+          btn.disabled = false;
+        }
+      }
+    };
+
+    window.bayarInvoice = function(billNo) {
+      localStorage.setItem("current_bill_no", billNo);
+      window.location.href = "checkout.html?bill_no=" + encodeURIComponent(billNo);
+    };
+
+    window.lihatDetail = async function(billNo) {
+      const modal = document.getElementById('paymentModal');
+      const modalBody = document.getElementById('modalBody');
+      
+      if (!modal || !modalBody) return;
+      
+      modal.classList.add('active');
+      modalBody.innerHTML = `
+        <div class="flex justify-center py-8">
+          <div class="loader"></div>
+        </div>
+      `;
+
+      try {
+        const token = localStorage.getItem("id_token");
+        const snapshot = await db.ref(`transactions/${billNo}`).once('value');
+        const trx = snapshot.val();
+
+        if (!trx) {
+          throw new Error("Transaksi tidak ditemukan");
+        }
+
+        const isPaid = trx.status === 'paid' || trx.status === 'success';
+        
+        modalBody.innerHTML = `
+          <div class="space-y-4">
+            <div class="bg-gray-50 rounded-lg p-4">
+              <div class="text-sm text-gray-500 mb-1">Nomor Invoice</div>
+              <div class="font-mono font-bold text-lg">${trx.bill_no || billNo}</div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-gray-50 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Status</div>
+                <div class="font-semibold ${isPaid ? 'text-green-600' : 'text-yellow-600'}">
+                  ${(trx.status || 'unknown').toUpperCase()}
+                </div>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Total</div>
+                <div class="font-bold">${formatRupiah(trx.amount)}</div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-3">
+              <div class="text-xs text-gray-500 mb-1">Metode Pembayaran</div>
+              <div class="font-semibold">${trx.payment_channel || trx.payment_method || '-'}</div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-gray-50 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Dibuat</div>
+                <div class="text-sm">${formatDate(trx.created_at)}</div>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Dibayar</div>
+                <div class="text-sm">${formatDate(trx.payment_date)}</div>
+              </div>
+            </div>
+
+            ${trx.faspay_response ? `
+              <div class="border-t pt-4 mt-4">
+                <div class="text-xs text-gray-500 mb-2">Data Faspay (Debug)</div>
+                <pre class="bg-gray-100 rounded p-2 text-xs overflow-x-auto">${JSON.stringify(trx.faspay_response, null, 2)}</pre>
+              </div>
+            ` : ''}
+          </div>
+        `;
+
+      } catch (err) {
+        modalBody.innerHTML = `
+          <div class="text-center py-8 text-red-500">
+            <i class="fas fa-exclamation-circle text-3xl mb-2"></i>
+            <p>${err.message}</p>
+          </div>
+        `;
+      }
+    };
+
+    window.closePaymentStatus = function() {
+      const section = document.getElementById('paymentStatus');
+      if (section) section.classList.add('hidden');
+    };
+
+    window.closeModal = function() {
+      const modal = document.getElementById('paymentModal');
+      if (modal) modal.classList.remove('active');
+    };
+
+    const modalElem = document.getElementById('paymentModal');
+    if (modalElem) {
+      modalElem.addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        closePaymentStatus();
+      }
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'P') {
+        e.preventDefault();
+        cekStatusPembayaran();
+      }
+    });
+
+    // ==========================
+    // FUNGSI ADMIN PANEL
+    // ==========================
+    async function checkIsAdmin(email) {
+      try {
+        const adminSnapshot = await db.ref('admins').orderByChild('email').equalTo(email).once('value');
+        return adminSnapshot.exists();
+      } catch (error) { addDebugLog("Error check admin:", error); return false; }
+    }
+
+    const loginAdminBtn = document.getElementById("loginAdmin");
+    if (loginAdminBtn) {
+      loginAdminBtn.addEventListener('click', async () => {
+        const password = document.getElementById("adminPassword").value;
+        const user = auth.currentUser;
+        const errorEl = document.getElementById("adminLoginError");
+        if (!user) { showToast("Silakan login dengan Google terlebih dahulu", "error"); errorEl.style.display = "block"; errorEl.textContent = "Anda belum login dengan Google"; return; }
+        const isAdmin = await checkIsAdmin(user.email);
+        if ((isAdmin || user.email === "irzalpa27@gmail.com") && password === "575757") {
+          crudPanel.style.display = "block";
+          adminLoginSection.style.display = "none";
+          document.getElementById("adminPassword").value = "";
+          errorEl.style.display = "none";
+          await loadSiswa();
+          showToast("Login admin berhasil", "success");
+        } else {
+          errorEl.style.display = "block";
+          errorEl.textContent = "Password salah atau Anda tidak memiliki akses admin";
+          showToast("Akses ditolak", "error");
+        }
+      });
+    }
+
+    async function loadSiswa() {
+      const user = auth.currentUser;
+      if (!user) { siswaListDiv.innerHTML = '<div class="p-4 text-red-500">Silakan login terlebih dahulu</div>'; return; }
+      siswaListDiv.innerHTML = '<div class="flex justify-center p-4"><div class="loader-small"></div><span class="ml-2">Memuat data...</span></div>';
+      try {
+        const snapshot = await db.ref('data_siswa').once('value');
+        const data = snapshot.val();
+        siswaListDiv.innerHTML = "";
+        if (!data) { siswaListDiv.innerHTML = '<div class="p-4 text-gray-500 text-center">Belum ada data siswa. Tambahkan siswa baru.</div>'; return; }
+        const table = document.createElement("table");
+        table.className = "w-full border-collapse";
+        table.id = "siswaTable";
+        table.innerHTML = `<thead><tr class="bg-gray-100"><th class="p-3 text-left text-sm font-semibold text-gray-700">Nama</th><th class="p-3 text-left text-sm font-semibold text-gray-700">Email</th><th class="p-3 text-center text-sm font-semibold text-gray-700">Status</th><th class="p-3 text-center text-sm font-semibold text-gray-700">Aksi</th></td></thead><tbody id="siswaTableBody"></tbody>`;
+        const tbody = table.querySelector("tbody");
+        Object.keys(data).forEach(id => {
+          const siswa = data[id];
+          const username = siswa.username || siswa.name || '-';
+          const email = siswa.email || '-';
+          const siapBayar = siswa.siap_bayar || false;
+          const tr = document.createElement("tr");
+          tr.className = "border-b border-gray-200 hover:bg-gray-50 transition";
+          tr.dataset.nama = username.toLowerCase();
+          tr.dataset.email = email.toLowerCase();
+          tr.innerHTML = `<td class="p-3 text-sm font-medium text-gray-800">${escapeHtml(username)}</td><td class="p-3 text-sm text-gray-600">${escapeHtml(email)}</td><td class="p-3 text-center"><span class="px-2 py-1 rounded-full text-xs font-semibold ${siapBayar ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">${siapBayar ? 'Siap Bayar' : 'Belum Bayar'}</span></td><td class="p-3 text-center"><button onclick="editSiswa('${id}','${escapeHtml(username)}','${escapeHtml(email)}',${siapBayar})" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-xs mr-1 transition"><i class="fas fa-edit mr-1"></i>Edit</button><button onclick="deleteSiswa('${id}')" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs transition"><i class="fas fa-trash mr-1"></i>Hapus</button></td>`;
+          tbody.appendChild(tr);
+        });
+        siswaListDiv.appendChild(table);
+      } catch (error) { console.error("Error loading siswa:", error); siswaListDiv.innerHTML = `<div class="bg-red-50 border border-red-200 rounded p-4 text-red-700 m-4"><p class="font-semibold"><i class="fas fa-exclamation-circle mr-2"></i>Gagal memuat data</p><p class="text-sm mt-1">${error.message}</p><button onclick="loadSiswa()" class="mt-2 text-sm underline hover:no-underline text-red-600">Coba lagi</button></div>`; }
+    }
+
+    window.searchSiswa = function() {
+      const searchTerm = document.getElementById("searchSiswa").value.toLowerCase();
+      const rows = document.querySelectorAll("#siswaTableBody tr");
+      rows.forEach(row => { const nama = row.dataset.nama, email = row.dataset.email; if (nama.includes(searchTerm) || email.includes(searchTerm)) row.style.display = ""; else row.style.display = "none"; });
+    };
+
+    function escapeHtml(text) { if (!text) return ''; const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
+
+    const saveSiswaBtn = document.getElementById("saveSiswa");
+    if (saveSiswaBtn) {
+      saveSiswaBtn.addEventListener('click', async () => {
+        const user = auth.currentUser;
+        if (!user) { showToast("Silakan login terlebih dahulu", "error"); return; }
+        const id = document.getElementById("siswaId").value;
+        const username = document.getElementById("siswaNama").value.trim();
+        const email = document.getElementById("siswaEmail").value.trim();
+        const siapBayar = document.getElementById("siswaSiapBayar").checked;
+        if (!username) { showToast("Nama siswa wajib diisi", "error"); document.getElementById("siswaNama").focus(); return; }
+        if (!email || !email.includes('@')) { showToast("Email valid wajib diisi", "error"); document.getElementById("siswaEmail").focus(); return; }
+        const saveBtn = document.getElementById("saveSiswa");
+        const originalText = saveBtn.innerHTML;
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '<div class="loader-small inline-block mr-2"></div>Menyimpan...';
+        try {
+          const siswaData = { username, email, siap_bayar: siapBayar, updated_at: firebase.database.ServerValue.TIMESTAMP, updated_by: user.uid };
+          if (!id) { siswaData.created_at = firebase.database.ServerValue.TIMESTAMP; siswaData.created_by = user.uid; }
+          if (id) await db.ref(`data_siswa/${id}`).update(siswaData);
+          else await db.ref('data_siswa').push().set(siswaData);
+          showToast(id ? "Data siswa berhasil diperbarui" : "Data siswa berhasil ditambahkan", "success");
+          resetForm();
+          await loadSiswa();
+        } catch (error) { console.error("Error saving siswa:", error); showToast("Gagal menyimpan: " + error.message, "error"); }
+        finally { saveBtn.disabled = false; saveBtn.innerHTML = originalText; }
+      });
+    }
+
+    window.resetForm = function() {
+      document.getElementById("siswaId").value = "";
+      document.getElementById("siswaNama").value = "";
+      document.getElementById("siswaEmail").value = "";
+      document.getElementById("siswaSiapBayar").checked = false;
+      const saveBtn = document.getElementById("saveSiswa");
+      if (saveBtn) saveBtn.innerHTML = '<i class="fas fa-save mr-2"></i>Simpan Data';
+      const formTitle = document.getElementById("formTitle");
+      if (formTitle) formTitle.textContent = "Tambah Siswa Baru";
+    };
+
+    window.editSiswa = function(id, username, email, siapBayar) {
+      document.getElementById("siswaId").value = id;
+      document.getElementById("siswaNama").value = username;
+      document.getElementById("siswaEmail").value = email;
+      document.getElementById("siswaSiapBayar").checked = siapBayar === true;
+      const saveBtn = document.getElementById("saveSiswa");
+      if (saveBtn) saveBtn.innerHTML = '<i class="fas fa-save mr-2"></i>Update Data';
+      const formTitle = document.getElementById("formTitle");
+      if (formTitle) formTitle.textContent = "Edit Data Siswa";
+      document.getElementById("siswaNama").scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById("siswaNama").focus();
+    };
+
+    window.deleteSiswa = async function(id) {
+      const row = document.querySelector(`button[onclick="deleteSiswa('${id}')"]`)?.closest('tr');
+      const siswaName = row?.querySelector('td')?.textContent || 'siswa ini';
+      if (!confirm(`⚠️ Yakin ingin menghapus "${siswaName}"?\n\nTindakan ini tidak dapat dibatalkan.`)) return;
+      const user = auth.currentUser;
+      if (!user) { showToast("Silakan login terlebih dahulu", "error"); return; }
+      try { await db.ref(`data_siswa/${id}`).remove(); showToast("Data siswa berhasil dihapus", "success"); await loadSiswa(); }
+      catch (error) { console.error("Error deleting siswa:", error); showToast("Gagal menghapus data: " + error.message, "error"); }
+    };
+
+    if (adminBtnEl) {
+      adminBtnEl.addEventListener('click', () => { adminOverlay.style.display = "block"; document.body.style.overflow = "hidden"; });
+    }
+    window.closeAdminOverlay = function() { adminOverlay.style.display = "none"; crudPanel.style.display = "none"; adminLoginSection.style.display = "block"; document.getElementById("adminPassword").value = ""; document.getElementById("adminLoginError").style.display = "none"; document.body.style.overflow = ""; resetForm(); };
+    
+    function createParticles() {
+      const particlesContainer = document.getElementById("particles");
+      if (!particlesContainer) return;
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement("div");
+        particle.classList.add("particle");
+        const size = Math.random() * 5 + 2;
+        particle.style.width = size + "px";
+        particle.style.height = size + "px";
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.animationDuration = Math.random() * 20 + 10 + "s";
+        particle.style.animationDelay = Math.random() * 5 + "s";
+        particlesContainer.appendChild(particle);
+      }
+    }
+    createParticles();
+
+    window.addEventListener('load', () => {
+      addDebugLog("Halaman dimuat, memeriksa auth state...");
+      updateUI(auth.currentUser);
+      if (auth.currentUser) {
+        checkPremiumStatus();
+      }
+    });
+  </script>
+</body>  
 </html>
