@@ -2,1564 +2,1773 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MathBPHY • Portal Matematika Interaktif</title>    
-  
-  <!-- Tailwind CSS -->    
-  <script src="https://cdn.tailwindcss.com"></script>    
-  
-  <!-- Font Awesome 6 -->    
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />    
-  
-  <!-- Google Fonts: Inter -->    
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Firebase SDK v9 -->    
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>    
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>    
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>    
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulasi CBT AI Tutor</title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [
+          ['\(', '\)'],
+          ['$', '$']
+        ], displayMath: [
+          ['\[', '\]'],
+          ['$$', '$$']
+        ], processEscapes: true }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   <style>
-    /* ===== SEMUA CSS SAMA ===== */
-    :root {
-      --primary: #6366f1;
-      --primary-dark: #4f46e5;
-      --secondary: #8b5cf6;
-      --accent: #ec4899;
-      --success: #10b981;
-      --warning: #f59e0b;
-      --dark: #0f172a;
-      --light: #f8fafc;
-      --glass: rgba(255, 255, 255, 0.25);
-      --glass-border: rgba(255, 255, 255, 0.18);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+      font-family: Arial, sans-serif;
     }
-
-    body::before {
-      content: '';
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #eee;
+      border-top: 4px solid #6366f1;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .ai-help-modal {
+      display: none;
       position: fixed;
-      width: 200vmax;
-      height: 200vmax;
-      top: -50vmax;
-      left: -50vmax;
-      background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 60% 60%, rgba(255,255,255,0.1) 0%, transparent 50%);
-      animation: rotate 30s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .glass-modern {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
-    }
-
-    .float-animation {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .btn-modern {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      z-index: 1;
-    }
-
-    .btn-modern::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s ease;
-      z-index: -1;
-    }
-
-    .btn-modern:hover::before {
-      left: 100%;
-    }
-
-    .btn-modern:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.5);
-    }
-
-    /* ===== PREMIUM BUTTON STYLE ===== */
-    .btn-premium {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      animation: premiumGlow 2s ease-in-out infinite;
-    }
-
-    .btn-premium::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700, #ffed4e);
-      background-size: 400% 400%;
-      border-radius: 12px;
-      z-index: -1;
-      animation: gradientShift 3s ease infinite;
-    }
-
-    .btn-premium::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .btn-premium:hover::after {
-      left: 100%;
-    }
-
-    @keyframes premiumGlow {
-      0%, 100% {
-        box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 15px #ffed4e;
-      }
-      50% {
-        box-shadow: 0 0 15px #ffd700, 0 0 25px #ffed4e, 0 0 35px #ffd700;
-      }
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    /* ===== PREMIUM BADGE GLOW ===== */
-    .premium-badge {
-      display: inline-flex;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      justify-content: center;
       align-items: center;
-      gap: 6px;
-      background: linear-gradient(135deg, #fbbf24, #f59e0b);
-      color: #fff;
-      padding: 4px 12px;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      animation: badgeGlow 2s ease-in-out infinite;
-      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+      padding: 20px;
     }
-
-    @keyframes badgeGlow {
-      0%, 100% {
-        box-shadow: 0 0 5px #fbbf24, 0 0 10px #f59e0b;
+    .ai-help-content {
+      background: white;
+      width: 100%;
+      max-width: 900px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 20px;
+    }
+    .math-container {
+      overflow-x: auto;
+    }
+    .whitespace-pre-wrap {
+      white-space: pre-wrap;
+    }
+    .fab {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #6366f1, #9333ea);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      z-index: 50;
+    }
+    .fab-schedule {
+      position: fixed;
+      right: 20px;
+      bottom: 90px;
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      z-index: 50;
+      transition: transform 0.3s;
+    }
+    .fab-schedule:hover {
+      transform: scale(1.1);
+    }
+    .option-selected {
+      background-color: #e0e7ff;
+      border-color: #6366f1;
+    }
+    .schedule-panel {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 480px;
+      height: 100vh;
+      background: white;
+      z-index: 1000;
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+      overflow-y: auto;
+      animation: slideInRight 0.3s ease;
+    }
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+    .schedule-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      backdrop-filter: blur(3px);
+    }
+    .schedule-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 1.2rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s;
+    }
+    .schedule-card:hover {
+      transform: translateY(-3px);
+    }
+    .schedule-card.today {
+      border: 3px solid #ffd700;
+    }
+    .day-badge {
+      background: rgba(255, 255, 255, 0.2);
+      display: inline-block;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+    .topic-tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin: 0.15rem;
+    }
+    .topic-tag.weak {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+    .topic-tag.strong {
+      background: #d1fae5;
+      color: #059669;
+    }
+    .stats-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+    .stats-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,
+      100% {
+        opacity: 1;
         transform: scale(1);
       }
       50% {
-        box-shadow: 0 0 15px #fbbf24, 0 0 25px #f59e0b;
-        transform: scale(1.05);
+        opacity: 0.5;
+        transform: scale(1.3);
       }
     }
-
-    .hover-card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .hover-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.3);
-    }
-
-    .neon-border {
-      position: relative;
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-
-    .neon-border::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-      background-size: 400% 400%;
-      border-radius: 1rem;
-      z-index: -1;
-      animation: gradientShift 10s ease infinite;
-    }
-
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      animation: particleFloat 20s infinite linear;
-    }
-
-    @keyframes particleFloat {
-      from { transform: translateY(100vh) rotate(0deg); }
-      to { transform: translateY(-100vh) rotate(360deg); }
-    }
-
-    .loader {
-      width: 48px;
-      height: 48px;
-      border: 5px solid #fff;
-      border-bottom-color: #6366f1;
-      border-radius: 50%;
-      display: inline-block;
-      animation: rotation 1s linear infinite;
-    }
-
-    .loader-small {
-      width: 20px;
-      height: 20px;
-      border: 3px solid #e5e7eb;
-      border-bottom-color: #6366f1;
-      border-radius: 50%;
-      display: inline-block;
-      animation: rotation 1s linear infinite;
-    }
-
-    @keyframes rotation {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 5px;
-    }
-
-    .bphy-logo {
-      background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
-      background-size: 300% 300%;
-      animation: gradientBG 8s ease infinite;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .click-effect:active {
-      transform: scale(0.95);
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .status-paid {
-      background: #d1fae5;
-      color: #065f46;
-    }
-
-    .status-pending {
-      background: #fef3c7;
-      color: #92400e;
-    }
-
-    .status-expired {
-      background: #fee2e2;
-      color: #991b1b;
-    }
-
-    .status-failed {
-      background: #fee2e2;
-      color: #991b1b;
-    }
-
-    .modal-overlay {
+    .result-summary {
+      display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      z-index: 100;
-      display: none;
-      align-items: center;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 998;
       justify-content: center;
-      padding: 1rem;
+      align-items: center;
+      padding: 20px;
     }
-
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal-content {
+    .result-content {
       background: white;
-      border-radius: 1rem;
-      max-width: 500px;
       width: 100%;
+      max-width: 600px;
       max-height: 90vh;
       overflow-y: auto;
-      animation: modalSlide 0.3s ease;
-    }
-
-    @keyframes modalSlide {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .copy-btn {
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .copy-btn:hover {
-      background: #e5e7eb;
-    }
-
-    .debug-panel {
-      position: fixed;
-      bottom: 80px;
-      left: 20px;
-      background: rgba(0,0,0,0.8);
-      color: #0f0;
-      font-family: monospace;
-      font-size: 12px;
-      padding: 8px 12px;
-      border-radius: 8px;
-      z-index: 1000;
-      max-width: 300px;
-      backdrop-filter: blur(4px);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .debug-panel:hover {
-      background: rgba(0,0,0,0.95);
-      transform: scale(1.02);
-    }
-    .debug-panel pre {
-      margin: 0;
-      white-space: pre-wrap;
-      word-break: break-all;
-    }
-    .debug-toggle {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #333;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 6px 12px;
-      font-size: 12px;
-      cursor: pointer;
-      z-index: 1001;
+      border-radius: 24px;
+      padding: 2rem;
     }
   </style>
-</head>  
-<body class="relative">  
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
 
-  <!-- Particle Background -->
-  <div class="particles" id="particles"></div>
+  <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-6">
+    <h1 class="text-3xl font-bold text-center text-indigo-700 mb-6">Simulasi CBT AI Tutor</h1>
 
-  <!-- Modern Navbar -->
-  <nav class="glass-modern fixed top-0 left-0 right-0 z-50 px-6 py-4">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 bphy-logo rounded-xl flex items-center justify-center shadow-lg float-animation">
-          <span class="text-white font-bold text-xl">BPHY</span>
-        </div>
-        <a href="#" class="text-white font-bold text-2xl tracking-tight hover:text-indigo-200 transition">Math<span class="text-indigo-200">BPHY</span></a>
+    <div class="mb-4 flex justify-between items-center">
+      <label class="text-gray-700 font-semibold">Pilih Kelas:</label>
+      <select id="kelasSelect" class="border-2 border-indigo-300 rounded-lg px-4 py-2 bg-indigo-50 text-indigo-800 font-medium">
+        <option value="xi">Kelas XI</option>
+        <option value="x">Kelas X</option>
+      </select>
+    </div>
+
+    <div class="mb-6">
+      <div class="flex justify-between text-sm text-gray-600 mb-2">
+        <span>Soal <span id="currentNum">1</span> dari <span id="totalNum">0</span></span>
+        <span id="categoryBadge" class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold">Matematika</span>
       </div>
-
-      <div class="hidden md:flex items-center space-x-6">
-        <a href="#features" class="text-white/80 hover:text-white transition">Fitur</a>
-        <a href="#pricing" class="text-white/80 hover:text-white transition">Harga</a>
-        <a href="#testimonials" class="text-white/80 hover:text-white transition">Testimoni</a>
-        <a href="#" class="text-white/80 hover:text-white transition">Soal</a>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        <img id="userPhoto" src="" alt="Profile" class="w-10 h-10 rounded-full border-2 border-white hidden object-cover cursor-pointer hover:scale-110 transition" onclick="cekStatusPembayaran()">
-        <span id="userDisplayName" class="text-white font-medium hidden cursor-pointer hover:text-indigo-200 transition" onclick="cekStatusPembayaran()"></span>
-        <span id="userBadge" style="display: none;"></span>
-        <button id="loginBtn" class="bg-white text-indigo-600 px-6 py-2 rounded-full font-semibold hover:shadow-xl transition-all duration-300 btn-modern flex items-center space-x-2">
-          <i class="fab fa-google"></i>
-          <span>Masuk</span>
-        </button>
-        <button id="logoutBtn" class="hidden bg-white/20 text-white px-6 py-2 rounded-full font-semibold hover:bg-white/30 transition-all duration-300">
-          <i class="fas fa-sign-out-alt mr-2"></i>Keluar
-        </button>
+      <div class="w-full bg-gray-200 rounded-full h-2.5">
+        <div id="progressBar" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-300" style="width:0%"></div>
       </div>
     </div>
-  </nav>
 
-  <!-- Main Content -->
-  <main class="pt-24 pb-12 px-4 max-w-7xl mx-auto">
-    
-    <!-- Hero Section -->
-    <section class="relative mb-20">
-      <div class="glass-modern rounded-3xl p-8 md:p-12 text-white overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 float-animation"></div>
-        <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-16 -mb-16 float-animation" style="animation-delay: 2s;"></div>
-        
-        <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
-          <div class="flex-1 text-center md:text-left">
-            <div class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold mb-6">
-              🚀 BPHY Education
-            </div>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-200">
-                Kuasai Matematika
-              </span>
-              <br>
-              <span class="text-white/90">Bersama</span>
-              <br>
-              <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-pink-300">
-                MathBPHY
-              </span>
-            </h1>
-            
-            <p class="text-lg md:text-xl text-white/80 mb-8 max-w-2xl">
-              Platform belajar matematika interaktif dari BPHY dengan AI-powered learning path, ribuan soal, dan analisis real-time.
-            </p>
-            
-            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-              <button id="btnPremium" class="bg-gray-300 text-gray-500 cursor-not-allowed w-full py-3 rounded-xl font-semibold transition duration-300">
-                🔒 Mulai Premium (Terkunci)
-              </button>
-              <a href="/soal.html" class="glass-modern text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all duration-300">
-                <i class="fas fa-play-circle mr-2"></i>Coba Gratis
-              </a>
-            </div>
+    <div id="kontenSoal" class="min-h-[200px]"></div>
 
-            <div class="flex items-center gap-4 mt-8">
-              <div class="flex -space-x-2">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-8 h-8 rounded-full border-2 border-white">
-                <img src="https://randomuser.me/api/portraits/men/46.jpg" class="w-8 h-8 rounded-full border-2 border-white">
-                <img src="https://randomuser.me/api/portraits/women/63.jpg" class="w-8 h-8 rounded-full border-2 border-white">
-              </div>
-              <span class="text-sm text-white/70">+10,000 siswa aktif dari seluruh Indonesia</span>
-            </div>
-          </div>
-          
-          <div class="flex-1 float-animation">
-            <img src="https://illustrations.popsy.co/white/online-learning.svg" alt="Learning Illustration" class="w-full max-w-md mx-auto">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
-      <div class="glass-card rounded-2xl p-6 text-center hover-card">
-        <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-users text-indigo-600 text-2xl"></i>
-        </div>
-        <div class="text-3xl font-bold text-gray-800">25K+</div>
-        <div class="text-gray-600">Siswa Aktif</div>
-      </div>
-      <div class="glass-card rounded-2xl p-6 text-center hover-card">
-        <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-book-open text-green-600 text-2xl"></i>
-        </div>
-        <div class="text-3xl font-bold text-gray-800">10K+</div>
-        <div class="text-gray-600">Soal Premium</div>
-      </div>
-      <div class="glass-card rounded-2xl p-6 text-center hover-card">
-        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-trophy text-purple-600 text-2xl"></i>
-        </div>
-        <div class="text-3xl font-bold text-gray-800">95%</div>
-        <div class="text-gray-600">Tingkat Kelulusan</div>
-      </div>
-      <div class="glass-card rounded-2xl p-6 text-center hover-card">
-        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-clock text-blue-600 text-2xl"></i>
-        </div>
-        <div class="text-3xl font-bold text-gray-800">24/7</div>
-        <div class="text-gray-600">Dukungan</div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="mb-20">
-      <div class="text-center mb-12">
-        <span class="bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">✨ FITUR EKSKLUSIF MathBPHY</span>
-        <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Fitur Premium BPHY</h2>
-        <p class="text-xl text-white/80 max-w-2xl mx-auto">Dapatkan akses ke semua fitur eksklusif dari BPHY untuk memaksimalkan potensi belajar Anda</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="neon-border"><div class="glass-card rounded-xl p-8 h-full"><div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-robot text-white text-3xl"></i></div><h3 class="text-2xl font-bold mb-3 text-gray-800">AI BPHY Assistant</h3><p class="text-gray-600 mb-4">Asisten AI eksklusif dari BPHY yang siap membantu menjawab pertanyaan 24/7.</p><a href="#" class="flex items-center text-indigo-600 hover:text-indigo-800 transition"><span class="text-sm font-semibold">Coba gratis</span><i class="fas fa-arrow-right ml-2"></i></a></div></div>
-        <div class="neon-border"><div class="glass-card rounded-xl p-8 h-full"><div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-chart-line text-white text-3xl"></i></div><h3 class="text-2xl font-bold mb-3 text-gray-800">BPHY Analitik</h3><p class="text-gray-600 mb-4">Pantau perkembangan belajar dengan grafik interaktif dan rekomendasi personalized.</p><a href="#" class="flex items-center text-indigo-600 hover:text-indigo-800 transition"><span class="text-sm font-semibold">Lihat demo</span><i class="fas fa-arrow-right ml-2"></i></a></div></div>
-        <div class="neon-border"><div class="glass-card rounded-xl p-8 h-full"><div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6"><i class="fas fa-gamepad text-white text-3xl"></i></div><h3 class="text-2xl font-bold mb-3 text-gray-800">BPHY Quest</h3><p class="text-gray-600 mb-4">Belajar sambil bermain dengan sistem poin, badge, dan leaderboard kompetitif.</p><a href="#" class="flex items-center text-indigo-600 hover:text-indigo-800 transition"><span class="text-sm font-semibold">Mainkan</span><i class="fas fa-arrow-right ml-2"></i></a></div></div>
-      </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="mb-20">
-      <div class="glass-modern rounded-3xl p-8 md:p-12">
-        <div class="text-center mb-10">
-          <span class="bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 inline-block">🎯 PROMO SPESIAL BPHY</span>
-          <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Harga Terjangkau untuk Masa Depan Cerah</h3>
-          <p class="text-white/80 text-lg">Pilih paket yang sesuai dengan kebutuhan belajar Anda bersama MathBPHY</p>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div class="glass-card rounded-2xl p-8 hover-card">
-            <div class="mb-6"><h4 class="text-2xl font-bold text-gray-800 mb-2">BPHY Basic</h4><p class="text-gray-600">Untuk memulai perjalanan belajar</p></div>
-            <div class="text-4xl font-bold text-gray-800 mb-6">Rp0<span class="text-lg font-normal text-gray-500">/selamanya</span></div>
-            <ul class="space-y-3 mb-8"><li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-3"></i>100 soal dasar</li><li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-3"></i>Pembahasan terbatas</li><li class="flex items-center text-gray-600"><i class="fas fa-check text-green-500 mr-3"></i>Statistik dasar</li></ul>
-         <button onclick="window.location.href='soal.html'" 
-class="w-full bg-gray-100 text-gray-800 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-300 click-effect">
-    <i class="fas fa-rocket mr-2"></i>Mulai Gratis
-</button>
-          </div>
-          
-          <div class="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-8 hover-card relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-8 -mt-8"></div>
-            <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-8 -mb-8"></div>
-            <div class="relative z-10">
-              <div class="mb-6"><div class="flex justify-between items-center mb-2"><h4 class="text-2xl font-bold text-white">BPHY Premium</h4><span class="bg-yellow-300 text-indigo-900 px-3 py-1 rounded-full text-xs font-bold">TERLARIS</span></div><p class="text-white/80">Akses ke semua fitur eksklusif BPHY</p></div>
-              <div class="text-4xl font-bold text-white mb-6">Rp50K<span class="text-lg font-normal text-white/70">/bulan</span></div>
-              <ul class="space-y-3 mb-8 text-white"><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>Semua soal & pembahasan</li><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>AI BPHY Assistant</li><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>Analitik lengkap</li><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>Simulasi UTBK</li><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>Sertifikat kelulusan</li><li class="flex items-center"><i class="fas fa-check-circle text-yellow-300 mr-3"></i>Akses grup exclusive BPHY</li></ul>
-              <a href="checkout.html" class="w-full bg-white text-indigo-700 py-3 rounded-xl font-bold hover:shadow-xl transform hover:scale-105 transition-all duration-300 btn-modern click-effect block text-center"><i class="fas fa-crown mr-2"></i>Ambil Premium BPHY</a>
-              <button onclick="cekStatusPembayaran()" class="w-full mt-3 glass-modern text-white py-3 rounded-xl font-semibold hover:bg-white/20 transition block text-center"><i class="fas fa-receipt mr-2"></i>Cek Status Pembayaran</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Payment Status Panel (hidden by default) -->
-    <section id="paymentStatus" class="mb-20 hidden">
-      <div class="glass-modern rounded-3xl p-6 md:p-8">
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-2xl font-bold text-white">Status Pembayaran Premium</h3>
-          <button onclick="closePaymentStatus()" class="text-white/60 hover:text-white">
-            <i class="fas fa-times text-xl"></i>
-          </button>
-        </div>
-        <div id="statusList" class="space-y-4">
-          <!-- transactions will be rendered here -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="mb-20">
-      <h3 class="text-3xl md:text-4xl font-bold text-center text-white mb-4">Apa Kata Mereka Tentang MathBPHY?</h3>
-      <p class="text-white/80 text-center mb-12 max-w-2xl mx-auto">Testimoni dari siswa-siswi yang telah merasakan manfaat belajar bersama BPHY</p>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="glass-card rounded-xl p-6"><div class="flex items-center mb-4"><div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">A</div><div class="ml-3"><h4 class="font-bold text-gray-800">Ahmad Fauzi</h4><p class="text-sm text-gray-600">Siswa Kelas 12</p></div></div><p class="text-gray-600 italic mb-3">"Nilai matematika saya naik dari 65 jadi 92 dalam 3 bulan. Fitur AI BPHY sangat membantu!"</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
-        <div class="glass-card rounded-xl p-6"><div class="flex items-center mb-4"><div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl">S</div><div class="ml-3"><h4 class="font-bold text-gray-800">Siti Nurhaliza</h4><p class="text-sm text-gray-600">Mahasiswa UI</p></div></div><p class="text-gray-600 italic mb-3">"MathBPHY yang membuat saya lolos SBMPTN. Soal-soalnya mirip banget dengan aslinya!"</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
-        <div class="glass-card rounded-xl p-6"><div class="flex items-center mb-4"><div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold text-xl">B</div><div class="ml-3"><h4 class="font-bold text-gray-800">Budi Santoso</h4><p class="text-sm text-gray-600">Guru Matematika</p></div></div><p class="text-gray-600 italic mb-3">"Saya rekomendasikan MathBPHY ke semua siswa saya. Metode belajarnya efektif dan menyenangkan."</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
-      </div>
-    </section>
-
-    <section class="neon-border">
-      <div class="glass-modern rounded-2xl p-12 text-center"><h3 class="text-3xl md:text-4xl font-bold text-white mb-4">Siap Menjadi Master Matematika Bersama BPHY?</h3><p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">Bergabung dengan ribuan siswa lainnya yang telah merasakan manfaat belajar bersama MathBPHY</p><div class="flex flex-wrap gap-4 justify-center"><a href="#" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 btn-modern inline-flex items-center click-effect"><i class="fas fa-rocket mr-3"></i>Mulai Belajar Gratis</a><a href="#pricing" class="glass-modern text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all duration-300 inline-flex items-center"><i class="fas fa-crown mr-3"></i>Lihat Paket Premium</a></div></div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="glass-modern mt-20 py-12">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8 mb-8">
-        <div><div class="flex items-center space-x-2 mb-4"><div class="w-8 h-8 bphy-logo rounded-lg flex items-center justify-center"><span class="text-white font-bold">BPHY</span></div><span class="text-white font-bold text-xl">MathBPHY</span></div><p class="text-white/70 text-sm">Platform belajar matematika #1 dari BPHY Education dengan teknologi AI terkini.</p><div class="flex mt-4 space-x-2"><span class="px-2 py-1 bg-white/10 rounded text-xs text-white">#BPHYEducation</span><span class="px-2 py-1 bg-white/10 rounded text-xs text-white">#MathBPHY</span></div></div>
-        <div><h5 class="text-white font-bold mb-4">Produk BPHY</h5><ul class="space-y-2"><li><a href="#features" class="text-white/70 hover:text-white transition">Fitur MathBPHY</a></li><li><a href="#pricing" class="text-white/70 hover:text-white transition">Harga Premium</a></li><li><a href="#" class="text-white/70 hover:text-white transition">FAQ BPHY</a></li><li><a href="#" class="text-white/70 hover:text-white transition">Bank Soal</a></li></ul></div>
-        <div><h5 class="text-white font-bold mb-4">BPHY Company</h5><ul class="space-y-2"><li><a href="#" class="text-white/70 hover:text-white transition">Tentang BPHY</a></li><li><a href="#" class="text-white/70 hover:text-white transition">Karir di BPHY</a></li><li><a href="#" class="text-white/70 hover:text-white transition">BPHY untuk Sekolah</a></li><li><a href="#" class="text-white/70 hover:text-white transition">Hubungi Kami</a></li></ul></div>
-        <div><h5 class="text-white font-bold mb-4">Ikuti BPHY</h5><div class="flex space-x-4"><a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition"><i class="fab fa-instagram text-white"></i></a><a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition"><i class="fab fa-tiktok text-white"></i></a><a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition"><i class="fab fa-youtube text-white"></i></a><a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition"><i class="fab fa-linkedin-in text-white"></i></a></div><div class="mt-4"><p class="text-white/50 text-xs">Join BPHY Community:</p><p class="text-white text-sm font-semibold">community@bphyeducation.com</p></div></div>
-      </div>
-      <div class="border-t border-white/10 pt-8 text-center"><p class="text-white/60 text-sm">© 2024 MathBPHY by BPHY Education. Dibuat dengan <i class="fas fa-heart text-red-400 mx-1"></i> untuk pendidikan Indonesia</p><p class="text-white/40 text-xs mt-2">Powered by BPHY • Version 2.0.0</p></div>
+    <div class="flex justify-between mt-6 pt-6 border-t border-gray-200">
+      <button id="btnPrev" onclick="prevSoal()" class="px-6 py-2 rounded-xl bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition disabled:opacity-50">← Sebelumnya</button>
+      <button id="btnNext" onclick="nextSoal()" class="px-6 py-2 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition disabled:opacity-50">Selanjutnya →</button>
     </div>
-  </footer>
 
-  <!-- Toast Container -->
-  <div id="toastContainer" class="fixed top-4 right-4 z-50"></div>
-
-  <!-- Online Widget -->
-  <div class="fixed bottom-4 right-4 glass-modern px-4 py-2 rounded-full flex items-center space-x-2 text-white z-40"><div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div><span class="text-sm" id="onlineCount">1.2K</span><span class="text-sm">BPHY online</span></div>
-
-  <!-- Payment Modal -->
-  <div id="paymentModal" class="modal-overlay"><div class="modal-content p-6"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold text-gray-800">Detail Pembayaran</h3><button onclick="closeModal()" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button></div><div id="modalBody"></div></div></div>
-  
-  <!-- Admin Panel -->
-  <button id="adminBtn" style="position:fixed;bottom:20px;left:20px;background:#fff;color:#333;padding:8px 16px;border-radius:20px;z-index:1000;font-weight:bold;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.2);display:none;"><i class="fas fa-cog mr-2"></i>Admin Panel</button>
-  <div id="adminOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:999;overflow-y:auto;"><div style="background:#fff;max-width:800px;margin:30px auto;padding:30px;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.3);"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;"><h2 style="font-size:24px;font-weight:bold;color:#333;"><i class="fas fa-user-shield mr-2 text-indigo-600"></i>Admin Panel - Manajemen Siswa</h2><button onclick="closeAdminOverlay()" style="background:#f3f4f6;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:18px;color:#666;"><i class="fas fa-times"></i></button></div><div id="adminLoginSection" style="background:#f9fafb;padding:20px;border-radius:8px;margin-bottom:20px;"><h3 style="font-size:16px;font-weight:600;margin-bottom:15px;color:#374151;">Verifikasi Admin</h3><div style="display:flex;gap:10px;flex-wrap:wrap;"><input type="password" id="adminPassword" placeholder="Masukkan password admin" style="flex:1;min-width:200px;border:1px solid #d1d5db;padding:10px 15px;border-radius:6px;font-size:14px;" /><button id="loginAdmin" style="background:#6366f1;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:all 0.3s;"><i class="fas fa-sign-in-alt mr-2"></i>Login Admin</button></div><p id="adminLoginError" style="color:#ef4444;font-size:12px;margin-top:8px;display:none;">Password salah atau Anda tidak memiliki akses admin</p></div><div id="crudPanel" style="display:none;"><div style="background:#f0fdf4;padding:20px;border-radius:8px;margin-bottom:20px;border:1px solid #bbf7d0;"><h3 style="font-size:16px;font-weight:600;margin-bottom:15px;color:#166534;"><i class="fas fa-user-plus mr-2"></i><span id="formTitle">Tambah Siswa Baru</span></h3><input type="hidden" id="siswaId" /><div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px;"><div><label style="display:block;font-size:12px;font-weight:600;color:#374151;margin-bottom:5px;">Nama Siswa *</label><input type="text" id="siswaNama" placeholder="Masukkan nama lengkap" style="width:100%;border:1px solid #d1d5db;padding:10px 15px;border-radius:6px;font-size:14px;" /></div><div><label style="display:block;font-size:12px;font-weight:600;color:#374151;margin-bottom:5px;">Email *</label><input type="email" id="siswaEmail" placeholder="email@example.com" style="width:100%;border:1px solid #d1d5db;padding:10px 15px;border-radius:6px;font-size:14px;" /></div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;"><input type="checkbox" id="siswaSiapBayar" style="width:18px;height:18px;cursor:pointer;" /><label for="siswaSiapBayar" style="font-size:14px;color:#374151;cursor:pointer;">Siswa ini sudah siap membayar (Siap Bayar)</label></div><div style="display:flex;gap:10px;"><button id="saveSiswa" style="background:#10b981;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:all 0.3s;"><i class="fas fa-save mr-2"></i>Simpan Data</button><button onclick="resetForm()" style="background:#6b7280;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;font-weight:600;transition:all 0.3s;"><i class="fas fa-undo mr-2"></i>Reset Form</button></div></div><div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;"><h3 style="font-size:16px;font-weight:600;color:#374151;"><i class="fas fa-list mr-2 text-indigo-600"></i>Daftar Siswa</h3><div style="display:flex;gap:10px;"><input type="text" id="searchSiswa" placeholder="Cari siswa..." onkeyup="searchSiswa()" style="border:1px solid #d1d5db;padding:8px 12px;border-radius:6px;font-size:13px;width:200px;" /><button onclick="loadSiswa()" style="background:#3b82f6;color:#fff;border:none;padding:8px 15px;border-radius:6px;cursor:pointer;font-size:13px;"><i class="fas fa-sync-alt mr-1"></i>Refresh</button></div></div><div id="siswaList" style="border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;"><div style="padding:20px;text-align:center;color:#6b7280;"><i class="fas fa-spinner fa-spin mr-2"></i>Memuat data siswa...</div></div></div></div></div></div>
-
-  <!-- Debug Panel -->
-  <button id="debugToggleBtn" class="debug-toggle">🐞 Debug</button>
-  <div id="debugPanel" class="debug-panel" style="display: none;">
-    <pre id="debugContent">Debug info will appear here...</pre>
+    <div class="mt-6 border-t pt-4">
+      <div class="flex items-center gap-4 mb-3 bg-gray-50 p-3 rounded-xl border border-gray-200 w-fit flex-wrap">
+        <label for="similaritySlider" class="text-sm font-semibold text-gray-700">Kemiripan Soal:</label>
+        <input type="range" id="similaritySlider" min="50" max="100" value="80" oninput="document.getElementById('similarityValue').innerText=this.value+'%'" class="w-32 accent-indigo-600 cursor-pointer">
+        <span id="similarityValue" class="text-sm font-bold text-indigo-600">80%</span>
+      </div>
+      <button id="btnGenerate" onclick="generateSoal()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-xl transition">🔄 Buat Soal Serupa (2 soal)</button>
+      <div id="generatedQuestions" class="mt-4 space-y-4"></div>
+    </div>
   </div>
- 
+
+  <!-- FAB -->
+  <div id="aiFab" class="fab" onclick="openAIHelp()" title="Bantuan AI">🦊</div>
+  <div id="scheduleFab" class="fab-schedule" onclick="openSchedulePanel()" title="Jadwal Belajar">📅</div>
+
+  <!-- AI Help Modal -->
+  <div id="aiHelpModal" class="ai-help-modal">
+    <div class="ai-help-content">
+      <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-5 flex justify-between items-center rounded-t-2xl">
+        <div><h2 class="text-xl font-bold">🤖 Gemini AI Tutor</h2><p class="text-sm opacity-90">Bantuan matematika otomatis</p></div>
+        <button onclick="closeAIHelp()" class="text-3xl hover:text-gray-200 transition">&times;</button>
+      </div>
+      <div id="aiExplanation" class="p-6"></div>
+    </div>
+  </div>
+
+  <!-- Result Summary -->
+  <div id="resultSummary" class="result-summary">
+    <div class="result-content">
+      <div class="text-center mb-6">
+        <div class="text-6xl mb-3">🎉</div>
+        <h2 class="text-2xl font-bold text-indigo-800">Simulasi Selesai!</h2>
+        <p class="text-gray-500">Berikut ringkasan performa belajarmu</p>
+      </div>
+      <div id="resultStats"></div>
+      <div class="flex gap-3 mt-6">
+        <button onclick="closeResultSummary()" class="flex-1 py-3 rounded-xl bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition">Tutup</button>
+        <button onclick="openSchedulePanel(); closeResultSummary();" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:opacity-90 transition">📅 Lihat Jadwal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule Panel -->
+  <div id="scheduleOverlay" class="schedule-overlay" onclick="closeSchedulePanel()"></div>
+  <div id="schedulePanel" class="schedule-panel">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-indigo-800">📚 Jadwal Belajar</h2>
+          <p class="text-sm text-gray-500">Disesuaikan dengan performa simulasi</p>
+        </div>
+        <button onclick="closeSchedulePanel()" class="text-3xl text-gray-400 hover:text-gray-600 transition">&times;</button>
+      </div>
+
+      <div id="liveStats" class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 mb-6 border border-indigo-100">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="pulse-dot"></div>
+          <span class="text-sm font-semibold text-indigo-700">Performa Real-time</span>
+        </div>
+        <div id="statsContent"><p class="text-gray-500 text-sm">Mulai kerjakan soal untuk melihat statistik...</p></div>
+      </div>
+
+      <div id="weakTopicsSection" class="mb-6 hidden">
+        <h3 class="font-bold text-gray-700 mb-2">⚠️ Topik Perlu Perhatian</h3>
+        <div id="weakTopicsList" class="flex flex-wrap gap-1"></div>
+      </div>
+      <div id="strongTopicsSection" class="mb-6 hidden">
+        <h3 class="font-bold text-gray-700 mb-2">✅ Topik Kuat</h3>
+        <div id="strongTopicsList" class="flex flex-wrap gap-1"></div>
+      </div>
+
+      <div id="scheduleContainer">
+        <div class="text-center py-10 text-gray-400">
+          <div class="text-5xl mb-3">📋</div>
+          <p>Selesaikan minimal 3 soal untuk<br>menghasilkan jadwal belajar adaptif</p>
+        </div>
+      </div>
+
+      <button id="btnGenerateSchedule" onclick="generateAdaptiveSchedule()" class="w-full mt-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold py-3 rounded-xl hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>🤖 Generate Jadwal dengan AI</button>
+      <button onclick="generateLocalSchedule()" class="w-full mt-2 bg-white border-2 border-indigo-200 text-indigo-700 font-semibold py-2 rounded-xl hover:bg-indigo-50 transition">🎯 Generate Jadwal Lokal</button>
+    </div>
+  </div>
+
   <script>
-    // ==========================
-    // FIREBASE CONFIG
-    // ==========================
-    const firebaseConfig = {
-      apiKey: "AIzaSyCu4GQa-EOaPhpQP_y_QcsJxs05adQU2-M",
-      authDomain: "math314-app.firebaseapp.com",
-      databaseURL: "https://math314-app-default-rtdb.firebaseio.com",
-      projectId: "math314-app",
-      storageBucket: "math314-app.appspot.com",
-      messagingSenderId: "9019551034",
-      appId: "1:9019551034:web:de0c5e2b8b20c18ca0b403",
-      measurementId: "G-VWYDTY9LF6"
-    };
-    
-    // Inisialisasi Firebase
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.database();
+    // ============================================================
+    //  DATA SOAL (tetap sama seperti sebelumnya)
+    // ============================================================
+  const soalKelasX = [
+  {
+    "pertanyaan": "Beda dari barisan aritmetika 23, 27, 31, 35, … adalah …",
+    "pilihan": [{"benar": false, "teks": "1"},{"benar": false, "teks": "2"},{"benar": false, "teks": "3"},{"benar": true, "teks": "4"},{"benar": false, "teks": "5"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Diketahui barisan aritmetika: 101, 112, 123, 134, 145, 156, 167, 178, 189, 200, 211,… suku awal dari barisan tersebut adalah …",
+    "pilihan": [{"benar": true, "teks": "101"},{"benar": false, "teks": "123"},{"benar": false, "teks": "156"},{"benar": false, "teks": "189"},{"benar": false, "teks": "211"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Median dari data 37, 47, 1, 15, 57, 24, 20, 11, 19, 50, 28, 37 adalah …",
+    "pilihan": [{"benar": false, "teks": "17,5"},{"benar": false, "teks": "19,5"},{"benar": true, "teks": "26,5"},{"benar": false, "teks": "42,5"},{"benar": false, "teks": "47,5"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Perhatikan tabel pendapatan toko kue berikut:<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Pendapatan (Juta)</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>21-26</td><td class='border px-2 py-1'>4</td></tr><tr><td class='border px-2 py-1'>27-32</td><td class='border px-2 py-1'>6</td></tr><tr><td class='border px-2 py-1'>33-38</td><td class='border px-2 py-1'>12</td></tr><tr><td class='border px-2 py-1'>39-44</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>45-50</td><td class='border px-2 py-1'>6</td></tr></tbody></table></div><br>Nilai modus data tersebut adalah …",
+    "pilihan": [{"benar": false, "teks": "34,6"},{"benar": false, "teks": "35,4"},{"benar": true, "teks": "36,1"},{"benar": false, "teks": "35,7"},{"benar": false, "teks": "36,5"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Pak Robi memiliki bengkel sepeda motor. Data banyak sepeda motor yang diperbaiki tiap harinya dalam satu bulan terakhir ditunjukkan pada tabel berikut:<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Unit</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>1-5</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>6-10</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>11-15</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>16-20</td><td class='border px-2 py-1'>11</td></tr></tbody></table></div><br>Rata-rata sepeda motor yang diperbaiki setiap harinya adalah sebanyak ... unit.",
+    "pilihan": [{"benar": false, "teks": "4"},{"benar": false, "teks": "7"},{"benar": true, "teks": "12"},{"benar": false, "teks": "14"},{"benar": false, "teks": "18"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Diketahui suku ke-6 dan suku ke-10 suatu barisan aritmetika adalah 15 and 3. Suku kedua barisan aritmetika adalah ...",
+    "pilihan": [{"benar": false, "teks": "24"},{"benar": false, "teks": "25"},{"benar": false, "teks": "26"},{"benar": true, "teks": "27"},{"benar": false, "teks": "28"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Diketahui barisan aritmetika dengan suku ke-4 dan suku ke-7 berturut-turut adalah 19 dan 31. Suku ke-50 barisan tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "103"},{"benar": true, "teks": "203"},{"benar": false, "teks": "303"},{"benar": false, "teks": "403"},{"benar": false, "teks": "503"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Nilai tengah dari data 15, 10, 12, 8, 13, 4, 15, 20, 11, 10, 9, 12, 19, 18, 17 adalah ...",
+    "pilihan": [{"benar": false, "teks": "10"},{"benar": false, "teks": "11"},{"true": true, "teks": "12"},{"benar": false, "teks": "13"},{"benar": false, "teks": "15"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Diketahui suku pertama dan rasio dari barisan geometri berturut-turut adalah 1 dan 3. Suku ke-6 barisan tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "9"},{"benar": false, "teks": "27"},{"benar": false, "teks": "49"},{"benar": false, "teks": "144"},{"benar": true, "teks": "243"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Berikut adalah data mengenai jumlah kelahiran anak perempuan tahun 2006–2016 pada suatu negara.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Tahun</th><th class='border px-2 py-1'>Jumlah Kelahiran</th></tr></thead><tbody><tr><td class='border px-2 py-1'>2006</td><td class='border px-2 py-1'>51.812</td></tr><tr><td class='border px-2 py-1'>2007</td><td class='border px-2 py-1'>54.850</td></tr><tr><td class='border px-2 py-1'>2008</td><td class='border px-2 py-1'>51.220</td></tr><tr><td class='border px-2 py-1'>2009</td><td class='border px-2 py-1'>50.324</td></tr><tr><td class='border px-2 py-1'>2010</td><td class='border px-2 py-1'>50.257</td></tr><tr><td class='border px-2 py-1'>2011</td><td class='border px-2 py-1'>53.115</td></tr><tr><td class='border px-2 py-1'>2012</td><td class='border px-2 py-1'>54.959</td></tr><tr><td class='border px-2 py-1'>2013</td><td class='border px-2 py-1'>49.582</td></tr><tr><td class='border px-2 py-1'>49.545</td></tr><tr><td class='border px-2 py-1'>2015</td><td class='border px-2 py-1'>51.915</td></tr><tr><td class='border px-2 py-1'>2016</td><td class='border px-2 py-1'>52.403</td></tr></tbody></table></div><br>Modus dari data tersebut adalah pada tahun ...",
+    "pilihan": [{"benar": true, "teks": "2007"},{"benar": false, "teks": "2008"},{"benar": false, "teks": "2009"},{"benar": false, "teks": "2010"},{"benar": false, "teks": "2011"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Perhatikan data berikut. 68, 50, 51, 50, 68, 50, 60, 52, 54, 75, 58, 51, 63, 50, 51, 59, 60, 56, 50, 52. Median data tersebut adalah ...",
+    "pilihan": [{"benar": true, "teks": "53"},{"benar": false, "teks": "52"},{"benar": false, "teks": "51"},{"benar": false, "teks": "50"},{"benar": false, "teks": "49"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Perhatikan tabel berikut:<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>41-45</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>46-50</td><td class='border px-2 py-1'>15</td></tr><tr><td class='border px-2 py-1'>51-55</td><td class='border px-2 py-1'>20</td></tr><tr><td class='border px-2 py-1'>56-60</td><td class='border px-2 py-1'>40</td></tr><tr><td class='border px-2 py-1'>61-65</td><td class='border px-2 py-1'>10</td></tr><tr><td class='border px-2 py-1'>66-70</td><td class='border px-2 py-1'>8</td></tr></tbody></table></div><br>Modus pada data tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "55,5"},{"benar": false, "teks": "56,5"},{"benar": true, "teks": "57,5"},{"benar": false, "teks": "58,5"},{"benar": false, "teks": "59,5"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Bakteri membelah diri menjadi 2 bagian setiap 2 jam. Jika pada pukul 12.00 banyaknya bakteri adalah 1.000, banyaknya bakteri pada pukul 20.00 di hari yang sama adalah ...",
+    "pilihan": [{"benar": false, "teks": "1.000"},{"benar": false, "teks": "5.000"},{"benar": false, "teks": "8.000"},{"benar": true, "teks": "16.000"},{"benar": false, "teks": "20.000"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Median dari data 5, 10, 18, 8, 20, 12, 15, 21, 19, 13, 9, 10, 7, 8 adalah ...",
+    "pilihan": [{"benar": false, "teks": "10"},{"benar": true, "teks": "11"},{"benar": false, "teks": "12"},{"benar": false, "teks": "13"},{"benar": false, "teks": "14"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Suatu situs penjualan online melakukan pendataan tentang jumlah komplain yang masuk dalam 30 hari terakhir. Hasilnya seperti pada tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Belanja Online (kali)</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>0-4</td><td class='border px-2 py-1'>25</td></tr><tr><td class='border px-2 py-1'>5-9</td><td class='border px-2 py-1'>11</td></tr><tr><td class='border px-2 py-1'>10-14</td><td class='border px-2 py-1'>1</td></tr><tr><td class='border px-2 py-1'>15-19</td><td class='border px-2 py-1'>3</td></tr></tbody></table></div><br>Interval/ panjang kelas pada tabel tersebut adalah ...",
+    "pilihan": [{"benar": true, "teks": "5"},{"benar": false, "teks": "6"},{"benar": false, "teks": "7"},{"benar": false, "teks": "8"},{"benar": false, "teks": "9"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Panjang keseluruhan tali yang dipotong menjadi 6 ruas dan panjang masing-masing potongan itu membentuk barisan geometri, dengan potongan tali yang paling pendek adalah 3 cm dan potongan tali paling panjang 96 cm adalah ... cm.",
+    "pilihan": [{"benar": false, "teks": "156"},{"benar": false, "teks": "159"},{"benar": false, "teks": "178"},{"benar": true, "teks": "189"},{"benar": false, "teks": "192"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Deret tak hingga dari barisan 8, 4, 2, 1, 1/2, 1/4, ... adalah ...",
+    "pilihan": [{"benar": false, "teks": "8"},{"benar": false, "teks": "10"},{"benar": false, "teks": "12"},{"benar": false, "teks": "14"},{"benar": true, "teks": "16"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Diketahui tabel survei mengenai uang yang dihabiskan untuk membeli pulsa listrik.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Banyak Konsumsi (dalam ribu rupiah)</th><th class='border px-2 py-1'>Banyak Orang</th></tr></thead><tbody><tr><td class='border px-2 py-1'>50-99</td><td class='border px-2 py-1'>23</td></tr><tr><td class='border px-2 py-1'>100-149</td><td class='border px-2 py-1'>30</td></tr><tr><td class='border px-2 py-1'>150-199</td><td class='border px-2 py-1'>22</td></tr><tr><td class='border px-2 py-1'>200-249</td><td class='border px-2 py-1'>14</td></tr><tr><td class='border px-2 py-1'>250-299</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>300-349</td><td class='border px-2 py-1'>3</td></tr></tbody></table></div><br>Interval/panjang kelas pada tabel tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "40"},{"benar": false, "teks": "49"},{"benar": true, "teks": "50"},{"benar": false, "teks": "51"},{"benar": false, "teks": "59"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Hasil produksi suatu pabrik per tahun mengikuti aturan barisan aritmetika. Produksi pada tahun pertama sebanyak 400 unit, tahun kedua 440, tahun ketiga 480, tahun keempat 520, dan begitu seterusnya. Pertambahan produksi setiap tahunnya adalah ...",
+    "pilihan": [{"benar": false, "teks": "30"},{"benar": true, "teks": "40"},{"benar": false, "teks": "50"},{"benar": false, "teks": "60"},{"benar": false, "teks": "70"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Diketahui nilai matematika 10 orang siswa sebagai berikut. 65, 80, 75, 95, 70, 85, 75, 79, 84, 90. Datum terbesar data tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "100"},{"benar": true, "teks": "95"},{"benar": false, "teks": "80"},{"benar": false, "teks": "65"},{"benar": false, "teks": "10"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Seutas kawat dipotong menjadi 6 bagian yang panjang masing- masing bagian membentuk barisan geometri. Panjang kawat terpendek adalah 5 cm dan terpanjang adalah 160 cm. Panjang kawat sebelum dipotong adalah ... cm.",
+    "pilihan": [{"benar": false, "teks": "210"},{"benar": false, "teks": "287"},{"benar": true, "teks": "315"},{"benar": false, "teks": "398"},{"benar": false, "teks": "402"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Nilai tengah dari data: 3, 6, 7, 5, 8, 4, 6, 9 adalah ...",
+    "pilihan": [{"benar": false, "teks": "4"},{"benar": false, "teks": "5"},{"benar": true, "teks": "6"},{"benar": false, "teks": "7"},{"benar": false, "teks": "8"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Diketahui suku pertama barisan geometri adalah 3 dan rasionya adalah 3. Jumlah 6 suku pertama adalah ...",
+    "pilihan": [{"benar": false, "teks": "343"},{"benar": false, "teks": "729"},{"benar": false, "teks": "1.024"},{"benar": true, "teks": "1.092"},{"benar": false, "teks": "2.184"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Diberikan data 36, 40, 40, 38, 37, 39, 41, 42, 38. Mean dari data tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "36"},{"benar": false, "teks": "37"},{"benar": false, "teks": "38"},{"benar": true, "teks": "39"},{"benar": false, "teks": "40"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Diketahui omset bulanan yang diperoleh seorang pemilik usaha jasa pemasangan wifi selama tahun 2023 adalah sebagai berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Omset (dalam juta rupiah)</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>1-5</td><td class='border px-2 py-1'>1</td></tr><tr><td class='border px-2 py-1'>6-10</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>11-15</td><td class='border px-2 py-1'>4</td></tr><tr><td class='border px-2 py-1'>16-20</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>21-25</td><td class='border px-2 py-1'>1</td></tr></tbody></table></div><br>Omset yang sering diperoleh adalah ...",
+    "pilihan": [{"benar": false, "teks": "10"},{"benar": true, "teks": "13"},{"benar": false, "teks": "18"},{"benar": false, "teks": "23"},{"benar": false, "teks": "24"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Perhatikan data jumlah protein yang terkandung dalam beberapa macam makanan cepat saji yang terpilih berikut ini.<br><br>23, 30, 20, 27, 44, 26, 35, 20, 29, 29, 25, 15, 18, 27, 19, 22, 12, 26, 34, 15, 27, 35, 26, 43, 35, 14, 24, 12, 23, 31, 40, 35, 38, 57, 22, 42, 24, 21, 27, 33.<br><br>Modus dari data tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "12"},{"benar": false, "teks": "24 dan 27"},{"benar": true, "teks": "27 dan 35"},{"benar": false, "teks": "27"},{"benar": false, "teks": "12 dan 35"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Rataan dari data: 3, 6, 7, 5, 8, 4, 6, 9 adalah ...",
+    "pilihan": [{"benar": false, "teks": "5"},{"benar": true, "teks": "6"},{"benar": false, "teks": "7"},{"benar": false, "teks": "8"},{"benar": false, "teks": "9"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Mean dari tabel berikut adalah ...<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>3</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>4</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>5</td><td class='border px-2 py-1'>4</td></tr><tr><td class='border px-2 py-1'>6</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>7</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>8</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>9</td><td class='border px-2 py-1'>1</td></tr></tbody></table></div>",
+    "pilihan": [{"benar": false, "teks": "8,3"},{"benar": false, "teks": "7,6"},{"benar": false, "teks": "6,2"},{"true": true, "teks": "5,7"},{"benar": false, "teks": "4,9"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>41-45</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>46-50</td><td class='border px-2 py-1'>15</td></tr><tr><td class='border px-2 py-1'>51-55</td><td class='border px-2 py-1'>20</td></tr><tr><td class='border px-2 py-1'>56-60</td><td class='border px-2 py-1'>40</td></tr><tr><td class='border px-2 py-1'>61-65</td><td class='border px-2 py-1'>10</td></tr><tr><td class='border px-2 py-1'>66-70</td><td class='border px-2 py-1'>8</td></tr></tbody></table></div><br>Interval/ panjang kelas pada tabel tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "9"},{"benar": false, "teks": "8"},{"benar": false, "teks": "7"},{"benar": false, "teks": "6"},{"benar": true, "teks": "5"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Modus dari data: 7, 5, 6, 8, 7, 3, 7, 5, 6, 7, 7, 8, 5, 6 adalah ...",
+    "pilihan": [{"benar": false, "teks": "8"},{"benar": true, "teks": "7"},{"benar": false, "teks": "6"},{"benar": false, "teks": "5"},{"benar": false, "teks": "3"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Pak Rio mempunyai kebun tebu. Pada tahun 2020, pendapatan pak Rio adalah sebesar Rp 5.000.000, tahun 2021 sebesar Rp 5.350.000, tahun 2022 sebesar Rp 5.700.000, dan begitu seterusnya. Pendapatan tiap tahun pak Rio tersebut membentuk barisan aritmetika. Beda dari barisan pendapatan pak Rio tersebut adalah ...",
+    "pilihan": [{"benar": true, "teks": "Rp 350.000"},{"benar": false, "teks": "Rp 700.000"},{"benar": false, "teks": "Rp 1.000.000"},{"benar": false, "teks": "Rp 1.250.000"},{"benar": false, "teks": "Rp 1.550.000"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Perhatikan data berikut. 70, 75, 70, 71, 81, 85, 84, 82, 83, 70, 41, 96, 85, 85. Nilai tengah nilai matematika siswa tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "70"},{"benar": true, "teks": "81,5"},{"benar": false, "teks": "82,5"},{"benar": false, "teks": "85"},{"benar": false, "teks": "96,5"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Seorang pengusaha kerajinan rotan mampu memproduksi tas rotan sebanyak 120 buah pada bulan pertama, 240 buah pada bulan kedua, 480 buah pada bulan ketiga, 960 buah pada bulan keempat, dan seterusnya. Hasil perbandingan produksi rotan dua bulan berurutan adalah ...",
+    "pilihan": [{"benar": false, "teks": "-1"},{"benar": false, "teks": "0"},{"benar": true, "teks": "2"},{"benar": false, "teks": "1"},{"benar": false, "teks": "3"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Median dari data: 77, 65, 37, 79, 58, 49, 69 adalah ...",
+    "pilihan": [{"benar": false, "teks": "37"},{"benar": false, "teks": "49"},{"benar": false, "teks": "58"},{"benar": true, "teks": "65"},{"benar": false, "teks": "69"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Diketahui suku pertama suatu barisan adalah 2 dan rasionya adalah 2. Suku ke-7 barisan tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "8"},{"benar": false, "teks": "32"},{"benar": false, "teks": "56"},{"benar": false, "teks": "64"},{"benar": true, "teks": "128"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>21-30</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>31-40</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>41-50</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>51-60</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>61-70</td><td class='border px-2 py-1'>1</td></tr></tbody></table></div><br>Modus dari data tabel tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "43,75"},{"benar": false, "teks": "44,15"},{"benar": true, "teks": "44,25"},{"benar": false, "teks": "44,5"},{"benar": false, "teks": "44,75"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Diketahui deret aritmatika 3 + 10 + 17 + 24 + … . Jumlah 10 suku pertama deret tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "75"},{"benar": false, "teks": "270"},{"benar": false, "teks": "310"},{"benar": false, "teks": "315"},{"benar": true, "teks": "345"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Berikut adalah data pengukuran durasi iklan televisi selama 1 jam penayangan suatu program.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Durasi Iklan (detik)</th><th class='border px-2 py-1'>Banyak Iklan</th></tr></thead><tbody><tr><td class='border px-2 py-1'>15-20</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>21-26</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>27-32</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>33-38</td><td class='border px-2 py-1'>6</td></tr><tr><td class='border px-2 py-1'>39-44</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>45-50</td><td class='border px-2 py-1'>3</td></tr></tbody></table></div><br>Interval/ panjang kelas pada tabel tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "4"},{"benar": false, "teks": "5"},{"benar": true, "teks": "6"},{"benar": false, "teks": "7"},{"benar": false, "teks": "8"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Perhatikan data berikut. 68, 50, 51, 50, 68, 50, 60, 52, 54, 75, 58, 51, 63, 50, 51, 59, 60, 56, 50, 52. Modus dari data tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "51"},{"benar": true, "teks": "50"},{"benar": false, "teks": "52"},{"benar": false, "teks": "60"},{"benar": false, "teks": "68"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>0-2</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>3-5</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>6-8</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>9-11</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>12-14</td><td class='border px-2 py-1'>11</td></tr><tr><td class='border px-2 py-1'>15-17</td><td class='border px-2 py-1'>5</td></tr></tbody></table></div><br>Tepi bawah pada kelas modus adalah ...",
+    "pilihan": [{"benar": false, "teks": "6,5"},{"benar": false, "teks": "7,5"},{"benar": false, "teks": "8,5"},{"benar": false, "teks": "9,5"},{"benar": true, "teks": "11,5"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Suku ke-51 barisan aritmetika 5, 8, 11, ... adalah ...",
+    "pilihan": [{"benar": false, "teks": "150"},{"benar": true, "teks": "155"},{"benar": false, "teks": "160"},{"benar": false, "teks": "165"},{"benar": false, "teks": "170"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Perhatikan data banyak lampu yang terjual disuatu toko berikut ini.<br><br>45, 40, 20, 26, 30, 18, 37, 42, 38, 15, 30, 23, 25, 30, 46, 45, 22, 27, 27, 21, 32, 45, 42, 29, 24, 31, 22, 30, 43, 32.<br><br>Banyak lampu yang sering terjual adalah ...",
+    "pilihan": [{"benar": false, "teks": "22"},{"benar": false, "teks": "27"},{"benar": true, "teks": "30"},{"benar": false, "teks": "32"},{"benar": false, "teks": "45"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Suku tengah dari barisan aritmetika 3, 5, 7, 9, ... 95 adalah ...",
+    "pilihan": [{"benar": false, "teks": "12"},{"benar": false, "teks": "30"},{"benar": true, "teks": "49"},{"benar": false, "teks": "53"},{"benar": false, "teks": "60"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Diketahui data pengunjung suatu toko selama 19 hari adalah sebagai berikut.<br><br>689, 1.200, 1.008, 578, 745, 800, 891, 492, 765, 805, 920, 664, 769, 845, 1.024, 466, 719, 777, 963.<br><br>Datum terkecil pada data tersebut adalah ...",
+    "pilihan": [{"benar": true, "teks": "466"},{"benar": false, "teks": "578"},{"benar": false, "teks": "745"},{"benar": false, "teks": "1.024"},{"benar": false, "teks": "1.008"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Suku ke-9 barisan geometri 1, 2, 4, ... adalah ...",
+    "pilihan": [{"benar": false, "teks": "32"},{"benar": false, "teks": "64"},{"benar": false, "teks": "172"},{"benar": false, "teks": "234"},{"benar": true, "teks": "256"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Diketahui suku pertama barisan aritmetika adalah 5, dan beda adalah 4. Deret 8 suku pertama adalah ...",
+    "pilihan": [{"benar": false, "teks": "29"},{"benar": false, "teks": "38"},{"benar": false, "teks": "84"},{"benar": true, "teks": "152"},{"benar": false, "teks": "176"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Berikut adalah data jumlah spare part mesin yang diproduksi perusahaan selama beberapa bulan pada tahun 2024.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Bulan</th><th class='border px-2 py-1'>Jumlah Spare Part yang Diproduksi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>Maret</td><td class='border px-2 py-1'>555</td></tr><tr><td class='border px-2 py-1'>April</td><td class='border px-2 py-1'>620</td></tr><tr><td class='border px-2 py-1'>Mei</td><td class='border px-2 py-1'>523</td></tr></tbody></table></div><br>Rata-rata spare part mesin yang diproduksi perusahaan selama bulan Maret sampai Mei pada tahun 2024 adalah ... unit.",
+    "pilihan": [{"benar": false, "teks": "356"},{"benar": false, "teks": "539"},{"benar": true, "teks": "566"},{"benar": false, "teks": "603"},{"benar": false, "teks": "619"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>41-45</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>46-50</td><td class='border px-2 py-1'>15</td></tr><tr><td class='border px-2 py-1'>51-55</td><td class='border px-2 py-1'>20</td></tr><tr><td class='border px-2 py-1'>56-60</td><td class='border px-2 py-1'>40</td></tr><tr><td class='border px-2 py-1'>61-65</td><td class='border px-2 py-1'>10</td></tr><tr><td class='border px-2 py-1'>66-70</td><td class='border px-2 py-1'>8</td></tr></tbody></table></div><br>Tepi atas pada kelas modus adalah ...",
+    "pilihan": [{"benar": false, "teks": "51,5"},{"benar": false, "teks": "55,5"},{"benar": false, "teks": "56,5"},{"benar": true, "teks": "60,5"},{"benar": false, "teks": "61,5"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Suku ke-10 dari barisan aritmetika 2, 7, 12, 17, ... adalah ...",
+    "pilihan": [{"benar": false, "teks": "45"},{"benar": true, "teks": "47"},{"benar": false, "teks": "50"},{"benar": false, "teks": "52"},{"benar": false, "teks": "55"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Simpangan rata-rata dari data 4, 6, 8, 10, 12 adalah ...",
+    "pilihan": [{"benar": false, "teks": "1,6"},{"benar": false, "teks": "2,0"},{"benar": true, "teks": "2,4"},{"benar": false, "teks": "2,8"},{"benar": false, "teks": "3,2"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Jumlah 20 suku pertama deret aritmetika 3 + 8 + 13 + 18 + ... adalah ...",
+    "pilihan": [{"benar": false, "teks": "980"},{"benar": false, "teks": "990"},{"benar": true, "teks": "1.010"},{"benar": false, "teks": "1.020"},{"benar": false, "teks": "1.030"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Rata-rata nilai ulangan matematika dari 35 siswa adalah 7,5. Jika nilai 5 siswa digabungkan, rata-ratanya menjadi 7,8. Rata-rata nilai 5 siswa tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "8,5"},{"benar": false, "teks": "9,0"},{"true": true, "teks": "9,9"},{"benar": false, "teks": "10,2"},{"benar": false, "teks": "10,5"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Diketahui deret geometri dengan suku pertama 4 dan rasio 2. Jumlah 8 suku pertama deret tersebut adalah ...",
+    "pilihan": [{"benar": false, "teks": "512"},{"benar": false, "teks": "768"},{"true": true, "teks": "1.020"},{"benar": false, "teks": "1.024"},{"benar": false, "teks": "2.040"}],
+    "kategori": "PAS - Deret"
+  },
+  {
+    "pertanyaan": "Kuartil bawah (Q1) dari data: 3, 5, 7, 8, 10, 12, 15, 16, 18 adalah ...",
+    "pilihan": [{"benar": false, "teks": "5"},{"benar": true, "teks": "6"},{"benar": false, "teks": "7"},{"benar": false, "teks": "8"},{"benar": false, "teks": "10"}],
+    "kategori": "PAS - Statistik"
+  },
+  {
+    "pertanyaan": "Sebuah dadu dilempar sekali. Peluang muncul mata dadu bilangan prima adalah ...",
+    "pilihan": [{"benar": false, "teks": "1/6"},{"benar": false, "teks": "1/3"},{"benar": true, "teks": "1/2"},{"benar": false, "teks": "2/3"},{"benar": false, "teks": "5/6"}],
+    "kategori": "PAS - Peluang"
+  },
+  {
+    "pertanyaan": "Diketahui segitiga siku-siku dengan sisi miring 17 cm dan salah satu sisi tegaknya 15 cm. Panjang sisi tegak lainnya adalah ...",
+    "pilihan": [{"benar": false, "teks": "6 cm"},{"benar": true, "teks": "8 cm"},{"benar": false, "teks": "10 cm"},{"benar": false, "teks": "12 cm"},{"benar": false, "teks": "14 cm"}],
+    "kategori": "PAS - Trigonometri"
+  },
+  {
+    "pertanyaan": "Nilai dari sin 30° + cos 60° adalah ...",
+    "pilihan": [{"benar": false, "teks": "0"},{"benar": false, "teks": "0,5"},{"benar": true, "teks": "1"},{"benar": false, "teks": "1,5"},{"benar": false, "teks": "2"}],
+    "kategori": "PAS - Trigonometri"
+  },
+  {
+    "pertanyaan": "Diketahui fungsi f(x) = 2x + 3. Nilai f(5) adalah ...",
+    "pilihan": [{"benar": false, "teks": "8"},{"benar": false, "teks": "10"},{"benar": true, "teks": "13"},{"benar": false, "teks": "15"},{"benar": false, "teks": "18"}],
+    "kategori": "PAS - Fungsi"
+  }
+];
 
-    // Set persistence ke SESSION
-    auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
-      .catch(err => console.warn("Gagal set persistence:", err));
+const soalKelasXI = [
+  {
+    "pertanyaan": "Hasil dari 4! adalah ...",
+    "pilihan": [
+      { "benar": true, "teks": "24" },
+      { "benar": false, "teks": "1" },
+      { "benar": false, "teks": "8" },
+      { "benar": false, "teks": "16" },
+      { "benar": false, "teks": "32" }
+    ]
+  },
+  {
+    "pertanyaan": "Dari 10 orang yang mendaftar di suatu perusahaan, hanya akan diterima 4 orang sebagai karyawan. Banyaknya cara untuk memilih keempat orang tersebut adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "72" },
+      { "benar": false, "teks": "90" },
+      { "benar": false, "teks": "110" },
+      { "benar": false, "teks": "180" },
+      { "benar": true, "teks": "210" }
+    ]
+  },
+  {
+    "pertanyaan": "Banyak susunan tempat duduk yang dapat dibuat dari 6 orang pada sebuah meja bundar adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "10" },
+      { "benar": false, "teks": "12" },
+      { "benar": false, "teks": "70" },
+      { "benar": false, "teks": "90" },
+      { "benar": true, "teks": "120" }
+    ]
+  },
+  {
+    "pertanyaan": "Banyak susunan 3 huruf yang dapat dibentuk dari huruf A, B, C, dan D, jika huruf-huruf penyusunnya tersebut boleh diulang adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "4" },
+      { "benar": false, "teks": "16" },
+      { "benar": true, "teks": "64" },
+      { "benar": false, "teks": "256" },
+      { "benar": false, "teks": "1.024" }
+    ]
+  },
+  {
+    "pertanyaan": "Hasil dari 4!/3! adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "1" },
+      { "benar": false, "teks": "8" },
+      { "benar": false, "teks": "3" },
+      { "benar": true, "teks": "4" },
+      { "benar": false, "teks": "5" }
+    ]
+  },
+  {
+    "pertanyaan": "Laboratorium komputer SMK Taruna Pekanbaru memiliki 7 printer jenis laserjet dan 9 printer jenis deskjet. Banyaknya pilihan jika seseorang ingin menggunakan printer di laboratorium adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "7" },
+      { "benar": false, "teks": "9" },
+      { "benar": false, "teks": "12" },
+      { "benar": true, "teks": "16" }
+    ]
+  },
+  {
+    "pertanyaan": "Kedudukan dua lingkaran pada gambar tersebut adalah ... (Berpotongan di dua titik)",
+    "pilihan": [
+      { "benar": true, "teks": "Berpotongan di dua titik yang berbeda" },
+      { "benar": false, "teks": "Bersinggungan di dalam" },
+      { "benar": false, "teks": "Bersinggungan di luar" },
+      { "benar": false, "teks": "Tidak berpotongan" }
+    ]
+  },
+  {
+    "pertanyaan": "Sebuah lingkaran dengan jari-jari 14 cm and sudut pusat juring adalah 90°. Luas juring lingkaran tersebut adalah ... cm².",
+    "pilihan": [
+      { "benar": false, "teks": "95" },
+      { "benar": false, "teks": "106" },
+      { "benar": false, "teks": "121" },
+      { "benar": true, "teks": "154" }
+    ]
+  },
+  {
+    "pertanyaan": "Dua dadu diundi bersama-sama sebanyak 72 kali. Frekuensi harapan muncul kejadian jumlah mata dadu 5 atau 9 adalah ... kali.",
+    "pilihan": [
+      { "benar": false, "teks": "14" },
+      { "benar": false, "teks": "15" },
+      { "benar": true, "teks": "16" },
+      { "benar": false, "teks": "17" }
+    ]
+  },
+  {
+    "pertanyaan": "Dua dadu dilambungkan bersama-sama sebanyak satu kali. Peluang munculnya mata dadu berjumlah 2 atau 7 adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "3/36" },
+      { "benar": false, "teks": "4/36" },
+      { "benar": true, "teks": "7/36" },
+      { "benar": false, "teks": "14/36" }
+    ]
+  },
+  {
+    "pertanyaan": "Sebuah bianglala yang berpusat di O mempunyai diameter 28 m. Jika besar sudut POQ = 45°, panjang busur PQ adalah ... m.",
+    "pilihan": [
+      { "benar": false, "teks": "10" },
+      { "benar": true, "teks": "11" },
+      { "benar": false, "teks": "12" },
+      { "benar": false, "teks": "13" }
+    ]
+  },
+  {
+    "pertanyaan": "Diketahui sebuah lingkaran memiliki jari-jari 7 cm. Luas juring COD jika diketahui ∠COD adalah 45° adalah ... cm².",
+    "pilihan": [
+      { "benar": false, "teks": "75,35" },
+      { "benar": false, "teks": "57,75" },
+      { "benar": false, "teks": "25,67" },
+      { "benar": true, "teks": "19,25" }
+    ]
+  },
+  {
+    "pertanyaan": "Diketahui besar sudut ∠PQR = 50° pada gambar berikut. Besar sudut POR adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "120°" },
+      { "benar": false, "teks": "105°" },
+      { "benar": true, "teks": "100°" },
+      { "benar": false, "teks": "95°" }
+    ]
+  },
+  {
+    "pertanyaan": "Titik O adalah pusat lingkaran. Garis AC adalah diameter. Besar ∠ADB adalah ...",
+    "pilihan": [
+      { "benar": true, "teks": "30°" },
+      { "benar": false, "teks": "53°" },
+      { "benar": false, "teks": "74°" },
+      { "benar": false, "teks": "106°" }
+    ]
+  },
+  {
+    "pertanyaan": "Tiga koin dilemparkan secara bersamaan. Jika pelemparan dilakukan sebanyak 40 kali, maka frekuensi harapan muncul tiga sisi gambar adalah ... kali.",
+    "pilihan": [
+      { "benar": false, "teks": "4" },
+      { "benar": true, "teks": "5" },
+      { "benar": false, "teks": "8" },
+      { "benar": false, "teks": "10" }
+    ]
+  },
+  {
+    "pertanyaan": "Pernyataan berikut yang benar berdasarkan sifat sudut keliling yaitu ...",
+    "pilihan": [
+      { "benar": true, "teks": "Sudut keliling menghadap diameter besarnya 90°" },
+      { "benar": false, "teks": "Sudut pusat besarnya setengah sudut keliling" },
+      { "benar": false, "teks": "Sudut keliling besarnya dua kali sudut pusat" }
+    ]
+  },
+  {
+    "pertanyaan": "Jarak kedua pusat roda gigi desain tersebut adalah 13 cm, panjang jari-jari kedua roda 8 cm dan 3 cm. Panjang garis singgung kedua roda desain sepeda tersebut adalah ... cm",
+    "pilihan": [
+      { "benar": false, "teks": "8" },
+      { "benar": false, "teks": "10" },
+      { "benar": true, "teks": "12" },
+      { "benar": false, "teks": "14" }
+    ]
+  },
+  {
+    "pertanyaan": "Suatu kotak berisi 6 bola putih dan 4 bola merah. Dari kotak tersebut, diambil satu bola secara acak. Peluang terambil bola berwarna putih adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "1/2" },
+      { "benar": false, "teks": "1/3" },
+      { "benar": false, "teks": "3/4" },
+      { "benar": true, "teks": "3/5" }
+    ]
+  },
+  {
+    "pertanyaan": "Tiga buah uang logam dilemparkan secara bersamaan, peluang munculnya ketiganya sisi angka adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "1/2" },
+      { "benar": false, "teks": "1/3" },
+      { "benar": false, "teks": "2/3" },
+      { "benar": true, "teks": "1/8" }
+    ]
+  },
+  {
+    "pertanyaan": "Satu dadu dilambungkan sebanyak satu kali. Peluang muncul mata dadu 3 adalah ...",
+    "pilihan": [
+      { "benar": true, "teks": "1/6" },
+      { "benar": false, "teks": "2/6" },
+      { "benar": false, "teks": "3/6" },
+      { "benar": false, "teks": "4/6" }
+    ]
+  },
+  {
+    "pertanyaan": "Diketahui ∠BOC sebesar 110°. Besar ∠BDE jika keduanya menghadap busur sama adalah ...",
+    "pilihan": [
+      { "benar": true, "teks": "55°" },
+      { "benar": false, "teks": "35°" },
+      { "benar": false, "teks": "45°" },
+      { "benar": false, "teks": "60°" }
+    ]
+  },
+  {
+    "pertanyaan": "Diketahui panjang garis singgung persekutuan luar dua lingkaran adalah 12 cm, and panjang jari-jari besar dan kecil berturut-turut adalah 7 cm dan 2 cm. Jarak pusat kedua lingkaran tersebut adalah ... cm.",
+    "pilihan": [
+      { "benar": true, "teks": "13" },
+      { "benar": false, "teks": "12" },
+      { "benar": false, "teks": "11" },
+      { "benar": false, "teks": "10" }
+    ]
+  },
+  {
+    "pertanyaan": "Diketahui besar ∠AOB adalah 80°. Besar sudut keliling ∠ACB yang menghadap busur sama adalah ...",
+    "pilihan": [
+      { "benar": true, "teks": "40°" },
+      { "benar": false, "teks": "20°" },
+      { "benar": false, "teks": "30°" },
+      { "benar": false, "teks": "50°" }
+    ]
+  },
+  {
+    "pertanyaan": "Jika diketahui besar sudut keliling ∠PRT adalah 30°, besar sudut pusat ∠POT adalah ...",
+    "pilihan": [
+      { "benar": true, "teks": "60°" },
+      { "benar": false, "teks": "100°" },
+      { "benar": false, "teks": "90°" },
+      { "benar": false, "teks": "75°" }
+    ]
+  },
+  {
+    "pertanyaan": "Jarak pusat dua lingkaran adalah 25 cm, dengan jari-jari 13 cm dan 6 cm. Panjang garis singgung luar persekutuan adalah ... cm.",
+    "pilihan": [
+      { "benar": true, "teks": "24" },
+      { "benar": false, "teks": "15" },
+      { "benar": false, "teks": "23" },
+      { "benar": false, "teks": "27" }
+    ]
+  },
+  {
+    "pertanyaan": "Adit memiliki 3 jenis motor berbeda di rumahnya yang terdiri dari 3 motor skuter matik, 3 motor sport, dan 2 motor off road. Banyak pilihan Adit untuk menggunakan salah satu motor adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "3" },
+      { "benar": false, "teks": "6" },
+      { "benar": true, "teks": "8" },
+      { "benar": false, "teks": "11" }
+    ]
+  },
+  {
+    "pertanyaan": "Zulfa ingin membuat plat nomor kendaraan yang terdiri dari 4 angka yang dipilih dari angka 1, 2, 3, 4, dan 5, dengan tidak boleh ada angka yang sama. Banyak plat nomor kendaraan yang dapat dibuat Zulfa adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "30" },
+      { "benar": false, "teks": "60" },
+      { "benar": false, "teks": "90" },
+      { "benar": true, "teks": "120" }
+    ]
+  },
+  {
+    "pertanyaan": "Tiga buah uang logam dilemparkan secara bersamaan, peluang munculnya 2 angka adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "1/2" },
+      { "benar": false, "teks": "1/3" },
+      { "benar": false, "teks": "2/3" },
+      { "benar": true, "teks": "3/8" }
+    ]
+  },
+  {
+    "pertanyaan": "Noven membuat akun di sebuah jejaring sosial. Ketentuan password adalah terdiri dari 4 angka yang dapat dibentuk dari angka 0-9 tanpa perulangan. Banyak cara membuat password adalah ... cara.",
+    "pilihan": [
+      { "benar": false, "teks": "324" },
+      { "benar": false, "teks": "504" },
+      { "benar": false, "teks": "1.512" },
+      { "benar": true, "teks": "5.040" }
+    ]
+  },
+  {
+    "pertanyaan": "Pada percobaan pelemparan sebuah dadu, peluang munculnya mata dadu lebih dari 2 adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "1/2" },
+      { "benar": false, "teks": "1/3" },
+      { "benar": true, "teks": "2/3" },
+      { "benar": false, "teks": "3/8" }
+    ]
+  },
+  {
+    "pertanyaan": "Hasil dari 4! - 3! adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "4" },
+      { "benar": false, "teks": "1" },
+      { "benar": false, "teks": "8" },
+      { "benar": true, "teks": "18" }
+    ]
+  },
+  {
+    "pertanyaan": "Satu dadu dilambungkan sebanyak satu kali. Peluang muncul mata dadu 4 adalah ...",
+    "pilihan": [
+      { "benar": true, "teks": "1/6" },
+      { "benar": false, "teks": "2/6" },
+      { "benar": false, "teks": "3/6" },
+      { "benar": false, "teks": "4/6" }
+    ]
+  },
+  {
+    "pertanyaan": "Seorang mahasiswa mengikuti 3 ujian pada 5 hari yang tersedia (Senin-Jumat). Jika tidak boleh ada ujian pada hari yang sama, banyak cara pengaturan jadwal adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "5" },
+      { "benar": false, "teks": "12" },
+      { "benar": false, "teks": "30" },
+      { "benar": true, "teks": "60" }
+    ]
+  },
+  {
+    "pertanyaan": "Nilai hasil 7 x 3! adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "26" },
+      { "benar": false, "teks": "35" },
+      { "benar": false, "teks": "45" },
+      { "benar": true, "teks": "42" }
+    ]
+  },
+  {
+    "pertanyaan": "Taruna kelas XII TAV memilih danton, sekretaris, dan bendahara dari 6 kandidat. Banyak kemungkinan susunan pengurus adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "20" },
+      { "benar": false, "teks": "50" },
+      { "benar": true, "teks": "120" },
+      { "benar": false, "teks": "140" }
+    ]
+  },
+  {
+    "pertanyaan": "Hasil dari P(3,2) adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "2" },
+      { "benar": false, "teks": "4" },
+      { "benar": true, "teks": "6" },
+      { "benar": false, "teks": "8" }
+    ]
+  },
+  {
+    "pertanyaan": "Banyak susunan huruf yang dapat dibentuk dari unsur huruf-huruf penyusun kata K A M P A K adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "1.260" },
+      { "benar": true, "teks": "180" },
+      { "benar": false, "teks": "60" },
+      { "benar": false, "teks": "30" }
+    ]
+  },
+  {
+    "pertanyaan": "Dari 5 pria dan 4 wanita, akan dipilih 3 orang pengurus inti. Banyak cara memilih jika pengurus terdiri dari 2 pria dan 1 wanita adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "20" },
+      { "benar": true, "teks": "40" },
+      { "benar": false, "teks": "60" },
+      { "benar": false, "teks": "80" }
+    ]
+  },
+  {
+    "pertanyaan": "Sebuah kantong berisi 5 kelereng merah dan 3 kelereng biru. Jika diambil dua kelereng acak sekaligus, peluang terambil keduanya merah adalah ...",
+    "pilihan": [
+      { "benar": true, "teks": "5/14" },
+      { "benar": false, "teks": "15/56" },
+      { "benar": false, "teks": "3/14" },
+      { "benar": false, "teks": "15/28" }
+    ]
+  },
+  {
+    "pertanyaan": "Nilai dari hasil pembagian faktorial 6! / (4! x 2!) adalah ...",
+    "pilihan": [
+      { "benar": true, "teks": "15" },
+      { "benar": false, "teks": "30" },
+      { "benar": false, "teks": "60" },
+      { "benar": false, "teks": "120" }
+    ]
+  },
+  {
+    "pertanyaan": "Dua lingkaran memiliki jari-jari 11 cm dan 4 cm. Jika jarak pusatnya 17 cm, panjang garis singgung persekutuan dalam adalah ... cm.",
+    "pilihan": [
+      { "benar": false, "teks": "6" },
+      { "benar": true, "teks": "8" },
+      { "benar": false, "teks": "12" },
+      { "benar": false, "teks": "15" }
+    ]
+  },
+  {
+    "pertanyaan": "Banyak susunan kata yang dapat dibentuk dari huruf-huruf pada kata M A T E M A T I K A adalah ...",
+    "pilihan": [
+      { "benar": true, "teks": "151.200" },
+      { "benar": false, "teks": "75.600" },
+      { "benar": false, "teks": "302.400" },
+      { "benar": false, "teks": "50.400" }
+    ]
+  },
+  {
+    "pertanyaan": "Diketahui sudut pusat lingkaran adalah 120°. Jika jari-jarinya 21 cm, panjang busur di hadapannya adalah ... cm. (gunakan pi = 22/7)",
+    "pilihan": [
+      { "benar": false, "teks": "22" },
+      { "benar": true, "teks": "44" },
+      { "benar": false, "teks": "66" },
+      { "benar": false, "teks": "88" }
+    ]
+  },
+  {
+    "pertanyaan": "Dua buah dadu dilempar bersama sekali. Peluang munculnya mata dadu dengan hasil perkalian kedua matanya sama dengan 6 adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "1/36" },
+      { "benar": false, "teks": "2/36" },
+      { "benar": true, "teks": "4/36" },
+      { "benar": false, "teks": "6/36" }
+    ]
+  },
+  {
+    "pertanyaan": "Dari angka 2, 3, 5, 6, 7, 9 akan disusun 3 angka berlainan. Banyak bilangan kurang dari 400 adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "20" },
+      { "benar": true, "teks": "40" },
+      { "benar": false, "teks": "60" },
+      { "benar": false, "teks": "80" }
+    ]
+  },
+  {
+    "pertanyaan": "Luas sebuah lingkaran adalah 616 cm². Jika luas suatu juring adalah 154 cm², maka besar sudut pusat juring tersebut adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "30°" },
+      { "benar": false, "teks": "45°" },
+      { "benar": false, "teks": "60°" },
+      { "benar": true, "teks": "90°" }
+    ]
+  },
+  {
+    "pertanyaan": "Dalam suatu ruangan terdapat 10 orang belum saling kenal. Jika mereka saling berjabat tangan sekali, banyak jabat tangan yang terjadi adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "35" },
+      { "benar": true, "teks": "45" },
+      { "benar": false, "teks": "55" },
+      { "benar": false, "teks": "90" }
+    ]
+  },
+  {
+    "pertanyaan": "Dari satu set kartu bridge diambil sebuah kartu acak. Peluang terambilnya kartu As atau kartu berwarna merah adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "26/52" },
+      { "benar": true, "teks": "28/52" },
+      { "benar": false, "teks": "30/52" },
+      { "benar": false, "teks": "32/52" }
+    ]
+  },
+  {
+    "pertanyaan": "Jika besar sudut keliling sebuah lingkaran adalah 35°, besar sudut pusat yang menghadap busur sama adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "17,5°" },
+      { "benar": false, "teks": "35°" },
+      { "benar": false, "teks": "52,5°" },
+      { "benar": true, "teks": "70°" }
+    ]
+  },
+  {
+    "pertanyaan": "Banyak cara menyusun kepengurusan Ketua, Sekretaris, Bendahara dari 7 orang calon yang tersedia adalah ...",
+    "pilihan": [
+      { "benar": false, "teks": "35" },
+      { "benar": false, "teks": "105" },
+      { "benar": true, "teks": "210" },
+      { "benar": false, "teks": "420" }
+    ]
+  }
+];
 
-    // ==========================
-    // DEBUG LOGGING
-    // ==========================
-    let debugLogs = [];
-    function addDebugLog(msg, obj = null) {
-      const timestamp = new Date().toLocaleTimeString();
-      let logMsg = `[${timestamp}] ${msg}`;
-      if (obj) {
-        try { logMsg += ` ${JSON.stringify(obj)}`; } catch(e) { logMsg += ` [Object]`; }
-      }
-      debugLogs.unshift(logMsg);
-      if (debugLogs.length > 20) debugLogs.pop();
-      const debugContent = document.getElementById("debugContent");
-      if (debugContent) debugContent.innerText = debugLogs.join('\n');
-      console.log(logMsg);
+
+    // ============================================================
+    //  GLOBAL STATE
+    // ============================================================
+    let USER_ID = localStorage.getItem('cbt_user_id');
+    if (!USER_ID) {
+      USER_ID = 'student_' + Math.random().toString(36).substring(2, 11);
+      localStorage.setItem('cbt_user_id', USER_ID);
     }
 
-    // Debug panel toggle
-    const debugToggle = document.getElementById("debugToggleBtn");
-    const debugPanel = document.getElementById("debugPanel");
-    if (debugToggle && debugPanel) {
-      debugToggle.addEventListener('click', () => {
-        if (debugPanel.style.display === 'none') {
-          debugPanel.style.display = 'block';
-          debugToggle.textContent = '🔒 Tutup Debug';
-        } else {
-          debugPanel.style.display = 'none';
-          debugToggle.textContent = '🐞 Debug';
-        }
-      });
+    let currentSoal = [];
+    let currentIndex = 0;
+    let jawabanUser = [];
+    const API_URL = 'https://math315.vercel.app/api/ai-help';
+
+    // ============================================================
+    //  HELPER
+    // ============================================================
+    function getCorrectIndex(soalItem) {
+      return soalItem.pilihan.findIndex(p => p.benar === true || p['true'] === true);
     }
 
-    // ==========================
-    // ELEMENTS
-    // ==========================
-    const loginBtn = document.getElementById("loginBtn");
-    const logoutBtn = document.getElementById("logoutBtn");
-    const userPhoto = document.getElementById("userPhoto");
-    const userDisplayName = document.getElementById("userDisplayName");
-    const adminBtnEl = document.getElementById("adminBtn");
-    const adminOverlay = document.getElementById("adminOverlay");
-    const crudPanel = document.getElementById("crudPanel");
-    const siswaListDiv = document.getElementById("siswaList");
-    const adminLoginSection = document.getElementById("adminLoginSection");
-
-    // ==========================
-    // UPDATE UI
-    // ==========================
-    function updateUI(user) {
-      addDebugLog("updateUI dipanggil, user:", user ? user.email : "null");
-      if (user) {
-        loginBtn.classList.add("hidden");
-        logoutBtn.classList.remove("hidden");
-        if (user.photoURL) {
-          userPhoto.src = user.photoURL;
-          userPhoto.classList.remove("hidden");
-        } else userPhoto.classList.add("hidden");
-        if (user.displayName) {
-          userDisplayName.textContent = user.displayName;
-          userDisplayName.classList.remove("hidden");
-        } else if (user.email) {
-          userDisplayName.textContent = user.email.split('@')[0];
-          userDisplayName.classList.remove("hidden");
-        } else userDisplayName.classList.add("hidden");
-        adminBtnEl.style.display = "inline-block";
-      } else {
-        loginBtn.classList.remove("hidden");
-        logoutBtn.classList.add("hidden");
-        userPhoto.classList.add("hidden");
-        userDisplayName.classList.add("hidden");
-        adminBtnEl.style.display = "none";
-        closeAdminOverlay();
-      }
+    function getKategori(s) {
+      if (s.kategori) return s.kategori;
+      const txt = (s.pertanyaan || s.cartu || "").toLowerCase();
+      if (txt.includes('lingkaran') || txt.includes('sudut') || txt.includes('busur') || txt.includes('juring') || txt
+        .includes('roda gigi')) return 'Geometri Lingkaran';
+      if (txt.includes('!') || txt.includes('peluang') || txt.includes('dadu') || txt.includes('koin') || txt.includes(
+          'susunan') || txt.includes('kombinasi') || txt.includes('permutasi') || txt.includes('cara') || txt.includes(
+          'jabat tangan') || txt.includes('faktorial') || txt.includes('p(') || txt.includes('kartu'))
+        return 'Peluang & Kombinatorika';
+      return 'Matematika';
     }
 
-    // ===============================
-    // PREMIUM CHECKER FINAL (NO COUNTDOWN, WITH BADGE GLOW)
-    // ===============================
-    async function checkPremiumStatus() {
-      const user = auth.currentUser;
-      if (!user) return;
-
-      const userRef = db.ref("users/" + user.uid);
-      const snapshot = await userRef.once("value");
-      const data = snapshot.val();
-
-      const btnPremium = document.getElementById("btnPremium");
-      const badgeEl = document.getElementById("userBadge");
-
-      if (!btnPremium) return;
-
-      const now = Date.now();
-      const expired = data?.premiumExpired ? new Date(data.premiumExpired).getTime() : 0;
-      const isPremium = data?.isPremium === true && expired > now;
-
-      if (isPremium) {
-        // ===========================
-        // BADGE PREMIUM GLOW
-        // ===========================
-        if (badgeEl) {
-          badgeEl.style.display = "inline-block";
-          badgeEl.className = "premium-badge";
-          badgeEl.innerHTML = `<i class="fas fa-crown"></i> PREMIUM`;
-        }
-
-        // ===========================
-        // TOMBOL PREMIUM AKTIF (HIJAU + ANIMASI)
-        // ===========================
-        btnPremium.innerHTML = `<i class="fas fa-crown mr-2"></i>Akses Premium — Top Up`;
-        btnPremium.classList.remove("bg-gray-300", "cursor-not-allowed");
-        btnPremium.classList.add("bg-green-600", "hover:bg-green-700", "text-white", "btn-premium");
-        btnPremium.disabled = false;
-
-        btnPremium.onclick = () => {
-          window.location.href = "soal_premium.html"; 
-        };
-
-        addDebugLog("Premium ACTIVE - Badge dan tombol hijau dengan efek glow ditampilkan");
-
-      } else {
-        // ===========================
-        // NON-PREMIUM (TOMBOL TERKUNCI)
-        // ===========================
-        if (badgeEl) {
-          badgeEl.style.display = "none";
-          badgeEl.className = "";
-          badgeEl.innerHTML = "";
-        }
-
-        btnPremium.innerHTML = `<i class="fas fa-lock mr-2"></i>Mulai Premium`;
-        btnPremium.classList.remove("bg-green-600", "hover:bg-green-700", "text-white", "btn-premium");
-        btnPremium.classList.add("bg-gray-300", "cursor-not-allowed");
-        btnPremium.disabled = false;
-
-        btnPremium.onclick = () => {
-          window.location.href = "#pricing";
-        };
-        
-        addDebugLog("Premium INACTIVE - Tombol terkunci, badge disembunyikan");
-      }
+    function renderMathJax() {
+      if (window.MathJax) MathJax.typesetPromise().catch(e => console.warn('MathJax error', e));
     }
 
-    // ==========================
-    // SAVE ID TOKEN
-    // ==========================
-    async function saveIdToken(user) {
-      try {
-        const token = await user.getIdToken(true);
-        localStorage.setItem("id_token", token);
-        addDebugLog("ID Token saved");
-        return token;
-      } catch (err) {
-        console.error("Gagal menyimpan token:", err);
-      }
-    }
-
-    // ==========================
-    // LOGIN GOOGLE
-    // ==========================
-    loginBtn.addEventListener('click', async () => {
-      addDebugLog("Tombol login diklik");
-      if (auth.currentUser) {
-        addDebugLog("User sudah login, tidak membuka popup");
-        showToast("Anda sudah login sebagai " + auth.currentUser.displayName, "info");
-        return;
-      }
-
-      try {
-        loginBtn.disabled = true;
-        loginBtn.innerHTML = '<div class="loader-small"></div> Memproses...';
-        addDebugLog("Membuat provider Google dengan prompt=select_account");
-
-        const provider = new firebase.auth.GoogleAuthProvider();
-        provider.addScope('email');
-        provider.addScope('profile');
-        provider.setCustomParameters({ prompt: 'select_account' });
-
-        addDebugLog("Memanggil signInWithPopup...");
-        const result = await auth.signInWithPopup(provider);
-        addDebugLog("signInWithPopup berhasil, user:", result.user.email);
-
-        const user = result.user;
-        const userRef = db.ref('users/' + user.uid);
-        const snapshot = await userRef.once('value');
-
-        if (!snapshot.exists()) {
-          addDebugLog("User baru, menyimpan ke database");
-          await userRef.set({
-            email: user.email,
-            name: user.displayName,
-            photoURL: user.photoURL,
-            createdAt: firebase.database.ServerValue.TIMESTAMP,
-            isPremium: false
-          });
-        } else {
-          addDebugLog("User sudah ada di database");
-        }
-
-        const userData = (await userRef.once('value')).val();
-        const isPremium = userData?.isPremium === true;
-        
-        if (isPremium) {
-          showToast(`Berhasil login sebagai ${user.displayName} (Premium)`, "success");
-        } else {
-          showToast(`Berhasil login sebagai ${user.displayName}`, "success");
-        }
-
-        updateUI({ ...user, isPremium });
-
-      } catch (error) {
-        addDebugLog("Login error:", { code: error.code, message: error.message });
-
-        let errorMessage = "Login gagal. ";
-        switch (error.code) {
-          case 'auth/popup-blocked':
-            errorMessage += "Popup diblokir browser. Izinkan popup untuk situs ini.";
-            break;
-          case 'auth/popup-closed-by-user':
-            errorMessage += "Popup login ditutup sebelum selesai. Coba lagi.";
-            break;
-          case 'auth/network-request-failed':
-            errorMessage += "Koneksi internet bermasalah. Periksa koneksi Anda.";
-            break;
-          case 'auth/unauthorized-domain':
-            errorMessage += "Domain tidak diizinkan. Hubungi pengembang.";
-            break;
-          default:
-            errorMessage += "Silakan coba lagi. (" + error.code + ")";
-        }
-
-        showToast(errorMessage, "error");
-
-        if (error.code === 'auth/popup-blocked') {
-          setTimeout(() => {
-            showToast("Klik ikon popup di address bar dan pilih 'Always allow'", "warning");
-          }, 3000);
-        }
-      } finally {
-        loginBtn.disabled = false;
-        loginBtn.innerHTML = '<i class="fab fa-google"></i><span>Masuk</span>';
-      }
-    });
-
-    // ==========================
-    // LOGOUT
-    // ==========================
-    logoutBtn.addEventListener('click', async () => {
-      addDebugLog("Tombol logout diklik");
-      try {
-        logoutBtn.disabled = true;
-        logoutBtn.innerHTML = '<div class="loader-small"></div> Keluar...';
-        await auth.signOut();
-        addDebugLog("Logout berhasil");
-        showToast("Berhasil keluar", "info");
-        updateUI(null);
-      } catch (error) {
-        addDebugLog("Logout error:", error);
-        showToast("Gagal keluar. Coba refresh halaman.", "error");
-      } finally {
-        logoutBtn.disabled = false;
-        logoutBtn.innerHTML = '<i class="fas fa-sign-out-alt mr-2"></i>Keluar';
-      }
-    });
-
-    // ==========================
-    // TOAST NOTIFICATION
-    // ==========================
-    function showToast(message, type = "info") {
-      const container = document.getElementById("toastContainer");
+    // ============================================================
+    //  RENDER SOAL
+    // ============================================================
+    function renderSoal() {
+      const container = document.getElementById('kontenSoal');
       if (!container) return;
-      const toast = document.createElement("div");
-      let bgColor = "bg-blue-500";
-      let icon = "fa-info-circle";
-      if (type === "success") { bgColor = "bg-green-500"; icon = "fa-check-circle"; }
-      if (type === "error")   { bgColor = "bg-red-500";   icon = "fa-exclamation-circle"; }
-      if (type === "warning") { bgColor = "bg-yellow-500"; icon = "fa-exclamation-triangle"; }
-      toast.className = `${bgColor} text-white px-4 py-2 rounded-lg shadow-lg mb-2 transform transition-all duration-300 translate-x-full flex items-center gap-2`;
-      toast.innerHTML = `<i class="fas ${icon}"></i><span>${message}</span>`;
-      container.appendChild(toast);
-      setTimeout(() => { toast.classList.remove("translate-x-full"); }, 100);
-      setTimeout(() => { toast.classList.add("translate-x-full"); setTimeout(() => toast.remove(), 300); }, 3000);
-    }
 
-    // ==========================
-    // AUTH STATE LISTENER
-    // ==========================
-    auth.onAuthStateChanged(async (user) => {
-      addDebugLog("Auth state changed:", user ? user.email : "null");
-      
-      if (user) {
-        await saveIdToken(user);
-        updateUI(user);
-        await checkPremiumStatus();
-      } else {
-        updateUI(null);
-        // Reset tombol premium ke tampilan default saat logout
-        const btnPremium = document.getElementById("btnPremium");
-        const badgeEl = document.getElementById("userBadge");
-        
-        if (btnPremium) {
-          btnPremium.innerHTML = `<i class="fas fa-lock mr-2"></i>Mulai Premium`;
-          btnPremium.classList.remove("bg-green-600", "hover:bg-green-700", "text-white", "btn-premium");
-          btnPremium.classList.add("bg-gray-300", "cursor-not-allowed");
-          btnPremium.disabled = false;
-          btnPremium.onclick = () => {
-            window.location.href = "#pricing";
-          };
-        }
-        
-        if (badgeEl) {
-          badgeEl.style.display = "none";
-          badgeEl.className = "";
-          badgeEl.innerHTML = "";
-        }
-      }
-    });
-
-    // ==========================
-    // FUNGSI PEMBANTU (format Rupiah & tanggal)
-    // ==========================
-    function formatRupiah(amount) {
-      return 'Rp ' + parseInt(amount || 0).toLocaleString('id-ID');
-    }
-
-    function formatDate(timestamp) {
-      if (!timestamp) return '-';
-      const date = new Date(timestamp);
-      return date.toLocaleDateString('id-ID', { 
-        day: 'numeric', 
-        month: 'short', 
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      });
-    }
-
-    // ==========================
-    // FUNGSI CEK STATUS PEMBAYARAN
-    // ==========================
-    window.cekStatusPembayaran = async function() {
-      const user = auth.currentUser;
-      if (!user) {
-        showToast("Silakan login terlebih dahulu", "warning");
+      if (!currentSoal || currentSoal.length === 0) {
+        container.innerHTML = `<div class="text-center py-10 text-gray-500">⚠️ Belum ada soal. Silakan pilih kelas.</div>`;
+        document.getElementById('totalNum').textContent = '0';
+        document.getElementById('progressBar').style.width = '0%';
         return;
       }
 
-      const section = document.getElementById("paymentStatus");
-      const container = document.getElementById("statusList");
-      
-      if (!section || !container) {
-        console.error("Elemen paymentStatus atau statusList tidak ditemukan");
+      const s = currentSoal[currentIndex];
+      if (!s) {
+        container.innerHTML = `<div class="text-center py-10 text-red-500">❌ Soal tidak ditemukan.</div>`;
         return;
       }
-      
-      section.classList.remove("hidden");
+
+      const kategori = getKategori(s);
+      const total = currentSoal.length;
+      const progress = ((currentIndex + 1) / total) * 100;
+
+      document.getElementById('currentNum').textContent = currentIndex + 1;
+      document.getElementById('totalNum').textContent = total;
+      document.getElementById('categoryBadge').textContent = kategori;
+      document.getElementById('progressBar').style.width = progress + '%';
+      document.getElementById('btnPrev').disabled = (currentIndex === 0);
+      document.getElementById('btnNext').textContent = (currentIndex === total - 1) ? 'Selesai ✓' : 'Selanjutnya →';
+
+      const selectedIdx = jawabanUser[currentIndex] ?? null;
+      const questionText = s.pertanyaan || s.cartu || '(soal tidak memiliki teks)';
+
+      let optionsHtml = s.pilihan.map((op, i) => {
+        const isSelected = (selectedIdx === i);
+        const letter = String.fromCharCode(65 + i);
+        return `
+          <div class="border-2 rounded-xl p-4 hover:bg-indigo-50 transition cursor-pointer ${isSelected ? 'option-selected border-indigo-500' : 'border-gray-200'}"
+               onclick="pilihJawaban(${i})">
+            <label class="flex gap-3 cursor-pointer pointer-events-none">
+              <input type="radio" name="jawaban" ${isSelected ? 'checked' : ''} class="accent-indigo-600">
+              <div><span class="font-bold text-indigo-700">${letter}.</span> <span class="math-container ml-1">${op.teks || ''}</span></div>
+            </label>
+          </div>
+        `;
+      }).join('');
+
       container.innerHTML = `
-        <div class="flex flex-col items-center justify-center py-12">
-          <div class="loader mb-4"></div>
-          <span class="text-gray-600 font-medium">Mengecek status pembayaran...</span>
-          <span class="text-gray-400 text-sm mt-2">Menghubungkan ke Faspay</span>
+        <div class="space-y-5">
+          <div class="bg-indigo-50 p-4 rounded-xl">
+            <div class="text-sm text-indigo-700 font-bold mb-2">📘 ${kategori}</div>
+            <div class="text-lg font-semibold math-container">${questionText}</div>
+          </div>
+          <div class="space-y-3">${optionsHtml}</div>
         </div>
       `;
 
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      renderMathJax();
+    }
 
-      try {
-        const token = localStorage.getItem("id_token");
-        if (!token) throw new Error("Token tidak ditemukan, silakan login ulang");
+    // ============================================================
+    //  NAVIGASI & JAWABAN
+    // ============================================================
+    function pilihJawaban(index) {
+      jawabanUser[currentIndex] = index;
+      renderSoal();
+    }
 
-        const res = await fetch("/api/cek-status", {
-          method: "GET",
-          headers: {
-            "Authorization": `Bearer ${token}`,
-            "Content-Type": "application/json"
-          }
+    function prevSoal() {
+      if (currentIndex > 0) { currentIndex--;
+        renderSoal(); }
+    }
+
+    async function nextSoal() {
+      const s = currentSoal[currentIndex];
+      if (!s) return;
+
+      const selectedIdx = jawabanUser[currentIndex];
+      const correctIdx = getCorrectIndex(s);
+      const kategori = getKategori(s);
+
+      // catat ke AdaptiveSchedule
+      if (selectedIdx !== null && selectedIdx !== undefined) {
+        AdaptiveSchedule.recordAnswer(currentIndex, selectedIdx === correctIdx, kategori, 0);
+      }
+
+      if (currentIndex < currentSoal.length - 1) {
+        currentIndex++;
+        renderSoal();
+      } else {
+        showResultSummary();
+      }
+    }
+
+    // ============================================================
+    //  GANTI KELAS
+    // ============================================================
+    function gantiKelas() {
+      const kelas = document.getElementById('kelasSelect').value;
+      currentSoal = (kelas === 'x') ? [...soalKelasX] : [...soalKelasXI];
+      currentIndex = 0;
+      jawabanUser = new Array(currentSoal.length).fill(null);
+      renderSoal();
+    }
+
+    // ============================================================
+    //  ADAPTIVE SCHEDULE ENGINE
+    // ============================================================
+    const AdaptiveSchedule = {
+      answers: [],
+
+      recordAnswer(questionId, isCorrect, topic, timeSpent) {
+        this.answers.push({ questionId, isCorrect, topic, timeSpent, timestamp: new Date().toISOString() });
+        this.saveToStorage();
+        this.updateUI();
+      },
+
+      saveToStorage() {
+        localStorage.setItem('math315_adaptive_' + USER_ID, JSON.stringify(this.answers));
+      },
+
+      loadFromStorage() {
+        const saved = localStorage.getItem('math315_adaptive_' + USER_ID);
+        if (saved) {
+          try { this.answers = JSON.parse(saved); } catch (e) { this.answers = []; }
+        }
+      },
+
+      getTopicStats() {
+        const stats = {};
+        this.answers.forEach(ans => {
+          if (!stats[ans.topic]) stats[ans.topic] = { total: 0, correct: 0 };
+          stats[ans.topic].total++;
+          if (ans.isCorrect) stats[ans.topic].correct++;
         });
+        return Object.entries(stats).map(([topic, data]) => ({
+          topic,
+          errorRate: data.total > 0 ? (data.total - data.correct) / data.total : 0,
+          accuracy: data.total > 0 ? (data.correct / data.total) * 100 : 0,
+          total: data.total
+        }));
+      },
 
-        if (!res.ok) {
-          const errorData = await res.json().catch(() => ({}));
-          throw new Error(errorData.message || `HTTP ${res.status}`);
+      getOverallStats() {
+        const total = this.answers.length;
+        if (total === 0) return { total: 0, correct: 0, accuracy: 0, errorRate: 0 };
+        const correct = this.answers.filter(a => a.isCorrect).length;
+        return { total, correct, accuracy: (correct / total) * 100, errorRate: (total - correct) / total };
+      },
+
+      getIntensityLevel() {
+        const stats = this.getOverallStats();
+        if (stats.total === 0) return 'medium';
+        if (stats.errorRate < 0.3) return 'light';
+        if (stats.errorRate < 0.6) return 'medium';
+        return 'intensive';
+      },
+
+      getWeakTopics() {
+        return this.getTopicStats().filter(s => s.errorRate > 0.4).sort((a, b) => b.errorRate - a.errorRate);
+      },
+
+      getStrongTopics() {
+        return this.getTopicStats().filter(s => s.errorRate <= 0.4 && s.total >= 2).sort((a, b) => a.errorRate - b
+        .errorRate);
+      },
+
+      generateClawPrompt() {
+        const stats = this.getOverallStats();
+        const level = this.getIntensityLevel();
+        const weakTopics = this.getWeakTopics().map(s => s.topic).join(', ');
+        return {
+          userContext: {
+            totalQuestions: stats.total,
+            accuracy: stats.accuracy.toFixed(1),
+            weakTopics: weakTopics || 'Tidak ada',
+            strongTopics: this.getStrongTopics().map(s => s.topic).join(', ') || 'Tidak ada',
+            intensityLevel: level
+          },
+          request: `Buatkan jadwal belajar matematika ${level === 'intensive' ? 'INTENSIF' : level} untuk 7 hari ke depan. Fokuskan pada topik: ${weakTopics || 'semua topik'}. User memiliki akurasi ${stats.accuracy.toFixed(1)}% dari ${stats.total} soal. Sertakan waktu belajar, materi, dan target. Format: JSON array dengan field: day, date, duration, focusTopics, tasks (array), target.`
+        };
+      },
+
+      updateUI() {
+        const stats = this.getOverallStats();
+        const weakTopics = this.getWeakTopics();
+        const strongTopics = this.getStrongTopics();
+
+        const statsContent = document.getElementById('statsContent');
+        if (statsContent) {
+          if (stats.total === 0) {
+            statsContent.innerHTML = '<p class="text-gray-500 text-sm">Mulai kerjakan soal untuk melihat statistik...</p>';
+          } else {
+            const color = stats.accuracy >= 70 ? 'text-green-600' : stats.accuracy >= 40 ? 'text-yellow-600' :
+              'text-red-600';
+            const barColor = stats.accuracy >= 70 ? 'bg-green-500' : stats.accuracy >= 40 ? 'bg-yellow-500' :
+              'bg-red-500';
+            statsContent.innerHTML = `
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-600">Akurasi</span>
+                  <span class="font-bold ${color}">${stats.accuracy.toFixed(1)}%</span>
+                </div>
+                <div class="stats-bar"><div class="stats-bar-fill ${barColor}" style="width:${stats.accuracy}%"></div></div>
+                <div class="flex justify-between text-xs text-gray-500">
+                  <span>Benar: ${stats.correct}/${stats.total}</span>
+                  <span>Level: ${this.getIntensityLevel().toUpperCase()}</span>
+                </div>
+              </div>
+            `;
+          }
         }
 
-        const result = await res.json();
-
-        if (!result.success) {
-          throw new Error(result.message || "Gagal memuat data");
+        const weakSection = document.getElementById('weakTopicsSection');
+        const weakList = document.getElementById('weakTopicsList');
+        if (weakSection && weakList) {
+          if (weakTopics.length > 0) {
+            weakSection.classList.remove('hidden');
+            weakList.innerHTML = weakTopics.map(t =>
+              `<span class="topic-tag weak">${t.topic} (${(t.errorRate*100).toFixed(0)}% salah)</span>`
+            ).join('');
+          } else {
+            weakSection.classList.add('hidden');
+          }
         }
 
-        renderTransactions(result.data, result.auto_updated);
+        const strongSection = document.getElementById('strongTopicsSection');
+        const strongList = document.getElementById('strongTopicsList');
+        if (strongSection && strongList) {
+          if (strongTopics.length > 0) {
+            strongSection.classList.remove('hidden');
+            strongList.innerHTML = strongTopics.map(t =>
+              `<span class="topic-tag strong">${t.topic} (${t.accuracy.toFixed(0)}% benar)</span>`
+            ).join('');
+          } else {
+            strongSection.classList.add('hidden');
+          }
+        }
 
-      } catch (err) {
-        console.error("Cek status error:", err);
-        container.innerHTML = `
-          <div class="text-center py-12">
-            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i class="fas fa-exclamation-circle text-red-500 text-2xl"></i>
-            </div>
-            <h4 class="text-lg font-semibold text-gray-800 mb-2">Gagal Memuat Data</h4>
-            <p class="text-gray-500 mb-4">${err.message}</p>
-            <button onclick="cekStatusPembayaran()" class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-              <i class="fas fa-redo mr-2"></i>Coba Lagi
-            </button>
-          </div>
-        `;
-        showToast("Gagal cek status: " + err.message, "error");
+        const btn = document.getElementById('btnGenerateSchedule');
+        if (btn) {
+          btn.disabled = stats.total < 3;
+          if (stats.total < 3) {
+            btn.innerHTML = `🤖 Generate Jadwal dengan AI (butuh ${3 - stats.total} soal lagi)`;
+          } else {
+            btn.innerHTML = '🤖 Generate Jadwal dengan AI';
+          }
+        }
       }
     };
 
-    function renderTransactions(transactions, autoUpdated) {
-      const container = document.getElementById("statusList");
-      if (!container) return;
-      
-      if (!transactions || transactions.length === 0) {
-        container.innerHTML = `
-          <div class="text-center py-12">
-            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i class="fas fa-receipt text-gray-400 text-3xl"></i>
-            </div>
-            <h4 class="text-lg font-semibold text-gray-800 mb-2">Belum Ada Transaksi</h4>
-            <p class="text-gray-500 mb-6">Anda belum melakukan pembayaran premium</p>
-            <a href="#pricing" onclick="closePaymentStatus()" class="inline-block px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-              <i class="fas fa-crown mr-2"></i>Ambil Premium Sekarang
-            </a>
+    // ============================================================
+    //  RESULT SUMMARY
+    // ============================================================
+    function showResultSummary() {
+      const stats = AdaptiveSchedule.getOverallStats();
+      const weakTopics = AdaptiveSchedule.getWeakTopics();
+      const strongTopics = AdaptiveSchedule.getStrongTopics();
+      const level = AdaptiveSchedule.getIntensityLevel();
+
+      const levelConfig = {
+        light: { color: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200', label: 'Ringan', emoji: '🟢' },
+        medium: { color: 'text-yellow-600', bg: 'bg-yellow-50', border: 'border-yellow-200', label: 'Sedang',
+        emoji: '🟡' },
+        intensive: { color: 'text-red-600', bg: 'bg-red-50', border: 'border-red-200', label: 'Intensif', emoji: '🔴' }
+      };
+      const cfg = levelConfig[level] || levelConfig.medium;
+      const accuracy = stats.total > 0 ? stats.accuracy.toFixed(1) : 0;
+      const barColor = stats.accuracy >= 70 ? 'bg-green-500' : stats.accuracy >= 40 ? 'bg-yellow-500' : 'bg-red-500';
+
+      let weakHtml = '';
+      if (weakTopics.length > 0) {
+        weakHtml = `
+          <div class="mt-4 p-3 bg-red-50 border border-red-200 rounded-xl">
+            <h4 class="font-bold text-red-700 text-sm mb-2">⚠️ Topik Perlu Perhatian</h4>
+            <div class="flex flex-wrap gap-1">${weakTopics.map(t => `<span class="topic-tag weak">${t.topic}</span>`).join('')}</div>
           </div>
         `;
+      }
+      let strongHtml = '';
+      if (strongTopics.length > 0) {
+        strongHtml = `
+          <div class="mt-4 p-3 bg-green-50 border border-green-200 rounded-xl">
+            <h4 class="font-bold text-green-700 text-sm mb-2">✅ Topik Kuat</h4>
+            <div class="flex flex-wrap gap-1">${strongTopics.map(t => `<span class="topic-tag strong">${t.topic}</span>`).join('')}</div>
+          </div>
+        `;
+      }
+
+      document.getElementById('resultStats').innerHTML = `
+        <div class="space-y-4">
+          <div class="text-center p-4 ${cfg.bg} ${cfg.border} border rounded-xl">
+            <div class="text-3xl font-bold ${cfg.color}">${accuracy}%</div>
+            <div class="text-sm text-gray-600">Akurasi (${stats.correct}/${stats.total} soal)</div>
+            <div class="mt-2 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/50 text-sm font-semibold ${cfg.color}">
+              ${cfg.emoji} Level: ${cfg.label}
+            </div>
+          </div>
+          <div class="stats-bar"><div class="stats-bar-fill ${barColor}" style="width:${accuracy}%"></div></div>
+          ${weakHtml}
+          ${strongHtml}
+          <div class="text-center text-sm text-gray-500 mt-4">💡 Jadwal belajar telah disesuaikan dengan performamu. Buka panel 📅 untuk melihat detail.</div>
+        </div>
+      `;
+      document.getElementById('resultSummary').style.display = 'flex';
+    }
+
+    window.closeResultSummary = function() {
+      document.getElementById('resultSummary').style.display = 'none';
+    };
+
+    // ============================================================
+    //  SCHEDULE PANEL
+    // ============================================================
+    window.openSchedulePanel = function() {
+      document.getElementById('scheduleOverlay').style.display = 'block';
+      document.getElementById('schedulePanel').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      AdaptiveSchedule.updateUI();
+    };
+
+    window.closeSchedulePanel = function() {
+      document.getElementById('scheduleOverlay').style.display = 'none';
+      document.getElementById('schedulePanel').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    };
+
+    window.generateLocalSchedule = function() {
+      const stats = AdaptiveSchedule.getOverallStats();
+      const weakTopics = AdaptiveSchedule.getWeakTopics();
+      const level = AdaptiveSchedule.getIntensityLevel();
+      const days = 7;
+
+      const intensityConfig = {
+        light: { hoursPerDay: 1, problemsPerDay: 10, label: 'Ringan', color: 'bg-green-100 text-green-700' },
+        medium: { hoursPerDay: 2, problemsPerDay: 20, label: 'Sedang', color: 'bg-yellow-100 text-yellow-700' },
+        intensive: { hoursPerDay: 3, problemsPerDay: 35, label: 'Intensif', color: 'bg-red-100 text-red-700' }
+      };
+      const config = intensityConfig[level] || intensityConfig.medium;
+      const focusTopics = weakTopics.length > 0 ? weakTopics.map(t => t.topic).join(', ') : 'Review umum';
+
+      let html = `
+        <div class="mb-4 bg-indigo-50 rounded-xl p-3 border border-indigo-100">
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-semibold text-indigo-700">Intensitas: ${config.label}</span>
+            <span class="text-xs px-2 py-1 rounded-full ${config.color}">${level.toUpperCase()}</span>
+          </div>
+          <p class="text-xs text-gray-500 mt-1">Berdasarkan akurasi ${stats.accuracy.toFixed(1)}%</p>
+        </div>
+        <div class="space-y-3">
+      `;
+      for (let i = 1; i <= days; i++) {
+        const date = new Date(Date.now() + i * 86400000);
+        const isToday = i === 1;
+        html += `
+          <div class="schedule-card ${isToday ? 'today' : ''}">
+            <div class="flex justify-between items-start mb-2">
+              <span class="day-badge">Hari ${i}</span>
+              <span class="text-xs opacity-80">${date.toLocaleDateString('id-ID', { weekday: 'short', day: 'numeric', month: 'short' })}</span>
+            </div>
+            <div class="text-sm mb-2">⏱️ ${config.hoursPerDay} jam belajar</div>
+            <div class="text-sm mb-2"><strong>Fokus:</strong> ${focusTopics}</div>
+            <ul class="text-sm space-y-1 opacity-90">
+              <li>• Kerjakan ${config.problemsPerDay} soal ${focusTopics !== 'Review umum' ? 'terkait ' + focusTopics : 'berbagai topik'}</li>
+              <li>• Review pembahasan soal yang salah</li>
+              <li>• Kerjakan 5 soal latihan tambahan</li>
+            </ul>
+            <div class="mt-2 text-xs bg-white/20 rounded-lg p-2">🎯 Target: Penguasaan meningkat 20%</div>
+          </div>
+        `;
+      }
+      html += '</div>';
+      document.getElementById('scheduleContainer').innerHTML = html;
+
+      localStorage.setItem('math315_schedule_' + USER_ID, JSON.stringify({
+        schedule: { level, days, config, focusTopics, generatedAt: new Date().toISOString() },
+        context: AdaptiveSchedule.generateClawPrompt().userContext
+      }));
+    };
+
+    window.generateAdaptiveSchedule = async function() {
+      const container = document.getElementById('scheduleContainer');
+      const btn = document.getElementById('btnGenerateSchedule');
+      container.innerHTML =
+        `<div class="text-center py-10"><div class="loading-spinner mb-4"></div><p class="text-indigo-600 font-semibold">🤖 AI sedang menyusun jadwal belajar...</p><p class="text-gray-400 text-sm mt-2">Menganalisis performa dan topik lemah</p></div>`;
+      btn.disabled = true;
+
+      const clawData = AdaptiveSchedule.generateClawPrompt();
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'generate_schedule', userId: USER_ID, scheduleRequest: clawData })
+        });
+        if (!response.ok) throw new Error('Gagal menghubungi server');
+        const data = await response.json();
+        if (!data.success) throw new Error(data.error || 'Gagal generate jadwal');
+        renderScheduleFromAI(data.schedule);
+      } catch (error) {
+        console.warn('AI Schedule gagal, fallback ke lokal:', error);
+        generateLocalSchedule();
+        const note = document.createElement('div');
+        note.className = 'mt-3 bg-yellow-50 border border-yellow-200 p-3 rounded-xl text-yellow-800 text-sm';
+        note.innerHTML = '⚠️ Mode AI tidak tersedia. Menampilkan jadwal lokal otomatis.';
+        container.insertBefore(note, container.firstChild);
+      } finally {
+        btn.disabled = false;
+      }
+    };
+
+    function renderScheduleFromAI(schedule) {
+      if (!schedule || !Array.isArray(schedule) || schedule.length === 0) {
+        generateLocalSchedule();
         return;
       }
-
-      let html = '';
-      
-      if (autoUpdated) {
+      let html = '<div class="space-y-3">';
+      schedule.forEach((day, idx) => {
+        const isToday = idx === 0;
         html += `
-          <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-4 flex items-center text-green-700 text-sm">
-            <i class="fas fa-sync-alt mr-2"></i>
-            Status pembayaran telah diperbarui otomatis
-          </div>
-        `;
-      }
-
-      transactions.forEach(trx => {
-        const status = (trx.status || 'unknown').toLowerCase();
-        const isPending = ['pending', 'waiting_payment', 'processing', 'waiting'].includes(status);
-        const isPaid = status === 'paid' || status === 'success';
-        const isExpired = ['expired', 'cancelled', 'failed', 'timeout'].includes(status);
-        
-        let badgeClass = 'status-pending';
-        let badgeText = 'Pending';
-        let badgeIcon = 'fa-hourglass-half';
-        
-        if (isPaid) {
-          badgeClass = 'status-paid';
-          badgeText = 'Berhasil';
-          badgeIcon = 'fa-check-circle';
-        } else if (isExpired) {
-          badgeClass = 'status-expired';
-          badgeText = status === 'cancelled' ? 'Dibatalkan' : 'Kadaluarsa';
-          badgeIcon = 'fa-times-circle';
-        }
-
-        const cardBorder = isPending ? 'border-yellow-300 bg-yellow-50/30' : 'border-gray-200';
-        
-        html += `
-          <div class="border ${cardBorder} rounded-xl p-5 transition-all hover:shadow-md" id="trx-${trx.bill_no || trx.id}">
-            <div class="flex justify-between items-start mb-4">
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-gray-800 text-lg">${trx.bill_no || trx.invoice_no || trx.id}</span>
-                  ${trx.inquiry_result?.auto_updated ? '<span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full animate-pulse">Updated</span>' : ''}
-                </div>
-                <div class="text-sm text-gray-500 flex items-center gap-2">
-                  <i class="far fa-calendar-alt"></i>
-                  ${formatDate(trx.created_at)}
-                </div>
-              </div>
-              <span class="status-badge ${badgeClass}">
-                <i class="fas ${badgeIcon}"></i>
-                ${badgeText}
-              </span>
+          <div class="schedule-card ${isToday ? 'today' : ''}">
+            <div class="flex justify-between items-start mb-2">
+              <span class="day-badge">Hari ${day.day || (idx + 1)}</span>
+              <span class="text-xs opacity-80">${day.date || ''}</span>
             </div>
-
-            <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
-              <div class="bg-gray-50 rounded-lg p-3">
-                <span class="text-gray-500 block text-xs mb-1">Total Pembayaran</span>
-                <div class="font-bold text-gray-800 text-lg">${formatRupiah(trx.amount)}</div>
-              </div>
-              <div class="bg-gray-50 rounded-lg p-3">
-                <span class="text-gray-500 block text-xs mb-1">Metode</span>
-                <div class="font-semibold text-gray-800">${trx.payment_channel || trx.payment_method || '-'}</div>
-              </div>
-            </div>
-
-            ${trx.payment_date ? `
-              <div class="text-sm text-green-600 mb-4 flex items-center bg-green-50 rounded-lg p-3">
-                <i class="fas fa-check-circle mr-2"></i>
-                <span>Dibayar pada ${formatDate(trx.payment_date)}</span>
-              </div>
-            ` : ''}
-
-            ${trx.expiry_date && isPending ? `
-              <div class="text-sm text-orange-600 mb-4 flex items-center bg-orange-50 rounded-lg p-3">
-                <i class="fas fa-clock mr-2"></i>
-                <span>Berlaku sampai ${formatDate(trx.expiry_date)}</span>
-              </div>
-            ` : ''}
-
-            <div class="flex gap-2">
-              ${isPending ? `
-                <button onclick="refreshStatus('${trx.bill_no}')" 
-                  class="flex-1 bg-indigo-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition flex items-center justify-center gap-2 btn-modern">
-                  <i class="fas fa-sync-alt"></i> Refresh Status
-                </button>
-                <button onclick="bayarInvoice('${trx.bill_no}')" 
-                  class="flex-1 bg-yellow-500 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-yellow-600 transition flex items-center justify-center gap-2 btn-modern">
-                  <i class="fas fa-credit-card"></i> Bayar
-                </button>
-              ` : `
-                <button onclick="lihatDetail('${trx.bill_no || trx.id}')" 
-                  class="w-full bg-gray-100 text-gray-700 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-200 transition flex items-center justify-center gap-2">
-                  <i class="fas fa-eye"></i> Lihat Detail
-                </button>
-              `}
-            </div>
-
-            ${trx.inquiry_result?.success === false ? `
-              <div class="mt-3 text-xs text-red-500 flex items-center bg-red-50 rounded-lg p-2">
-                <i class="fas fa-exclamation-triangle mr-2"></i>
-                Gagal mengupdate status otomatis: ${trx.inquiry_result.error || 'Unknown error'}
-              </div>
-            ` : ''}
+            <div class="text-sm mb-2">⏱️ ${day.duration || '1-2 jam'}</div>
+            <div class="text-sm mb-2"><strong>Fokus:</strong> ${day.focusTopics || 'Review umum'}</div>
+            <ul class="text-sm space-y-1 opacity-90">
+              ${(day.tasks || []).map(t => `<li>• ${t}</li>`).join('')}
+            </ul>
+            <div class="mt-2 text-xs bg-white/20 rounded-lg p-2">🎯 ${day.target || 'Tingkatkan pemahaman materi'}</div>
           </div>
         `;
       });
+      html += '</div>';
+      document.getElementById('scheduleContainer').innerHTML = html;
+      localStorage.setItem('math315_schedule_' + USER_ID, JSON.stringify({
+        schedule,
+        generatedAt: new Date().toISOString(),
+        context: AdaptiveSchedule.generateClawPrompt().userContext
+      }));
+    }
 
-      container.innerHTML = html;
-
-      if (autoUpdated) {
-        showToast("Status pembayaran telah diperbarui", "success");
+    function loadSavedSchedule() {
+      const saved = localStorage.getItem('math315_schedule_' + USER_ID);
+      if (saved) {
+        try {
+          const data = JSON.parse(saved);
+          if (data.schedule) {
+            if (Array.isArray(data.schedule)) renderScheduleFromAI(data.schedule);
+            else generateLocalSchedule();
+          }
+        } catch (e) {}
       }
     }
 
-    window.refreshStatus = async function(billNo) {
-      const btn = event?.target?.closest('button');
-      if (btn) {
-        const originalContent = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memeriksa...';
-        btn.disabled = true;
-      }
+    // ============================================================
+    //  AI HELP
+    // ============================================================
+    window.openAIHelp = async () => {
+      if (!currentSoal || !currentSoal[currentIndex]) return;
+      const modal = document.getElementById('aiHelpModal');
+      const explanationBox = document.getElementById('aiExplanation');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+
+      const s = currentSoal[currentIndex];
+      const correctIdx = getCorrectIndex(s);
+      const correctAnswerText = s.pilihan[correctIdx] ? s.pilihan[correctIdx].teks : "Belum ditentukan";
+      const kategori = getKategori(s);
+
+      explanationBox.innerHTML =
+        `<div class="text-center py-10"><div class="loading-spinner"></div><h3 class="mt-5 text-lg font-bold text-indigo-700">🤖 Gemini AI Tutor</h3><p class="mt-2 text-gray-600">Sedang menganalisis soal...</p></div>`;
 
       try {
-        const token = localStorage.getItem("id_token");
-        if (!token) throw new Error("Token tidak ditemukan");
-        
-        const res = await fetch("/api/cek-status", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-          },
-          body: JSON.stringify({ bill_no: billNo })
-        });
-
-        if (!res.ok) {
-          const errorData = await res.json().catch(() => ({}));
-          throw new Error(errorData.message || `HTTP ${res.status}`);
-        }
-
-        const result = await res.json();
-
-        if (!result.success) {
-          throw new Error(result.message);
-        }
-
-        const statusMap = {
-          'paid': { text: 'Berhasil', class: 'status-paid', icon: 'fa-check-circle' },
-          'success': { text: 'Berhasil', class: 'status-paid', icon: 'fa-check-circle' },
-          'pending': { text: 'Pending', class: 'status-pending', icon: 'fa-hourglass-half' },
-          'expired': { text: 'Kadaluarsa', class: 'status-expired', icon: 'fa-times-circle' },
-          'cancelled': { text: 'Dibatalkan', class: 'status-expired', icon: 'fa-times-circle' },
-          'failed': { text: 'Gagal', class: 'status-expired', icon: 'fa-times-circle' }
+        const payload = {
+          action: 'explain',
+          userId: USER_ID,
+          questionData: {
+            question: s.pertanyaan || s.cartu || '',
+            options: s.pilihan.map(p => p.teks),
+            topic: kategori,
+            correct_answer: correctAnswerText
+          }
         };
-
-        const mapped = statusMap[result.status] || statusMap['pending'];
-        showToast(`Status diperbarui: ${mapped.text}`, result.status === 'paid' ? 'success' : 'info');
-        
-        cekStatusPembayaran();
-
-      } catch (err) {
-        console.error("Refresh error:", err);
-        showToast("Gagal refresh: " + err.message, "error");
-        if (btn) {
-          btn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh Status';
-          btn.disabled = false;
-        }
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        if (!data.success) throw new Error(data.error || 'Gagal memproses soal');
+        tampilkanPenjelasan(data, s, false);
+      } catch (error) {
+        console.warn('Backend tidak merespons, beralih ke Smart Tutor lokal:', error.message);
+        const localExplanation = generateLocalExplanation(s);
+        tampilkanPenjelasan({ explanation: localExplanation, actual_model: 'smart-tutor-local',
+          note: 'Mode offline aktif karena backend tidak tersedia' }, s, true);
       }
     };
 
-    window.bayarInvoice = function(billNo) {
-      localStorage.setItem("current_bill_no", billNo);
-      window.location.href = "checkout.html?bill_no=" + encodeURIComponent(billNo);
+    window.closeAIHelp = function() {
+      document.getElementById('aiHelpModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
     };
 
-    window.lihatDetail = async function(billNo) {
-      const modal = document.getElementById('paymentModal');
-      const modalBody = document.getElementById('modalBody');
-      
-      if (!modal || !modalBody) return;
-      
-      modal.classList.add('active');
-      modalBody.innerHTML = `
-        <div class="flex justify-center py-8">
-          <div class="loader"></div>
+    function parseMarkdown(text) {
+      if (!text) return "";
+      return text
+        .replace(/### (.*?)\n/g, '<h5 class="text-md font-bold text-indigo-600 mt-3 mb-1">$1</h5>')
+        .replace(/## (.*?)\n/g, '<h4 class="text-lg font-bold text-indigo-700 mt-4 mb-2">$1</h4>')
+        .replace(/# (.*?)\n/g, '<h3 class="text-xl font-bold text-indigo-800 mt-5 mb-3">$1</h3>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>')
+        .replace(/---\s*/g, '<hr class="my-4 border-gray-200">')
+        .replace(/\* (.*?)\n/g, '<li class="ml-4 list-disc">$1</li>');
+    }
+
+    function tampilkanPenjelasan(data, s, isLocal) {
+      const explanationBox = document.getElementById('aiExplanation');
+      const correctIdx = getCorrectIndex(s);
+      const correctLetter = String.fromCharCode(65 + correctIdx);
+      const correctAnswerText = s.pilihan[correctIdx] ? s.pilihan[correctIdx].teks : "-";
+      const modelName = data.model || data.actual_model || (isLocal ? 'Smart Tutor' : 'Gemini AI');
+      const kategori = getKategori(s);
+      const parsedExplanation = parseMarkdown(data.explanation);
+
+      explanationBox.innerHTML = `
+        <div class="space-y-5">
+          <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-5 rounded-xl">
+            <div class="flex justify-between items-center">
+              <div><h3 class="font-bold text-xl">🤖 AI Tutor</h3><p class="text-sm opacity-90">Powered by ${modelName}</p></div>
+              <div class="text-4xl">🧠</div>
+            </div>
+          </div>
+          ${data.note ? `<div class="bg-yellow-50 border border-yellow-200 p-4 rounded-xl text-yellow-800 text-sm">⚠️ ${data.note}</div>` : ''}
+          <div class="bg-gray-50 rounded-xl p-5">
+            <h4 class="font-bold text-gray-700 mb-3">📘 Soal</h4>
+            <div class="math-container text-lg">${s.pertanyaan || s.cartu || ''}</div>
+            <div class="mt-3 text-sm text-gray-600"><span class="font-semibold">Kategori:</span> ${kategori} | <span class="font-semibold">Jawaban Benar:</span> ${correctLetter}. ${correctAnswerText}</div>
+          </div>
+          <div class="bg-white border border-indigo-100 rounded-xl p-5">
+            <h4 class="font-bold text-indigo-700 text-lg mb-4">✨ Penjelasan AI</h4>
+            <div class="whitespace-pre-wrap leading-relaxed text-gray-800 math-container">${parsedExplanation}</div>
+          </div>
         </div>
       `;
-
-      try {
-        const token = localStorage.getItem("id_token");
-        const snapshot = await db.ref(`transactions/${billNo}`).once('value');
-        const trx = snapshot.val();
-
-        if (!trx) {
-          throw new Error("Transaksi tidak ditemukan");
-        }
-
-        const isPaid = trx.status === 'paid' || trx.status === 'success';
-        
-        modalBody.innerHTML = `
-          <div class="space-y-4">
-            <div class="bg-gray-50 rounded-lg p-4">
-              <div class="text-sm text-gray-500 mb-1">Nomor Invoice</div>
-              <div class="font-mono font-bold text-lg">${trx.bill_no || billNo}</div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-gray-50 rounded-lg p-3">
-                <div class="text-xs text-gray-500 mb-1">Status</div>
-                <div class="font-semibold ${isPaid ? 'text-green-600' : 'text-yellow-600'}">
-                  ${(trx.status || 'unknown').toUpperCase()}
-                </div>
-              </div>
-              <div class="bg-gray-50 rounded-lg p-3">
-                <div class="text-xs text-gray-500 mb-1">Total</div>
-                <div class="font-bold">${formatRupiah(trx.amount)}</div>
-              </div>
-            </div>
-
-            <div class="bg-gray-50 rounded-lg p-3">
-              <div class="text-xs text-gray-500 mb-1">Metode Pembayaran</div>
-              <div class="font-semibold">${trx.payment_channel || trx.payment_method || '-'}</div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-gray-50 rounded-lg p-3">
-                <div class="text-xs text-gray-500 mb-1">Dibuat</div>
-                <div class="text-sm">${formatDate(trx.created_at)}</div>
-              </div>
-              <div class="bg-gray-50 rounded-lg p-3">
-                <div class="text-xs text-gray-500 mb-1">Dibayar</div>
-                <div class="text-sm">${formatDate(trx.payment_date)}</div>
-              </div>
-            </div>
-
-            ${trx.faspay_response ? `
-              <div class="border-t pt-4 mt-4">
-                <div class="text-xs text-gray-500 mb-2">Data Faspay (Debug)</div>
-                <pre class="bg-gray-100 rounded p-2 text-xs overflow-x-auto">${JSON.stringify(trx.faspay_response, null, 2)}</pre>
-              </div>
-            ` : ''}
-          </div>
-        `;
-
-      } catch (err) {
-        modalBody.innerHTML = `
-          <div class="text-center py-8 text-red-500">
-            <i class="fas fa-exclamation-circle text-3xl mb-2"></i>
-            <p>${err.message}</p>
-          </div>
-        `;
-      }
-    };
-
-    window.closePaymentStatus = function() {
-      const section = document.getElementById('paymentStatus');
-      if (section) section.classList.add('hidden');
-    };
-
-    window.closeModal = function() {
-      const modal = document.getElementById('paymentModal');
-      if (modal) modal.classList.remove('active');
-    };
-
-    const modalElem = document.getElementById('paymentModal');
-    if (modalElem) {
-      modalElem.addEventListener('click', function(e) {
-        if (e.target === this) closeModal();
-      });
+      renderMathJax();
     }
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeModal();
-        closePaymentStatus();
-      }
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'P') {
-        e.preventDefault();
-        cekStatusPembayaran();
-      }
-    });
-
-    // ==========================
-    // FUNGSI ADMIN PANEL
-    // ==========================
-    async function checkIsAdmin(email) {
-      try {
-        const adminSnapshot = await db.ref('admins').orderByChild('email').equalTo(email).once('value');
-        return adminSnapshot.exists();
-      } catch (error) { addDebugLog("Error check admin:", error); return false; }
+    function generateLocalExplanation(s) {
+      const correctIdx = getCorrectIndex(s);
+      const correctLetter = String.fromCharCode(65 + correctIdx);
+      const correctAnswerText = s.pilihan[correctIdx] ? s.pilihan[correctIdx].teks : "-";
+      const kategori = getKategori(s);
+      return `# 🧠 Penjelasan Smart Tutor\n\n## 📘 Soal\n${s.pertanyaan || s.cartu || ''}\n\n## 📝 Pilihan Jawaban\n${s.pilihan.map((op, i) => `${String.fromCharCode(65+i)}. ${op.teks}`).join('\n')}\n\n---\n\n## 💡 Pembahasan\nSoal ini termasuk materi **${kategori}**.\n\n### Langkah-langkah penyelesaian:\n1. Pahami soal dengan baik.\n2. Identifikasi konsep dasar matematika yang digunakan (${kategori}).\n3. Kerjakan hitungan secara runut dan sistematis.\n4. Verifikasi kecocokan hasil dengan pilihan ganda.\n\n---\n\n## 🔑 Jawaban Benar\n**${correctLetter}. ${correctAnswerText}**`;
     }
 
-    const loginAdminBtn = document.getElementById("loginAdmin");
-    if (loginAdminBtn) {
-      loginAdminBtn.addEventListener('click', async () => {
-        const password = document.getElementById("adminPassword").value;
-        const user = auth.currentUser;
-        const errorEl = document.getElementById("adminLoginError");
-        if (!user) { showToast("Silakan login dengan Google terlebih dahulu", "error"); errorEl.style.display = "block"; errorEl.textContent = "Anda belum login dengan Google"; return; }
-        const isAdmin = await checkIsAdmin(user.email);
-        if ((isAdmin || user.email === "irzalpa27@gmail.com") && password === "575757") {
-          crudPanel.style.display = "block";
-          adminLoginSection.style.display = "none";
-          document.getElementById("adminPassword").value = "";
-          errorEl.style.display = "none";
-          await loadSiswa();
-          showToast("Login admin berhasil", "success");
-        } else {
-          errorEl.style.display = "block";
-          errorEl.textContent = "Password salah atau Anda tidak memiliki akses admin";
-          showToast("Akses ditolak", "error");
-        }
-      });
-    }
+    // ============================================================
+    //  GENERATE SOAL SERUPA
+    // ============================================================
+    async function generateSoal() {
+      if (!currentSoal || !currentSoal[currentIndex]) {
+        document.getElementById('generatedQuestions').innerHTML = `<div class="text-red-500">⚠️ Tidak ada soal aktif.</div>`;
+        return;
+      }
+      const s = currentSoal[currentIndex];
+      const kategori = getKategori(s);
+      const similarity = parseInt(document.getElementById('similaritySlider').value) || 80;
+      const btn = document.getElementById('btnGenerate');
+      const container = document.getElementById('generatedQuestions');
 
-    async function loadSiswa() {
-      const user = auth.currentUser;
-      if (!user) { siswaListDiv.innerHTML = '<div class="p-4 text-red-500">Silakan login terlebih dahulu</div>'; return; }
-      siswaListDiv.innerHTML = '<div class="flex justify-center p-4"><div class="loader-small"></div><span class="ml-2">Memuat data...</span></div>';
+      btn.disabled = true;
+      btn.innerHTML = '⏳ Menghasilkan...';
+      container.innerHTML = '<div class="loading-spinner"></div><p class="text-gray-600 text-center">Sedang membuat soal...</p>';
+
       try {
-        const snapshot = await db.ref('data_siswa').once('value');
-        const data = snapshot.val();
-        siswaListDiv.innerHTML = "";
-        if (!data) { siswaListDiv.innerHTML = '<div class="p-4 text-gray-500 text-center">Belum ada data siswa. Tambahkan siswa baru.</div>'; return; }
-        const table = document.createElement("table");
-        table.className = "w-full border-collapse";
-        table.id = "siswaTable";
-        table.innerHTML = `<thead><tr class="bg-gray-100"><th class="p-3 text-left text-sm font-semibold text-gray-700">Nama</th><th class="p-3 text-left text-sm font-semibold text-gray-700">Email</th><th class="p-3 text-center text-sm font-semibold text-gray-700">Status</th><th class="p-3 text-center text-sm font-semibold text-gray-700">Aksi</th></td></thead><tbody id="siswaTableBody"></tbody>`;
-        const tbody = table.querySelector("tbody");
-        Object.keys(data).forEach(id => {
-          const siswa = data[id];
-          const username = siswa.username || siswa.name || '-';
-          const email = siswa.email || '-';
-          const siapBayar = siswa.siap_bayar || false;
-          const tr = document.createElement("tr");
-          tr.className = "border-b border-gray-200 hover:bg-gray-50 transition";
-          tr.dataset.nama = username.toLowerCase();
-          tr.dataset.email = email.toLowerCase();
-          tr.innerHTML = `<td class="p-3 text-sm font-medium text-gray-800">${escapeHtml(username)}</td><td class="p-3 text-sm text-gray-600">${escapeHtml(email)}</td><td class="p-3 text-center"><span class="px-2 py-1 rounded-full text-xs font-semibold ${siapBayar ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">${siapBayar ? 'Siap Bayar' : 'Belum Bayar'}</span></td><td class="p-3 text-center"><button onclick="editSiswa('${id}','${escapeHtml(username)}','${escapeHtml(email)}',${siapBayar})" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-xs mr-1 transition"><i class="fas fa-edit mr-1"></i>Edit</button><button onclick="deleteSiswa('${id}')" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs transition"><i class="fas fa-trash mr-1"></i>Hapus</button></td>`;
-          tbody.appendChild(tr);
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            action: 'generate_questions',
+            generateRequest: {
+              topic: kategori,
+              current_question: s.pertanyaan || s.cartu || '',
+              similarity: similarity
+            }
+          })
         });
-        siswaListDiv.appendChild(table);
-      } catch (error) { console.error("Error loading siswa:", error); siswaListDiv.innerHTML = `<div class="bg-red-50 border border-red-200 rounded p-4 text-red-700 m-4"><p class="font-semibold"><i class="fas fa-exclamation-circle mr-2"></i>Gagal memuat data</p><p class="text-sm mt-1">${error.message}</p><button onclick="loadSiswa()" class="mt-2 text-sm underline hover:no-underline text-red-600">Coba lagi</button></div>`; }
-    }
+        if (!response.ok) throw new Error('Gagal generate');
+        const data = await response.json();
+        if (!data.success) throw new Error(data.error || 'Gagal');
 
-    window.searchSiswa = function() {
-      const searchTerm = document.getElementById("searchSiswa").value.toLowerCase();
-      const rows = document.querySelectorAll("#siswaTableBody tr");
-      rows.forEach(row => { const nama = row.dataset.nama, email = row.dataset.email; if (nama.includes(searchTerm) || email.includes(searchTerm)) row.style.display = ""; else row.style.display = "none"; });
-    };
+        const questions = data.questions;
+        if (!questions || questions.length === 0) throw new Error('Tidak ada soal');
 
-    function escapeHtml(text) { if (!text) return ''; const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
-
-    const saveSiswaBtn = document.getElementById("saveSiswa");
-    if (saveSiswaBtn) {
-      saveSiswaBtn.addEventListener('click', async () => {
-        const user = auth.currentUser;
-        if (!user) { showToast("Silakan login terlebih dahulu", "error"); return; }
-        const id = document.getElementById("siswaId").value;
-        const username = document.getElementById("siswaNama").value.trim();
-        const email = document.getElementById("siswaEmail").value.trim();
-        const siapBayar = document.getElementById("siswaSiapBayar").checked;
-        if (!username) { showToast("Nama siswa wajib diisi", "error"); document.getElementById("siswaNama").focus(); return; }
-        if (!email || !email.includes('@')) { showToast("Email valid wajib diisi", "error"); document.getElementById("siswaEmail").focus(); return; }
-        const saveBtn = document.getElementById("saveSiswa");
-        const originalText = saveBtn.innerHTML;
-        saveBtn.disabled = true;
-        saveBtn.innerHTML = '<div class="loader-small inline-block mr-2"></div>Menyimpan...';
-        try {
-          const siswaData = { username, email, siap_bayar: siapBayar, updated_at: firebase.database.ServerValue.TIMESTAMP, updated_by: user.uid };
-          if (!id) { siswaData.created_at = firebase.database.ServerValue.TIMESTAMP; siswaData.created_by = user.uid; }
-          if (id) await db.ref(`data_siswa/${id}`).update(siswaData);
-          else await db.ref('data_siswa').push().set(siswaData);
-          showToast(id ? "Data siswa berhasil diperbarui" : "Data siswa berhasil ditambahkan", "success");
-          resetForm();
-          await loadSiswa();
-        } catch (error) { console.error("Error saving siswa:", error); showToast("Gagal menyimpan: " + error.message, "error"); }
-        finally { saveBtn.disabled = false; saveBtn.innerHTML = originalText; }
-      });
-    }
-
-    window.resetForm = function() {
-      document.getElementById("siswaId").value = "";
-      document.getElementById("siswaNama").value = "";
-      document.getElementById("siswaEmail").value = "";
-      document.getElementById("siswaSiapBayar").checked = false;
-      const saveBtn = document.getElementById("saveSiswa");
-      if (saveBtn) saveBtn.innerHTML = '<i class="fas fa-save mr-2"></i>Simpan Data';
-      const formTitle = document.getElementById("formTitle");
-      if (formTitle) formTitle.textContent = "Tambah Siswa Baru";
-    };
-
-    window.editSiswa = function(id, username, email, siapBayar) {
-      document.getElementById("siswaId").value = id;
-      document.getElementById("siswaNama").value = username;
-      document.getElementById("siswaEmail").value = email;
-      document.getElementById("siswaSiapBayar").checked = siapBayar === true;
-      const saveBtn = document.getElementById("saveSiswa");
-      if (saveBtn) saveBtn.innerHTML = '<i class="fas fa-save mr-2"></i>Update Data';
-      const formTitle = document.getElementById("formTitle");
-      if (formTitle) formTitle.textContent = "Edit Data Siswa";
-      document.getElementById("siswaNama").scrollIntoView({ behavior: 'smooth', block: 'center' });
-      document.getElementById("siswaNama").focus();
-    };
-
-    window.deleteSiswa = async function(id) {
-      const row = document.querySelector(`button[onclick="deleteSiswa('${id}')"]`)?.closest('tr');
-      const siswaName = row?.querySelector('td')?.textContent || 'siswa ini';
-      if (!confirm(`⚠️ Yakin ingin menghapus "${siswaName}"?\n\nTindakan ini tidak dapat dibatalkan.`)) return;
-      const user = auth.currentUser;
-      if (!user) { showToast("Silakan login terlebih dahulu", "error"); return; }
-      try { await db.ref(`data_siswa/${id}`).remove(); showToast("Data siswa berhasil dihapus", "success"); await loadSiswa(); }
-      catch (error) { console.error("Error deleting siswa:", error); showToast("Gagal menghapus data: " + error.message, "error"); }
-    };
-
-    if (adminBtnEl) {
-      adminBtnEl.addEventListener('click', () => { adminOverlay.style.display = "block"; document.body.style.overflow = "hidden"; });
-    }
-    window.closeAdminOverlay = function() { adminOverlay.style.display = "none"; crudPanel.style.display = "none"; adminLoginSection.style.display = "block"; document.getElementById("adminPassword").value = ""; document.getElementById("adminLoginError").style.display = "none"; document.body.style.overflow = ""; resetForm(); };
-    
-    function createParticles() {
-      const particlesContainer = document.getElementById("particles");
-      if (!particlesContainer) return;
-      for (let i = 0; i < 50; i++) {
-        const particle = document.createElement("div");
-        particle.classList.add("particle");
-        const size = Math.random() * 5 + 2;
-        particle.style.width = size + "px";
-        particle.style.height = size + "px";
-        particle.style.left = Math.random() * 100 + "%";
-        particle.style.animationDuration = Math.random() * 20 + 10 + "s";
-        particle.style.animationDelay = Math.random() * 5 + "s";
-        particlesContainer.appendChild(particle);
+        let html = `<h3 class="font-bold text-lg text-indigo-700">📝 Soal Latihan (Kemiripan ${similarity}%)</h3>`;
+        questions.forEach((q, idx) => {
+          const diffLabel = q.difficulty === 'rendah' ? '🟢 Mudah' : '🔴 Sulit';
+          html += `
+            <div class="border-2 border-indigo-200 rounded-xl p-4 bg-indigo-50">
+              <div class="flex justify-between">
+                <span class="font-bold">Soal ${idx+1}</span>
+                <span class="text-sm px-2 py-1 rounded-full bg-indigo-200 text-indigo-800">${diffLabel}</span>
+              </div>
+              <div class="mt-2">${q.question}</div>
+              <div class="mt-2 text-sm">
+                ${q.options.map((opt, i) => `<div>${String.fromCharCode(65+i)}. ${opt}</div>`).join('')}
+              </div>
+              <div class="mt-2 text-green-700 font-semibold">✅ Jawaban benar: ${q.correct_answer}</div>
+            </div>
+          `;
+        });
+        container.innerHTML = html;
+      } catch (error) {
+        container.innerHTML = `<div class="text-red-600">❌ Gagal generate soal: ${error.message}</div>`;
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '🔄 Buat Soal Serupa';
       }
     }
-    createParticles();
 
-    window.addEventListener('load', () => {
-      addDebugLog("Halaman dimuat, memeriksa auth state...");
-      updateUI(auth.currentUser);
-      if (auth.currentUser) {
-        checkPremiumStatus();
-      }
-    });
+    // ============================================================
+    //  INIT
+    // ============================================================
+    document.getElementById('kelasSelect').addEventListener('change', gantiKelas);
+
+    window.onclick = function(e) {
+      if (e.target === document.getElementById('aiHelpModal')) closeAIHelp();
+      if (e.target === document.getElementById('resultSummary')) closeResultSummary();
+    };
+
+    // Load kelas XI sebagai default
+    currentSoal = [...soalKelasXI];
+    jawabanUser = new Array(currentSoal.length).fill(null);
+    AdaptiveSchedule.loadFromStorage();
+    AdaptiveSchedule.updateUI();
+    loadSavedSchedule();
+    renderSoal();
   </script>
-</body>  
+
+</body>
 </html>
