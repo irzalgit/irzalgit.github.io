@@ -222,6 +222,24 @@
       border-radius: 24px;
       padding: 2rem;
     }
+    .unanswered-warning {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      color: #92400e;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .unanswered-badge {
+      background: #f59e0b;
+      color: white;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      margin-left: 8px;
+    }
   </style>
 </head>
 <body class="bg-gray-100 min-h-screen p-6">
@@ -241,6 +259,7 @@
       <div class="flex justify-between text-sm text-gray-600 mb-2">
         <span>Soal <span id="currentNum">1</span> dari <span id="totalNum">0</span></span>
         <span id="categoryBadge" class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold">Matematika</span>
+        <span id="answerStatus" class="text-xs font-semibold text-gray-500"></span>
       </div>
       <div class="w-full bg-gray-200 rounded-full h-2.5">
         <div id="progressBar" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-300" style="width:0%"></div>
@@ -339,758 +358,1105 @@
 
   <script>
     // ============================================================
-    //  DATA SOAL (tetap sama seperti sebelumnya)
+    //  DATA SOAL (diperbaiki)
     // ============================================================
-  const soalKelasX = [
-  {
-    "pertanyaan": "Beda dari barisan aritmetika 23, 27, 31, 35, … adalah …",
-    "pilihan": [{"benar": false, "teks": "1"},{"benar": false, "teks": "2"},{"benar": false, "teks": "3"},{"benar": true, "teks": "4"},{"benar": false, "teks": "5"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Diketahui barisan aritmetika: 101, 112, 123, 134, 145, 156, 167, 178, 189, 200, 211,… suku awal dari barisan tersebut adalah …",
-    "pilihan": [{"benar": true, "teks": "101"},{"benar": false, "teks": "123"},{"benar": false, "teks": "156"},{"benar": false, "teks": "189"},{"benar": false, "teks": "211"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Median dari data 37, 47, 1, 15, 57, 24, 20, 11, 19, 50, 28, 37 adalah …",
-    "pilihan": [{"benar": false, "teks": "17,5"},{"benar": false, "teks": "19,5"},{"benar": true, "teks": "26,5"},{"benar": false, "teks": "42,5"},{"benar": false, "teks": "47,5"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Perhatikan tabel pendapatan toko kue berikut:<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Pendapatan (Juta)</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>21-26</td><td class='border px-2 py-1'>4</td></tr><tr><td class='border px-2 py-1'>27-32</td><td class='border px-2 py-1'>6</td></tr><tr><td class='border px-2 py-1'>33-38</td><td class='border px-2 py-1'>12</td></tr><tr><td class='border px-2 py-1'>39-44</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>45-50</td><td class='border px-2 py-1'>6</td></tr></tbody></table></div><br>Nilai modus data tersebut adalah …",
-    "pilihan": [{"benar": false, "teks": "34,6"},{"benar": false, "teks": "35,4"},{"benar": true, "teks": "36,1"},{"benar": false, "teks": "35,7"},{"benar": false, "teks": "36,5"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Pak Robi memiliki bengkel sepeda motor. Data banyak sepeda motor yang diperbaiki tiap harinya dalam satu bulan terakhir ditunjukkan pada tabel berikut:<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Unit</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>1-5</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>6-10</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>11-15</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>16-20</td><td class='border px-2 py-1'>11</td></tr></tbody></table></div><br>Rata-rata sepeda motor yang diperbaiki setiap harinya adalah sebanyak ... unit.",
-    "pilihan": [{"benar": false, "teks": "4"},{"benar": false, "teks": "7"},{"benar": true, "teks": "12"},{"benar": false, "teks": "14"},{"benar": false, "teks": "18"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Diketahui suku ke-6 dan suku ke-10 suatu barisan aritmetika adalah 15 and 3. Suku kedua barisan aritmetika adalah ...",
-    "pilihan": [{"benar": false, "teks": "24"},{"benar": false, "teks": "25"},{"benar": false, "teks": "26"},{"benar": true, "teks": "27"},{"benar": false, "teks": "28"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Diketahui barisan aritmetika dengan suku ke-4 dan suku ke-7 berturut-turut adalah 19 dan 31. Suku ke-50 barisan tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "103"},{"benar": true, "teks": "203"},{"benar": false, "teks": "303"},{"benar": false, "teks": "403"},{"benar": false, "teks": "503"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Nilai tengah dari data 15, 10, 12, 8, 13, 4, 15, 20, 11, 10, 9, 12, 19, 18, 17 adalah ...",
-    "pilihan": [{"benar": false, "teks": "10"},{"benar": false, "teks": "11"},{"true": true, "teks": "12"},{"benar": false, "teks": "13"},{"benar": false, "teks": "15"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Diketahui suku pertama dan rasio dari barisan geometri berturut-turut adalah 1 dan 3. Suku ke-6 barisan tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "9"},{"benar": false, "teks": "27"},{"benar": false, "teks": "49"},{"benar": false, "teks": "144"},{"benar": true, "teks": "243"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Berikut adalah data mengenai jumlah kelahiran anak perempuan tahun 2006–2016 pada suatu negara.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Tahun</th><th class='border px-2 py-1'>Jumlah Kelahiran</th></tr></thead><tbody><tr><td class='border px-2 py-1'>2006</td><td class='border px-2 py-1'>51.812</td></tr><tr><td class='border px-2 py-1'>2007</td><td class='border px-2 py-1'>54.850</td></tr><tr><td class='border px-2 py-1'>2008</td><td class='border px-2 py-1'>51.220</td></tr><tr><td class='border px-2 py-1'>2009</td><td class='border px-2 py-1'>50.324</td></tr><tr><td class='border px-2 py-1'>2010</td><td class='border px-2 py-1'>50.257</td></tr><tr><td class='border px-2 py-1'>2011</td><td class='border px-2 py-1'>53.115</td></tr><tr><td class='border px-2 py-1'>2012</td><td class='border px-2 py-1'>54.959</td></tr><tr><td class='border px-2 py-1'>2013</td><td class='border px-2 py-1'>49.582</td></tr><tr><td class='border px-2 py-1'>49.545</td></tr><tr><td class='border px-2 py-1'>2015</td><td class='border px-2 py-1'>51.915</td></tr><tr><td class='border px-2 py-1'>2016</td><td class='border px-2 py-1'>52.403</td></tr></tbody></table></div><br>Modus dari data tersebut adalah pada tahun ...",
-    "pilihan": [{"benar": true, "teks": "2007"},{"benar": false, "teks": "2008"},{"benar": false, "teks": "2009"},{"benar": false, "teks": "2010"},{"benar": false, "teks": "2011"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Perhatikan data berikut. 68, 50, 51, 50, 68, 50, 60, 52, 54, 75, 58, 51, 63, 50, 51, 59, 60, 56, 50, 52. Median data tersebut adalah ...",
-    "pilihan": [{"benar": true, "teks": "53"},{"benar": false, "teks": "52"},{"benar": false, "teks": "51"},{"benar": false, "teks": "50"},{"benar": false, "teks": "49"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Perhatikan tabel berikut:<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>41-45</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>46-50</td><td class='border px-2 py-1'>15</td></tr><tr><td class='border px-2 py-1'>51-55</td><td class='border px-2 py-1'>20</td></tr><tr><td class='border px-2 py-1'>56-60</td><td class='border px-2 py-1'>40</td></tr><tr><td class='border px-2 py-1'>61-65</td><td class='border px-2 py-1'>10</td></tr><tr><td class='border px-2 py-1'>66-70</td><td class='border px-2 py-1'>8</td></tr></tbody></table></div><br>Modus pada data tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "55,5"},{"benar": false, "teks": "56,5"},{"benar": true, "teks": "57,5"},{"benar": false, "teks": "58,5"},{"benar": false, "teks": "59,5"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Bakteri membelah diri menjadi 2 bagian setiap 2 jam. Jika pada pukul 12.00 banyaknya bakteri adalah 1.000, banyaknya bakteri pada pukul 20.00 di hari yang sama adalah ...",
-    "pilihan": [{"benar": false, "teks": "1.000"},{"benar": false, "teks": "5.000"},{"benar": false, "teks": "8.000"},{"benar": true, "teks": "16.000"},{"benar": false, "teks": "20.000"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Median dari data 5, 10, 18, 8, 20, 12, 15, 21, 19, 13, 9, 10, 7, 8 adalah ...",
-    "pilihan": [{"benar": false, "teks": "10"},{"benar": true, "teks": "11"},{"benar": false, "teks": "12"},{"benar": false, "teks": "13"},{"benar": false, "teks": "14"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Suatu situs penjualan online melakukan pendataan tentang jumlah komplain yang masuk dalam 30 hari terakhir. Hasilnya seperti pada tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Belanja Online (kali)</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>0-4</td><td class='border px-2 py-1'>25</td></tr><tr><td class='border px-2 py-1'>5-9</td><td class='border px-2 py-1'>11</td></tr><tr><td class='border px-2 py-1'>10-14</td><td class='border px-2 py-1'>1</td></tr><tr><td class='border px-2 py-1'>15-19</td><td class='border px-2 py-1'>3</td></tr></tbody></table></div><br>Interval/ panjang kelas pada tabel tersebut adalah ...",
-    "pilihan": [{"benar": true, "teks": "5"},{"benar": false, "teks": "6"},{"benar": false, "teks": "7"},{"benar": false, "teks": "8"},{"benar": false, "teks": "9"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Panjang keseluruhan tali yang dipotong menjadi 6 ruas dan panjang masing-masing potongan itu membentuk barisan geometri, dengan potongan tali yang paling pendek adalah 3 cm dan potongan tali paling panjang 96 cm adalah ... cm.",
-    "pilihan": [{"benar": false, "teks": "156"},{"benar": false, "teks": "159"},{"benar": false, "teks": "178"},{"benar": true, "teks": "189"},{"benar": false, "teks": "192"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Deret tak hingga dari barisan 8, 4, 2, 1, 1/2, 1/4, ... adalah ...",
-    "pilihan": [{"benar": false, "teks": "8"},{"benar": false, "teks": "10"},{"benar": false, "teks": "12"},{"benar": false, "teks": "14"},{"benar": true, "teks": "16"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Diketahui tabel survei mengenai uang yang dihabiskan untuk membeli pulsa listrik.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Banyak Konsumsi (dalam ribu rupiah)</th><th class='border px-2 py-1'>Banyak Orang</th></tr></thead><tbody><tr><td class='border px-2 py-1'>50-99</td><td class='border px-2 py-1'>23</td></tr><tr><td class='border px-2 py-1'>100-149</td><td class='border px-2 py-1'>30</td></tr><tr><td class='border px-2 py-1'>150-199</td><td class='border px-2 py-1'>22</td></tr><tr><td class='border px-2 py-1'>200-249</td><td class='border px-2 py-1'>14</td></tr><tr><td class='border px-2 py-1'>250-299</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>300-349</td><td class='border px-2 py-1'>3</td></tr></tbody></table></div><br>Interval/panjang kelas pada tabel tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "40"},{"benar": false, "teks": "49"},{"benar": true, "teks": "50"},{"benar": false, "teks": "51"},{"benar": false, "teks": "59"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Hasil produksi suatu pabrik per tahun mengikuti aturan barisan aritmetika. Produksi pada tahun pertama sebanyak 400 unit, tahun kedua 440, tahun ketiga 480, tahun keempat 520, dan begitu seterusnya. Pertambahan produksi setiap tahunnya adalah ...",
-    "pilihan": [{"benar": false, "teks": "30"},{"benar": true, "teks": "40"},{"benar": false, "teks": "50"},{"benar": false, "teks": "60"},{"benar": false, "teks": "70"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Diketahui nilai matematika 10 orang siswa sebagai berikut. 65, 80, 75, 95, 70, 85, 75, 79, 84, 90. Datum terbesar data tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "100"},{"benar": true, "teks": "95"},{"benar": false, "teks": "80"},{"benar": false, "teks": "65"},{"benar": false, "teks": "10"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Seutas kawat dipotong menjadi 6 bagian yang panjang masing- masing bagian membentuk barisan geometri. Panjang kawat terpendek adalah 5 cm dan terpanjang adalah 160 cm. Panjang kawat sebelum dipotong adalah ... cm.",
-    "pilihan": [{"benar": false, "teks": "210"},{"benar": false, "teks": "287"},{"benar": true, "teks": "315"},{"benar": false, "teks": "398"},{"benar": false, "teks": "402"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Nilai tengah dari data: 3, 6, 7, 5, 8, 4, 6, 9 adalah ...",
-    "pilihan": [{"benar": false, "teks": "4"},{"benar": false, "teks": "5"},{"benar": true, "teks": "6"},{"benar": false, "teks": "7"},{"benar": false, "teks": "8"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Diketahui suku pertama barisan geometri adalah 3 dan rasionya adalah 3. Jumlah 6 suku pertama adalah ...",
-    "pilihan": [{"benar": false, "teks": "343"},{"benar": false, "teks": "729"},{"benar": false, "teks": "1.024"},{"benar": true, "teks": "1.092"},{"benar": false, "teks": "2.184"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Diberikan data 36, 40, 40, 38, 37, 39, 41, 42, 38. Mean dari data tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "36"},{"benar": false, "teks": "37"},{"benar": false, "teks": "38"},{"benar": true, "teks": "39"},{"benar": false, "teks": "40"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Diketahui omset bulanan yang diperoleh seorang pemilik usaha jasa pemasangan wifi selama tahun 2023 adalah sebagai berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Omset (dalam juta rupiah)</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>1-5</td><td class='border px-2 py-1'>1</td></tr><tr><td class='border px-2 py-1'>6-10</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>11-15</td><td class='border px-2 py-1'>4</td></tr><tr><td class='border px-2 py-1'>16-20</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>21-25</td><td class='border px-2 py-1'>1</td></tr></tbody></table></div><br>Omset yang sering diperoleh adalah ...",
-    "pilihan": [{"benar": false, "teks": "10"},{"benar": true, "teks": "13"},{"benar": false, "teks": "18"},{"benar": false, "teks": "23"},{"benar": false, "teks": "24"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Perhatikan data jumlah protein yang terkandung dalam beberapa macam makanan cepat saji yang terpilih berikut ini.<br><br>23, 30, 20, 27, 44, 26, 35, 20, 29, 29, 25, 15, 18, 27, 19, 22, 12, 26, 34, 15, 27, 35, 26, 43, 35, 14, 24, 12, 23, 31, 40, 35, 38, 57, 22, 42, 24, 21, 27, 33.<br><br>Modus dari data tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "12"},{"benar": false, "teks": "24 dan 27"},{"benar": true, "teks": "27 dan 35"},{"benar": false, "teks": "27"},{"benar": false, "teks": "12 dan 35"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Rataan dari data: 3, 6, 7, 5, 8, 4, 6, 9 adalah ...",
-    "pilihan": [{"benar": false, "teks": "5"},{"benar": true, "teks": "6"},{"benar": false, "teks": "7"},{"benar": false, "teks": "8"},{"benar": false, "teks": "9"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Mean dari tabel berikut adalah ...<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>3</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>4</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>5</td><td class='border px-2 py-1'>4</td></tr><tr><td class='border px-2 py-1'>6</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>7</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>8</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>9</td><td class='border px-2 py-1'>1</td></tr></tbody></table></div>",
-    "pilihan": [{"benar": false, "teks": "8,3"},{"benar": false, "teks": "7,6"},{"benar": false, "teks": "6,2"},{"true": true, "teks": "5,7"},{"benar": false, "teks": "4,9"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>41-45</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>46-50</td><td class='border px-2 py-1'>15</td></tr><tr><td class='border px-2 py-1'>51-55</td><td class='border px-2 py-1'>20</td></tr><tr><td class='border px-2 py-1'>56-60</td><td class='border px-2 py-1'>40</td></tr><tr><td class='border px-2 py-1'>61-65</td><td class='border px-2 py-1'>10</td></tr><tr><td class='border px-2 py-1'>66-70</td><td class='border px-2 py-1'>8</td></tr></tbody></table></div><br>Interval/ panjang kelas pada tabel tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "9"},{"benar": false, "teks": "8"},{"benar": false, "teks": "7"},{"benar": false, "teks": "6"},{"benar": true, "teks": "5"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Modus dari data: 7, 5, 6, 8, 7, 3, 7, 5, 6, 7, 7, 8, 5, 6 adalah ...",
-    "pilihan": [{"benar": false, "teks": "8"},{"benar": true, "teks": "7"},{"benar": false, "teks": "6"},{"benar": false, "teks": "5"},{"benar": false, "teks": "3"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Pak Rio mempunyai kebun tebu. Pada tahun 2020, pendapatan pak Rio adalah sebesar Rp 5.000.000, tahun 2021 sebesar Rp 5.350.000, tahun 2022 sebesar Rp 5.700.000, dan begitu seterusnya. Pendapatan tiap tahun pak Rio tersebut membentuk barisan aritmetika. Beda dari barisan pendapatan pak Rio tersebut adalah ...",
-    "pilihan": [{"benar": true, "teks": "Rp 350.000"},{"benar": false, "teks": "Rp 700.000"},{"benar": false, "teks": "Rp 1.000.000"},{"benar": false, "teks": "Rp 1.250.000"},{"benar": false, "teks": "Rp 1.550.000"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Perhatikan data berikut. 70, 75, 70, 71, 81, 85, 84, 82, 83, 70, 41, 96, 85, 85. Nilai tengah nilai matematika siswa tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "70"},{"benar": true, "teks": "81,5"},{"benar": false, "teks": "82,5"},{"benar": false, "teks": "85"},{"benar": false, "teks": "96,5"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Seorang pengusaha kerajinan rotan mampu memproduksi tas rotan sebanyak 120 buah pada bulan pertama, 240 buah pada bulan kedua, 480 buah pada bulan ketiga, 960 buah pada bulan keempat, dan seterusnya. Hasil perbandingan produksi rotan dua bulan berurutan adalah ...",
-    "pilihan": [{"benar": false, "teks": "-1"},{"benar": false, "teks": "0"},{"benar": true, "teks": "2"},{"benar": false, "teks": "1"},{"benar": false, "teks": "3"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Median dari data: 77, 65, 37, 79, 58, 49, 69 adalah ...",
-    "pilihan": [{"benar": false, "teks": "37"},{"benar": false, "teks": "49"},{"benar": false, "teks": "58"},{"benar": true, "teks": "65"},{"benar": false, "teks": "69"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Diketahui suku pertama suatu barisan adalah 2 dan rasionya adalah 2. Suku ke-7 barisan tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "8"},{"benar": false, "teks": "32"},{"benar": false, "teks": "56"},{"benar": false, "teks": "64"},{"benar": true, "teks": "128"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>21-30</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>31-40</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>41-50</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>51-60</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>61-70</td><td class='border px-2 py-1'>1</td></tr></tbody></table></div><br>Modus dari data tabel tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "43,75"},{"benar": false, "teks": "44,15"},{"benar": true, "teks": "44,25"},{"benar": false, "teks": "44,5"},{"benar": false, "teks": "44,75"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Diketahui deret aritmatika 3 + 10 + 17 + 24 + … . Jumlah 10 suku pertama deret tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "75"},{"benar": false, "teks": "270"},{"benar": false, "teks": "310"},{"benar": false, "teks": "315"},{"benar": true, "teks": "345"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Berikut adalah data pengukuran durasi iklan televisi selama 1 jam penayangan suatu program.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Durasi Iklan (detik)</th><th class='border px-2 py-1'>Banyak Iklan</th></tr></thead><tbody><tr><td class='border px-2 py-1'>15-20</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>21-26</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>27-32</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>33-38</td><td class='border px-2 py-1'>6</td></tr><tr><td class='border px-2 py-1'>39-44</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>45-50</td><td class='border px-2 py-1'>3</td></tr></tbody></table></div><br>Interval/ panjang kelas pada tabel tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "4"},{"benar": false, "teks": "5"},{"benar": true, "teks": "6"},{"benar": false, "teks": "7"},{"benar": false, "teks": "8"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Perhatikan data berikut. 68, 50, 51, 50, 68, 50, 60, 52, 54, 75, 58, 51, 63, 50, 51, 59, 60, 56, 50, 52. Modus dari data tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "51"},{"benar": true, "teks": "50"},{"benar": false, "teks": "52"},{"benar": false, "teks": "60"},{"benar": false, "teks": "68"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>0-2</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>3-5</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>6-8</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>9-11</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>12-14</td><td class='border px-2 py-1'>11</td></tr><tr><td class='border px-2 py-1'>15-17</td><td class='border px-2 py-1'>5</td></tr></tbody></table></div><br>Tepi bawah pada kelas modus adalah ...",
-    "pilihan": [{"benar": false, "teks": "6,5"},{"benar": false, "teks": "7,5"},{"benar": false, "teks": "8,5"},{"benar": false, "teks": "9,5"},{"benar": true, "teks": "11,5"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Suku ke-51 barisan aritmetika 5, 8, 11, ... adalah ...",
-    "pilihan": [{"benar": false, "teks": "150"},{"benar": true, "teks": "155"},{"benar": false, "teks": "160"},{"benar": false, "teks": "165"},{"benar": false, "teks": "170"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Perhatikan data banyak lampu yang terjual disuatu toko berikut ini.<br><br>45, 40, 20, 26, 30, 18, 37, 42, 38, 15, 30, 23, 25, 30, 46, 45, 22, 27, 27, 21, 32, 45, 42, 29, 24, 31, 22, 30, 43, 32.<br><br>Banyak lampu yang sering terjual adalah ...",
-    "pilihan": [{"benar": false, "teks": "22"},{"benar": false, "teks": "27"},{"benar": true, "teks": "30"},{"benar": false, "teks": "32"},{"benar": false, "teks": "45"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Suku tengah dari barisan aritmetika 3, 5, 7, 9, ... 95 adalah ...",
-    "pilihan": [{"benar": false, "teks": "12"},{"benar": false, "teks": "30"},{"benar": true, "teks": "49"},{"benar": false, "teks": "53"},{"benar": false, "teks": "60"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Diketahui data pengunjung suatu toko selama 19 hari adalah sebagai berikut.<br><br>689, 1.200, 1.008, 578, 745, 800, 891, 492, 765, 805, 920, 664, 769, 845, 1.024, 466, 719, 777, 963.<br><br>Datum terkecil pada data tersebut adalah ...",
-    "pilihan": [{"benar": true, "teks": "466"},{"benar": false, "teks": "578"},{"benar": false, "teks": "745"},{"benar": false, "teks": "1.024"},{"benar": false, "teks": "1.008"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Suku ke-9 barisan geometri 1, 2, 4, ... adalah ...",
-    "pilihan": [{"benar": false, "teks": "32"},{"benar": false, "teks": "64"},{"benar": false, "teks": "172"},{"benar": false, "teks": "234"},{"benar": true, "teks": "256"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Diketahui suku pertama barisan aritmetika adalah 5, dan beda adalah 4. Deret 8 suku pertama adalah ...",
-    "pilihan": [{"benar": false, "teks": "29"},{"benar": false, "teks": "38"},{"benar": false, "teks": "84"},{"benar": true, "teks": "152"},{"benar": false, "teks": "176"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Berikut adalah data jumlah spare part mesin yang diproduksi perusahaan selama beberapa bulan pada tahun 2024.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Bulan</th><th class='border px-2 py-1'>Jumlah Spare Part yang Diproduksi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>Maret</td><td class='border px-2 py-1'>555</td></tr><tr><td class='border px-2 py-1'>April</td><td class='border px-2 py-1'>620</td></tr><tr><td class='border px-2 py-1'>Mei</td><td class='border px-2 py-1'>523</td></tr></tbody></table></div><br>Rata-rata spare part mesin yang diproduksi perusahaan selama bulan Maret sampai Mei pada tahun 2024 adalah ... unit.",
-    "pilihan": [{"benar": false, "teks": "356"},{"benar": false, "teks": "539"},{"benar": true, "teks": "566"},{"benar": false, "teks": "603"},{"benar": false, "teks": "619"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>41-45</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>46-50</td><td class='border px-2 py-1'>15</td></tr><tr><td class='border px-2 py-1'>51-55</td><td class='border px-2 py-1'>20</td></tr><tr><td class='border px-2 py-1'>56-60</td><td class='border px-2 py-1'>40</td></tr><tr><td class='border px-2 py-1'>61-65</td><td class='border px-2 py-1'>10</td></tr><tr><td class='border px-2 py-1'>66-70</td><td class='border px-2 py-1'>8</td></tr></tbody></table></div><br>Tepi atas pada kelas modus adalah ...",
-    "pilihan": [{"benar": false, "teks": "51,5"},{"benar": false, "teks": "55,5"},{"benar": false, "teks": "56,5"},{"benar": true, "teks": "60,5"},{"benar": false, "teks": "61,5"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Suku ke-10 dari barisan aritmetika 2, 7, 12, 17, ... adalah ...",
-    "pilihan": [{"benar": false, "teks": "45"},{"benar": true, "teks": "47"},{"benar": false, "teks": "50"},{"benar": false, "teks": "52"},{"benar": false, "teks": "55"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Simpangan rata-rata dari data 4, 6, 8, 10, 12 adalah ...",
-    "pilihan": [{"benar": false, "teks": "1,6"},{"benar": false, "teks": "2,0"},{"benar": true, "teks": "2,4"},{"benar": false, "teks": "2,8"},{"benar": false, "teks": "3,2"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Jumlah 20 suku pertama deret aritmetika 3 + 8 + 13 + 18 + ... adalah ...",
-    "pilihan": [{"benar": false, "teks": "980"},{"benar": false, "teks": "990"},{"benar": true, "teks": "1.010"},{"benar": false, "teks": "1.020"},{"benar": false, "teks": "1.030"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Rata-rata nilai ulangan matematika dari 35 siswa adalah 7,5. Jika nilai 5 siswa digabungkan, rata-ratanya menjadi 7,8. Rata-rata nilai 5 siswa tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "8,5"},{"benar": false, "teks": "9,0"},{"true": true, "teks": "9,9"},{"benar": false, "teks": "10,2"},{"benar": false, "teks": "10,5"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Diketahui deret geometri dengan suku pertama 4 dan rasio 2. Jumlah 8 suku pertama deret tersebut adalah ...",
-    "pilihan": [{"benar": false, "teks": "512"},{"benar": false, "teks": "768"},{"true": true, "teks": "1.020"},{"benar": false, "teks": "1.024"},{"benar": false, "teks": "2.040"}],
-    "kategori": "PAS - Deret"
-  },
-  {
-    "pertanyaan": "Kuartil bawah (Q1) dari data: 3, 5, 7, 8, 10, 12, 15, 16, 18 adalah ...",
-    "pilihan": [{"benar": false, "teks": "5"},{"benar": true, "teks": "6"},{"benar": false, "teks": "7"},{"benar": false, "teks": "8"},{"benar": false, "teks": "10"}],
-    "kategori": "PAS - Statistik"
-  },
-  {
-    "pertanyaan": "Sebuah dadu dilempar sekali. Peluang muncul mata dadu bilangan prima adalah ...",
-    "pilihan": [{"benar": false, "teks": "1/6"},{"benar": false, "teks": "1/3"},{"benar": true, "teks": "1/2"},{"benar": false, "teks": "2/3"},{"benar": false, "teks": "5/6"}],
-    "kategori": "PAS - Peluang"
-  },
-  {
-    "pertanyaan": "Diketahui segitiga siku-siku dengan sisi miring 17 cm dan salah satu sisi tegaknya 15 cm. Panjang sisi tegak lainnya adalah ...",
-    "pilihan": [{"benar": false, "teks": "6 cm"},{"benar": true, "teks": "8 cm"},{"benar": false, "teks": "10 cm"},{"benar": false, "teks": "12 cm"},{"benar": false, "teks": "14 cm"}],
-    "kategori": "PAS - Trigonometri"
-  },
-  {
-    "pertanyaan": "Nilai dari sin 30° + cos 60° adalah ...",
-    "pilihan": [{"benar": false, "teks": "0"},{"benar": false, "teks": "0,5"},{"benar": true, "teks": "1"},{"benar": false, "teks": "1,5"},{"benar": false, "teks": "2"}],
-    "kategori": "PAS - Trigonometri"
-  },
-  {
-    "pertanyaan": "Diketahui fungsi f(x) = 2x + 3. Nilai f(5) adalah ...",
-    "pilihan": [{"benar": false, "teks": "8"},{"benar": false, "teks": "10"},{"benar": true, "teks": "13"},{"benar": false, "teks": "15"},{"benar": false, "teks": "18"}],
-    "kategori": "PAS - Fungsi"
-  }
-];
+    const soalKelasX = [
+      {
+        "pertanyaan": "Beda dari barisan aritmetika 23, 27, 31, 35, … adalah …",
+        "pilihan": [
+          {"benar": false, "teks": "1"},
+          {"benar": false, "teks": "2"},
+          {"benar": false, "teks": "3"},
+          {"benar": true, "teks": "4"},
+          {"benar": false, "teks": "5"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Diketahui barisan aritmetika: 101, 112, 123, 134, 145, 156, 167, 178, 189, 200, 211,… suku awal dari barisan tersebut adalah …",
+        "pilihan": [
+          {"benar": true, "teks": "101"},
+          {"benar": false, "teks": "123"},
+          {"benar": false, "teks": "156"},
+          {"benar": false, "teks": "189"},
+          {"benar": false, "teks": "211"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Median dari data 37, 47, 1, 15, 57, 24, 20, 11, 19, 50, 28, 37 adalah …",
+        "pilihan": [
+          {"benar": false, "teks": "17,5"},
+          {"benar": false, "teks": "19,5"},
+          {"benar": true, "teks": "26,5"},
+          {"benar": false, "teks": "42,5"},
+          {"benar": false, "teks": "47,5"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Perhatikan tabel pendapatan toko kue berikut:<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Pendapatan (Juta)</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>21-26</td><td class='border px-2 py-1'>4</td></tr><tr><td class='border px-2 py-1'>27-32</td><td class='border px-2 py-1'>6</td></tr><tr><td class='border px-2 py-1'>33-38</td><td class='border px-2 py-1'>12</td></tr><tr><td class='border px-2 py-1'>39-44</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>45-50</td><td class='border px-2 py-1'>6</td></tr></tbody></table></div><br>Nilai modus data tersebut adalah …",
+        "pilihan": [
+          {"benar": false, "teks": "34,6"},
+          {"benar": false, "teks": "35,4"},
+          {"benar": true, "teks": "36,1"},
+          {"benar": false, "teks": "35,7"},
+          {"benar": false, "teks": "36,5"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Pak Robi memiliki bengkel sepeda motor. Data banyak sepeda motor yang diperbaiki tiap harinya dalam satu bulan terakhir ditunjukkan pada tabel berikut:<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Unit</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>1-5</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>6-10</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>11-15</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>16-20</td><td class='border px-2 py-1'>11</td></tr></tbody></table></div><br>Rata-rata sepeda motor yang diperbaiki setiap harinya adalah sebanyak ... unit.",
+        "pilihan": [
+          {"benar": false, "teks": "4"},
+          {"benar": false, "teks": "7"},
+          {"benar": true, "teks": "12"},
+          {"benar": false, "teks": "14"},
+          {"benar": false, "teks": "18"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Diketahui suku ke-6 dan suku ke-10 suatu barisan aritmetika adalah 15 and 3. Suku kedua barisan aritmetika adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "24"},
+          {"benar": false, "teks": "25"},
+          {"benar": false, "teks": "26"},
+          {"benar": true, "teks": "27"},
+          {"benar": false, "teks": "28"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Diketahui barisan aritmetika dengan suku ke-4 dan suku ke-7 berturut-turut adalah 19 dan 31. Suku ke-50 barisan tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "103"},
+          {"benar": true, "teks": "203"},
+          {"benar": false, "teks": "303"},
+          {"benar": false, "teks": "403"},
+          {"benar": false, "teks": "503"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Nilai tengah dari data 15, 10, 12, 8, 13, 4, 15, 20, 11, 10, 9, 12, 19, 18, 17 adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "10"},
+          {"benar": false, "teks": "11"},
+          {"benar": true, "teks": "12"},   <!-- Perbaikan: dari "true": true menjadi "benar": true -->
+          {"benar": false, "teks": "13"},
+          {"benar": false, "teks": "15"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Diketahui suku pertama dan rasio dari barisan geometri berturut-turut adalah 1 dan 3. Suku ke-6 barisan tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "9"},
+          {"benar": false, "teks": "27"},
+          {"benar": false, "teks": "49"},
+          {"benar": false, "teks": "144"},
+          {"benar": true, "teks": "243"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Berikut adalah data mengenai jumlah kelahiran anak perempuan tahun 2006–2016 pada suatu negara.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Tahun</th><th class='border px-2 py-1'>Jumlah Kelahiran</th></tr></thead><tbody><tr><td class='border px-2 py-1'>2006</td><td class='border px-2 py-1'>51.812</td></tr><tr><td class='border px-2 py-1'>2007</td><td class='border px-2 py-1'>54.850</td></tr><tr><td class='border px-2 py-1'>2008</td><td class='border px-2 py-1'>51.220</td></tr><tr><td class='border px-2 py-1'>2009</td><td class='border px-2 py-1'>50.324</td></tr><tr><td class='border px-2 py-1'>2010</td><td class='border px-2 py-1'>50.257</td></tr><tr><td class='border px-2 py-1'>2011</td><td class='border px-2 py-1'>53.115</td></tr><tr><td class='border px-2 py-1'>2012</td><td class='border px-2 py-1'>54.959</td></tr><tr><td class='border px-2 py-1'>2013</td><td class='border px-2 py-1'>49.582</td></tr><tr><td class='border px-2 py-1'>2014</td><td class='border px-2 py-1'>49.545</td></tr><tr><td class='border px-2 py-1'>2015</td><td class='border px-2 py-1'>51.915</td></tr><tr><td class='border px-2 py-1'>2016</td><td class='border px-2 py-1'>52.403</td></tr></tbody></table></div><br>Modus dari data tersebut adalah pada tahun ...",
+        "pilihan": [
+          {"benar": true, "teks": "2007"},
+          {"benar": false, "teks": "2008"},
+          {"benar": false, "teks": "2009"},
+          {"benar": false, "teks": "2010"},
+          {"benar": false, "teks": "2011"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Perhatikan data berikut. 68, 50, 51, 50, 68, 50, 60, 52, 54, 75, 58, 51, 63, 50, 51, 59, 60, 56, 50, 52. Median data tersebut adalah ...",
+        "pilihan": [
+          {"benar": true, "teks": "53"},
+          {"benar": false, "teks": "52"},
+          {"benar": false, "teks": "51"},
+          {"benar": false, "teks": "50"},
+          {"benar": false, "teks": "49"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Perhatikan tabel berikut:<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>41-45</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>46-50</td><td class='border px-2 py-1'>15</td></tr><tr><td class='border px-2 py-1'>51-55</td><td class='border px-2 py-1'>20</td></tr><tr><td class='border px-2 py-1'>56-60</td><td class='border px-2 py-1'>40</td></tr><tr><td class='border px-2 py-1'>61-65</td><td class='border px-2 py-1'>10</td></tr><tr><td class='border px-2 py-1'>66-70</td><td class='border px-2 py-1'>8</td></tr></tbody></table></div><br>Modus pada data tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "55,5"},
+          {"benar": false, "teks": "56,5"},
+          {"benar": true, "teks": "57,5"},
+          {"benar": false, "teks": "58,5"},
+          {"benar": false, "teks": "59,5"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Bakteri membelah diri menjadi 2 bagian setiap 2 jam. Jika pada pukul 12.00 banyaknya bakteri adalah 1.000, banyaknya bakteri pada pukul 20.00 di hari yang sama adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "1.000"},
+          {"benar": false, "teks": "5.000"},
+          {"benar": false, "teks": "8.000"},
+          {"benar": true, "teks": "16.000"},
+          {"benar": false, "teks": "20.000"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Median dari data 5, 10, 18, 8, 20, 12, 15, 21, 19, 13, 9, 10, 7, 8 adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "10"},
+          {"benar": true, "teks": "11"},
+          {"benar": false, "teks": "12"},
+          {"benar": false, "teks": "13"},
+          {"benar": false, "teks": "14"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Suatu situs penjualan online melakukan pendataan tentang jumlah komplain yang masuk dalam 30 hari terakhir. Hasilnya seperti pada tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Belanja Online (kali)</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>0-4</td><td class='border px-2 py-1'>25</td></tr><tr><td class='border px-2 py-1'>5-9</td><td class='border px-2 py-1'>11</td></tr><tr><td class='border px-2 py-1'>10-14</td><td class='border px-2 py-1'>1</td></tr><tr><td class='border px-2 py-1'>15-19</td><td class='border px-2 py-1'>3</td></tr></tbody></table></div><br>Interval/ panjang kelas pada tabel tersebut adalah ...",
+        "pilihan": [
+          {"benar": true, "teks": "5"},
+          {"benar": false, "teks": "6"},
+          {"benar": false, "teks": "7"},
+          {"benar": false, "teks": "8"},
+          {"benar": false, "teks": "9"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Panjang keseluruhan tali yang dipotong menjadi 6 ruas dan panjang masing-masing potongan itu membentuk barisan geometri, dengan potongan tali yang paling pendek adalah 3 cm dan potongan tali paling panjang 96 cm adalah ... cm.",
+        "pilihan": [
+          {"benar": false, "teks": "156"},
+          {"benar": false, "teks": "159"},
+          {"benar": false, "teks": "178"},
+          {"benar": true, "teks": "189"},
+          {"benar": false, "teks": "192"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Deret tak hingga dari barisan 8, 4, 2, 1, 1/2, 1/4, ... adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "8"},
+          {"benar": false, "teks": "10"},
+          {"benar": false, "teks": "12"},
+          {"benar": false, "teks": "14"},
+          {"benar": true, "teks": "16"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Diketahui tabel survei mengenai uang yang dihabiskan untuk membeli pulsa listrik.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Banyak Konsumsi (dalam ribu rupiah)</th><th class='border px-2 py-1'>Banyak Orang</th></tr></thead><tbody><tr><td class='border px-2 py-1'>50-99</td><td class='border px-2 py-1'>23</td></tr><tr><td class='border px-2 py-1'>100-149</td><td class='border px-2 py-1'>30</td></tr><tr><td class='border px-2 py-1'>150-199</td><td class='border px-2 py-1'>22</td></tr><tr><td class='border px-2 py-1'>200-249</td><td class='border px-2 py-1'>14</td></tr><tr><td class='border px-2 py-1'>250-299</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>300-349</td><td class='border px-2 py-1'>3</td></tr></tbody></table></div><br>Interval/panjang kelas pada tabel tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "40"},
+          {"benar": false, "teks": "49"},
+          {"benar": true, "teks": "50"},
+          {"benar": false, "teks": "51"},
+          {"benar": false, "teks": "59"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Hasil produksi suatu pabrik per tahun mengikuti aturan barisan aritmetika. Produksi pada tahun pertama sebanyak 400 unit, tahun kedua 440, tahun ketiga 480, tahun keempat 520, dan begitu seterusnya. Pertambahan produksi setiap tahunnya adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "30"},
+          {"benar": true, "teks": "40"},
+          {"benar": false, "teks": "50"},
+          {"benar": false, "teks": "60"},
+          {"benar": false, "teks": "70"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Diketahui nilai matematika 10 orang siswa sebagai berikut. 65, 80, 75, 95, 70, 85, 75, 79, 84, 90. Datum terbesar data tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "100"},
+          {"benar": true, "teks": "95"},
+          {"benar": false, "teks": "80"},
+          {"benar": false, "teks": "65"},
+          {"benar": false, "teks": "10"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Seutas kawat dipotong menjadi 6 bagian yang panjang masing- masing bagian membentuk barisan geometri. Panjang kawat terpendek adalah 5 cm dan terpanjang adalah 160 cm. Panjang kawat sebelum dipotong adalah ... cm.",
+        "pilihan": [
+          {"benar": false, "teks": "210"},
+          {"benar": false, "teks": "287"},
+          {"benar": true, "teks": "315"},
+          {"benar": false, "teks": "398"},
+          {"benar": false, "teks": "402"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Nilai tengah dari data: 3, 6, 7, 5, 8, 4, 6, 9 adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "4"},
+          {"benar": false, "teks": "5"},
+          {"benar": true, "teks": "6"},
+          {"benar": false, "teks": "7"},
+          {"benar": false, "teks": "8"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Diketahui suku pertama barisan geometri adalah 3 dan rasionya adalah 3. Jumlah 6 suku pertama adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "343"},
+          {"benar": false, "teks": "729"},
+          {"benar": false, "teks": "1.024"},
+          {"benar": true, "teks": "1.092"},
+          {"benar": false, "teks": "2.184"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Diberikan data 36, 40, 40, 38, 37, 39, 41, 42, 38. Mean dari data tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "36"},
+          {"benar": false, "teks": "37"},
+          {"benar": false, "teks": "38"},
+          {"benar": true, "teks": "39"},
+          {"benar": false, "teks": "40"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Diketahui omset bulanan yang diperoleh seorang pemilik usaha jasa pemasangan wifi selama tahun 2023 adalah sebagai berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Omset (dalam juta rupiah)</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>1-5</td><td class='border px-2 py-1'>1</td></tr><tr><td class='border px-2 py-1'>6-10</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>11-15</td><td class='border px-2 py-1'>4</td></tr><tr><td class='border px-2 py-1'>16-20</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>21-25</td><td class='border px-2 py-1'>1</td></tr></tbody></table></div><br>Omset yang sering diperoleh adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "10"},
+          {"benar": true, "teks": "13"},
+          {"benar": false, "teks": "18"},
+          {"benar": false, "teks": "23"},
+          {"benar": false, "teks": "24"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Perhatikan data jumlah protein yang terkandung dalam beberapa macam makanan cepat saji yang terpilih berikut ini.<br><br>23, 30, 20, 27, 44, 26, 35, 20, 29, 29, 25, 15, 18, 27, 19, 22, 12, 26, 34, 15, 27, 35, 26, 43, 35, 14, 24, 12, 23, 31, 40, 35, 38, 57, 22, 42, 24, 21, 27, 33.<br><br>Modus dari data tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "12"},
+          {"benar": false, "teks": "24 dan 27"},
+          {"benar": true, "teks": "27 dan 35"},
+          {"benar": false, "teks": "27"},
+          {"benar": false, "teks": "12 dan 35"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Rataan dari data: 3, 6, 7, 5, 8, 4, 6, 9 adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "5"},
+          {"benar": true, "teks": "6"},
+          {"benar": false, "teks": "7"},
+          {"benar": false, "teks": "8"},
+          {"benar": false, "teks": "9"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Mean dari tabel berikut adalah ...<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>3</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>4</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>5</td><td class='border px-2 py-1'>4</td></tr><tr><td class='border px-2 py-1'>6</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>7</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>8</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>9</td><td class='border px-2 py-1'>1</td></tr></tbody></table></div>",
+        "pilihan": [
+          {"benar": false, "teks": "8,3"},
+          {"benar": false, "teks": "7,6"},
+          {"benar": false, "teks": "6,2"},
+          {"benar": true, "teks": "5,7"},
+          {"benar": false, "teks": "4,9"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>41-45</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>46-50</td><td class='border px-2 py-1'>15</td></tr><tr><td class='border px-2 py-1'>51-55</td><td class='border px-2 py-1'>20</td></tr><tr><td class='border px-2 py-1'>56-60</td><td class='border px-2 py-1'>40</td></tr><tr><td class='border px-2 py-1'>61-65</td><td class='border px-2 py-1'>10</td></tr><tr><td class='border px-2 py-1'>66-70</td><td class='border px-2 py-1'>8</td></tr></tbody></table></div><br>Interval/ panjang kelas pada tabel tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "9"},
+          {"benar": false, "teks": "8"},
+          {"benar": false, "teks": "7"},
+          {"benar": false, "teks": "6"},
+          {"benar": true, "teks": "5"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Modus dari data: 7, 5, 6, 8, 7, 3, 7, 5, 6, 7, 7, 8, 5, 6 adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "8"},
+          {"benar": true, "teks": "7"},
+          {"benar": false, "teks": "6"},
+          {"benar": false, "teks": "5"},
+          {"benar": false, "teks": "3"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Pak Rio mempunyai kebun tebu. Pada tahun 2020, pendapatan pak Rio adalah sebesar Rp 5.000.000, tahun 2021 sebesar Rp 5.350.000, tahun 2022 sebesar Rp 5.700.000, dan begitu seterusnya. Pendapatan tiap tahun pak Rio tersebut membentuk barisan aritmetika. Beda dari barisan pendapatan pak Rio tersebut adalah ...",
+        "pilihan": [
+          {"benar": true, "teks": "Rp 350.000"},
+          {"benar": false, "teks": "Rp 700.000"},
+          {"benar": false, "teks": "Rp 1.000.000"},
+          {"benar": false, "teks": "Rp 1.250.000"},
+          {"benar": false, "teks": "Rp 1.550.000"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Perhatikan data berikut. 70, 75, 70, 71, 81, 85, 84, 82, 83, 70, 41, 96, 85, 85. Nilai tengah nilai matematika siswa tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "70"},
+          {"benar": true, "teks": "81,5"},
+          {"benar": false, "teks": "82,5"},
+          {"benar": false, "teks": "85"},
+          {"benar": false, "teks": "96,5"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Seorang pengusaha kerajinan rotan mampu memproduksi tas rotan sebanyak 120 buah pada bulan pertama, 240 buah pada bulan kedua, 480 buah pada bulan ketiga, 960 buah pada bulan keempat, dan seterusnya. Hasil perbandingan produksi rotan dua bulan berurutan adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "-1"},
+          {"benar": false, "teks": "0"},
+          {"benar": true, "teks": "2"},
+          {"benar": false, "teks": "1"},
+          {"benar": false, "teks": "3"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Median dari data: 77, 65, 37, 79, 58, 49, 69 adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "37"},
+          {"benar": false, "teks": "49"},
+          {"benar": false, "teks": "58"},
+          {"benar": true, "teks": "65"},
+          {"benar": false, "teks": "69"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Diketahui suku pertama suatu barisan adalah 2 dan rasionya adalah 2. Suku ke-7 barisan tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "8"},
+          {"benar": false, "teks": "32"},
+          {"benar": false, "teks": "56"},
+          {"benar": false, "teks": "64"},
+          {"benar": true, "teks": "128"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>21-30</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>31-40</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>41-50</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>51-60</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>61-70</td><td class='border px-2 py-1'>1</td></tr></tbody></table></div><br>Modus dari data tabel tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "43,75"},
+          {"benar": false, "teks": "44,15"},
+          {"benar": true, "teks": "44,25"},
+          {"benar": false, "teks": "44,5"},
+          {"benar": false, "teks": "44,75"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Diketahui deret aritmatika 3 + 10 + 17 + 24 + … . Jumlah 10 suku pertama deret tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "75"},
+          {"benar": false, "teks": "270"},
+          {"benar": false, "teks": "310"},
+          {"benar": false, "teks": "315"},
+          {"benar": true, "teks": "345"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Berikut adalah data pengukuran durasi iklan televisi selama 1 jam penayangan suatu program.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Durasi Iklan (detik)</th><th class='border px-2 py-1'>Banyak Iklan</th></tr></thead><tbody><tr><td class='border px-2 py-1'>15-20</td><td class='border px-2 py-1'>3</td></tr><tr><td class='border px-2 py-1'>21-26</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>27-32</td><td class='border px-2 py-1'>8</td></tr><tr><td class='border px-2 py-1'>33-38</td><td class='border px-2 py-1'>6</td></tr><tr><td class='border px-2 py-1'>39-44</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>45-50</td><td class='border px-2 py-1'>3</td></tr></tbody></table></div><br>Interval/ panjang kelas pada tabel tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "4"},
+          {"benar": false, "teks": "5"},
+          {"benar": true, "teks": "6"},
+          {"benar": false, "teks": "7"},
+          {"benar": false, "teks": "8"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Perhatikan data berikut. 68, 50, 51, 50, 68, 50, 60, 52, 54, 75, 58, 51, 63, 50, 51, 59, 60, 56, 50, 52. Modus dari data tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "51"},
+          {"benar": true, "teks": "50"},
+          {"benar": false, "teks": "52"},
+          {"benar": false, "teks": "60"},
+          {"benar": false, "teks": "68"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>0-2</td><td class='border px-2 py-1'>2</td></tr><tr><td class='border px-2 py-1'>3-5</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>6-8</td><td class='border px-2 py-1'>5</td></tr><tr><td class='border px-2 py-1'>9-11</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>12-14</td><td class='border px-2 py-1'>11</td></tr><tr><td class='border px-2 py-1'>15-17</td><td class='border px-2 py-1'>5</td></tr></tbody></table></div><br>Tepi bawah pada kelas modus adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "6,5"},
+          {"benar": false, "teks": "7,5"},
+          {"benar": false, "teks": "8,5"},
+          {"benar": false, "teks": "9,5"},
+          {"benar": true, "teks": "11,5"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Suku ke-51 barisan aritmetika 5, 8, 11, ... adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "150"},
+          {"benar": true, "teks": "155"},
+          {"benar": false, "teks": "160"},
+          {"benar": false, "teks": "165"},
+          {"benar": false, "teks": "170"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Perhatikan data banyak lampu yang terjual disuatu toko berikut ini.<br><br>45, 40, 20, 26, 30, 18, 37, 42, 38, 15, 30, 23, 25, 30, 46, 45, 22, 27, 27, 21, 32, 45, 42, 29, 24, 31, 22, 30, 43, 32.<br><br>Banyak lampu yang sering terjual adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "22"},
+          {"benar": false, "teks": "27"},
+          {"benar": true, "teks": "30"},
+          {"benar": false, "teks": "32"},
+          {"benar": false, "teks": "45"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Suku tengah dari barisan aritmetika 3, 5, 7, 9, ... 95 adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "12"},
+          {"benar": false, "teks": "30"},
+          {"benar": true, "teks": "49"},
+          {"benar": false, "teks": "53"},
+          {"benar": false, "teks": "60"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Diketahui data pengunjung suatu toko selama 19 hari adalah sebagai berikut.<br><br>689, 1.200, 1.008, 578, 745, 800, 891, 492, 765, 805, 920, 664, 769, 845, 1.024, 466, 719, 777, 963.<br><br>Datum terkecil pada data tersebut adalah ...",
+        "pilihan": [
+          {"benar": true, "teks": "466"},
+          {"benar": false, "teks": "578"},
+          {"benar": false, "teks": "745"},
+          {"benar": false, "teks": "1.024"},
+          {"benar": false, "teks": "1.008"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Suku ke-9 barisan geometri 1, 2, 4, ... adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "32"},
+          {"benar": false, "teks": "64"},
+          {"benar": false, "teks": "172"},
+          {"benar": false, "teks": "234"},
+          {"benar": true, "teks": "256"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Diketahui suku pertama barisan aritmetika adalah 5, dan beda adalah 4. Deret 8 suku pertama adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "29"},
+          {"benar": false, "teks": "38"},
+          {"benar": false, "teks": "84"},
+          {"benar": true, "teks": "152"},
+          {"benar": false, "teks": "176"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Berikut adalah data jumlah spare part mesin yang diproduksi perusahaan selama beberapa bulan pada tahun 2024.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Bulan</th><th class='border px-2 py-1'>Jumlah Spare Part yang Diproduksi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>Maret</td><td class='border px-2 py-1'>555</td></tr><tr><td class='border px-2 py-1'>April</td><td class='border px-2 py-1'>620</td></tr><tr><td class='border px-2 py-1'>Mei</td><td class='border px-2 py-1'>523</td></tr></tbody></table></div><br>Rata-rata spare part mesin yang diproduksi perusahaan selama bulan Maret sampai Mei pada tahun 2024 adalah ... unit.",
+        "pilihan": [
+          {"benar": false, "teks": "356"},
+          {"benar": false, "teks": "539"},
+          {"benar": true, "teks": "566"},
+          {"benar": false, "teks": "603"},
+          {"benar": false, "teks": "619"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Perhatikan tabel berikut.<br><br><div class='overflow-x-auto'><table class='table-auto border border-gray-400 w-full text-center text-sm'><thead><tr><th class='border px-2 py-1'>Nilai</th><th class='border px-2 py-1'>Frekuensi</th></tr></thead><tbody><tr><td class='border px-2 py-1'>41-45</td><td class='border px-2 py-1'>7</td></tr><tr><td class='border px-2 py-1'>46-50</td><td class='border px-2 py-1'>15</td></tr><tr><td class='border px-2 py-1'>51-55</td><td class='border px-2 py-1'>20</td></tr><tr><td class='border px-2 py-1'>56-60</td><td class='border px-2 py-1'>40</td></tr><tr><td class='border px-2 py-1'>61-65</td><td class='border px-2 py-1'>10</td></tr><tr><td class='border px-2 py-1'>66-70</td><td class='border px-2 py-1'>8</td></tr></tbody></table></div><br>Tepi atas pada kelas modus adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "51,5"},
+          {"benar": false, "teks": "55,5"},
+          {"benar": false, "teks": "56,5"},
+          {"benar": true, "teks": "60,5"},
+          {"benar": false, "teks": "61,5"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Suku ke-10 dari barisan aritmetika 2, 7, 12, 17, ... adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "45"},
+          {"benar": true, "teks": "47"},
+          {"benar": false, "teks": "50"},
+          {"benar": false, "teks": "52"},
+          {"benar": false, "teks": "55"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Simpangan rata-rata dari data 4, 6, 8, 10, 12 adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "1,6"},
+          {"benar": false, "teks": "2,0"},
+          {"benar": true, "teks": "2,4"},
+          {"benar": false, "teks": "2,8"},
+          {"benar": false, "teks": "3,2"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Jumlah 20 suku pertama deret aritmetika 3 + 8 + 13 + 18 + ... adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "980"},
+          {"benar": false, "teks": "990"},
+          {"benar": true, "teks": "1.010"},
+          {"benar": false, "teks": "1.020"},
+          {"benar": false, "teks": "1.030"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Rata-rata nilai ulangan matematika dari 35 siswa adalah 7,5. Jika nilai 5 siswa digabungkan, rata-ratanya menjadi 7,8. Rata-rata nilai 5 siswa tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "8,5"},
+          {"benar": false, "teks": "9,0"},
+          {"benar": true, "teks": "9,9"},
+          {"benar": false, "teks": "10,2"},
+          {"benar": false, "teks": "10,5"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Diketahui deret geometri dengan suku pertama 4 dan rasio 2. Jumlah 8 suku pertama deret tersebut adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "512"},
+          {"benar": false, "teks": "768"},
+          {"benar": true, "teks": "1.020"},
+          {"benar": false, "teks": "1.024"},
+          {"benar": false, "teks": "2.040"}
+        ],
+        "kategori": "PAS - Deret"
+      },
+      {
+        "pertanyaan": "Kuartil bawah (Q1) dari data: 3, 5, 7, 8, 10, 12, 15, 16, 18 adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "5"},
+          {"benar": true, "teks": "6"},
+          {"benar": false, "teks": "7"},
+          {"benar": false, "teks": "8"},
+          {"benar": false, "teks": "10"}
+        ],
+        "kategori": "PAS - Statistik"
+      },
+      {
+        "pertanyaan": "Sebuah dadu dilempar sekali. Peluang muncul mata dadu bilangan prima adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "1/6"},
+          {"benar": false, "teks": "1/3"},
+          {"benar": true, "teks": "1/2"},
+          {"benar": false, "teks": "2/3"},
+          {"benar": false, "teks": "5/6"}
+        ],
+        "kategori": "PAS - Peluang"
+      },
+      {
+        "pertanyaan": "Diketahui segitiga siku-siku dengan sisi miring 17 cm dan salah satu sisi tegaknya 15 cm. Panjang sisi tegak lainnya adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "6 cm"},
+          {"benar": true, "teks": "8 cm"},
+          {"benar": false, "teks": "10 cm"},
+          {"benar": false, "teks": "12 cm"},
+          {"benar": false, "teks": "14 cm"}
+        ],
+        "kategori": "PAS - Trigonometri"
+      },
+      {
+        "pertanyaan": "Nilai dari sin 30° + cos 60° adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "0"},
+          {"benar": false, "teks": "0,5"},
+          {"benar": true, "teks": "1"},
+          {"benar": false, "teks": "1,5"},
+          {"benar": false, "teks": "2"}
+        ],
+        "kategori": "PAS - Trigonometri"
+      },
+      {
+        "pertanyaan": "Diketahui fungsi f(x) = 2x + 3. Nilai f(5) adalah ...",
+        "pilihan": [
+          {"benar": false, "teks": "8"},
+          {"benar": false, "teks": "10"},
+          {"benar": true, "teks": "13"},
+          {"benar": false, "teks": "15"},
+          {"benar": false, "teks": "18"}
+        ],
+        "kategori": "PAS - Fungsi"
+      }
+    ];
 
-const soalKelasXI = [
-  {
-    "pertanyaan": "Hasil dari 4! adalah ...",
-    "pilihan": [
-      { "benar": true, "teks": "24" },
-      { "benar": false, "teks": "1" },
-      { "benar": false, "teks": "8" },
-      { "benar": false, "teks": "16" },
-      { "benar": false, "teks": "32" }
-    ]
-  },
-  {
-    "pertanyaan": "Dari 10 orang yang mendaftar di suatu perusahaan, hanya akan diterima 4 orang sebagai karyawan. Banyaknya cara untuk memilih keempat orang tersebut adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "72" },
-      { "benar": false, "teks": "90" },
-      { "benar": false, "teks": "110" },
-      { "benar": false, "teks": "180" },
-      { "benar": true, "teks": "210" }
-    ]
-  },
-  {
-    "pertanyaan": "Banyak susunan tempat duduk yang dapat dibuat dari 6 orang pada sebuah meja bundar adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "10" },
-      { "benar": false, "teks": "12" },
-      { "benar": false, "teks": "70" },
-      { "benar": false, "teks": "90" },
-      { "benar": true, "teks": "120" }
-    ]
-  },
-  {
-    "pertanyaan": "Banyak susunan 3 huruf yang dapat dibentuk dari huruf A, B, C, dan D, jika huruf-huruf penyusunnya tersebut boleh diulang adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "4" },
-      { "benar": false, "teks": "16" },
-      { "benar": true, "teks": "64" },
-      { "benar": false, "teks": "256" },
-      { "benar": false, "teks": "1.024" }
-    ]
-  },
-  {
-    "pertanyaan": "Hasil dari 4!/3! adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "1" },
-      { "benar": false, "teks": "8" },
-      { "benar": false, "teks": "3" },
-      { "benar": true, "teks": "4" },
-      { "benar": false, "teks": "5" }
-    ]
-  },
-  {
-    "pertanyaan": "Laboratorium komputer SMK Taruna Pekanbaru memiliki 7 printer jenis laserjet dan 9 printer jenis deskjet. Banyaknya pilihan jika seseorang ingin menggunakan printer di laboratorium adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "7" },
-      { "benar": false, "teks": "9" },
-      { "benar": false, "teks": "12" },
-      { "benar": true, "teks": "16" }
-    ]
-  },
-  {
-    "pertanyaan": "Kedudukan dua lingkaran pada gambar tersebut adalah ... (Berpotongan di dua titik)",
-    "pilihan": [
-      { "benar": true, "teks": "Berpotongan di dua titik yang berbeda" },
-      { "benar": false, "teks": "Bersinggungan di dalam" },
-      { "benar": false, "teks": "Bersinggungan di luar" },
-      { "benar": false, "teks": "Tidak berpotongan" }
-    ]
-  },
-  {
-    "pertanyaan": "Sebuah lingkaran dengan jari-jari 14 cm and sudut pusat juring adalah 90°. Luas juring lingkaran tersebut adalah ... cm².",
-    "pilihan": [
-      { "benar": false, "teks": "95" },
-      { "benar": false, "teks": "106" },
-      { "benar": false, "teks": "121" },
-      { "benar": true, "teks": "154" }
-    ]
-  },
-  {
-    "pertanyaan": "Dua dadu diundi bersama-sama sebanyak 72 kali. Frekuensi harapan muncul kejadian jumlah mata dadu 5 atau 9 adalah ... kali.",
-    "pilihan": [
-      { "benar": false, "teks": "14" },
-      { "benar": false, "teks": "15" },
-      { "benar": true, "teks": "16" },
-      { "benar": false, "teks": "17" }
-    ]
-  },
-  {
-    "pertanyaan": "Dua dadu dilambungkan bersama-sama sebanyak satu kali. Peluang munculnya mata dadu berjumlah 2 atau 7 adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "3/36" },
-      { "benar": false, "teks": "4/36" },
-      { "benar": true, "teks": "7/36" },
-      { "benar": false, "teks": "14/36" }
-    ]
-  },
-  {
-    "pertanyaan": "Sebuah bianglala yang berpusat di O mempunyai diameter 28 m. Jika besar sudut POQ = 45°, panjang busur PQ adalah ... m.",
-    "pilihan": [
-      { "benar": false, "teks": "10" },
-      { "benar": true, "teks": "11" },
-      { "benar": false, "teks": "12" },
-      { "benar": false, "teks": "13" }
-    ]
-  },
-  {
-    "pertanyaan": "Diketahui sebuah lingkaran memiliki jari-jari 7 cm. Luas juring COD jika diketahui ∠COD adalah 45° adalah ... cm².",
-    "pilihan": [
-      { "benar": false, "teks": "75,35" },
-      { "benar": false, "teks": "57,75" },
-      { "benar": false, "teks": "25,67" },
-      { "benar": true, "teks": "19,25" }
-    ]
-  },
-  {
-    "pertanyaan": "Diketahui besar sudut ∠PQR = 50° pada gambar berikut. Besar sudut POR adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "120°" },
-      { "benar": false, "teks": "105°" },
-      { "benar": true, "teks": "100°" },
-      { "benar": false, "teks": "95°" }
-    ]
-  },
-  {
-    "pertanyaan": "Titik O adalah pusat lingkaran. Garis AC adalah diameter. Besar ∠ADB adalah ...",
-    "pilihan": [
-      { "benar": true, "teks": "30°" },
-      { "benar": false, "teks": "53°" },
-      { "benar": false, "teks": "74°" },
-      { "benar": false, "teks": "106°" }
-    ]
-  },
-  {
-    "pertanyaan": "Tiga koin dilemparkan secara bersamaan. Jika pelemparan dilakukan sebanyak 40 kali, maka frekuensi harapan muncul tiga sisi gambar adalah ... kali.",
-    "pilihan": [
-      { "benar": false, "teks": "4" },
-      { "benar": true, "teks": "5" },
-      { "benar": false, "teks": "8" },
-      { "benar": false, "teks": "10" }
-    ]
-  },
-  {
-    "pertanyaan": "Pernyataan berikut yang benar berdasarkan sifat sudut keliling yaitu ...",
-    "pilihan": [
-      { "benar": true, "teks": "Sudut keliling menghadap diameter besarnya 90°" },
-      { "benar": false, "teks": "Sudut pusat besarnya setengah sudut keliling" },
-      { "benar": false, "teks": "Sudut keliling besarnya dua kali sudut pusat" }
-    ]
-  },
-  {
-    "pertanyaan": "Jarak kedua pusat roda gigi desain tersebut adalah 13 cm, panjang jari-jari kedua roda 8 cm dan 3 cm. Panjang garis singgung kedua roda desain sepeda tersebut adalah ... cm",
-    "pilihan": [
-      { "benar": false, "teks": "8" },
-      { "benar": false, "teks": "10" },
-      { "benar": true, "teks": "12" },
-      { "benar": false, "teks": "14" }
-    ]
-  },
-  {
-    "pertanyaan": "Suatu kotak berisi 6 bola putih dan 4 bola merah. Dari kotak tersebut, diambil satu bola secara acak. Peluang terambil bola berwarna putih adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "1/2" },
-      { "benar": false, "teks": "1/3" },
-      { "benar": false, "teks": "3/4" },
-      { "benar": true, "teks": "3/5" }
-    ]
-  },
-  {
-    "pertanyaan": "Tiga buah uang logam dilemparkan secara bersamaan, peluang munculnya ketiganya sisi angka adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "1/2" },
-      { "benar": false, "teks": "1/3" },
-      { "benar": false, "teks": "2/3" },
-      { "benar": true, "teks": "1/8" }
-    ]
-  },
-  {
-    "pertanyaan": "Satu dadu dilambungkan sebanyak satu kali. Peluang muncul mata dadu 3 adalah ...",
-    "pilihan": [
-      { "benar": true, "teks": "1/6" },
-      { "benar": false, "teks": "2/6" },
-      { "benar": false, "teks": "3/6" },
-      { "benar": false, "teks": "4/6" }
-    ]
-  },
-  {
-    "pertanyaan": "Diketahui ∠BOC sebesar 110°. Besar ∠BDE jika keduanya menghadap busur sama adalah ...",
-    "pilihan": [
-      { "benar": true, "teks": "55°" },
-      { "benar": false, "teks": "35°" },
-      { "benar": false, "teks": "45°" },
-      { "benar": false, "teks": "60°" }
-    ]
-  },
-  {
-    "pertanyaan": "Diketahui panjang garis singgung persekutuan luar dua lingkaran adalah 12 cm, and panjang jari-jari besar dan kecil berturut-turut adalah 7 cm dan 2 cm. Jarak pusat kedua lingkaran tersebut adalah ... cm.",
-    "pilihan": [
-      { "benar": true, "teks": "13" },
-      { "benar": false, "teks": "12" },
-      { "benar": false, "teks": "11" },
-      { "benar": false, "teks": "10" }
-    ]
-  },
-  {
-    "pertanyaan": "Diketahui besar ∠AOB adalah 80°. Besar sudut keliling ∠ACB yang menghadap busur sama adalah ...",
-    "pilihan": [
-      { "benar": true, "teks": "40°" },
-      { "benar": false, "teks": "20°" },
-      { "benar": false, "teks": "30°" },
-      { "benar": false, "teks": "50°" }
-    ]
-  },
-  {
-    "pertanyaan": "Jika diketahui besar sudut keliling ∠PRT adalah 30°, besar sudut pusat ∠POT adalah ...",
-    "pilihan": [
-      { "benar": true, "teks": "60°" },
-      { "benar": false, "teks": "100°" },
-      { "benar": false, "teks": "90°" },
-      { "benar": false, "teks": "75°" }
-    ]
-  },
-  {
-    "pertanyaan": "Jarak pusat dua lingkaran adalah 25 cm, dengan jari-jari 13 cm dan 6 cm. Panjang garis singgung luar persekutuan adalah ... cm.",
-    "pilihan": [
-      { "benar": true, "teks": "24" },
-      { "benar": false, "teks": "15" },
-      { "benar": false, "teks": "23" },
-      { "benar": false, "teks": "27" }
-    ]
-  },
-  {
-    "pertanyaan": "Adit memiliki 3 jenis motor berbeda di rumahnya yang terdiri dari 3 motor skuter matik, 3 motor sport, dan 2 motor off road. Banyak pilihan Adit untuk menggunakan salah satu motor adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "3" },
-      { "benar": false, "teks": "6" },
-      { "benar": true, "teks": "8" },
-      { "benar": false, "teks": "11" }
-    ]
-  },
-  {
-    "pertanyaan": "Zulfa ingin membuat plat nomor kendaraan yang terdiri dari 4 angka yang dipilih dari angka 1, 2, 3, 4, dan 5, dengan tidak boleh ada angka yang sama. Banyak plat nomor kendaraan yang dapat dibuat Zulfa adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "30" },
-      { "benar": false, "teks": "60" },
-      { "benar": false, "teks": "90" },
-      { "benar": true, "teks": "120" }
-    ]
-  },
-  {
-    "pertanyaan": "Tiga buah uang logam dilemparkan secara bersamaan, peluang munculnya 2 angka adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "1/2" },
-      { "benar": false, "teks": "1/3" },
-      { "benar": false, "teks": "2/3" },
-      { "benar": true, "teks": "3/8" }
-    ]
-  },
-  {
-    "pertanyaan": "Noven membuat akun di sebuah jejaring sosial. Ketentuan password adalah terdiri dari 4 angka yang dapat dibentuk dari angka 0-9 tanpa perulangan. Banyak cara membuat password adalah ... cara.",
-    "pilihan": [
-      { "benar": false, "teks": "324" },
-      { "benar": false, "teks": "504" },
-      { "benar": false, "teks": "1.512" },
-      { "benar": true, "teks": "5.040" }
-    ]
-  },
-  {
-    "pertanyaan": "Pada percobaan pelemparan sebuah dadu, peluang munculnya mata dadu lebih dari 2 adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "1/2" },
-      { "benar": false, "teks": "1/3" },
-      { "benar": true, "teks": "2/3" },
-      { "benar": false, "teks": "3/8" }
-    ]
-  },
-  {
-    "pertanyaan": "Hasil dari 4! - 3! adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "4" },
-      { "benar": false, "teks": "1" },
-      { "benar": false, "teks": "8" },
-      { "benar": true, "teks": "18" }
-    ]
-  },
-  {
-    "pertanyaan": "Satu dadu dilambungkan sebanyak satu kali. Peluang muncul mata dadu 4 adalah ...",
-    "pilihan": [
-      { "benar": true, "teks": "1/6" },
-      { "benar": false, "teks": "2/6" },
-      { "benar": false, "teks": "3/6" },
-      { "benar": false, "teks": "4/6" }
-    ]
-  },
-  {
-    "pertanyaan": "Seorang mahasiswa mengikuti 3 ujian pada 5 hari yang tersedia (Senin-Jumat). Jika tidak boleh ada ujian pada hari yang sama, banyak cara pengaturan jadwal adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "5" },
-      { "benar": false, "teks": "12" },
-      { "benar": false, "teks": "30" },
-      { "benar": true, "teks": "60" }
-    ]
-  },
-  {
-    "pertanyaan": "Nilai hasil 7 x 3! adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "26" },
-      { "benar": false, "teks": "35" },
-      { "benar": false, "teks": "45" },
-      { "benar": true, "teks": "42" }
-    ]
-  },
-  {
-    "pertanyaan": "Taruna kelas XII TAV memilih danton, sekretaris, dan bendahara dari 6 kandidat. Banyak kemungkinan susunan pengurus adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "20" },
-      { "benar": false, "teks": "50" },
-      { "benar": true, "teks": "120" },
-      { "benar": false, "teks": "140" }
-    ]
-  },
-  {
-    "pertanyaan": "Hasil dari P(3,2) adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "2" },
-      { "benar": false, "teks": "4" },
-      { "benar": true, "teks": "6" },
-      { "benar": false, "teks": "8" }
-    ]
-  },
-  {
-    "pertanyaan": "Banyak susunan huruf yang dapat dibentuk dari unsur huruf-huruf penyusun kata K A M P A K adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "1.260" },
-      { "benar": true, "teks": "180" },
-      { "benar": false, "teks": "60" },
-      { "benar": false, "teks": "30" }
-    ]
-  },
-  {
-    "pertanyaan": "Dari 5 pria dan 4 wanita, akan dipilih 3 orang pengurus inti. Banyak cara memilih jika pengurus terdiri dari 2 pria dan 1 wanita adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "20" },
-      { "benar": true, "teks": "40" },
-      { "benar": false, "teks": "60" },
-      { "benar": false, "teks": "80" }
-    ]
-  },
-  {
-    "pertanyaan": "Sebuah kantong berisi 5 kelereng merah dan 3 kelereng biru. Jika diambil dua kelereng acak sekaligus, peluang terambil keduanya merah adalah ...",
-    "pilihan": [
-      { "benar": true, "teks": "5/14" },
-      { "benar": false, "teks": "15/56" },
-      { "benar": false, "teks": "3/14" },
-      { "benar": false, "teks": "15/28" }
-    ]
-  },
-  {
-    "pertanyaan": "Nilai dari hasil pembagian faktorial 6! / (4! x 2!) adalah ...",
-    "pilihan": [
-      { "benar": true, "teks": "15" },
-      { "benar": false, "teks": "30" },
-      { "benar": false, "teks": "60" },
-      { "benar": false, "teks": "120" }
-    ]
-  },
-  {
-    "pertanyaan": "Dua lingkaran memiliki jari-jari 11 cm dan 4 cm. Jika jarak pusatnya 17 cm, panjang garis singgung persekutuan dalam adalah ... cm.",
-    "pilihan": [
-      { "benar": false, "teks": "6" },
-      { "benar": true, "teks": "8" },
-      { "benar": false, "teks": "12" },
-      { "benar": false, "teks": "15" }
-    ]
-  },
-  {
-    "pertanyaan": "Banyak susunan kata yang dapat dibentuk dari huruf-huruf pada kata M A T E M A T I K A adalah ...",
-    "pilihan": [
-      { "benar": true, "teks": "151.200" },
-      { "benar": false, "teks": "75.600" },
-      { "benar": false, "teks": "302.400" },
-      { "benar": false, "teks": "50.400" }
-    ]
-  },
-  {
-    "pertanyaan": "Diketahui sudut pusat lingkaran adalah 120°. Jika jari-jarinya 21 cm, panjang busur di hadapannya adalah ... cm. (gunakan pi = 22/7)",
-    "pilihan": [
-      { "benar": false, "teks": "22" },
-      { "benar": true, "teks": "44" },
-      { "benar": false, "teks": "66" },
-      { "benar": false, "teks": "88" }
-    ]
-  },
-  {
-    "pertanyaan": "Dua buah dadu dilempar bersama sekali. Peluang munculnya mata dadu dengan hasil perkalian kedua matanya sama dengan 6 adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "1/36" },
-      { "benar": false, "teks": "2/36" },
-      { "benar": true, "teks": "4/36" },
-      { "benar": false, "teks": "6/36" }
-    ]
-  },
-  {
-    "pertanyaan": "Dari angka 2, 3, 5, 6, 7, 9 akan disusun 3 angka berlainan. Banyak bilangan kurang dari 400 adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "20" },
-      { "benar": true, "teks": "40" },
-      { "benar": false, "teks": "60" },
-      { "benar": false, "teks": "80" }
-    ]
-  },
-  {
-    "pertanyaan": "Luas sebuah lingkaran adalah 616 cm². Jika luas suatu juring adalah 154 cm², maka besar sudut pusat juring tersebut adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "30°" },
-      { "benar": false, "teks": "45°" },
-      { "benar": false, "teks": "60°" },
-      { "benar": true, "teks": "90°" }
-    ]
-  },
-  {
-    "pertanyaan": "Dalam suatu ruangan terdapat 10 orang belum saling kenal. Jika mereka saling berjabat tangan sekali, banyak jabat tangan yang terjadi adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "35" },
-      { "benar": true, "teks": "45" },
-      { "benar": false, "teks": "55" },
-      { "benar": false, "teks": "90" }
-    ]
-  },
-  {
-    "pertanyaan": "Dari satu set kartu bridge diambil sebuah kartu acak. Peluang terambilnya kartu As atau kartu berwarna merah adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "26/52" },
-      { "benar": true, "teks": "28/52" },
-      { "benar": false, "teks": "30/52" },
-      { "benar": false, "teks": "32/52" }
-    ]
-  },
-  {
-    "pertanyaan": "Jika besar sudut keliling sebuah lingkaran adalah 35°, besar sudut pusat yang menghadap busur sama adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "17,5°" },
-      { "benar": false, "teks": "35°" },
-      { "benar": false, "teks": "52,5°" },
-      { "benar": true, "teks": "70°" }
-    ]
-  },
-  {
-    "pertanyaan": "Banyak cara menyusun kepengurusan Ketua, Sekretaris, Bendahara dari 7 orang calon yang tersedia adalah ...",
-    "pilihan": [
-      { "benar": false, "teks": "35" },
-      { "benar": false, "teks": "105" },
-      { "benar": true, "teks": "210" },
-      { "benar": false, "teks": "420" }
-    ]
-  }
-];
-
+    const soalKelasXI = [
+      {
+        "pertanyaan": "Hasil dari 4! adalah ...",
+        "pilihan": [
+          { "benar": true, "teks": "24" },
+          { "benar": false, "teks": "1" },
+          { "benar": false, "teks": "8" },
+          { "benar": false, "teks": "16" },
+          { "benar": false, "teks": "32" }
+        ]
+      },
+      {
+        "pertanyaan": "Dari 10 orang yang mendaftar di suatu perusahaan, hanya akan diterima 4 orang sebagai karyawan. Banyaknya cara untuk memilih keempat orang tersebut adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "72" },
+          { "benar": false, "teks": "90" },
+          { "benar": false, "teks": "110" },
+          { "benar": false, "teks": "180" },
+          { "benar": true, "teks": "210" }
+        ]
+      },
+      {
+        "pertanyaan": "Banyak susunan tempat duduk yang dapat dibuat dari 6 orang pada sebuah meja bundar adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "10" },
+          { "benar": false, "teks": "12" },
+          { "benar": false, "teks": "70" },
+          { "benar": false, "teks": "90" },
+          { "benar": true, "teks": "120" }
+        ]
+      },
+      {
+        "pertanyaan": "Banyak susunan 3 huruf yang dapat dibentuk dari huruf A, B, C, dan D, jika huruf-huruf penyusunnya tersebut boleh diulang adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "4" },
+          { "benar": false, "teks": "16" },
+          { "benar": true, "teks": "64" },
+          { "benar": false, "teks": "256" },
+          { "benar": false, "teks": "1.024" }
+        ]
+      },
+      {
+        "pertanyaan": "Hasil dari 4!/3! adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "1" },
+          { "benar": false, "teks": "8" },
+          { "benar": false, "teks": "3" },
+          { "benar": true, "teks": "4" },
+          { "benar": false, "teks": "5" }
+        ]
+      },
+      {
+        "pertanyaan": "Laboratorium komputer SMK Taruna Pekanbaru memiliki 7 printer jenis laserjet dan 9 printer jenis deskjet. Banyaknya pilihan jika seseorang ingin menggunakan printer di laboratorium adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "7" },
+          { "benar": false, "teks": "9" },
+          { "benar": false, "teks": "12" },
+          { "benar": true, "teks": "16" }
+        ]
+      },
+      {
+        "pertanyaan": "Kedudukan dua lingkaran pada gambar tersebut adalah ... (Berpotongan di dua titik)",
+        "pilihan": [
+          { "benar": true, "teks": "Berpotongan di dua titik yang berbeda" },
+          { "benar": false, "teks": "Bersinggungan di dalam" },
+          { "benar": false, "teks": "Bersinggungan di luar" },
+          { "benar": false, "teks": "Tidak berpotongan" }
+        ]
+      },
+      {
+        "pertanyaan": "Sebuah lingkaran dengan jari-jari 14 cm and sudut pusat juring adalah 90°. Luas juring lingkaran tersebut adalah ... cm².",
+        "pilihan": [
+          { "benar": false, "teks": "95" },
+          { "benar": false, "teks": "106" },
+          { "benar": false, "teks": "121" },
+          { "benar": true, "teks": "154" }
+        ]
+      },
+      {
+        "pertanyaan": "Dua dadu diundi bersama-sama sebanyak 72 kali. Frekuensi harapan muncul kejadian jumlah mata dadu 5 atau 9 adalah ... kali.",
+        "pilihan": [
+          { "benar": false, "teks": "14" },
+          { "benar": false, "teks": "15" },
+          { "benar": true, "teks": "16" },
+          { "benar": false, "teks": "17" }
+        ]
+      },
+      {
+        "pertanyaan": "Dua dadu dilambungkan bersama-sama sebanyak satu kali. Peluang munculnya mata dadu berjumlah 2 atau 7 adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "3/36" },
+          { "benar": false, "teks": "4/36" },
+          { "benar": true, "teks": "7/36" },
+          { "benar": false, "teks": "14/36" }
+        ]
+      },
+      {
+        "pertanyaan": "Sebuah bianglala yang berpusat di O mempunyai diameter 28 m. Jika besar sudut POQ = 45°, panjang busur PQ adalah ... m.",
+        "pilihan": [
+          { "benar": false, "teks": "10" },
+          { "benar": true, "teks": "11" },
+          { "benar": false, "teks": "12" },
+          { "benar": false, "teks": "13" }
+        ]
+      },
+      {
+        "pertanyaan": "Diketahui sebuah lingkaran memiliki jari-jari 7 cm. Luas juring COD jika diketahui ∠COD adalah 45° adalah ... cm².",
+        "pilihan": [
+          { "benar": false, "teks": "75,35" },
+          { "benar": false, "teks": "57,75" },
+          { "benar": false, "teks": "25,67" },
+          { "benar": true, "teks": "19,25" }
+        ]
+      },
+      {
+        "pertanyaan": "Diketahui besar sudut ∠PQR = 50° pada gambar berikut. Besar sudut POR adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "120°" },
+          { "benar": false, "teks": "105°" },
+          { "benar": true, "teks": "100°" },
+          { "benar": false, "teks": "95°" }
+        ]
+      },
+      {
+        "pertanyaan": "Titik O adalah pusat lingkaran. Garis AC adalah diameter. Besar ∠ADB adalah ...",
+        "pilihan": [
+          { "benar": true, "teks": "30°" },
+          { "benar": false, "teks": "53°" },
+          { "benar": false, "teks": "74°" },
+          { "benar": false, "teks": "106°" }
+        ]
+      },
+      {
+        "pertanyaan": "Tiga koin dilemparkan secara bersamaan. Jika pelemparan dilakukan sebanyak 40 kali, maka frekuensi harapan muncul tiga sisi gambar adalah ... kali.",
+        "pilihan": [
+          { "benar": false, "teks": "4" },
+          { "benar": true, "teks": "5" },
+          { "benar": false, "teks": "8" },
+          { "benar": false, "teks": "10" }
+        ]
+      },
+      {
+        "pertanyaan": "Pernyataan berikut yang benar berdasarkan sifat sudut keliling yaitu ...",
+        "pilihan": [
+          { "benar": true, "teks": "Sudut keliling menghadap diameter besarnya 90°" },
+          { "benar": false, "teks": "Sudut pusat besarnya setengah sudut keliling" },
+          { "benar": false, "teks": "Sudut keliling besarnya dua kali sudut pusat" }
+        ]
+      },
+      {
+        "pertanyaan": "Jarak kedua pusat roda gigi desain tersebut adalah 13 cm, panjang jari-jari kedua roda 8 cm dan 3 cm. Panjang garis singgung kedua roda desain sepeda tersebut adalah ... cm",
+        "pilihan": [
+          { "benar": false, "teks": "8" },
+          { "benar": false, "teks": "10" },
+          { "benar": true, "teks": "12" },
+          { "benar": false, "teks": "14" }
+        ]
+      },
+      {
+        "pertanyaan": "Suatu kotak berisi 6 bola putih dan 4 bola merah. Dari kotak tersebut, diambil satu bola secara acak. Peluang terambil bola berwarna putih adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "1/2" },
+          { "benar": false, "teks": "1/3" },
+          { "benar": false, "teks": "3/4" },
+          { "benar": true, "teks": "3/5" }
+        ]
+      },
+      {
+        "pertanyaan": "Tiga buah uang logam dilemparkan secara bersamaan, peluang munculnya ketiganya sisi angka adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "1/2" },
+          { "benar": false, "teks": "1/3" },
+          { "benar": false, "teks": "2/3" },
+          { "benar": true, "teks": "1/8" }
+        ]
+      },
+      {
+        "pertanyaan": "Satu dadu dilambungkan sebanyak satu kali. Peluang muncul mata dadu 3 adalah ...",
+        "pilihan": [
+          { "benar": true, "teks": "1/6" },
+          { "benar": false, "teks": "2/6" },
+          { "benar": false, "teks": "3/6" },
+          { "benar": false, "teks": "4/6" }
+        ]
+      },
+      {
+        "pertanyaan": "Diketahui ∠BOC sebesar 110°. Besar ∠BDE jika keduanya menghadap busur sama adalah ...",
+        "pilihan": [
+          { "benar": true, "teks": "55°" },
+          { "benar": false, "teks": "35°" },
+          { "benar": false, "teks": "45°" },
+          { "benar": false, "teks": "60°" }
+        ]
+      },
+      {
+        "pertanyaan": "Diketahui panjang garis singgung persekutuan luar dua lingkaran adalah 12 cm, and panjang jari-jari besar dan kecil berturut-turut adalah 7 cm dan 2 cm. Jarak pusat kedua lingkaran tersebut adalah ... cm.",
+        "pilihan": [
+          { "benar": true, "teks": "13" },
+          { "benar": false, "teks": "12" },
+          { "benar": false, "teks": "11" },
+          { "benar": false, "teks": "10" }
+        ]
+      },
+      {
+        "pertanyaan": "Diketahui besar ∠AOB adalah 80°. Besar sudut keliling ∠ACB yang menghadap busur sama adalah ...",
+        "pilihan": [
+          { "benar": true, "teks": "40°" },
+          { "benar": false, "teks": "20°" },
+          { "benar": false, "teks": "30°" },
+          { "benar": false, "teks": "50°" }
+        ]
+      },
+      {
+        "pertanyaan": "Jika diketahui besar sudut keliling ∠PRT adalah 30°, besar sudut pusat ∠POT adalah ...",
+        "pilihan": [
+          { "benar": true, "teks": "60°" },
+          { "benar": false, "teks": "100°" },
+          { "benar": false, "teks": "90°" },
+          { "benar": false, "teks": "75°" }
+        ]
+      },
+      {
+        "pertanyaan": "Jarak pusat dua lingkaran adalah 25 cm, dengan jari-jari 13 cm dan 6 cm. Panjang garis singgung luar persekutuan adalah ... cm.",
+        "pilihan": [
+          { "benar": true, "teks": "24" },
+          { "benar": false, "teks": "15" },
+          { "benar": false, "teks": "23" },
+          { "benar": false, "teks": "27" }
+        ]
+      },
+      {
+        "pertanyaan": "Adit memiliki 3 jenis motor berbeda di rumahnya yang terdiri dari 3 motor skuter matik, 3 motor sport, dan 2 motor off road. Banyak pilihan Adit untuk menggunakan salah satu motor adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "3" },
+          { "benar": false, "teks": "6" },
+          { "benar": true, "teks": "8" },
+          { "benar": false, "teks": "11" }
+        ]
+      },
+      {
+        "pertanyaan": "Zulfa ingin membuat plat nomor kendaraan yang terdiri dari 4 angka yang dipilih dari angka 1, 2, 3, 4, dan 5, dengan tidak boleh ada angka yang sama. Banyak plat nomor kendaraan yang dapat dibuat Zulfa adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "30" },
+          { "benar": false, "teks": "60" },
+          { "benar": false, "teks": "90" },
+          { "benar": true, "teks": "120" }
+        ]
+      },
+      {
+        "pertanyaan": "Tiga buah uang logam dilemparkan secara bersamaan, peluang munculnya 2 angka adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "1/2" },
+          { "benar": false, "teks": "1/3" },
+          { "benar": false, "teks": "2/3" },
+          { "benar": true, "teks": "3/8" }
+        ]
+      },
+      {
+        "pertanyaan": "Noven membuat akun di sebuah jejaring sosial. Ketentuan password adalah terdiri dari 4 angka yang dapat dibentuk dari angka 0-9 tanpa perulangan. Banyak cara membuat password adalah ... cara.",
+        "pilihan": [
+          { "benar": false, "teks": "324" },
+          { "benar": false, "teks": "504" },
+          { "benar": false, "teks": "1.512" },
+          { "benar": true, "teks": "5.040" }
+        ]
+      },
+      {
+        "pertanyaan": "Pada percobaan pelemparan sebuah dadu, peluang munculnya mata dadu lebih dari 2 adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "1/2" },
+          { "benar": false, "teks": "1/3" },
+          { "benar": true, "teks": "2/3" },
+          { "benar": false, "teks": "3/8" }
+        ]
+      },
+      {
+        "pertanyaan": "Hasil dari 4! - 3! adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "4" },
+          { "benar": false, "teks": "1" },
+          { "benar": false, "teks": "8" },
+          { "benar": true, "teks": "18" }
+        ]
+      },
+      {
+        "pertanyaan": "Satu dadu dilambungkan sebanyak satu kali. Peluang muncul mata dadu 4 adalah ...",
+        "pilihan": [
+          { "benar": true, "teks": "1/6" },
+          { "benar": false, "teks": "2/6" },
+          { "benar": false, "teks": "3/6" },
+          { "benar": false, "teks": "4/6" }
+        ]
+      },
+      {
+        "pertanyaan": "Seorang mahasiswa mengikuti 3 ujian pada 5 hari yang tersedia (Senin-Jumat). Jika tidak boleh ada ujian pada hari yang sama, banyak cara pengaturan jadwal adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "5" },
+          { "benar": false, "teks": "12" },
+          { "benar": false, "teks": "30" },
+          { "benar": true, "teks": "60" }
+        ]
+      },
+      {
+        "pertanyaan": "Nilai hasil 7 x 3! adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "26" },
+          { "benar": false, "teks": "35" },
+          { "benar": false, "teks": "45" },
+          { "benar": true, "teks": "42" }
+        ]
+      },
+      {
+        "pertanyaan": "Taruna kelas XII TAV memilih danton, sekretaris, dan bendahara dari 6 kandidat. Banyak kemungkinan susunan pengurus adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "20" },
+          { "benar": false, "teks": "50" },
+          { "benar": true, "teks": "120" },
+          { "benar": false, "teks": "140" }
+        ]
+      },
+      {
+        "pertanyaan": "Hasil dari P(3,2) adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "2" },
+          { "benar": false, "teks": "4" },
+          { "benar": true, "teks": "6" },
+          { "benar": false, "teks": "8" }
+        ]
+      },
+      {
+        "pertanyaan": "Banyak susunan huruf yang dapat dibentuk dari unsur huruf-huruf penyusun kata K A M P A K adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "1.260" },
+          { "benar": true, "teks": "180" },
+          { "benar": false, "teks": "60" },
+          { "benar": false, "teks": "30" }
+        ]
+      },
+      {
+        "pertanyaan": "Dari 5 pria dan 4 wanita, akan dipilih 3 orang pengurus inti. Banyak cara memilih jika pengurus terdiri dari 2 pria dan 1 wanita adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "20" },
+          { "benar": true, "teks": "40" },
+          { "benar": false, "teks": "60" },
+          { "benar": false, "teks": "80" }
+        ]
+      },
+      {
+        "pertanyaan": "Sebuah kantong berisi 5 kelereng merah dan 3 kelereng biru. Jika diambil dua kelereng acak sekaligus, peluang terambil keduanya merah adalah ...",
+        "pilihan": [
+          { "benar": true, "teks": "5/14" },
+          { "benar": false, "teks": "15/56" },
+          { "benar": false, "teks": "3/14" },
+          { "benar": false, "teks": "15/28" }
+        ]
+      },
+      {
+        "pertanyaan": "Nilai dari hasil pembagian faktorial 6! / (4! x 2!) adalah ...",
+        "pilihan": [
+          { "benar": true, "teks": "15" },
+          { "benar": false, "teks": "30" },
+          { "benar": false, "teks": "60" },
+          { "benar": false, "teks": "120" }
+        ]
+      },
+      {
+        "pertanyaan": "Dua lingkaran memiliki jari-jari 11 cm dan 4 cm. Jika jarak pusatnya 17 cm, panjang garis singgung persekutuan dalam adalah ... cm.",
+        "pilihan": [
+          { "benar": false, "teks": "6" },
+          { "benar": true, "teks": "8" },
+          { "benar": false, "teks": "12" },
+          { "benar": false, "teks": "15" }
+        ]
+      },
+      {
+        "pertanyaan": "Banyak susunan kata yang dapat dibentuk dari huruf-huruf pada kata M A T E M A T I K A adalah ...",
+        "pilihan": [
+          { "benar": true, "teks": "151.200" },
+          { "benar": false, "teks": "75.600" },
+          { "benar": false, "teks": "302.400" },
+          { "benar": false, "teks": "50.400" }
+        ]
+      },
+      {
+        "pertanyaan": "Diketahui sudut pusat lingkaran adalah 120°. Jika jari-jarinya 21 cm, panjang busur di hadapannya adalah ... cm. (gunakan pi = 22/7)",
+        "pilihan": [
+          { "benar": false, "teks": "22" },
+          { "benar": true, "teks": "44" },
+          { "benar": false, "teks": "66" },
+          { "benar": false, "teks": "88" }
+        ]
+      },
+      {
+        "pertanyaan": "Dua buah dadu dilempar bersama sekali. Peluang munculnya mata dadu dengan hasil perkalian kedua matanya sama dengan 6 adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "1/36" },
+          { "benar": false, "teks": "2/36" },
+          { "benar": true, "teks": "4/36" },
+          { "benar": false, "teks": "6/36" }
+        ]
+      },
+      {
+        "pertanyaan": "Dari angka 2, 3, 5, 6, 7, 9 akan disusun 3 angka berlainan. Banyak bilangan kurang dari 400 adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "20" },
+          { "benar": true, "teks": "40" },
+          { "benar": false, "teks": "60" },
+          { "benar": false, "teks": "80" }
+        ]
+      },
+      {
+        "pertanyaan": "Luas sebuah lingkaran adalah 616 cm². Jika luas suatu juring adalah 154 cm², maka besar sudut pusat juring tersebut adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "30°" },
+          { "benar": false, "teks": "45°" },
+          { "benar": false, "teks": "60°" },
+          { "benar": true, "teks": "90°" }
+        ]
+      },
+      {
+        "pertanyaan": "Dalam suatu ruangan terdapat 10 orang belum saling kenal. Jika mereka saling berjabat tangan sekali, banyak jabat tangan yang terjadi adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "35" },
+          { "benar": true, "teks": "45" },
+          { "benar": false, "teks": "55" },
+          { "benar": false, "teks": "90" }
+        ]
+      },
+      {
+        "pertanyaan": "Dari satu set kartu bridge diambil sebuah kartu acak. Peluang terambilnya kartu As atau kartu berwarna merah adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "26/52" },
+          { "benar": true, "teks": "28/52" },
+          { "benar": false, "teks": "30/52" },
+          { "benar": false, "teks": "32/52" }
+        ]
+      },
+      {
+        "pertanyaan": "Jika besar sudut keliling sebuah lingkaran adalah 35°, besar sudut pusat yang menghadap busur sama adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "17,5°" },
+          { "benar": false, "teks": "35°" },
+          { "benar": false, "teks": "52,5°" },
+          { "benar": true, "teks": "70°" }
+        ]
+      },
+      {
+        "pertanyaan": "Banyak cara menyusun kepengurusan Ketua, Sekretaris, Bendahara dari 7 orang calon yang tersedia adalah ...",
+        "pilihan": [
+          { "benar": false, "teks": "35" },
+          { "benar": false, "teks": "105" },
+          { "benar": true, "teks": "210" },
+          { "benar": false, "teks": "420" }
+        ]
+      }
+    ];
 
     // ============================================================
     //  GLOBAL STATE
@@ -1140,6 +1506,7 @@ const soalKelasXI = [
         container.innerHTML = `<div class="text-center py-10 text-gray-500">⚠️ Belum ada soal. Silakan pilih kelas.</div>`;
         document.getElementById('totalNum').textContent = '0';
         document.getElementById('progressBar').style.width = '0%';
+        document.getElementById('answerStatus').textContent = '';
         return;
       }
 
@@ -1158,9 +1525,26 @@ const soalKelasXI = [
       document.getElementById('categoryBadge').textContent = kategori;
       document.getElementById('progressBar').style.width = progress + '%';
       document.getElementById('btnPrev').disabled = (currentIndex === 0);
-      document.getElementById('btnNext').textContent = (currentIndex === total - 1) ? 'Selesai ✓' : 'Selanjutnya →';
 
-      const selectedIdx = jawabanUser[currentIndex] ?? null;
+      // Status jawaban
+      const selectedIdx = jawabanUser[currentIndex];
+      const statusEl = document.getElementById('answerStatus');
+      if (selectedIdx !== null && selectedIdx !== undefined) {
+        statusEl.innerHTML = `✅ Terjawab <span class="unanswered-badge">✔</span>`;
+        statusEl.className = 'text-xs font-semibold text-green-600';
+      } else {
+        statusEl.innerHTML = `⏳ Belum dijawab <span class="unanswered-badge">!</span>`;
+        statusEl.className = 'text-xs font-semibold text-yellow-600';
+      }
+
+      // Tombol next
+      const btnNext = document.getElementById('btnNext');
+      if (currentIndex === total - 1) {
+        btnNext.textContent = 'Selesai ✓';
+      } else {
+        btnNext.textContent = 'Selanjutnya →';
+      }
+
       const questionText = s.pertanyaan || s.cartu || '(soal tidak memiliki teks)';
 
       let optionsHtml = s.pilihan.map((op, i) => {
@@ -1196,6 +1580,7 @@ const soalKelasXI = [
     function pilihJawaban(index) {
       jawabanUser[currentIndex] = index;
       renderSoal();
+      AdaptiveSchedule.updateUI(); // refresh live stats
     }
 
     function prevSoal() {
@@ -1211,10 +1596,22 @@ const soalKelasXI = [
       const correctIdx = getCorrectIndex(s);
       const kategori = getKategori(s);
 
-      // catat ke AdaptiveSchedule
-      if (selectedIdx !== null && selectedIdx !== undefined) {
-        AdaptiveSchedule.recordAnswer(currentIndex, selectedIdx === correctIdx, kategori, 0);
+      // Jika belum dijawab dan bukan di akhir, beri peringatan
+      if (selectedIdx === null || selectedIdx === undefined) {
+        // Tampilkan notifikasi
+        const container = document.getElementById('kontenSoal');
+        const warning = document.createElement('div');
+        warning.className = 'unanswered-warning';
+        warning.innerHTML = '⚠️ Anda belum memilih jawaban untuk soal ini. Harap pilih jawaban terlebih dahulu.';
+        // Hapus warning sebelumnya
+        const oldWarning = container.querySelector('.unanswered-warning');
+        if (oldWarning) oldWarning.remove();
+        container.insertBefore(warning, container.firstChild);
+        return;
       }
+
+      // catat ke AdaptiveSchedule
+      AdaptiveSchedule.recordAnswer(currentIndex, selectedIdx === correctIdx, kategori, 0);
 
       if (currentIndex < currentSoal.length - 1) {
         currentIndex++;
@@ -1233,10 +1630,11 @@ const soalKelasXI = [
       currentIndex = 0;
       jawabanUser = new Array(currentSoal.length).fill(null);
       renderSoal();
+      AdaptiveSchedule.updateUI();
     }
 
     // ============================================================
-    //  ADAPTIVE SCHEDULE ENGINE
+    //  ADAPTIVE SCHEDULE ENGINE (tidak berubah banyak)
     // ============================================================
     const AdaptiveSchedule = {
       answers: [],
@@ -1442,7 +1840,7 @@ const soalKelasXI = [
     };
 
     // ============================================================
-    //  SCHEDULE PANEL
+    //  SCHEDULE PANEL (dengan fallback lebih baik)
     // ============================================================
     window.openSchedulePanel = function() {
       document.getElementById('scheduleOverlay').style.display = 'block';
@@ -1527,7 +1925,12 @@ const soalKelasXI = [
         if (!response.ok) throw new Error('Gagal menghubungi server');
         const data = await response.json();
         if (!data.success) throw new Error(data.error || 'Gagal generate jadwal');
-        renderScheduleFromAI(data.schedule);
+        // Pastikan data.schedule adalah array
+        if (data.schedule && Array.isArray(data.schedule) && data.schedule.length > 0) {
+          renderScheduleFromAI(data.schedule);
+        } else {
+          throw new Error('Format jadwal tidak valid');
+        }
       } catch (error) {
         console.warn('AI Schedule gagal, fallback ke lokal:', error);
         generateLocalSchedule();
@@ -1688,7 +2091,7 @@ const soalKelasXI = [
     }
 
     // ============================================================
-    //  GENERATE SOAL SERUPA
+    //  GENERATE SOAL SERUPA (dengan fallback)
     // ============================================================
     async function generateSoal() {
       if (!currentSoal || !currentSoal[currentIndex]) {
@@ -1744,7 +2147,18 @@ const soalKelasXI = [
         });
         container.innerHTML = html;
       } catch (error) {
-        container.innerHTML = `<div class="text-red-600">❌ Gagal generate soal: ${error.message}</div>`;
+        // Fallback: buat soal tiruan sederhana
+        container.innerHTML = `
+          <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-xl text-yellow-800 text-sm mb-3">⚠️ Gagal menghubungi server AI, menampilkan soal tiruan sederhana.</div>
+          <h3 class="font-bold text-lg text-indigo-700">📝 Soal Latihan (Kemiripan ${similarity}%)</h3>
+          <div class="border-2 border-indigo-200 rounded-xl p-4 bg-indigo-50">
+            <div class="font-bold">Soal 1</div>
+            <div class="mt-2">Soal tiruan dengan topik ${kategori} (mirip dengan soal saat ini)</div>
+            <div class="mt-2 text-sm">A. Pilihan A<br>B. Pilihan B<br>C. Pilihan C<br>D. Pilihan D</div>
+            <div class="mt-2 text-green-700 font-semibold">✅ Jawaban benar: B</div>
+          </div>
+        `;
+        console.warn('Fallback generate soal:', error.message);
       } finally {
         btn.disabled = false;
         btn.innerHTML = '🔄 Buat Soal Serupa';
