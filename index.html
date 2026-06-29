@@ -240,6 +240,119 @@
       font-weight: bold;
       margin-left: 8px;
     }
+
+    /* ===== FITUR BARU ===== */
+    #timerDisplay {
+      font-size: 1.3rem;
+      font-weight: bold;
+      font-variant-numeric: tabular-nums;
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background 0.3s, color 0.3s;
+    }
+    #timerDisplay.warning {
+      background: #f59e0b;
+      color: #1e293b;
+    }
+    #timerDisplay.danger {
+      background: #ef4444;
+      color: white;
+      animation: blink 0.8s infinite alternate;
+    }
+    @keyframes blink {
+      from { opacity: 1; }
+      to { opacity: 0.4; }
+    }
+
+    .question-nav-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 15px 0;
+      justify-content: center;
+    }
+    .question-nav-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid #d1d5db;
+      background: white;
+      font-weight: bold;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      color: #374151;
+    }
+    .question-nav-btn:hover {
+      transform: scale(1.05);
+      border-color: #6366f1;
+    }
+    .question-nav-btn.current {
+      background: #6366f1;
+      color: white;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.3);
+    }
+    .question-nav-btn.answered {
+      background: #d1fae5;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .question-nav-btn.ragu {
+      background: #fef3c7;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+    .question-nav-btn.unanswered {
+      background: #f3f4f6;
+      border-color: #d1d5db;
+      color: #6b7280;
+    }
+
+    .btn-ragu {
+      background: #fef3c7;
+      border: 2px solid #f59e0b;
+      color: #92400e;
+      font-weight: 600;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-ragu.active {
+      background: #f59e0b;
+      color: white;
+      border-color: #d97706;
+    }
+    .btn-ragu:hover {
+      transform: scale(1.02);
+    }
+
+    .finish-confirm-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1001;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .finish-confirm-content {
+      background: white;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 24px;
+      padding: 2rem;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    #unansweredList .inline-block {
+      margin-bottom: 4px;
+    }
   </style>
 </head>
 <body class="bg-gray-100 min-h-screen p-6">
@@ -247,16 +360,24 @@
   <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-6">
     <h1 class="text-3xl font-bold text-center text-indigo-700 mb-6">Simulasi CBT AI Tutor</h1>
 
-    <div class="mb-4 flex justify-between items-center">
-      <label class="text-gray-700 font-semibold">Pilih Kelas:</label>
-      <select id="kelasSelect" class="border-2 border-indigo-300 rounded-lg px-4 py-2 bg-indigo-50 text-indigo-800 font-medium">
-        <option value="xi">Kelas XI</option>
-        <option value="x">Kelas X</option>
-      </select>
+    <!-- Baris atas: kelas + timer -->
+    <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <label class="text-gray-700 font-semibold">Pilih Kelas:</label>
+        <select id="kelasSelect" class="border-2 border-indigo-300 rounded-lg px-4 py-2 bg-indigo-50 text-indigo-800 font-medium">
+          <option value="xi">Kelas XI</option>
+          <option value="x">Kelas X</option>
+        </select>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-gray-600 hidden sm:inline">⏱️ Waktu:</span>
+        <span id="timerDisplay">90:00</span>
+      </div>
     </div>
 
+    <!-- Progress & info soal -->
     <div class="mb-6">
-      <div class="flex justify-between text-sm text-gray-600 mb-2">
+      <div class="flex flex-wrap justify-between text-sm text-gray-600 mb-2 gap-1">
         <span>Soal <span id="currentNum">1</span> dari <span id="totalNum">0</span></span>
         <span id="categoryBadge" class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-bold">Matematika</span>
         <span id="answerStatus" class="text-xs font-semibold text-gray-500"></span>
@@ -266,13 +387,22 @@
       </div>
     </div>
 
+    <!-- Navigasi soal (nomor) -->
+    <div id="questionNav" class="question-nav-container"></div>
+
+    <!-- Konten soal -->
     <div id="kontenSoal" class="min-h-[200px]"></div>
 
-    <div class="flex justify-between mt-6 pt-6 border-t border-gray-200">
-      <button id="btnPrev" onclick="prevSoal()" class="px-6 py-2 rounded-xl bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition disabled:opacity-50">← Sebelumnya</button>
+    <!-- Tombol navigasi + ragu -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mt-6 pt-6 border-t border-gray-200">
+      <div class="flex gap-2">
+        <button id="btnPrev" onclick="prevSoal()" class="px-6 py-2 rounded-xl bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition disabled:opacity-50">← Sebelumnya</button>
+        <button id="btnRagu" onclick="toggleRagu()" class="btn-ragu">🚩 Tandai Ragu-ragu</button>
+      </div>
       <button id="btnNext" onclick="nextSoal()" class="px-6 py-2 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition disabled:opacity-50">Selanjutnya →</button>
     </div>
 
+    <!-- Generate soal serupa -->
     <div class="mt-6 border-t pt-4">
       <div class="flex items-center gap-4 mb-3 bg-gray-50 p-3 rounded-xl border border-gray-200 w-fit flex-wrap">
         <label for="similaritySlider" class="text-sm font-semibold text-gray-700">Kemiripan Soal:</label>
@@ -356,9 +486,28 @@
     </div>
   </div>
 
+  <!-- Modal Konfirmasi Selesai -->
+  <div id="finishConfirmModal" class="finish-confirm-modal">
+    <div class="finish-confirm-content">
+      <div class="text-center mb-4">
+        <div class="text-5xl mb-2">📝</div>
+        <h2 class="text-2xl font-bold text-indigo-800">Selesaikan Simulasi?</h2>
+        <p class="text-gray-500 text-sm">Pastikan semua soal sudah dijawab atau ditandai ragu-ragu.</p>
+      </div>
+      <div id="unansweredList" class="mb-4 p-3 bg-gray-50 rounded-xl"></div>
+      <div class="text-sm text-gray-600 text-center mb-4">
+        <span id="unansweredCount">0</span> soal belum dijawab.
+      </div>
+      <div class="flex gap-3">
+        <button onclick="closeFinishConfirm()" class="flex-1 py-3 rounded-xl bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition">Kembali</button>
+        <button onclick="forceFinish()" class="flex-1 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition">✅ Selesai & Lihat Hasil</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // ============================================================
-    //  DATA SOAL (diperbaiki)
+    //  DATA SOAL (lengkap dari file pertama)
     // ============================================================
     const soalKelasX = [
       {
@@ -443,7 +592,7 @@
         "pilihan": [
           {"benar": false, "teks": "10"},
           {"benar": false, "teks": "11"},
-          {"benar": true, "teks": "12"},   <!-- Perbaikan: dari "true": true menjadi "benar": true -->
+          {"benar": true, "teks": "12"},
           {"benar": false, "teks": "13"},
           {"benar": false, "teks": "15"}
         ],
@@ -1010,7 +1159,8 @@
           { "benar": false, "teks": "8" },
           { "benar": false, "teks": "16" },
           { "benar": false, "teks": "32" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Dari 10 orang yang mendaftar di suatu perusahaan, hanya akan diterima 4 orang sebagai karyawan. Banyaknya cara untuk memilih keempat orang tersebut adalah ...",
@@ -1020,7 +1170,8 @@
           { "benar": false, "teks": "110" },
           { "benar": false, "teks": "180" },
           { "benar": true, "teks": "210" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Banyak susunan tempat duduk yang dapat dibuat dari 6 orang pada sebuah meja bundar adalah ...",
@@ -1030,7 +1181,8 @@
           { "benar": false, "teks": "70" },
           { "benar": false, "teks": "90" },
           { "benar": true, "teks": "120" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Banyak susunan 3 huruf yang dapat dibentuk dari huruf A, B, C, dan D, jika huruf-huruf penyusunnya tersebut boleh diulang adalah ...",
@@ -1040,7 +1192,8 @@
           { "benar": true, "teks": "64" },
           { "benar": false, "teks": "256" },
           { "benar": false, "teks": "1.024" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Hasil dari 4!/3! adalah ...",
@@ -1050,7 +1203,8 @@
           { "benar": false, "teks": "3" },
           { "benar": true, "teks": "4" },
           { "benar": false, "teks": "5" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Laboratorium komputer SMK Taruna Pekanbaru memiliki 7 printer jenis laserjet dan 9 printer jenis deskjet. Banyaknya pilihan jika seseorang ingin menggunakan printer di laboratorium adalah ...",
@@ -1059,7 +1213,8 @@
           { "benar": false, "teks": "9" },
           { "benar": false, "teks": "12" },
           { "benar": true, "teks": "16" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Kedudukan dua lingkaran pada gambar tersebut adalah ... (Berpotongan di dua titik)",
@@ -1068,7 +1223,8 @@
           { "benar": false, "teks": "Bersinggungan di dalam" },
           { "benar": false, "teks": "Bersinggungan di luar" },
           { "benar": false, "teks": "Tidak berpotongan" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Sebuah lingkaran dengan jari-jari 14 cm and sudut pusat juring adalah 90°. Luas juring lingkaran tersebut adalah ... cm².",
@@ -1077,7 +1233,8 @@
           { "benar": false, "teks": "106" },
           { "benar": false, "teks": "121" },
           { "benar": true, "teks": "154" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Dua dadu diundi bersama-sama sebanyak 72 kali. Frekuensi harapan muncul kejadian jumlah mata dadu 5 atau 9 adalah ... kali.",
@@ -1086,7 +1243,8 @@
           { "benar": false, "teks": "15" },
           { "benar": true, "teks": "16" },
           { "benar": false, "teks": "17" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Dua dadu dilambungkan bersama-sama sebanyak satu kali. Peluang munculnya mata dadu berjumlah 2 atau 7 adalah ...",
@@ -1095,7 +1253,8 @@
           { "benar": false, "teks": "4/36" },
           { "benar": true, "teks": "7/36" },
           { "benar": false, "teks": "14/36" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Sebuah bianglala yang berpusat di O mempunyai diameter 28 m. Jika besar sudut POQ = 45°, panjang busur PQ adalah ... m.",
@@ -1104,7 +1263,8 @@
           { "benar": true, "teks": "11" },
           { "benar": false, "teks": "12" },
           { "benar": false, "teks": "13" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Diketahui sebuah lingkaran memiliki jari-jari 7 cm. Luas juring COD jika diketahui ∠COD adalah 45° adalah ... cm².",
@@ -1113,7 +1273,8 @@
           { "benar": false, "teks": "57,75" },
           { "benar": false, "teks": "25,67" },
           { "benar": true, "teks": "19,25" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Diketahui besar sudut ∠PQR = 50° pada gambar berikut. Besar sudut POR adalah ...",
@@ -1122,7 +1283,8 @@
           { "benar": false, "teks": "105°" },
           { "benar": true, "teks": "100°" },
           { "benar": false, "teks": "95°" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Titik O adalah pusat lingkaran. Garis AC adalah diameter. Besar ∠ADB adalah ...",
@@ -1131,7 +1293,8 @@
           { "benar": false, "teks": "53°" },
           { "benar": false, "teks": "74°" },
           { "benar": false, "teks": "106°" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Tiga koin dilemparkan secara bersamaan. Jika pelemparan dilakukan sebanyak 40 kali, maka frekuensi harapan muncul tiga sisi gambar adalah ... kali.",
@@ -1140,7 +1303,8 @@
           { "benar": true, "teks": "5" },
           { "benar": false, "teks": "8" },
           { "benar": false, "teks": "10" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Pernyataan berikut yang benar berdasarkan sifat sudut keliling yaitu ...",
@@ -1148,7 +1312,8 @@
           { "benar": true, "teks": "Sudut keliling menghadap diameter besarnya 90°" },
           { "benar": false, "teks": "Sudut pusat besarnya setengah sudut keliling" },
           { "benar": false, "teks": "Sudut keliling besarnya dua kali sudut pusat" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Jarak kedua pusat roda gigi desain tersebut adalah 13 cm, panjang jari-jari kedua roda 8 cm dan 3 cm. Panjang garis singgung kedua roda desain sepeda tersebut adalah ... cm",
@@ -1157,7 +1322,8 @@
           { "benar": false, "teks": "10" },
           { "benar": true, "teks": "12" },
           { "benar": false, "teks": "14" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Suatu kotak berisi 6 bola putih dan 4 bola merah. Dari kotak tersebut, diambil satu bola secara acak. Peluang terambil bola berwarna putih adalah ...",
@@ -1166,7 +1332,8 @@
           { "benar": false, "teks": "1/3" },
           { "benar": false, "teks": "3/4" },
           { "benar": true, "teks": "3/5" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Tiga buah uang logam dilemparkan secara bersamaan, peluang munculnya ketiganya sisi angka adalah ...",
@@ -1175,7 +1342,8 @@
           { "benar": false, "teks": "1/3" },
           { "benar": false, "teks": "2/3" },
           { "benar": true, "teks": "1/8" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Satu dadu dilambungkan sebanyak satu kali. Peluang muncul mata dadu 3 adalah ...",
@@ -1184,7 +1352,8 @@
           { "benar": false, "teks": "2/6" },
           { "benar": false, "teks": "3/6" },
           { "benar": false, "teks": "4/6" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Diketahui ∠BOC sebesar 110°. Besar ∠BDE jika keduanya menghadap busur sama adalah ...",
@@ -1193,7 +1362,8 @@
           { "benar": false, "teks": "35°" },
           { "benar": false, "teks": "45°" },
           { "benar": false, "teks": "60°" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Diketahui panjang garis singgung persekutuan luar dua lingkaran adalah 12 cm, and panjang jari-jari besar dan kecil berturut-turut adalah 7 cm dan 2 cm. Jarak pusat kedua lingkaran tersebut adalah ... cm.",
@@ -1202,7 +1372,8 @@
           { "benar": false, "teks": "12" },
           { "benar": false, "teks": "11" },
           { "benar": false, "teks": "10" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Diketahui besar ∠AOB adalah 80°. Besar sudut keliling ∠ACB yang menghadap busur sama adalah ...",
@@ -1211,7 +1382,8 @@
           { "benar": false, "teks": "20°" },
           { "benar": false, "teks": "30°" },
           { "benar": false, "teks": "50°" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Jika diketahui besar sudut keliling ∠PRT adalah 30°, besar sudut pusat ∠POT adalah ...",
@@ -1220,7 +1392,8 @@
           { "benar": false, "teks": "100°" },
           { "benar": false, "teks": "90°" },
           { "benar": false, "teks": "75°" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Jarak pusat dua lingkaran adalah 25 cm, dengan jari-jari 13 cm dan 6 cm. Panjang garis singgung luar persekutuan adalah ... cm.",
@@ -1229,7 +1402,8 @@
           { "benar": false, "teks": "15" },
           { "benar": false, "teks": "23" },
           { "benar": false, "teks": "27" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Adit memiliki 3 jenis motor berbeda di rumahnya yang terdiri dari 3 motor skuter matik, 3 motor sport, dan 2 motor off road. Banyak pilihan Adit untuk menggunakan salah satu motor adalah ...",
@@ -1238,7 +1412,8 @@
           { "benar": false, "teks": "6" },
           { "benar": true, "teks": "8" },
           { "benar": false, "teks": "11" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Zulfa ingin membuat plat nomor kendaraan yang terdiri dari 4 angka yang dipilih dari angka 1, 2, 3, 4, dan 5, dengan tidak boleh ada angka yang sama. Banyak plat nomor kendaraan yang dapat dibuat Zulfa adalah ...",
@@ -1247,7 +1422,8 @@
           { "benar": false, "teks": "60" },
           { "benar": false, "teks": "90" },
           { "benar": true, "teks": "120" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Tiga buah uang logam dilemparkan secara bersamaan, peluang munculnya 2 angka adalah ...",
@@ -1256,7 +1432,8 @@
           { "benar": false, "teks": "1/3" },
           { "benar": false, "teks": "2/3" },
           { "benar": true, "teks": "3/8" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Noven membuat akun di sebuah jejaring sosial. Ketentuan password adalah terdiri dari 4 angka yang dapat dibentuk dari angka 0-9 tanpa perulangan. Banyak cara membuat password adalah ... cara.",
@@ -1265,7 +1442,8 @@
           { "benar": false, "teks": "504" },
           { "benar": false, "teks": "1.512" },
           { "benar": true, "teks": "5.040" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Pada percobaan pelemparan sebuah dadu, peluang munculnya mata dadu lebih dari 2 adalah ...",
@@ -1274,7 +1452,8 @@
           { "benar": false, "teks": "1/3" },
           { "benar": true, "teks": "2/3" },
           { "benar": false, "teks": "3/8" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Hasil dari 4! - 3! adalah ...",
@@ -1283,7 +1462,8 @@
           { "benar": false, "teks": "1" },
           { "benar": false, "teks": "8" },
           { "benar": true, "teks": "18" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Satu dadu dilambungkan sebanyak satu kali. Peluang muncul mata dadu 4 adalah ...",
@@ -1292,7 +1472,8 @@
           { "benar": false, "teks": "2/6" },
           { "benar": false, "teks": "3/6" },
           { "benar": false, "teks": "4/6" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Seorang mahasiswa mengikuti 3 ujian pada 5 hari yang tersedia (Senin-Jumat). Jika tidak boleh ada ujian pada hari yang sama, banyak cara pengaturan jadwal adalah ...",
@@ -1301,7 +1482,8 @@
           { "benar": false, "teks": "12" },
           { "benar": false, "teks": "30" },
           { "benar": true, "teks": "60" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Nilai hasil 7 x 3! adalah ...",
@@ -1310,7 +1492,8 @@
           { "benar": false, "teks": "35" },
           { "benar": false, "teks": "45" },
           { "benar": true, "teks": "42" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Taruna kelas XII TAV memilih danton, sekretaris, dan bendahara dari 6 kandidat. Banyak kemungkinan susunan pengurus adalah ...",
@@ -1319,7 +1502,8 @@
           { "benar": false, "teks": "50" },
           { "benar": true, "teks": "120" },
           { "benar": false, "teks": "140" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Hasil dari P(3,2) adalah ...",
@@ -1328,7 +1512,8 @@
           { "benar": false, "teks": "4" },
           { "benar": true, "teks": "6" },
           { "benar": false, "teks": "8" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Banyak susunan huruf yang dapat dibentuk dari unsur huruf-huruf penyusun kata K A M P A K adalah ...",
@@ -1337,7 +1522,8 @@
           { "benar": true, "teks": "180" },
           { "benar": false, "teks": "60" },
           { "benar": false, "teks": "30" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Dari 5 pria dan 4 wanita, akan dipilih 3 orang pengurus inti. Banyak cara memilih jika pengurus terdiri dari 2 pria dan 1 wanita adalah ...",
@@ -1346,7 +1532,8 @@
           { "benar": true, "teks": "40" },
           { "benar": false, "teks": "60" },
           { "benar": false, "teks": "80" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Sebuah kantong berisi 5 kelereng merah dan 3 kelereng biru. Jika diambil dua kelereng acak sekaligus, peluang terambil keduanya merah adalah ...",
@@ -1355,7 +1542,8 @@
           { "benar": false, "teks": "15/56" },
           { "benar": false, "teks": "3/14" },
           { "benar": false, "teks": "15/28" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Nilai dari hasil pembagian faktorial 6! / (4! x 2!) adalah ...",
@@ -1364,7 +1552,8 @@
           { "benar": false, "teks": "30" },
           { "benar": false, "teks": "60" },
           { "benar": false, "teks": "120" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Dua lingkaran memiliki jari-jari 11 cm dan 4 cm. Jika jarak pusatnya 17 cm, panjang garis singgung persekutuan dalam adalah ... cm.",
@@ -1373,7 +1562,8 @@
           { "benar": true, "teks": "8" },
           { "benar": false, "teks": "12" },
           { "benar": false, "teks": "15" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Banyak susunan kata yang dapat dibentuk dari huruf-huruf pada kata M A T E M A T I K A adalah ...",
@@ -1382,7 +1572,8 @@
           { "benar": false, "teks": "75.600" },
           { "benar": false, "teks": "302.400" },
           { "benar": false, "teks": "50.400" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Diketahui sudut pusat lingkaran adalah 120°. Jika jari-jarinya 21 cm, panjang busur di hadapannya adalah ... cm. (gunakan pi = 22/7)",
@@ -1391,7 +1582,8 @@
           { "benar": true, "teks": "44" },
           { "benar": false, "teks": "66" },
           { "benar": false, "teks": "88" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Dua buah dadu dilempar bersama sekali. Peluang munculnya mata dadu dengan hasil perkalian kedua matanya sama dengan 6 adalah ...",
@@ -1400,7 +1592,8 @@
           { "benar": false, "teks": "2/36" },
           { "benar": true, "teks": "4/36" },
           { "benar": false, "teks": "6/36" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Dari angka 2, 3, 5, 6, 7, 9 akan disusun 3 angka berlainan. Banyak bilangan kurang dari 400 adalah ...",
@@ -1409,7 +1602,8 @@
           { "benar": true, "teks": "40" },
           { "benar": false, "teks": "60" },
           { "benar": false, "teks": "80" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Luas sebuah lingkaran adalah 616 cm². Jika luas suatu juring adalah 154 cm², maka besar sudut pusat juring tersebut adalah ...",
@@ -1418,7 +1612,8 @@
           { "benar": false, "teks": "45°" },
           { "benar": false, "teks": "60°" },
           { "benar": true, "teks": "90°" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Dalam suatu ruangan terdapat 10 orang belum saling kenal. Jika mereka saling berjabat tangan sekali, banyak jabat tangan yang terjadi adalah ...",
@@ -1427,7 +1622,8 @@
           { "benar": true, "teks": "45" },
           { "benar": false, "teks": "55" },
           { "benar": false, "teks": "90" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Dari satu set kartu bridge diambil sebuah kartu acak. Peluang terambilnya kartu As atau kartu berwarna merah adalah ...",
@@ -1436,7 +1632,8 @@
           { "benar": true, "teks": "28/52" },
           { "benar": false, "teks": "30/52" },
           { "benar": false, "teks": "32/52" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       },
       {
         "pertanyaan": "Jika besar sudut keliling sebuah lingkaran adalah 35°, besar sudut pusat yang menghadap busur sama adalah ...",
@@ -1445,7 +1642,8 @@
           { "benar": false, "teks": "35°" },
           { "benar": false, "teks": "52,5°" },
           { "benar": true, "teks": "70°" }
-        ]
+        ],
+        "kategori": "PAS - Geometri Lingkaran"
       },
       {
         "pertanyaan": "Banyak cara menyusun kepengurusan Ketua, Sekretaris, Bendahara dari 7 orang calon yang tersedia adalah ...",
@@ -1454,12 +1652,13 @@
           { "benar": false, "teks": "105" },
           { "benar": true, "teks": "210" },
           { "benar": false, "teks": "420" }
-        ]
+        ],
+        "kategori": "PAS - Kombinatorika"
       }
     ];
 
     // ============================================================
-    //  GLOBAL STATE
+    //  GLOBAL STATE (gabungan)
     // ============================================================
     let USER_ID = localStorage.getItem('cbt_user_id');
     if (!USER_ID) {
@@ -1470,10 +1669,13 @@
     let currentSoal = [];
     let currentIndex = 0;
     let jawabanUser = [];
+    let raguUser = [];
+    let timerInterval = null;
+    let timeRemaining = 90 * 60;
     const API_URL = 'https://math315.vercel.app/api/ai-help';
 
     // ============================================================
-    //  HELPER
+    //  HELPER FUNCTIONS
     // ============================================================
     function getCorrectIndex(soalItem) {
       return soalItem.pilihan.findIndex(p => p.benar === true || p['true'] === true);
@@ -1482,13 +1684,10 @@
     function getKategori(s) {
       if (s.kategori) return s.kategori;
       const txt = (s.pertanyaan || s.cartu || "").toLowerCase();
-      if (txt.includes('lingkaran') || txt.includes('sudut') || txt.includes('busur') || txt.includes('juring') || txt
-        .includes('roda gigi')) return 'Geometri Lingkaran';
-      if (txt.includes('!') || txt.includes('peluang') || txt.includes('dadu') || txt.includes('koin') || txt.includes(
-          'susunan') || txt.includes('kombinasi') || txt.includes('permutasi') || txt.includes('cara') || txt.includes(
-          'jabat tangan') || txt.includes('faktorial') || txt.includes('p(') || txt.includes('kartu'))
-        return 'Peluang & Kombinatorika';
-      return 'Matematika';
+      if (txt.includes('lingkaran') || txt.includes('sudut') || txt.includes('busur') || txt.includes('juring') || txt.includes('roda gigi')) return 'PAS - Geometri Lingkaran';
+      if (txt.includes('!') || txt.includes('peluang') || txt.includes('dadu') || txt.includes('koin') || txt.includes('susunan') || txt.includes('kombinasi') || txt.includes('permutasi') || txt.includes('cara') || txt.includes('jabat tangan') || txt.includes('faktorial') || txt.includes('p(') || txt.includes('kartu'))
+        return 'PAS - Kombinatorika';
+      return 'PAS - Matematika';
     }
 
     function renderMathJax() {
@@ -1496,7 +1695,83 @@
     }
 
     // ============================================================
-    //  RENDER SOAL
+    //  TIMER
+    // ============================================================
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timeRemaining = 90 * 60;
+      updateTimerDisplay();
+      timerInterval = setInterval(() => {
+        timeRemaining--;
+        updateTimerDisplay();
+        if (timeRemaining <= 0) {
+          clearInterval(timerInterval);
+          forceFinish();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timeRemaining / 60);
+      const seconds = timeRemaining % 60;
+      const display = document.getElementById('timerDisplay');
+      display.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      
+      display.classList.remove('warning', 'danger');
+      if (timeRemaining <= 300) {
+        display.classList.add('danger');
+      } else if (timeRemaining <= 600) {
+        display.classList.add('warning');
+      }
+    }
+
+    // ============================================================
+    //  QUESTION NAVIGATION
+    // ============================================================
+    function renderQuestionNav() {
+      const nav = document.getElementById('questionNav');
+      if (!nav || !currentSoal.length) return;
+      
+      let html = '';
+      for (let i = 0; i < currentSoal.length; i++) {
+        let classes = 'question-nav-btn';
+        if (i === currentIndex) {
+          classes += ' current';
+        } else if (raguUser[i]) {
+          classes += ' ragu';
+        } else if (jawabanUser[i] !== null && jawabanUser[i] !== undefined) {
+          classes += ' answered';
+        } else {
+          classes += ' unanswered';
+        }
+        html += `<button class="${classes}" onclick="jumpToSoal(${i})" title="Soal ${i + 1}">${i + 1}</button>`;
+      }
+      nav.innerHTML = html;
+    }
+
+    function jumpToSoal(index) {
+      currentIndex = index;
+      renderSoal();
+    }
+
+    // ============================================================
+    //  RAGU-RAGU
+    // ============================================================
+    function toggleRagu() {
+      raguUser[currentIndex] = !raguUser[currentIndex];
+      const btn = document.getElementById('btnRagu');
+      if (raguUser[currentIndex]) {
+        btn.classList.add('active');
+        btn.innerHTML = '🚩 Ragu-ragu';
+      } else {
+        btn.classList.remove('active');
+        btn.innerHTML = '🚩 Tandai Ragu-ragu';
+      }
+      renderQuestionNav();
+    }
+
+    // ============================================================
+    //  RENDER SOAL (diperbarui)
     // ============================================================
     function renderSoal() {
       const container = document.getElementById('kontenSoal');
@@ -1507,12 +1782,14 @@
         document.getElementById('totalNum').textContent = '0';
         document.getElementById('progressBar').style.width = '0%';
         document.getElementById('answerStatus').textContent = '';
+        renderQuestionNav();
         return;
       }
 
       const s = currentSoal[currentIndex];
       if (!s) {
         container.innerHTML = `<div class="text-center py-10 text-red-500">❌ Soal tidak ditemukan.</div>`;
+        renderQuestionNav();
         return;
       }
 
@@ -1526,10 +1803,12 @@
       document.getElementById('progressBar').style.width = progress + '%';
       document.getElementById('btnPrev').disabled = (currentIndex === 0);
 
-      // Status jawaban
       const selectedIdx = jawabanUser[currentIndex];
       const statusEl = document.getElementById('answerStatus');
-      if (selectedIdx !== null && selectedIdx !== undefined) {
+      if (raguUser[currentIndex]) {
+        statusEl.innerHTML = `🚩 Ragu-ragu <span class="unanswered-badge">?</span>`;
+        statusEl.className = 'text-xs font-semibold text-yellow-600';
+      } else if (selectedIdx !== null && selectedIdx !== undefined) {
         statusEl.innerHTML = `✅ Terjawab <span class="unanswered-badge">✔</span>`;
         statusEl.className = 'text-xs font-semibold text-green-600';
       } else {
@@ -1537,7 +1816,15 @@
         statusEl.className = 'text-xs font-semibold text-yellow-600';
       }
 
-      // Tombol next
+      const raguBtn = document.getElementById('btnRagu');
+      if (raguUser[currentIndex]) {
+        raguBtn.classList.add('active');
+        raguBtn.innerHTML = '🚩 Ragu-ragu';
+      } else {
+        raguBtn.classList.remove('active');
+        raguBtn.innerHTML = '🚩 Tandai Ragu-ragu';
+      }
+
       const btnNext = document.getElementById('btnNext');
       if (currentIndex === total - 1) {
         btnNext.textContent = 'Selesai ✓';
@@ -1571,6 +1858,7 @@
         </div>
       `;
 
+      renderQuestionNav();
       renderMathJax();
     }
 
@@ -1579,13 +1867,20 @@
     // ============================================================
     function pilihJawaban(index) {
       jawabanUser[currentIndex] = index;
+      if (raguUser[currentIndex]) {
+        raguUser[currentIndex] = false;
+        document.getElementById('btnRagu').classList.remove('active');
+        document.getElementById('btnRagu').innerHTML = '🚩 Tandai Ragu-ragu';
+      }
       renderSoal();
-      AdaptiveSchedule.updateUI(); // refresh live stats
+      AdaptiveSchedule.updateUI();
     }
 
     function prevSoal() {
-      if (currentIndex > 0) { currentIndex--;
-        renderSoal(); }
+      if (currentIndex > 0) { 
+        currentIndex--;
+        renderSoal(); 
+      }
     }
 
     async function nextSoal() {
@@ -1596,29 +1891,56 @@
       const correctIdx = getCorrectIndex(s);
       const kategori = getKategori(s);
 
-      // Jika belum dijawab dan bukan di akhir, beri peringatan
-      if (selectedIdx === null || selectedIdx === undefined) {
-        // Tampilkan notifikasi
+      if ((selectedIdx === null || selectedIdx === undefined) && !raguUser[currentIndex]) {
         const container = document.getElementById('kontenSoal');
         const warning = document.createElement('div');
         warning.className = 'unanswered-warning';
-        warning.innerHTML = '⚠️ Anda belum memilih jawaban untuk soal ini. Harap pilih jawaban terlebih dahulu.';
-        // Hapus warning sebelumnya
+        warning.innerHTML = '⚠️ Anda belum memilih jawaban untuk soal ini. Harap pilih jawaban terlebih dahulu atau tandai ragu-ragu.';
         const oldWarning = container.querySelector('.unanswered-warning');
         if (oldWarning) oldWarning.remove();
         container.insertBefore(warning, container.firstChild);
         return;
       }
 
-      // catat ke AdaptiveSchedule
-      AdaptiveSchedule.recordAnswer(currentIndex, selectedIdx === correctIdx, kategori, 0);
+      const isCorrect = selectedIdx === correctIdx;
+      AdaptiveSchedule.recordAnswer(currentIndex, isCorrect, kategori, 0);
 
       if (currentIndex < currentSoal.length - 1) {
         currentIndex++;
         renderSoal();
       } else {
-        showResultSummary();
+        showFinishConfirm();
       }
+    }
+
+    // ============================================================
+    //  FINISH CONFIRMATION
+    // ============================================================
+    function showFinishConfirm() {
+      const unanswered = jawabanUser.map((j, i) => (j === null || j === undefined) && !raguUser[i] ? i + 1 : null).filter(n => n !== null);
+      document.getElementById('unansweredCount').textContent = unanswered.length;
+      
+      const list = document.getElementById('unansweredList');
+      if (unanswered.length > 0) {
+        list.innerHTML = '<p class="font-semibold text-gray-700 mb-2">Soal belum dijawab:</p>' + 
+          unanswered.map(n => `<span class="inline-block bg-red-100 text-red-700 px-2 py-1 rounded-lg text-xs font-bold mr-1 mb-1">${n}</span>`).join('');
+      } else {
+        list.innerHTML = '<p class="text-green-600 font-semibold">✅ Semua soal sudah dijawab!</p>';
+      }
+      
+      document.getElementById('finishConfirmModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFinishConfirm() {
+      document.getElementById('finishConfirmModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function forceFinish() {
+      closeFinishConfirm();
+      showResultSummary();
+      if (timerInterval) clearInterval(timerInterval);
     }
 
     // ============================================================
@@ -1629,12 +1951,15 @@
       currentSoal = (kelas === 'x') ? [...soalKelasX] : [...soalKelasXI];
       currentIndex = 0;
       jawabanUser = new Array(currentSoal.length).fill(null);
+      raguUser = new Array(currentSoal.length).fill(false);
+      AdaptiveSchedule.answers = [];
+      startTimer();
       renderSoal();
       AdaptiveSchedule.updateUI();
     }
 
     // ============================================================
-    //  ADAPTIVE SCHEDULE ENGINE (tidak berubah banyak)
+    //  ADAPTIVE SCHEDULE ENGINE (dari file pertama)
     // ============================================================
     const AdaptiveSchedule = {
       answers: [],
@@ -1691,8 +2016,7 @@
       },
 
       getStrongTopics() {
-        return this.getTopicStats().filter(s => s.errorRate <= 0.4 && s.total >= 2).sort((a, b) => a.errorRate - b
-        .errorRate);
+        return this.getTopicStats().filter(s => s.errorRate <= 0.4 && s.total >= 2).sort((a, b) => a.errorRate - b.errorRate);
       },
 
       generateClawPrompt() {
@@ -1721,10 +2045,8 @@
           if (stats.total === 0) {
             statsContent.innerHTML = '<p class="text-gray-500 text-sm">Mulai kerjakan soal untuk melihat statistik...</p>';
           } else {
-            const color = stats.accuracy >= 70 ? 'text-green-600' : stats.accuracy >= 40 ? 'text-yellow-600' :
-              'text-red-600';
-            const barColor = stats.accuracy >= 70 ? 'bg-green-500' : stats.accuracy >= 40 ? 'bg-yellow-500' :
-              'bg-red-500';
+            const color = stats.accuracy >= 70 ? 'text-green-600' : stats.accuracy >= 40 ? 'text-yellow-600' : 'text-red-600';
+            const barColor = stats.accuracy >= 70 ? 'bg-green-500' : stats.accuracy >= 40 ? 'bg-yellow-500' : 'bg-red-500';
             statsContent.innerHTML = `
               <div class="space-y-2">
                 <div class="flex justify-between text-sm">
@@ -1780,7 +2102,7 @@
     };
 
     // ============================================================
-    //  RESULT SUMMARY
+    //  RESULT SUMMARY (dari file pertama)
     // ============================================================
     function showResultSummary() {
       const stats = AdaptiveSchedule.getOverallStats();
@@ -1790,8 +2112,7 @@
 
       const levelConfig = {
         light: { color: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200', label: 'Ringan', emoji: '🟢' },
-        medium: { color: 'text-yellow-600', bg: 'bg-yellow-50', border: 'border-yellow-200', label: 'Sedang',
-        emoji: '🟡' },
+        medium: { color: 'text-yellow-600', bg: 'bg-yellow-50', border: 'border-yellow-200', label: 'Sedang', emoji: '🟡' },
         intensive: { color: 'text-red-600', bg: 'bg-red-50', border: 'border-red-200', label: 'Intensif', emoji: '🔴' }
       };
       const cfg = levelConfig[level] || levelConfig.medium;
@@ -1840,7 +2161,7 @@
     };
 
     // ============================================================
-    //  SCHEDULE PANEL (dengan fallback lebih baik)
+    //  SCHEDULE PANEL (dari file pertama)
     // ============================================================
     window.openSchedulePanel = function() {
       document.getElementById('scheduleOverlay').style.display = 'block';
@@ -1925,7 +2246,6 @@
         if (!response.ok) throw new Error('Gagal menghubungi server');
         const data = await response.json();
         if (!data.success) throw new Error(data.error || 'Gagal generate jadwal');
-        // Pastikan data.schedule adalah array
         if (data.schedule && Array.isArray(data.schedule) && data.schedule.length > 0) {
           renderScheduleFromAI(data.schedule);
         } else {
@@ -1989,7 +2309,7 @@
     }
 
     // ============================================================
-    //  AI HELP
+    //  AI HELP (dari file pertama)
     // ============================================================
     window.openAIHelp = async () => {
       if (!currentSoal || !currentSoal[currentIndex]) return;
@@ -2091,7 +2411,7 @@
     }
 
     // ============================================================
-    //  GENERATE SOAL SERUPA (dengan fallback)
+    //  GENERATE SOAL SERUPA (dari file pertama)
     // ============================================================
     async function generateSoal() {
       if (!currentSoal || !currentSoal[currentIndex]) {
@@ -2147,7 +2467,7 @@
         });
         container.innerHTML = html;
       } catch (error) {
-        // Fallback: buat soal tiruan sederhana
+        // Fallback
         container.innerHTML = `
           <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-xl text-yellow-800 text-sm mb-3">⚠️ Gagal menghubungi server AI, menampilkan soal tiruan sederhana.</div>
           <h3 class="font-bold text-lg text-indigo-700">📝 Soal Latihan (Kemiripan ${similarity}%)</h3>
@@ -2168,20 +2488,25 @@
     // ============================================================
     //  INIT
     // ============================================================
-    document.getElementById('kelasSelect').addEventListener('change', gantiKelas);
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('kelasSelect').addEventListener('change', gantiKelas);
+      
+      window.onclick = function(e) {
+        if (e.target === document.getElementById('aiHelpModal')) closeAIHelp();
+        if (e.target === document.getElementById('resultSummary')) closeResultSummary();
+        if (e.target === document.getElementById('finishConfirmModal')) closeFinishConfirm();
+      };
 
-    window.onclick = function(e) {
-      if (e.target === document.getElementById('aiHelpModal')) closeAIHelp();
-      if (e.target === document.getElementById('resultSummary')) closeResultSummary();
-    };
-
-    // Load kelas XI sebagai default
-    currentSoal = [...soalKelasXI];
-    jawabanUser = new Array(currentSoal.length).fill(null);
-    AdaptiveSchedule.loadFromStorage();
-    AdaptiveSchedule.updateUI();
-    loadSavedSchedule();
-    renderSoal();
+      // Default: Kelas XI
+      currentSoal = [...soalKelasXI];
+      jawabanUser = new Array(currentSoal.length).fill(null);
+      raguUser = new Array(currentSoal.length).fill(false);
+      AdaptiveSchedule.loadFromStorage();
+      AdaptiveSchedule.updateUI();
+      loadSavedSchedule();
+      startTimer();
+      renderSoal();
+    });
   </script>
 
 </body>
